@@ -1,0 +1,3 @@
+[submodule "docker-symfony"]
+	path = docker-symfony
+	url = git@github.com:maxpou/docker-symfony.git
