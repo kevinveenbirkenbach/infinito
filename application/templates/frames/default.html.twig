@@ -1,0 +1,9 @@
+{% extends "base.html.twig" %}
+{% block body %}
+{% include 'frames/structure/navbar.html.twig' with menu_items %}
+<br />
+<div class="container">
+	{% block content %}
+	{% endblock %}
+</div>
+{% endblock %}
