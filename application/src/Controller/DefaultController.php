@@ -24,7 +24,7 @@ class DefaultController extends AbstractController implements DefaultControllerI
      */
     public function homepage(): Response
     {
-        return new Response("Hello World!");
+        return $this->render("standard/homepage.html.twig",['menu_items'=>[]]);
     }
 }
 
