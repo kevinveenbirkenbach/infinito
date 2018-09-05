@@ -2,13 +2,14 @@
 namespace App\Controller;
 
 use PHPUnit\Framework\TestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  *
  * @author kevinfrantz
  *        
  */
-class DefaultControllerTest extends TestCase
+class DefaultControllerTest extends WebTestCase
 {
     /**
      * @var DefaultControllerInterface
@@ -20,11 +21,15 @@ class DefaultControllerTest extends TestCase
     }
     
     public function testHomepage():void{
-        $this->assertEquals(true, $this->defaultController->homepage()->isSuccessful());
+        $client = static::createClient();
+        $client->request('GET', '/');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
     
     public function testImprint():void{
-        $this->assertEquals(true, $this->defaultController->imprint()->isSuccessful());
+        $client = static::createClient();
+        $client->request('GET', '/imprint');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 }
 
