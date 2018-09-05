@@ -25,13 +25,16 @@
         "symfony/yaml": "*"
     },
     "require-dev": {
+        "phpunit/phpunit": "^7",
+        "symfony/browser-kit": "*",
+        "symfony/css-selector": "*",
         "symfony/debug-pack": "*",
         "symfony/dotenv": "*",
         "symfony/maker-bundle": "^1.0",
+        "symfony/phpunit-bridge": "*",
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*",
-        "symfony/web-server-bundle": "*",
-        "phpunit/phpunit": "^7"
+        "symfony/web-server-bundle": "*"
     },
     "config": {
         "preferred-install": {
