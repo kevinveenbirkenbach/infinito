@@ -1,2 +1,2 @@
 cp .env.dist docker-symfony/.env
-(cd ../docker-symfony/ && docker-compose build && docker-compose up -d)
+(cd $(dirname $(readlink -f ${0}))/../docker-symfony/ && docker-compose build && docker-compose up -d)
