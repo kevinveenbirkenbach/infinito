@@ -20,3 +20,7 @@
 .buildpath
 .project
 .settings/
+
+###> phpunit/phpunit ###
+/phpunit.xml
+###< phpunit/phpunit ###
