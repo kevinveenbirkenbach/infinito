@@ -19,7 +19,7 @@ class DefaultController extends AbstractController implements DefaultControllerI
      */
     public function imprint(): Response
     {
-        return new Response("Hello World!");
+        return $this->render("standard/imprint.html.twig",['menu_items'=>[]]);
     }
     
     /**
