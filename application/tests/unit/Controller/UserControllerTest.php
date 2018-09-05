@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace App\Tests\Unit\Controller;
 
 use PHPUnit\Framework\TestCase;
 use App\Controller\UserController;
