@@ -10,6 +10,9 @@ use PHPUnit\Framework\TestCase;
  */
 class DefaultControllerTest extends TestCase
 {
+    /**
+     * @var DefaultControllerInterface
+     */
     protected $defaultController;
     
     public function setUp():void{

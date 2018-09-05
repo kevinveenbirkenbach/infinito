@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
  * @author kevinfrantz
  *        
  */
-interface UserControllerInterface extends CreationInterface, ActivationInterface,ModificationInterface
+interface UserControllerInterface
 {
     public function logout():Response;
     
