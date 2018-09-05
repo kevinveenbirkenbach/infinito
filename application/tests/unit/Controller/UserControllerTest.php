@@ -24,17 +24,23 @@ class UserControllerTest extends TestCase
     
     public function testLogout(): void
     {
-        $this->assertEquals(true, $this->userController->logout()->isSuccessful());
+        $client = static::createClient();
+        $client->request('GET', '/user/logout');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
     
     public function testLogin(): void
     {
-        $this->assertEquals(true, $this->userController->login()->isSuccessful());
+        $client = static::createClient();
+        $client->request('GET', '/user/login');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
     
     public function testRegister():void
     {
-        $this->assertEquals(true, $this->userController->register()->isSuccessful());
+        $client = static::createClient();
+        $client->request('GET', '/user/register');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 }
 
