@@ -1,9 +1,9 @@
 {% extends "base.html.twig" %}
 {% block body %}
 {% include 'frames/structure/navbar.html.twig'%}
-{% include 'frames/structure/message/flash_messages.html.twig'%}
 <br />
 <div class="container">
+	{% include 'frames/structure/message/flash_messages.html.twig'%}
 	{% block content %}
 	{% endblock %}
 </div>

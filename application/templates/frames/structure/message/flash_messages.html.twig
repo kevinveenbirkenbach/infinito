@@ -1,5 +1,8 @@
-{% for message in app.flashes('notice') %}
-    <div class="flash-notice">
-        {{ message }}
-    </div>
+{% set icons = {'success':'fas fa-check-circle','danger':'fas fa-times','warning':'fas fa-exclamation-triangle','info':'fas fa-info'} %}
+{% for label,messages in app.flashes %}
+{% for message in messages %}
+<div class="alert alert-{{ label }}">
+	<i class="{{ icons[label] }}"></i> {{ message }}
+</div>
+{% endfor %}
 {% endfor %}

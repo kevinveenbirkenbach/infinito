@@ -21,7 +21,7 @@ class SecurityController extends AbstractController
     {
         $error = $authenticationUtils->getLastAuthenticationError();
         if ($error) {
-            $this->addFlash('notice', $error);
+            $this->addFlash('danger', $error->getMessage());
         }
         return $this->render("user/login.html.twig",[
             'last_username'=>$authenticationUtils->getLastUsername(),
