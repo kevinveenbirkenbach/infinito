@@ -17,7 +17,7 @@ class DefaultController extends AbstractController implements DefaultControllerI
      */
     public function imprint(): Response
     {
-        return $this->render("standard/imprint.html.twig",['menu_items'=>[]]);
+        return $this->render("standard/imprint.html.twig");
     }
     
     /**
@@ -25,7 +25,7 @@ class DefaultController extends AbstractController implements DefaultControllerI
      */
     public function homepage(): Response
     {
-        return $this->render("standard/homepage.html.twig",['menu_items'=>[]]);
+        return $this->render("standard/homepage.html.twig");
     }
 }
 

@@ -30,7 +30,11 @@ class Menu
     
     public function userTopbar(RequestStack $request): ItemInterface
     {
-        $menu = $this->factory->createItem('root');
+        $menu = $this->factory->createItem('root', array(
+            'childrenAttributes'    => array(
+                'class'             => 'navbar-nav mr-auto',
+            ),
+        ));
         
         $this->dispatcher->dispatch(
             UserMenuEvent::EVENT,

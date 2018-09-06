@@ -17,7 +17,7 @@ class UserController extends AbstractController implements UserControllerInterfa
      */
     public function logout(): Response
     {
-        return $this->render("user/login.html.twig",['menu_items'=>[]]);
+        return $this->render("user/login.html.twig");
     }
 
     /**
@@ -25,7 +25,7 @@ class UserController extends AbstractController implements UserControllerInterfa
      */
     public function login(): Response
     {
-        return $this->render("user/login.html.twig",['menu_items'=>[]]);
+        return $this->render("user/login.html.twig");
     }
 
     /**
@@ -33,7 +33,6 @@ class UserController extends AbstractController implements UserControllerInterfa
      */
     public function register(): Response
     {
-        return $this->render("user/register.html.twig",['menu_items'=>[]]);
+        return $this->render("user/register.html.twig");
     }
-
 }
