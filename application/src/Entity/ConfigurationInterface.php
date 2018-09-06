@@ -2,7 +2,7 @@
 namespace App\Entity;
 
 /**
- *
+ * This class is not a source!
  * @author kevinfrantz
  *        
  */

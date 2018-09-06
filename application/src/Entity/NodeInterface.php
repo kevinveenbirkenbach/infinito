@@ -2,21 +2,17 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\attribut\SourceAttributInterface;
+use App\Entity\Attribut\SourceAttributInterface;
+use App\Entity\Attribut\IdAttributInterface;
+use App\Entity\Attribut\ParentsAttributInterface;
 
 /**
  *
  * @author kevinfrantz
  *        
  */
-interface NodeInterface extends SourceAttributInterface
-{
-    public function getId():int;
-    
-    public function setParents(ArrayCollection $parents):void;
-    
-    public function getParents():ArrayCollection;
-    
+interface NodeInterface extends SourceAttributInterface, IdAttributInterface,ParentsAttributInterface
+{   
     public function setChilds(ArrayCollection $childs):void;
     
     public function getChilds():ArrayCollection;

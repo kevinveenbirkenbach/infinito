@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @author kevinfrantz
  *        
  */
-class Property extends AbstractSource implements PropertyInterface
+class Property implements PropertyInterface
 {
     /**
      * 

@@ -2,6 +2,9 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use App\Entity\attribut\IdAttribut;
+use App\Entity\attribut\SourceAttribut;
+use Entity\attribut\ParentAttribut;
 
 /**
  *
@@ -10,50 +13,18 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Node implements NodeInterface
 {
-    /**
-     * 
-     * @var int
-     */
-    protected $id;
-    
-    /**
-     * 
-     * @var SourceInterface
-     */
-    protected $source;
-    
-    /**
-     * 
-     * @var ArrayCollection|Node[]
-     */
-    protected $parents;
+    use IdAttribut,SourceAttribut, ParentAttribut;
     
     /**
      * 
      * @var ArrayCollection|Node[]
      */
     protected $childs;
-    
-    public function getParents(): ArrayCollection
-    {}
-
-    public function setParents(ArrayCollection $parents): void
-    {}
 
     public function getChilds(): ArrayCollection
     {}
 
     public function setChilds(ArrayCollection $childs): void
     {}
-    
-    public function getId(): int
-    {}
-
-    public function setSource(SourceInterface $source):void
-    {}
-
-    public function getSource(): SourceInterface
-    {}
-
 }
 

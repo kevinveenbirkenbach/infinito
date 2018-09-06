@@ -1,5 +1,5 @@
 <?php
-namespace App\Entity\attribut;
+namespace App\Entity\Attribut;
 
 use App\Entity\NodeInterface;
 
@@ -11,6 +11,8 @@ use App\Entity\NodeInterface;
 trait NodeAttribut{
     /**
      * @var NodeInterface
+     * @OneToOne(targetEntity="Node")
+     * @JoinColumn(name="source", referencedColumnName="id")
      */
     protected $node;
     

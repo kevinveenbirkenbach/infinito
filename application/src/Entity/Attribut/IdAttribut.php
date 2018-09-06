@@ -1,5 +1,5 @@
 <?php
-namespace App\Entity\attribut;
+namespace App\Entity\Attribut;
 
 /**
  *
