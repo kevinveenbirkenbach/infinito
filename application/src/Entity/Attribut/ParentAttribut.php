@@ -2,7 +2,6 @@
 namespace App\Entity\Attribut;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\NodeInterface;
 
 /**
  *
@@ -10,9 +9,9 @@ use App\Entity\NodeInterface;
  *        
  */
 trait ParentAttribut {
+    
     /**
-     *
-     * @var ArrayCollection|NodeInterface[]
+     * @var ArrayCollection
      */
     protected $parents;
     

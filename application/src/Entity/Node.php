@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Attribut\IdAttribut;
 use App\Entity\Attribut\SourceAttribut;
 use App\Entity\Attribut\ParentAttribut;
+use App\Entity\Attribut\ChildsAttribut;
 
 /**
  *
@@ -15,18 +16,28 @@ use App\Entity\Attribut\ParentAttribut;
  */
 class Node implements NodeInterface
 {
-    use IdAttribut,SourceAttribut, ParentAttribut;
+    use IdAttribut,SourceAttribut, ParentAttribut, ChildsAttribut;
     
     /**
-     * 
+     * Many Nodes have many parents
+     * @ORM\ManyToMany(targetEntity="Node")
+     * @ORM\JoinTable(name="nodes_parents",
+     *      joinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")}
+     *      )
+     * @var ArrayCollection|Node[]
+     */
+    protected $parents;
+    
+    /**
+     * Many Nodes have many childs
+     * @ORM\ManyToMany(targetEntity="Node")
+     * @ORM\JoinTable(name="nodes_childs",
+     *      joinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")}
+     *      )
      * @var ArrayCollection|Node[]
      */
     protected $childs;
-
-    public function getChilds(): ArrayCollection
-    {}
-
-    public function setChilds(ArrayCollection $childs): void
-    {}
 }
 

@@ -12,7 +12,7 @@ trait NodeAttribut{
     /**
      * @var NodeInterface
      * @ORM\OneToOne(targetEntity="Node")
-     * @ORM\JoinColumn(name="source", referencedColumnName="id")
+     * @ORM\JoinColumn(name="node_id", referencedColumnName="id")
      */
     protected $node;
     
