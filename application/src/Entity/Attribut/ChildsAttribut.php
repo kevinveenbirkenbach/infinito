@@ -2,6 +2,8 @@
 namespace App\Entity\Attribut;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use App\Entity\NodeInterface;
+
 /**
  *
  * @author kevinfrantz
@@ -9,8 +11,14 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 trait ChildsAttribut {
     
-/**
-     * @var ArrayCollection
+    /**
+     * Many Nodes have many childs
+     * @ORM\ManyToMany(targetEntity="Node")
+     * @ORM\JoinTable(name="nodes_childs",
+     *      joinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")}
+     *      )
+     * @var ArrayCollection|NodeInterface[]
      */
     protected $childs;
     

@@ -1,26 +1,20 @@
 <?php
 namespace App\Entity;
 
-use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Attribut\UsernameAttribut;
+use App\Entity\Attribut\PasswordAttribut;
+
 /**
  *
  * @author kevinfrantz
  * @ORM\Table(name="source_user")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User extends AbstractSource implements UserInterface, \Serializable
+class User extends AbstractSource implements UserInterface
 {
-    /**
-     * @ORM\Column(type="string", length=25, unique=true)
-     */
-    private $username;
-
-    /**
-     * @ORM\Column(type="string", length=64)
-     */
-    private $password;
-
+    use UsernameAttribut,PasswordAttribut;
+ 
     /**
      * @ORM\Column(type="string", length=254, unique=true)
      */
@@ -38,21 +32,11 @@ class User extends AbstractSource implements UserInterface, \Serializable
         // $this->salt = md5(uniqid('', true));
     }
 
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
     public function getSalt()
     {
         // you *may* need a real salt depending on your encoder
         // see section on salt below
         return null;
-    }
-
-    public function getPassword()
-    {
-        return $this->password;
     }
 
     public function getRoles()
