@@ -30,59 +30,63 @@ class UserMenuSubscriber implements EventSubscriberInterface
     {
         $menu = $event->getItem();
         $menu->addChild(
-            'linking',
+            'start',
             [
                 'route' => 'homepage',
+                'attributes' => [
+                    'icon' => 'fab fa-font-awesome-flag',
+                ],
             ]
             );
 
         $menu->addChild(
-            'texting',
+            'imprint',
             [
-                'labelAttributes' => [
-                    'class' => 'class3 class4',
+                'route'=>'imprint',
+                'attributes' => [
+                    'icon' => 'fas fa-address-card',
                 ],
             ]
             );
 
         $dropdown = $menu->addChild(
-            'Hello Me',
+            'user',
             [
                 'attributes' => [
                     'dropdown' => true,
+                    'icon' => 'fas fa-user',
                 ],
             ]
             );
 
         $dropdown->addChild(
-            'Profile',
+            'login',
             [
-                'route' => 'homepage',
+                'route' => 'user_login',
                 'attributes' => [
                     'divider_append' => true,
+                    'icon' => 'fas fa-sign-in-alt',
                 ],
             ]
             );
 
         $dropdown->addChild(
-            'text',
-            [
-                'attributes' => [
-                    'icon' => 'fa fa-user-circle',
-                ],
-                'labelAttributes' => [
-                    'class' => ['class1', 'class2'],
-                ],
-            ]
-            );
-
-        $dropdown->addChild(
-            'Logout',
+            'logout',
             [
                 'route' => 'user_logout',
                 'attributes' => [
+                    'icon' => 'fas fa-sign-out-alt',
+                ],
+            ]
+            );
+
+        $dropdown->addChild(
+            'register',
+            [
+                'route' => 'user_register',
+                'attributes' => [
                     'divider_prepend' => true,
-                    'icon' => 'fa fa-sign-out',
+                    'icon' => 'fas fa-file-signature',
                 ],
             ]
             );
