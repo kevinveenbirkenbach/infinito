@@ -9,6 +9,7 @@ use App\Entity\User;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  *
@@ -31,14 +32,26 @@ class UserController extends AbstractController implements UserControllerInterfa
      *
      * @Route("/user/register", name="user_register")
      */
-    public function register(): Response
+    public function register(Request $request): Response
     {
         $user = new User();
         $form = $this->createFormBuilder($user)
             ->add('username', TextType::class)
             ->add('password', PasswordType::class)
-            ->add('save', SubmitType::class,['label' => 'register'])
+            ->add('save', SubmitType::class, [
+            'label' => 'register'
+        ])
             ->getForm();
-        return $this->render("user/register.html.twig",['form'=>$form->createView()]);
+            $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            
+            $task = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($task);
+            $entityManager->flush();
+        }
+        return $this->render("user/register.html.twig", [
+            'form' => $form->createView()
+        ]);
     }
 }
