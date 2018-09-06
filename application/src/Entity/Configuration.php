@@ -25,5 +25,23 @@ class Configuration extends AbstractSource implements ConfigurationInterface
      * @var PropertyInterface
      */
     protected $administrate;
+    public function setAdministrate(Property $administrate): void
+    {}
+
+    public function getAdministrate(): Property
+    {}
+
+    public function setWrite(Property $write): void
+    {}
+
+    public function getWrite(): Property
+    {}
+
+    public function setRead(Property $read): void
+    {}
+
+    public function getRead(): Property
+    {}
+
 }
 

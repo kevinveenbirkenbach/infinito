@@ -49,7 +49,7 @@ class Node implements NodeInterface
     public function getId(): int
     {}
 
-    public function setSource(SourceInterface $source)
+    public function setSource(SourceInterface $source):void
     {}
 
     public function getSource(): SourceInterface
