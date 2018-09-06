@@ -2,7 +2,7 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Entity\attribut\SourceAttributInterface;
+use App\Entity\attribut\SourceAttributInterface;
 
 /**
  *
