@@ -18,7 +18,7 @@ trait UsernameAttribut{
         return $this->username;
     }
     
-    public function setUsernames(string $username):void{
+    public function setUsername(string $username):void{
         $this->username = $username;
     }
 }

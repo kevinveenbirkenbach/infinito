@@ -16,11 +16,6 @@ class User extends AbstractSource implements UserInterface
     use UsernameAttribut,PasswordAttribut;
  
     /**
-     * @ORM\Column(type="string", length=254, unique=true)
-     */
-    private $email;
-
-    /**
      * @ORM\Column(name="is_active", type="boolean")
      */
     private $isActive;
