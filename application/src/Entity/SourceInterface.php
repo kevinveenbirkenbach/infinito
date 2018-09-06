@@ -1,19 +1,15 @@
 <?php
 namespace App\Entity;
 
+use App\Entity\attribut\NodeAttributInterface;
+use App\Entity\attribut\IdAttributInterface;
+
 /**
  *
  * @author kevinfrantz
  *        
  */
-interface SourceInterface
+interface SourceInterface extends IdAttributInterface, NodeAttributInterface
 {
-    public function setId(int $id):void;
-    
-    public function getId():int;
-    
-    public function setNode(NodeInterface $node):void;
-    
-    public function getNode():NodeInterface;
 }
 

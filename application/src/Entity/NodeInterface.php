@@ -2,13 +2,14 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Entity\attribut\SourceAttributInterface;
 
 /**
  *
  * @author kevinfrantz
  *        
  */
-interface NodeInterface
+interface NodeInterface extends SourceAttributInterface
 {
     public function getId():int;
     
@@ -19,9 +20,5 @@ interface NodeInterface
     public function setChilds(ArrayCollection $childs):void;
     
     public function getChilds():ArrayCollection;
-    
-    public function getSource():SourceInterface;
-    
-    public function setSource(SourceInterface $source):void;
 }
 

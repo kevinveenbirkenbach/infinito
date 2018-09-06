@@ -6,7 +6,7 @@ namespace App\Entity;
  * @author kevinfrantz
  *        
  */
-class Configuration extends AbstractSource implements ConfigurationInterface
+class Configuration implements ConfigurationInterface
 {
     /**
      * 
@@ -25,6 +25,7 @@ class Configuration extends AbstractSource implements ConfigurationInterface
      * @var PropertyInterface
      */
     protected $administrate;
+    
     public function setAdministrate(Property $administrate): void
     {}
 

@@ -9,15 +9,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="source_user")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User implements UserInterface, \Serializable
+class User extends AbstractSource implements UserInterface, \Serializable
 {
-    /**
-     * @ORM\Column(type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
     /**
      * @ORM\Column(type="string", length=25, unique=true)
      */

@@ -1,41 +1,22 @@
 <?php
 namespace App\Entity;
 
+use App\Entity\attribut\IdAttribut;
+use App\Entity\attribut\NodeAttribut;
+
 /**
  *
  * @author kevinfrantz
  *        
  */
-class AbstractSource implements SourceInterface
+abstract class AbstractSource implements SourceInterface
 {  
-    /**
-     * 
-     * @var Node
-     */
-    protected $node;
+    use IdAttribut,NodeAttribut;
     
     /**
      * 
      * @var ConfigurationInterface
      */
     protected $configuration;
-    
-    /**
-     *
-     * @var int
-     */
-    protected $id;
-    
-    public function setId(int $id): void
-    {}
-    
-    public function setNode(NodeInterface $node): void
-    {}
-    
-    public function getId(): int
-    {}
-    
-    public function getNode(): NodeInterface
-    {}
     
 }
