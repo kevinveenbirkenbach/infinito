@@ -24,7 +24,7 @@ class UserTest extends TestCase
     public function setUp():void{
         $this->user = new User();
         $this->user->setPassword(self::PASSWORD);
-        $this->user->setUsername(self::USERNAME);
+        $this->user->setUsername(' '.self::USERNAME.' ');
     }
     
     public function testUsername():void{

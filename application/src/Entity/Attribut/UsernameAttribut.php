@@ -19,7 +19,7 @@ trait UsernameAttribut{
     }
     
     public function setUsername(string $username):void{
-        $this->username = $username;
+        $this->username = \trim($username);
     }
 }
 

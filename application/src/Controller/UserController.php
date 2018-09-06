@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  *
@@ -32,7 +33,7 @@ class UserController extends AbstractController implements UserControllerInterfa
      *
      * @Route("/user/register", name="user_register")
      */
-    public function register(Request $request): Response
+    public function register(Request $request,UserPasswordEncoderInterface $encoder): Response
     {
         $user = new User();
         $form = $this->createFormBuilder($user)
@@ -44,9 +45,11 @@ class UserController extends AbstractController implements UserControllerInterfa
             ->getForm();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $task = $form->getData();
+            $user = $form->getData();
+            $encoded = $encoder->encodePassword($user, $request->get('password'));
+            $user->setPassword($encoded);
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($task);
+            $entityManager->persist($user);
             try {
                 $entityManager->flush();
                 $this->addFlash('success', 'User created!');

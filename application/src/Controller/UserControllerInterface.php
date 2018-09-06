@@ -14,5 +14,5 @@ interface UserControllerInterface
 {
     public function logout():Response;
     
-    public function register(Request $request):Response;
+    #public function register(Request $request):Response;
 }

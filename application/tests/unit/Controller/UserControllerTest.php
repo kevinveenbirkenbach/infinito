@@ -32,7 +32,7 @@ class UserControllerTest extends WebTestCase
     public function testLogin(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/user/login');
+        $client->request('GET', '/login');
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
     
