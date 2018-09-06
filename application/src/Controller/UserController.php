@@ -42,13 +42,19 @@ class UserController extends AbstractController implements UserControllerInterfa
             'label' => 'register'
         ])
             ->getForm();
-            $form->handleRequest($request);
+        $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            
             $task = $form->getData();
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($task);
-            $entityManager->flush();
+            try {
+                $entityManager->flush();
+                $this->addFlash('success', 'User created!');
+            } catch (\Exception $exception) {
+                $this->addFlash('danger', 'User could not be created!');
+                $this->addFlash('info', $exception->getMessage());
+            }
+            
         }
         return $this->render("user/register.html.twig", [
             'form' => $form->createView()
