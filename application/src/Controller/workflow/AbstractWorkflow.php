@@ -1,7 +1,6 @@
 <?php
-namespace Controller\workflow;
+namespace App\Controller\workflow;
 
-use App\Controller\workflow\WorkflowInterface;
 use App\Entity\NodeInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,13 +12,17 @@ use Symfony\Component\HttpFoundation\Response;
  */
 abstract class AbstractWorkflow implements WorkflowInterface
 {
+    protected $template;
+    
     protected $type = 'html';
     
     protected $response;
     
     protected $request;
     
-    public function __construct(Request $request){}
+    public function __construct(){
+        $this->response = new Response();
+    }
     
     abstract protected function handlePost():void;
     
@@ -29,7 +32,6 @@ abstract class AbstractWorkflow implements WorkflowInterface
     
     public function work(): void
     {
-        $this->response = new Response();
         $this->setType();
         $this->handlePost();
         $this->handleGet();

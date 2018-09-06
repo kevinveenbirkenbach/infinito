@@ -1,5 +1,5 @@
 <?php
-namespace Controller\workflow;
+namespace App\Controller\workflow;
 
 /**
  *

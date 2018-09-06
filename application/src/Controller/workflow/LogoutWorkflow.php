@@ -1,8 +1,6 @@
 <?php
 namespace App\Controller\workflow;
 
-use Controller\workflow\AbstractWorkflow;
-
 /**
  *
  * @author kevinfrantz
