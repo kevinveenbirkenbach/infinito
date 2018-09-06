@@ -1,16 +1,16 @@
 <?php
 namespace App\Tests\Unit\Controller;
 
-use PHPUnit\Framework\TestCase;
 use App\Controller\UserController;
 use App\Controller\UserControllerInterface;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  *
  * @author kevinfrantz
  *        
  */
-class UserControllerTest extends TestCase
+class UserControllerTest extends WebTestCase
 {
     /**
      * 

@@ -13,8 +13,6 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends AbstractController implements DefaultControllerInterface
 {
     /**
-     * Matches /
-     *
      * @Route("/imprint", name="imprint")
      */
     public function imprint(): Response
@@ -23,8 +21,6 @@ class DefaultController extends AbstractController implements DefaultControllerI
     }
     
     /**
-     * Matches /
-     *
      * @Route("/", name="homepage")
      */
     public function homepage(): Response
