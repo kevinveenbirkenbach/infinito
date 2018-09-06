@@ -1,8 +1,8 @@
 <?php
 namespace App\Entity;
 
-use App\Entity\attribut\NodeAttributInterface;
-use App\Entity\attribut\IdAttributInterface;
+use App\Entity\Attribut\NodeAttributInterface;
+use App\Entity\Attribut\IdAttributInterface;
 
 /**
  *

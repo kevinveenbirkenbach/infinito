@@ -1,8 +1,9 @@
 <?php
 namespace App\Entity;
 
-use App\Entity\attribut\IdAttribut;
-use App\Entity\attribut\NodeAttribut;
+use App\Entity\Attribut\IdAttribut;
+use App\Entity\Attribut\NodeAttribut;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  *

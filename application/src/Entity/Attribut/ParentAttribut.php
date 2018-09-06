@@ -1,5 +1,5 @@
 <?php
-namespace Entity\Attribut;
+namespace App\Entity\Attribut;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\NodeInterface;

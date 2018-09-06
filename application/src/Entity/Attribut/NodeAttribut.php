@@ -11,8 +11,8 @@ use App\Entity\NodeInterface;
 trait NodeAttribut{
     /**
      * @var NodeInterface
-     * @OneToOne(targetEntity="Node")
-     * @JoinColumn(name="source", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="Node")
+     * @ORM\JoinColumn(name="source", referencedColumnName="id")
      */
     protected $node;
     
