@@ -8,13 +8,16 @@ security:
             entity:
                 class: App\Entity\User
                 property: username
-        in_memory: { memory: ~ }
+        #in_memory: { memory: ~ }
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
+            form_login:
+                login_path: login
+                check_path: login
 
             # activate different ways to authenticate
 

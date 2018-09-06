@@ -1,20 +1,25 @@
 {% extends "frames/default.html.twig" %}
 {% block title %}
-login
+{% trans %}login{% endtrans %}
 {% endblock %}
 {% block content %}
-<h1>Login</h1>
-<form method='post'>
+<h1>
+	{% trans %}login{% endtrans %}
+</h1>
+<form method={{ path('login') }}>
 	<div class="form-group">
-		<label for="email">Email address</label> <input type="email"
-			name="email" class="form-control" id="email"
-			aria-describedby="emailHelp" placeholder="Enter email">
+		<label for="username">{% trans %}Username{% endtrans %}</label> <input
+			type="username" name="username" class="form-control" id="username"
+			aria-describedby="usernameHelp"
+			placeholder="{% trans %}Enter username{% endtrans %}'">
 	</div>
 	<div class="form-group">
-		<label for="password">Password</label> <input type="password"
-			name="password" class="form-control" id="password"
-			placeholder="Password">
+		<label for="password">{% trans %}Password{% endtrans %}</label> <input
+			type="password" name="password" class="form-control" id="password"
+			placeholder="{% trans %}Password{% endtrans %}">
 	</div>
-	<button type="submit" class="btn btn-primary">Submit</button>
+	<button type="submit" class="btn btn-primary">
+		{% trans %}Submit{% endtrans %}
+	</button>
 </form>
 {% endblock %}

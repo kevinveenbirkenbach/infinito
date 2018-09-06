@@ -62,7 +62,7 @@ class UserMenuSubscriber implements EventSubscriberInterface
         $dropdown->addChild(
             'login',
             [
-                'route' => 'user_login',
+                'route' => 'login',
                 'attributes' => [
                     'divider_append' => true,
                     'icon' => 'fas fa-sign-in-alt',

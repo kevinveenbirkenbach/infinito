@@ -4,6 +4,7 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 /**
  *
@@ -12,7 +13,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  */
 class UserController extends AbstractController implements UserControllerInterface
 {
+
     /**
+     *
      * @Route("/user/logout", name="user_logout")
      */
     public function logout(): Response
@@ -21,14 +24,7 @@ class UserController extends AbstractController implements UserControllerInterfa
     }
 
     /**
-     * @Route("/user/login", name="user_login")
-     */
-    public function login(): Response
-    {
-        return $this->render("user/login.html.twig");
-    }
-
-    /**
+     *
      * @Route("/user/register", name="user_register")
      */
     public function register(): Response
