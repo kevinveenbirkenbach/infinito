@@ -73,7 +73,7 @@ class UserMenuSubscriber implements EventSubscriberInterface
         $dropdown->addChild(
             'logout',
             [
-                'route' => 'user_logout',
+                'route' => 'logout',
                 'attributes' => [
                     'icon' => 'fas fa-sign-out-alt',
                 ],
