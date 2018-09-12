@@ -8,6 +8,7 @@ security:
             entity:
                 class: App\Entity\User
                 property: username
+    hide_user_not_found: false
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
