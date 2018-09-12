@@ -84,11 +84,11 @@ Sources MUST be on of the following entities:
 |address||
 |date|datetime|
 |name|string|
-|birthday|date
-|death|date
-|text|varchar
-|collection|nodes
-|live|birthday,death
+|birthday|date|
+|death|date|
+|text|varchar|
+|collection|nodes|
+|live|birthday,death|
 
 A source MUST have a file fabric.
 
