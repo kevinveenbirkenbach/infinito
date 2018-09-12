@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Subscriber;
+
 use App\Event\Menu\Topbar\UserMenuEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -7,15 +9,12 @@ use Symfony\Component\Translation\TranslatorInterface;
 
 class UserMenuSubscriber implements EventSubscriberInterface
 {
-
     /**
-     *
      * @var TokenStorageInterface
      */
     private $tokenStorage;
 
     /**
-     *
      * @var TranslatorInterface
      */
     private $translator;
@@ -42,7 +41,7 @@ class UserMenuSubscriber implements EventSubscriberInterface
         $menu->addChild(
             'imprint',
             [
-                'route'=>'imprint',
+                'route' => 'imprint',
                 'attributes' => [
                     'icon' => 'fas fa-address-card',
                 ],
@@ -95,7 +94,7 @@ class UserMenuSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            UserMenuEvent::EVENT => 'onUserMenuConfigure'
+            UserMenuEvent::EVENT => 'onUserMenuConfigure',
         ];
     }
 }

@@ -10,29 +10,29 @@ use Symfony\Component\HttpFoundation\RequestStack;
 class UserMenuEvent extends Event
 {
     public const EVENT = 'app.menu.topbar.user';
-    
+
     /**
      * @var FactoryInterface
      */
     private $factory;
-    
+
     /**
      * @var ItemInterface
      */
     private $item;
-    
+
     /**
      * @var RequestStack
      */
     private $request;
-    
+
     public function __construct(FactoryInterface $factory, ItemInterface $item, RequestStack $request)
     {
         $this->factory = $factory;
         $this->item = $item;
         $this->request = $request;
     }
-    
+
     /**
      * @return FactoryInterface
      */
@@ -40,7 +40,7 @@ class UserMenuEvent extends Event
     {
         return $this->factory;
     }
-    
+
     /**
      * @return ItemInterface
      */
@@ -48,7 +48,7 @@ class UserMenuEvent extends Event
     {
         return $this->item;
     }
-    
+
     /**
      * @return RequestStack
      */

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -7,7 +8,6 @@ use App\Entity\Attribut\PasswordAttribut;
 use App\Entity\Attribut\PlainPasswordAttribute;
 
 /**
- *
  * @author kevinfrantz
  * @ORM\Table(name="source_user")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -15,7 +15,7 @@ use App\Entity\Attribut\PlainPasswordAttribute;
 class User extends AbstractSource implements UserInterface
 {
     use UsernameAttribut,PasswordAttribut,PlainPasswordAttribute;
- 
+
     /**
      * @ORM\Column(name="is_active", type="boolean")
      */
@@ -33,7 +33,7 @@ class User extends AbstractSource implements UserInterface
 
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return ['ROLE_USER'];
     }
 
     public function eraseCredentials()
@@ -43,20 +43,19 @@ class User extends AbstractSource implements UserInterface
     /** @see \Serializable::serialize() */
     public function serialize()
     {
-        return serialize(array(
+        return serialize([
             $this->id,
             $this->username,
             $this->password,
-        ));
+        ]);
     }
 
     /** @see \Serializable::unserialize() */
     public function unserialize($serialized)
     {
-        list (
+        list(
             $this->id,
             $this->username,
-            $this->password,
-        ) = unserialize($serialized, array('allowed_classes' => false));
+            $this->password) = unserialize($serialized, ['allowed_classes' => false]);
     }
 }

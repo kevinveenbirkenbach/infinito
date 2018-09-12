@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Form\UserType;
@@ -7,25 +8,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Translation\TranslatorInterface;
-use Symfony\Component\Form\FormInterface;
 
 class RegistrationController extends AbstractController
 {
-
     /**
-     *
      * @var User
      */
     private $user;
 
     /**
-     *
      * @Route("/register", name="user_register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder,TranslatorInterface $translator): Response
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, TranslatorInterface $translator): Response
     {
         $this->user = new User();
         $form = $this->createForm(UserType::class, $this->user);
@@ -33,11 +29,13 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->encodePassword($passwordEncoder);
             $this->saveUser($translator);
+
             return $this->redirectToRoute('login');
         }
-        return $this->render("user/register.html.twig", array(
-            'form' => $form->createView()
-        ));
+
+        return $this->render('user/register.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 
     public function encodePassword(UserPasswordEncoderInterface $passwordEncoder): void
@@ -52,10 +50,9 @@ class RegistrationController extends AbstractController
         $entityManager->persist($this->user);
         try {
             $entityManager->flush();
-            $this->addFlash('success', $translator->trans('User "%username%" created!',['%username%'=>$this->user->getUsername()]));
+            $this->addFlash('success', $translator->trans('User "%username%" created!', ['%username%' => $this->user->getUsername()]));
         } catch (\Exception $exception) {
-            $this->addFlash('danger', $translator->trans('User "%username%" could not be created!',['%username%'=>$this->user->getUsername()]));
+            $this->addFlash('danger', $translator->trans('User "%username%" could not be created!', ['%username%' => $this->user->getUsername()]));
         }
     }
 }
-
