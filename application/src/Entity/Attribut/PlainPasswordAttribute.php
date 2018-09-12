@@ -10,9 +10,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 trait PlainPasswordAttribute {
 
     /**
-     *
+     * 
      * @Assert\NotBlank()
      * @Assert\Length(max=4096)
+     * @var string
      */
     private $plainPassword;
 
@@ -21,7 +22,7 @@ trait PlainPasswordAttribute {
         return $this->plainPassword;
     }
 
-    public function setPlainPassword($password): void
+    public function setPlainPassword(string $password): void
     {
         $this->plainPassword = $password;
     }
