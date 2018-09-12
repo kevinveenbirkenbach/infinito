@@ -1,20 +1,14 @@
-# infinito (development status)
-This software allows users to automatize data sharing with people and IoT devices.
+# infinito
 
-## developer guide
-In the administration folder you will find all necessary scripts to run and configure the application.
+## idea
+The idea is described under *./documentation/product/system/requiremts.md*.
 
-This scripts are optimized for Ubuntu, but may they will run on MAC OS.
+## documentation
+The full documentation you will find in *./documentation*.
+It follows the [best practices from AltexSoft](https://www.altexsoft.com/blog/business/software-documentation-types-and-best-practices/).
 
-### initialization
-
-To initialize the docker environment, please execute in the root:
-
-```
-bash administration/init.sh
-```
-
-Afterwards you can access the service via http://127.0.0.1:80.
+### administration
+The setup and administration guide you will find in *./documentation/product/user/administrator/guide.md*
 
 ## license
 The "GNU AFFERO GENERAL PUBLIC LICENSE" applies to this project. See LICENSE.txt.
