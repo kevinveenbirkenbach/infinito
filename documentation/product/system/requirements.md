@@ -77,18 +77,18 @@ A source MUST be an entity.
 #### entities
 Sources MUST be on of the following entities:
 
-|entity|attributes|
-|--- | --- | ---|
-|user|username,password,identity|
-|identity|names,addresses|
-|address||
-|date|datetime|
-|name|string|
-|birthday|date|
-|death|date|
-|text|varchar|
-|collection|nodes|
-|live|birthday,death|
+entity|attributes
+--- | --- | ---
+user|username,password,identity
+identity|names,addresses
+address|
+date|datetime
+name|string
+birthday|date
+death|date
+text|text(varchar)
+collection|nodes
+live|birthday,death
 
 A source MUST have a file fabric.
 
