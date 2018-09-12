@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
  * @author kevinfrantz
  *        
  */
-class DefaultController extends AbstractController implements DefaultControllerInterface
+class DefaultController extends AbstractController
 {
     /**
      * @Route("/imprint", name="imprint")
