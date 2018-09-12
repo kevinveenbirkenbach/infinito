@@ -4,6 +4,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Attribut\UsernameAttribut;
 use App\Entity\Attribut\PasswordAttribut;
+use App\Entity\Attribut\PlainPasswordAttribute;
 
 /**
  *
@@ -13,7 +14,7 @@ use App\Entity\Attribut\PasswordAttribut;
  */
 class User extends AbstractSource implements UserInterface
 {
-    use UsernameAttribut,PasswordAttribut;
+    use UsernameAttribut,PasswordAttribut,PlainPasswordAttribute;
  
     /**
      * @ORM\Column(name="is_active", type="boolean")
