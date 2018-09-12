@@ -22,8 +22,7 @@ class SecurityController extends AbstractController
     {
         $error = $authenticationUtils->getLastAuthenticationError();
         if ($error) {
-            $this->addFlash('danger', $error->getMessage());
-            #$this->addFlash('info', $translator->trans('Code:%code%',['%code%'=>$error->getMessageKey()]));
+            $this->addFlash('danger', $translator->trans($error->getMessageKey(),$error->getMessageData(),'security'));
         }else{
             $lastUsername = $authenticationUtils->getLastUsername();
             if($lastUsername){
