@@ -78,7 +78,7 @@ A source MUST be an entity.
 Sources MUST be on of the following entities:
 
 entity|attributes
---- | --- | ---
+--- | --- 
 user|username,password,identity
 identity|names,addresses
 address|
