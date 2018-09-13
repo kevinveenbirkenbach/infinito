@@ -11,5 +11,6 @@ use Entity\Attribut\WhitelistAttributInterface;
  */
 interface PermissionInterface extends BlacklistAttributInterface, WhitelistAttributInterface
 {
+    
 }
 

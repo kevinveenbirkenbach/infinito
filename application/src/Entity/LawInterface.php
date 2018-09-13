@@ -1,14 +1,15 @@
 <?php
 namespace App\Entity;
 
-use App\Entity\Attribut\NodeAttributInterface;
+use Entity\Attribut\RightsAttributInterface;
 
 /**
  *
  * @author kevinfrantz
  *        
  */
-interface LawInterface extends NodeAttributInterface
+interface LawInterface extends RightsAttributInterface
 {
+
 }
 

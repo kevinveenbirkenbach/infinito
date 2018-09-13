@@ -1,6 +1,8 @@
 <?php
 namespace Entity\Attribut;
 
+use App\Entity\RightInterface;
+
 /**
  *
  * @author kevinfrantz
@@ -8,8 +10,8 @@ namespace Entity\Attribut;
  */
 interface RightAttributInterface
 {
-    public function setRight(string $right):void;
+    public function setRight(RightInterface $right):void;
     
-    public function getRight():string;
+    public function getRight():RightInterface;
 }
 
