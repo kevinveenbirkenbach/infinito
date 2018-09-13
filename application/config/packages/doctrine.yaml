@@ -17,6 +17,7 @@ doctrine:
         url: '%env(resolve:DATABASE_URL)%'
         types:
             RightType: App\DBAL\Types\RightType
+            RecieverType: App\DBAL\Types\RecieverType
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore

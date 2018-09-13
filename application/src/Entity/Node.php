@@ -42,5 +42,19 @@ class Node extends AbstractEntity implements NodeInterface
     {
         $this->law = new Law();
         $this->law->setNode($this);
+        $this->initPermissions();
+    }
+
+    private function initPermissions(): void
+    {
+        /*
+         * @var RightInterface
+         */
+        foreach ($this->law->getRights()->toArray() as $right) {
+            $permission = new Permission();
+            $permission->setNode($this);
+            $permission->setRight($right);
+            $right->addPermission($permission);
+        }
     }
 }

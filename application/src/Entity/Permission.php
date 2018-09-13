@@ -7,6 +7,9 @@ use App\Entity\Attribut\BlacklistAttribut;
 use App\Entity\Attribut\WhitelistAttribut;
 use App\Entity\Attribut\NodeAttribut;
 use App\Entity\Attribut\RightAttribut;
+use App\Entity\Attribut\RecieverAttribut;
+use App\DBAL\Types\RecieverType;
+use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
 
 /**
  * @author kevinfrantz
@@ -15,7 +18,15 @@ use App\Entity\Attribut\RightAttribut;
  */
 class Permission extends AbstractEntity implements PermissionInterface
 {
-    use BlacklistAttribut,WhitelistAttribut,NodeAttribut,RightAttribut;
+    use NodeAttribut,RightAttribut,WhitelistAttribut,BlacklistAttribut,RecieverAttribut;
+
+    /**
+     * @ORM\Column(name="reciever", type="RecieverType", nullable=false)
+     * @DoctrineAssert\Enum(entity="App\DBAL\Types\RecieverType")
+     *
+     * @var string
+     */
+    protected $reciever;
 
     /**
      * @ORM\Column(type="boolean")
@@ -46,4 +57,10 @@ class Permission extends AbstractEntity implements PermissionInterface
      * @var RightInterface
      */
     protected $right;
+
+    public function __construct()
+    {
+        $this->blacklist = false;
+        $this->whitelist = false;
+    }
 }

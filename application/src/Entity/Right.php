@@ -8,7 +8,7 @@ use App\DBAL\Types\RightType;
 use Doctrine\ORM\Mapping as ORM;
 use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
 use App\Entity\Attribut\LawAttribut;
-use App\Entity\Attribut\PermissionAttribut;
+use App\Entity\Attribut\PermissionsAttribut;
 
 /**
  * @author kevinfrantz
@@ -17,7 +17,7 @@ use App\Entity\Attribut\PermissionAttribut;
  */
 class Right extends AbstractEntity implements RightInterface
 {
-    use TypeAttribut,LawAttribut,PermissionAttribut;
+    use TypeAttribut,LawAttribut,PermissionsAttribut;
 
     /**
      * @ORM\ManyToOne(targetEntity="Law")

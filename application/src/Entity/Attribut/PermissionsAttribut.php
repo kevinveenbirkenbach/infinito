@@ -3,11 +3,12 @@
 namespace App\Entity\Attribut;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use App\Entity\PermissionInterface;
 
 /**
  * @author kevinfrantz
  */
-trait PermissionAttribut
+trait PermissionsAttribut
 {
     /**
      * @var ArrayCollection
@@ -22,5 +23,10 @@ trait PermissionAttribut
     public function getPermissions(): ArrayCollection
     {
         return $this->permissions;
+    }
+
+    public function addPermission(PermissionInterface $permission): void
+    {
+        $this->permissions->add($permission);
     }
 }
