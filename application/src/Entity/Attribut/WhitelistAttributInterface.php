@@ -1,6 +1,6 @@
 <?php
 
-namespace Entity\Attribut;
+namespace App\Entity\Attribut;
 
 /**
  * @author kevinfrantz

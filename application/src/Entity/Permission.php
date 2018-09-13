@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Attribut\BlacklistAttribut;
 use App\Entity\Attribut\WhitelistAttribut;
 use App\Entity\Attribut\NodeAttribut;
-use Entity\Attribut\RightAttribut;
+use App\Entity\Attribut\RightAttribut;
 
 /**
  * @author kevinfrantz

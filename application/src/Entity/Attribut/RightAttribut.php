@@ -1,6 +1,6 @@
 <?php
 
-namespace Entity\Attribut;
+namespace App\Entity\Attribut;
 
 use App\Entity\RightInterface;
 
