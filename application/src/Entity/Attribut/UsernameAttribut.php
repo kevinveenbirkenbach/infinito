@@ -1,25 +1,26 @@
 <?php
+
 namespace App\Entity\Attribut;
 
 /**
- * This trait doesn't need an own interface because it's covered by symfony
+ * This trait doesn't need an own interface because it's covered by symfony.
+ *
  * @author kevinfrantz
- *        
  */
-trait UsernameAttribut{
-    
+trait UsernameAttribut
+{
     /**
      * @ORM\Column(type="string", length=25, unique=true)
      */
     protected $username;
-    
-    public function getUsername():?string
+
+    public function getUsername(): ?string
     {
         return $this->username;
     }
-    
-    public function setUsername(string $username):void{
+
+    public function setUsername(string $username): void
+    {
         $this->username = \trim($username);
     }
 }
-
