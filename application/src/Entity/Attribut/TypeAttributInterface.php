@@ -8,7 +8,7 @@ namespace App\Entity\Attribut;
  */
 interface TypeAttributInterface
 {
-    public function setType(string $right):void;
+    public function setType(string $type):void;
     
     public function getType():string;
 }

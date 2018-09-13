@@ -1,7 +1,7 @@
 <?php
 namespace App\Entity;
 
-use Entity\Attribut\RightsAttributInterface;
+use App\Entity\Attribut\RightsAttributInterface;
 
 /**
  *

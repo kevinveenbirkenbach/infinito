@@ -13,7 +13,7 @@ trait TypeAttribut {
      */
     protected $type;
     
-    public function setType(string $right):void{
+    public function setType(string $type):void{
         $this->type = $type;
     }
     

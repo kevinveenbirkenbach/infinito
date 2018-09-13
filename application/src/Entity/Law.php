@@ -2,9 +2,10 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Entity\Attribut\RightsAttribute;
+use App\Entity\Attribut\RightsAttribute;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\DBAL\Types\RightType;
+use App\Entity\Attribut\NodeAttribut;
 
 /**
  *
@@ -14,7 +15,7 @@ use App\DBAL\Types\RightType;
  */
 class Law extends AbstractEntity implements LawInterface
 {
-    use RightsAttribute;
+    use RightsAttribute, NodeAttribut;
 
     /**
      *
@@ -23,17 +24,25 @@ class Law extends AbstractEntity implements LawInterface
      */
     protected $rights;
 
+    /**
+     * @ORM\OneToOne(targetEntity="Node",cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="node_id", referencedColumnName="id")
+     * @var NodeInterface
+     */
+    protected $node;
+    
     public function __construct()
     {
-        parent::__contruct();
         $this->initAllRights();
     }
 
     private function initAllRights(): void
     {
+        $this->rights = new ArrayCollection();
         foreach (RightType::getChoices() as $key=>$value){
             $right = new Right();
             $right->setType($value);
+            $right->setLaw($this);
             $this->rights->set($key, $right);
         }
     }
