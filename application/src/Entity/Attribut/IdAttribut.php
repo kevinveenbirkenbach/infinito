@@ -1,6 +1,8 @@
 <?php
 namespace App\Entity\Attribut;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  *
  * @author kevinfrantz
@@ -8,7 +10,7 @@ namespace App\Entity\Attribut;
  */
 trait IdAttribut {
     /**
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")(strategy="AUTO")
      */

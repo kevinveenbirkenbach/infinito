@@ -2,9 +2,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Attribut\UsernameAttribut;
-use App\Entity\Attribut\PasswordAttribut;
-use App\Entity\Attribut\PlainPasswordAttribute;
+use FOS\UserBundle\Model\User as BaseUser;
+use App\Entity\Attribut\NodeAttribut;
 
 /**
  *
@@ -12,51 +11,39 @@ use App\Entity\Attribut\PlainPasswordAttribute;
  * @ORM\Table(name="source_user")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User extends AbstractSource implements UserInterface
+class User extends BaseUser implements SourceInterface
 {
-    use UsernameAttribut,PasswordAttribut,PlainPasswordAttribute;
+    use NodeAttribut;
  
     /**
      * @ORM\Column(name="is_active", type="boolean")
      */
     private $isActive;
+    
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")(strategy="AUTO")
+     */
+    protected $id;
+    
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+    
+    public function getId(): int
+    {
+        return $this->id;
+    }
 
     public function __construct()
     {
+        parent::__construct ();
+        /**
+         * @todo Remove this later
+         * @var \App\Entity\User $isActive
+         */
         $this->isActive = true;
-    }
-
-    public function getSalt()
-    {
-        return null;
-    }
-
-    public function getRoles()
-    {
-        return array('ROLE_USER');
-    }
-
-    public function eraseCredentials()
-    {
-    }
-
-    /** @see \Serializable::serialize() */
-    public function serialize()
-    {
-        return serialize(array(
-            $this->id,
-            $this->username,
-            $this->password,
-        ));
-    }
-
-    /** @see \Serializable::unserialize() */
-    public function unserialize($serialized)
-    {
-        list (
-            $this->id,
-            $this->username,
-            $this->password,
-        ) = unserialize($serialized, array('allowed_classes' => false));
     }
 }

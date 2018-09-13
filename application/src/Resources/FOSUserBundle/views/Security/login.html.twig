@@ -1,0 +1,10 @@
+{% extends "@FOSUser/layout.html.twig" %}
+{% block title %}
+{% trans %}login{% endtrans %}
+{% endblock %}
+{% block content %}
+<h1>
+	{% trans %}login{% endtrans %}
+</h1>
+{{ include('@FOSUser/Security/login_content.html.twig') }}
+{% endblock %}

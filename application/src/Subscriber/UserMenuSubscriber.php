@@ -63,7 +63,7 @@ class UserMenuSubscriber implements EventSubscriberInterface
             ]);
         } else {
             $dropdown->addChild('login', [
-                'route' => 'login',
+                'route' => 'fos_user_security_login',
                 'attributes' => [
                     'divider_append' => true,
                     'icon' => 'fas fa-sign-in-alt'
@@ -71,7 +71,7 @@ class UserMenuSubscriber implements EventSubscriberInterface
             ]);
         }
         $dropdown->addChild('register', [
-            'route' => 'user_register',
+            'route' => 'fos_user_registration_register',
             'attributes' => [
                 'icon' => 'fas fa-file-signature'
             ]
