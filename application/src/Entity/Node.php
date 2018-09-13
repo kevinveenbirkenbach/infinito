@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Attribut\IdAttribut;
 use App\Entity\Attribut\SourceAttribut;
-use App\Entity\Attribut\ParentAttribut;
+use App\Entity\Attribut\ParentsAttribut;
 use App\Entity\Attribut\ChildsAttribut;
 use App\Entity\Attribut\LawAttribut;
 
@@ -18,7 +18,7 @@ class Node extends AbstractEntity implements NodeInterface
 {
     use IdAttribut,
     SourceAttribut,
-    ParentAttribut,
+    ParentsAttribut,
     LawAttribut,
     ChildsAttribut;
 

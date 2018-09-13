@@ -2,16 +2,14 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Attribut\TypeAttributInterface;
 use App\Entity\Attribut\LawAttributInterface;
+use App\Entity\Attribut\PermissionsAttributInterface;
 
 /**
  * @author kevinfrantz
  */
-interface RightInterface extends TypeAttributInterface, LawAttributInterface
+interface RightInterface extends TypeAttributInterface, LawAttributInterface, PermissionsAttributInterface
 {
     public function isGranted(NodeInterface $node): bool;
-
-    public function setPermissions(ArrayCollection $permissions): void;
 }

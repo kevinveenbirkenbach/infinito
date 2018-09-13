@@ -1,9 +1,6 @@
 <?php
 
-namespace App\Entity\Attribut;
-
-use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\NodeInterface;
+namespace Entity\Attribut;
 
 /**
  * @author kevinfrantz
@@ -11,25 +8,17 @@ use App\Entity\NodeInterface;
 trait ParentAttribut
 {
     /**
-     * Many Nodes have many parents.
-     *
-     * @ORM\ManyToMany(targetEntity="Node")
-     * @ORM\JoinTable(name="nodes_parents",
-     *      joinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")}
-     *      )
-     *
-     * @var ArrayCollection|NodeInterface[]
+     * @var ParentAttributInterface
      */
-    protected $parents;
+    protected $parent;
 
-    public function getParents(): ArrayCollection
+    public function setParent(ParentAttributInterface $parent): void
     {
-        return $this->parents;
+        $this->parent = $parent;
     }
 
-    public function setParents(ArrayCollection $parents): void
+    public function getParent(): ParentAttributInterface
     {
-        $this->parents = $parents;
+        return $this->parent;
     }
 }

@@ -8,6 +8,7 @@ use App\DBAL\Types\RightType;
 use Doctrine\ORM\Mapping as ORM;
 use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
 use App\Entity\Attribut\LawAttribut;
+use App\Entity\Attribut\PermissionAttribut;
 
 /**
  * @author kevinfrantz
@@ -16,10 +17,10 @@ use App\Entity\Attribut\LawAttribut;
  */
 class Right extends AbstractEntity implements RightInterface
 {
-    use TypeAttribut,LawAttribut;
+    use TypeAttribut,LawAttribut,PermissionAttribut;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Law",cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="Law")
      * @ORM\JoinColumn(name="law_id", referencedColumnName="id")
      *
      * @var LawInterface
@@ -35,7 +36,7 @@ class Right extends AbstractEntity implements RightInterface
     protected $type;
 
     /**
-     * @ORM\OneToMany(targetEntity="Right", mappedBy="id", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="Permission", mappedBy="id", cascade={"persist", "remove"})
      *
      * @var ArrayCollection
      */
@@ -45,7 +46,9 @@ class Right extends AbstractEntity implements RightInterface
     {
     }
 
-    public function setPermissions(ArrayCollection $permissions): void
+    public function __construct()
     {
+        parent::__construct();
+        $this->permissions = new ArrayCollection();
     }
 }

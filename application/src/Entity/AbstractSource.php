@@ -27,6 +27,7 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
 
     public function __construct()
     {
+        parent::__construct();
         $this->node = new Node();
         $this->node->setSource($this);
     }

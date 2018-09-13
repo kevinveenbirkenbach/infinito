@@ -20,4 +20,8 @@ class AbstractEntity
      * @var int
      */
     protected $id;
+
+    protected function __construct()
+    {
+    }
 }
