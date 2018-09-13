@@ -119,6 +119,7 @@ A **file** MUST be on of the following types:
 * TEXT
 * CSV
 * JPG
+* MD
 
 It SHOULD be possible to export a **file** to one or more other **file** s.
 
