@@ -1,16 +1,13 @@
 <?php
-namespace Entity;
+
+namespace App\Entity;
 
 use App\Entity\Attribut\BlacklistAttributInterface;
 use Entity\Attribut\WhitelistAttributInterface;
 
 /**
- *
  * @author kevinfrantz
- *        
  */
 interface PermissionInterface extends BlacklistAttributInterface, WhitelistAttributInterface
 {
-    
 }
-

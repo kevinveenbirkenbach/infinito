@@ -17,15 +17,16 @@ use Doctrine\ORM\Mapping as ORM;
 abstract class AbstractSource extends AbstractEntity implements SourceInterface
 {
     use NodeAttribut;
-   
+
     /**
      * @var NodeInterface
      * @ORM\OneToOne(targetEntity="Node",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="node_id", referencedColumnName="id")
      */
     protected $node;
-    
-    public function __construct(){
+
+    public function __construct()
+    {
         $this->node = new Node();
         $this->node->setSource($this);
     }

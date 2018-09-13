@@ -1,26 +1,26 @@
 <?php
+
 namespace App\Entity\Attribut;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- *
  * @author kevinfrantz
- *        
  */
-trait RightsAttribute {
-    
+trait RightsAttribute
+{
     /**
      * @var ArrayCollection
      */
     protected $rights;
-    
-    public function setRights(ArrayCollection $rights):void{
+
+    public function setRights(ArrayCollection $rights): void
+    {
         $this->rights = $rights;
     }
-    
-    public function getRights():ArrayCollection{
+
+    public function getRights(): ArrayCollection
+    {
         return $this->rights;
     }
 }
-

@@ -23,7 +23,7 @@ class User extends BaseUser implements SourceAttributInterface
      * @ORM\JoinColumn(name="source_user_id", referencedColumnName="id")
      */
     protected $source;
-    
+
     /**
      * @ORM\Column(name="is_active", type="boolean")
      */

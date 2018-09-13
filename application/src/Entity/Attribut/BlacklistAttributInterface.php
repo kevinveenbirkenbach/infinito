@@ -1,10 +1,9 @@
 <?php
+
 namespace App\Entity\Attribut;
 
 /**
- *
  * @author kevinfrantz
- *        
  */
 interface BlacklistAttributInterface
 {
@@ -12,4 +11,3 @@ interface BlacklistAttributInterface
 
     public function getBlacklist(): ?bool;
 }
-

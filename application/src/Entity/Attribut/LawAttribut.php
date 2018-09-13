@@ -1,26 +1,26 @@
 <?php
+
 namespace App\Entity\Attribut;
 
 use App\Entity\LawInterface;
 
 /**
- *
  * @author kevinfrantz
- *        
  */
-trait LawAttribut {
-    
-    /** 
+trait LawAttribut
+{
+    /**
      * @var LawInterface
      */
     protected $law;
-    
-    public function setLaw(LawInterface $law):void{
+
+    public function setLaw(LawInterface $law): void
+    {
         $this->law = $law;
     }
-    
-    public function getLaw(): LawInterface{
+
+    public function getLaw(): LawInterface
+    {
         return $this->law;
     }
 }
-
