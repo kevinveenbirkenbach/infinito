@@ -44,21 +44,27 @@ class UserMenuSubscriber implements EventSubscriberInterface
             ]
         ]);
         
-        $dropdown = $menu->addChild('user', [
+        $dropdown = $menu->addChild($this->tokenStorage->getToken()
+            ->getUsername() ?? 'user', [
             'attributes' => [
                 'dropdown' => true,
                 'icon' => 'fas fa-user'
             ]
         ]);
-        /**
-         * @todo replace the following check trough fos bundle
-         */
         if ($this->tokenStorage->getToken()->getRoles()) {
+            
             $dropdown->addChild('logout', [
                 'route' => 'logout',
                 'attributes' => [
                     'icon' => 'fas fa-sign-out-alt',
-                    'divider_append' => true,
+                    'divider_append' => true
+                ]
+            ]);
+            $dropdown->addChild('edit profile', [
+                'route' => 'fos_user_profile_edit',
+                'attributes' => [
+                    'icon' => 'fas fa-user-edit',
+                    'divider_append' => true
                 ]
             ]);
         } else {
