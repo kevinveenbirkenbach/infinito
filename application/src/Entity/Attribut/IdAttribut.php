@@ -2,17 +2,13 @@
 
 namespace App\Entity\Attribut;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * @author kevinfrantz
  */
 trait IdAttribut
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")(strategy="AUTO")
+     * @var int
      */
     protected $id;
 

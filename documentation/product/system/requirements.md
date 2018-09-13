@@ -69,7 +69,6 @@ A **node** MAY be a member of one or more **relative collection** s.
 
 A **node** MAY be a member of one or more **collection** entity.
 
-
 A **node** MUST have a **law**.
 
 A **node** MUST have a **history**.

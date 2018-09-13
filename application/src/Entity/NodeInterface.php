@@ -6,10 +6,11 @@ use App\Entity\Attribut\SourceAttributInterface;
 use App\Entity\Attribut\IdAttributInterface;
 use App\Entity\Attribut\ParentsAttributInterface;
 use App\Entity\Attribut\ChildsAttributeInterface;
+use App\Entity\Attribut\LawAttributInterface;
 
 /**
  * @author kevinfrantz
  */
-interface NodeInterface extends SourceAttributInterface, IdAttributInterface, ParentsAttributInterface, ChildsAttributeInterface
+interface NodeInterface extends SourceAttributInterface, IdAttributInterface, ParentsAttributInterface, ChildsAttributeInterface, LawAttributInterface
 {
 }

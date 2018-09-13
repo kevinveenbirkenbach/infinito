@@ -11,8 +11,6 @@ trait NodeAttribut
 {
     /**
      * @var NodeInterface
-     * @ORM\OneToOne(targetEntity="Node",cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="node_id", referencedColumnName="id")
      */
     protected $node;
 

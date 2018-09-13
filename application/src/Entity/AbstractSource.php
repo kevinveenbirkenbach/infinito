@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Entity\Attribut\IdAttribut;
 use App\Entity\Attribut\NodeAttribut;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -13,13 +12,21 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"user" = "User"})
+ * @ORM\DiscriminatorMap({"user" = "UserSource"})
  */
-abstract class AbstractSource implements SourceInterface
+abstract class AbstractSource extends AbstractEntity implements SourceInterface
 {
-    use IdAttribut,NodeAttribut;
-
+    use NodeAttribut;
+   
+    /**
+     * @var NodeInterface
+     * @ORM\OneToOne(targetEntity="Node",cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="node_id", referencedColumnName="id")
+     */
+    protected $node;
+    
     public function __construct(){
         $this->node = new Node();
+        $this->node->setSource($this);
     }
 }
