@@ -19,8 +19,7 @@ abstract class AbstractSource implements SourceInterface
 {
     use IdAttribut,NodeAttribut;
 
-    /**
-     * @var ConfigurationInterface
-     */
-    protected $configuration;
+    public function __construct(){
+        $this->node = new Node();
+    }
 }

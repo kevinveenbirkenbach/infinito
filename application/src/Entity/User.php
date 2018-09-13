@@ -45,5 +45,6 @@ class User extends BaseUser implements SourceInterface
          * @var \App\Entity\User $isActive
          */
         $this->isActive = true;
+        $this->node = new Node();
     }
 }
