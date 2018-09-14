@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Form;
 
 use App\Entity\User;
@@ -8,7 +9,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UserSourceType extends AbstractType
 {
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('namesource', NameSourceType::class);
@@ -17,8 +17,7 @@ class UserSourceType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => User::class
+            'data_class' => User::class,
         ]);
     }
 }
-

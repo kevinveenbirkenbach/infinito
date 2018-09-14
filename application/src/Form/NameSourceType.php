@@ -14,7 +14,7 @@ class NameSourceType extends AbstractType
     {
         $builder->add('name', TextType::class);
     }
-    
+
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
