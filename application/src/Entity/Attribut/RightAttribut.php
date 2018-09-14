@@ -21,6 +21,6 @@ trait RightAttribut
 
     public function getRight(): RightInterface
     {
-        return $this->getRight();
+        return $this->right;
     }
 }

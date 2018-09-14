@@ -18,7 +18,7 @@ class Law extends AbstractEntity implements LawInterface
     use RightsAttribute, NodeAttribut;
 
     /**
-     * @ORM\OneToMany(targetEntity="Right", mappedBy="id", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="Right", mappedBy="law", cascade={"persist", "remove"})
      *
      * @var ArrayCollection
      */

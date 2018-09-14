@@ -2,14 +2,14 @@
 
 namespace App\Entity\Attribut;
 
-use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @author kevinfrantz
  */
 interface RightsAttributInterface
 {
-    public function setRights(ArrayCollection $rights): void;
+    public function setRights(Collection $rights): void;
 
-    public function getRights(): ArrayCollection;
+    public function getRights(): Collection;
 }

@@ -23,5 +23,6 @@ class AbstractEntity
 
     protected function __construct()
     {
+        $this->id = 0;
     }
 }

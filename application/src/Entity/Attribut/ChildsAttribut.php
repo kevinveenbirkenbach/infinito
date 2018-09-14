@@ -2,8 +2,8 @@
 
 namespace App\Entity\Attribut;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\NodeInterface;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @author kevinfrantz
@@ -19,16 +19,16 @@ trait ChildsAttribut
      *      inverseJoinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")}
      *      )
      *
-     * @var ArrayCollection|NodeInterface[]
+     * @var Collection|NodeInterface[]
      */
     protected $childs;
 
-    public function getChilds(): ArrayCollection
+    public function getChilds(): Collection
     {
-        return $this->getChilds();
+        return $this->childs;
     }
 
-    public function setChilds(ArrayCollection $childs): void
+    public function setChilds(Collection $childs): void
     {
         $this->childs = $childs;
     }

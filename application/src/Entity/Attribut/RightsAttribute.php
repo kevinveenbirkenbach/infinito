@@ -2,7 +2,7 @@
 
 namespace App\Entity\Attribut;
 
-use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @author kevinfrantz
@@ -10,16 +10,16 @@ use Doctrine\Common\Collections\ArrayCollection;
 trait RightsAttribute
 {
     /**
-     * @var ArrayCollection
+     * @var Collection
      */
     protected $rights;
 
-    public function setRights(ArrayCollection $rights): void
+    public function setRights(Collection $rights): void
     {
         $this->rights = $rights;
     }
 
-    public function getRights(): ArrayCollection
+    public function getRights(): Collection
     {
         return $this->rights;
     }

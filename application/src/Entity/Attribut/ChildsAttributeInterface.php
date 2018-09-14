@@ -2,14 +2,14 @@
 
 namespace App\Entity\Attribut;
 
-use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @author kevinfrantz
  */
 interface ChildsAttributeInterface
 {
-    public function setChilds(ArrayCollection $childs): void;
+    public function setChilds(Collection $childs): void;
 
-    public function getChilds(): ArrayCollection;
+    public function getChilds(): Collection;
 }

@@ -43,7 +43,7 @@ class Permission extends AbstractEntity implements PermissionInterface
     protected $node;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Right")
+     * @ORM\ManyToOne(targetEntity="Right",inversedBy="permissions")
      * @ORM\JoinColumn(name="right_id", referencedColumnName="id")
      *
      * @var RightInterface

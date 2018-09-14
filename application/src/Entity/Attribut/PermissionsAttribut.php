@@ -2,8 +2,8 @@
 
 namespace App\Entity\Attribut;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\PermissionInterface;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @author kevinfrantz
@@ -11,16 +11,16 @@ use App\Entity\PermissionInterface;
 trait PermissionsAttribut
 {
     /**
-     * @var ArrayCollection
+     * @var Collection
      */
     protected $permissions;
 
-    public function setPermissions(ArrayCollection $permissions): void
+    public function setPermissions(Collection $permissions): void
     {
         $this->permissions = $permissions;
     }
 
-    public function getPermissions(): ArrayCollection
+    public function getPermissions(): Collection
     {
         return $this->permissions;
     }

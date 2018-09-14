@@ -6,8 +6,8 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Entity\AbstractSource;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Source\TemplateGenerator;
 use Symfony\Component\HttpFoundation\Request;
+use App\Source\Generator\StringGenerator;
 
 /**
  * @author kevinfrantz
@@ -29,8 +29,8 @@ class SourceController extends AbstractController
         if (!$source) {
             throw $this->createNotFoundException('No source found for id '.$id);
         }
-        $templateGenerator = new TemplateGenerator($source, $request);
+        $templateGenerator = new StringGenerator($request, $source, $this->container->get('twig'));
 
-        return $this->render($templateGenerator->getTemplatePath(), ['source' => $source]);
+        return new Response($templateGenerator->render());
     }
 }

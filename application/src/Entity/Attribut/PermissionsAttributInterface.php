@@ -2,17 +2,17 @@
 
 namespace App\Entity\Attribut;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\PermissionInterface;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @author kevinfrantz
  */
 interface PermissionsAttributInterface
 {
-    public function setPermissions(ArrayCollection $permissions): void;
+    public function setPermissions(Collection $permissions): void;
 
-    public function getPermissions(): ArrayCollection;
+    public function getPermissions(): Collection;
 
     public function addPermission(PermissionInterface $permission): void;
 }

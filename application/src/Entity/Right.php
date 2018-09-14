@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
 use App\Entity\Attribut\LawAttribut;
 use App\Entity\Attribut\PermissionsAttribut;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @author kevinfrantz
@@ -20,7 +21,7 @@ class Right extends AbstractEntity implements RightInterface
     use TypeAttribut,LawAttribut,PermissionsAttribut;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Law")
+     * @ORM\ManyToOne(targetEntity="Law", inversedBy="rights")
      * @ORM\JoinColumn(name="law_id", referencedColumnName="id")
      *
      * @var LawInterface
@@ -36,9 +37,9 @@ class Right extends AbstractEntity implements RightInterface
     protected $type;
 
     /**
-     * @ORM\OneToMany(targetEntity="Permission", mappedBy="id", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="Permission", mappedBy="right", cascade={"persist", "remove"})
      *
-     * @var ArrayCollection
+     * @var Collection
      */
     protected $permissions;
 
