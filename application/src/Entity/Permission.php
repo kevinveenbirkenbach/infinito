@@ -3,13 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Attribut\BlacklistAttribut;
-use App\Entity\Attribut\WhitelistAttribut;
 use App\Entity\Attribut\NodeAttribut;
 use App\Entity\Attribut\RightAttribut;
 use App\Entity\Attribut\RecieverAttribut;
 use App\DBAL\Types\RecieverType;
 use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
+use App\Entity\Attribut\GrantAttribut;
 
 /**
  * @author kevinfrantz
@@ -18,7 +17,7 @@ use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
  */
 class Permission extends AbstractEntity implements PermissionInterface
 {
-    use NodeAttribut,RightAttribut,WhitelistAttribut,BlacklistAttribut,RecieverAttribut;
+    use NodeAttribut,RightAttribut,RecieverAttribut,GrantAttribut;
 
     /**
      * @ORM\Column(name="reciever", type="RecieverType", nullable=false)
@@ -33,14 +32,7 @@ class Permission extends AbstractEntity implements PermissionInterface
      *
      * @var bool
      */
-    protected $blacklist;
-
-    /**
-     * @ORM\Column(type="boolean")
-     *
-     * @var bool
-     */
-    protected $whitelist;
+    protected $grant;
 
     /**
      * @ORM\ManyToOne(targetEntity="Node")
@@ -60,7 +52,6 @@ class Permission extends AbstractEntity implements PermissionInterface
 
     public function __construct()
     {
-        $this->blacklist = false;
-        $this->whitelist = false;
+        $this->grant = true;
     }
 }
