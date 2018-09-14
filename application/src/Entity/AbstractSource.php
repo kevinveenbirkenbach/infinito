@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"user" = "UserSource"})
+ * @ORM\DiscriminatorMap({"user" = "UserSource","name" = "NameSource"})
  */
 abstract class AbstractSource extends AbstractEntity implements SourceInterface
 {
