@@ -28,7 +28,7 @@ class Permission extends AbstractEntity implements PermissionInterface
     protected $reciever;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean",name="`grant`")
      *
      * @var bool
      */
@@ -52,6 +52,7 @@ class Permission extends AbstractEntity implements PermissionInterface
 
     public function __construct()
     {
+        $this->reciever = RecieverType::NODE;
         $this->grant = true;
     }
 }
