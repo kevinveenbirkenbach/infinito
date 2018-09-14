@@ -1,4 +1,5 @@
-{% extends "frames/default.html.twig" %}
+{% extends "source/source.html.twig" %}
 {% block content %}
-{{ source.name }}
+<h1>{% trans %} Name {% endtrans %}</h1>
+{% include "source/content/name." ~ app.request.requestFormat ~ ".twig" %}
 {% endblock %}
