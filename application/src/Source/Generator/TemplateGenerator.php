@@ -4,14 +4,13 @@ namespace App\Source\Generator;
 
 use App\Entity\SourceInterface;
 use Symfony\Component\HttpFoundation\Request;
+use App\Creator\Factory\Template\SourceTemplateFactory;
 
 /**
  * @author kevinfrantz
  */
 final class TemplateGenerator extends AbstractGenerator
 {
-    const SOURCE_TEMPLATE_ROOT = 'source';
-
     /**
      * @var \Twig_Environment
      */
@@ -25,20 +24,8 @@ final class TemplateGenerator extends AbstractGenerator
 
     public function render(): string
     {
-        return $this->twig->render($this->getTemplatePath(), ['source' => $this->source]);
-    }
+        $templatePathFactory = new SourceTemplateFactory($this->source, $this->request);
 
-    private function getTemplatePath(): string
-    {
-        return self::SOURCE_TEMPLATE_ROOT.'/'.$this->generateName().'.'.$this->request->getRequestFormat().'.twig';
-    }
-
-    private function generateName(): string
-    {
-        $reflection = new \ReflectionClass($this->source);
-        $shortName = $reflection->getShortName();
-        $lowerName = strtolower($shortName);
-
-        return str_replace('source', '', $lowerName);
+        return $this->twig->render($templatePathFactory->getTemplatePath(), ['source' => $this->source]);
     }
 }
