@@ -8,11 +8,15 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use App\Source\Generator\StringGenerator;
+use FOS\RestBundle\FOSRestBundle;
+use App\Creator\Factory\Template\SourceTemplateFactory;
+use FOS\RestBundle\Controller\FOSRestController;
+use FOS\RestBundle\Controller\Annotations\View;
 
 /**
  * @author kevinfrantz
  */
-class SourceController extends AbstractController
+class SourceController extends FOSRestController
 {
     public function modify(int $id): Response
     {
@@ -29,8 +33,9 @@ class SourceController extends AbstractController
         if (!$source) {
             throw $this->createNotFoundException('No source found for id '.$id);
         }
-        $templateGenerator = new StringGenerator($request, $source, $this->container->get('twig'));
-
-        return new Response($templateGenerator->render());
+        $view = $this->view($source, 200)
+        ->setTemplate((new SourceTemplateFactory($source, $request))->getTemplatePath())
+        ->setTemplateVar('source');
+        return $this->handleView($view);
     }
 }

@@ -8,6 +8,7 @@
         "fresh/doctrine-enum-bundle": "~6.2",
         "friendsofsymfony/rest-bundle": "^2.4",
         "friendsofsymfony/user-bundle": "~2.1",
+        "jms/serializer-bundle": "^2.4",
         "knplabs/knp-menu-bundle": "^2.0",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "*",
