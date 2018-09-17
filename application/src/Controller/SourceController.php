@@ -10,6 +10,7 @@ use FOS\RestBundle\Controller\FOSRestController;
 use App\Form\NameSourceType;
 use App\Entity\SourceInterface;
 use App\Creator\Factory\Template\Source\SourceTemplateFormFactory;
+use App\Creator\Factory\Form\Source\SourceFormFactory;
 
 /**
  * @todo IMPLEMENT SECURITY!
@@ -41,7 +42,7 @@ class SourceController extends FOSRestController
     public function edit(Request $request, int $id): Response
     {
         $source = $this->loadSource($request, $id);
-        $form = $this->createForm(NameSourceType::class, $source);
+        $form = $this->createForm((new SourceFormFactory($source))->getNamespace(), $source);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $source = $form->getData();
