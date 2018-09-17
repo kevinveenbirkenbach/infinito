@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Attribut\NameAttribut;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @author kevinfrantz
@@ -16,7 +17,7 @@ class NameSource extends AbstractSource implements NameSourceInterface
 
     /**
      * @ORM\Column(type="string",length=255)
-     *
+     * @Assert\NotBlank()
      * @var string
      */
     protected $name;

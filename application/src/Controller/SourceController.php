@@ -1,41 +1,72 @@
 <?php
-
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\AbstractSource;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use App\Source\Generator\StringGenerator;
-use FOS\RestBundle\FOSRestBundle;
-use App\Creator\Factory\Template\SourceTemplateFactory;
+use App\Creator\Factory\Template\Source\SourceTemplateFactory;
 use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Controller\Annotations\View;
+use App\Form\NameSourceType;
+use App\Entity\SourceInterface;
+use App\Creator\Factory\Template\Source\SourceTemplateFormFactory;
 
 /**
+ * @todo IMPLEMENT SECURITY!
  * @author kevinfrantz
  */
 class SourceController extends FOSRestController
 {
+
     public function modify(int $id): Response
-    {
-    }
+    {}
 
     /**
+     *
      * @Route("/source/{id}.{_format}", defaults={"_format"="html"})
      */
     public function show(Request $request, int $id): Response
     {
+        $source = $this->loadSource($request, $id);
+        $view = $this->view($source, 200)
+            ->setTemplate((new SourceTemplateFactory($source, $request))->getTemplatePath())
+            ->setTemplateVar('source');
+        return $this->handleView($view);
+    }
+
+    /**
+     *
+     * @Route("/source/{id}.{_format}/edit", defaults={"_format"="html"})
+     */
+    public function edit(Request $request, int $id): Response
+    {
+        $source = $this->loadSource($request, $id);
+        $form = $this->createForm(NameSourceType::class, $source);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $source = $form->getData();
+            $this->saveSource($source);
+        }
+        return $this->render((new SourceTemplateFormFactory($source, $request))->getTemplatePath(), array(
+            'form' => $form->createView(),
+        ));
+    }
+
+    private function loadSource(Request $request, int $id): SourceInterface
+    {
         $source = $this->getDoctrine()
             ->getRepository(AbstractSource::class)
             ->find($id);
-        if (!$source) {
-            throw $this->createNotFoundException('No source found for id '.$id);
+        if (! $source) {
+            throw $this->createNotFoundException('No source found for id ' . $id);
         }
-        $view = $this->view($source, 200)
-        ->setTemplate((new SourceTemplateFactory($source, $request))->getTemplatePath())
-        ->setTemplateVar('source');
-        return $this->handleView($view);
+        return $source;
+    }
+
+    private function saveSource(SourceInterface $source): void
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($source);
+        $entityManager->flush();
     }
 }

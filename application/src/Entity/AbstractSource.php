@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Attribut\NodeAttribut;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Exclude;
 
 /**
  * @author kevinfrantz
@@ -22,6 +23,7 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
      * @var NodeInterface
      * @ORM\OneToOne(targetEntity="Node",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="node_id", referencedColumnName="id")
+     * @Exclude
      */
     protected $node;
 

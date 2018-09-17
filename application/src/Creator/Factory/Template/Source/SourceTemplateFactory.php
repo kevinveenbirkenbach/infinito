@@ -1,20 +1,19 @@
 <?php
 
-namespace App\Creator\Factory\Template;
+namespace App\Creator\Factory\Template\Source;
 
 use App\Entity\SourceInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Didn't know where to structure this file and how to name it.
- * Feel free to move it to a better place.
- *
  * @author kevinfrantz
  */
 class SourceTemplateFactory
 {
     const SOURCE_TEMPLATE_ROOT = 'source';
 
+    const VIEW_FOLDER = 'view';
+    
     /**
      * @var SourceInterface
      */
@@ -36,10 +35,10 @@ class SourceTemplateFactory
 
     public function getTemplatePath(): string
     {
-        return self::SOURCE_TEMPLATE_ROOT.'/'.$this->generateName().'.'.$this->request->getRequestFormat().'.twig';
+        return self::SOURCE_TEMPLATE_ROOT.'/'.self::VIEW_FOLDER.'/'.$this->generateName().'.'.$this->request->getRequestFormat().'.twig';
     }
 
-    private function generateName(): string
+    protected function generateName(): string
     {
         $reflection = new \ReflectionClass($this->source);
         $shortName = $reflection->getShortName();
