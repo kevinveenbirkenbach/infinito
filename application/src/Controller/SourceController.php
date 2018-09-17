@@ -18,10 +18,6 @@ use App\Creator\Factory\Form\Source\SourceFormFactory;
  */
 class SourceController extends FOSRestController
 {
-
-    public function modify(int $id): Response
-    {}
-
     /**
      *
      * @Route("/source/{id}.{_format}", defaults={"_format"="html"})
@@ -37,7 +33,7 @@ class SourceController extends FOSRestController
 
     /**
      *
-     * @Route("/source/{id}.{_format}/edit", defaults={"_format"="html"})
+     * @Route("/source/{id}/edit.{_format}", defaults={"_format"="html"})
      */
     public function edit(Request $request, int $id): Response
     {
