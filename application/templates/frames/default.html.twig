@@ -1,10 +1,14 @@
 {% extends "base.html.twig" %}
 {% block body %}
 {% include 'frames/structure/navbar/navbar_top.html.twig'%}
+{% block sub_navigation %}
+{% endblock %}
 <br />
-<div class="container">
+<main role="main" class="container">
+	{% block container_navigation %}
+	{% endblock %}
 	{% include 'frames/structure/message/flash_messages.html.twig'%}
 	{% block content %}
 	{% endblock %}
-</div>
+</main>
 {% endblock %}
