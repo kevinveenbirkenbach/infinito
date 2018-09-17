@@ -83,6 +83,9 @@
     "egulias/email-validator": {
         "version": "2.1.5"
     },
+    "facebook/webdriver": {
+        "version": "1.6.0"
+    },
     "fig/link-util": {
         "version": "1.0.0"
     },
@@ -263,6 +266,9 @@
             "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
         }
     },
+    "simplethings/entity-audit-bundle": {
+        "version": "v1.0.9"
+    },
     "swiftmailer/swiftmailer": {
         "version": "v6.1.2"
     },
@@ -388,6 +394,9 @@
     },
     "symfony/orm-pack": {
         "version": "v1.0.5"
+    },
+    "symfony/panther": {
+        "version": "v0.1.0"
     },
     "symfony/phpunit-bridge": {
         "version": "4.1",

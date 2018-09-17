@@ -11,6 +11,7 @@
         "jms/serializer-bundle": "^2.4",
         "knplabs/knp-menu-bundle": "^2.0",
         "sensio/framework-extra-bundle": "^5.1",
+        "simplethings/entity-audit-bundle": "^1.0",
         "symfony/asset": "*",
         "symfony/console": "*",
         "symfony/expression-language": "*",
