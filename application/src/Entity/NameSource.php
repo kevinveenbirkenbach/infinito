@@ -18,6 +18,7 @@ class NameSource extends AbstractSource implements NameSourceInterface
     /**
      * @ORM\Column(type="string",length=255)
      * @Assert\NotBlank()
+     *
      * @var string
      */
     protected $name;

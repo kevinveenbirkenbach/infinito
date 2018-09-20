@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Subscriber;
 
 use App\Event\Menu\Topbar\UserMenuEvent;
@@ -9,19 +10,16 @@ use Knp\Menu\ItemInterface;
 
 class UserMenuSubscriber implements EventSubscriberInterface
 {
-
     /**
-     *
      * @var TokenStorageInterface
      */
     private $tokenStorage;
 
     /**
-     *
      * @var TranslatorInterface
      */
     private $translator;
-    
+
     public function __construct(TokenStorageInterface $tokenStorage, TranslatorInterface $translator)
     {
         $this->tokenStorage = $tokenStorage;
@@ -31,18 +29,18 @@ class UserMenuSubscriber implements EventSubscriberInterface
     public function onUserMenuConfigure(UserMenuEvent $event): void
     {
         $menu = $event->getItem();
-        $menu->addChild('start', [
+        $menu->addChild($this->translator->trans('start'), [
             'route' => 'homepage',
             'attributes' => [
-                'icon' => 'fab fa-font-awesome-flag'
-            ]
+                'icon' => 'fab fa-font-awesome-flag',
+            ],
         ]);
-        
-        $menu->addChild('imprint', [
+
+        $menu->addChild($this->translator->trans('imprint'), [
             'route' => 'imprint',
             'attributes' => [
-                'icon' => 'fas fa-address-card'
-            ]
+                'icon' => 'fas fa-address-card',
+            ],
         ]);
         $this->generateUserDropdown($menu);
     }
@@ -53,45 +51,45 @@ class UserMenuSubscriber implements EventSubscriberInterface
             ->getUsername() ?? 'user', [
             'attributes' => [
                 'dropdown' => true,
-                'icon' => 'fas fa-user'
-            ]
+                'icon' => 'fas fa-user',
+            ],
         ]);
         if ($this->tokenStorage->getToken()->getRoles()) {
-            $dropdown->addChild('logout', [
+            $dropdown->addChild($this->translator->trans('logout'), [
                 'route' => 'logout',
                 'attributes' => [
                     'icon' => 'fas fa-sign-out-alt',
-                    'divider_append' => true
-                ]
+                    'divider_append' => true,
+                ],
             ]);
-            $dropdown->addChild('edit profile', [
+            $dropdown->addChild($this->translator->trans('edit profile'), [
                 'route' => 'fos_user_profile_edit',
                 'attributes' => [
                     'icon' => 'fas fa-user-edit',
-                    'divider_append' => true
-                ]
+                    'divider_append' => true,
+                ],
             ]);
         } else {
-            $dropdown->addChild('login', [
+            $dropdown->addChild($this->translator->trans('login'), [
                 'route' => 'fos_user_security_login',
                 'attributes' => [
                     'divider_append' => true,
-                    'icon' => 'fas fa-sign-in-alt'
-                ]
+                    'icon' => 'fas fa-sign-in-alt',
+                ],
             ]);
         }
         $dropdown->addChild('register', [
             'route' => 'fos_user_registration_register',
             'attributes' => [
-                'icon' => 'fas fa-file-signature'
-            ]
+                'icon' => 'fas fa-file-signature',
+            ],
         ]);
     }
 
     public static function getSubscribedEvents(): array
     {
         return [
-            UserMenuEvent::EVENT => 'onUserMenuConfigure'
+            UserMenuEvent::EVENT => 'onUserMenuConfigure',
         ];
     }
 }

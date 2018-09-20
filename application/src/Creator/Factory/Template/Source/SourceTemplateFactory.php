@@ -13,7 +13,7 @@ class SourceTemplateFactory
     const SOURCE_TEMPLATE_ROOT = 'source';
 
     const VIEW_FOLDER = 'view';
-    
+
     /**
      * @var SourceInterface
      */

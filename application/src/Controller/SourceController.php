@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
@@ -7,19 +8,18 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Creator\Factory\Template\Source\SourceTemplateFactory;
 use FOS\RestBundle\Controller\FOSRestController;
-use App\Form\NameSourceType;
 use App\Entity\SourceInterface;
 use App\Creator\Factory\Template\Source\SourceTemplateFormFactory;
 use App\Creator\Factory\Form\Source\SourceFormFactory;
 
 /**
  * @todo IMPLEMENT SECURITY!
+ *
  * @author kevinfrantz
  */
 class SourceController extends FOSRestController
 {
     /**
-     *
      * @Route("/source/{id}.{_format}", defaults={"_format"="html"})
      */
     public function show(Request $request, int $id): Response
@@ -28,11 +28,11 @@ class SourceController extends FOSRestController
         $view = $this->view($source, 200)
             ->setTemplate((new SourceTemplateFactory($source, $request))->getTemplatePath())
             ->setTemplateVar('source');
+
         return $this->handleView($view);
     }
 
     /**
-     *
      * @Route("/source/{id}/edit.{_format}", defaults={"_format"="html"})
      */
     public function edit(Request $request, int $id): Response
@@ -44,9 +44,10 @@ class SourceController extends FOSRestController
             $source = $form->getData();
             $this->saveSource($source);
         }
-        return $this->render((new SourceTemplateFormFactory($source, $request))->getTemplatePath(), array(
+
+        return $this->render((new SourceTemplateFormFactory($source, $request))->getTemplatePath(), [
             'form' => $form->createView(),
-        ));
+        ]);
     }
 
     private function loadSource(Request $request, int $id): SourceInterface
@@ -54,9 +55,10 @@ class SourceController extends FOSRestController
         $source = $this->getDoctrine()
             ->getRepository(AbstractSource::class)
             ->find($id);
-        if (! $source) {
-            throw $this->createNotFoundException('No source found for id ' . $id);
+        if (!$source) {
+            throw $this->createNotFoundException('No source found for id '.$id);
         }
+
         return $source;
     }
 
