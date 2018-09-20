@@ -1,0 +1,34 @@
+{% extends "node/node.html.twig" %}
+{% block content %}
+<h1>
+	{% trans %}
+	Node
+	{% endtrans %}
+	#
+	{{ node.id }}
+</h1>
+{% trans %}
+Manages
+{% endtrans %}
+<a href="{{ path('app_source_show',{'id':node.source.id})}}"> {% trans with {'%node.source.id%':node.source.id}%}
+	source #%node.source.id% {% endtrans %}
+</a>
+.
+<h2>
+	{% trans %}
+	Relatives
+	{% endtrans %}
+</h2>
+<h3>
+	{% trans %}
+	First Generation Parents
+	{% endtrans %}
+</h3>
+{% include "node/structure/_list.html.twig" with {'nodeList':node.parents}%}
+<h3>
+	{% trans %}
+	First Generation Childs
+	{% endtrans %}
+</h3>
+{% include "node/structure/_list.html.twig" with {'nodeList':node.childs}%}
+{% endblock %}

@@ -39,6 +39,15 @@ class SourceMenuSubscriber implements EventSubscriberInterface
             ],
         ]);
         $this->generateSourceFormatDropdown($menu, $event);
+        $menu->addChild($this->translator->trans('node'), [
+            'route' => 'app_source_node',
+            'routeParameters' => [
+                'id' => $event->getRequest()->getCurrentRequest()->attributes->get('id'),
+            ],
+            'attributes' => [
+                'icon' => 'fas fa-globe',
+            ],
+        ]);
     }
 
     private function generateSourceFormatDropdown(ItemInterface $menu, SourceMenuEvent $event): void

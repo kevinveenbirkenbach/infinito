@@ -12,7 +12,7 @@ use App\Entity\Attribut\LawAttribut;
 /**
  * @author kevinfrantz
  * @ORM\Table(name="node")
- * @ORM\Entity(repositoryClass="App\Repository\NodeRepository")
+ * @ORM\Entity()
  */
 class Node extends AbstractEntity implements NodeInterface
 {

@@ -11,6 +11,7 @@ use FOS\RestBundle\Controller\FOSRestController;
 use App\Entity\SourceInterface;
 use App\Creator\Factory\Template\Source\SourceTemplateFormFactory;
 use App\Creator\Factory\Form\Source\SourceFormFactory;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * @todo IMPLEMENT SECURITY!
@@ -48,6 +49,16 @@ class SourceController extends FOSRestController
         return $this->render((new SourceTemplateFormFactory($source, $request))->getTemplatePath(), [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/source/{id}/node.{_format}", defaults={"_format"="html"})
+     */
+    public function node(Request $request, int $id): RedirectResponse
+    {
+        $source = $this->loadSource($request, $id);
+
+        return $this->redirectToRoute('app_node_show', ['id' => $source->getNode()->getId()]);
     }
 
     private function loadSource(Request $request, int $id): SourceInterface

@@ -1,0 +1,13 @@
+{% if nodeList.isEmpty %}
+{% trans %}
+This list doesn't contain elements.
+{% endtrans %}
+{% else %}
+<ul>
+	{% for node in nodeList %}
+	<li><a href="{{ path('app_node_show',{'id':node.id}) }}" class=" nav-link"> <i
+			class="fas fa-globe"></i> {% trans %}Node{% endtrans %} {{ node.id }}
+	</a></li>
+	{% endfor %}
+</ul>
+{% endif %}
