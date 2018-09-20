@@ -32,6 +32,7 @@
         "symfony/yaml": "*"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.0",
         "friendsofphp/php-cs-fixer": "^2.13",
         "phpunit/phpunit": "^7",
         "symfony/browser-kit": "*",
