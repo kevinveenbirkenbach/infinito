@@ -3,7 +3,6 @@
 namespace App\Tests\Unit\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use App\Controller\DefaultControllerInterface;
 use App\Controller\DefaultController;
 
 /**

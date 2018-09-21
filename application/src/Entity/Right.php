@@ -8,9 +8,7 @@ use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
 use App\Entity\Attribut\LawAttribut;
 use App\DBAL\Types\LayerType;
 use App\DBAL\Types\RightType;
-use App\Entity\Attribut\PermissionsAttribut;
 use App\Entity\Attribut\NodeAttribut;
-use App\Entity\Attribut\RecieverAttribut;
 use App\Entity\Attribut\GrantAttribut;
 use App\Logic\Operation\OperationInterface;
 use App\Entity\Attribut\ConditionAttribut;
@@ -24,7 +22,7 @@ use App\Entity\Attribut\LayerAttribut;
  */
 class Right extends AbstractEntity implements RightInterface
 {
-    use TypeAttribut,LawAttribut,PermissionsAttribut, NodeAttribut, RecieverAttribut,GrantAttribut,ConditionAttribut,RecieverGroupAttribut,LayerAttribut;
+    use TypeAttribut,LawAttribut, NodeAttribut, GrantAttribut,ConditionAttribut,RecieverGroupAttribut,LayerAttribut;
 
     /**
      * @ORM\ManyToOne(targetEntity="Law", inversedBy="rights")
@@ -75,7 +73,8 @@ class Right extends AbstractEntity implements RightInterface
 
     /**
      * @ORM\OneToOne(targetEntity="AbstractOperation",cascade={"persist"})
-     * @ORM\Column(nullable=true)
+     * @ORM\JoinColumn(name="operation_id", referencedColumnName="id",nullable=true)
+     *
      * @var OperationInterface
      */
     protected $condition;
@@ -84,7 +83,8 @@ class Right extends AbstractEntity implements RightInterface
     {
         parent::__construct();
         $this->grant = true;
-        $this->recieverGroup = new RecieverGroup();
+        //$this->node = new Node();
+        //$this->recieverGroup = new RecieverGroup();
     }
 
     public function isGranted(NodeInterface $node, string $layer, string $right): bool

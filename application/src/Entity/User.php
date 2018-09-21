@@ -43,5 +43,6 @@ class User extends BaseUser implements SourceAttributInterface
         $this->isActive = true;
         $this->source = new UserSource();
         LawModificator::grantAllRights($this->source->getNode()->getLaw(), $this->source->getNode());
+        //var_dump($this->source->getNode()->getLaw()->getRights()->get(0));
     }
 }

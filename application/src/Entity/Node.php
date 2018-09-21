@@ -8,6 +8,7 @@ use App\Entity\Attribut\SourceAttribut;
 use App\Entity\Attribut\ParentsAttribut;
 use App\Entity\Attribut\ChildsAttribut;
 use App\Entity\Attribut\LawAttribut;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @author kevinfrantz
@@ -41,20 +42,8 @@ class Node extends AbstractEntity implements NodeInterface
     public function __construct()
     {
         $this->law = new Law();
+        $this->parents = new ArrayCollection();
+        $this->childs = new ArrayCollection();
         $this->law->setNode($this);
-        $this->initPermissions();
-    }
-
-    private function initPermissions(): void
-    {
-        /*
-         * @var RightInterface
-         */
-        foreach ($this->law->getRights()->toArray() as $right) {
-            $permission = new Permission();
-            $permission->setNode($this);
-            $permission->setRight($right);
-            $right->addPermission($permission);
-        }
     }
 }
