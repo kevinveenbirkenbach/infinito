@@ -12,7 +12,7 @@ use App\Controller\DefaultController;
 class DefaultControllerTest extends WebTestCase
 {
     /**
-     * @var DefaultControllerInterface
+     * @var DefaultController
      */
     protected $defaultController;
 
