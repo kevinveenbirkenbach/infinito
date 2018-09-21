@@ -21,6 +21,6 @@ trait NameSourceAttribut
 
     public function getNameSource(): NameSourceInterface
     {
-        return $this->getNameSource();
+        return $this->nameSource;
     }
 }
