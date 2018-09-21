@@ -1,10 +1,9 @@
 <?php
+
 namespace App\Logic\Result;
 
 /**
- *
  * @author kevinfrantz
- *        
  */
 class Result implements ResultInterface
 {
@@ -12,9 +11,10 @@ class Result implements ResultInterface
      * @var bool
      */
     protected $bool;
-    
+
     /**
-     * The concrete result value
+     * The concrete result value.
+     *
      * @var mixed
      */
     protected $value;
@@ -28,7 +28,7 @@ class Result implements ResultInterface
     {
         return $this->bool;
     }
-    
+
     public function setBool(bool $bool): void
     {
         $this->bool = $bool;
@@ -38,12 +38,10 @@ class Result implements ResultInterface
     {
         $this->value = $value;
     }
-    
+
     public function setAll($value): void
     {
-        $this->bool = (bool)$value;
+        $this->bool = (bool) $value;
         $this->value = $value;
     }
-
 }
-

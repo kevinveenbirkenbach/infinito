@@ -11,6 +11,7 @@ use JMS\Serializer\Annotation\Exclude;
  *
  * @see https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/reference/inheritance-mapping.html
  * @ORM\Entity
+ * @ORM\Table(name="source")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap({"user" = "UserSource","name" = "NameSource"})

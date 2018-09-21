@@ -7,6 +7,7 @@ use App\Entity\Attribut\RightsAttribute;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\DBAL\Types\RightType;
 use App\Entity\Attribut\NodeAttribut;
+use App\DBAL\Types\LayerType;
 
 /**
  * @author kevinfrantz
@@ -20,7 +21,7 @@ class Law extends AbstractEntity implements LawInterface
     /**
      * @ORM\OneToMany(targetEntity="Right", mappedBy="law", cascade={"persist", "remove"})
      *
-     * @var ArrayCollection
+     * @var ArrayCollection | Right[]
      */
     protected $rights;
 
@@ -40,11 +41,28 @@ class Law extends AbstractEntity implements LawInterface
     private function initAllRights(): void
     {
         $this->rights = new ArrayCollection();
-        foreach (RightType::getChoices() as $key => $value) {
-            $right = new Right();
-            $right->setType($value);
-            $right->setLaw($this);
-            $this->rights->set($key, $right);
+        foreach (LayerType::getChoices() as $layerKey => $layerValue) {
+            foreach (RightType::getChoices() as $rightKey => $rightValue) {
+                $right = new Right();
+                $right->setType($rightKey);
+                $right->setLaw($this);
+                $right->setLayer($layerKey);
+                $this->rights->add($right);
+            }
         }
+    }
+
+    public function isGranted(NodeInterface $node, string $layer, string $right): bool
+    {
+        /**
+         * @var RightInterface
+         */
+        foreach ($this->rights->toArray() as $right) {
+            if ($right->isGranted($node, $layer, $right)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

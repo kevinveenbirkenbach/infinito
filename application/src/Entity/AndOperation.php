@@ -1,32 +1,34 @@
 <?php
+
 namespace App\Entity;
 
 use App\Logic\Operation\OperandInterface;
 use App\Logic\Result\Result;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
- *
  * @author kevinfrantz
- *        
+ * @ORM\Table(name="source_operation_user")
+ * @ORM\Entity()
  */
 class AndOperation extends AbstractOperation
 {
     public function process(): void
     {
-        if($this->operands->isEmpty()){
-            throw new \Exception("Operands must be defined!");
+        if ($this->operands->isEmpty()) {
+            throw new \Exception('Operands must be defined!');
         }
         $this->result = new Result();
         /**
-         * @var OperandInterface $operand
+         * @var OperandInterface
          */
-        foreach ($this->operands->toArray() as $operand){
-            if(!$operand->getResult()->getBool()){
+        foreach ($this->operands->toArray() as $operand) {
+            if (!$operand->getResult()->getBool()) {
                 $this->result->setAll(false);
+
                 return;
             }
         }
         $this->result->setAll(true);
     }
 }
-
