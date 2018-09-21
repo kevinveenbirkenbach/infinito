@@ -35,7 +35,7 @@ class Right extends AbstractEntity implements RightInterface
     protected $law;
 
     /**
-     * @ORM\Column(name="type", type="LayerType", nullable=false)
+     * @ORM\Column(name="layer", type="LayerType", nullable=false)
      * @DoctrineAssert\Enum(entity="App\DBAL\Types\LayerType")
      *
      * @var string
@@ -74,8 +74,8 @@ class Right extends AbstractEntity implements RightInterface
     protected $type;
 
     /**
-     * @ORM\OneToOne(targetEntity="AbstractOperation",cascade={"persist"},nullable=true)
-     *
+     * @ORM\OneToOne(targetEntity="AbstractOperation",cascade={"persist"})
+     * @ORM\Column(nullable=true)
      * @var OperationInterface
      */
     protected $condition;

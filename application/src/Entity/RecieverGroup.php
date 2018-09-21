@@ -7,9 +7,13 @@ use App\Entity\Attribut\RecieverAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\DBAL\Types\RecieverType;
 use Symfony\Component\Intl\Exception\NotImplementedException;
+use Doctrine\ORM\Mapping as ORM;
+use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
 
 /**
  * @author kevinfrantz
+ * @ORM\Table(name="reciever_group")
+ * @ORM\Entity()
  */
 class RecieverGroup extends AbstractEntity implements RecieverGroupInterface
 {
