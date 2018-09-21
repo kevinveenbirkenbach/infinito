@@ -7,6 +7,7 @@ use FOS\UserBundle\Model\User as BaseUser;
 use App\Entity\Attribut\SourceAttributInterface;
 use App\Entity\Attribut\SourceAttribut;
 use App\Entity\Attribut\IdAttribut;
+use App\Creator\Modificator\Entity\LawModificator;
 
 /**
  * @author kevinfrantz
@@ -41,6 +42,6 @@ class User extends BaseUser implements SourceAttributInterface
         parent::__construct();
         $this->isActive = true;
         $this->source = new UserSource();
-        $this->source->setUser($this);
+        LawModificator::grantAllRights($this->source->getNode()->getLaw(), $this->source->getNode());
     }
 }

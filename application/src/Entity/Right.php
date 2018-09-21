@@ -84,6 +84,7 @@ class Right extends AbstractEntity implements RightInterface
     {
         parent::__construct();
         $this->grant = true;
+        $this->recieverGroup = new RecieverGroup();
     }
 
     public function isGranted(NodeInterface $node, string $layer, string $right): bool
