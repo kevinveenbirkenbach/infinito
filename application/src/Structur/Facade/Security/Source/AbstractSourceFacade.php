@@ -1,27 +1,25 @@
 <?php
-namespace App\Structur\Facade\Security;
+
+namespace App\Structur\Facade\Security\Source;
 
 use App\Entity\NodeInterface;
 use App\Entity\SourceInterface;
 use App\Entity\User;
 use App\DBAL\Types\RightType;
 use App\DBAL\Types\LayerType;
+use App\Structur\Facade\Security\Source\interfaces\SourceFacadeInterface;
 
 /**
- *
  * @author kevinfrantz
- *        
  */
-abstract class AbstractSourceFasade implements SourceInterface
+abstract class AbstractSourceFacade implements SourceFacadeInterface
 {
     /**
-     *
      * @var User
      */
     protected static $user;
 
     /**
-     *
      * @var SourceInterface
      */
     protected $source;
@@ -30,7 +28,7 @@ abstract class AbstractSourceFasade implements SourceInterface
     {
         self::$user = $user;
     }
-    
+
     public function __construct(SourceInterface $source)
     {
         $this->source = $source;
@@ -48,24 +46,27 @@ abstract class AbstractSourceFasade implements SourceInterface
 
     public function getId(): int
     {
-        if($this->isGranted(RightType::READ)){
+        if ($this->isGranted(RightType::READ)) {
             return $source->getId();
         }
     }
 
     public function getNode(): NodeInterface
     {
-        if($this->isGranted(RightType::READ,LayerType::NODE)){
-            return $source->getId();
+        if ($this->isGranted(RightType::READ, LayerType::NODE)) {
+            return $source->getNode();
         }
     }
 
-    protected function isGranted(string $right,string $layer): bool
+    protected function isGranted(string $right, string $layer): bool
     {
         return $this->getNode()
             ->getLaw()
             ->isGranted(self::$user->getSource()
             ->getNode(), self::$layer, $right);
     }
-}
 
+    protected function lazyLoadSourceFacade(SourceInterface $source)
+    {
+    }
+}

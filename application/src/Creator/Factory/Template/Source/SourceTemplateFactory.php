@@ -4,20 +4,16 @@ namespace App\Creator\Factory\Template\Source;
 
 use App\Entity\SourceInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Creator\Factory\AbstractSourceFactory;
 
 /**
  * @author kevinfrantz
  */
-class SourceTemplateFactory
+class SourceTemplateFactory extends AbstractSourceFactory
 {
     const SOURCE_TEMPLATE_ROOT = 'source';
 
     const VIEW_FOLDER = 'view';
-
-    /**
-     * @var SourceInterface
-     */
-    protected $source;
 
     /**
      * @var Request
@@ -29,7 +25,7 @@ class SourceTemplateFactory
      */
     public function __construct(SourceInterface $source, Request $request)
     {
-        $this->source = $source;
+        parent::__construct($source);
         $this->request = $request;
     }
 
@@ -40,9 +36,7 @@ class SourceTemplateFactory
 
     protected function generateName(): string
     {
-        $reflection = new \ReflectionClass($this->source);
-        $shortName = $reflection->getShortName();
-        $lowerName = strtolower($shortName);
+        $lowerName = strtolower($this->getSourceClassShortName());
 
         return str_replace('source', '', $lowerName);
     }

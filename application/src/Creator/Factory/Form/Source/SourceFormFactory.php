@@ -2,24 +2,14 @@
 
 namespace App\Creator\Factory\Form\Source;
 
-use App\Entity\SourceInterface;
+use Creator\Factory\AbstractSourceFactory;
 
 /**
  * @author kevinfrantz
  */
-class SourceFormFactory
+final class SourceFormFactory extends AbstractSourceFactory
 {
     const FORM_NAMESPACE = 'App\Form\\';
-
-    /**
-     * @var SourceInterface
-     */
-    private $source;
-
-    public function __construct(SourceInterface $source)
-    {
-        $this->source = $source;
-    }
 
     public function getNamespace(): string
     {
@@ -28,8 +18,6 @@ class SourceFormFactory
 
     protected function getName(): string
     {
-        $reflectionClass = new \ReflectionClass($this->source);
-
-        return $reflectionClass->getShortName().'Type';
+        return $this->getSourceClassShortName().'Type';
     }
 }

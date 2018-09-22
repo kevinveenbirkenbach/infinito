@@ -5,7 +5,7 @@ namespace App\Creator\Factory\Template\Source;
 /**
  * @author kevinfrantz
  */
-class SourceTemplateFormFactory extends SourceTemplateFactory
+final class SourceTemplateFormFactory extends SourceTemplateFactory
 {
     const FORM_FOLDER = 'form';
 
