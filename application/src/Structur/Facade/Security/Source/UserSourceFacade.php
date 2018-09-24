@@ -41,5 +41,11 @@ class UserSourceFacade extends AbstractSourceFacade implements UserSourceInterfa
 
     public function getUser(): User
     {
+        //FILL
     }
+    public function setUser(User $user): void
+    {
+        //FILL
+    }
+
 }

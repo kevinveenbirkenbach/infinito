@@ -15,18 +15,19 @@ use App\Structur\Facade\Security\Source\interfaces\SourceFacadeInterface;
 abstract class AbstractSourceFacade implements SourceFacadeInterface
 {
     /**
+     * Propably it woul be better to solve this over the constructor
      * @var User
      */
-    protected static $user;
+    protected static $facadeUser;
 
     /**
      * @var SourceInterface
      */
     protected $source;
 
-    public static function setUser(User $user): void
+    public static function setFacadeUser(User $facadeUser): void
     {
-        self::$user = $user;
+        self::$facadeUser = $facadeUser;
     }
 
     public function __construct(SourceInterface $source)

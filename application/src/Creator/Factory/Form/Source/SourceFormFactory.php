@@ -2,7 +2,7 @@
 
 namespace App\Creator\Factory\Form\Source;
 
-use Creator\Factory\AbstractSourceFactory;
+use App\Creator\Factory\AbstractSourceFactory;
 
 /**
  * @author kevinfrantz

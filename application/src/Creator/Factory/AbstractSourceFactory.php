@@ -1,6 +1,6 @@
 <?php
 
-namespace Creator\Factory;
+namespace App\Creator\Factory;
 
 use App\Entity\SourceInterface;
 
