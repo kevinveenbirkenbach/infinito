@@ -4,17 +4,19 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
-use App\Entity\Attribut\SourceAttributInterface;
+use App\Entity\Attribut\Interfaces\SourceAttributInterface;
 use App\Entity\Attribut\SourceAttribut;
 use App\Entity\Attribut\IdAttribut;
 use App\Creator\Modificator\Entity\LawModificator;
+use App\Entity\Interfaces\UserInterface;
+use App\Entity\Interfaces\UserSourceInterface;
 
 /**
  * @author kevinfrantz
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User extends BaseUser implements SourceAttributInterface
+class User extends BaseUser implements UserInterface
 {
     use SourceAttribut,IdAttribut;
 

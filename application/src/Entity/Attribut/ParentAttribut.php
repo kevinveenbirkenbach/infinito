@@ -2,6 +2,8 @@
 
 namespace Entity\Attribut;
 
+use App\Entity\Attribut\Interfaces\ParentAttributInterface;
+
 /**
  * @author kevinfrantz
  */

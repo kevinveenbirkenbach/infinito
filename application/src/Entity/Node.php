@@ -9,6 +9,9 @@ use App\Entity\Attribut\ParentsAttribut;
 use App\Entity\Attribut\ChildsAttribut;
 use App\Entity\Attribut\LawAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
+use App\Entity\Interfaces\NodeInterface;
+use App\Entity\Interfaces\SourceInterface;
+use App\Entity\Interfaces\LawInterface;
 
 /**
  * @author kevinfrantz

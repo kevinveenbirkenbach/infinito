@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\Attribut;
+namespace App\Entity\Attribut\Interfaces;
 
-use App\Entity\NodeInterface;
+use App\Entity\Interfaces\NodeInterface;
 
 /**
  * @author kevinfrantz

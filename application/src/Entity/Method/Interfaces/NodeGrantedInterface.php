@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\Method;
+namespace App\Entity\Method\Interfaces;
 
-use App\Entity\NodeInterface;
+use App\Entity\Interfaces\NodeInterface;
 
 /**
  * @author kevinfrantz

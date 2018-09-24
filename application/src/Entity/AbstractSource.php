@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Entity\Attribut\NodeAttribut;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\Exclude;
+use App\Entity\Interfaces\SourceInterface;
+use App\Entity\Interfaces\NodeInterface;
 
 /**
  * @author kevinfrantz

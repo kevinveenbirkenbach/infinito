@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Interfaces;
 
-use App\Entity\Attribut\NodeAttributInterface;
-use App\Entity\Attribut\RecieverAttributInterface;
+use App\Entity\Attribut\Interfaces\NodeAttributInterface;
+use App\Entity\Attribut\Interfaces\RecieverAttributInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**

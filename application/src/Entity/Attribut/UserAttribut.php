@@ -3,6 +3,7 @@
 namespace App\Entity\Attribut;
 
 use App\Entity\User;
+use App\Entity\Interfaces\UserInterface;
 
 /**
  * @author kevinfrantz
@@ -14,12 +15,12 @@ trait UserAttribut
      */
     protected $user;
 
-    public function setUser(User $user): void
+    public function setUser(UserInterface $user): void
     {
         $this->user = $user;
     }
 
-    public function getUser(): User
+    public function getUser(): UserInterface
     {
         return $this->user;
     }

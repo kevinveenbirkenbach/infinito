@@ -2,7 +2,7 @@
 
 namespace App\Entity\Attribut;
 
-use App\Entity\NodeInterface;
+use App\Entity\Interfaces\NodeInterface;
 use Doctrine\Common\Collections\Collection;
 
 /**

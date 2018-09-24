@@ -2,7 +2,7 @@
 
 namespace App\Entity\Attribut;
 
-use App\Entity\RightInterface;
+use App\Entity\Interfaces\RightInterface;
 
 /**
  * @author kevinfrantz
