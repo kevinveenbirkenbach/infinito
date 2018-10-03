@@ -4,7 +4,7 @@ namespace App\Creator\Factory\Template\Source;
 
 use App\Entity\Source\SourceInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Creator\Factory\AbstractSourceFactory;
+use App\Creator\Factory\AbstractSourceFactory;
 
 /**
  * @author kevinfrantz

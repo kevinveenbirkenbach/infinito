@@ -7,7 +7,7 @@ use App\Entity\Source\SourceInterface;
 /**
  * @author kevinfrantz
  */
-class AbstractSourceFactory
+abstract class AbstractSourceFactory
 {
     /**
      * @var SourceInterface

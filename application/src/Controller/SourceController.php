@@ -12,6 +12,7 @@ use App\Entity\Source\SourceInterface;
 use App\Creator\Factory\Template\Source\SourceTemplateFormFactory;
 use App\Creator\Factory\Form\Source\SourceFormFactory;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use App\Entity\Source\AbstractSource;
 
 /**
  * @todo IMPLEMENT SECURITY!
@@ -26,8 +27,8 @@ class SourceController extends FOSRestController
     public function show(Request $request, int $id): Response
     {
         $source = $this->loadSource($request, $id);
-        $assembler = $this->get(SourceDTOAssember::class);
-        $dto = $assembler->build($source, $this->getUser());
+        #$assembler = $this->get(SourceDTOAssember::class);
+        #$dto = $assembler->build($source, $this->getUser());
         $view = $this->view($source, 200)
             ->setTemplate((new SourceTemplateFactory($source, $request))->getTemplatePath())
             ->setTemplateVar('source');
