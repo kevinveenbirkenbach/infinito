@@ -2,8 +2,8 @@
 
 namespace App\Entity;
 
-use App\Entity\Attribut\Interfaces\NodeAttributInterface;
-use App\Entity\Attribut\Interfaces\RecieverAttributInterface;
+use App\Entity\Attribut\NodeAttributInterface;
+use App\Entity\Attribut\RecieverAttributInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**

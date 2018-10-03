@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
-use App\Entity\Attribut\Interfaces\TypeAttributInterface;
-use App\Entity\Attribut\Interfaces\LawAttributInterface;
-use App\Entity\Method\Interfaces\NodeGrantedInterface;
-use App\Entity\Attribut\Interfaces\RecieverGroupAttributInterface;
-use App\Entity\Attribut\Interfaces\GrantAttributInterface;
-use App\Entity\Attribut\Interfaces\NodeAttributInterface;
-use App\Entity\Attribut\Interfaces\ConditionAttributInterface;
-use App\Entity\Attribut\Interfaces\LayerAttributInterface;
+use App\Entity\Attribut\TypeAttributInterface;
+use App\Entity\Attribut\LawAttributInterface;
+use App\Entity\Method\NodeGrantedInterface;
+use App\Entity\Attribut\RecieverGroupAttributInterface;
+use App\Entity\Attribut\GrantAttributInterface;
+use App\Entity\Attribut\NodeAttributInterface;
+use App\Entity\Attribut\ConditionAttributInterface;
+use App\Entity\Attribut\LayerAttributInterface;
 
 /**
  * @author kevinfrantz

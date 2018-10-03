@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Source;
 
 use App\Entity\Attribut\NodeAttribut;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\Exclude;
-use App\Entity\SourceInterface;
+use App\Entity\Source\SourceInterface;
 use App\Entity\NodeInterface;
+use App\Entity\AbstractEntity;
 
 /**
  * @author kevinfrantz

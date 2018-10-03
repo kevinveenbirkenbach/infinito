@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Attribut\Interfaces;
+namespace App\Entity\Attribut;
 
 use App\Entity\UserInterface;
 

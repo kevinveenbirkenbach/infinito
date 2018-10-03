@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Source\Operation;
 
 use App\Logic\Operation\OperandInterface;
 use App\Logic\Result\Result;

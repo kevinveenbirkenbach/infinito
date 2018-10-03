@@ -5,7 +5,7 @@ namespace tests\unit\Entity;
 use PHPUnit\Framework\TestCase;
 use App\Entity\User;
 use App\Entity\Law;
-use App\Entity\UserSource;
+use App\Entity\Source\UserSource;
 use App\Entity\Node;
 
 /**

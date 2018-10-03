@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Method\Interfaces;
+namespace App\Entity\Method;
 
 use App\Entity\NodeInterface;
 

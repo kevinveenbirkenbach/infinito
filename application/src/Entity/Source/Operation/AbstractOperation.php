@@ -1,14 +1,15 @@
 <?php
-
-namespace App\Entity;
+namespace App\Entity\Source\Operation;
 
 use App\Logic\Result\ResultInterface;
 use App\Logic\Operation\OperationInterface;
 use App\Logic\Operation\OperandInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Source\AbstractSource;
 
 /**
+ *
  * @author kevinfrantz
  * @ORM\Entity
  * @ORM\Table(name="source_operation")
@@ -18,6 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 abstract class AbstractOperation extends AbstractSource implements OperationInterface
 {
+
     /**
      * The result MUST NOT be saved via Doctrine!
      *
@@ -26,6 +28,7 @@ abstract class AbstractOperation extends AbstractSource implements OperationInte
     protected $result;
 
     /**
+     *
      * @var ArrayCollection|OperandInterface[]
      */
     protected $operands;

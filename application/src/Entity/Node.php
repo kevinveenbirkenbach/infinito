@@ -10,7 +10,7 @@ use App\Entity\Attribut\ChildsAttribut;
 use App\Entity\Attribut\LawAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\NodeInterface;
-use App\Entity\SourceInterface;
+use App\Entity\Source\SourceInterface;
 use App\Entity\LawInterface;
 
 /**

@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Entity\Attribut\Interfaces\SourceAttributInterface;
-use App\Entity\Attribut\Interfaces\IdAttributInterface;
-use App\Entity\Attribut\Interfaces\ParentsAttributInterface;
-use App\Entity\Attribut\Interfaces\ChildsAttributeInterface;
-use App\Entity\Attribut\Interfaces\LawAttributInterface;
+use App\Entity\Attribut\SourceAttributInterface;
+use App\Entity\Attribut\IdAttributInterface;
+use App\Entity\Attribut\ParentsAttributInterface;
+use App\Entity\Attribut\ChildsAttributeInterface;
+use App\Entity\Attribut\LawAttributInterface;
 
 /**
  * @author kevinfrantz

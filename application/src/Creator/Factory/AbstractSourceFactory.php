@@ -2,7 +2,7 @@
 
 namespace App\Creator\Factory;
 
-use App\Entity\SourceInterface;
+use App\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz

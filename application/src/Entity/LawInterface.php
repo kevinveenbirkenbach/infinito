@@ -2,9 +2,9 @@
 
 namespace App\Entity;
 
-use App\Entity\Attribut\Interfaces\RightsAttributInterface;
-use App\Entity\Method\Interfaces\NodeGrantedInterface;
-use App\Entity\Attribut\Interfaces\NodeAttributInterface;
+use App\Entity\Attribut\RightsAttributInterface;
+use App\Entity\Method\NodeGrantedInterface;
+use App\Entity\Attribut\NodeAttributInterface;
 
 /**
  * @author kevinfrantz

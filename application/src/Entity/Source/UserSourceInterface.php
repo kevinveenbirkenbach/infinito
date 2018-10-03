@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Source;
 
-use App\Entity\Attribut\Interfaces\UserAttributInterface;
-use App\Entity\Attribut\Interfaces\NameSourceAttributInterface;
+use App\Entity\Attribut\UserAttributInterface;
+use App\Entity\Attribut\NameSourceAttributInterface;
 
 /**
  * @author kevinfrantz

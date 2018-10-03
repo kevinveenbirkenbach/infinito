@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Source;
 
-use App\Entity\Attribut\Interfaces\NameAttributInterface;
+use App\Entity\Attribut\NameAttributInterface;
 
 /**
  * @author kevinfrantz

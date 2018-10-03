@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Source;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Entity\Attribut\UserAttribut;
 use App\Entity\Attribut\NameSourceAttribut;
-use App\Entity\UserSourceInterface;
-use App\Entity\NameSourceInterface;
+use App\Entity\Source\UserSourceInterface;
+use App\Entity\Source\NameSourceInterface;
 
 /**
  * @author kevinfrantz

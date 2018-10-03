@@ -2,7 +2,7 @@
 
 namespace Entity\Attribut;
 
-use App\Entity\Attribut\Interfaces\ParentAttributInterface;
+use App\Entity\Attribut\ParentAttributInterface;
 
 /**
  * @author kevinfrantz

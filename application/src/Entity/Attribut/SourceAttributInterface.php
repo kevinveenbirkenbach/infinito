@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\Attribut\Interfaces;
+namespace App\Entity\Attribut;
 
-use App\Entity\SourceInterface;
+use App\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz

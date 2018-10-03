@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\Attribut\Interfaces;
+namespace App\Entity\Attribut;
 
-use App\Entity\UserSourceInterface;
+use App\Entity\Source\UserSourceInterface;
 
 /**
  * @author kevinfrantz

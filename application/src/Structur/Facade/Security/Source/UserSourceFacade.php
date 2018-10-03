@@ -2,9 +2,9 @@
 
 namespace App\Structur\Facade\Security\Source;
 
-use App\Entity\NameSourceInterface;
-use App\Entity\User;
-use App\Entity\UserSourceInterface;
+use App\Entity\Source\NameSourceInterface;
+use App\Entity\UserInterface;
+use App\Entity\Source\UserSourceInterface;
 use App\DBAL\Types\RightType;
 use App\DBAL\Types\LayerType;
 
@@ -38,14 +38,10 @@ class UserSourceFacade extends AbstractSourceFacade implements UserSourceInterfa
 
         return $this->isGranted($right, $layer) && $law->isGranted($userSourceNode, $layer, $right);
     }
+    public function getUser(): UserInterface
+    {}
 
-    public function getUser(): User
-    {
-        //FILL
-    }
-    public function setUser(User $user): void
-    {
-        //FILL
-    }
+    public function setUser(UserInterface $user): void
+    {}
 
 }

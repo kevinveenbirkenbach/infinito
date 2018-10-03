@@ -3,7 +3,7 @@
 namespace App\Structur\Facade\Security\Source;
 
 use App\Entity\NodeInterface;
-use App\Entity\SourceInterface;
+use App\Entity\Source\SourceInterface;
 use App\Entity\User;
 use App\DBAL\Types\RightType;
 use App\DBAL\Types\LayerType;

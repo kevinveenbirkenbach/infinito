@@ -4,7 +4,7 @@ namespace App\Security;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 use App\DBAL\Types\RightType;
-use App\Entity\SourceInterface;
+use App\Entity\Source\SourceInterface;
 use App\DBAL\Types\LayerType;
 use App\Entity\UserInterface;
 

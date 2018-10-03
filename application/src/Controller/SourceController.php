@@ -3,12 +3,12 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
-use App\Entity\AbstractSource;
+use App\Entity\Method;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Creator\Factory\Template\Source\SourceTemplateFactory;
 use FOS\RestBundle\Controller\FOSRestController;
-use App\Entity\SourceInterface;
+use App\Entity\Source\SourceInterface;
 use App\Creator\Factory\Template\Source\SourceTemplateFormFactory;
 use App\Creator\Factory\Form\Source\SourceFormFactory;
 use Symfony\Component\HttpFoundation\RedirectResponse;
