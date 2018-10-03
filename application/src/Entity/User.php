@@ -21,7 +21,7 @@ class User extends BaseUser implements UserInterface
 
     /**
      * @var UserSourceInterface
-     * @ORM\OneToOne(targetEntity="UserSource",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Source\UserSource",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="source_user_id", referencedColumnName="id")
      */
     protected $source;

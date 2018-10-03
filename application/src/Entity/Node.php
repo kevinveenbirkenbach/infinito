@@ -27,7 +27,7 @@ class Node extends AbstractEntity implements NodeInterface
     ChildsAttribut;
 
     /**
-     * @ORM\OneToOne(targetEntity="AbstractSource",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Source\AbstractSource",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="source_id", referencedColumnName="id")
      *
      * @var SourceInterface

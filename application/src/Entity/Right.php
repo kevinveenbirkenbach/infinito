@@ -76,7 +76,7 @@ class Right extends AbstractEntity implements RightInterface
     protected $type;
 
     /**
-     * @ORM\OneToOne(targetEntity="AbstractOperation",cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Source\Operation\AbstractOperation",cascade={"persist"})
      * @ORM\JoinColumn(name="operation_id", referencedColumnName="id",nullable=true)
      *
      * @var OperationInterface

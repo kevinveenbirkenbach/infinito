@@ -6,8 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Entity\Attribut\UserAttribut;
 use App\Entity\Attribut\NameSourceAttribut;
-use App\Entity\Source\UserSourceInterface;
-use App\Entity\Source\NameSourceInterface;
+use App\Entity\UserInterface;
 
 /**
  * @author kevinfrantz
@@ -19,10 +18,10 @@ class UserSource extends AbstractSource implements UserSourceInterface
     use UserAttribut,NameSourceAttribut;
 
     /**
-     * @ORM\OneToOne(targetEntity="User",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\User",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      *
-     * @var User
+     * @var UserInterface
      */
     protected $user;
 
