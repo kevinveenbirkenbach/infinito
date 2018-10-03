@@ -11,14 +11,6 @@ use Doctrine\Common\Collections\Collection;
 trait ParentsAttribut
 {
     /**
-     * Many Nodes have many parents.
-     *
-     * @ORM\ManyToMany(targetEntity="Node")
-     * @ORM\JoinTable(name="nodes_parents",
-     *      joinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")}
-     *      )
-     *
      * @var Collection|NodeInterface[]
      */
     protected $parents;

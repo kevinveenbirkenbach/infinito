@@ -9,9 +9,8 @@ use App\Entity\Attribut\ParentsAttribut;
 use App\Entity\Attribut\ChildsAttribut;
 use App\Entity\Attribut\LawAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\NodeInterface;
 use App\Entity\Source\SourceInterface;
-use App\Entity\LawInterface;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @author kevinfrantz
@@ -25,6 +24,31 @@ class Node extends AbstractEntity implements NodeInterface
     ParentsAttribut,
     LawAttribut,
     ChildsAttribut;
+    
+    /**
+     * Many Nodes have many parents.
+     * @ORM\ManyToMany(targetEntity="Node")
+     * @ORM\JoinTable(name="nodes_parents",
+     *      joinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")}
+     *      )
+     *
+     * @var Collection|NodeInterface[]
+     */
+    protected $parents;
+    
+    /**
+     * Many Nodes have many childs.
+     * 
+     * @ORM\ManyToMany(targetEntity="Node")
+     * @ORM\JoinTable(name="nodes_childs",
+     *      joinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")}
+     *      )
+     *
+     * @var Collection|NodeInterface[]
+     */
+    protected $childs;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Source\AbstractSource",cascade={"persist", "remove"})

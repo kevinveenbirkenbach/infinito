@@ -6,8 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Attribut\RightsAttribute;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Attribut\NodeAttribut;
-use App\Entity\LawInterface;
-use App\Entity\NodeInterface;
 
 /**
  * @author kevinfrantz
@@ -45,8 +43,7 @@ class Law extends AbstractEntity implements LawInterface
 
     public function isGranted(NodeInterface $node, string $layer, string $right): bool
     {
-        /*
-         *
+        /**
          * @var RightInterface
          */
         foreach ($this->rights->toArray() as $right) {

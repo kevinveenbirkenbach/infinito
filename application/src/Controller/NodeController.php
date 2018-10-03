@@ -37,7 +37,6 @@ class NodeController extends FOSRestController
         if (!$node) {
             throw $this->createNotFoundException('No node found for id '.$id);
         }
-
         return $node;
     }
 }
