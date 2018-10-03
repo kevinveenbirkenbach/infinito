@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @author kevinfrantz
- * @ORM\Table(name="source_operation_user")
+ * @ORM\Table(name="source_operation_and")
  * @ORM\Entity()
  */
 class AndOperation extends AbstractOperation
