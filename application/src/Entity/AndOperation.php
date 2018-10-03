@@ -25,7 +25,6 @@ class AndOperation extends AbstractOperation
         foreach ($this->operands->toArray() as $operand) {
             if (!$operand->getResult()->getBool()) {
                 $this->result->setAll(false);
-
                 return;
             }
         }
