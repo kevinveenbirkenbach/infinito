@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\Exclude;
 use App\Entity\NodeInterface;
 use App\Entity\AbstractEntity;
+use App\Entity\Node;
 
 /**
  * @author kevinfrantz
