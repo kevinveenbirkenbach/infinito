@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @author kevinfrantz
  */
-class AbstractEntity
+abstract class AbstractEntity implements EntityInterface
 {
     use IdAttribut;
 

@@ -19,14 +19,14 @@ use App\Entity\Source\AbstractSource;
  *
  * @author kevinfrantz
  */
-class SourceController extends FOSRestController
+class SourceController extends AbstractEntityController
 {
     /**
      * @Route("/source/{id}.{_format}", defaults={"_format"="html"})
      */
     public function show(Request $request, int $id): Response
     {
-        $source = $this->loadSource($request, $id);
+        $source = $this->loadEntityById($id);
         #$assembler = $this->get(SourceDTOAssember::class);
         #$dto = $assembler->build($source, $this->getUser());
         $view = $this->view($source, 200)
@@ -41,7 +41,7 @@ class SourceController extends FOSRestController
      */
     public function edit(Request $request, int $id): Response
     {
-        $source = $this->loadSource($request, $id);
+        $source = $this->loadEntityById($id);
         $form = $this->createForm((new SourceFormFactory($source))->getNamespace(), $source);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -59,21 +59,8 @@ class SourceController extends FOSRestController
      */
     public function node(Request $request, int $id): RedirectResponse
     {
-        $source = $this->loadSource($request, $id);
-
+        $source = $this->loadEntityById($id);
         return $this->redirectToRoute('app_node_show', ['id' => $source->getNode()->getId()]);
-    }
-
-    private function loadSource(Request $request, int $id): SourceInterface
-    {
-        $source = $this->getDoctrine()
-            ->getRepository(AbstractSource::class)
-            ->find($id);
-        if (!$source) {
-            throw $this->createNotFoundException('No source found for id '.$id);
-        }
-
-        return $source;
     }
 
     private function saveSource(SourceInterface $source): void
@@ -82,4 +69,10 @@ class SourceController extends FOSRestController
         $entityManager->persist($source);
         $entityManager->flush();
     }
+    
+    protected function setEntityName(): void
+    {
+        $this->entityName = AbstractSource::class;
+    }
+
 }
