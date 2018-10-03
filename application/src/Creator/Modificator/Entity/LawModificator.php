@@ -4,12 +4,12 @@ namespace App\Creator\Modificator\Entity;
 
 use App\DBAL\Types\LayerType;
 use App\DBAL\Types\RightType;
-use App\Entity\Interfaces\NodeInterface;
+use App\Entity\NodeInterface;
 use App\Entity\Right;
-use App\Entity\Interfaces\LawInterface;
+use App\Entity\LawInterface;
 use App\DBAL\Types\RecieverType;
-use App\Entity\Interfaces\RightInterface;
-use App\Entity\Interfaces\RecieverGroupInterface;
+use App\Entity\RightInterface;
+use App\Entity\RecieverGroupInterface;
 use App\Entity\RecieverGroup;
 
 /**

@@ -14,10 +14,10 @@ use App\Logic\Operation\OperationInterface;
 use App\Entity\Attribut\ConditionAttribut;
 use App\Entity\Attribut\RecieverGroupAttribut;
 use App\Entity\Attribut\LayerAttribut;
-use App\Entity\Interfaces\LawInterface;
-use App\Entity\Interfaces\RecieverGroupInterface;
-use App\Entity\Interfaces\NodeInterface;
-use App\Entity\Interfaces\RightInterface;
+use App\Entity\LawInterface;
+use App\Entity\RecieverGroupInterface;
+use App\Entity\NodeInterface;
+use App\Entity\RightInterface;
 
 /**
  * @author kevinfrantz

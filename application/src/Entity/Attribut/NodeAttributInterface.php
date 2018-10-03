@@ -2,7 +2,7 @@
 
 namespace App\Entity\Attribut\Interfaces;
 
-use App\Entity\Interfaces\NodeInterface;
+use App\Entity\NodeInterface;
 
 /**
  * @author kevinfrantz

@@ -6,8 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Attribut\RightsAttribute;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Attribut\NodeAttribut;
-use App\Entity\Interfaces\LawInterface;
-use App\Entity\Interfaces\NodeInterface;
+use App\Entity\LawInterface;
+use App\Entity\NodeInterface;
 
 /**
  * @author kevinfrantz

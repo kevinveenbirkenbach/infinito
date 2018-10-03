@@ -1,10 +1,10 @@
 <?php
+namespace App\Structur\Facade\Security\Source;
 
-namespace App\Structur\Facade\Security\Source\interfaces;
-
-use App\Entity\SourceInterface;
+use App\Entity\Source\SourceInterface;
 
 /**
+ *
  * @author kevinfrantz
  */
 interface SourceFacadeInterface extends SourceInterface

@@ -2,7 +2,7 @@
 
 namespace App\Creator\Factory\Facade\Security;
 
-use App\Structur\Facade\Security\Source\interfaces\SourceFacadeInterface;
+use App\Structur\Facade\Security\Source\SourceFacadeInterface;
 
 /**
  * @author kevinfrantz

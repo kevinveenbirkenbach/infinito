@@ -2,9 +2,9 @@
 
 namespace App\Structur\Facade\Security\Source;
 
-use App\Entity\Interfaces\NameSourceInterface;
+use App\Entity\NameSourceInterface;
 use App\Entity\User;
-use App\Entity\Interfaces\UserSourceInterface;
+use App\Entity\UserSourceInterface;
 use App\DBAL\Types\RightType;
 use App\DBAL\Types\LayerType;
 

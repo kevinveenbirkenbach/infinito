@@ -3,7 +3,7 @@
 namespace App\Entity\Attribut;
 
 use App\Entity\User;
-use App\Entity\Interfaces\UserInterface;
+use App\Entity\UserInterface;
 
 /**
  * @author kevinfrantz

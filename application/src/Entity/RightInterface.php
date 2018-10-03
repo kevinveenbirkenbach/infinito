@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Interfaces;
+namespace App\Entity;
 
 use App\Entity\Attribut\Interfaces\TypeAttributInterface;
 use App\Entity\Attribut\Interfaces\LawAttributInterface;

@@ -2,7 +2,7 @@
 
 namespace App\Entity\Attribut\Interfaces;
 
-use App\Entity\Interfaces\RecieverGroupInterface;
+use App\Entity\RecieverGroupInterface;
 
 /**
  * @author kevinfrantz

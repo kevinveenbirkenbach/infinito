@@ -2,12 +2,12 @@
 
 namespace App\Structur\Facade\Security\Source;
 
-use App\Entity\Interfaces\NodeInterface;
-use App\Entity\Interfaces\SourceInterface;
+use App\Entity\NodeInterface;
+use App\Entity\SourceInterface;
 use App\Entity\User;
 use App\DBAL\Types\RightType;
 use App\DBAL\Types\LayerType;
-use App\Structur\Facade\Security\Source\interfaces\SourceFacadeInterface;
+use App\Structur\Facade\Security\Source\SourceFacadeInterface;
 
 /**
  * @author kevinfrantz

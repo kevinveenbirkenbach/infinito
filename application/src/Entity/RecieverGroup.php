@@ -9,8 +9,8 @@ use App\DBAL\Types\RecieverType;
 use Symfony\Component\Intl\Exception\NotImplementedException;
 use Doctrine\ORM\Mapping as ORM;
 use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
-use App\Entity\Interfaces\RecieverGroupInterface;
-use App\Entity\Interfaces\NodeInterface;
+use App\Entity\RecieverGroupInterface;
+use App\Entity\NodeInterface;
 
 /**
  * @author kevinfrantz

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Interfaces;
+namespace App\Entity;
 
 use App\Entity\Attribut\Interfaces\SourceAttributInterface;
 use App\Entity\Attribut\Interfaces\IdAttributInterface;

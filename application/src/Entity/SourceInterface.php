@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Interfaces;
+namespace App\Entity;
 
 use App\Entity\Attribut\Interfaces\NodeAttributInterface;
 use App\Entity\Attribut\Interfaces\IdAttributInterface;

@@ -2,7 +2,7 @@
 
 namespace Entity\Attribut;
 
-use App\Entity\Interfaces\UserSourceInterface;
+use App\Entity\UserSourceInterface;
 
 /**
  * @author kevinfrantz

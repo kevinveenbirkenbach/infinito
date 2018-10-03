@@ -8,8 +8,8 @@ use App\Entity\Attribut\Interfaces\SourceAttributInterface;
 use App\Entity\Attribut\SourceAttribut;
 use App\Entity\Attribut\IdAttribut;
 use App\Creator\Modificator\Entity\LawModificator;
-use App\Entity\Interfaces\UserInterface;
-use App\Entity\Interfaces\UserSourceInterface;
+use App\Entity\UserInterface;
+use App\Entity\UserSourceInterface;
 
 /**
  * @author kevinfrantz

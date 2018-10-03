@@ -2,7 +2,7 @@
 
 namespace App\Entity\Attribut\Interfaces;
 
-use App\Entity\Interfaces\UserInterface;
+use App\Entity\UserInterface;
 
 /**
  * @author kevinfrantz

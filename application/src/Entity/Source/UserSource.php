@@ -6,8 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Entity\Attribut\UserAttribut;
 use App\Entity\Attribut\NameSourceAttribut;
-use App\Entity\Interfaces\UserSourceInterface;
-use App\Entity\Interfaces\NameSourceInterface;
+use App\Entity\UserSourceInterface;
+use App\Entity\NameSourceInterface;
 
 /**
  * @author kevinfrantz

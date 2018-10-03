@@ -2,7 +2,7 @@
 
 namespace App\Entity\Attribut\Interfaces;
 
-use App\Entity\Interfaces\LawInterface;
+use App\Entity\LawInterface;
 
 /**
  * @author kevinfrantz

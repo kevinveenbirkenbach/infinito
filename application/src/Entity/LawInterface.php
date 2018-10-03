@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Interfaces;
+namespace App\Entity;
 
 use App\Entity\Attribut\Interfaces\RightsAttributInterface;
 use App\Entity\Method\Interfaces\NodeGrantedInterface;
