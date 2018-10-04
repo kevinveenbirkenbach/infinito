@@ -16,7 +16,7 @@ abstract class AbstractEntityMenuSubscriber implements EventSubscriberInterface
     /**
      * @var TranslatorInterface
      */
-    protected $translator;
+    private $translator;
     
     const FORMAT_TYPES = [
         'html',
@@ -31,7 +31,7 @@ abstract class AbstractEntityMenuSubscriber implements EventSubscriberInterface
 
     protected function generateShowDropdown(ItemInterface $menu, Event $event,string $route): void
     {
-        $dropdown = $menu->addChild($this->translator->trans('show'), [
+        $dropdown = $menu->addChild($this->trans('show'), [
             'attributes' => [
                 'icon' => 'fas fa-eye',
                 'dropdown' => 'true'
@@ -50,7 +50,7 @@ abstract class AbstractEntityMenuSubscriber implements EventSubscriberInterface
                 ]
             ]);
         }
-        $dropdown->addChild($this->translator->trans('standard'), [
+        $dropdown->addChild($this->trans('standard'), [
             'route' => $route,
             'routeParameters' => [
                 'id' => $this->getRequestId($event)
@@ -59,6 +59,10 @@ abstract class AbstractEntityMenuSubscriber implements EventSubscriberInterface
                 'icon' => 'fas fa-sign-out-alt'
             ]
         ]);
+    }
+    
+    protected function trans(string $id, array $parameter=[]):string{
+        return $this->translator->trans($id,$parameter);
     }
 
     protected function getRequestId(Event $event): int

@@ -15,7 +15,7 @@ class NodeMenuSubscriber extends AbstractEntityMenuSubscriber
     {
         $menu = $event->getItem();
         $this->generateShowDropdown($menu, $event,'app_source_show');
-        $menu->addChild($this->translator->trans('law'), [
+        $menu->addChild($this->trans('law'), [
             'route' => 'app_node_law',
             'routeParameters' => [
                 'id' => $this->getRequestId($event),
@@ -24,7 +24,7 @@ class NodeMenuSubscriber extends AbstractEntityMenuSubscriber
                 'icon' => 'fa fa-gavel',
             ],
         ]);
-        $menu->addChild($this->translator->trans('parents'), [
+        $menu->addChild($this->trans('parents'), [
             'route' => 'app_node_parents',
             'routeParameters' => [
                 'id' => $this->getRequestId($event),
@@ -33,7 +33,7 @@ class NodeMenuSubscriber extends AbstractEntityMenuSubscriber
                 'icon' => 'fa fa-female',
             ],
         ]);
-        $menu->addChild($this->translator->trans('childs'), [
+        $menu->addChild($this->trans('childs'), [
             'route' => 'app_node_childs',
             'routeParameters' => [
                 'id' => $this->getRequestId($event),

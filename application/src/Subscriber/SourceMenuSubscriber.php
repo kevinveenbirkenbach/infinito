@@ -10,7 +10,7 @@ class SourceMenuSubscriber extends AbstractEntityMenuSubscriber
     public function onSourceMenuConfigure(MenuEvent $event): void
     {
         $menu = $event->getItem();
-        $menu->addChild($this->translator->trans('edit'), [
+        $menu->addChild($this->trans('edit'), [
             'route' => 'app_source_edit',
             'routeParameters' => [
                 'id' => $this->getRequestId($event),
@@ -20,7 +20,7 @@ class SourceMenuSubscriber extends AbstractEntityMenuSubscriber
             ],
         ]);
         $this->generateShowDropdown($menu, $event,'app_source_show');
-        $menu->addChild($this->translator->trans('node'), [
+        $menu->addChild($this->trans('node'), [
             'route' => 'app_source_node',
             'routeParameters' => [
                 'id' => $this->getRequestId($event),
