@@ -13,7 +13,7 @@ class SourceMenuSubscriber extends AbstractEntityMenuSubscriber
         $menu->addChild($this->translator->trans('edit'), [
             'route' => 'app_source_edit',
             'routeParameters' => [
-                'id' => $event->getRequest()->getCurrentRequest()->attributes->get('id'),
+                'id' => $this->getRequestId($event),
             ],
             'attributes' => [
                 'icon' => 'fas fa-edit',
@@ -23,7 +23,7 @@ class SourceMenuSubscriber extends AbstractEntityMenuSubscriber
         $menu->addChild($this->translator->trans('node'), [
             'route' => 'app_source_node',
             'routeParameters' => [
-                'id' => $event->getRequest()->getCurrentRequest()->attributes->get('id'),
+                'id' => $this->getRequestId($event),
             ],
             'attributes' => [
                 'icon' => 'fas fa-globe',

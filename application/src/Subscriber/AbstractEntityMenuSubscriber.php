@@ -61,7 +61,7 @@ abstract class AbstractEntityMenuSubscriber implements EventSubscriberInterface
         ]);
     }
 
-    private function getRequestId(Event $event): int
+    protected function getRequestId(Event $event): int
     {
         return $event->getRequest()->getCurrentRequest()->attributes->get('id');
     }

@@ -40,6 +40,24 @@ class NodeController extends AbstractEntityController
         return $this->redirectToRouteById('app_law_show',$lawId);
     }
     
+    /**
+     * @Route("/node/{id}/parents.{_format}", defaults={"_format"="html"})
+     */
+    public function parents(int $id):Response{
+        /**
+         * @todo Implement
+         */
+    }
+    
+    /**
+     * @Route("/node/{id}/childs.{_format}", defaults={"_format"="html"})
+     */
+    public function childs(int $id):Response{
+        /**
+         * @todo Implement
+         */
+    }
+    
     protected function setEntityName(): void
     {
         $this->entityName = Node::class;
