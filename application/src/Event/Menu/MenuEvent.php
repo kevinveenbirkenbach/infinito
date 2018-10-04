@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
  * @author kevinfrantz
  *        
  */
-abstract class AbstractMenuEvent extends Event
+class MenuEvent extends Event
 {
     /**
      * @var FactoryInterface

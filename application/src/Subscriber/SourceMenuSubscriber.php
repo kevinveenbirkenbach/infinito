@@ -2,11 +2,12 @@
 
 namespace App\Subscriber;
 
-use App\Event\Menu\Subbar\SourceMenuEvent;
+use App\Event\Menu\MenuEvent;
+use App\DBAL\Types\MenuEventType;
 
 class SourceMenuSubscriber extends AbstractEntityMenuSubscriber
 {
-    public function onSourceMenuConfigure(SourceMenuEvent $event): void
+    public function onSourceMenuConfigure(MenuEvent $event): void
     {
         $menu = $event->getItem();
         $menu->addChild($this->translator->trans('edit'), [
@@ -33,7 +34,7 @@ class SourceMenuSubscriber extends AbstractEntityMenuSubscriber
     public static function getSubscribedEvents(): array
     {
         return [
-            SourceMenuEvent::EVENT => 'onSourceMenuConfigure',
+            MenuEventType::SOURCE => 'onSourceMenuConfigure',
         ];
     }
 }

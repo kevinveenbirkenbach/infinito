@@ -2,12 +2,12 @@
 
 namespace App\Menu;
 
-use App\Event\Menu\Topbar\UserMenuEvent;
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
-use App\Event\Menu\Subbar\SourceMenuEvent;
+use App\Event\Menu\MenuEvent;
+use App\DBAL\Types\MenuEventType;
 
 class Menu
 {
@@ -35,7 +35,7 @@ class Menu
             ],
         ]);
 
-        $this->dispatcher->dispatch(SourceMenuEvent::EVENT, new SourceMenuEvent($this->factory, $menu, $request));
+        $this->dispatcher->dispatch(MenuEventType::SOURCE, new MenuEvent($this->factory, $menu, $request));
 
         return $menu;
     }
@@ -48,7 +48,7 @@ class Menu
             ],
         ]);
 
-        $this->dispatcher->dispatch(UserMenuEvent::EVENT, new UserMenuEvent($this->factory, $menu, $request));
+        $this->dispatcher->dispatch(MenuEventType::USER, new MenuEvent($this->factory, $menu, $request));
 
         return $menu;
     }

@@ -2,11 +2,12 @@
 
 namespace App\Subscriber;
 
-use App\Event\Menu\Topbar\UserMenuEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Knp\Menu\ItemInterface;
+use App\Event\Menu\MenuEvent;
+use App\DBAL\Types\MenuEventType;
 
 class UserMenuSubscriber implements EventSubscriberInterface
 {
@@ -26,7 +27,7 @@ class UserMenuSubscriber implements EventSubscriberInterface
         $this->translator = $translator;
     }
 
-    public function onUserMenuConfigure(UserMenuEvent $event): void
+    public function onUserMenuConfigure(MenuEvent $event): void
     {
         $menu = $event->getItem();
         $menu->addChild($this->translator->trans('start'), [
@@ -89,7 +90,7 @@ class UserMenuSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            UserMenuEvent::EVENT => 'onUserMenuConfigure',
+            MenuEventType::USER=> 'onUserMenuConfigure',
         ];
     }
 }
