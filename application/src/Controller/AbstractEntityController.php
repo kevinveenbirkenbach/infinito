@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Entity\EntityInterface;
 use FOS\RestBundle\Controller\FOSRestController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  *
@@ -31,5 +32,12 @@ abstract class AbstractEntityController extends FOSRestController
             throw $this->createNotFoundException('No entity found for id '.$id);
         }
         return $entity;
+    }
+    
+    protected function redirectToRouteById(string $route, int $id): RedirectResponse
+    {
+        return $this->redirectToRoute($route, [
+            'id' => $id
+        ]);
     }
 }

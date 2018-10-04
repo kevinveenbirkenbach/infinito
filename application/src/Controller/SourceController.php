@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
@@ -13,30 +12,35 @@ use App\Creator\Factory\Template\Source\SourceTemplateFormFactory;
 use App\Creator\Factory\Form\Source\SourceFormFactory;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use App\Entity\Source\AbstractSource;
+use App\Entity\NodeInterface;
 
 /**
- * @todo IMPLEMENT SECURITY!
  *
+ * @todo IMPLEMENT SECURITY!
+ *      
  * @author kevinfrantz
  */
 class SourceController extends AbstractEntityController
 {
+
     /**
+     *
      * @Route("/source/{id}.{_format}", defaults={"_format"="html"})
      */
     public function show(Request $request, int $id): Response
     {
         $source = $this->loadEntityById($id);
-        #$assembler = $this->get(SourceDTOAssember::class);
-        #$dto = $assembler->build($source, $this->getUser());
+        // $assembler = $this->get(SourceDTOAssember::class);
+        // $dto = $assembler->build($source, $this->getUser());
         $view = $this->view($source, 200)
             ->setTemplate((new SourceTemplateFactory($source, $request))->getTemplatePath())
             ->setTemplateVar('source');
-
+        
         return $this->handleView($view);
     }
 
     /**
+     *
      * @Route("/source/{id}/edit.{_format}", defaults={"_format"="html"})
      */
     public function edit(Request $request, int $id): Response
@@ -48,19 +52,24 @@ class SourceController extends AbstractEntityController
             $source = $form->getData();
             $this->saveSource($source);
         }
-
+        
         return $this->render((new SourceTemplateFormFactory($source, $request))->getTemplatePath(), [
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ]);
     }
 
     /**
+     *
      * @Route("/source/{id}/node.{_format}", defaults={"_format"="html"})
      */
-    public function node(Request $request, int $id): RedirectResponse
+    public function node(int $id): RedirectResponse
     {
-        $source = $this->loadEntityById($id);
-        return $this->redirectToRoute('app_node_show', ['id' => $source->getNode()->getId()]);
+        $nodeId = $this->loadNodeById($id)->getId();
+        return $this->redirectToRouteById('app_node_show',$nodeId);
+    }
+    
+    private function loadNodeById(int $id):NodeInterface{
+        return $this->loadEntityById($id)->getNode();
     }
 
     private function saveSource(SourceInterface $source): void
@@ -69,10 +78,9 @@ class SourceController extends AbstractEntityController
         $entityManager->persist($source);
         $entityManager->flush();
     }
-    
+
     protected function setEntityName(): void
     {
         $this->entityName = AbstractSource::class;
     }
-
 }
