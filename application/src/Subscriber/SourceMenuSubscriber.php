@@ -2,30 +2,10 @@
 
 namespace App\Subscriber;
 
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Translation\TranslatorInterface;
 use App\Event\Menu\Topbar\SourceMenuEvent;
-use Knp\Menu\ItemInterface;
 
-class SourceMenuSubscriber implements EventSubscriberInterface
+class SourceMenuSubscriber extends AbstractEntityMenuSubscriber
 {
-    /**
-     * @var TokenStorageInterface
-     */
-    private $tokenStorage;
-
-    /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    public function __construct(TokenStorageInterface $tokenStorage, TranslatorInterface $translator)
-    {
-        $this->tokenStorage = $tokenStorage;
-        $this->translator = $translator;
-    }
-
     public function onSourceMenuConfigure(SourceMenuEvent $event): void
     {
         $menu = $event->getItem();
@@ -38,7 +18,7 @@ class SourceMenuSubscriber implements EventSubscriberInterface
                 'icon' => 'fas fa-edit',
             ],
         ]);
-        $this->generateSourceFormatDropdown($menu, $event);
+        $this->generateShowDropdown($menu, $event,'app_source_show');
         $menu->addChild($this->translator->trans('node'), [
             'route' => 'app_source_node',
             'routeParameters' => [
@@ -46,42 +26,6 @@ class SourceMenuSubscriber implements EventSubscriberInterface
             ],
             'attributes' => [
                 'icon' => 'fas fa-globe',
-            ],
-        ]);
-    }
-
-    private function generateSourceFormatDropdown(ItemInterface $menu, SourceMenuEvent $event): void
-    {
-        $dropdown = $menu->addChild($this->translator->trans('show'), [
-            'attributes' => [
-                'icon' => 'fas fa-eye',
-                'dropdown' => 'true',
-            ],
-        ]);
-        foreach ([
-            'html',
-            'json',
-            'xml',
-        ] as $format) {
-            $dropdown->addChild($format, [
-                'route' => 'app_source_show',
-                'routeParameters' => [
-                    'id' => $event->getRequest()->getCurrentRequest()->attributes->get('id'),
-                    '_format' => $format,
-                ],
-                'attributes' => [
-                    'icon' => 'fas fa-sign-out-alt',
-                    'divider_append' => true,
-                ],
-            ]);
-        }
-        $dropdown->addChild($this->translator->trans('standard'), [
-            'route' => 'app_source_show',
-            'routeParameters' => [
-                'id' => $event->getRequest()->getCurrentRequest()->attributes->get('id'),
-            ],
-            'attributes' => [
-                'icon' => 'fas fa-sign-out-alt',
             ],
         ]);
     }
