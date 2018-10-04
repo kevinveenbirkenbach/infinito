@@ -13,10 +13,13 @@ final class MenuEventType extends AbstractEnumType
 {   
     public const USER = 'app.menu.topbar.user';
     
-    public const SOURCE = 'app.menu.source.user';
+    public const SOURCE = 'app.menu.subbar.source';
 
-    protected static $choices = [
-        self::USER => self::USER,
-        self::SOURCE => self::SOURCE,
-    ];
+    public const NODE = 'app.menu.subbar.node';
+    
+    /**
+     * May this will be used in the future
+     * @var array
+     */
+    protected static $choices = [];
 }

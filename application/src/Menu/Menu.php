@@ -27,29 +27,32 @@ class Menu
         $this->factory = $factory;
     }
 
-    public function SourceNavbar(RequestStack $request): ItemInterface
+    public function sourceNavbar(RequestStack $request): ItemInterface
     {
-        $menu = $this->factory->createItem('root', [
-            'childrenAttributes' => [
-                'class' => 'navbar-nav mr-auto',
-            ],
-        ]);
-
+        $menu = $this->createBasicMenuItem();
         $this->dispatcher->dispatch(MenuEventType::SOURCE, new MenuEvent($this->factory, $menu, $request));
-
+        return $menu;
+    }
+    
+    public function nodeSubbar(RequestStack $request): ItemInterface
+    {
+        $menu = $this->createBasicMenuItem();
+        $this->dispatcher->dispatch(MenuEventType::NODE, new MenuEvent($this->factory, $menu, $request));       
         return $menu;
     }
 
     public function userTopbar(RequestStack $request): ItemInterface
     {
-        $menu = $this->factory->createItem('root', [
+        $menu = $this->createBasicMenuItem(); 
+        $this->dispatcher->dispatch(MenuEventType::USER, new MenuEvent($this->factory, $menu, $request));
+        return $menu;
+    }
+    
+    private function createBasicMenuItem():ItemInterface{
+        return $this->factory->createItem('root', [
             'childrenAttributes' => [
                 'class' => 'navbar-nav mr-auto',
             ],
         ]);
-
-        $this->dispatcher->dispatch(MenuEventType::USER, new MenuEvent($this->factory, $menu, $request));
-
-        return $menu;
     }
 }
