@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Menu;
 
 use Knp\Menu\FactoryInterface;
@@ -11,12 +10,15 @@ use App\DBAL\Types\MenuEventType;
 
 class Menu
 {
+
     /**
+     *
      * @var EventDispatcherInterface
      */
     private $dispatcher;
 
     /**
+     *
      * @var FactoryInterface
      */
     private $factory;
@@ -29,30 +31,32 @@ class Menu
 
     public function sourceNavbar(RequestStack $request): ItemInterface
     {
-        $menu = $this->createBasicMenuItem();
-        $this->dispatcher->dispatch(MenuEventType::SOURCE, new MenuEvent($this->factory, $menu, $request));
-        return $menu;
+        return $this->createMenu(MenuEventType::SOURCE, $request);
     }
-    
+
     public function nodeSubbar(RequestStack $request): ItemInterface
     {
-        $menu = $this->createBasicMenuItem();
-        $this->dispatcher->dispatch(MenuEventType::NODE, new MenuEvent($this->factory, $menu, $request));       
-        return $menu;
+        return $this->createMenu(MenuEventType::NODE, $request);
     }
 
     public function userTopbar(RequestStack $request): ItemInterface
     {
-        $menu = $this->createBasicMenuItem(); 
-        $this->dispatcher->dispatch(MenuEventType::USER, new MenuEvent($this->factory, $menu, $request));
+        return $this->createMenu(MenuEventType::USER, $request);
+    }
+
+    private function createMenu(string $type, RequestStack $request): ItemInterface
+    {
+        $menu = $this->createBasicMenuItem();
+        $this->dispatcher->dispatch($type, new MenuEvent($this->factory, $menu, $request));
         return $menu;
     }
-    
-    private function createBasicMenuItem():ItemInterface{
+
+    private function createBasicMenuItem(): ItemInterface
+    {
         return $this->factory->createItem('root', [
             'childrenAttributes' => [
-                'class' => 'navbar-nav mr-auto',
-            ],
+                'class' => 'navbar-nav mr-auto'
+            ]
         ]);
     }
 }
