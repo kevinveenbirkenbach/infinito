@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Law;
+use App\Entity\LawInterface;
 
 /**
  *
@@ -19,12 +20,17 @@ class LawController extends AbstractEntityController
      *
      * @Route("/law/{id}.{_format}", defaults={"_format"="html"})
      */
-    public function show(): Response
+    public function show(int $id): Response
     {
-    /**
-     *
-     * @todo Implement function!
-     */
+        /**
+         *
+         * @var LawInterface $law
+         */
+        $law = $this->loadEntityById($id);
+        $view = $this->view($law, 200)
+            ->setTemplate('law/view/standard.html.twig')
+            ->setTemplateVar('law');
+        return $this->handleView($view);
     }
 
     /**
