@@ -7,7 +7,7 @@ use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
-use App\Event\Menu\Topbar\SourceMenuEvent;
+use App\Event\Menu\Subbar\SourceMenuEvent;
 
 class Menu
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Event\Menu\Topbar;
+namespace App\Event\Menu\Subbar;
 
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;

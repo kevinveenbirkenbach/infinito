@@ -2,7 +2,7 @@
 
 namespace App\Subscriber;
 
-use App\Event\Menu\Topbar\SourceMenuEvent;
+use App\Event\Menu\Subbar\SourceMenuEvent;
 
 class SourceMenuSubscriber extends AbstractEntityMenuSubscriber
 {
