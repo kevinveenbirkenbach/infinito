@@ -9,6 +9,7 @@ use App\Entity\Attribut\IdAttribut;
 use App\Creator\Modificator\Entity\LawModificator;
 use App\Entity\Source\UserSourceInterface;
 use App\Entity\Source\UserSource;
+use App\Entity\Attribut\VersionAttribut;
 
 /**
  * @author kevinfrantz
@@ -17,7 +18,7 @@ use App\Entity\Source\UserSource;
  */
 class User extends BaseUser implements UserInterface
 {
-    use SourceAttribut,IdAttribut;
+    use SourceAttribut,IdAttribut, VersionAttribut;
 
     /**
      * @var UserSourceInterface
@@ -37,6 +38,13 @@ class User extends BaseUser implements UserInterface
      * @ORM\Column(type="integer")(strategy="AUTO")
      */
     protected $id;
+    
+    /**
+     *
+     * @version @ORM\Column(type="integer")
+     * @var int
+     */
+    protected $version;
 
     public function __construct()
     {

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Structur\Facade\Security\Source;
 
 use App\Entity\Source\NameSourceInterface;
@@ -9,11 +8,14 @@ use App\DBAL\Types\RightType;
 use App\DBAL\Types\LayerType;
 
 /**
+ *
  * @author kevinfrantz
  */
 class UserSourceFacade extends AbstractSourceFacade implements UserSourceInterface
 {
+
     /**
+     *
      * @var UserSourceInterface
      */
     protected $source;
@@ -26,7 +28,7 @@ class UserSourceFacade extends AbstractSourceFacade implements UserSourceInterfa
     public function getNameSource(): NameSourceInterface
     {
         if ($this->isNameSourceGranted(RightType::READ, LayerType::SOURCE)) {
-            //FILL! :)
+            // FILL! :)
         }
     }
 
@@ -38,10 +40,26 @@ class UserSourceFacade extends AbstractSourceFacade implements UserSourceInterfa
 
         return $this->isGranted($right, $layer) && $law->isGranted($userSourceNode, $layer, $right);
     }
+
     public function getUser(): UserInterface
     {}
 
     public function setUser(UserInterface $user): void
     {}
 
+    public function getVersion(): int
+    {
+    /**
+     *
+     * @todo Implement
+     */
+    }
+
+    public function setVersion(int $version): void
+    {
+    /**
+     *
+     * @todo Implement
+     */
+    }
 }
