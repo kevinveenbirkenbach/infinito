@@ -14,6 +14,7 @@ use Doctrine\Common\Collections\Collection;
 
 /**
  * @author kevinfrantz
+ * @todo rename and refactor this class
  * @ORM\Table(name="node")
  * @ORM\Entity()
  */
@@ -39,7 +40,8 @@ class Node extends AbstractEntity implements NodeInterface
     
     /**
      * Many Nodes have many childs.
-     * 
+     * @todo Replace this by self referencing 
+     * @see https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/reference/association-mapping.html
      * @ORM\ManyToMany(targetEntity="Node")
      * @ORM\JoinTable(name="nodes_childs",
      *      joinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")},
