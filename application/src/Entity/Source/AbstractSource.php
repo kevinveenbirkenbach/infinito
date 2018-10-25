@@ -17,7 +17,7 @@ use App\Entity\Node;
  * @ORM\Table(name="source")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"user" = "UserSource","name" = "NameSource","collection" = "SourceCollection"})
+ * @ORM\DiscriminatorMap({"user" = "UserSource","name" = "NameSource","collection" = "SourcesSource"})
  */
 abstract class AbstractSource extends AbstractEntity implements SourceInterface
 {

@@ -9,21 +9,17 @@ use Doctrine\Common\Collections\Collection;
  * @author kevinfrantz
  *        
  */
-interface SourceMembersAttributInterface
+interface SourcesAttributInterface
 {
 
     /**
-     * Sets the collection source members
-     *
      * @param Collection $members
      */
-    public function setMembers(Collection $members): void;
+    public function setSources(Collection $sources): void;
 
     /**
-     * Returns the collection source members
-     *
      * @return Collection
      */
-    public function getMembers(): Collection;
+    public function getSources(): Collection;
 }
 
