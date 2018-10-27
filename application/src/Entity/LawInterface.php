@@ -3,12 +3,12 @@
 namespace App\Entity;
 
 use App\Entity\Attribut\RightsAttributInterface;
-use App\Entity\Method\NodeGrantedInterface;
-use App\Entity\Attribut\NodeAttributInterface;
+use App\Entity\Attribut\RelationAttributInterface;
+use App\Entity\Method\RelationGrantedInterface;
 
 /**
  * @author kevinfrantz
  */
-interface LawInterface extends RightsAttributInterface, NodeGrantedInterface, NodeAttributInterface
+interface LawInterface extends RightsAttributInterface, RelationGrantedInterface, RelationAttributInterface
 {
 }

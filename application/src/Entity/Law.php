@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Attribut\RightsAttribute;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\Attribut\NodeAttribut;
+use App\Entity\Attribut\RelationAttribut;
 
 /**
  * @author kevinfrantz
@@ -14,7 +14,7 @@ use App\Entity\Attribut\NodeAttribut;
  */
 class Law extends AbstractEntity implements LawInterface
 {
-    use RightsAttribute, NodeAttribut;
+    use RightsAttribute, RelationAttribut;
 
     /**
      * @ORM\OneToMany(targetEntity="Right", mappedBy="law", cascade={"persist", "remove"})
@@ -24,12 +24,12 @@ class Law extends AbstractEntity implements LawInterface
     protected $rights;
 
     /**
-     * @ORM\OneToOne(targetEntity="Node",cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="node_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="Relation",cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="relation_id", referencedColumnName="id")
      *
-     * @var NodeInterface
+     * @var RelationInterface
      */
-    protected $node;
+    protected $relation;
 
     public function __construct()
     {
@@ -41,13 +41,13 @@ class Law extends AbstractEntity implements LawInterface
         $this->rights = new ArrayCollection();
     }
 
-    public function isGranted(NodeInterface $node, string $layer, string $right): bool
+    public function isGranted(RelationInterface $relation, string $layer, string $right): bool
     {
         /**
          * @var RightInterface
          */
         foreach ($this->rights->toArray() as $right) {
-            if ($right->isGranted($node, $layer, $right)) {
+            if ($right->isGranted($relation, $layer, $right)) {
                 return true;
             }
         }

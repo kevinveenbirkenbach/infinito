@@ -2,12 +2,14 @@
 
 namespace App\Entity\Source;
 
-use App\Entity\Attribut\NodeAttribut;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\Exclude;
-use App\Entity\NodeInterface;
 use App\Entity\AbstractEntity;
-use App\Entity\Node;
+use Doctrine\Common\Collections\Collection;
+use App\Entity\Source\Attribut\GroupSourcesAttribut;
+use App\Entity\RelationInterface;
+use App\Entity\Attribut\RelationAttribut;
+use App\Entity\Relation;
 
 /**
  * @author kevinfrantz
@@ -17,24 +19,30 @@ use App\Entity\Node;
  * @ORM\Table(name="source")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"user" = "UserSource","name" = "NameSource","collection" = "SourcesSource"})
+ * @ORM\DiscriminatorMap({"user" = "UserSource","name" = "NameSource","group" = "GroupSource"})
  */
 abstract class AbstractSource extends AbstractEntity implements SourceInterface
 {
-    use NodeAttribut;
+    use RelationAttribut,GroupSourcesAttribut;
 
     /**
-     * @var NodeInterface
-     * @ORM\OneToOne(targetEntity="App\Entity\Node",cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="node_id", referencedColumnName="id")
+     * @var RelationInterface
+     * @ORM\OneToOne(targetEntity="App\Entity\Relation",cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="relation_id", referencedColumnName="id")
      * @Exclude
      */
-    protected $node;
+    protected $relation;
 
+    /**
+     * @var Collection|GroupSource[]
+     * @ORM\ManyToMany(targetEntity="GroupSource")
+     */
+    protected $groups;
+    
     public function __construct()
     {
         parent::__construct();
-        $this->node = new Node();
-        $this->node->setSource($this);
+        $this->relation = new Relation();
+        $this->relation->setSource($this);
     }
 }

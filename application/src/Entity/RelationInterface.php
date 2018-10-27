@@ -11,6 +11,6 @@ use App\Entity\Attribut\LawAttributInterface;
 /**
  * @author kevinfrantz
  */
-interface NodeInterface extends SourceAttributInterface, IdAttributInterface, ParentsAttributInterface, ChildsAttributeInterface, LawAttributInterface
+interface RelationInterface extends SourceAttributInterface, IdAttributInterface, ParentsAttributInterface, ChildsAttributeInterface, LawAttributInterface
 {
 }

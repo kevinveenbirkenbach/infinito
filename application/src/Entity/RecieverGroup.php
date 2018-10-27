@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
-use App\Entity\Attribut\NodeAttribut;
 use App\Entity\Attribut\RecieverAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\DBAL\Types\RecieverType;
 use Symfony\Component\Intl\Exception\NotImplementedException;
 use Doctrine\ORM\Mapping as ORM;
 use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
+use App\Entity\Attribut\RelationAttribut;
+use App\Entity\Attribut\RelationAttributInterface;
 
 /**
  * @author kevinfrantz
@@ -17,7 +18,7 @@ use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
  */
 class RecieverGroup extends AbstractEntity implements RecieverGroupInterface
 {
-    use NodeAttribut,RecieverAttribut;
+    use RelationAttribut,RecieverAttribut;
 
     /**
      * @ORM\Column(name="reciever", type="RecieverType", nullable=false)
@@ -30,12 +31,12 @@ class RecieverGroup extends AbstractEntity implements RecieverGroupInterface
     /**
      * The node for which the right exists.
      *
-     * @ORM\ManyToOne(targetEntity="Node")
-     * @ORM\JoinColumn(name="node_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Relation")
+     * @ORM\JoinColumn(name="relation_id", referencedColumnName="id")
      *
-     * @var NodeInterface
+     * @var RelationAttributInterface
      */
-    protected $node;
+    protected $relation;
 
     public function getAllRecievers(): ArrayCollection
     {

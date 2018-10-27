@@ -3,8 +3,8 @@ namespace App\Entity\Source;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Attribut\SourceAttribut;
-use App\Entity\Source\Attribut\SourcesAttribut;
+use App\Entity\Source\Attribut\MembersAttributInterface;
+use App\Entity\Source\Attribut\MembersAttribut;
 
 /**
  *
@@ -12,15 +12,15 @@ use App\Entity\Source\Attribut\SourcesAttribut;
  * @ORM\Table(name="source_sources")
  * @ORM\Entity
  */
-class SourcesSource extends AbstractSource implements SourcesSourceInterface
+class GroupSource extends AbstractSource implements MembersAttributInterface
 {
-    use SourcesAttribut;
+    use MembersAttribut;
 
     /**
      *
      * @var Collection
      * @ORM\ManyToMany(targetEntity="AbstractSource")
      */
-    protected $sources;
+    protected $members;
 }
 

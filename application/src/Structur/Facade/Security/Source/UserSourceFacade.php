@@ -2,10 +2,12 @@
 namespace App\Structur\Facade\Security\Source;
 
 use App\Entity\Source\NameSourceInterface;
+use App\Entity\Source\SourceInterface;
 use App\Entity\UserInterface;
 use App\Entity\Source\UserSourceInterface;
 use App\DBAL\Types\RightType;
 use App\DBAL\Types\LayerType;
+use Doctrine\Common\Collections\Collection;
 
 /**
  *
@@ -56,6 +58,38 @@ class UserSourceFacade extends AbstractSourceFacade implements UserSourceInterfa
     }
 
     public function setVersion(int $version): void
+    {
+    /**
+     *
+     * @todo Implement
+     */
+    }
+
+    public function setSource(SourceInterface $source): void
+    {
+    /**
+     *
+     * @todo Implement
+     */
+    }
+
+    public function getGroupSources(): Collection
+    {
+    /**
+     *
+     * @todo Implement
+     */
+    }
+
+    public function getSource(): SourceInterface
+    {
+    /**
+     *
+     * @todo Implement
+     */
+    }
+
+    public function setGroupSources(Collection $groups): void
     {
     /**
      *

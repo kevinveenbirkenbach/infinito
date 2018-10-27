@@ -13,12 +13,15 @@ use App\Entity\Source\SourceInterface;
 use Doctrine\Common\Collections\Collection;
 
 /**
+ * This class represents a relation. 
+ * It allows a better right management of the meta informations.
+ * Also it is used to capsel the logic relation to an own logical unit. 
  * @author kevinfrantz
  * @todo rename and refactor this class
  * @ORM\Table(name="node")
  * @ORM\Entity()
  */
-class Node extends AbstractEntity implements NodeInterface
+class Relation extends AbstractEntity implements RelationInterface
 {
     use IdAttribut,
     SourceAttribut,
@@ -27,28 +30,28 @@ class Node extends AbstractEntity implements NodeInterface
     ChildsAttribut;
     
     /**
-     * Many Nodes have many parents.
-     * @ORM\ManyToMany(targetEntity="Node")
-     * @ORM\JoinTable(name="nodes_parents",
-     *      joinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")}
+     * Parents represent the creators of the relation
+     * @ORM\ManyToMany(targetEntity="Relation")
+     * @ORM\JoinTable(name="relation_parents",
+     *      joinColumns={@ORM\JoinColumn(name="relation_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="relation_id", referencedColumnName="id")}
      *      )
      *
-     * @var Collection|NodeInterface[]
+     * @var Collection|RelationInterface[]
      */
     protected $parents;
     
     /**
-     * Many Nodes have many childs.
+     * Childs represent the by the object produced relations
      * @todo Replace this by self referencing 
      * @see https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/reference/association-mapping.html
-     * @ORM\ManyToMany(targetEntity="Node")
-     * @ORM\JoinTable(name="nodes_childs",
-     *      joinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="node_id", referencedColumnName="id")}
+     * @ORM\ManyToMany(targetEntity="Relation")
+     * @ORM\JoinTable(name="relation_childs",
+     *      joinColumns={@ORM\JoinColumn(name="relation_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="relation_id", referencedColumnName="id")}
      *      )
      *
-     * @var Collection|NodeInterface[]
+     * @var Collection|RelationInterface[]
      */
     protected $childs;
 

@@ -8,16 +8,12 @@ use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
 use App\Entity\Attribut\LawAttribut;
 use App\DBAL\Types\LayerType;
 use App\DBAL\Types\RightType;
-use App\Entity\Attribut\NodeAttribut;
 use App\Entity\Attribut\GrantAttribut;
 use App\Logic\Operation\OperationInterface;
 use App\Entity\Attribut\ConditionAttribut;
 use App\Entity\Attribut\RecieverGroupAttribut;
 use App\Entity\Attribut\LayerAttribut;
-use App\Entity\LawInterface;
-use App\Entity\RecieverGroupInterface;
-use App\Entity\NodeInterface;
-use App\Entity\RightInterface;
+use App\Entity\Attribut\RelationAttribut;
 
 /**
  * @author kevinfrantz
@@ -26,7 +22,7 @@ use App\Entity\RightInterface;
  */
 class Right extends AbstractEntity implements RightInterface
 {
-    use TypeAttribut,LawAttribut, NodeAttribut, GrantAttribut,ConditionAttribut,RecieverGroupAttribut,LayerAttribut;
+    use TypeAttribut,LawAttribut, RelationAttribut, GrantAttribut,ConditionAttribut,RecieverGroupAttribut,LayerAttribut;
 
     /**
      * @ORM\ManyToOne(targetEntity="Law", inversedBy="rights")
@@ -60,12 +56,12 @@ class Right extends AbstractEntity implements RightInterface
     protected $grant;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Node")
-     * @ORM\JoinColumn(name="node_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Relation")
+     * @ORM\JoinColumn(name="relation_id", referencedColumnName="id")
      *
-     * @var NodeInterface
+     * @var RelationInterface
      */
-    protected $node;
+    protected $relation;
 
     /**
      * @ORM\Column(name="type", type="RightType", nullable=false)
@@ -91,9 +87,9 @@ class Right extends AbstractEntity implements RightInterface
         //$this->recieverGroup = new RecieverGroup();
     }
 
-    public function isGranted(NodeInterface $node, string $layer, string $right): bool
+    public function isGranted(RelationInterface $relation, string $layer, string $right): bool
     {
-        if ($this->layer == $layer && $this->type == $right && $this->checkIfNodeIsReciever($node) && $this->getConditionBoolOrTrue()) {
+        if ($this->layer == $layer && $this->type == $right && $this->checkIfNodeIsReciever($relation) && $this->getConditionBoolOrTrue()) {
             return $this->grant;
         }
 
@@ -109,8 +105,8 @@ class Right extends AbstractEntity implements RightInterface
         return true;
     }
 
-    private function checkIfNodeIsReciever(NodeInterface $node): bool
+    private function checkIfNodeIsReciever(RelationInterface $relation): bool
     {
-        return $this->recieverGroup->getAllRecievers()->contains($node);
+        return $this->recieverGroup->getAllRecievers()->contains($relation);
     }
 }
