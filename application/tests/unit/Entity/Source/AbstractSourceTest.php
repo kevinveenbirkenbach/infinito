@@ -6,6 +6,8 @@ use App\Entity\Source\SourceInterface;
 use App\Entity\Meta\LawInterface;
 use App\Entity\Meta\RelationInterface;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use App\Entity\Source\AbstractSource;
 
 /**
  *
@@ -39,6 +41,10 @@ class AbstractSourceTest extends TestCase
     
     public function testGroups(){
         $this->assertInstanceOf(Collection::class,$this->source->getGroupSources());
+        $group = new class extends AbstractSource{};
+        $groups = new ArrayCollection([$group]);
+        $this->source->setGroupSources($groups);
+        $this->assertEquals($group, $this->source->getGroupSources()->get(0));
     }
 }
 
