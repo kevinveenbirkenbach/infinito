@@ -7,9 +7,9 @@ use JMS\Serializer\Annotation\Exclude;
 use App\Entity\AbstractEntity;
 use Doctrine\Common\Collections\Collection;
 use App\Entity\Source\Attribut\GroupSourcesAttribut;
-use App\Entity\RelationInterface;
+use App\Entity\Meta\RelationInterface;
 use App\Entity\Attribut\RelationAttribut;
-use App\Entity\Relation;
+use App\Entity\Meta\Relation;
 
 /**
  * @author kevinfrantz
@@ -27,7 +27,7 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
 
     /**
      * @var RelationInterface
-     * @ORM\OneToOne(targetEntity="App\Entity\Relation",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Meta\Relation",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="relation_id", referencedColumnName="id")
      * @Exclude
      */

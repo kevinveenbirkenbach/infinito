@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Meta;
 
 use App\Entity\Attribut\RecieverAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -16,7 +16,7 @@ use App\Entity\Attribut\RelationAttributInterface;
  * @ORM\Table(name="reciever_group")
  * @ORM\Entity()
  */
-class RecieverGroup extends AbstractEntity implements RecieverGroupInterface
+class RecieverGroup extends AbstractMeta implements RecieverGroupInterface
 {
     use RelationAttribut,RecieverAttribut;
 

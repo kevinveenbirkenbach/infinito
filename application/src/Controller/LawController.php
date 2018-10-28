@@ -5,8 +5,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use App\Entity\Law;
-use App\Entity\LawInterface;
+use App\Entity\Meta\Law;
+use App\Entity\Meta\LawInterface;
 
 /**
  *

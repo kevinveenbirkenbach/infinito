@@ -2,7 +2,7 @@
 
 namespace App\Entity\Method;
 
-use App\Entity\RelationInterface;
+use App\Entity\Meta\RelationInterface;
 
 /**
  * @author kevinfrantz

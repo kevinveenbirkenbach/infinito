@@ -2,7 +2,7 @@
 
 namespace App\Entity\Attribut;
 
-use App\Entity\RelationInterface;
+use App\Entity\Meta\RelationInterface;
 
 /**
  * @author kevinfrantz

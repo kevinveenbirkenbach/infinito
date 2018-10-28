@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Meta;
 
 use App\Entity\Attribut\TypeAttribut;
 use Doctrine\ORM\Mapping as ORM;
@@ -20,7 +20,7 @@ use App\Entity\Attribut\RelationAttribut;
  * @ORM\Table(name="`right`")
  * @ORM\Entity(repositoryClass="App\Repository\RightRepository")
  */
-class Right extends AbstractEntity implements RightInterface
+class Right extends AbstractMeta implements RightInterface
 {
     use TypeAttribut,LawAttribut, RelationAttribut, GrantAttribut,ConditionAttribut,RecieverGroupAttribut,LayerAttribut;
 

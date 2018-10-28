@@ -1,6 +1,5 @@
 <?php
-
-namespace App\Entity;
+namespace App\Entity\Meta;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Attribut\RightsAttribute;
@@ -8,15 +7,17 @@ use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Attribut\RelationAttribut;
 
 /**
+ *
  * @author kevinfrantz
  * @ORM\Table(name="law")
  * @ORM\Entity(repositoryClass="App\Repository\LawRepository")
  */
-class Law extends AbstractEntity implements LawInterface
+class Law extends AbstractMeta implements LawInterface
 {
     use RightsAttribute, RelationAttribut;
 
     /**
+     *
      * @ORM\OneToMany(targetEntity="Right", mappedBy="law", cascade={"persist", "remove"})
      *
      * @var ArrayCollection | Right[]
@@ -24,6 +25,7 @@ class Law extends AbstractEntity implements LawInterface
     protected $rights;
 
     /**
+     *
      * @ORM\OneToOne(targetEntity="Relation",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="relation_id", referencedColumnName="id")
      *
@@ -44,6 +46,7 @@ class Law extends AbstractEntity implements LawInterface
     public function isGranted(RelationInterface $relation, string $layer, string $right): bool
     {
         /**
+         *
          * @var RightInterface
          */
         foreach ($this->rights->toArray() as $right) {

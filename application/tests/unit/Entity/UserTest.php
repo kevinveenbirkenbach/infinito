@@ -4,12 +4,13 @@ namespace tests\unit\Entity;
 
 use PHPUnit\Framework\TestCase;
 use App\Entity\User;
-use App\Entity\Law;
+use App\Entity\Meta\Law;
+use App\Entity\Meta\Relation;
 use App\Entity\Source\UserSource;
-use App\Entity\Node;
 
 /**
  * @author kevinfrantz
+use App\Entity\Source\UserSource;
  */
 class UserTest extends TestCase
 {
@@ -46,7 +47,7 @@ class UserTest extends TestCase
 
     public function testNode(): void
     {
-        $this->assertInstanceOf(Node::class, $this->user->getSource()->getNode());
+        $this->assertInstanceOf(Relation::class, $this->user->getSource()->getNode());
     }
 
     public function testLaw(): void

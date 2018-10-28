@@ -4,20 +4,20 @@ namespace App\Creator\Modificator\Entity;
 
 use App\DBAL\Types\LayerType;
 use App\DBAL\Types\RightType;
-use App\Entity\NodeInterface;
-use App\Entity\Right;
-use App\Entity\LawInterface;
+use App\Entity\Meta\RelationInterface;
+use App\Entity\Meta\Right;
+use App\Entity\Meta\LawInterface;
 use App\DBAL\Types\RecieverType;
-use App\Entity\RightInterface;
-use App\Entity\RecieverGroupInterface;
-use App\Entity\RecieverGroup;
+use App\Entity\Meta\RightInterface;
+use App\Entity\Meta\RecieverGroupInterface;
+use App\Entity\Meta\RecieverGroup;
 
 /**
  * @author kevinfrantz
  */
 abstract class LawModificator
 {
-    public static function grantAllRights(LawInterface $law, NodeInterface $node): void
+    public static function grantAllRights(LawInterface $law, RelationInterface $node): void
     {
         foreach (LayerType::getChoices() as $layerKey => $layerValue) {
             foreach (RightType::getChoices() as $rightKey => $rightValue) {
@@ -28,7 +28,7 @@ abstract class LawModificator
         }
     }
 
-    public static function createRight(LawInterface $law, NodeInterface $node, string $type, string $layer): RightInterface
+    public static function createRight(LawInterface $law, RelationInterface $node, string $type, string $layer): RightInterface
     {
         $right = new Right();
         $right->setType($type);
@@ -39,7 +39,7 @@ abstract class LawModificator
         return $right;
     }
 
-    public static function createRecieverGroup(NodeInterface $node, string $reciever): RecieverGroupInterface
+    public static function createRecieverGroup(RelationInterface $node, string $reciever): RecieverGroupInterface
     {
         $recieverGroup = new RecieverGroup();
         $recieverGroup->setNode($node);

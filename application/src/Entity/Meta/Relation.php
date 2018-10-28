@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Meta;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Attribut\IdAttribut;
@@ -21,7 +21,7 @@ use Doctrine\Common\Collections\Collection;
  * @ORM\Table(name="node")
  * @ORM\Entity()
  */
-class Relation extends AbstractEntity implements RelationInterface
+class Relation extends AbstractMeta implements RelationInterface
 {
     use IdAttribut,
     SourceAttribut,
