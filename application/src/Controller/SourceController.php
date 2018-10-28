@@ -12,7 +12,7 @@ use App\Creator\Factory\Template\Source\SourceTemplateFormFactory;
 use App\Creator\Factory\Form\Source\SourceFormFactory;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use App\Entity\Source\AbstractSource;
-use App\Entity\NodeInterface;
+use App\Entity\Meta\RelationInterface;
 
 /**
  *
@@ -68,7 +68,7 @@ class SourceController extends AbstractEntityController
         return $this->redirectToRouteById('app_node_show',$nodeId);
     }
     
-    private function loadNodeById(int $id):NodeInterface{
+    private function loadNodeById(int $id):RelationInterface{
         return $this->loadEntityById($id)->getNode();
     }
 
