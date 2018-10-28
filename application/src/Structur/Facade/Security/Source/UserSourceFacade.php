@@ -1,6 +1,7 @@
 <?php
 namespace App\Structur\Facade\Security\Source;
 
+use App\Entity\Meta\LawInterface;
 use App\Entity\Source\NameSourceInterface;
 use App\Entity\Source\SourceInterface;
 use App\Entity\UserInterface;
@@ -10,7 +11,7 @@ use App\DBAL\Types\LayerType;
 use Doctrine\Common\Collections\Collection;
 
 /**
- *
+ * @todo check if this layer makes sense
  * @author kevinfrantz
  */
 class UserSourceFacade extends AbstractSourceFacade implements UserSourceInterface
@@ -96,4 +97,20 @@ class UserSourceFacade extends AbstractSourceFacade implements UserSourceInterfa
      * @todo Implement
      */
     }
+    public function setLaw(LawInterface $law): void
+    {
+        /**
+         *
+         * @todo Implement
+         */
+    }
+
+    public function getLaw(): LawInterface
+    {
+        /**
+         *
+         * @todo Implement
+         */
+    }
+
 }

@@ -12,7 +12,7 @@ use App\Entity\Source\NameSourceInterface;
  * @ORM\Table(name="source_name")
  * @ORM\Entity(repositoryClass="App\Repository\NameSourceRepository")
  */
-class NameSource extends AbstractSource implements NameSourceInterface
+final class NameSource extends AbstractSource implements NameSourceInterface
 {
     use NameAttribut;
 

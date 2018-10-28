@@ -12,7 +12,7 @@ use App\Entity\Attribut\RelationAttribut;
  * @ORM\Table(name="meta_law")
  * @ORM\Entity(repositoryClass="App\Repository\LawRepository")
  */
-class Law extends AbstractMeta implements LawInterface
+final class Law extends AbstractMeta implements LawInterface
 {
     use RightsAttribute, RelationAttribut;
 
@@ -23,15 +23,6 @@ class Law extends AbstractMeta implements LawInterface
      * @var ArrayCollection | Right[]
      */
     protected $rights;
-
-    /**
-     *
-     * @ORM\OneToOne(targetEntity="Relation",cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="relation_id", referencedColumnName="id")
-     *
-     * @var RelationInterface
-     */
-    protected $relation;
 
     public function __construct()
     {

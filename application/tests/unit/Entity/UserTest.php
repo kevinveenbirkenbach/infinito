@@ -4,9 +4,8 @@ namespace tests\unit\Entity;
 
 use PHPUnit\Framework\TestCase;
 use App\Entity\User;
-use App\Entity\Meta\Law;
-use App\Entity\Meta\Relation;
 use App\Entity\Source\UserSource;
+use App\Entity\UserInterface;
 
 /**
  * @author kevinfrantz
@@ -19,39 +18,30 @@ class UserTest extends TestCase
     const USERNAME = 'tester';
 
     /**
-     * @var User
+     * @var UserInterface
      */
     protected $user;
 
     public function setUp(): void
     {
         $this->user = new User();
+        $this->user->setUsername(self::USERNAME);
+        $this->user->setPassword(self::PASSWORD);
+        
     }
 
     public function testUsername(): void
     {
-        $this->user->setUsername(self::USERNAME);
         $this->assertEquals(self::USERNAME, $this->user->getUsername());
     }
 
     public function testPassword(): void
     {
-        $this->user->setPassword(self::PASSWORD);
         $this->assertEquals(self::PASSWORD, $this->user->getPassword());
     }
 
     public function testSource(): void
     {
         $this->assertInstanceOf(UserSource::class, $this->user->getSource());
-    }
-
-    public function testNode(): void
-    {
-        $this->assertInstanceOf(Relation::class, $this->user->getSource()->getNode());
-    }
-
-    public function testLaw(): void
-    {
-        $this->assertInstanceOf(Law::class, $this->user->getSource()->getNode()->getLaw());
     }
 }

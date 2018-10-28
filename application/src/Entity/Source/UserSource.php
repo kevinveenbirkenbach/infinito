@@ -13,7 +13,7 @@ use App\Entity\UserInterface;
  * @ORM\Table(name="source_user")
  * @ORM\Entity(repositoryClass="App\Repository\UserSourceRepository")
  */
-class UserSource extends AbstractSource implements UserSourceInterface
+final class UserSource extends AbstractSource implements UserSourceInterface
 {
     use UserAttribut,NameSourceAttribut;
 

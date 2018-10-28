@@ -16,7 +16,7 @@ use App\Entity\Attribut\RelationAttributInterface;
  * @ORM\Table(name="meta_reciever_group")
  * @ORM\Entity()
  */
-class RecieverGroup extends AbstractMeta implements RecieverGroupInterface
+final class RecieverGroup extends AbstractMeta implements RecieverGroupInterface
 {
     use RelationAttribut,RecieverAttribut;
 

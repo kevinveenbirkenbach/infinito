@@ -46,12 +46,14 @@ class User extends BaseUser implements UserInterface
      */
     protected $version;
 
+    /**
+     * @todo Initialize all needed attributs
+     */
     public function __construct()
     {
         parent::__construct();
         $this->isActive = true;
         $this->source = new UserSource();
-        LawModificator::grantAllRights($this->source->getNode()->getLaw(), $this->source->getNode());
-        //var_dump($this->source->getNode()->getLaw()->getRights()->get(0));
+        //LawModificator::grantAllRights($this->source->getNode()->getLaw(), $this->source->getNode());
     }
 }

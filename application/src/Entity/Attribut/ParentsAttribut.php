@@ -2,7 +2,6 @@
 
 namespace App\Entity\Attribut;
 
-use App\Entity\NodeInterface;
 use Doctrine\Common\Collections\Collection;
 
 /**
@@ -11,7 +10,7 @@ use Doctrine\Common\Collections\Collection;
 trait ParentsAttribut
 {
     /**
-     * @var Collection|NodeInterface[]
+     * @var Collection|ParentsAttributInterface[]
      */
     protected $parents;
 

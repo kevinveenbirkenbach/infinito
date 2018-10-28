@@ -21,7 +21,7 @@ use Doctrine\Common\Collections\Collection;
  * @ORM\Table(name="meta_relation")
  * @ORM\Entity()
  */
-class Relation extends AbstractMeta implements RelationInterface
+final class Relation extends AbstractMeta implements RelationInterface
 {
     use IdAttribut,
     SourceAttribut,
@@ -76,6 +76,6 @@ class Relation extends AbstractMeta implements RelationInterface
         $this->law = new Law();
         $this->parents = new ArrayCollection();
         $this->childs = new ArrayCollection();
-        $this->law->setNode($this);
+        //$this->law->setNode($this);
     }
 }

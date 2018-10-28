@@ -9,6 +9,6 @@ use App\Entity\Method\RelationGrantedInterface;
 /**
  * @author kevinfrantz
  */
-interface LawInterface extends RightsAttributInterface, RelationGrantedInterface, RelationAttributInterface,MetaInterface
+interface LawInterface extends RightsAttributInterface, RelationGrantedInterface, MetaInterface
 {
 }

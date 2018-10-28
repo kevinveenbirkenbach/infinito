@@ -12,7 +12,7 @@ use App\Entity\Source\Attribut\MembersAttribut;
  * @ORM\Table(name="source_group")
  * @ORM\Entity
  */
-class GroupSource extends AbstractSource implements MembersAttributInterface
+final class GroupSource extends AbstractSource implements MembersAttributInterface
 {
     use MembersAttribut;
 
