@@ -13,7 +13,7 @@ use App\Entity\Attribut\RelationAttributInterface;
 
 /**
  * @author kevinfrantz
- * @ORM\Table(name="reciever_group")
+ * @ORM\Table(name="meta_reciever_group")
  * @ORM\Entity()
  */
 class RecieverGroup extends AbstractMeta implements RecieverGroupInterface

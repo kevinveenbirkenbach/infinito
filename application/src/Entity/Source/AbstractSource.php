@@ -34,6 +34,8 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
     protected $relation;
 
     /**
+     * @todo Implement that just one table on database level is needed!
+     * @todo Rename table to use the right schema
      * @var Collection|GroupSource[]
      * @ORM\ManyToMany(targetEntity="GroupSource")
      */

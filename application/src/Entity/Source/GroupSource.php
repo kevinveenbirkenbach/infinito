@@ -9,7 +9,7 @@ use App\Entity\Source\Attribut\MembersAttribut;
 /**
  *
  * @author kevinfrantz
- * @ORM\Table(name="source_sources")
+ * @ORM\Table(name="source_group")
  * @ORM\Entity
  */
 class GroupSource extends AbstractSource implements MembersAttributInterface

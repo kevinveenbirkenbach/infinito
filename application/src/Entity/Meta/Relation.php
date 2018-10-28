@@ -18,7 +18,7 @@ use Doctrine\Common\Collections\Collection;
  * Also it is used to capsel the logic relation to an own logical unit. 
  * @author kevinfrantz
  * @todo rename and refactor this class
- * @ORM\Table(name="node")
+ * @ORM\Table(name="meta_relation")
  * @ORM\Entity()
  */
 class Relation extends AbstractMeta implements RelationInterface
@@ -32,7 +32,7 @@ class Relation extends AbstractMeta implements RelationInterface
     /**
      * Parents represent the creators of the relation
      * @ORM\ManyToMany(targetEntity="Relation")
-     * @ORM\JoinTable(name="relation_parents",
+     * @ORM\JoinTable(name="meta_relation_parents",
      *      joinColumns={@ORM\JoinColumn(name="relation_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="relation_id", referencedColumnName="id")}
      *      )
@@ -46,7 +46,7 @@ class Relation extends AbstractMeta implements RelationInterface
      * @todo Replace this by self referencing 
      * @see https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/reference/association-mapping.html
      * @ORM\ManyToMany(targetEntity="Relation")
-     * @ORM\JoinTable(name="relation_childs",
+     * @ORM\JoinTable(name="meta_relation_childs",
      *      joinColumns={@ORM\JoinColumn(name="relation_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="relation_id", referencedColumnName="id")}
      *      )

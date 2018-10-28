@@ -9,7 +9,7 @@ use App\Entity\Attribut\RelationAttribut;
 /**
  *
  * @author kevinfrantz
- * @ORM\Table(name="law")
+ * @ORM\Table(name="meta_law")
  * @ORM\Entity(repositoryClass="App\Repository\LawRepository")
  */
 class Law extends AbstractMeta implements LawInterface

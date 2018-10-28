@@ -17,7 +17,7 @@ use App\Entity\Attribut\RelationAttribut;
 
 /**
  * @author kevinfrantz
- * @ORM\Table(name="`right`")
+ * @ORM\Table(name="meta_right")
  * @ORM\Entity(repositoryClass="App\Repository\RightRepository")
  */
 class Right extends AbstractMeta implements RightInterface
