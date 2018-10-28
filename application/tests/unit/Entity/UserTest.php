@@ -29,6 +29,10 @@ class UserTest extends TestCase
         $this->user->setPassword(self::PASSWORD);
         
     }
+    
+    public function testConstructor():void{
+        $this->assertInstanceOf(UserInterface::class, new User());
+    }
 
     public function testUsername(): void
     {
