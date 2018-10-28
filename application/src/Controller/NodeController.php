@@ -5,13 +5,13 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\NodeInterface;
-use App\Entity\Node;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use App\Entity\Meta\RelationInterface;
+use App\Entity\Meta\Relation;
 
 /**
  * @todo IMPLEMENT SECURITY!
- *
+ * @todo Refactor!
  * @author kevinfrantz
  */
 class NodeController extends AbstractEntityController
@@ -22,10 +22,10 @@ class NodeController extends AbstractEntityController
     public function show(Request $request, int $id): Response
     {
         /**
-         * @var NodeInterface $node
+         * @var RelationInterface $node
          */
-        $node = $this->loadEntityById($id);
-        $view = $this->view($node, 200)
+        $relation = $this->loadEntityById($id);
+        $view = $this->view($relation, 200)
         ->setTemplate('node/view/standard.html.twig')
         ->setTemplateVar('node');
         return $this->handleView($view);
@@ -60,6 +60,6 @@ class NodeController extends AbstractEntityController
     
     protected function setEntityName(): void
     {
-        $this->entityName = Node::class;
+        $this->entityName = Relation::class;
     }
 }
