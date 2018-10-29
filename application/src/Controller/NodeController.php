@@ -12,6 +12,7 @@ use App\Entity\Meta\Relation;
 /**
  * @todo IMPLEMENT SECURITY!
  * @todo Refactor!
+ *
  * @author kevinfrantz
  */
 class NodeController extends AbstractEntityController
@@ -22,42 +23,46 @@ class NodeController extends AbstractEntityController
     public function show(Request $request, int $id): Response
     {
         /**
-         * @var RelationInterface $node
+         * @var RelationInterface
          */
         $relation = $this->loadEntityById($id);
         $view = $this->view($relation, 200)
         ->setTemplate('node/view/standard.html.twig')
         ->setTemplateVar('node');
+
         return $this->handleView($view);
     }
-    
+
     /**
      * @Route("/node/{id}/law.{_format}", defaults={"_format"="html"})
      */
     public function law(int $id): RedirectResponse
     {
         $lawId = $this->loadEntityById($id)->getLaw()->getId();
-        return $this->redirectToRouteById('app_law_show',$lawId);
+
+        return $this->redirectToRouteById('app_law_show', $lawId);
     }
-    
+
     /**
      * @Route("/node/{id}/parents.{_format}", defaults={"_format"="html"})
      */
-    public function parents(int $id):Response{
-        /**
+    public function parents(int $id): Response
+    {
+        /*
          * @todo Implement
          */
     }
-    
+
     /**
      * @Route("/node/{id}/childs.{_format}", defaults={"_format"="html"})
      */
-    public function childs(int $id):Response{
-        /**
+    public function childs(int $id): Response
+    {
+        /*
          * @todo Implement
          */
     }
-    
+
     protected function setEntityName(): void
     {
         $this->entityName = Relation::class;

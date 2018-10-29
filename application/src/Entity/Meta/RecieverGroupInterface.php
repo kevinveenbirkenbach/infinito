@@ -9,7 +9,7 @@ use App\Entity\Attribut\RelationAttributInterface;
 /**
  * @author kevinfrantz
  */
-interface RecieverGroupInterface extends RelationAttributInterface, RecieverAttributInterface,MetaInterface
+interface RecieverGroupInterface extends RelationAttributInterface, RecieverAttributInterface, MetaInterface
 {
     public function getAllRecievers(): ArrayCollection;
 }

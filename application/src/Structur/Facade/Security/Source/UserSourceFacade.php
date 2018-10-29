@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Structur\Facade\Security\Source;
 
 use App\Entity\Meta\LawInterface;
@@ -12,13 +13,12 @@ use Doctrine\Common\Collections\Collection;
 
 /**
  * @todo check if this layer makes sense
+ *
  * @author kevinfrantz
  */
 class UserSourceFacade extends AbstractSourceFacade implements UserSourceInterface
 {
-
     /**
-     *
      * @var UserSourceInterface
      */
     protected $source;
@@ -45,61 +45,64 @@ class UserSourceFacade extends AbstractSourceFacade implements UserSourceInterfa
     }
 
     public function getUser(): UserInterface
-    {}
+    {
+    }
 
     public function setUser(UserInterface $user): void
-    {}
+    {
+    }
 
     public function getVersion(): int
     {
-    /**
-     *
-     * @todo Implement
-     */
+        /*
+         *
+         * @todo Implement
+         */
     }
 
     public function setVersion(int $version): void
     {
-    /**
-     *
-     * @todo Implement
-     */
+        /*
+         *
+         * @todo Implement
+         */
     }
 
     public function setSource(SourceInterface $source): void
     {
-    /**
-     *
-     * @todo Implement
-     */
+        /*
+         *
+         * @todo Implement
+         */
     }
 
     public function getGroupSources(): Collection
     {
-    /**
-     *
-     * @todo Implement
-     */
+        /*
+         *
+         * @todo Implement
+         */
     }
 
     public function getSource(): SourceInterface
     {
-    /**
-     *
-     * @todo Implement
-     */
+        /*
+         *
+         * @todo Implement
+         */
     }
 
     public function setGroupSources(Collection $groups): void
     {
-    /**
-     *
-     * @todo Implement
-     */
+        /*
+         *
+         * @todo Implement
+         */
     }
+
     public function setLaw(LawInterface $law): void
     {
-        /**
+        /*
          *
          * @todo Implement
          */
@@ -107,10 +110,9 @@ class UserSourceFacade extends AbstractSourceFacade implements UserSourceInterfa
 
     public function getLaw(): LawInterface
     {
-        /**
+        /*
          *
          * @todo Implement
          */
     }
-
 }

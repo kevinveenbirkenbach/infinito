@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Entity\Meta;
 
 use App\Entity\Attribut\TypeAttributInterface;
@@ -11,7 +12,6 @@ use App\Entity\Method\RelationGrantedInterface;
 use App\Entity\Attribut\RelationAttributInterface;
 
 /**
- *
  * @author kevinfrantz
  */
 interface RightInterface extends TypeAttributInterface, LawAttributInterface, RelationGrantedInterface, GrantAttributInterface, RecieverGroupAttributInterface, RelationAttributInterface, ConditionAttributInterface, LayerAttributInterface, MetaInterface

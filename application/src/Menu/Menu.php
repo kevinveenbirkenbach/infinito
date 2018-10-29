@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Menu;
 
 use Knp\Menu\FactoryInterface;
@@ -10,15 +11,12 @@ use App\DBAL\Types\MenuEventType;
 
 class Menu
 {
-
     /**
-     *
      * @var EventDispatcherInterface
      */
     private $dispatcher;
 
     /**
-     *
      * @var FactoryInterface
      */
     private $factory;
@@ -48,6 +46,7 @@ class Menu
     {
         $menu = $this->createBasicMenuItem();
         $this->dispatcher->dispatch($type, new MenuEvent($this->factory, $menu, $request));
+
         return $menu;
     }
 
@@ -55,8 +54,8 @@ class Menu
     {
         return $this->factory->createItem('root', [
             'childrenAttributes' => [
-                'class' => 'navbar-nav mr-auto'
-            ]
+                'class' => 'navbar-nav mr-auto',
+            ],
         ]);
     }
 }

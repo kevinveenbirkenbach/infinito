@@ -19,12 +19,13 @@ class AndOperation extends AbstractOperation
             throw new \Exception('Operands must be defined!');
         }
         $this->result = new Result();
-        /**
+        /*
          * @var OperandInterface
          */
         foreach ($this->operands->toArray() as $operand) {
             if (!$operand->getResult()->getBool()) {
                 $this->result->setAll(false);
+
                 return;
             }
         }

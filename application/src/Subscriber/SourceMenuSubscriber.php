@@ -19,7 +19,7 @@ class SourceMenuSubscriber extends AbstractEntityMenuSubscriber
                 'icon' => 'fas fa-edit',
             ],
         ]);
-        $this->generateShowDropdown($menu, $event,'app_source_show');
+        $this->generateShowDropdown($menu, $event, 'app_source_show');
         $menu->addChild($this->trans('node'), [
             'route' => 'app_source_node',
             'routeParameters' => [

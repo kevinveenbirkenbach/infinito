@@ -1,20 +1,19 @@
 <?php
+
 namespace App\Subscriber;
 
 use App\DBAL\Types\MenuEventType;
 use App\Event\Menu\MenuEvent;
 
 /**
- *
  * @author kevinfrantz
- *        
  */
 class NodeMenuSubscriber extends AbstractEntityMenuSubscriber
 {
     public function onNodeMenuConfigure(MenuEvent $event): void
     {
         $menu = $event->getItem();
-        $this->generateShowDropdown($menu, $event,'app_source_show');
+        $this->generateShowDropdown($menu, $event, 'app_source_show');
         $menu->addChild($this->trans('law'), [
             'route' => 'app_node_law',
             'routeParameters' => [
@@ -43,12 +42,11 @@ class NodeMenuSubscriber extends AbstractEntityMenuSubscriber
             ],
         ]);
     }
-    
+
     public static function getSubscribedEvents()
     {
         return [
-            MenuEventType::NODE => 'onNodeMenuConfigure'
+            MenuEventType::NODE => 'onNodeMenuConfigure',
         ];
     }
 }
-

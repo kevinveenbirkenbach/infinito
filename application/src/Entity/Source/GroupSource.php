@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Entity\Source;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -8,7 +9,6 @@ use App\Entity\Source\Attribut\MembersAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- *
  * @author kevinfrantz
  * @ORM\Table(name="source_group")
  * @ORM\Entity
@@ -18,15 +18,14 @@ final class GroupSource extends AbstractSource implements MembersAttributInterfa
     use MembersAttribut;
 
     /**
-     *
      * @var Collection
      * @ORM\ManyToMany(targetEntity="AbstractSource")
      */
     protected $members;
-    
-    public function __construct() {
+
+    public function __construct()
+    {
         parent::__construct();
         $this->members = new ArrayCollection();
     }
 }
-

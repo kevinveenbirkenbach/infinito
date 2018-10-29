@@ -7,7 +7,6 @@ use App\Entity\Source\SourceInterface;
 use App\Entity\User;
 use App\DBAL\Types\RightType;
 use App\DBAL\Types\LayerType;
-use App\Structur\Facade\Security\Source\SourceFacadeInterface;
 
 /**
  * @author kevinfrantz
@@ -15,7 +14,8 @@ use App\Structur\Facade\Security\Source\SourceFacadeInterface;
 abstract class AbstractSourceFacade implements SourceFacadeInterface
 {
     /**
-     * Propably it woul be better to solve this over the constructor
+     * Propably it woul be better to solve this over the constructor.
+     *
      * @var User
      */
     protected static $facadeUser;

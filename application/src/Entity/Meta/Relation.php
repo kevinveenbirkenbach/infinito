@@ -13,10 +13,12 @@ use App\Entity\Source\SourceInterface;
 use Doctrine\Common\Collections\Collection;
 
 /**
- * This class represents a relation. 
+ * This class represents a relation.
  * It allows a better right management of the meta informations.
- * Also it is used to capsel the logic relation to an own logical unit. 
+ * Also it is used to capsel the logic relation to an own logical unit.
+ *
  * @author kevinfrantz
+ *
  * @todo rename and refactor this class
  * @ORM\Table(name="meta_relation")
  * @ORM\Entity()
@@ -28,9 +30,10 @@ final class Relation extends AbstractMeta implements RelationInterface
     ParentsAttribut,
     LawAttribut,
     ChildsAttribut;
-    
+
     /**
-     * Parents represent the creators of the relation
+     * Parents represent the creators of the relation.
+     *
      * @ORM\ManyToMany(targetEntity="Relation")
      * @ORM\JoinTable(name="meta_relation_parents",
      *      joinColumns={@ORM\JoinColumn(name="relation_id", referencedColumnName="id")},
@@ -40,10 +43,12 @@ final class Relation extends AbstractMeta implements RelationInterface
      * @var Collection|RelationInterface[]
      */
     protected $parents;
-    
+
     /**
-     * Childs represent the by the object produced relations
-     * @todo Replace this by self referencing 
+     * Childs represent the by the object produced relations.
+     *
+     * @todo Replace this by self referencing
+     *
      * @see https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/reference/association-mapping.html
      * @ORM\ManyToMany(targetEntity="Relation")
      * @ORM\JoinTable(name="meta_relation_childs",

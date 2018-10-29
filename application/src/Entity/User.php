@@ -38,10 +38,10 @@ class User extends BaseUser implements UserInterface
      * @ORM\Column(type="integer")(strategy="AUTO")
      */
     protected $id;
-    
+
     /**
-     *
      * @version @ORM\Column(type="integer")
+     *
      * @var int
      */
     protected $version;

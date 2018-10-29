@@ -5,7 +5,6 @@ namespace App\Entity\Source;
 use App\Entity\Attribut\NameAttribut;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use App\Entity\Source\NameSourceInterface;
 
 /**
  * @author kevinfrantz

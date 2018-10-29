@@ -90,7 +90,7 @@ class UserMenuSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            MenuEventType::USER=> 'onUserMenuConfigure',
+            MenuEventType::USER => 'onUserMenuConfigure',
         ];
     }
 }

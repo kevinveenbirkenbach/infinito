@@ -1,18 +1,15 @@
 <?php
+
 namespace App\Entity\Source\Attribut;
 
 use Doctrine\Common\Collections\Collection;
 
 /**
- *
  * @author kevinfrantz
- *        
  */
 trait MembersAttribut
 {
-
     /**
-     *
      * @var Collection
      */
     protected $members;
@@ -27,4 +24,3 @@ trait MembersAttribut
         $this->members = $members;
     }
 }
-
