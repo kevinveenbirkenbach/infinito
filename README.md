@@ -10,5 +10,8 @@ It follows the [best practices from AltexSoft](https://www.altexsoft.com/blog/bu
 ### administration
 The setup and administration guide you will find in *./documentation/product/user/administrator/guide.md*
 
-## license
+## License
 The "GNU AFFERO GENERAL PUBLIC LICENSE" applies to this project. See LICENSE.txt.
+
+## Code of Conduct
+To contributions of this project the "Contributor Covenant Code of Conduct" applies. See CODE_OF_CONDUCT.md.
