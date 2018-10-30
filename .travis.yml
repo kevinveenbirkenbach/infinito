@@ -1,15 +1,13 @@
 language: php
-# Handle git submodules yourself
 git:
     submodules: false
-# Use sed to replace the SSH URL with the public URL, then initialize submodules
 before_install:
     - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
     - git submodule update --init --recursive
 before_script:
-    - travis_retry composer self-update
-    - travis_retry composer install --no-interaction --prefer-source --dev
+    - travis_retry (cd application && composer self-update)
+    - travis_retry (cd application && composer install --no-interaction --prefer-source --dev)
 script:
-    - vendor/bin/phpunit --coverage-clover=coverage.xml
+    - application/vendor/bin/phpunit --coverage-clover=coverage.xml
 after_success:
-- bash <(curl -s https://codecov.io/bash)
+- (cd application && bash <(curl -s https://codecov.io/bash))
