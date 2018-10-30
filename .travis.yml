@@ -5,9 +5,9 @@ before_install:
     - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
     - git submodule update --init --recursive
 before_script:
-    - travis_retry (cd application && composer self-update)
-    - travis_retry (cd application && composer install --no-interaction --prefer-source --dev)
+    - travis_retry cd application && composer self-update
+    - travis_retry cd application && composer install --no-interaction --prefer-source --dev
 script:
     - application/vendor/bin/phpunit --coverage-clover=coverage.xml
 after_success:
-- (cd application && bash <(curl -s https://codecov.io/bash))
+    - cd application && bash <(curl -s https://codecov.io/bash)
