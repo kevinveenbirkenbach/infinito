@@ -1,3 +1,5 @@
+### Code Coverage
+/coverage.xml 
 
 ###> symfony/framework-bundle ###
 /.env
