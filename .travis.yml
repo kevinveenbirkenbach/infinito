@@ -4,10 +4,11 @@ git:
 before_install:
     - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
     - git submodule update --init --recursive
+    - cd application
 before_script:
-    - travis_retry cd application && composer self-update
-    - travis_retry cd application && composer install --no-interaction --prefer-source --dev
+    - travis_retry composer self-update
+    - travis_retry composer install --no-interaction --prefer-source --dev
 script:
-    - application/vendor/bin/phpunit --coverage-clover=coverage.xml
+    - vendor/bin/phpunit --coverage-clover=coverage.xml
 after_success:
-    - cd application && bash <(curl -s https://codecov.io/bash)
+    - bash <(curl -s https://codecov.io/bash)
