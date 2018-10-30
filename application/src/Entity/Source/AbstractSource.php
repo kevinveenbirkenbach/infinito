@@ -47,7 +47,7 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
     protected $groups;
 
     /**
-     * @ORM\OneToOne(targetEntity="Law",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Meta\Law",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="law_id", referencedColumnName="id")
      *
      * @var LawInterface
