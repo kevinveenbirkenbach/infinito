@@ -4,9 +4,9 @@ namespace App\Entity\Meta;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
 use App\Entity\Attribut\RelationAttribut;
 use App\Entity\Attribut\RelationAttributInterface;
+use App\Entity\Attribut\MembersAttribut;
 
 /**
  * @author kevinfrantz
@@ -15,7 +15,7 @@ use App\Entity\Attribut\RelationAttributInterface;
  */
 class Reciever extends AbstractMeta implements RecieverInterface
 {
-    use RelationAttribut;
+    use RelationAttribut, MembersAttribut;
 
     /**
      * The node for which the right exists.
@@ -29,6 +29,7 @@ class Reciever extends AbstractMeta implements RecieverInterface
 
     public function getAllRecievers(): ArrayCollection
     {
+        foreach ($this->members->getValues() as $source) {
+        }
     }
-
 }

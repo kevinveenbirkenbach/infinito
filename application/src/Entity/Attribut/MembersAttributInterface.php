@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Source\Attribut;
+namespace App\Entity\Attribut;
 
 use Doctrine\Common\Collections\Collection;
 
@@ -20,4 +20,9 @@ interface MembersAttributInterface
      * @return Collection
      */
     public function getMembers(): Collection;
+
+    /**
+     * @return Collection
+     */
+    public function getMembersInclusiveChildren(int $dimension = null): Collection;
 }

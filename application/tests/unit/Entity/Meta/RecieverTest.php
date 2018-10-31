@@ -1,4 +1,5 @@
 <?php
+
 namespace App\tests\unit\Entity\Meta;
 
 use PHPUnit\Framework\TestCase;
@@ -9,16 +10,17 @@ use App\Entity\Meta\RecieverInterface;
 class RecieverTest extends TestCase
 {
     /**
-     * 
      * @var RecieverInterface
      */
     public $reciever;
-    
-    public function setUp():void{
+
+    public function setUp(): void
+    {
         $this->reciever = new Reciever();
     }
-    
-    public function testConstructor():void {
+
+    public function testConstructor(): void
+    {
         $this->assertEquals(Collection::class, $this->reciever->getAllRecievers());
     }
 }

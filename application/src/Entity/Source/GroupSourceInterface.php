@@ -2,7 +2,7 @@
 
 namespace App\Entity\Source;
 
-use App\Entity\Source\Attribut\MembersAttributInterface;
+use App\Entity\Attribut\MembersAttributInterface;
 
 /**
  * @author kevinfrantz

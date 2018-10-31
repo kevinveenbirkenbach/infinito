@@ -4,8 +4,8 @@ namespace App\Entity\Source;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Source\Attribut\MembersAttributInterface;
-use App\Entity\Source\Attribut\MembersAttribut;
+use App\Entity\Attribut\MembersAttributInterface;
+use App\Entity\Attribut\MembersAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
