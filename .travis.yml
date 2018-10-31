@@ -12,6 +12,7 @@ before_script:
     - travis_retry composer self-update
     - travis_retry composer install --no-interaction --prefer-source --dev
 script:
+    - php ./vendor/bin/php-cs-fixer fix -v --diff --dry-run ./src/
     - bin/console doctrine:schema:validate --skip-sync
     - vendor/bin/phpunit --coverage-clover=coverage.xml
 after_success:
