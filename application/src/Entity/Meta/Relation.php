@@ -35,12 +35,14 @@ final class Relation extends AbstractMeta implements RelationInterface
      * Parents represent the creators of the relation.
      *
      * @ORM\ManyToMany(targetEntity="Relation",mappedBy="childs")
+     *
      * @var Collection|RelationInterface[]
      */
     protected $parents;
 
     /**
      * Childs represent the by the object produced relations.
+     *
      * @ORM\ManyToMany(targetEntity="Relation",inversedBy="parents")
      * @ORM\JoinTable(name="meta_relation_childs",
      *      joinColumns={@ORM\JoinColumn(name="relation_id", referencedColumnName="id")},

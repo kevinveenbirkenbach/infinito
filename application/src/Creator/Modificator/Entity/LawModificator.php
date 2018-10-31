@@ -9,8 +9,6 @@ use App\Entity\Meta\Right;
 use App\Entity\Meta\LawInterface;
 use App\DBAL\Types\RecieverType;
 use App\Entity\Meta\RightInterface;
-use App\Entity\Meta\RecieverGroupInterface;
-use App\Entity\Meta\RecieverGroup;
 use App\Entity\Meta\RecieverInterface;
 use App\Entity\Meta\Reciever;
 
