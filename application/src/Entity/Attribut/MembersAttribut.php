@@ -31,7 +31,7 @@ trait MembersAttribut
      *
      * @return Collection|MembersAttributInterface[] Returns all members till the defined dimension
      */
-    public function getMembersInclusiveChildren(?int $dimension = null, Collection $members = null): Collection
+    public function getMembersIncludingChildren(?int $dimension = null, Collection $members = null): Collection
     {
         $dimension = is_int($dimension) ? $dimension - 1 : null;
         $members = $members ?? new ArrayCollection();
@@ -39,7 +39,7 @@ trait MembersAttribut
             if (!$members->contains($member)) {
                 $members->add($member);
                 if ($this->continueIncludeMembersLoop($dimension) && $member instanceof MembersAttributInterface) {
-                    $member->getMembersInclusiveChildren($dimension, $members);
+                    $member->getMembersIncludingChildren($dimension, $members);
                 }
             }
         }

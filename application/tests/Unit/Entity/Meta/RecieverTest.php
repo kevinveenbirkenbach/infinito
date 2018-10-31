@@ -1,6 +1,6 @@
 <?php
 
-namespace App\tests\unit\Entity\Meta;
+namespace App\Tests\Unit\Entity\Meta;
 
 use PHPUnit\Framework\TestCase;
 use Doctrine\Common\Collections\Collection;

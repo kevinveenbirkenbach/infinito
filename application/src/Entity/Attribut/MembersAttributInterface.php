@@ -24,5 +24,5 @@ interface MembersAttributInterface
     /**
      * @return Collection
      */
-    public function getMembersInclusiveChildren(int $dimension = null): Collection;
+    public function getMembersIncludingChildren(int $dimension = null): Collection;
 }

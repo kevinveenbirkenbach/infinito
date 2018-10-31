@@ -27,7 +27,7 @@ class MembersAttributTest extends AbstractTestCase
     {
         $this->expectException(\TypeError::class);
         $this->membersAttribut->getMembers();
-        $this->membersAttribut->getMembersInclusiveChildren();
+        $this->membersAttribut->getMembersIncludingChildren();
     }
 
     private function getContinueIncludeMemberLoopResult($dimension): bool
@@ -69,7 +69,7 @@ class MembersAttributTest extends AbstractTestCase
         $source3->setMembers(new ArrayCollection([$source4]));
         $members = new ArrayCollection([$source1, $source2, $source3]);
         $this->assertNull($this->membersAttribut->setMembers($members));
-        $this->assertEquals(3, $this->membersAttribut->getMembersInclusiveChildren(1)->count());
+        $this->assertEquals(3, $this->membersAttribut->getMembersIncludingChildren(1)->count());
     }
 
     public function test3DimensionsMembersInclusiveChildren(): void
@@ -87,7 +87,7 @@ class MembersAttributTest extends AbstractTestCase
         $this->assertEquals(1, $source2->getMembers()->count());
         $this->assertEquals(1, $source3->getMembers()->count());
         $this->assertEquals(0, $source4->getMembers()->count());
-        $this->assertEquals(3, $this->membersAttribut->getMembersInclusiveChildren(3)->count());
+        $this->assertEquals(3, $this->membersAttribut->getMembersIncludingChildren(3)->count());
     }
 
     public function testMembersIncludingChildrenInfinite(): void
@@ -105,7 +105,7 @@ class MembersAttributTest extends AbstractTestCase
         $source5->setMembers(new ArrayCollection([$source6]));
 
         $this->membersAttribut->setMembers(new ArrayCollection([$source1]));
-        $this->assertEquals(6, $this->membersAttribut->getMembersInclusiveChildren()->count());
+        $this->assertEquals(6, $this->membersAttribut->getMembersIncludingChildren()->count());
     }
 
     public function testMemberWithoutMembers(): void
@@ -113,6 +113,6 @@ class MembersAttributTest extends AbstractTestCase
         $source1 = new class() extends AbstractSource {
         };
         $this->membersAttribut->setMembers(new ArrayCollection([$source1]));
-        $this->assertEquals(1, $this->membersAttribut->getMembersInclusiveChildren()->count());
+        $this->assertEquals(1, $this->membersAttribut->getMembersIncludingChildren()->count());
     }
 }
