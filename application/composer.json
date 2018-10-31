@@ -43,6 +43,7 @@
         "symfony/phpunit-bridge": "*",
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*",
+        "symfony/var-dumper": "*",
         "symfony/web-server-bundle": "*"
     },
     "config": {
