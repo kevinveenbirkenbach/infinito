@@ -28,6 +28,11 @@ class AbstractSourceTest extends TestCase
         $this->source->setId(self::ID);
     }
 
+    public function testConstructor(): void
+    {
+        $this->assertInstanceOf(RelationInterface::class, $this->source->getRelation());
+    }
+
     public function testId()
     {
         $this->assertEquals($this->source->getId(), self::ID);
@@ -36,11 +41,6 @@ class AbstractSourceTest extends TestCase
     public function testLaw()
     {
         $this->assertInstanceOf(LawInterface::class, $this->source->getLaw());
-    }
-
-    public function testRelation()
-    {
-        $this->assertInstanceOf(RelationInterface::class, $this->source->getRelation());
     }
 
     public function testGroups()
