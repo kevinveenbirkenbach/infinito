@@ -9,4 +9,7 @@ use App\Entity\AbstractEntity;
  */
 abstract class AbstractMeta extends AbstractEntity implements MetaInterface
 {
+    public function __construct(){
+        parent::__construct();
+    }
 }
