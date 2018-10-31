@@ -26,31 +26,30 @@ trait MembersAttribut
     }
 
     /**
-     * @param int        $dimension The dimensions start with 1 for the members of the actuall dimension and NULL for all members
-     * @param Collection $members   A reference to a members list, to which new members should be add
+     * @param int        $dimension
+     *                              The dimensions start with 1 for the members of the actuall dimension and NULL for all members
+     * @param Collection $members
+     *                              A reference to a members list, to which new members should be add
      *
      * @return Collection|MembersAttributInterface[] Returns all members till the defined dimension
      */
-    public function getMembersInclusiveChildren(int $dimension = null, Collection &$members = null): Collection
+    public function getMembersInclusiveChildren(?int $dimension = null, Collection $members = null): Collection
     {
-        if (is_int($dimension)) {
-            // Subtract minus one, so that following members start on a other dimension:
-            --$dimension;
-        }
-
-        //Define members if no members are passed
-        if (!$members) {
-            $members = new ArrayCollection();
-        }
+        print_r('Hello '.$this.' ('.$dimension.')'.$members."\n");
+        $dimension = is_int($dimension)?--$dimension:null;
+        $members = $members ?? new ArrayCollection();
         foreach ($this->members->toArray() as $member) {
             if (!$members->contains($member)) {
                 $members->add($member);
-                if ($dimension > 0 || null === $dimension) {
+                if ($this->continueIncludeMembersLoop($dimension)) {
                     $member->getMembersInclusiveChildren($dimension, $members);
                 }
             }
         }
-
         return $members;
+    }
+
+    private  function continueIncludeMembersLoop(?int $dimension):bool{
+        return (is_null($dimension) || $dimension > 0);
     }
 }

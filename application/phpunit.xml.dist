@@ -22,7 +22,7 @@
             <directory>./tests/integration/</directory>
         </testsuite>
         <testsuite name="Unit Test Suite">
-            <directory>./tests/unit/</directory>
+            <directory>./tests/Unit/</directory>
             <file>*Test.php</file>
         </testsuite>
     </testsuites>
