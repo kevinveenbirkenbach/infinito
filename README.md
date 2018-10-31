@@ -1,16 +1,16 @@
 # ∞infinito
-[![Build Status](https://travis-ci.org/KevinFrantz/infinito.svg?branch=master)](https://travis-ci.org/KevinFrantz/infinito) [![codecov](https://codecov.io/gh/KevinFrantz/infinito/branch/master/graph/badge.svg)](https://codecov.io/gh/KevinFrantz/infinito) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![Build Status](https://travis-ci.org/KevinFrantz/infinito.svg?branch=master)](https://travis-ci.org/KevinFrantz/infinito) [![codecov](https://codecov.io/gh/KevinFrantz/infinito/branch/master/graph/badge.svg)](https://codecov.io/gh/KevinFrantz/infinito) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0) [![Code of Conduct](https://img.shields.io/badge/%E2%9D%A4-code%20of%20conduct-blue.svg?style=flat)](https://github.com/tessel/project/blob/master/CONDUCT.md)
 
-## idea
-The idea is described under *./documentation/product/system/requiremts.md*.
+## Setup
+All setup and administration scripts you will find in the folder *administration*.
 
-## documentation
-The full documentation you will find in *./documentation*.
-It follows the [best practices from AltexSoft](https://www.altexsoft.com/blog/business/software-documentation-types-and-best-practices/).
+To run the application you need docker.
 
-### administration
-The setup and administration guide you will find in *./documentation/product/user/administrator/guide.md*
-
+After installing docker you just need to run
+```bash
+bash ./administration/init.sh
+```
+in the root directory of the repository.
 ## License
 The "GNU AFFERO GENERAL PUBLIC LICENSE" applies to this project. See LICENSE.txt.
 
