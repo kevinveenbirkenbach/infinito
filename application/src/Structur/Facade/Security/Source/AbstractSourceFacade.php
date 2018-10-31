@@ -70,4 +70,9 @@ abstract class AbstractSourceFacade implements SourceFacadeInterface
     protected function lazyLoadSourceFacade(SourceInterface $source)
     {
     }
+
+    public function __toString(): string
+    {
+        return $this->source->__toString();
+    }
 }
