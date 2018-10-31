@@ -32,4 +32,9 @@ abstract class AbstractEntity implements EntityInterface
     public function __construct()
     {
     }
+
+    public function __toString(): string
+    {
+        return __CLASS__.':'.spl_object_hash($this);
+    }
 }
