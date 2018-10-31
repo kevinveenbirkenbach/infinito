@@ -3,11 +3,11 @@
 namespace App\Entity\Source\Operation;
 
 use App\Logic\Result\ResultInterface;
-use App\Logic\Operation\OperationInterface;
 use App\Logic\Operation\OperandInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Source\AbstractSource;
+use App\Entity\Source\Operation\Attribut\OperandsAttribut;
 
 /**
  * @author kevinfrantz
@@ -17,8 +17,10 @@ use App\Entity\Source\AbstractSource;
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap({"and" = "AndOperation"})
  */
-abstract class AbstractOperation extends AbstractSource implements OperationInterface
+abstract class AbstractOperation extends AbstractSource implements OperandInterface
 {
+    use OperandsAttribut;
+
     /**
      * The result MUST NOT be saved via Doctrine!
      *
@@ -30,6 +32,12 @@ abstract class AbstractOperation extends AbstractSource implements OperationInte
      * @var ArrayCollection|OperandInterface[]
      */
     protected $operands;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->operands = new ArrayCollection();
+    }
 
     public function getResult(): ResultInterface
     {

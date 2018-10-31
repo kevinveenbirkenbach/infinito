@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="source_operation_and")
  * @ORM\Entity()
  */
-class AndOperation extends AbstractOperation
+final class AndOperation extends AbstractOperation
 {
     public function process(): void
     {
