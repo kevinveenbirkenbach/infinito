@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Entity\Meta;
+namespace tests\unit\Entity\Meta;
 
 use PHPUnit\Framework\TestCase;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use App\Entity\Meta\LawInterface;
+use App\Entity\Meta\Law;
+use App\Entity\Meta\Right;
 
 class LawTest extends TestCase
 {

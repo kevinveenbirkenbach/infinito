@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Source\Operation;
+namespace tests\unit\Entity\Source\Operation;
 
 use PHPUnit\Framework\TestCase;
 use App\Exception\NotDefinedException;
@@ -8,6 +8,8 @@ use App\Logic\Result\Result;
 use App\Logic\Operation\OperandInterface;
 use App\Logic\Result\ResultInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use App\Entity\Source\Operation\OperationInterface;
+use App\Entity\Source\Operation\AndOperation;
 
 class AndOperationTest extends TestCase
 {

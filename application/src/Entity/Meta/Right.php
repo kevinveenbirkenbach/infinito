@@ -11,7 +11,7 @@ use App\DBAL\Types\RightType;
 use App\Entity\Attribut\GrantAttribut;
 use App\Logic\Operation\OperationInterface;
 use App\Entity\Attribut\ConditionAttribut;
-use App\Entity\Attribut\RecieverGroupAttribut;
+use App\Entity\Attribut\RecieverAttribut;
 use App\Entity\Attribut\LayerAttribut;
 use App\Entity\Attribut\RelationAttribut;
 
@@ -22,7 +22,7 @@ use App\Entity\Attribut\RelationAttribut;
  */
 final class Right extends AbstractMeta implements RightInterface
 {
-    use TypeAttribut,LawAttribut, RelationAttribut, GrantAttribut,ConditionAttribut,RecieverGroupAttribut,LayerAttribut;
+    use TypeAttribut,LawAttribut, RelationAttribut, GrantAttribut,ConditionAttribut,RecieverAttribut,LayerAttribut;
 
     /**
      * @ORM\ManyToOne(targetEntity="Law", inversedBy="rights")
@@ -44,9 +44,9 @@ final class Right extends AbstractMeta implements RightInterface
      * @ORM\OneToOne(targetEntity="RecieverGroup",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="reciever_id", referencedColumnName="id")
      *
-     * @var RecieverGroupInterface
+     * @var RecieverInterface
      */
-    protected $recieverGroup;
+    protected $reciever;
 
     /**
      * @ORM\Column(type="boolean",name="`grant`")

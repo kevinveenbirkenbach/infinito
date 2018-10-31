@@ -2,12 +2,14 @@
 
 namespace App\Entity\Attribut;
 
+use App\Entity\Meta\RecieverInterface;
+
 /**
  * @author kevinfrantz
  */
 interface RecieverAttributInterface
 {
-    public function setReciever(string $type): void;
+    public function setReciever(RecieverInterface $recieverGroup): void;
 
-    public function getReciever(): string;
+    public function getReciever(): RecieverInterface;
 }

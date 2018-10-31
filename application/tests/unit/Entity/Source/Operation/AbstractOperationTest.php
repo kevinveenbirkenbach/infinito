@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Source\Operand;
+namespace tests\unit\Entity\Source\Operand;
 
 use PHPUnit\Framework\TestCase;
 use App\Entity\Source\Operation\AbstractOperation;

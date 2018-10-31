@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Entity\Meta;
+namespace tests\unit\Entity;
 
 use PHPUnit\Framework\TestCase;
 use App\DBAL\Types\RightType;
+use App\Entity\Meta\RightInterface;
+use App\Entity\Meta\Right;
+use App\Entity\Meta\Law;
 
 /**
  * @todo Implement reciever test

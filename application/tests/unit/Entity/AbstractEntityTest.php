@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Entity;
+namespace tests\unit\Entity;
 
 use PHPUnit\Framework\TestCase;
+use App\Entity\EntityInterface;
+use App\Entity\AbstractEntity;
 
 class AbstractEntityTest extends TestCase
 {

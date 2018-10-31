@@ -17,7 +17,6 @@ doctrine:
         url: '%env(resolve:DATABASE_URL)%'
         types:
             RightType: App\DBAL\Types\RightType
-            RecieverType: App\DBAL\Types\RecieverType
             LayerType: App\DBAL\Types\LayerType
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
