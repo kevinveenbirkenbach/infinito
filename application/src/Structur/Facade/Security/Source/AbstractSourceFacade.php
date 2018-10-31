@@ -2,11 +2,12 @@
 
 namespace App\Structur\Facade\Security\Source;
 
-use App\Entity\NodeInterface;
 use App\Entity\Source\SourceInterface;
 use App\Entity\User;
 use App\DBAL\Types\RightType;
 use App\DBAL\Types\LayerType;
+use App\Entity\Meta\RelationInterface;
+use App\Entity\Meta\Relation;
 
 /**
  * @author kevinfrantz
@@ -40,7 +41,7 @@ abstract class AbstractSourceFacade implements SourceFacadeInterface
         throw \Exception("The id can't be changed!");
     }
 
-    public function setNode(NodeInterface $node): void
+    public function setRelation(RelationInterface $relation): void
     {
         throw \Exception("The node can't be changed!");
     }
@@ -52,7 +53,7 @@ abstract class AbstractSourceFacade implements SourceFacadeInterface
         }
     }
 
-    public function getNode(): NodeInterface
+    public function getRelation(): Relation
     {
         if ($this->isGranted(RightType::READ, LayerType::NODE)) {
             return $source->getNode();
