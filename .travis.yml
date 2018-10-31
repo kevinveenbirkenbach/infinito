@@ -1,7 +1,6 @@
 language: php
 php:
     - 7.2
-    - hhvm
 git:
     submodules: false
 before_install:
