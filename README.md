@@ -1,5 +1,7 @@
 # ∞infinito
-[![Build Status](https://travis-ci.org/KevinFrantz/infinito.svg?branch=master)](https://travis-ci.org/KevinFrantz/infinito)
+[![Build Status](https://travis-ci.org/KevinFrantz/infinito.svg?branch=master)](https://travis-ci.org/KevinFrantz/infinito) [![codecov](https://codecov.io/gh/KevinFrantz/infinito/branch/master/graph/badge.svg)](https://codecov.io/gh/KevinFrantz/infinito)
+
+
 
 ## idea
 The idea is described under *./documentation/product/system/requiremts.md*.
