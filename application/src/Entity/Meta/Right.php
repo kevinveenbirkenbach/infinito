@@ -41,7 +41,7 @@ final class Right extends AbstractMeta implements RightInterface
     protected $layer;
 
     /**
-     * @ORM\OneToOne(targetEntity="RecieverGroup",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="Reciever",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="reciever_id", referencedColumnName="id")
      *
      * @var RecieverInterface

@@ -11,7 +11,7 @@ use App\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz
- * @ORM\Table(name="meta_reciever_group")
+ * @ORM\Table(name="meta_reciever")
  * @ORM\Entity()
  */
 class Reciever extends AbstractMeta implements RecieverInterface
@@ -29,7 +29,7 @@ class Reciever extends AbstractMeta implements RecieverInterface
     protected $relation;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\AbstractSource")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Source\AbstractSource")
      * @ORM\JoinTable(name="meta_reciever_members",
      *      joinColumns={@ORM\JoinColumn(name="reciever_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="source_id", referencedColumnName="id")}

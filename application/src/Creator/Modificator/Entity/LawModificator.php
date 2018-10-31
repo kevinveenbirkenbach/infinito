@@ -11,6 +11,8 @@ use App\DBAL\Types\RecieverType;
 use App\Entity\Meta\RightInterface;
 use App\Entity\Meta\RecieverGroupInterface;
 use App\Entity\Meta\RecieverGroup;
+use App\Entity\Meta\RecieverInterface;
+use App\Entity\Meta\Reciever;
 
 /**
  * @author kevinfrantz
@@ -22,7 +24,7 @@ abstract class LawModificator
         foreach (LayerType::getChoices() as $layerKey => $layerValue) {
             foreach (RightType::getChoices() as $rightKey => $rightValue) {
                 $right = self::createRight($law, $node, $rightKey, $layerKey);
-                $right->setRecieverGroup(self::createRecieverGroup($node, RecieverType::NODE));
+                //$right->setRecieverGroup(self::createRecieverGroup($node, RecieverType::NODE));
                 $law->getRights()->add($right);
             }
         }
@@ -39,9 +41,9 @@ abstract class LawModificator
         return $right;
     }
 
-    public static function createRecieverGroup(RelationInterface $node, string $reciever): RecieverGroupInterface
+    public static function createRecieverGroup(RelationInterface $node, string $reciever): RecieverInterface
     {
-        $recieverGroup = new RecieverGroup();
+        $recieverGroup = new Reciever();
         $recieverGroup->setNode($node);
         $recieverGroup->setReciever($reciever);
 

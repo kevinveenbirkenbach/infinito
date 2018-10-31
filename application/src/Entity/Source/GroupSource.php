@@ -19,7 +19,8 @@ final class GroupSource extends AbstractSource implements MembersAttributInterfa
 
     /**
      * @var Collection
-     * @ORM\ManyToMany(targetEntity="AbstractSource")
+     * @ORM\ManyToMany(targetEntity="AbstractSource",inversedBy="groups")
+     * @ORM\JoinTable(name="source_group_members")
      */
     protected $members;
 

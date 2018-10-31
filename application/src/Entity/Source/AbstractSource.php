@@ -42,7 +42,7 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
      * @todo Rename table to use the right schema
      *
      * @var Collection|GroupSource[]
-     * @ORM\ManyToMany(targetEntity="GroupSource")
+     * @ORM\ManyToMany(targetEntity="GroupSource",mappedBy="members")
      */
     protected $groups;
 

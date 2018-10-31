@@ -34,26 +34,17 @@ final class Relation extends AbstractMeta implements RelationInterface
     /**
      * Parents represent the creators of the relation.
      *
-     * @ORM\ManyToMany(targetEntity="Relation")
-     * @ORM\JoinTable(name="meta_relation_parents",
-     *      joinColumns={@ORM\JoinColumn(name="relation_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="relation_id", referencedColumnName="id")}
-     *      )
-     *
+     * @ORM\ManyToMany(targetEntity="Relation",mappedBy="childs")
      * @var Collection|RelationInterface[]
      */
     protected $parents;
 
     /**
      * Childs represent the by the object produced relations.
-     *
-     * @todo Replace this by self referencing
-     *
-     * @see https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/reference/association-mapping.html
      * @ORM\ManyToMany(targetEntity="Relation")
      * @ORM\JoinTable(name="meta_relation_childs",
      *      joinColumns={@ORM\JoinColumn(name="relation_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="relation_id", referencedColumnName="id")}
+     *      inverseJoinColumns={@ORM\JoinColumn(name="child_id", referencedColumnName="id")}
      *      )
      *
      * @var Collection|RelationInterface[]
