@@ -33,14 +33,16 @@ trait MembersAttribut
      */
     public function getMembersInclusiveChildren(int $dimension = null, Collection &$members = null): Collection
     {
-        // Subtract minus one, so that following members start on a other dimension:
-        --$dimension;
+        if (is_int($dimension)) {
+            // Subtract minus one, so that following members start on a other dimension:
+            --$dimension;
+        }
 
         //Define members if no members are passed
         if (!$members) {
             $members = new ArrayCollection();
         }
-        foreach ($this->members as $member) {
+        foreach ($this->members->toArray() as $member) {
             if (!$members->contains($member)) {
                 $members->add($member);
                 if ($dimension > 0 || null === $dimension) {
