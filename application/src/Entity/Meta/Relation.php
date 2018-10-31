@@ -81,6 +81,5 @@ final class Relation extends AbstractMeta implements RelationInterface
         $this->law = new Law();
         $this->parents = new ArrayCollection();
         $this->childs = new ArrayCollection();
-        //$this->law->setNode($this);
     }
 }

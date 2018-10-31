@@ -31,6 +31,5 @@ abstract class AbstractEntity implements EntityInterface
 
     public function __construct()
     {
-        // $this->id = 0;
     }
 }
