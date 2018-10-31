@@ -18,7 +18,7 @@ use App\Exception\NotProcessedException;
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap({"and" = "AndOperation"})
  */
-abstract class AbstractOperation extends AbstractSource implements OperandInterface
+abstract class AbstractOperation extends AbstractSource implements OperationInterface
 {
     use OperandsAttribut;
 
@@ -46,10 +46,5 @@ abstract class AbstractOperation extends AbstractSource implements OperandInterf
             return $this->result;
         }
         throw new NotProcessedException('No result was generated!');
-    }
-
-    public function setOperators(ArrayCollection $operands): void
-    {
-        $this->operands = $operands;
     }
 }

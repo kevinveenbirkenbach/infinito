@@ -2,7 +2,7 @@
 
 namespace App\Logic\Operation;
 
-use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @author kevinfrantz
@@ -12,9 +12,9 @@ interface OperationInterface extends OperandInterface
     /**
      * Sets the Operators the operation has to deal with.
      *
-     * @param ArrayCollection $operands | OperandInterface[]
+     * @param Collection $operands | OperandInterface[]
      */
-    public function setOperators(ArrayCollection $operands): void;
+    public function setOperands(Collection $operands): void;
 
     /**
      * Process the logic.
