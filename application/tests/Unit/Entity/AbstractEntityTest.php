@@ -39,4 +39,9 @@ class AbstractEntityTest extends TestCase
         $this->assertNull($this->entity->setId($id));
         $this->assertEquals($id, $this->entity->getId());
     }
+
+    public function testToString(): void
+    {
+        $this->assertEquals(true, is_string($this->entity->__toString()));
+    }
 }

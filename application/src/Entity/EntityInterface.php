@@ -10,4 +10,10 @@ use App\Entity\Attribut\IdAttributInterface;
  */
 interface EntityInterface extends VersionAttributInterface, IdAttributInterface
 {
+    /**
+     * Allows easier debuging.
+     *
+     * @return string
+     */
+    public function __toString(): string;
 }
