@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Source\AbstractSource;
 use App\Entity\Source\GroupSource;
 use App\Tests\AbstractTestCase;
+use phpDocumentor\Reflection\Types\Boolean;
 
 class MembersAttributTest extends AbstractTestCase
 {
@@ -30,11 +31,16 @@ class MembersAttributTest extends AbstractTestCase
         $this->membersAttribut->getMembersInclusiveChildren();
     }
     
+    private function getContinueIncludeMemberLoopResult($dimension):bool{
+        return $this->invokeMethod($this->membersAttribut, 'continueIncludeMembersLoop', [$dimension]);
+    }
+    
     public function testContinueIncludeMemberLoop(){
-        $reflection = new \ReflectionClass($this->membersAttribut);
-        $method = $reflection->getMethod('continueIncludeMembersLoop');
-        $method->setAccessible(true);
-        
+        $this->assertTrue($this->getContinueIncludeMemberLoopResult(null));
+        $this->assertTrue($this->getContinueIncludeMemberLoopResult(1));
+        $this->assertTrue($this->getContinueIncludeMemberLoopResult(2));
+        $this->assertFalse($this->getContinueIncludeMemberLoopResult(0));
+        $this->assertFalse($this->getContinueIncludeMemberLoopResult(-1));
     }
 
     public function testMembersAccessors()
