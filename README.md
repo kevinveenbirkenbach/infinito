@@ -1,4 +1,4 @@
-# infinito
+# ∞infinito
 [![Build Status](https://travis-ci.org/KevinFrantz/infinito.svg?branch=master)](https://travis-ci.org/KevinFrantz/infinito)
 
 ## idea
