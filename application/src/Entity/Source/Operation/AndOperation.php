@@ -5,6 +5,7 @@ namespace App\Entity\Source\Operation;
 use App\Logic\Operation\OperandInterface;
 use App\Logic\Result\Result;
 use Doctrine\ORM\Mapping as ORM;
+use App\Exception\NotDefinedException;
 
 /**
  * @author kevinfrantz
@@ -16,7 +17,7 @@ final class AndOperation extends AbstractOperation
     public function process(): void
     {
         if ($this->operands->isEmpty()) {
-            throw new \Exception('Operands must be defined!');
+            throw new NotDefinedException('Operands must be defined!');
         }
         $this->result = new Result();
         /*

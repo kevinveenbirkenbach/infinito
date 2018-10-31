@@ -10,6 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use App\Logic\Operation\OperandInterface;
 use App\Logic\Result\ResultInterface;
 use App\Logic\Result\Result;
+use App\Exception\NotProcessedException;
 
 class AbstractOperationTest extends TestCase
 {
@@ -21,14 +22,9 @@ class AbstractOperationTest extends TestCase
     public function setUp(): void
     {
         $this->operation = new class() extends AbstractOperation {
-            public function getResult(): ResultInterface
-            {
-                return new Result();
-            }
-
             public function process(): void
             {
-                return;
+                $this->result = new Result();
             }
         };
     }
@@ -49,11 +45,20 @@ class AbstractOperationTest extends TestCase
         $operands = new ArrayCollection();
         $operands->add($operand);
         $this->operation->setOperands($operands);
-        $this->assertEquals($operand, $this->operation->getOperands()->get(0));
+        $this->assertEquals($operand, $this->operation->getOperands()
+            ->get(0));
     }
 
-    public function testResult()
+    public function testNotProcessedException(): void
     {
+        $this->expectException(NotProcessedException::class);
+        $this->operation->getResult();
+    }
+
+    public function testResult(): void
+    {
+        $this->setUp();
+        $this->operation->process();
         $this->assertInstanceOf(ResultInterface::class, $this->operation->getResult());
     }
 

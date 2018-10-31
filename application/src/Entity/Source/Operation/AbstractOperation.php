@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Source\AbstractSource;
 use App\Entity\Source\Operation\Attribut\OperandsAttribut;
+use App\Exception\NotProcessedException;
 
 /**
  * @author kevinfrantz
@@ -41,7 +42,10 @@ abstract class AbstractOperation extends AbstractSource implements OperandInterf
 
     public function getResult(): ResultInterface
     {
-        return $this->result;
+        if ($this->result) {
+            return $this->result;
+        }
+        throw new NotProcessedException('No result was generated!');
     }
 
     public function setOperators(ArrayCollection $operands): void
