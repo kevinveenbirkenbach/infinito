@@ -3,9 +3,9 @@
 namespace App\Tests\Unit\Entity\Meta;
 
 use PHPUnit\Framework\TestCase;
-use Doctrine\Common\Collections\Collection;
 use App\Entity\Meta\Reciever;
 use App\Entity\Meta\RecieverInterface;
+use Doctrine\Common\Collections\Collection;
 
 class RecieverTest extends TestCase
 {
@@ -21,6 +21,6 @@ class RecieverTest extends TestCase
 
     public function testConstructor(): void
     {
-        $this->assertEquals(Collection::class, $this->reciever->getAllRecievers());
+        $this->assertInstanceOf(Collection::class, $this->reciever->getMembers());
     }
 }

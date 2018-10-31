@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Attribut\RelationAttribut;
 use App\Entity\Attribut\RelationAttributInterface;
 use App\Entity\Attribut\MembersAttribut;
+use App\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz
@@ -27,9 +28,19 @@ class Reciever extends AbstractMeta implements RecieverInterface
      */
     protected $relation;
 
-    public function getAllRecievers(): ArrayCollection
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\AbstractSource")
+     * @ORM\JoinTable(name="meta_reciever_members",
+     *      joinColumns={@ORM\JoinColumn(name="reciever_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="source_id", referencedColumnName="id")}
+     *      )
+     *
+     * @var ArrayCollection | SourceInterface[]
+     */
+    protected $members;
+
+    public function __construct()
     {
-        foreach ($this->members->getValues() as $source) {
-        }
+        $this->members = new ArrayCollection();
     }
 }
