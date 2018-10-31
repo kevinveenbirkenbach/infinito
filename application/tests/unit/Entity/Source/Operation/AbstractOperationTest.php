@@ -44,7 +44,7 @@ class AbstractOperationTest extends TestCase
         };
         $operands = new ArrayCollection();
         $operands->add($operand);
-        $this->operation->setOperands($operands);
+        $this->assertNull($this->operation->setOperands($operands));
         $this->assertEquals($operand, $this->operation->getOperands()
             ->get(0));
     }
