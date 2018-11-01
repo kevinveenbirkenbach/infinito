@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Source\Attribut;
+namespace App\Entity\Attribut;
 
 use Doctrine\Common\Collections\Collection;
 use App\Entity\Source\GroupSourceInterface;

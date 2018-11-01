@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\Exclude;
 use App\Entity\AbstractEntity;
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Source\Attribut\GroupSourcesAttribut;
+use App\Entity\Attribut\GroupSourcesAttribut;
 use App\Entity\Meta\RelationInterface;
 use App\Entity\Attribut\RelationAttribut;
 use App\Entity\Meta\Relation;
@@ -14,6 +14,7 @@ use App\Entity\Attribut\LawAttribut;
 use App\Entity\Meta\LawInterface;
 use App\Entity\Meta\Law;
 use Doctrine\Common\Collections\ArrayCollection;
+use App\Entity\Source\Collection\MemberCollectionSource;
 
 /**
  * @author kevinfrantz
@@ -41,7 +42,7 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
      * @todo Implement that just one table on database level is needed!
      * @todo Rename table to use the right schema
      *
-     * @var Collection|GroupSource[]
+     * @var Collection|MemberCollectionSource[]
      * @ORM\ManyToMany(targetEntity="GroupSource",mappedBy="members")
      */
     protected $groups;

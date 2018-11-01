@@ -6,7 +6,6 @@ use App\Entity\Attribut\MembersAttribut;
 use App\Entity\Attribut\MembersAttributInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Source\AbstractSource;
-use App\Entity\Source\GroupSource;
 use App\Tests\AbstractTestCase;
 
 class MembersAttributTest extends AbstractTestCase
@@ -18,7 +17,11 @@ class MembersAttributTest extends AbstractTestCase
 
     public function setUp(): void
     {
-        $this->membersAttribut = new class() implements MembersAttributInterface {
+        $this->membersAttribut = $this->getMembersAttributClassMock();
+    }
+    
+    private function getMembersAttributClassMock():MembersAttributInterface{
+        return new class implements MembersAttributInterface{
             use MembersAttribut;
         };
     }
@@ -62,7 +65,7 @@ class MembersAttributTest extends AbstractTestCase
 
     public function testFirstLevelMembersInclusiveChildren(): void
     {
-        $source1 = new GroupSource();
+        $source1 = $this->getMembersAttributClassMock();
         $source2 = clone $source1;
         $source3 = clone $source1;
         $source4 = clone $source1;
@@ -74,13 +77,14 @@ class MembersAttributTest extends AbstractTestCase
 
     public function test3DimensionsMembersInclusiveChildren(): void
     {
-        $source1 = new GroupSource();
+        $source1 = $this->getMembersAttributClassMock();
         $source2 = clone $source1;
         $source3 = clone $source1;
         $source4 = clone $source1;
         $source1->setMembers(new ArrayCollection([$source2]));
         $source2->setMembers(new ArrayCollection([$source3]));
         $source3->setMembers(new ArrayCollection([$source4]));
+        $source4->setMembers(new ArrayCollection());
         $this->membersAttribut->setMembers(new ArrayCollection([$source1]));
         $this->assertEquals(1, $this->membersAttribut->getMembers()->count());
         $this->assertEquals(1, $source1->getMembers()->count());
@@ -92,7 +96,8 @@ class MembersAttributTest extends AbstractTestCase
 
     public function testMembersIncludingChildrenInfinite(): void
     {
-        $source1 = new GroupSource();
+        $source1 = $this->getMembersAttributClassMock();
+        $source1->setMembers(new ArrayCollection());
         $source2 = clone $source1;
         $source3 = clone $source1;
         $source4 = clone $source1;
