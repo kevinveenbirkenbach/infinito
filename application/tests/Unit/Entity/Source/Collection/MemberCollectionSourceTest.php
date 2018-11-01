@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Unit\Entity\Source\Collection;
 
 use PHPUnit\Framework\TestCase;
@@ -9,14 +10,11 @@ use App\Entity\Source\Collection\MemberCollectionSourceInterface;
 use App\Entity\Source\Collection\MemberCollectionSource;
 
 /**
- *
  * @author kevinfrantz
  */
 class MemberCollectionSourceTest extends TestCase
 {
-
     /**
-     *
      * @var MemberCollectionSourceInterface
      */
     protected $groupSource;
@@ -33,9 +31,10 @@ class MemberCollectionSourceTest extends TestCase
 
     public function testMembers()
     {
-        $member = new class() extends AbstractSource {};
+        $member = new class() extends AbstractSource {
+        };
         $this->groupSource->setMembers(new ArrayCollection([
-            $member
+            $member,
         ]));
         $this->assertEquals($member, $this->groupSource->getMembers()
             ->get(0));

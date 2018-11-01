@@ -3,7 +3,6 @@
 namespace App\Entity\Attribut;
 
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Source\GroupSourceInterface;
 use App\Entity\Source\Collection\MemberCollectionSourceInterface;
 
 /**

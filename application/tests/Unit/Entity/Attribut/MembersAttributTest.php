@@ -5,7 +5,6 @@ namespace App\Tests\Unit\Entity\Attribut;
 use App\Entity\Attribut\MembersAttribut;
 use App\Entity\Attribut\MembersAttributInterface;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\Source\AbstractSource;
 use App\Tests\AbstractTestCase;
 use App\Entity\Source\SourceInterface;
 
@@ -20,9 +19,10 @@ class MembersAttributTest extends AbstractTestCase
     {
         $this->membersAttribut = $this->getMembersAttributClassMock();
     }
-    
-    private function getMembersAttributClassMock():MembersAttributInterface{
-        return new class implements MembersAttributInterface{
+
+    private function getMembersAttributClassMock(): MembersAttributInterface
+    {
+        return new class() implements MembersAttributInterface {
             use MembersAttribut;
         };
     }
@@ -32,20 +32,6 @@ class MembersAttributTest extends AbstractTestCase
         $this->expectException(\TypeError::class);
         $this->membersAttribut->getMembers();
         $this->membersAttribut->getMembersIncludingChildren();
-    }
-
-    private function getContinueIncludeMemberLoopResult($dimension): bool
-    {
-        return $this->invokeMethod($this->membersAttribut, 'continueIncludeMembersLoop', [$dimension]);
-    }
-
-    public function testContinueIncludeMemberLoop()
-    {
-        $this->assertTrue($this->getContinueIncludeMemberLoopResult(null));
-        $this->assertTrue($this->getContinueIncludeMemberLoopResult(2));
-        $this->assertTrue($this->getContinueIncludeMemberLoopResult(1));
-        $this->assertFalse($this->getContinueIncludeMemberLoopResult(0));
-        $this->assertFalse($this->getContinueIncludeMemberLoopResult(-1));
     }
 
     public function testMembersAccessors()

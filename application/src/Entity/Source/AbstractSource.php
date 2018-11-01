@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\Exclude;
 use App\Entity\AbstractEntity;
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Attribut\GroupSourcesAttribut;
 use App\Entity\Meta\RelationInterface;
 use App\Entity\Attribut\RelationAttribut;
 use App\Entity\Meta\Relation;

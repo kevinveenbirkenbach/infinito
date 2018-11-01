@@ -17,12 +17,30 @@ abstract class AbstractTestCase extends TestCase
      *
      * @return mixed method return
      */
-    public function invokeMethod(&$object, $methodName, array $parameters = [])
+    public function invokeMethod(object &$object, string $methodName, array $parameters = [])
     {
-        $reflection = new \ReflectionClass(get_class($object));
+        $reflection = $this->getReflectionClassByObject($object);
         $method = $reflection->getMethod($methodName);
         $method->setAccessible(true);
 
         return $method->invokeArgs($object, $parameters);
+    }
+
+    /**
+     * @param object $object
+     * @param string $property
+     * @param mixed  $value
+     */
+    public function setProperty(object &$object, string $property, $value): void
+    {
+        $reflectionClass = $this->getReflectionClassByObject($object);
+        $reflectionProperty = $reflectionClass->getProperty($property);
+        $reflectionProperty->setAccessible(true);
+        $reflectionProperty->setValue($object, $value);
+    }
+
+    private function getReflectionClassByObject(object &$object): \ReflectionClass
+    {
+        return new \ReflectionClass(get_class($object));
     }
 }

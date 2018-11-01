@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use App\Entity\Attribut\MembersAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @author kevinfrantz
  * @ORM\Table(name="source_group")

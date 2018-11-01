@@ -3,8 +3,7 @@
 namespace App\Entity\Attribut;
 
 use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Collections\ArrayCollection;
-use App\Helper\Dimension;
+use App\Helper\DimensionHelper;
 
 /**
  * @author kevinfrantz
@@ -34,8 +33,9 @@ trait MembersAttribut
      */
     public function getMembersIncludingChildren(?int $dimension = null, Collection $members = null): Collection
     {
-        $dimensionHelper = new Dimension(__FUNCTION__, MembersAttributInterface::class, $this, 'members');
-        return $dimensionHelper->getDimensions($dimension,$members);
+        $dimensionHelper = new DimensionHelper(__FUNCTION__, MembersAttributInterface::class, $this, 'members');
+
+        return $dimensionHelper->getDimensions($dimension, $members);
     }
 
     private function continueIncludeMembersLoop(?int $dimension): bool
