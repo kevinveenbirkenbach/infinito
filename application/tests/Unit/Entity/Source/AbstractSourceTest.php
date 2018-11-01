@@ -7,15 +7,14 @@ use App\Entity\Source\SourceInterface;
 use App\Entity\Meta\LawInterface;
 use App\Entity\Meta\RelationInterface;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Source\AbstractSource;
+use App\Entity\EntityInterface;
 
 /**
  * @author kevinfrantz
  */
 class AbstractSourceTest extends TestCase
 {
-    const ID = 123;
     /**
      * @var SourceInterface
      */
@@ -23,33 +22,15 @@ class AbstractSourceTest extends TestCase
 
     public function setUp()
     {
-        $this->source = new class() extends \App\Entity\Source\AbstractSource {
+        $this->source = new class() extends AbstractSource {
         };
-        $this->source->setId(self::ID);
     }
 
     public function testConstructor(): void
     {
+        $this->assertInstanceOf(EntityInterface::class, $this->source);
         $this->assertInstanceOf(RelationInterface::class, $this->source->getRelation());
-    }
-
-    public function testId()
-    {
-        $this->assertEquals($this->source->getId(), self::ID);
-    }
-
-    public function testLaw()
-    {
+        $this->assertInstanceOf(Collection::class, $this->source->getMemberships());
         $this->assertInstanceOf(LawInterface::class, $this->source->getLaw());
-    }
-
-    public function testGroups()
-    {
-        $this->assertInstanceOf(Collection::class, $this->source->getGroupSources());
-        $group = new class() extends AbstractSource {
-        };
-        $groups = new ArrayCollection([$group]);
-        $this->source->setGroupSources($groups);
-        $this->assertEquals($group, $this->source->getGroupSources()->get(0));
     }
 }

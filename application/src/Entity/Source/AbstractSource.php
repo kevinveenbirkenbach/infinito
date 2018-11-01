@@ -15,6 +15,7 @@ use App\Entity\Meta\LawInterface;
 use App\Entity\Meta\Law;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Source\Collection\MemberCollectionSource;
+use App\Entity\Attribut\MembershipsAttribut;
 
 /**
  * @author kevinfrantz
@@ -28,7 +29,7 @@ use App\Entity\Source\Collection\MemberCollectionSource;
  */
 abstract class AbstractSource extends AbstractEntity implements SourceInterface
 {
-    use RelationAttribut,GroupSourcesAttribut, LawAttribut;
+    use RelationAttribut,MembershipsAttribut, LawAttribut;
 
     /**
      * @var RelationInterface
@@ -45,7 +46,7 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
      * @var Collection|MemberCollectionSource[]
      * @ORM\ManyToMany(targetEntity="GroupSource",mappedBy="members")
      */
-    protected $groups;
+    protected $memberships;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Meta\Law",cascade={"persist", "remove"})
@@ -61,6 +62,6 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
         $this->relation = new Relation();
         $this->relation->setSource($this);
         $this->law = new Law();
-        $this->groups = new ArrayCollection();
+        $this->memberships = new ArrayCollection();
     }
 }

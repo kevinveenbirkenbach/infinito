@@ -7,6 +7,7 @@ use App\Entity\Attribut\MembersAttributInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Source\AbstractSource;
 use App\Tests\AbstractTestCase;
+use App\Entity\Source\SourceInterface;
 
 class MembersAttributTest extends AbstractTestCase
 {
@@ -49,8 +50,7 @@ class MembersAttributTest extends AbstractTestCase
 
     public function testMembersAccessors()
     {
-        $source1 = new class() extends AbstractSource {
-        };
+        $source1 = $this->createMock(SourceInterface::class);
         $source2 = clone $source1;
         $source3 = clone $source1;
         $members = new ArrayCollection([
@@ -115,8 +115,7 @@ class MembersAttributTest extends AbstractTestCase
 
     public function testMemberWithoutMembers(): void
     {
-        $source1 = new class() extends AbstractSource {
-        };
+        $source1 = $this->createMock(SourceInterface::class);
         $this->membersAttribut->setMembers(new ArrayCollection([$source1]));
         $this->assertEquals(1, $this->membersAttribut->getMembersIncludingChildren()->count());
     }
