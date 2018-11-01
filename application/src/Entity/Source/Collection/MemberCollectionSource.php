@@ -18,7 +18,7 @@ final class MemberCollectionSource extends AbstractCollectionSource implements M
 
     /**
      * @var Collection
-     * @ORM\ManyToMany(targetEntity="AbstractSource",inversedBy="groups")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Source\AbstractSource",inversedBy="groups")
      * @ORM\JoinTable(name="source_group_members")
      */
     protected $members;

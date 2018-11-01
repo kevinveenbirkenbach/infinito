@@ -24,7 +24,7 @@ use App\Entity\Attribut\MembershipsAttribut;
  * @ORM\Table(name="source")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"user" = "UserSource","name" = "NameSource","group" = "GroupSource"})
+ * @ORM\DiscriminatorMap({"user" = "UserSource","name" = "NameSource","group" = "App\Entity\Source\Collection\MemberCollectionSource"})
  */
 abstract class AbstractSource extends AbstractEntity implements SourceInterface
 {
@@ -43,7 +43,7 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
      * @todo Rename table to use the right schema
      *
      * @var Collection|MemberCollectionSource[]
-     * @ORM\ManyToMany(targetEntity="GroupSource",mappedBy="members")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Source\Collection\MemberCollectionSource",mappedBy="members")
      */
     protected $memberships;
 
