@@ -14,7 +14,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="source_collection")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"member" = "MemberCollectionSource"})
+ * @ORM\DiscriminatorMap({"member" = "TreeCollectionSource"})
  *
  * @author kevinfrantz
  */

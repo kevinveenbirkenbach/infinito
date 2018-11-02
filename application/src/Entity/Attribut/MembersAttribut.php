@@ -8,6 +8,8 @@ use App\Helper\DimensionHelper;
 /**
  * @author kevinfrantz
  *
+ * @deprecated use instead CollectionDimensionHelper Method
+ *
  * @todo this attribut should be refactored to mapp fully on collections instead of members
  */
 trait MembersAttribut
@@ -30,6 +32,8 @@ trait MembersAttribut
     /**
      * @param int        $dimension The dimensions start with 1 for the members of the actuall dimension and NULL for all members
      * @param Collection $members   A reference to a members list, to which new members should be add
+     *
+     * @deprecated Use Instead CollectionDimensionHelperMethod
      *
      * @return Collection|MembersAttributInterface[] Returns all members till the defined dimension
      */
