@@ -8,7 +8,7 @@ use App\Helper\DimensionHelperInterface;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 
-class HelperTest extends AbstractTestCase
+class DimensionTest extends AbstractTestCase
 {
     /**
      * @var DimensionHelperInterface
