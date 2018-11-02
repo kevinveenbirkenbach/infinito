@@ -7,22 +7,24 @@ use App\Helper\DimensionHelper;
 
 /**
  * @author kevinfrantz
+ *
+ * @todo this attribut should be refactored to mapp fully on collections instead of members
  */
 trait MembersAttribut
 {
     /**
      * @var Collection
      */
-    protected $members;
+    protected $collection;
 
     public function getMembers(): Collection
     {
-        return $this->members;
+        return $this->collection;
     }
 
     public function setMembers(Collection $members): void
     {
-        $this->members = $members;
+        $this->collection = $members;
     }
 
     /**

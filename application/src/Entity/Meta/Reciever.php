@@ -37,10 +37,11 @@ class Reciever extends AbstractMeta implements RecieverInterface
      *
      * @var ArrayCollection | SourceInterface[]
      */
-    protected $members;
+    protected $collection;
 
     public function __construct()
     {
-        $this->members = new ArrayCollection();
+        parent::__construct();
+        $this->collection = new ArrayCollection();
     }
 }

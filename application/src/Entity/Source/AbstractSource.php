@@ -43,7 +43,7 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
      * @todo Rename table to use the right schema
      *
      * @var Collection|MemberCollectionSource[]
-     * @ORM\ManyToMany(targetEntity="App\Entity\Source\Collection\MemberCollectionSource",mappedBy="members")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Source\Collection\MemberCollectionSource",mappedBy="collection")
      */
     protected $memberships;
 
