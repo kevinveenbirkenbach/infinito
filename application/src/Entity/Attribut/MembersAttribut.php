@@ -43,9 +43,4 @@ trait MembersAttribut
 
         return $dimensionHelper->getDimensions($dimension, $members);
     }
-
-    private function continueIncludeMembersLoop(?int $dimension): bool
-    {
-        return is_null($dimension) || $dimension > 0;
-    }
 }
