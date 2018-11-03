@@ -40,10 +40,14 @@ final class DimensionHelper implements DimensionHelperInterface
     private $dimension = null;
 
     /**
-     * @param string $method    which uses the dimension helper
-     * @param string $interface which is implemented in all classes which have dimensions
-     * @param object $object    which calls the dimension helper
-     * @param string $attribut  which represents dimensions
+     * @param string $method
+     *                          which uses the dimension helper
+     * @param string $interface
+     *                          which is implemented in all classes which have dimensions
+     * @param object $object
+     *                          which calls the dimension helper
+     * @param string $attribut
+     *                          which represents dimensions
      */
     public function __construct(string $method, string $interface, object $object, string $attribut)
     {
@@ -54,8 +58,10 @@ final class DimensionHelper implements DimensionHelperInterface
     }
 
     /**
-     * @param int        $dimension The dimensions start with 1 for the elements of the actuall dimension and NULL for all elements
-     * @param Collection $elements  A  elements collection, to which new elements should be add
+     * @param int        $dimension
+     *                              The dimensions start with 1 for the elements of the actuall dimension and NULL for all elements
+     * @param Collection $elements
+     *                              A elements collection, to which new elements should be add
      *
      * @return Collection Returns all elements till the defined dimension
      */
@@ -63,11 +69,14 @@ final class DimensionHelper implements DimensionHelperInterface
     {
         $this->setDimension($dimension);
         $elements = $elements ?? new ArrayCollection();
-        foreach ($this->object->{$this->attributGetterName()}()->toArray() as $element) {
-            if (!$elements->contains($element)) {
-                $elements->add($element);
-                if ($this->continueLoop() && $element instanceof $this->interface) {
-                    $element->{$this->method}($this->dimension, $elements);
+        if ($this->dimension >= 0) {
+            foreach ($this->object->{$this->attributGetterName()}()
+                ->toArray() as $element) {
+                if (!$elements->contains($element)) {
+                    $elements->add($element);
+                    if ($this->continueLoop() && $element instanceof $this->interface) {
+                        $element->{$this->method}($this->dimension, $elements);
+                    }
                 }
             }
         }
