@@ -60,7 +60,8 @@ class RecieverTest extends TestCase
         $group2->getCollection()->add($group1);
         $group2->getCollection()->add($user2);
         $group2->getCollection()->add($user3);
-        $group3->getCollection()->add($group2);
+        $group2->getCollection()->add($group3);
+        $this->reciever->getMembers()->add($group1);
         $this->assertEquals(6, $this->reciever->getMembersIncludingChildren()->count());
     }
 }
