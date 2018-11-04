@@ -14,9 +14,9 @@ trait RecieverAttribut
      */
     protected $reciever;
 
-    public function setReciever(RecieverInterface $recieverGroup): void
+    public function setReciever(RecieverInterface $reciever): void
     {
-        $this->reciever = $recieverGroup;
+        $this->reciever = $reciever;
     }
 
     public function getReciever(): RecieverInterface

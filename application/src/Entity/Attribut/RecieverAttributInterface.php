@@ -9,7 +9,7 @@ use App\Entity\Meta\RecieverInterface;
  */
 interface RecieverAttributInterface
 {
-    public function setReciever(RecieverInterface $recieverGroup): void;
+    public function setReciever(RecieverInterface $reciever): void;
 
     public function getReciever(): RecieverInterface;
 }
