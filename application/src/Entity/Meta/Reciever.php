@@ -7,6 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Attribut\MembersAttribut;
 use App\Entity\Source\SourceInterface;
 use App\Entity\Attribut\RightAttribut;
+use App\Entity\Attribut\CollectionAttribut;
+use App\Entity\Method\CollectionDimensionHelperMethod;
 
 /**
  * @author kevinfrantz
@@ -15,7 +17,7 @@ use App\Entity\Attribut\RightAttribut;
  */
 class Reciever extends AbstractMeta implements RecieverInterface
 {
-    use RightAttribut, MembersAttribut;
+    use RightAttribut, CollectionAttribut,CollectionDimensionHelperMethod;
 
     /**
      * The right which the reciever group belongs to.

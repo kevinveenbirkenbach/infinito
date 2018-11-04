@@ -25,43 +25,44 @@ class RecieverTest extends TestCase
 
     public function testConstructor(): void
     {
-        $this->assertInstanceOf(Collection::class, $this->reciever->getMembers());
+        $this->assertInstanceOf(Collection::class, $this->reciever->getCollection());
         $this->expectException(\TypeError::class);
         $this->reciever->getRight();
     }
 
-    public function testMembersIncludingChildren(): void
+    public function testDimensions(): void
     {
         /**
          * @var \PHPUnit\Framework\MockObject\MockObject|UserSourceInterface
          */
-        $user1 = $this->createMock(UserSource::class);
+        $user1 = new UserSource();
         /**
          * @var \PHPUnit\Framework\MockObject\MockObject|UserSourceInterface
          */
-        $user2 = $this->createMock(UserSource::class);
+        $user2 = new UserSource();
         /**
          * @var \PHPUnit\Framework\MockObject\MockObject|UserSourceInterface
          */
-        $user3 = $this->createMock(UserSource::class);
+        $user3 = new UserSource();
         /**
          * @var \PHPUnit\Framework\MockObject\MockObject|TreeCollectionSourceInterface
          */
-        $group1 = $this->createMock(TreeCollectionSource::class);
+        $group1 = new TreeCollectionSource();
         /**
          * @var \PHPUnit\Framework\MockObject\MockObject|TreeCollectionSourceInterface
          */
-        $group2 = $this->createMock(TreeCollectionSource::class);
+        $group2 = new TreeCollectionSource();
         /**
          * @var \PHPUnit\Framework\MockObject\MockObject|TreeCollectionSourceInterface
          */
-        $group3 = $this->createMock(TreeCollectionSource::class);
+        $group3 = new TreeCollectionSource();
         $group1->getCollection()->add($user1);
-        $group2->getCollection()->add($group1);
+        $group1->getCollection()->add($group2);
         $group2->getCollection()->add($user2);
         $group2->getCollection()->add($user3);
         $group2->getCollection()->add($group3);
-        $this->reciever->getMembers()->add($group1);
-        $this->assertEquals(6, $this->reciever->getMembersIncludingChildren()->count());
+        $this->reciever->getCollection()->add($group1);
+        $this->assertEquals($group1, $this->reciever->getCollection()->get(0));
+        $this->assertEquals(6, $this->reciever->getDimensions()->count());
     }
 }
