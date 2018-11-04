@@ -4,7 +4,7 @@ namespace tests\unit\Entity;
 
 use PHPUnit\Framework\TestCase;
 use App\Entity\User;
-use App\Entity\Source\UserSource;
+use App\Entity\Source\Data\UserSource;
 use App\Entity\UserInterface;
 
 /**

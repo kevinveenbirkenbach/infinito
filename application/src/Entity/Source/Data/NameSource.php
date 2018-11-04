@@ -26,6 +26,5 @@ final class NameSource extends AbstractDataSource implements NameSourceInterface
     public function __construct()
     {
         parent::__construct();
-        $this->name = '';
     }
 }

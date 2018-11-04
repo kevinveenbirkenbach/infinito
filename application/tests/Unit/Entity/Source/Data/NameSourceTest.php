@@ -1,10 +1,10 @@
 <?php
 
-namespace tests\unit\Entity\Source;
+namespace tests\unit\Entity\Source\Data;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\NameSourceInterface;
-use App\Entity\Source\NameSource;
+use App\Entity\Source\Data\NameSourceInterface;
+use App\Entity\Source\Data\NameSource;
 
 /**
  * @author kevinfrantz
@@ -21,9 +21,14 @@ class NameSourceTest extends TestCase
         $this->nameSource = new NameSource();
     }
 
+    public function testConstructor():void{
+        $this->assertInstanceOf(NameSourceInterface::class, $this->nameSource);
+        $this->expectException(\TypeError::class);
+        $this->nameSource->getName();
+    }
+    
     public function testName(): void
     {
-        $this->assertEquals('', $this->nameSource->getName());
         $name = 'Hello World!';
         $this->nameSource->setName($name);
         $this->assertEquals($name, $this->nameSource->getName());
