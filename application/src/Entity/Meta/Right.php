@@ -14,6 +14,7 @@ use App\Entity\Attribut\ConditionAttribut;
 use App\Entity\Attribut\RecieverAttribut;
 use App\Entity\Attribut\LayerAttribut;
 use App\Entity\Attribut\RelationAttribut;
+use App\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz
@@ -85,7 +86,7 @@ final class Right extends AbstractMeta implements RightInterface
         $this->grant = true;
     }
 
-    public function isGranted(RelationInterface $relation, string $layer, string $right): bool
+    public function isGranted(SourceInterface $source, string $layer, string $right): bool
     {
         if ($this->layer == $layer && $this->type == $right && $this->checkIfNodeIsReciever($relation) && $this->getConditionBoolOrTrue()) {
             return $this->grant;

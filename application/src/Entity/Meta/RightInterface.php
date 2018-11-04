@@ -8,12 +8,12 @@ use App\Entity\Attribut\RecieverAttributInterface;
 use App\Entity\Attribut\GrantAttributInterface;
 use App\Entity\Attribut\ConditionAttributInterface;
 use App\Entity\Attribut\LayerAttributInterface;
-use App\Entity\Method\RelationGrantedInterface;
+use App\Entity\Method\GrantedInterface;
 use App\Entity\Attribut\RelationAttributInterface;
 
 /**
  * @author kevinfrantz
  */
-interface RightInterface extends TypeAttributInterface, LawAttributInterface, RelationGrantedInterface, GrantAttributInterface, RecieverAttributInterface, RelationAttributInterface, ConditionAttributInterface, LayerAttributInterface, MetaInterface
+interface RightInterface extends TypeAttributInterface, LawAttributInterface, GrantedInterface, GrantAttributInterface, RecieverAttributInterface, RelationAttributInterface, ConditionAttributInterface, LayerAttributInterface, MetaInterface
 {
 }
