@@ -21,12 +21,13 @@ class NameSourceTest extends TestCase
         $this->nameSource = new NameSource();
     }
 
-    public function testConstructor():void{
+    public function testConstructor(): void
+    {
         $this->assertInstanceOf(NameSourceInterface::class, $this->nameSource);
         $this->expectException(\TypeError::class);
         $this->nameSource->getName();
     }
-    
+
     public function testName(): void
     {
         $name = 'Hello World!';

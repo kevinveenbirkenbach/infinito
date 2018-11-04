@@ -1,7 +1,10 @@
 <?php
+
 namespace App\Entity\Source\Data;
+
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Source\AbstractSource; 
+use App\Entity\Source\AbstractSource;
+
 /**
  * @author kevinfrantz
  *
@@ -13,6 +16,4 @@ use App\Entity\Source\AbstractSource;
  */
 abstract class AbstractDataSource extends AbstractSource implements DataSourceInterface
 {
-    
 }
-

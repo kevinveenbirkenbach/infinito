@@ -8,8 +8,8 @@ use App\Entity\User;
 
 /**
  * Never execute this fixture on a livesystem!
- * @author kevinfrantz
  *
+ * @author kevinfrantz
  */
 class DummyFixtures extends Fixture
 {
