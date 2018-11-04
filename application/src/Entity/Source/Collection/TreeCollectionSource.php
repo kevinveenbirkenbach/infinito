@@ -13,7 +13,7 @@ use App\Entity\Method\CollectionDimensionHelperMethod;
  * @ORM\Table(name="source_group")
  * @ORM\Entity
  */
-final class TreeCollectionSource extends AbstractCollectionSource implements TreeCollectionSourceInterface
+class TreeCollectionSource extends AbstractCollectionSource implements TreeCollectionSourceInterface
 {
     use MembersAttribut;
     use CollectionDimensionHelperMethod;
