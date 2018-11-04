@@ -77,6 +77,7 @@ final class Right extends AbstractMeta implements RightInterface
         parent::__construct();
         $this->grant = true;
         $this->reciever = new Reciever();
+        $this->reciever->setRight($this);
     }
 
     public function isGranted(SourceInterface $source, string $layer, string $right): bool
