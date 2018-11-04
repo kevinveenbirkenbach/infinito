@@ -14,8 +14,7 @@ use Doctrine\Common\Collections\Collection;
 
 /**
  * This class represents a relation.
- * It allows a better right management of the meta informations.
- * Also it is used to capsel the logic relation to an own logical unit.
+ * A relationship represents the creators and the created objects.
  *
  * @author kevinfrantz
  *
