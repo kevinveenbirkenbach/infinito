@@ -19,12 +19,11 @@ use App\Entity\Source\Collection\TreeCollectionSourceInterface;
 /**
  * @author kevinfrantz
  *
- * @see https://www.doctrine-project.org/projects/doctrine-orm/en/2.6/reference/inheritance-mapping.html
  * @ORM\Entity
  * @ORM\Table(name="source")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"user" = "UserSource","name" = "NameSource","collection" = "App\Entity\Source\Collection\AbstractCollectionSource","operation"="App\Entity\Source\Operation\AbstractOperation"})
+ * @ORM\DiscriminatorMap({"data" = "App\Entity\Source\Data\AbstractDataSource", "collection" = "App\Entity\Source\Collection\AbstractCollectionSource","operation"="App\Entity\Source\Operation\AbstractOperation"})
  */
 abstract class AbstractSource extends AbstractEntity implements SourceInterface
 {

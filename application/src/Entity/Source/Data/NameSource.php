@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @author kevinfrantz
- * @ORM\Table(name="source_name")
+ * @ORM\Table(name="source_data_name")
  * @ORM\Entity(repositoryClass="App\Repository\NameSourceRepository")
  */
 final class NameSource extends AbstractDataSource implements NameSourceInterface 

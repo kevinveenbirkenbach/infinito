@@ -7,8 +7,8 @@ use FOS\UserBundle\Model\User as BaseUser;
 use App\Entity\Attribut\SourceAttribut;
 use App\Entity\Attribut\IdAttribut;
 use App\Creator\Modificator\Entity\LawModificator;
-use App\Entity\Source\UserSourceInterface;
-use App\Entity\Source\UserSource;
+use App\Entity\Source\Data\UserSourceInterface;
+use App\Entity\Source\Data\UserSource;
 use App\Entity\Attribut\VersionAttribut;
 
 /**
@@ -22,7 +22,7 @@ class User extends BaseUser implements UserInterface
 
     /**
      * @var UserSourceInterface
-     * @ORM\OneToOne(targetEntity="App\Entity\Source\UserSource",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Source\Data\UserSource",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="source_user_id", referencedColumnName="id")
      */
     protected $source;

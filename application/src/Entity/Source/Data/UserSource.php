@@ -10,7 +10,7 @@ use App\Entity\UserInterface;
 
 /**
  * @author kevinfrantz
- * @ORM\Table(name="source_user")
+ * @ORM\Table(name="source_data_user")
  * @ORM\Entity(repositoryClass="App\Repository\UserSourceRepository")
  */
 final class UserSource extends AbstractDataSource implements UserSourceInterface
