@@ -54,6 +54,7 @@ class User extends BaseUser implements UserInterface
         parent::__construct();
         $this->isActive = true;
         $this->source = new UserSource();
+        $this->source->setUser($this);
         //LawModificator::grantAllRights($this->source->getNode()->getLaw(), $this->source->getNode());
     }
 }

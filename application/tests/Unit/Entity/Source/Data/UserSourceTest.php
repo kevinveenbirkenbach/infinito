@@ -24,5 +24,7 @@ class UserSourceTest extends TestCase
     {
         $this->assertInstanceOf(Collection::class, $this->userSource->getMemberships());
         $this->assertInstanceOf(NameSourceInterface::class, $this->userSource->getNameSource());
+        $this->expectException(\TypeError::class);
+        $this->userSource->getUser();
     }
 }

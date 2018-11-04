@@ -47,5 +47,6 @@ class UserTest extends TestCase
     public function testSource(): void
     {
         $this->assertInstanceOf(UserSource::class, $this->user->getSource());
+        $this->assertEquals($this->user, $this->user->getSource()->getUser());
     }
 }
