@@ -2,7 +2,6 @@
 
 namespace App\Entity\Source\Collection\Queue;
 
-use App\Entity\Attribut\MembersAttributInterface;
 use App\Entity\Source\Collection\CollectionSourceInterface;
 use App\Entity\Source\SourceInterface;
 
@@ -11,7 +10,7 @@ use App\Entity\Source\SourceInterface;
  *
  * @author kevinfrantz
  */
-interface QueueSourceInterface extends CollectionSourceInterface, MembersAttributInterface
+interface QueueSourceInterface extends CollectionSourceInterface
 {
     public function getPointerPosition(): int;
 

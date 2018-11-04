@@ -5,6 +5,7 @@ namespace App\Entity\Source\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Attribut\MembersAttribut;
 use App\Entity\Method\CollectionDimensionHelperMethod;
+use App\Entity\Attribut\CollectionAttribut;
 
 /**
  * @author kevinfrantz
@@ -15,6 +16,6 @@ use App\Entity\Method\CollectionDimensionHelperMethod;
  */
 class TreeCollectionSource extends AbstractCollectionSource implements TreeCollectionSourceInterface
 {
-    use MembersAttribut;
+    use CollectionAttribut;
     use CollectionDimensionHelperMethod;
 }

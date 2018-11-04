@@ -27,19 +27,19 @@ class TreeCollectionSourceTest extends TestCase
 
     public function testConstructor(): void
     {
-        $this->assertInstanceOf(Collection::class, $this->tree->getMembers());
+        $this->assertInstanceOf(Collection::class, $this->tree->getCollection());
         $this->assertInstanceOf(TreeCollectionSourceInterface::class, $this->tree);
         $this->assertInstanceOf(DimensionHelperInterface::class, $this->tree);
     }
 
-    public function testMembers()
+    public function testAccessors()
     {
         $member = new class() extends AbstractSource {
         };
-        $this->tree->setMembers(new ArrayCollection([
+        $this->tree->setCollection(new ArrayCollection([
             $member,
         ]));
-        $this->assertEquals($member, $this->tree->getMembers()
+        $this->assertEquals($member, $this->tree->getCollection()
             ->get(0));
     }
 }
