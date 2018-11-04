@@ -57,14 +57,6 @@ final class Right extends AbstractMeta implements RightInterface
     protected $grant;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Relation")
-     * @ORM\JoinColumn(name="relation_id", referencedColumnName="id")
-     *
-     * @var RelationInterface
-     */
-    protected $relation;
-
-    /**
      * @ORM\Column(name="type", type="RightType", nullable=false)
      * @DoctrineAssert\Enum(entity="App\DBAL\Types\RightType")
      *
@@ -84,6 +76,7 @@ final class Right extends AbstractMeta implements RightInterface
     {
         parent::__construct();
         $this->grant = true;
+        $this->reciever = new Reciever();
     }
 
     public function isGranted(SourceInterface $source, string $layer, string $right): bool

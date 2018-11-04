@@ -4,10 +4,9 @@ namespace App\Entity\Meta;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Attribut\RelationAttribut;
-use App\Entity\Attribut\RelationAttributInterface;
 use App\Entity\Attribut\MembersAttribut;
 use App\Entity\Source\SourceInterface;
+use App\Entity\Attribut\RightAttribut;
 
 /**
  * @author kevinfrantz
@@ -16,17 +15,17 @@ use App\Entity\Source\SourceInterface;
  */
 class Reciever extends AbstractMeta implements RecieverInterface
 {
-    use RelationAttribut, MembersAttribut;
+    use RightAttribut, MembersAttribut;
 
     /**
-     * The node for which the right exists.
+     * The right which the reciever group belongs to.
      *
-     * @ORM\ManyToOne(targetEntity="Relation")
-     * @ORM\JoinColumn(name="relation_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="Right",cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="right_id", referencedColumnName="id")
      *
-     * @var RelationAttributInterface
+     * @var RightInterface
      */
-    protected $relation;
+    protected $right;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Source\AbstractSource")

@@ -8,6 +8,6 @@ use App\Entity\Method\GrantedInterface;
 /**
  * @author kevinfrantz
  */
-interface LawInterface extends RightsAttributInterface,GrantedInterface, MetaInterface
+interface LawInterface extends RightsAttributInterface, GrantedInterface, MetaInterface
 {
 }

@@ -11,8 +11,10 @@ interface GrantedInterface
 {
     /**
      * Returns true if the source is granted access to the layer with the requested right.
+     *
      * @param SourceInterface $source
-     * @param string $right
+     * @param string          $right
+     *
      * @return bool
      */
     public function isGranted(SourceInterface $source, string $layer, string $right): bool;

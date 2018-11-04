@@ -22,5 +22,7 @@ class RecieverTest extends TestCase
     public function testConstructor(): void
     {
         $this->assertInstanceOf(Collection::class, $this->reciever->getMembers());
+        $this->expectException(\TypeError::class);
+        $this->reciever->getRight();
     }
 }

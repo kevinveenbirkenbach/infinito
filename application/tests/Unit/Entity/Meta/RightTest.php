@@ -7,6 +7,7 @@ use App\DBAL\Types\RightType;
 use App\Entity\Meta\RightInterface;
 use App\Entity\Meta\Right;
 use App\Entity\Meta\Law;
+use App\Entity\Meta\RecieverInterface;
 
 /**
  * @todo Implement reciever test
@@ -27,8 +28,10 @@ class RightTest extends TestCase
 
     public function testConstructor(): void
     {
+        $this->assertInstanceOf(RecieverInterface::class, $this->right->getReciever());
         $this->expectException(\TypeError::class);
         $this->assertNull($this->right->getLaw());
+        $this->expectException(\TypeError::class);
         $this->assertNull($this->right->getType());
     }
 
