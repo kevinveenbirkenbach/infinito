@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Source;
+namespace App\Entity\Source\Data;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -13,7 +13,7 @@ use App\Entity\UserInterface;
  * @ORM\Table(name="source_user")
  * @ORM\Entity(repositoryClass="App\Repository\UserSourceRepository")
  */
-final class UserSource extends AbstractSource implements UserSourceInterface
+final class UserSource extends AbstractDataSource implements UserSourceInterface
 {
     use UserAttribut,NameSourceAttribut;
 

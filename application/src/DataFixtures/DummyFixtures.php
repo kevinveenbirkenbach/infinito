@@ -6,7 +6,12 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
 
-class UsersFixtures extends Fixture
+/**
+ * Never execute this fixture on a livesystem!
+ * @author kevinfrantz
+ *
+ */
+class DummyFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
@@ -15,6 +20,6 @@ class UsersFixtures extends Fixture
     public function adminUser()
     {
         $admin = new User();
-        $admin->getSource();
+        $source = $admin->getSource();
     }
 }

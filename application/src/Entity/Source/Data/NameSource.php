@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Source;
+namespace App\Entity\Source\Data;
 
 use App\Entity\Attribut\NameAttribut;
 use Doctrine\ORM\Mapping as ORM;
@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="source_name")
  * @ORM\Entity(repositoryClass="App\Repository\NameSourceRepository")
  */
-final class NameSource extends AbstractSource implements NameSourceInterface
+final class NameSource extends AbstractDataSource implements NameSourceInterface 
 {
     use NameAttribut;
 
