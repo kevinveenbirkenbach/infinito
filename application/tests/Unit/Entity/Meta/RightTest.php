@@ -28,6 +28,7 @@ class RightTest extends TestCase
     public function testConstructorGeneral(): void
     {
         $this->assertEquals($this->right, $this->right->getReciever()->getRight());
+        $this->assertTrue($this->right->getGrant());
         $this->expectException(\TypeError::class);
         $this->assertNull($this->right->getLaw());
     }
