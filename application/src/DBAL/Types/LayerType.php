@@ -9,14 +9,14 @@ use Fresh\DoctrineEnumBundle\DBAL\Types\AbstractEnumType;
  */
 final class LayerType extends AbstractEnumType
 {
-    public const NODE = 'node';
+    public const RELATION = 'relation';
 
     public const SOURCE = 'source';
 
     public const LAW = 'law';
 
     protected static $choices = [
-        self::NODE => 'node',
+        self::RELATION => 'relation',
         self::LAW => 'law',
         self::SOURCE => 'source',
     ];

@@ -29,11 +29,21 @@ class RightTest extends TestCase
     {
         $this->assertEquals($this->right, $this->right->getReciever()->getRight());
         $this->assertTrue($this->right->getGrant());
+    }
+
+    public function testConstructorLayer(): void
+    {
+        $this->expectException(\TypeError::class);
+        $this->assertNull($this->right->getLayer());
+    }
+
+    public function testConstructorLaw(): void
+    {
         $this->expectException(\TypeError::class);
         $this->assertNull($this->right->getLaw());
     }
 
-    public function testConstructorCondition()
+    public function testConstructorCondition(): void
     {
         $this->expectException(\TypeError::class);
         $this->right->getCondition();
