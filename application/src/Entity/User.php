@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 use App\Entity\Attribut\SourceAttribut;
 use App\Entity\Attribut\IdAttribut;
-use App\Creator\Modificator\Entity\LawModificator;
 use App\Entity\Source\Data\UserSourceInterface;
 use App\Entity\Source\Data\UserSource;
 use App\Entity\Attribut\VersionAttribut;
@@ -55,6 +54,5 @@ class User extends BaseUser implements UserInterface
         $this->isActive = true;
         $this->source = new UserSource();
         $this->source->setUser($this);
-        //LawModificator::grantAllRights($this->source->getNode()->getLaw(), $this->source->getNode());
     }
 }

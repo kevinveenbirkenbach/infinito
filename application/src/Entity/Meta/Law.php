@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Attribut\RightsAttribute;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Attribut\RelationAttribut;
-use App\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz
@@ -26,26 +25,6 @@ final class Law extends AbstractMeta implements LawInterface
 
     public function __construct()
     {
-        $this->initAllRights();
-    }
-
-    private function initAllRights(): void
-    {
         $this->rights = new ArrayCollection();
-    }
-
-    public function isGranted(SourceInterface $source, string $layer, string $right): bool
-    {
-        /*
-         *
-         * @var RightInterface
-         */
-        foreach ($this->rights->toArray() as $right) {
-            if ($right->isGranted($relation, $layer, $right)) {
-                return true;
-            }
-        }
-
-        return false;
     }
 }

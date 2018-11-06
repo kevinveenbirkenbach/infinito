@@ -8,7 +8,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Source\AbstractSource;
 use App\Entity\Source\Collection\TreeCollectionSourceInterface;
 use App\Entity\Source\Collection\TreeCollectionSource;
-use App\Helper\DimensionHelperInterface;
 
 /**
  * @author kevinfrantz
@@ -29,7 +28,6 @@ class TreeCollectionSourceTest extends TestCase
     {
         $this->assertInstanceOf(Collection::class, $this->tree->getCollection());
         $this->assertInstanceOf(TreeCollectionSourceInterface::class, $this->tree);
-        $this->assertInstanceOf(DimensionHelperInterface::class, $this->tree);
     }
 
     public function testAccessors()

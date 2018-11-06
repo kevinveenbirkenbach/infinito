@@ -11,6 +11,8 @@ use App\Exception\NotDefinedException;
  * @author kevinfrantz
  * @ORM\Table(name="source_operation_and")
  * @ORM\Entity()
+ *
+ * @todo move to the logic level!
  */
 final class AndOperation extends AbstractOperation
 {
