@@ -10,6 +10,9 @@ use PHPUnit\Framework\TestCase;
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Request;
+use Knp\Menu\MenuItem;
+use Knp\Menu\MenuFactory;
 
 class SourceMenuSubscriberTest extends TestCase
 {
@@ -27,10 +30,13 @@ class SourceMenuSubscriberTest extends TestCase
     }
     
     public function testOnSourceMenuConfig():void{
-        $factory = $this->createMock(FactoryInterface::class);
-        $item = $this->createMock(ItemInterface::class);
-        $request = $this->createMock(RequestStack::class);
-        $event = new MenuEvent($factory, $item, $request);
+        $factory = new MenuFactory();
+        $item = new MenuItem('test', $factory);
+        $request = new Request();
+        $request->attributes->set('id', 123);
+        $requests = new RequestStack();
+        $requests->push($request);
+        $event = new MenuEvent($factory, $item, $requests);
         $this->assertNull($this->subscriber->onSourceMenuConfigure($event));
     }
 }
