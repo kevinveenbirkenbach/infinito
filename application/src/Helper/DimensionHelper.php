@@ -10,7 +10,9 @@ use Doctrine\Common\Collections\Collection;
  *
  * @author kevinfrantz
  *
- * @todo Implement tests for all functions
+ * @deprecated
+ *
+ * @todo Implement as service!
  */
 final class DimensionHelper implements DimensionHelperInterface
 {
@@ -58,6 +60,8 @@ final class DimensionHelper implements DimensionHelperInterface
     }
 
     /**
+     * @deprecated
+     *
      * @param int        $dimension
      *                              The dimensions start with 1 for the elements of the actuall dimension and NULL for all elements
      * @param Collection $elements
