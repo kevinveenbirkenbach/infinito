@@ -26,6 +26,6 @@ trait ConditionAttribut
 
     public function hasCondition(): bool
     {
-        return $this->condition;
+        return $this->condition instanceof OperationInterface;
     }
 }
