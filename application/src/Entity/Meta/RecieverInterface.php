@@ -2,7 +2,6 @@
 
 namespace App\Entity\Meta;
 
-use App\Entity\Attribut\MembersAttributInterface;
 use App\Entity\Attribut\RightAttributInterface;
 use App\Entity\Attribut\CollectionAttributInterface;
 use App\Helper\DimensionHelperInterface;
@@ -12,6 +11,6 @@ use App\Helper\DimensionHelperInterface;
  *
  * @author kevinfrantz
  */
-interface RecieverInterface extends MetaInterface, RightAttributInterface,CollectionAttributInterface,DimensionHelperInterface
+interface RecieverInterface extends MetaInterface, RightAttributInterface, CollectionAttributInterface, DimensionHelperInterface
 {
 }

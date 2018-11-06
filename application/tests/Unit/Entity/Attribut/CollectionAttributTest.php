@@ -33,9 +33,11 @@ class CollectionAttributTest extends TestCase
         $this->assertNull($this->collection->setCollection($collection));
         $this->assertEquals($collection, $this->collection->getCollection());
     }
-    
-    public function testAdd():void{
-        $mock = new class{};
+
+    public function testAdd(): void
+    {
+        $mock = new class() {
+        };
         $this->collection->setCollection(new ArrayCollection());
         $this->assertTrue($this->collection->getCollection()->add($mock));
         $this->assertEquals($mock, $this->collection->getCollection()->get(0));
