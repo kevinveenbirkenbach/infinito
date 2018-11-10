@@ -1,12 +1,12 @@
 <?php
 
-namespace tests\unit\Entity\Source\Data;
+namespace tests\unit\Entity\Source\Combination;
 
 use PHPUnit\Framework\TestCase;
 use App\Entity\Source\Data\UserSourceInterface;
 use App\Entity\Source\Data\UserSource;
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Source\Data\NameSourceInterface;
+use App\Entity\Source\Data\PersonIdentitySourceInterface;
 
 class UserSourceTest extends TestCase
 {
@@ -23,7 +23,7 @@ class UserSourceTest extends TestCase
     public function testConstructor(): void
     {
         $this->assertInstanceOf(Collection::class, $this->userSource->getMemberships());
-        $this->assertInstanceOf(NameSourceInterface::class, $this->userSource->getNameSource());
+        $this->assertInstanceOf(PersonIdentitySourceInterface::class, $this->userSource->getIdentitySource());
         $this->expectException(\TypeError::class);
         $this->userSource->getUser();
     }

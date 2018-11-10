@@ -19,6 +19,7 @@ final class NicknameSource extends AbstractNameSource implements NicknameSourceI
      * @todo Implement an extra assert Layer!
      * @ORM\Column(type="string",length=255)
      * @Assert\NotBlank()
+     *
      * @var string
      */
     protected $name;

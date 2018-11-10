@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Entity\Source\Data\Name;
 
 use App\Entity\Source\Data\DataSourceInterface;

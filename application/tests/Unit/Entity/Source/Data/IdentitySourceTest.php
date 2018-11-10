@@ -1,4 +1,5 @@
 <?php
+
 namespace tests\unit\Entity\Source\Data;
 
 use PHPUnit\Framework\TestCase;
@@ -12,19 +13,21 @@ class IdentitySourceTest extends TestCase
      * @var IdentityInterface
      */
     protected $identity;
-    
-    public function setUp():void{
+
+    public function setUp(): void
+    {
         $this->identity = new IdentitySource();
     }
-    
-    public function testConstructor():void{
+
+    public function testConstructor(): void
+    {
         $this->assertInstanceOf(FullPersonNameSourceInterface::class, $this->identity->getName());
     }
-    
-    public function testName():void{
+
+    public function testName(): void
+    {
         $name = $this->createMock(FullPersonNameSourceInterface::class);
         $this->assertNull($this->identity->setName($name));
         $this->assertEquals($name, $this->identity->getName());
     }
 }
-
