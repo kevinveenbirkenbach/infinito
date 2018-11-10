@@ -2,8 +2,8 @@
 
 namespace App\Entity\Source\Data;
 
-use App\Entity\Attribut\NameAttributInterface;
+use App\Entity\Attribut\FullPersonNameSourceAttributInterface;
 
-interface PersonIdentitySourceInterface extends DataSourceInterface, NameAttributInterface
+interface PersonIdentitySourceInterface extends DataSourceInterface, FullPersonNameSourceAttributInterface
 {
 }

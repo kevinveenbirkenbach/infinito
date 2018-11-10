@@ -34,6 +34,6 @@ class FullPersonNameSourceAttributTest extends TestCase
     {
         $fullname = $this->createMock(FullPersonNameSourceInterface::class);
         $this->assertNull($this->fullname->setFullPersonNameSource($fullname));
-        $this->assertEquals($collection, $this->fullname->getFullPersonNameSource());
+        $this->assertEquals($fullname, $this->fullname->getFullPersonNameSource());
     }
 }
