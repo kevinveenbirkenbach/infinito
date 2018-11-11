@@ -3,20 +3,20 @@
 namespace tests\unit\Entity\Source\Data;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Data\IdentityInterface;
-use App\Entity\Source\Data\IdentitySource;
-use App\Entity\Source\Data\FullPersonNameSourceInterface;
+use App\Entity\Source\Data\PersonIdentitySourceInterface;
+use App\Entity\Source\Data\PersonIdentitySource;
+use App\Entity\Source\Combination\FullPersonNameSourceInterface;
 
-class IdentitySourceTest extends TestCase
+class PersonIdentitySourceTest extends TestCase
 {
     /**
-     * @var IdentityInterface
+     * @var PersonIdentitySourceInterface
      */
     protected $identity;
 
     public function setUp(): void
     {
-        $this->identity = new IdentitySource();
+        $this->identity = new PersonIdentitySource();
     }
 
     public function testConstructor(): void
@@ -24,7 +24,7 @@ class IdentitySourceTest extends TestCase
         $this->assertInstanceOf(FullPersonNameSourceInterface::class, $this->identity->getName());
     }
 
-    public function testName(): void
+    public function testFullName(): void
     {
         $name = $this->createMock(FullPersonNameSourceInterface::class);
         $this->assertNull($this->identity->setName($name));
