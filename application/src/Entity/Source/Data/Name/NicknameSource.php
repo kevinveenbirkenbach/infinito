@@ -8,8 +8,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @author kevinfrantz
- * @ORM\Table(name="source_data_name")
- * @ORM\Entity(repositoryClass="App\Repository\NameSourceRepository")
+ * @ORM\Table(name="source_data_nickname")
+ * @ORM\Entity()
  */
 final class NicknameSource extends AbstractNameSource implements NicknameSourceInterface
 {

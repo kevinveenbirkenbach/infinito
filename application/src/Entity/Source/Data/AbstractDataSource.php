@@ -12,7 +12,7 @@ use App\Entity\Source\AbstractSource;
  * @ORM\Table(name="source_data")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"user" = "UserSource","name" = "NameSource"})
+ * @ORM\DiscriminatorMap({"name" = "App\Entity\Source\Data\Name\AbstractNameSource"})
  */
 abstract class AbstractDataSource extends AbstractSource implements DataSourceInterface
 {
