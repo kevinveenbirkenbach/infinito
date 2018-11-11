@@ -3,8 +3,8 @@
 namespace tests\unit\Entity\Source\Combination;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Data\UserSourceInterface;
-use App\Entity\Source\Data\UserSource;
+use App\Entity\Source\Combination\UserSourceInterface;
+use App\Entity\Source\Combination\UserSource;
 use Doctrine\Common\Collections\Collection;
 use App\Entity\Source\Data\PersonIdentitySourceInterface;
 

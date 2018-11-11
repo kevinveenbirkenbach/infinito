@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Source\Data;
+namespace App\Entity\Source\Combination;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Attribut\UserAttribut;
@@ -12,7 +12,7 @@ use Entity\Attribut\PersonIdentityAttribut;
  * @ORM\Table(name="source_data_user")
  * @ORM\Entity(repositoryClass="App\Repository\UserSourceRepository")
  */
-class UserSource extends AbstractDataSource implements UserSourceInterface
+class UserSource extends AbstractCombinationSource implements UserSourceInterface
 {
     use UserAttribut,PersonIdentityAttribut;
 

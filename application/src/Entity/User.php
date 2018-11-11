@@ -6,8 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 use App\Entity\Attribut\SourceAttribut;
 use App\Entity\Attribut\IdAttribut;
-use App\Entity\Source\Data\UserSourceInterface;
-use App\Entity\Source\Data\UserSource;
+use App\Entity\Source\Combination\UserSourceInterface;
+use App\Entity\Source\Combination\UserSource;
 use App\Entity\Attribut\VersionAttribut;
 
 /**
