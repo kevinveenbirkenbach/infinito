@@ -11,9 +11,9 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Entity
  * @ORM\Table(name="source_data_name")
- * @ORM\InheritanceType("JOINED")
+ * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"nickname" = "NicknameSource"})
+ * @ORM\DiscriminatorMap({"nickname" = "NicknameSource","firstname" = "FirstNameSource", "lastname" = "LastNameSource"})
  */
 abstract class AbstractNameSource extends AbstractDataSource implements NameSourceInterface
 {
