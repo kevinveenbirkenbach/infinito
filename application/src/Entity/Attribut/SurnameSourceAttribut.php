@@ -11,12 +11,12 @@ trait SurnameSourceAttribut
      */
     protected $surnameSource;
 
-    public function getSurname(): SurnameSourceInterface
+    public function getSurnameSource(): SurnameSourceInterface
     {
         return $this->surnameSource;
     }
 
-    public function setSurname(SurnameSourceInterface $name): void
+    public function setSurnameSource(SurnameSourceInterface $name): void
     {
         $this->surnameSource = $name;
     }

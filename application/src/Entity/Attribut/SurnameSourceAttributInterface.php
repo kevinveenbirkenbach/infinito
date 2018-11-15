@@ -6,7 +6,7 @@ use App\Entity\Source\Data\Name\SurnameSourceInterface;
 
 interface SurnameSourceAttributInterface
 {
-    public function getSurname(): SurnameSourceInterface;
+    public function getSurnameSource(): SurnameSourceInterface;
 
-    public function setSurname(SurnameSourceInterface $name): void;
+    public function setSurnameSource(SurnameSourceInterface $name): void;
 }
