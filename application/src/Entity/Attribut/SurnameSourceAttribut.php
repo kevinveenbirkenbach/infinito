@@ -4,9 +4,20 @@ namespace App\Entity\Attribut;
 
 use App\Entity\Source\Data\Name\SurnameSourceInterface;
 
-interface SurnameSourceAttributInterface
+trait SurnameSourceAttribut
 {
-    public function getSurname(): SurnameSourceInterface;
+    /**
+     * @var SurnameSourceInterface
+     */
+    protected $surnameSource;
 
-    public function setSurname(SurnameSourceInterface $name): void;
+    public function getSurname(): SurnameSourceInterface
+    {
+        return $this->surnameSource;
+    }
+
+    public function setSurname(SurnameSourceInterface $name): void
+    {
+        $this->surnameSource = $name;
+    }
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace Entity\Attribut;
+namespace App\Entity\Attribut;
 
 use App\Entity\Source\Data\PersonIdentitySourceInterface;
 
-trait PersonIdentityAttribut
+trait PersonIdentitySourceAttribut
 {
     /**
      * @var PersonIdentitySourceInterface

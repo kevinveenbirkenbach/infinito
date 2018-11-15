@@ -4,7 +4,7 @@ namespace Tests\Unit\Entity\Attribut;
 
 use PHPUnit\Framework\TestCase;
 use App\Entity\Attribut\PersonIdentitySourceAttributInterface;
-use Entity\Attribut\PersonIdentityAttribut;
+use App\Entity\Attribut\PersonIdentitySourceAttribut;
 use App\Entity\Source\Data\PersonIdentitySourceInterface;
 
 /**
@@ -22,7 +22,7 @@ class PersonIdentitySourceAttributTest extends TestCase
     public function setUp(): void
     {
         $this->identity = new class() implements PersonIdentitySourceAttributInterface {
-            use PersonIdentityAttribut;
+            use PersonIdentitySourceAttribut;
         };
     }
 

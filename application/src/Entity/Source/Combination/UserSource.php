@@ -5,7 +5,7 @@ namespace App\Entity\Source\Combination;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Attribut\UserAttribut;
 use App\Entity\UserInterface;
-use Entity\Attribut\PersonIdentityAttribut;
+use App\Entity\Attribut\PersonIdentitySourceAttribut;
 
 /**
  * @author kevinfrantz
@@ -14,7 +14,7 @@ use Entity\Attribut\PersonIdentityAttribut;
  */
 class UserSource extends AbstractCombinationSource implements UserSourceInterface
 {
-    use UserAttribut,PersonIdentityAttribut;
+    use UserAttribut,PersonIdentitySourceAttribut;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\User",cascade={"persist", "remove"})
