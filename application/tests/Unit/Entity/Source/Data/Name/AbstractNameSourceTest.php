@@ -3,13 +3,13 @@
 namespace tests\unit\Entity\Source\Data;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Data\NameSourceInterface;
-use App\Entity\Source\Data\NameSource;
+use App\Entity\Source\Data\Name\NameSourceInterface;
+use App\Entity\Source\Data\Name\AbstractNameSource;
 
 /**
  * @author kevinfrantz
  */
-class NameSourceTest extends TestCase
+class AbstractNameSourceTest extends TestCase
 {
     /**
      * @var NameSourceInterface
@@ -18,7 +18,8 @@ class NameSourceTest extends TestCase
 
     public function setUp(): void
     {
-        $this->nameSource = new NameSource();
+        $this->nameSource = new class() extends AbstractNameSource {
+        };
     }
 
     public function testConstructor(): void

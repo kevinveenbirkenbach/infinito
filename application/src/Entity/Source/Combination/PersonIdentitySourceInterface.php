@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity\Source\Data;
+namespace App\Entity\Source\Combination;
 
 use App\Entity\Attribut\FullPersonNameSourceAttributInterface;
 
-interface PersonIdentitySourceInterface extends DataSourceInterface, FullPersonNameSourceAttributInterface
+interface PersonIdentitySourceInterface extends CombinationSourceInterface, FullPersonNameSourceAttributInterface
 {
 }

@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Entity\Source\Data;
+namespace App\Entity\Source\Combination;
 
 use App\Entity\Attribut\FullPersonNameSourceAttribut;
-use App\Entity\Source\Combination\FullPersonNameSourceInterface;
-use App\Entity\Source\Combination\FullPersonNameSource;
+use App\Entity\Source\Data\AbstractDataSource;
 
 class PersonIdentitySource extends AbstractDataSource implements PersonIdentitySourceInterface
 {

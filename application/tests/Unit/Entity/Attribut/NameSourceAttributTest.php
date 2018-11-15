@@ -5,7 +5,7 @@ namespace tests\unit\Entity\Attribut;
 use PHPUnit\Framework\TestCase;
 use App\Entity\Attribut\NameSourceAttributInterface;
 use App\Entity\Attribut\NameSourceAttribut;
-use App\Entity\Source\Data\NameSourceInterface;
+use App\Entity\Source\Data\Name\NameSourceInterface;
 
 class NameSourceAttributTest extends TestCase
 {

@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use App\Entity\Source\Combination\UserSourceInterface;
 use App\Entity\Source\Combination\UserSource;
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Source\Data\PersonIdentitySourceInterface;
+use App\Entity\Source\Combination\PersonIdentitySourceInterface;
 
 class UserSourceTest extends TestCase
 {
@@ -23,7 +23,7 @@ class UserSourceTest extends TestCase
     public function testConstructor(): void
     {
         $this->assertInstanceOf(Collection::class, $this->userSource->getMemberships());
-        $this->assertInstanceOf(PersonIdentitySourceInterface::class, $this->userSource->getIdentitySource());
+        $this->assertInstanceOf(PersonIdentitySourceInterface::class, $this->userSource->getPersonIdentitySource());
         $this->expectException(\TypeError::class);
         $this->userSource->getUser();
     }

@@ -5,7 +5,7 @@ namespace Tests\Unit\Entity\Attribut;
 use PHPUnit\Framework\TestCase;
 use App\Entity\Attribut\PersonIdentitySourceAttributInterface;
 use App\Entity\Attribut\PersonIdentitySourceAttribut;
-use App\Entity\Source\Data\PersonIdentitySourceInterface;
+use App\Entity\Source\Combination\PersonIdentitySourceInterface;
 
 /**
  * @todo Implement abstract test class for entity attributs
@@ -29,13 +29,13 @@ class PersonIdentitySourceAttributTest extends TestCase
     public function testConstructor(): void
     {
         $this->expectException(\TypeError::class);
-        $this->identity->getIdentitySource();
+        $this->identity->getPersonIdentitySource();
     }
 
     public function testAccessors(): void
     {
         $identity = $this->createMock(PersonIdentitySourceInterface::class);
-        $this->assertNull($this->identity->setIdentitySource($identity));
-        $this->assertEquals($collection, $this->identity->getIdentitySource());
+        $this->assertNull($this->identity->setPersonIdentitySource($identity));
+        $this->assertEquals($identity, $this->identity->getPersonIdentitySource());
     }
 }

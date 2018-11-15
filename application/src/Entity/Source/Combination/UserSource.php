@@ -24,8 +24,16 @@ class UserSource extends AbstractCombinationSource implements UserSourceInterfac
      */
     protected $user;
 
+    /**
+     * @todo Implement ORM mapping for database!
+     *
+     * @var PersonIdentitySourceInterface
+     */
+    protected $personIdentitySource;
+
     public function __construct()
     {
+        $this->personIdentitySource = new PersonIdentitySource();
         parent::__construct();
     }
 }
