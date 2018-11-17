@@ -1,19 +1,19 @@
+sudo: required
 language: php
 php:
     - 7.2
 git:
     submodules: false
+services:
+    - docker
 before_install:
     - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
     - git submodule update --init --recursive
-    - cd application
-    - cp phpunit.xml.dist phpunit.xml
 before_script:
-    - travis_retry composer self-update
-    - travis_retry composer install --no-interaction --prefer-source --dev
+    - travis_retry bash administration/init.sh
 script:
-    - php ./vendor/bin/php-cs-fixer fix -v --diff --dry-run ./src/
-    - bin/console doctrine:schema:validate --skip-sync
-    - vendor/bin/phpunit --coverage-clover=coverage.xml
+    - bash administration/test-everything.sh
 after_success:
-    - bash <(curl -s https://codecov.io/bash)
+    - cd docker-symfony
+    - docker-compose exec php vendor/bin/phpunit --coverage-clover=coverage.xml
+    - docker-compose exec php bash <(curl -s https://codecov.io/bash)
