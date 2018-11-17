@@ -15,6 +15,7 @@
         <env name="APP_SECRET" value="s$cretf0rt3st" />
         <env name="SHELL_VERBOSITY" value="-1" />
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="disabled" />
+        <env name="DATABASE_URL" value="mysql://DEV_USER:userpass@db:3306/DEV_DATABASE" />
     </php>
 
     <testsuites>
