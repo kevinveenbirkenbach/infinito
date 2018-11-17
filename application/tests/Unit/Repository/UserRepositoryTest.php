@@ -10,7 +10,6 @@ use App\Entity\UserInterface;
 
 class UserRepositoryTest extends KernelTestCase
 {
-    const USER_ID = 123456789;
     /**
      * @var EntityManager
      */
@@ -28,17 +27,27 @@ class UserRepositoryTest extends KernelTestCase
         $this->userRepository = $this->entityManager->getRepository(User::class);
     }
 
+    /**
+     * @todo Test double username
+     * @todo Test double email
+     */
     public function testCreation(): void
     {
         $user = new User();
-        $user->setId(self::USER_ID);
+        $user->setUsername('Karl Marx');
+        $user->setEmail('mew21@test.de');
+        $user->setPassword('Friedrich ist kein Engel!:)');
         $this->entityManager->persist($user);
         $this->entityManager->flush();
+        $userId = $user->getId();
         /**
          * @var UserInterface
          */
-        $loadedUser = $this->userRepository->find(self::USER_ID);
-        $this->assertEquals(self::USER_ID, $loadedUser->getId());
+        $loadedUser = $this->userRepository->find($userId);
+        $this->assertEquals($userId, $loadedUser->getId());
+        $this->entityManager->remove($loadedUser);
+        $this->entityManager->flush();
+        $this->assertNull($this->userRepository->find($userId));
     }
 
     /**

@@ -22,7 +22,7 @@ class User extends BaseUser implements UserInterface
     /**
      * @var UserSourceInterface
      * @ORM\OneToOne(targetEntity="App\Entity\Source\Combination\UserSource",cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="source_user_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="source_user_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $source;
 
@@ -51,6 +51,7 @@ class User extends BaseUser implements UserInterface
     public function __construct()
     {
         parent::__construct();
+        $this->version = 0;
         $this->isActive = true;
         $this->source = new UserSource();
         $this->source->setUser($this);

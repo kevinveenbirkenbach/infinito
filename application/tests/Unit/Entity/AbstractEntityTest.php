@@ -21,9 +21,9 @@ class AbstractEntityTest extends TestCase
 
     public function testConstructor(): void
     {
+        $this->assertEquals(0, $this->entity->getVersion());
         $this->expectException(\TypeError::class);
         $this->entity->getId();
-        $this->entity->getVersion();
     }
 
     public function testVersion(): void

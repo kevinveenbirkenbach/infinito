@@ -25,6 +25,7 @@ final class Law extends AbstractMeta implements LawInterface
 
     public function __construct()
     {
+        parent::__construct();
         $this->rights = new ArrayCollection();
     }
 }

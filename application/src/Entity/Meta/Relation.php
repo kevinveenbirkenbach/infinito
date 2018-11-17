@@ -54,7 +54,7 @@ final class Relation extends AbstractMeta implements RelationInterface
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Source\AbstractSource",cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="source_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="source_id", referencedColumnName="id",onDelete="CASCADE")
      *
      * @var SourceInterface
      */
@@ -70,6 +70,7 @@ final class Relation extends AbstractMeta implements RelationInterface
 
     public function __construct()
     {
+        parent::__construct();
         $this->law = new Law();
         $this->parents = new ArrayCollection();
         $this->childs = new ArrayCollection();

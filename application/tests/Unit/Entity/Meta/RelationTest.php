@@ -23,6 +23,7 @@ class RelationTest extends TestCase
     {
         $this->assertInstanceOf(Collection::class, $this->relation->getChilds());
         $this->assertInstanceOf(Collection::class, $this->relation->getParents());
+        $this->assertEquals(0, $this->relation->getVersion());
         $this->expectException(\TypeError::class);
         $this->relation->getSource();
     }

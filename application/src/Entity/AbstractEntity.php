@@ -31,6 +31,7 @@ abstract class AbstractEntity implements EntityInterface
 
     public function __construct()
     {
+        $this->version = 0;
     }
 
     public function __toString(): string

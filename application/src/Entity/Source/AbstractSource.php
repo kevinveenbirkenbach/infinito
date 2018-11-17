@@ -32,7 +32,7 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
     /**
      * @var RelationInterface
      * @ORM\OneToOne(targetEntity="App\Entity\Meta\Relation",cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="relation_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="relation_id", referencedColumnName="id", onDelete="CASCADE")
      * @Exclude
      */
     protected $relation;

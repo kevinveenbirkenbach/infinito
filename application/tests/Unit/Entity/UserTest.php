@@ -32,6 +32,7 @@ class UserTest extends TestCase
     public function testConstructor(): void
     {
         $this->assertInstanceOf(UserInterface::class, new User());
+        $this->assertEquals(0, $this->user->getVersion());
     }
 
     public function testUsername(): void
