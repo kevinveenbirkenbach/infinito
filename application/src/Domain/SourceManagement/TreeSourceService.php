@@ -13,7 +13,7 @@ use App\Entity\Source\SourceInterface;
  * @author kevinfrantz
  * @todo Maybe lazy loading would be helpfull for performance
  */
-class TreeSourceService extends AbstractSourceService implements TreeSourceServiceInterface
+final class TreeSourceService extends AbstractSourceService implements TreeSourceServiceInterface
 {
     /**
      * @var TreeCollectionSourceInterface
@@ -62,21 +62,24 @@ class TreeSourceService extends AbstractSourceService implements TreeSourceServi
      * {@inheritDoc}
      * @see \App\Domain\SourceManagement\TreeSourceServiceInterface::getAllBranches()
      */
-    public function getAllBranches(?ArrayCollection $excludedBranches=null): Collection
+    public function getAllBranches(): Collection
     {
-        if(!$excludedBranches){
-            $excludedBranches = new ArrayCollection();
-        }
-        $branches = new ArrayCollection($this->branches->toArray());
+        $allBranches = new ArrayCollection($this->branches->toArray());
         foreach($this->branches->toArray() as $branch){
-            if(!$excludedBranches->contains($branch)){
-                foreach((new TreeSourceService($branch))->getAllBranches($excludedBranches) as $branchBranch){
-                    $branches->add($branchBranch);
-                }
+            $this->itterateOverBranch($branch, $allBranches);
+        }
+        return $allBranches;
+    }
+    
+    private function itterateOverBranch(TreeCollectionSourceInterface $branch,ArrayCollection $allBranches):void{
+        if(!$allBranches->contains($branch)){
+            $allBranches->add($branch);
+            foreach((new self($branch))->getBranches() as $branchBranch){
+                $allBranches->add($branchBranch);
             }
         }
-        return $branches;
     }
+    
     
     public function getLeaves(): Collection
     {
@@ -87,12 +90,13 @@ class TreeSourceService extends AbstractSourceService implements TreeSourceServi
     {
         $leaves = new ArrayCollection();
         foreach ($this->getAllBranches()->toArray() as $branch){
-            foreach ((new TreeSourceService($branch))->getLeaves() as $leave){
+            foreach ((new self($branch))->getLeaves() as $leave){
                 if(!$leaves->contains($leave)){
                     $leaves->add($leave);
                 }
             }
         }
+        return $leaves;
     }
  
 }
