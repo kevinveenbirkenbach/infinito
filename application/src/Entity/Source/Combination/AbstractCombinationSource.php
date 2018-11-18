@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="source_combination")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"user" = "UserSource","fullpersonname" = "FullPersonNameSource"})
+ * @ORM\DiscriminatorMap({"user" = "UserSource","fullpersonname" = "FullPersonNameSource","personidentitysource"="PersonIdentitySource"})
  */
 abstract class AbstractCombinationSource extends AbstractSource implements CombinationSourceInterface
 {

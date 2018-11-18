@@ -20,6 +20,11 @@ class UserRepositoryTest extends KernelTestCase
      */
     protected $userRepository;
 
+    /**
+     * @var UserInterface
+     */
+    protected $loadedUser;
+
     public function setUp(): void
     {
         $kernel = self::bootKernel();
@@ -40,14 +45,22 @@ class UserRepositoryTest extends KernelTestCase
         $this->entityManager->persist($user);
         $this->entityManager->flush();
         $userId = $user->getId();
-        /**
+        /*
          * @var UserInterface
          */
-        $loadedUser = $this->userRepository->find($userId);
-        $this->assertEquals($userId, $loadedUser->getId());
-        $this->entityManager->remove($loadedUser);
-        $this->entityManager->flush();
+        $this->loadedUser = $this->userRepository->find($userId);
+        $this->assertEquals($userId, $this->loadedUser->getId());
+        $this->assertGreaterThan(0, $this->loadedUser->getSource()->getId());
+        $this->assertGreaterThan(0, $this->loadedUser->getSource()->getPersonIdentitySource()->getId());
+        $this->deleteUser();
         $this->assertNull($this->userRepository->find($userId));
+        $this->loadedUser = null;
+    }
+
+    private function deleteUser(): void
+    {
+        $this->entityManager->remove($this->loadedUser);
+        $this->entityManager->flush();
     }
 
     /**

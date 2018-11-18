@@ -25,7 +25,7 @@ class UserSource extends AbstractCombinationSource implements UserSourceInterfac
     protected $user;
 
     /**
-     * @todo Implement ORM mapping for database!
+     * @ORM\OneToOne(targetEntity="PersonIdentitySource",cascade={"persist", "remove"})
      *
      * @var PersonIdentitySourceInterface
      */

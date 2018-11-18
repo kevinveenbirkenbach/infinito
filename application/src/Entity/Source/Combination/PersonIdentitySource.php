@@ -3,9 +3,14 @@
 namespace App\Entity\Source\Combination;
 
 use App\Entity\Attribut\FullPersonNameSourceAttribut;
-use App\Entity\Source\Data\AbstractDataSource;
+use Doctrine\ORM\Mapping as ORM;
 
-class PersonIdentitySource extends AbstractDataSource implements PersonIdentitySourceInterface
+/**
+ * @author kevinfrantz
+ * @ORM\Table(name="source_combination_person_identity")
+ * @ORM\Entity()
+ */
+class PersonIdentitySource extends AbstractCombinationSource implements PersonIdentitySourceInterface
 {
     use FullPersonNameSourceAttribut;
 
