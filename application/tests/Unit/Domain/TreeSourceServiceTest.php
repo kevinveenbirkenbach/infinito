@@ -21,15 +21,20 @@ class TreeSourceServiceTest extends TestCase
         $tree1 = new TreeCollectionSource();
         $tree2 = new TreeCollectionSource();
         $tree3 = new TreeCollectionSource();
+        $tree4 = new TreeCollectionSource();
         $leave1 = $this->createMock(SourceInterface::class);
         $leave2 = $this->createMock(SourceInterface::class);
-        $collection = new ArrayCollection([$tree2,$tree3,$leave1,$leave2]);
+        $collection = new ArrayCollection([$tree2,$tree3,$leave1,$leave2,$tree4]);
         $tree1->setCollection($collection);
         $this->treeService = new TreeSourceService($tree1);
     }
     
     public function testGetLeaves():void{
         $this->assertEquals(2, $this->treeService->getLeaves()->count());
+    }
+    
+    public function testGetBranches():void{
+        $this->assertEquals(3, $this->treeService->getBranches()->count());
     }
 }
 
