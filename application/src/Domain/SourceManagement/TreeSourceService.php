@@ -41,6 +41,7 @@ final class TreeSourceService extends AbstractSourceService implements TreeSourc
         $this->source = $source;
         $this->branches = new ArrayCollection();
         $this->leaves = new ArrayCollection();
+        $this->basicSort();
     }
 
     private function sortMember(SourceInterface $member): bool
