@@ -27,7 +27,8 @@ class TreeSourceServiceTest extends TestCase
         $leave2 = $this->createMock(SourceInterface::class);
         $leave3 = $this->createMock(SourceInterface::class);
         $leave4 = $this->createMock(SourceInterface::class);
-        $tree2->setCollection(new ArrayCollection([$leave3,$leave4,$tree5]));
+        $leave5 = $this->createMock(SourceInterface::class);
+        $tree2->setCollection(new ArrayCollection([$leave3,$leave4,$tree5,$leave5]));
         $collection = new ArrayCollection([$tree2,$tree3,$leave1,$leave2,$tree4]);
         $tree1->setCollection($collection);
         $this->treeService = new TreeSourceService($tree1);
@@ -46,7 +47,7 @@ class TreeSourceServiceTest extends TestCase
     }
     
     public function testGetAllLeaves():void{
-        $this->assertEquals(4, $this->treeService->getAllLeaves()->count());
+        $this->assertEquals(5, $this->treeService->getAllLeaves()->count());
     }
 }
 

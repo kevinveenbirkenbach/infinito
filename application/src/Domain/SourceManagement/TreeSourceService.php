@@ -103,15 +103,14 @@ final class TreeSourceService extends AbstractSourceService implements TreeSourc
 
     public function getAllLeaves(): Collection
     {
-        $leaves = new ArrayCollection();
-        foreach ($this->getAllBranches()->toArray() as $branch) {
-            foreach ((new self($branch))->getLeaves() as $leave) {
+        $leaves = new ArrayCollection($this->getLeaves()->toArray());
+        foreach ($this->getAllBranches() as $branch) {
+            foreach ((new self($branch))->getAllLeaves() as $leave) {
                 if (! $leaves->contains($leave)) {
                     $leaves->add($leave);
                 }
             }
         }
-
         return $leaves;
     }
 }
