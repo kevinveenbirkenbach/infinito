@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Domain;
+namespace Tests\Unit\Domain\SourceManagement;
 
 use PHPUnit\Framework\TestCase;
 use App\Entity\Source\Collection\TreeCollectionSource;
@@ -22,7 +22,7 @@ class TreeSourceServiceTest extends TestCase
         $tree2 = new TreeCollectionSource();
         $tree3 = new TreeCollectionSource();
         $tree4 = new TreeCollectionSource();
-        $tree5 = new TreeCollectionSource();
+        $tree5 = new TreeCollectionSource(new ArrayCollection([$tree2]));
         $leave1 = $this->createMock(SourceInterface::class);
         $leave2 = $this->createMock(SourceInterface::class);
         $leave3 = $this->createMock(SourceInterface::class);
