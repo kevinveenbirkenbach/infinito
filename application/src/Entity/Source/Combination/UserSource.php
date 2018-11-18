@@ -26,6 +26,7 @@ class UserSource extends AbstractCombinationSource implements UserSourceInterfac
 
     /**
      * @ORM\OneToOne(targetEntity="PersonIdentitySource",cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="identity_id", referencedColumnName="id",onDelete="CASCADE")
      *
      * @var PersonIdentitySourceInterface
      */

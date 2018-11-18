@@ -6,7 +6,13 @@ use App\Entity\Attribut\FirstNameSourceAttribut;
 use App\Entity\Attribut\SurnameSourceAttribut;
 use App\Entity\Source\Data\Name\SurnameSource;
 use App\Entity\Source\Data\Name\FirstNameSource;
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @author kevinfrantz
+ * @ORM\Table(name="source_combination_fullpersonname")
+ * @ORM\Entity()
+ */
 class FullPersonNameSource extends AbstractCombinationSource implements FullPersonNameSourceInterface
 {
     use FirstNameSourceAttribut,SurnameSourceAttribut;

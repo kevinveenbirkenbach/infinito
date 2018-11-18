@@ -15,6 +15,9 @@ class PersonIdentitySource extends AbstractCombinationSource implements PersonId
     use FullPersonNameSourceAttribut;
 
     /**
+     * @ORM\OneToOne(targetEntity="FullPersonNameSource",cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="fullname_id", referencedColumnName="id",onDelete="CASCADE")
+     *
      * @var FullPersonNameSourceInterface
      */
     protected $fullPersonNameSource;
