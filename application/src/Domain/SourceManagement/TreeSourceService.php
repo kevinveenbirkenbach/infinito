@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Domain\SourceManagement;
 
 use App\Entity\Source\Collection\TreeCollectionSourceInterface;
@@ -12,12 +11,14 @@ use App\Entity\Source\SourceInterface;
  * Allows to iterate over a tree.
  *
  * @author kevinfrantz
- *
+ *        
  * @todo Maybe lazy loading would be helpfull for performance
  */
 final class TreeSourceService extends AbstractSourceService implements TreeSourceServiceInterface
 {
+
     /**
+     *
      * @var TreeCollectionSourceInterface
      */
     private $source;
@@ -66,6 +67,7 @@ final class TreeSourceService extends AbstractSourceService implements TreeSourc
     }
 
     /**
+     *
      * @todo Remove the optional parameter and put the logic in a private funtion.
      * @todo Remove the getAllBranches use inside the function.
      * {@inheritdoc}
@@ -84,10 +86,12 @@ final class TreeSourceService extends AbstractSourceService implements TreeSourc
 
     private function itterateOverBranch(TreeCollectionSourceInterface $branch, ArrayCollection $allBranches): void
     {
-        if (!$allBranches->contains($branch)) {
-            $allBranches->add($branch);
-            foreach ((new self($branch))->getBranches() as $branchBranch) {
+        foreach ((new self($branch))->getBranches() as $branchBranch) {
+            if (!$allBranches->contains($branchBranch)) {
                 $allBranches->add($branchBranch);
+                if($branchBranch instanceof TreeCollectionSourceInterface){
+                    $this->itterateOverBranch($branchBranch, $allBranches);
+                }
             }
         }
     }
@@ -102,7 +106,7 @@ final class TreeSourceService extends AbstractSourceService implements TreeSourc
         $leaves = new ArrayCollection();
         foreach ($this->getAllBranches()->toArray() as $branch) {
             foreach ((new self($branch))->getLeaves() as $leave) {
-                if (!$leaves->contains($leave)) {
+                if (! $leaves->contains($leave)) {
                     $leaves->add($leave);
                 }
             }
