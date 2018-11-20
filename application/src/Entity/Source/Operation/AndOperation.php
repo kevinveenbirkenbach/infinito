@@ -14,7 +14,7 @@ use App\Exception\NotDefinedException;
  *
  * @todo move to the logic level!
  */
-final class AndOperation extends AbstractOperation
+class AndOperation extends AbstractOperation
 {
     public function process(): void
     {

@@ -53,6 +53,8 @@ class UserRepositoryTest extends KernelTestCase
         $this->assertGreaterThan(0, $this->loadedUser->getSource()->getId());
         $this->assertGreaterThan(0, $this->loadedUser->getSource()->getPersonIdentitySource()->getId());
         $this->assertGreaterThan(0, $this->loadedUser->getSource()->getPersonIdentitySource()->getFullPersonNameSource()->getId());
+        $this->assertGreaterThan(0, $this->loadedUser->getSource()->getPersonIdentitySource()->getFullPersonNameSource()->getFirstNameSource()->getId());
+        $this->assertGreaterThan(0, $this->loadedUser->getSource()->getPersonIdentitySource()->getFullPersonNameSource()->getSurnameSource()->getId());
         $this->deleteUser();
         $this->assertNull($this->userRepository->find($userId));
         $this->loadedUser = null;

@@ -6,9 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @author kevinfrantz
- * @ORM\Table(name="source_data_name_surname")
  * @ORM\Entity()
  */
-final class SurnameSource extends AbstractNameSource implements SurnameSourceInterface
+class SurnameSource extends AbstractNameSource implements SurnameSourceInterface
 {
 }

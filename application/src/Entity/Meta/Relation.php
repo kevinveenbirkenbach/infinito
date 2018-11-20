@@ -22,7 +22,7 @@ use Doctrine\Common\Collections\Collection;
  * @ORM\Table(name="meta_relation")
  * @ORM\Entity()
  */
-final class Relation extends AbstractMeta implements RelationInterface
+class Relation extends AbstractMeta implements RelationInterface
 {
     use IdAttribut,
     SourceAttribut,

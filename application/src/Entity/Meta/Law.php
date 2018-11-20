@@ -12,7 +12,7 @@ use App\Entity\Attribut\RelationAttribut;
  * @ORM\Table(name="meta_law")
  * @ORM\Entity(repositoryClass="App\Repository\LawRepository")
  */
-final class Law extends AbstractMeta implements LawInterface
+class Law extends AbstractMeta implements LawInterface
 {
     use RightsAttribute, RelationAttribut;
 

@@ -20,7 +20,7 @@ use App\Entity\Attribut\RelationAttribut;
  * @ORM\Table(name="meta_right")
  * @ORM\Entity(repositoryClass="App\Repository\RightRepository")
  */
-final class Right extends AbstractMeta implements RightInterface
+class Right extends AbstractMeta implements RightInterface
 {
     use TypeAttribut,LawAttribut, RelationAttribut, GrantAttribut,ConditionAttribut,RecieverAttribut,LayerAttribut;
 

@@ -2,6 +2,12 @@
 
 namespace App\Entity\Source\Data\Name;
 
-final class FirstNameSource extends AbstractNameSource implements FirstNameSourceInterface
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @author kevinfrantz
+ * @ORM\Entity()
+ */
+class FirstNameSource extends AbstractNameSource implements FirstNameSourceInterface
 {
 }

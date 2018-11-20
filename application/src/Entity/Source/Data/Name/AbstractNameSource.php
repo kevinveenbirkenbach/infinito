@@ -16,7 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap({"nickname" = "NicknameSource","firstname" = "FirstNameSource", "surname" = "SurnameSource"})
  */
-abstract class AbstractNameSource extends AbstractDataSource implements NameSourceInterface
+class AbstractNameSource extends AbstractDataSource implements NameSourceInterface
 {
     use NameAttribut;
 
