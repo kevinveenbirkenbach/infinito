@@ -33,7 +33,7 @@ class FullPersonNameSource extends AbstractCombinationSource implements FullPers
      *
      * @var FirstNameSourceInterface
      */
-    protected $firstnNameSource;
+    protected $firstNameSource;
 
     public function __construct()
     {

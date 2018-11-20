@@ -9,7 +9,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @author kevinfrantz
+ *
  * @todo Change to SINGLE_TABLE. JOINED was necessary because SINGLE_TABLE leaded to:
+ *
  * @see << SQLSTATE[42S02]: Base table or view not found: 1146 Table 'DEV_DATABASE.source_data_name' doesn't exist >>
  * @ORM\Entity
  * @ORM\Table(name="source_data_name")

@@ -7,6 +7,7 @@ use Doctrine\ORM\EntityManager;
 use App\Repository\UserRepository;
 use App\Entity\User;
 use App\Entity\UserInterface;
+use App\Entity\Source\Combination\PersonIdentitySourceInterface;
 
 class UserRepositoryTest extends KernelTestCase
 {
@@ -42,6 +43,12 @@ class UserRepositoryTest extends KernelTestCase
         $user->setUsername('Karl Marx');
         $user->setEmail('mew21@test.de');
         $user->setPassword('Friedrich ist kein Engel!:)');
+        /**
+         * @var PersonIdentitySourceInterface
+         */
+        $personIdentity = $user->getSource()->getPersonIdentitySource();
+        $personIdentity->getFullPersonNameSource()->getFirstNameSource()->setName('Karl');
+        $personIdentity->getFullPersonNameSource()->getSurnameSource()->setName('Marx');
         $this->entityManager->persist($user);
         $this->entityManager->flush();
         $userId = $user->getId();
