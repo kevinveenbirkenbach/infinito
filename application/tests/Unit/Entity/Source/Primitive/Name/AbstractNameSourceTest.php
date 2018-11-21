@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\unit\Entity\Source\Data;
+namespace tests\unit\Entity\Source\Primitive;
 
 use PHPUnit\Framework\TestCase;
 use App\Entity\Source\Primitive\Name\NameSourceInterface;
