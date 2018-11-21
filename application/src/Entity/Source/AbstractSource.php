@@ -23,7 +23,7 @@ use App\Entity\Source\Collection\TreeCollectionSourceInterface;
  * @ORM\Table(name="source")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"data" = "App\Entity\Source\Primitive\AbstractDataSource", "collection" = "App\Entity\Source\Collection\AbstractCollectionSource","operation"="App\Entity\Source\Operation\AbstractOperation"})
+ * @ORM\DiscriminatorMap({"primitive" = "App\Entity\Source\Primitive\AbstractPrimitiveSource", "collection" = "App\Entity\Source\Collection\AbstractCollectionSource","operation"="App\Entity\Source\Operation\AbstractOperation"})
  */
 abstract class AbstractSource extends AbstractEntity implements SourceInterface
 {

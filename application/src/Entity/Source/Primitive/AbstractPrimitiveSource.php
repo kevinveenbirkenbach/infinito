@@ -14,6 +14,6 @@ use App\Entity\Source\AbstractSource;
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap({"name" = "App\Entity\Source\Primitive\Name\AbstractNameSource"})
  */
-abstract class AbstractDataSource extends AbstractSource implements DataSourceInterface
+abstract class AbstractPrimitiveSource extends AbstractSource implements PrimitiveSourceInterface
 {
 }

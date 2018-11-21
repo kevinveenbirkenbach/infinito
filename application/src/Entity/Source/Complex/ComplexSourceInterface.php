@@ -2,8 +2,13 @@
 
 namespace App\Entity\Source\Complex;
 
-use App\Entity\Source\Primitive\DataSourceInterface;
+use App\Entity\Source\SourceInterface;
 
-interface ComplexSourceInterface extends DataSourceInterface
+/**
+ * Complex sources contain out of one or more primitive sources.
+ *
+ * @author kevinfrantz
+ */
+interface ComplexSourceInterface extends SourceInterface
 {
 }

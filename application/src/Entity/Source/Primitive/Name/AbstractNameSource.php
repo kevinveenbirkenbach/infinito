@@ -2,7 +2,7 @@
 
 namespace App\Entity\Source\Primitive\Name;
 
-use App\Entity\Source\Primitive\AbstractDataSource;
+use App\Entity\Source\Primitive\AbstractPrimitiveSource;
 use App\Entity\Attribut\NameAttribut;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -19,7 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap({"nickname" = "NicknameSource","firstname" = "FirstNameSource", "surname" = "SurnameSource"})
  */
-class AbstractNameSource extends AbstractDataSource implements NameSourceInterface
+class AbstractNameSource extends AbstractPrimitiveSource implements NameSourceInterface
 {
     use NameAttribut;
 
