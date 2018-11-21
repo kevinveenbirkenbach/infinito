@@ -3,8 +3,8 @@
 namespace tests\unit\Entity\Source\Data;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Data\Name\NameSourceInterface;
-use App\Entity\Source\Data\Name\AbstractNameSource;
+use App\Entity\Source\Primitive\Name\NameSourceInterface;
+use App\Entity\Source\Primitive\Name\AbstractNameSource;
 
 /**
  * @author kevinfrantz

@@ -5,7 +5,7 @@ namespace App\Form;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use App\Entity\Source\Data\NameSource;
+use App\Entity\Source\Primitive\NameSource;
 
 class NameSourceType extends AbstractType
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Source\Data;
+namespace App\Entity\Source\Primitive;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Source\AbstractSource;
@@ -12,7 +12,7 @@ use App\Entity\Source\AbstractSource;
  * @ORM\Table(name="source_data")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"name" = "App\Entity\Source\Data\Name\AbstractNameSource"})
+ * @ORM\DiscriminatorMap({"name" = "App\Entity\Source\Primitive\Name\AbstractNameSource"})
  */
 abstract class AbstractDataSource extends AbstractSource implements DataSourceInterface
 {

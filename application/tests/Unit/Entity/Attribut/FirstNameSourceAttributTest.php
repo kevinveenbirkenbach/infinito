@@ -5,7 +5,7 @@ namespace Tests\Unit\Entity\Attribut;
 use PHPUnit\Framework\TestCase;
 use App\Entity\Attribut\FirstNameSourceAttribut;
 use App\Entity\Attribut\FirstNameSourceAttributInterface;
-use App\Entity\Source\Data\Name\FirstNameSourceInterface;
+use App\Entity\Source\Primitive\Name\FirstNameSourceInterface;
 
 /**
  * @author kevinfrantz

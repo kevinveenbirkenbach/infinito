@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Source\Data\Name;
+namespace App\Entity\Source\Primitive\Name;
 
 /**
  * @author kevinfrantz

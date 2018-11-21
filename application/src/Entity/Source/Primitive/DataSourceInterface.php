@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Source\Data;
+namespace App\Entity\Source\Primitive;
 
 use App\Entity\Source\SourceInterface;
 

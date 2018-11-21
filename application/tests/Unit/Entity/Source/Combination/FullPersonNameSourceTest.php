@@ -5,8 +5,8 @@ namespace tests\unit\Entity\Source\Combination;
 use PHPUnit\Framework\TestCase;
 use App\Entity\Source\Combination\FullPersonNameSourceInterface;
 use App\Entity\Source\Combination\FullPersonNameSource;
-use App\Entity\Source\Data\Name\SurnameSourceInterface;
-use App\Entity\Source\Data\Name\FirstNameSourceInterface;
+use App\Entity\Source\Primitive\Name\SurnameSourceInterface;
+use App\Entity\Source\Primitive\Name\FirstNameSourceInterface;
 
 class FullPersonNameSourceTest extends TestCase
 {

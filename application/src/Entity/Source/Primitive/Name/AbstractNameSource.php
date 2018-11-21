@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\Source\Data\Name;
+namespace App\Entity\Source\Primitive\Name;
 
-use App\Entity\Source\Data\AbstractDataSource;
+use App\Entity\Source\Primitive\AbstractDataSource;
 use App\Entity\Attribut\NameAttribut;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;

@@ -2,7 +2,7 @@
 
 namespace App\Entity\Attribut;
 
-use App\Entity\Source\Data\Name\SurnameSourceInterface;
+use App\Entity\Source\Primitive\Name\SurnameSourceInterface;
 
 trait SurnameSourceAttribut
 {

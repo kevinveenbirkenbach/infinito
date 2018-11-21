@@ -2,7 +2,7 @@
 
 namespace App\Entity\Attribut;
 
-use App\Entity\Source\Data\Name\FirstNameSourceInterface;
+use App\Entity\Source\Primitive\Name\FirstNameSourceInterface;
 
 trait FirstNameSourceAttribut
 {
