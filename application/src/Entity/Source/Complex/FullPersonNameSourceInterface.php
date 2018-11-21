@@ -10,6 +10,6 @@ use App\Entity\Attribut\SurnameSourceAttributInterface;
  *
  * @author kevinfrantz
  */
-interface FullPersonNameSourceInterface extends CombinationSourceInterface, FirstNameSourceAttributInterface, SurnameSourceAttributInterface
+interface FullPersonNameSourceInterface extends ComplexSourceInterface, FirstNameSourceAttributInterface, SurnameSourceAttributInterface
 {
 }

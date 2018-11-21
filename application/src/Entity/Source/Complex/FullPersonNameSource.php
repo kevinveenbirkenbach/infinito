@@ -15,7 +15,7 @@ use App\Entity\Source\Primitive\Name\FirstNameSourceInterface;
  * @ORM\Table(name="source_combination_fullpersonname")
  * @ORM\Entity()
  */
-class FullPersonNameSource extends AbstractCombinationSource implements FullPersonNameSourceInterface
+class FullPersonNameSource extends AbstractComplexSource implements FullPersonNameSourceInterface
 {
     use FirstNameSourceAttribut,SurnameSourceAttribut;
 

@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="source_combination_person_identity")
  * @ORM\Entity()
  */
-class PersonIdentitySource extends AbstractCombinationSource implements PersonIdentitySourceInterface
+class PersonIdentitySource extends AbstractComplexSource implements PersonIdentitySourceInterface
 {
     use FullPersonNameSourceAttribut;
 

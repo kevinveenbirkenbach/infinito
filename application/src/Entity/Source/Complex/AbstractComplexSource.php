@@ -14,6 +14,6 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap({"user" = "UserSource","fullpersonname" = "FullPersonNameSource","personidentitysource"="PersonIdentitySource","fullpersonnamesource"="FullPersonNameSource"})
  */
-abstract class AbstractCombinationSource extends AbstractSource implements CombinationSourceInterface
+abstract class AbstractComplexSource extends AbstractSource implements ComplexSourceInterface
 {
 }

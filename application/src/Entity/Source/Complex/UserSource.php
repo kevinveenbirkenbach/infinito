@@ -12,7 +12,7 @@ use App\Entity\Attribut\PersonIdentitySourceAttribut;
  * @ORM\Table(name="source_data_user")
  * @ORM\Entity(repositoryClass="App\Repository\UserSourceRepository")
  */
-class UserSource extends AbstractCombinationSource implements UserSourceInterface
+class UserSource extends AbstractComplexSource implements UserSourceInterface
 {
     use UserAttribut,PersonIdentitySourceAttribut;
 
