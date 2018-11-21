@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Source\Combination;
+namespace App\Entity\Source\Complex;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Attribut\UserAttribut;

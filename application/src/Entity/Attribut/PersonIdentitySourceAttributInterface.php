@@ -2,7 +2,7 @@
 
 namespace App\Entity\Attribut;
 
-use App\Entity\Source\Combination\PersonIdentitySourceInterface;
+use App\Entity\Source\Complex\PersonIdentitySourceInterface;
 
 interface PersonIdentitySourceAttributInterface
 {

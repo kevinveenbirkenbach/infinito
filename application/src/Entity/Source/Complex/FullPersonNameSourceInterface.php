@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Source\Combination;
+namespace App\Entity\Source\Complex;
 
 use App\Entity\Attribut\FirstNameSourceAttributInterface;
 use App\Entity\Attribut\SurnameSourceAttributInterface;

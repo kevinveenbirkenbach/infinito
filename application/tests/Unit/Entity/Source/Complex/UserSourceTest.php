@@ -1,12 +1,12 @@
 <?php
 
-namespace tests\unit\Entity\Source\Combination;
+namespace tests\unit\Entity\Source\Complex;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Combination\UserSourceInterface;
-use App\Entity\Source\Combination\UserSource;
+use App\Entity\Source\Complex\UserSourceInterface;
+use App\Entity\Source\Complex\UserSource;
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Source\Combination\PersonIdentitySourceInterface;
+use App\Entity\Source\Complex\PersonIdentitySourceInterface;
 
 class UserSourceTest extends TestCase
 {

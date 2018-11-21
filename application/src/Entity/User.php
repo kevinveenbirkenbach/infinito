@@ -6,8 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 use App\Entity\Attribut\SourceAttribut;
 use App\Entity\Attribut\IdAttribut;
-use App\Entity\Source\Combination\UserSourceInterface;
-use App\Entity\Source\Combination\UserSource;
+use App\Entity\Source\Complex\UserSourceInterface;
+use App\Entity\Source\Complex\UserSource;
 use App\Entity\Attribut\VersionAttribut;
 
 /**
@@ -21,7 +21,7 @@ class User extends BaseUser implements UserInterface
 
     /**
      * @var UserSourceInterface
-     * @ORM\OneToOne(targetEntity="App\Entity\Source\Combination\UserSource",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Source\Complex\UserSource",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="source_user_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $source;

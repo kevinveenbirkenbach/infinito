@@ -1,11 +1,11 @@
 <?php
 
-namespace tests\unit\Entity\Source\Combination;
+namespace tests\unit\Entity\Source\Complex;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Combination\PersonIdentitySourceInterface;
-use App\Entity\Source\Combination\PersonIdentitySource;
-use App\Entity\Source\Combination\FullPersonNameSourceInterface;
+use App\Entity\Source\Complex\PersonIdentitySourceInterface;
+use App\Entity\Source\Complex\PersonIdentitySource;
+use App\Entity\Source\Complex\FullPersonNameSourceInterface;
 
 class PersonIdentitySourceTest extends TestCase
 {

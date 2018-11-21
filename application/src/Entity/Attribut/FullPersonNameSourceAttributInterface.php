@@ -2,7 +2,7 @@
 
 namespace App\Entity\Attribut;
 
-use App\Entity\Source\Combination\FullPersonNameSourceInterface;
+use App\Entity\Source\Complex\FullPersonNameSourceInterface;
 
 interface FullPersonNameSourceAttributInterface
 {

@@ -3,7 +3,7 @@
 namespace Tests\Unit\Entity\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Combination\FullPersonNameSourceInterface;
+use App\Entity\Source\Complex\FullPersonNameSourceInterface;
 use App\Entity\Attribut\FullPersonNameSourceAttributInterface;
 use App\Entity\Attribut\FullPersonNameSourceAttribut;
 
