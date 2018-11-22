@@ -11,6 +11,7 @@ before_install:
     - git submodule update --init --recursive
     - cd application
     - cp phpunit.xml.dist phpunit.xml
+    - cp .env.dist .env
     - sed -i 's/DEV_USER:userpass@db/travis@127.0.0.1/g' phpunit.xml
     - sed -i 's/DEV_USER:userpass@db/travis@127.0.0.1/g' .env
 before_script:
