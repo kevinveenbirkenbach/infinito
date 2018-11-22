@@ -3,14 +3,19 @@ php:
     - 7.2
 git:
     submodules: false
+services:
+    - mysql
 before_install:
+    - mysql -e 'CREATE DATABASE DEV_DATABASE;'
     - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
     - git submodule update --init --recursive
     - cd application
     - cp phpunit.xml.dist phpunit.xml
+    - sed -i 's/DEV_USER:userpass@db\travis@127.0.0.1/g' phpunit.xml
 before_script:
     - travis_retry composer self-update
     - travis_retry composer install --no-interaction --prefer-source --dev
+    - travis_retry bin/console doctrine:schema:update --force
 script:
     - php ./vendor/bin/php-cs-fixer fix -v --diff --dry-run ./src/
     - bin/console doctrine:schema:validate --skip-sync
