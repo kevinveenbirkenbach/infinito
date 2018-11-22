@@ -34,7 +34,11 @@ class UserSource extends AbstractComplexSource implements UserSourceInterface
 
     public function __construct()
     {
-        $this->personIdentitySource = new PersonIdentitySource();
         parent::__construct();
+    }
+
+    public function hasPersonIdentitySource(): bool
+    {
+        return isset($this->personIdentitySource);
     }
 }

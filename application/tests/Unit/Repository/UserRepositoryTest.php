@@ -8,6 +8,7 @@ use App\Repository\UserRepository;
 use App\Entity\User;
 use App\Entity\UserInterface;
 use App\Entity\Source\Combination\PersonIdentitySourceInterface;
+use App\Entity\Source\Complex\PersonIdentitySource;
 
 class UserRepositoryTest extends KernelTestCase
 {
@@ -26,11 +27,20 @@ class UserRepositoryTest extends KernelTestCase
      */
     protected $loadedUser;
 
+    /**
+     * @var UserInterface
+     */
+    protected $user;
+
     public function setUp(): void
     {
         $kernel = self::bootKernel();
         $this->entityManager = $kernel->getContainer()->get('doctrine')->getManager();
         $this->userRepository = $this->entityManager->getRepository(User::class);
+        $this->user = new User();
+        $this->user->setUsername('Karl Marx');
+        $this->user->setEmail('mew21@test.de');
+        $this->user->setPassword('Die Philosophen haben die Welt nur verschieden interpretiert; es kommt aber darauf an, sie zu verändern.');
     }
 
     /**
@@ -39,32 +49,38 @@ class UserRepositoryTest extends KernelTestCase
      */
     public function testCreation(): void
     {
-        $user = new User();
-        $user->setUsername('Karl Marx');
-        $user->setEmail('mew21@test.de');
-        $user->setPassword('Friedrich ist kein Engel!:)');
-        /**
-         * @var PersonIdentitySourceInterface
-         */
-        $personIdentity = $user->getSource()->getPersonIdentitySource();
-        $personIdentity->getFullPersonNameSource()->getFirstNameSource()->setName('Karl');
-        $personIdentity->getFullPersonNameSource()->getSurnameSource()->setName('Marx');
-        $this->entityManager->persist($user);
+        $this->entityManager->persist($this->user);
         $this->entityManager->flush();
-        $userId = $user->getId();
+        $userId = $this->user->getId();
         /*
          * @var UserInterface
          */
         $this->loadedUser = $this->userRepository->find($userId);
         $this->assertEquals($userId, $this->loadedUser->getId());
         $this->assertGreaterThan(0, $this->loadedUser->getSource()->getId());
+        $this->deleteUser();
+        $this->assertNull($this->userRepository->find($userId));
+        $this->loadedUser = null;
+    }
+
+    public function testUserWithPersonIdentitySource(): void
+    {
+        /**
+         * @var PersonIdentitySourceInterface
+         */
+        $personIdentity = new PersonIdentitySource();
+        $personIdentity->getFullPersonNameSource()->getFirstNameSource()->setName('Karl');
+        $personIdentity->getFullPersonNameSource()->getSurnameSource()->setName('Marx');
+        $this->user->getSource()->setPersonIdentitySource($personIdentity);
+        $this->entityManager->persist($this->user);
+        $this->entityManager->flush();
+        $userId = $this->user->getId();
+        $this->loadedUser = $this->userRepository->find($userId);
         $this->assertGreaterThan(0, $this->loadedUser->getSource()->getPersonIdentitySource()->getId());
         $this->assertGreaterThan(0, $this->loadedUser->getSource()->getPersonIdentitySource()->getFullPersonNameSource()->getId());
         $this->assertGreaterThan(0, $this->loadedUser->getSource()->getPersonIdentitySource()->getFullPersonNameSource()->getFirstNameSource()->getId());
         $this->assertGreaterThan(0, $this->loadedUser->getSource()->getPersonIdentitySource()->getFullPersonNameSource()->getSurnameSource()->getId());
         $this->deleteUser();
-        $this->assertNull($this->userRepository->find($userId));
-        $this->loadedUser = null;
     }
 
     private function deleteUser(): void
