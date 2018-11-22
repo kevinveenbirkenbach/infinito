@@ -7,25 +7,22 @@ use Symfony\Component\HttpFoundation\Request;
 
 class UrlIntegrationTest extends KernelTestCase
 {
+    const GET_URLS_STATUS = [
+        'login' => 200,
+        'imprint' => 200,
+        'register' => 301,
+        'logout' => 302,
+    ];
+
     public function setUp(): void
     {
         self::bootKernel();
     }
 
-    /**
-     * Tests urls which are in general reachable.
-     */
-    public function testParameterlesGetRoutes200(): void
+    public function testParameterlesGetUrls(): void
     {
-        foreach (['/login', '/imprint'] as $url) {
-            $this->parameterlesGetRouteTest($url, 200);
-        }
-    }
-
-    public function testParameterlesGetRoutes302(): void
-    {
-        foreach (['/logout'] as $url) {
-            $this->parameterlesGetRouteTest($url, 302);
+        foreach (self::GET_URLS_STATUS as $url => $status) {
+            $this->parameterlesGetRouteTest($url, $status);
         }
     }
 
