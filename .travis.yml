@@ -12,6 +12,7 @@ before_install:
     - cd application
     - cp phpunit.xml.dist phpunit.xml
     - sed -i 's/DEV_USER:userpass@db/travis@127.0.0.1/g' phpunit.xml
+    - sed -i 's/DEV_USER:userpass@db/travis@127.0.0.1/g' .env
 before_script:
     - travis_retry composer self-update
     - travis_retry composer install --no-interaction --prefer-source --dev
