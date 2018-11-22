@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Entity\Source\Collection;
+namespace Tests\Unit\Entity\Source\Complex\Collection;
 
 use PHPUnit\Framework\TestCase;
 use App\Entity\Source\Complex\Collection\CollectionSourceInterface;
