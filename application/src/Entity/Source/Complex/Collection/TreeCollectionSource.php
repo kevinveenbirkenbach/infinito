@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Source\Collection;
+namespace App\Entity\Source\Complex\Collection;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Attribut\CollectionAttribut;

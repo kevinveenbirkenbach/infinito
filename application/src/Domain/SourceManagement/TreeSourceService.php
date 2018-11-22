@@ -2,8 +2,8 @@
 
 namespace App\Domain\SourceManagement;
 
-use App\Entity\Source\Collection\TreeCollectionSourceInterface;
-use App\Entity\Source\Collection\TreeCollectionSource;
+use App\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
+use App\Entity\Source\Complex\Collection\TreeCollectionSource;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Source\SourceInterface;

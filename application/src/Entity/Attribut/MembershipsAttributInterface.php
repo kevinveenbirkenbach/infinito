@@ -3,7 +3,7 @@
 namespace App\Entity\Attribut;
 
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Source\Collection\TreeCollectionSourceInterface;
+use App\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
 
 /**
  * @author kevinfrantz

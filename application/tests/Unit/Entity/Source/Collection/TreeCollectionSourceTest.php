@@ -6,8 +6,8 @@ use PHPUnit\Framework\TestCase;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Source\AbstractSource;
-use App\Entity\Source\Collection\TreeCollectionSourceInterface;
-use App\Entity\Source\Collection\TreeCollectionSource;
+use App\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
+use App\Entity\Source\Complex\Collection\TreeCollectionSource;
 
 /**
  * @author kevinfrantz

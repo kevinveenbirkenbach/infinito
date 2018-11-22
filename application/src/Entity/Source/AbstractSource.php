@@ -14,7 +14,7 @@ use App\Entity\Meta\LawInterface;
 use App\Entity\Meta\Law;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Attribut\MembershipsAttribut;
-use App\Entity\Source\Collection\TreeCollectionSourceInterface;
+use App\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
 
 /**
  * @author kevinfrantz
@@ -23,7 +23,7 @@ use App\Entity\Source\Collection\TreeCollectionSourceInterface;
  * @ORM\Table(name="source")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"primitive" = "App\Entity\Source\Primitive\AbstractPrimitiveSource", "collection" = "App\Entity\Source\Collection\AbstractCollectionSource","operation"="App\Entity\Source\Operation\AbstractOperation"})
+ * @ORM\DiscriminatorMap({"primitive" = "App\Entity\Source\Primitive\AbstractPrimitiveSource", "collection" = "App\Entity\Source\Complex\Collection\AbstractCollectionSource","operation"="App\Entity\Source\Operation\AbstractOperation"})
  */
 abstract class AbstractSource extends AbstractEntity implements SourceInterface
 {
@@ -42,7 +42,7 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
      * @todo Rename table to use the right schema
      *
      * @var Collection|TreeCollectionSourceInterface[]
-     * @ORM\ManyToMany(targetEntity="App\Entity\Source\Collection\TreeCollectionSource",mappedBy="collection")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Source\Complex\Collection\TreeCollectionSource",mappedBy="collection")
      */
     protected $memberships;
 

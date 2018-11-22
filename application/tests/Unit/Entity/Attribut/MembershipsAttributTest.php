@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use App\Entity\Attribut\MembershipsAttributInterface;
 use App\Entity\Attribut\MembershipsAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\Source\Collection\TreeCollectionSourceInterface;
+use App\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
 
 class MembershipsAttributTest extends TestCase
 {

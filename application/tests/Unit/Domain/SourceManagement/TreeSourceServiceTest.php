@@ -3,7 +3,7 @@
 namespace Tests\Unit\Domain\SourceManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Collection\TreeCollectionSource;
+use App\Entity\Source\Complex\Collection\TreeCollectionSource;
 use App\Entity\Source\SourceInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Domain\SourceManagement\TreeSourceServiceInterface;
