@@ -2,7 +2,6 @@
 
 namespace App\Entity\Source\Operation;
 
-use App\Logic\Operation\OperandInterface;
 use App\Logic\Result\Result;
 use Doctrine\ORM\Mapping as ORM;
 use App\Exception\NotDefinedException;
@@ -14,7 +13,7 @@ use App\Exception\NotDefinedException;
  *
  * @todo move to the logic level!
  */
-class AndOperation extends AbstractOperation
+class AndOperation extends AbstractOperation implements AndOperationInterface
 {
     public function process(): void
     {
