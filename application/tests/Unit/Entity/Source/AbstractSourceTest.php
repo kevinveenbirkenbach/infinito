@@ -33,4 +33,10 @@ class AbstractSourceTest extends TestCase
         $this->assertInstanceOf(Collection::class, $this->source->getMemberships());
         $this->assertInstanceOf(LawInterface::class, $this->source->getLaw());
     }
+
+    public function testSlugInit(): void
+    {
+        $this->expectException(\TypeError::class);
+        $this->source->getSlug();
+    }
 }

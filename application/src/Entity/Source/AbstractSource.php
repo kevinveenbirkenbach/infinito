@@ -15,6 +15,9 @@ use App\Entity\Meta\Law;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Attribut\MembershipsAttribut;
 use App\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
+use App\Entity\Attribut\SlugAttribut;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @author kevinfrantz
@@ -24,10 +27,22 @@ use App\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap({"primitive" = "App\Entity\Source\Primitive\AbstractPrimitiveSource", "collection" = "App\Entity\Source\Complex\Collection\AbstractCollectionSource","operation"="App\Entity\Source\Operation\AbstractOperation"})
+ * @UniqueEntity("slug",ignoreNull=true)
  */
 abstract class AbstractSource extends AbstractEntity implements SourceInterface
 {
-    use RelationAttribut,MembershipsAttribut, LawAttribut;
+    use RelationAttribut,MembershipsAttribut, LawAttribut,SlugAttribut;
+
+    /**
+     * System slugs should be writen in UPPER CASES
+     * Slugs which are defined by the user are checked via the assert.
+     *
+     * @ORM\Column(type="string",length=30,nullable=true,unique=true)
+     * @Assert\Regex(pattern="/^[a-z]+$/")
+     *
+     * @var string
+     */
+    protected $slug;
 
     /**
      * @var RelationInterface
