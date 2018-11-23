@@ -5,7 +5,6 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
-use FOS\UserBundle\Util\PasswordUpdater;
 use FOS\UserBundle\Doctrine\UserManager;
 
 /**
@@ -20,18 +19,19 @@ class DummyFixtures extends Fixture
         $this->addTestUser();
         $manager->flush();
     }
-    
-    protected function addTestUser():void{
+
+    protected function addTestUser(): void
+    {
         /**
-         * @var UserManager $userManager
+         * @var UserManager
          */
         $userManager = $this->container->get('fos_user.user_manager');
         /**
-         * @var User $testUser
+         * @var User
          */
         $testUser = $userManager->createUser();
-        $testUser->setEmail("test@test.de");
-        $testUser->setUsername("test");
+        $testUser->setEmail('test@test.de');
+        $testUser->setUsername('test');
         $testUser->setPlainPassword('test');
         $testUser->setEnabled(true);
         $userManager->updateUser($testUser);
