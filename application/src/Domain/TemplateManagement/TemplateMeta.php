@@ -94,9 +94,4 @@ class TemplateMeta implements TemplateMetaInterface
     {
         return $this->type;
     }
-
-    public function getPathSuffix(): string
-    {
-        return $this->pathSuffix;
-    }
 }

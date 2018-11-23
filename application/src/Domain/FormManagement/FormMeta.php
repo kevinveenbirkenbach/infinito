@@ -8,6 +8,8 @@ use App\Domain\TemplateManagement\TemplateMeta;
 
 /**
  * @author kevinfrantz
+ *
+ * @todo Optimize contructor parameter!
  */
 class FormMeta implements FormMetaInterface
 {
@@ -37,7 +39,11 @@ class FormMeta implements FormMetaInterface
 
     private function setFormClass(): void
     {
-        $this->formClass = 'App\\Form\\'.implode('\\', $this->sourceMeta->getBasicPathArray()).'\\'.$this->sourceMeta->getBasicName().'Type';
+        $this->formClass = 'App\\Form';
+        foreach ($this->sourceMeta->getBasicPathArray() as $element) {
+            $this->formClass .= '\\'.ucfirst($element);
+        }
+        $this->formClass .= '\\'.ucfirst($this->sourceMeta->getBasicName()).'Type';
     }
 
     private function setMeta(): void
@@ -50,7 +56,7 @@ class FormMeta implements FormMetaInterface
         return $this->formClass;
     }
 
-    public function getTemplateMeta(): string
+    public function getTemplateMeta(): TemplateMetaInterface
     {
         return $this->templateMeta;
     }

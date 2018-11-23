@@ -9,6 +9,7 @@ use App\Domain\SourceManagement\SourceMeta;
 use App\Entity\Source\Complex\UserSourceInterface;
 use App\Domain\TemplateManagement\TemplateMetaInterface;
 use App\Entity\Source\SourceInterface;
+use App\Domain\FormManagement\FormMetaInterface;
 
 class SourceMetaTest extends TestCase
 {
@@ -72,5 +73,10 @@ class SourceMetaTest extends TestCase
     public function testSource(): void
     {
         $this->assertEquals($this->source, $this->sourceMeta->getSource());
+    }
+
+    public function testFormMeta(): void
+    {
+        $this->assertInstanceOf(FormMetaInterface::class, $this->sourceMeta->getFormMeta());
     }
 }

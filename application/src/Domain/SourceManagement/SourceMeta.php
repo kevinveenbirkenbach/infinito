@@ -13,6 +13,8 @@ use App\Domain\FormManagement\FormMeta;
  */
 class SourceMeta implements SourceMetaInterface
 {
+    const FOLDER = 'entity';
+
     /**
      * @var \ReflectionClass
      */
@@ -55,8 +57,13 @@ class SourceMeta implements SourceMetaInterface
         $this->setBasicPathArray();
         $this->setBasicName();
         $this->setInterfaceReflection();
-        $this->templateMeta = new TemplateMeta($this->basicPathArray, $this->basicName, 'entity');
+        $this->setTemplateMeta();
         $this->formMeta = new FormMeta($this);
+    }
+
+    private function setTemplateMeta(): void
+    {
+        $this->templateMeta = new TemplateMeta($this->basicPathArray, $this->basicName, self::FOLDER);
     }
 
     private function setBasicPathArray(): void
