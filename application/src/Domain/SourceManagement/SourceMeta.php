@@ -2,9 +2,11 @@
 
 namespace App\Domain\SourceManagement;
 
+use App\Domain\FormManagement\FormMetaInterface;
 use App\Domain\TemplateManagement\TemplateMetaInterface;
 use App\Entity\Source\SourceInterface;
 use App\Domain\TemplateManagement\TemplateMeta;
+use App\Domain\FormManagement\FormMeta;
 
 /**
  * @author kevinfrantz
@@ -41,6 +43,11 @@ class SourceMeta implements SourceMetaInterface
      */
     private $source;
 
+    /**
+     * @var FormMetaInterface
+     */
+    private $formMeta;
+
     public function __construct(SourceInterface $source)
     {
         $this->source = $source;
@@ -48,7 +55,8 @@ class SourceMeta implements SourceMetaInterface
         $this->setBasicPathArray();
         $this->setBasicName();
         $this->setInterfaceReflection();
-        $this->templateMeta = new TemplateMeta($this);
+        $this->templateMeta = new TemplateMeta($this->basicPathArray, $this->basicName, 'entity');
+        $this->formMeta = new FormMeta($this);
     }
 
     private function setBasicPathArray(): void
@@ -102,5 +110,10 @@ class SourceMeta implements SourceMetaInterface
     public function getSource(): SourceInterface
     {
         return $this->source;
+    }
+
+    public function getFormMeta(): FormMetaInterface
+    {
+        return $this->formMeta;
     }
 }

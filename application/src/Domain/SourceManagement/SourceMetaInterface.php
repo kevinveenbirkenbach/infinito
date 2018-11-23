@@ -4,6 +4,7 @@ namespace App\Domain\SourceManagement;
 
 use App\Domain\TemplateManagement\TemplateMetaInterface;
 use App\Entity\Source\SourceInterface;
+use App\Domain\FormManagement\FormMetaInterface;
 
 /**
  * A meta source offers informations, which the system needs to handle the source.
@@ -32,4 +33,6 @@ interface SourceMetaInterface
      * @return SourceInterface The source to which the meta object belongs to
      */
     public function getSource(): SourceInterface;
+
+    public function getFormMeta(): FormMetaInterface;
 }

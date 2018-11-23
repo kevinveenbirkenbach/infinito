@@ -23,13 +23,14 @@ class TemplateMetaTest extends TestCase
 
     private function getExpectedPath(string $type, string $context): string
     {
-        return $context.'/source/primitive/name/firstname.'.$type.'.twig';
+        return $context.'/entity/source/primitive/name/firstname.'.$type.'.twig';
     }
 
     public function setUp(): void
     {
         $this->source = new FirstNameSource();
-        $this->templateMeta = new TemplateMeta(new SourceMeta($this->source));
+        $sourceMeta = new SourceMeta($this->source);
+        $this->templateMeta = new TemplateMeta($sourceMeta->getBasicPathArray(), $sourceMeta->getBasicName(), 'entity');
     }
 
     public function testFrameTemplatePath(): void

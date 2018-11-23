@@ -2,7 +2,6 @@
 
 namespace App\Domain\TemplateManagement;
 
-use App\Domain\SourceManagement\SourceMetaInterface;
 use App\DBAL\Types\TemplateType;
 
 /**
@@ -11,9 +10,14 @@ use App\DBAL\Types\TemplateType;
 class TemplateMeta implements TemplateMetaInterface
 {
     /**
-     * @var SourceMetaInterface
+     * @var array
      */
-    private $sourceMeta;
+    private $basicPathArray;
+
+    /**
+     * @var string
+     */
+    private $basicName;
 
     /**
      * @var string
@@ -35,9 +39,16 @@ class TemplateMeta implements TemplateMetaInterface
      */
     private $contentTemplatePath;
 
-    public function __construct(SourceMetaInterface $sourceMeta)
+    /**
+     * @var string
+     */
+    private $folder;
+
+    public function __construct(array $basicPathArray, string $basicName, string $folder)
     {
-        $this->sourceMeta = $sourceMeta;
+        $this->basicPathArray = $basicPathArray;
+        $this->basicName = $basicName;
+        $this->folder = $folder;
         $this->init();
     }
 
@@ -50,7 +61,7 @@ class TemplateMeta implements TemplateMetaInterface
 
     private function setPathSuffix(): void
     {
-        $this->pathSuffix = implode('/', $this->sourceMeta->getBasicPathArray()).'/'.$this->sourceMeta->getBasicName().'.'.$this->type.'.twig';
+        $this->pathSuffix = $this->folder.'/'.implode('/', $this->basicPathArray).'/'.$this->basicName.'.'.$this->type.'.twig';
     }
 
     private function setFrameTemplatePath(): void
@@ -82,5 +93,10 @@ class TemplateMeta implements TemplateMetaInterface
     public function getTemplateType(): string
     {
         return $this->type;
+    }
+
+    public function getPathSuffix(): string
+    {
+        return $this->pathSuffix;
     }
 }
