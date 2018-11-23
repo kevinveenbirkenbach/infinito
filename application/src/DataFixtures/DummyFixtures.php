@@ -6,21 +6,31 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
 use FOS\UserBundle\Doctrine\UserManager;
+use App\Entity\UserInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 
 /**
  * Never execute this fixture on a livesystem!
  *
  * @author kevinfrantz
  */
-class DummyFixtures extends Fixture
+class DummyFixtures extends Fixture implements ContainerAwareInterface
 {
+    private $container;
+
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
+
     public function load(ObjectManager $manager)
     {
-        $this->addTestUser();
+        $manager->persist($this->getTestUser());
         $manager->flush();
     }
 
-    protected function addTestUser(): void
+    protected function getTestUser(): UserInterface
     {
         /**
          * @var UserManager
@@ -35,5 +45,7 @@ class DummyFixtures extends Fixture
         $testUser->setPlainPassword('test');
         $testUser->setEnabled(true);
         $userManager->updateUser($testUser);
+
+        return $testUser;
     }
 }
