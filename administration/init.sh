@@ -4,4 +4,5 @@
   bash ./build.sh
   bash ./composer-update.sh
   bash ./schema-update.sh
+  bash ./load-fixtures.sh
 )
