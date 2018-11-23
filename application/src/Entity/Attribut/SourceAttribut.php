@@ -10,9 +10,6 @@ use App\Entity\Source\SourceInterface;
 trait SourceAttribut
 {
     /**
-     * @ORM\OneToOne(targetEntity="AbstractSource")
-     * @ORM\JoinColumn(name="source_id", referencedColumnName="id")
-     *
      * @var SourceInterface
      */
     protected $source;

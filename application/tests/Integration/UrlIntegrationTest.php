@@ -12,7 +12,7 @@ class UrlIntegrationTest extends KernelTestCase
         'imprint' => 200,
         'register' => 301,
         'logout' => 302,
-        'profile/edit'=>302,
+        'profile/edit' => 302,
     ];
 
     public function setUp(): void

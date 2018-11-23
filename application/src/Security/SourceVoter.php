@@ -11,6 +11,7 @@ use App\Entity\UserInterface;
 
 /**
  * @author kevinfrantz
+ *
  * @deprecated Just exists as a remembering to maybe use the voter for some use cases
  * @see https://symfony.com/doc/current/security/voters.html
  */
