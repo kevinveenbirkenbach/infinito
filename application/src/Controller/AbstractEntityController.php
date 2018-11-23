@@ -35,6 +35,18 @@ abstract class AbstractEntityController extends FOSRestController
         return $entity;
     }
 
+    protected function loadEntityBySlug(string $slug): EntityInterface
+    {
+        $entity = $this->getDoctrine()
+        ->getRepository($this->entityName)
+        ->findOneBy(['slug' => $slug]);
+        if (!$entity) {
+            throw $this->createNotFoundException('No entity found for slug '.$slug);
+        }
+
+        return $entity;
+    }
+
     protected function redirectToRouteById(string $route, int $id): RedirectResponse
     {
         return $this->redirectToRoute($route, [
