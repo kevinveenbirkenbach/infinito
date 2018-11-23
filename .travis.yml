@@ -17,7 +17,8 @@ before_install:
 before_script:
     - travis_retry composer self-update
     - travis_retry composer install --no-interaction --prefer-source --dev
-    - travis_retry bin/console doctrine:schema:update --force
+    - bin/console doctrine:schema:update --force
+    - php bin/console doctrine:fixtures:load -n
 script:
     - php ./vendor/bin/php-cs-fixer fix -v --diff --dry-run ./src/
     - bin/console doctrine:schema:validate --skip-sync
