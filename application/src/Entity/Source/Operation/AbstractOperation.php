@@ -13,10 +13,6 @@ use App\Exception\NotProcessedException;
 /**
  * @author kevinfrantz
  * @ORM\Entity
- * @ORM\Table(name="source_operation")
- * @ORM\InheritanceType("JOINED")
- * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"and" = "AndOperation"})
  */
 abstract class AbstractOperation extends AbstractSource implements OperationInterface
 {

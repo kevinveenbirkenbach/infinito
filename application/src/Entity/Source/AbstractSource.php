@@ -26,7 +26,19 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="source")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"primitive" = "App\Entity\Source\Primitive\AbstractPrimitiveSource", "collection" = "App\Entity\Source\Complex\Collection\AbstractCollectionSource","operation"="App\Entity\Source\Operation\AbstractOperation"})
+ * @ORM\DiscriminatorMap({
+ * "text" = "App\Entity\Source\Primitive\Text\TextSource",
+ * "operation"="App\Entity\Source\Operation\AbstractOperation",
+ * "user" = "App\Entity\Source\Complex\UserSource",
+ * "fullpersonname" = "App\Entity\Source\Complex\FullPersonNameSource",
+ * "personidentitysource"="App\Entity\Source\Complex\PersonIdentitySource",
+ * "fullpersonnamesource"="App\Entity\Source\Complex\FullPersonNameSource",
+ * "member" = "App\Entity\Source\Complex\Collection\TreeCollectionSource",
+ * "and" = "App\Entity\Source\Operation\AndOperation",
+ * "nickname" = "App\Entity\Source\Primitive\Name\NicknameSource",
+ * "firstname" = "App\Entity\Source\Primitive\Name\FirstNameSource",
+ * "surname" = "App\Entity\Source\Primitive\Name\SurnameSource"
+ * })
  * @UniqueEntity("slug",ignoreNull=true)
  */
 abstract class AbstractSource extends AbstractEntity implements SourceInterface

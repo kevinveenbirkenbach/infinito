@@ -10,12 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="source_collection")
- * @ORM\InheritanceType("JOINED")
- * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"member" = "TreeCollectionSource"})
- *
  * @author kevinfrantz
  */
 abstract class AbstractCollectionSource extends AbstractSource implements CollectionSourceInterface

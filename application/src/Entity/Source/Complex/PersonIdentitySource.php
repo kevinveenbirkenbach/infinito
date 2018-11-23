@@ -7,7 +7,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @author kevinfrantz
- * @ORM\Table(name="source_combination_person_identity")
  * @ORM\Entity()
  */
 class PersonIdentitySource extends AbstractComplexSource implements PersonIdentitySourceInterface

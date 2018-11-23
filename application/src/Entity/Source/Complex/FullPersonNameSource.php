@@ -12,7 +12,6 @@ use App\Entity\Source\Primitive\Name\FirstNameSourceInterface;
 
 /**
  * @author kevinfrantz
- * @ORM\Table(name="source_combination_fullpersonname")
  * @ORM\Entity()
  */
 class FullPersonNameSource extends AbstractComplexSource implements FullPersonNameSourceInterface
