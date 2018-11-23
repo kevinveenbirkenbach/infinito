@@ -54,7 +54,7 @@ class SourceMeta implements SourceMetaInterface
     private function setBasicPathArray(): void
     {
         $namespace = $this->sourceReflection->getNamespaceName();
-        $namespaceWithoutRoot = str_replace('App\\', '', $namespace);
+        $namespaceWithoutRoot = str_replace('App\\Entity\\', '', $namespace);
         $this->basicPathArray = [];
         foreach (explode('\\', $namespaceWithoutRoot) as $element) {
             $this->basicPathArray[] = strtolower($element);

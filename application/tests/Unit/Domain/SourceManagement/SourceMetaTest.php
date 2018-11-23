@@ -36,7 +36,7 @@ class SourceMetaTest extends TestCase
 
     public function testBasicPath(): void
     {
-        $subset = ['entity', 'source', 'complex'];
+        $subset = ['source', 'complex'];
         $amount = count($subset);
         $basicPathArray = $this->sourceMeta->getBasicPathArray();
         for ($index = 0; $index < $amount; ++$index) {

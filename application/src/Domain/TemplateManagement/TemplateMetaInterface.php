@@ -2,8 +2,6 @@
 
 namespace App\Domain\TemplateManagement;
 
-use App\Domain\FormManagement\FormMetaInterface;
-
 /**
  * Manages all informations which are needed to process templates.
  *
@@ -16,22 +14,19 @@ interface TemplateMetaInterface
      */
     public function setTemplateType(string $type): void;
 
+    public function getTemplateType(): string;
+
     /**
      * Returns a template inclusiv frame.
      *
      * @return string
      */
-    public function getFramedTemplatePath(): string;
+    public function getFrameTemplatePath(): string;
 
     /**
      * Returns a template without a frame.
      *
      * @return string
      */
-    public function getFramelessTemplatePath(): string;
-
-    /**
-     * @return FormMetaInterface
-     */
-    public function getFormMeta(): FormMetaInterface;
+    public function getContentTemplatePath(): string;
 }
