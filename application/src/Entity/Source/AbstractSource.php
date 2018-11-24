@@ -22,6 +22,10 @@ use App\Entity\Attribut\MembersAttribut;
 /**
  * @author kevinfrantz
  *
+ * For the members\memberships attribut checkout:
+ *
+ * @see http://www.inanzzz.com/index.php/post/h0jt/bidirectional-many-to-many-cascade-remove-and-orphan-removal-operations-in-doctrine
+ *
  * @ORM\Entity
  * @ORM\Table(name="source")
  * @ORM\InheritanceType("JOINED")
@@ -98,5 +102,37 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
         $this->law = new Law();
         $this->memberships = new ArrayCollection();
         $this->members = new ArrayCollection();
+    }
+
+    public function addMember(SourceInterface $member): void
+    {
+        if (!$this->members->contains($member)) {
+            $this->members[] = $member;
+            $member->addMembership($this);
+        }
+    }
+
+    public function removeMember(SourceInterface $member): void
+    {
+        if ($this->members->contains($member)) {
+            $this->members->removeElement($member);
+            $member->removeMembership($this);
+        }
+    }
+
+    public function addMembership(SourceInterface $membership): void
+    {
+        if (!$this->memberships->contains($membership)) {
+            $this->memberships[] = $membership;
+            $membership->addMember($this);
+        }
+    }
+
+    public function removeMembership(SourceInterface $membership): void
+    {
+        if ($this->memberships->contains($membership)) {
+            $this->memberships->removeElement($membership);
+            $membership->removeMember($this);
+        }
     }
 }
