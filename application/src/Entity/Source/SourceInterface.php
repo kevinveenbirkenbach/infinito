@@ -11,6 +11,8 @@ use App\Entity\Attribut\SlugAttributInterface;
 use App\Entity\Attribut\MembersAttributInterface;
 
 /**
+ * @todo Move the members functions to an member ship manager
+ *
  * @author kevinfrantz
  */
 interface SourceInterface extends IdAttributInterface, EntityInterface, MembershipsAttributInterface, LawAttributInterface, RelationAttributInterface, SlugAttributInterface, MembersAttributInterface
