@@ -3,7 +3,6 @@
 namespace App\Entity\Source\Complex\Collection;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Attribut\CollectionAttribut;
 
 /**
  * @author kevinfrantz
@@ -11,5 +10,4 @@ use App\Entity\Attribut\CollectionAttribut;
  */
 class TreeCollectionSource extends AbstractCollectionSource implements TreeCollectionSourceInterface
 {
-    use CollectionAttribut;
 }

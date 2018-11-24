@@ -1,4 +1,5 @@
 <?php
+
 namespace tests\Unit\Repository;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -10,33 +11,27 @@ use App\Entity\Source\Complex\UserSource;
 
 class UserSourceRepositoryTest extends KernelTestCase
 {
-
     /**
-     *
      * @var EntityManager
      */
     protected $entityManager;
 
     /**
-     *
      * @var UserSourceRepository
      */
     protected $userSourceRepository;
 
     /**
-     *
      * @var UserSourceInterface
      */
     protected $loadedUserSource;
 
     /**
-     *
      * @var UserInterface
      */
     protected $user;
 
     /**
-     *
      * @var UserSourceInterface
      */
     protected $userSource;
@@ -89,7 +84,6 @@ class UserSourceRepositoryTest extends KernelTestCase
     }
 
     /**
-     *
      * {@inheritdoc}
      *
      * @see \Symfony\Bundle\FrameworkBundle\Test\KernelTestCase::tearDown()

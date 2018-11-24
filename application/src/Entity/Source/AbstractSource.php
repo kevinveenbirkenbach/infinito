@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Entity\Source;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -13,15 +14,14 @@ use App\Entity\Meta\LawInterface;
 use App\Entity\Meta\Law;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Attribut\MembershipsAttribut;
-use App\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
 use App\Entity\Attribut\SlugAttribut;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Entity\Attribut\MembersAttribut;
 
 /**
- *
  * @author kevinfrantz
- *        
+ *
  * @ORM\Entity
  * @ORM\Table(name="source")
  * @ORM\InheritanceType("JOINED")
@@ -43,7 +43,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 abstract class AbstractSource extends AbstractEntity implements SourceInterface
 {
-    use RelationAttribut,MembershipsAttribut, LawAttribut,SlugAttribut;
+    use RelationAttribut,MembershipsAttribut, LawAttribut,SlugAttribut,MembersAttribut;
 
     /**
      * System slugs should be writen in UPPER CASES
@@ -57,7 +57,6 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
     protected $slug;
 
     /**
-     *
      * @var RelationInterface
      * @ORM\OneToOne(targetEntity="App\Entity\Meta\Relation",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="relation_id", referencedColumnName="id", onDelete="CASCADE")
@@ -66,9 +65,10 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
     protected $relation;
 
     /**
-     * Many Sources have many Source Members
+     * Many Sources have many Source Members.
+     *
      * @var Collection|SourceInterface[]
-     * @ORM\ManyToMany(targetEntity="AbstractSource", inversedBy="members",cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="AbstractSource", inversedBy="memberships",cascade={"persist"})
      * @ORM\JoinTable(name="source_members",
      *      joinColumns={@ORM\JoinColumn(name="source_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="member_id", referencedColumnName="id")}
@@ -77,14 +77,12 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
     protected $members;
 
     /**
-     *
      * @var Collection|SourceInterface[]
      * @ORM\ManyToMany(targetEntity="AbstractSource",mappedBy="members",cascade={"persist"})
      */
     protected $memberships;
 
     /**
-     *
      * @ORM\OneToOne(targetEntity="App\Entity\Meta\Law",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="law_id", referencedColumnName="id")
      *
@@ -99,5 +97,6 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
         $this->relation->setSource($this);
         $this->law = new Law();
         $this->memberships = new ArrayCollection();
+        $this->members = new ArrayCollection();
     }
 }

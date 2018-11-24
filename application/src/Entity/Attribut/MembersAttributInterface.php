@@ -8,15 +8,15 @@ use App\Entity\Source\SourceInterface;
 /**
  * @author kevinfrantz
  */
-interface MembershipsAttributInterface
+interface MembersAttributInterface
 {
     /**
-     * @param Collection|SourceInterface[] $groups
+     * @param Collection|SourceInterface[] $members
      */
-    public function setMemberships(Collection $memberships): void;
+    public function setMembers(Collection $members): void;
 
     /**
      * @return Collection|SourceInterface[]
      */
-    public function getMemberships(): Collection;
+    public function getMembers(): Collection;
 }

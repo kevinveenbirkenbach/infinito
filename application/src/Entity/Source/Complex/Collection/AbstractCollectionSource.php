@@ -18,8 +18,11 @@ abstract class AbstractCollectionSource extends AbstractSource implements Collec
 
     /**
      * @var Collection|SourceInterface[]
-     * @ORM\ManyToMany(targetEntity="App\Entity\Source\AbstractSource",inversedBy="memberships")
-     * @ORM\JoinTable(name="source_group_members")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Source\AbstractSource")
+     * @ORM\JoinTable(name="collection_source",
+     *      joinColumns={@ORM\JoinColumn(name="collection_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="source_id", referencedColumnName="id")}
+     *  )
      */
     protected $collection;
 

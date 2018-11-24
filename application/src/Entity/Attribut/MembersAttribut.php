@@ -8,7 +8,7 @@ use App\Entity\Source\SourceInterface;
 /**
  * @author kevinfrantz
  */
-trait MembershipsAttribut
+trait MembersAttribut
 {
     /**
      * @var Collection|SourceInterface[]
@@ -18,16 +18,16 @@ trait MembershipsAttribut
     /**
      * @return Collection|SourceInterface[]
      */
-    public function getMemberships(): Collection
+    public function getMembers(): Collection
     {
         return $this->memberships;
     }
 
     /**
-     * @param Collection|SourceInterface[] $memberships
+     * @param Collection|SourceInterface[] $members
      */
-    public function setMemberships(Collection $memberships): void
+    public function setMembers(Collection $members): void
     {
-        $this->memberships = $memberships;
+        $this->memberships = $members;
     }
 }
