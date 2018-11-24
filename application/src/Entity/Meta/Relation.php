@@ -62,7 +62,7 @@ class Relation extends AbstractMeta implements RelationInterface
 
     /**
      * @ORM\OneToOne(targetEntity="Law",cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="law_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="law_id", referencedColumnName="id",onDelete="CASCADE")
      *
      * @var LawInterface
      */

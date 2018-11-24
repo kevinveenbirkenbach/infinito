@@ -72,17 +72,17 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
      * Many Sources have many Source Members.
      *
      * @var Collection|SourceInterface[]
-     * @ORM\ManyToMany(targetEntity="AbstractSource", inversedBy="memberships",cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="AbstractSource", inversedBy="memberships",cascade={"persist", "remove"})
      * @ORM\JoinTable(name="source_members",
-     *      joinColumns={@ORM\JoinColumn(name="source_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="member_id", referencedColumnName="id")}
+     *      joinColumns={@ORM\JoinColumn(name="source_id", referencedColumnName="id",onDelete="CASCADE")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="member_id", referencedColumnName="id",onDelete="CASCADE")}
      *      )
      */
     protected $members;
 
     /**
      * @var Collection|SourceInterface[]
-     * @ORM\ManyToMany(targetEntity="AbstractSource",mappedBy="members",cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="AbstractSource",mappedBy="members")
      */
     protected $memberships;
 
