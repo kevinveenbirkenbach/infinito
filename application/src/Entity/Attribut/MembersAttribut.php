@@ -13,14 +13,14 @@ trait MembersAttribut
     /**
      * @var Collection|SourceInterface[]
      */
-    protected $memberships;
+    protected $members;
 
     /**
      * @return Collection|SourceInterface[]
      */
     public function getMembers(): Collection
     {
-        return $this->memberships;
+        return $this->members;
     }
 
     /**
@@ -28,6 +28,6 @@ trait MembersAttribut
      */
     public function setMembers(Collection $members): void
     {
-        $this->memberships = $members;
+        $this->members = $members;
     }
 }
