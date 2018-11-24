@@ -14,6 +14,7 @@ use App\Entity\Attribut\ConditionAttribut;
 use App\Entity\Attribut\RecieverAttribut;
 use App\Entity\Attribut\LayerAttribut;
 use App\Entity\Attribut\RelationAttribut;
+use App\Entity\Attribut\PriorityAttribut;
 
 /**
  * @author kevinfrantz
@@ -22,7 +23,14 @@ use App\Entity\Attribut\RelationAttribut;
  */
 class Right extends AbstractMeta implements RightInterface
 {
-    use TypeAttribut,LawAttribut, RelationAttribut, GrantAttribut,ConditionAttribut,RecieverAttribut,LayerAttribut;
+    use TypeAttribut,LawAttribut, RelationAttribut, GrantAttribut,ConditionAttribut,RecieverAttribut,LayerAttribut,PriorityAttribut;
+
+    /**
+     * @ORM\Column(type="integer")
+     *
+     * @var int which priority has the right in a roleset
+     */
+    protected $priority;
 
     /**
      * @ORM\ManyToOne(targetEntity="Law", inversedBy="rights")
@@ -42,7 +50,7 @@ class Right extends AbstractMeta implements RightInterface
 
     /**
      * @ORM\OneToOne(targetEntity="Reciever",cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="reciever_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="reciever_id", referencedColumnName="id",onDelete="CASCADE")
      *
      * @var RecieverInterface
      */
@@ -75,6 +83,7 @@ class Right extends AbstractMeta implements RightInterface
     {
         parent::__construct();
         $this->grant = true;
+        $this->priority = 0;
         $this->reciever = new Reciever();
         $this->reciever->setRight($this);
     }

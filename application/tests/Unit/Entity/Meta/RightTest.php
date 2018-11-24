@@ -29,6 +29,7 @@ class RightTest extends TestCase
     {
         $this->assertEquals($this->right, $this->right->getReciever()->getRight());
         $this->assertTrue($this->right->getGrant());
+        $this->assertEquals(0, $this->right->getPriority());
     }
 
     public function testConstructorLayer(): void

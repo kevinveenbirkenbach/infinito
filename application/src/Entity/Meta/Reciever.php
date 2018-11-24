@@ -21,7 +21,7 @@ class Reciever extends AbstractMeta implements RecieverInterface
      * The right which the reciever group belongs to.
      *
      * @ORM\OneToOne(targetEntity="Right",cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="right_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="right_id", referencedColumnName="id",onDelete="CASCADE")
      *
      * @var RightInterface
      */
