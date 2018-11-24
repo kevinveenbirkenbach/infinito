@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Entity\Source;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -20,8 +19,9 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @author kevinfrantz
  *
+ * @author kevinfrantz
+ *        
  * @ORM\Entity
  * @ORM\Table(name="source")
  * @ORM\InheritanceType("JOINED")
@@ -57,6 +57,7 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
     protected $slug;
 
     /**
+     *
      * @var RelationInterface
      * @ORM\OneToOne(targetEntity="App\Entity\Meta\Relation",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="relation_id", referencedColumnName="id", onDelete="CASCADE")
@@ -65,15 +66,25 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
     protected $relation;
 
     /**
-     * @todo Implement that just one table on database level is needed!
-     * @todo Rename table to use the right schema
+     * Many Sources have many Source Members
+     * @var Collection|SourceInterface[]
+     * @ORM\ManyToMany(targetEntity="AbstractSource", inversedBy="members",cascade={"persist"})
+     * @ORM\JoinTable(name="source_members",
+     *      joinColumns={@ORM\JoinColumn(name="source_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="member_id", referencedColumnName="id")}
+     *      )
+     */
+    protected $members;
+
+    /**
      *
-     * @var Collection|TreeCollectionSourceInterface[]
-     * @ORM\ManyToMany(targetEntity="App\Entity\Source\Complex\Collection\TreeCollectionSource",mappedBy="collection")
+     * @var Collection|SourceInterface[]
+     * @ORM\ManyToMany(targetEntity="AbstractSource",mappedBy="members",cascade={"persist"})
      */
     protected $memberships;
 
     /**
+     *
      * @ORM\OneToOne(targetEntity="App\Entity\Meta\Law",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="law_id", referencedColumnName="id")
      *

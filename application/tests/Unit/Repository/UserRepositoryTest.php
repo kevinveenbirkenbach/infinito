@@ -7,7 +7,7 @@ use Doctrine\ORM\EntityManager;
 use App\Repository\UserRepository;
 use App\Entity\User;
 use App\Entity\UserInterface;
-use App\Entity\Source\Combination\PersonIdentitySourceInterface;
+use App\Entity\Source\Complex\PersonIdentitySourceInterface;
 use App\Entity\Source\Complex\PersonIdentitySource;
 
 class UserRepositoryTest extends KernelTestCase
