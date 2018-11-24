@@ -25,9 +25,6 @@ class SourceMembershipInformation implements SourceMembershipInformationInterfac
 
     private function itterateOverMemberships(Collection $memberships): void
     {
-        /**
-         * @var SourceInterface
-         */
         foreach ($memberships as $membership) {
             if (!$this->memberships->contains($membership)) {
                 $this->memberships->add($membership);
