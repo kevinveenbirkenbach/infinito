@@ -9,6 +9,7 @@ use App\Entity\Meta\RelationInterface;
 use Doctrine\Common\Collections\Collection;
 use App\Entity\Source\AbstractSource;
 use App\Entity\EntityInterface;
+use App\Entity\Meta\Relation\CreatorRelationInterface;
 
 /**
  * @author kevinfrantz
@@ -34,9 +35,11 @@ class AbstractSourceTest extends TestCase
     public function testConstructor(): void
     {
         $this->assertInstanceOf(EntityInterface::class, $this->source);
-        $this->assertInstanceOf(RelationInterface::class, $this->source->getRelation());
+        $this->assertInstanceOf(CreatorRelationInterface::class, $this->source->getCreatorRelation());
+        $this->assertEquals($this->source, $this->source->getCreatorRelation()->getSource());
         $this->assertInstanceOf(Collection::class, $this->source->getMemberships());
         $this->assertInstanceOf(LawInterface::class, $this->source->getLaw());
+        $this->assertEquals($this->source, $this->source->getLaw()->getSource());
         $this->assertInstanceOf(Collection::class, $this->source->getMembers());
     }
 

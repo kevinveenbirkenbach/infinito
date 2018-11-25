@@ -6,9 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\Exclude;
 use App\Entity\AbstractEntity;
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Meta\RelationInterface;
-use App\Entity\Attribut\RelationAttribut;
-use App\Entity\Meta\Relation;
 use App\Entity\Attribut\LawAttribut;
 use App\Entity\Meta\LawInterface;
 use App\Entity\Meta\Law;
@@ -18,6 +15,9 @@ use App\Entity\Attribut\SlugAttribut;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Entity\Attribut\MembersAttribut;
+use App\Entity\Attribut\CreatorRelationAttribut;
+use App\Entity\Meta\Relation\CreatorRelationInterface;
+use App\Entity\Meta\Relation\Parent\CreatorRelation;
 
 /**
  * @author kevinfrantz
@@ -47,7 +47,7 @@ use App\Entity\Attribut\MembersAttribut;
  */
 abstract class AbstractSource extends AbstractEntity implements SourceInterface
 {
-    use RelationAttribut,MembershipsAttribut, LawAttribut,SlugAttribut,MembersAttribut;
+    use MembershipsAttribut, LawAttribut,SlugAttribut,MembersAttribut,CreatorRelationAttribut;
 
     /**
      * System slugs should be writen in UPPER CASES
@@ -61,12 +61,12 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
     protected $slug;
 
     /**
-     * @var RelationInterface
-     * @ORM\OneToOne(targetEntity="App\Entity\Meta\Relation",cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="relation_id", referencedColumnName="id", onDelete="CASCADE")
+     * @var CreatorRelationInterface
+     * @ORM\OneToOne(targetEntity="App\Entity\Meta\Relation\Parent\CreatorRelation",cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="creator_relation_id", referencedColumnName="id", onDelete="CASCADE")
      * @Exclude
      */
-    protected $relation;
+    protected $creatorRelation;
 
     /**
      * Many Sources have many Source Members.
@@ -97,9 +97,14 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
     public function __construct()
     {
         parent::__construct();
-        $this->relation = new Relation();
-        $this->relation->setSource($this);
+        $this->creatorRelation = new CreatorRelation();
+        $this->creatorRelation->setSource($this);
         $this->law = new Law();
+        $this->law->setSource($this);
+        /**
+         * 
+         * @todo Refactor the following attibutes
+         */
         $this->memberships = new ArrayCollection();
         $this->members = new ArrayCollection();
     }
