@@ -64,6 +64,9 @@ class UserSourceRepositoryTest extends KernelTestCase
         $userSourceId = $userSource->getId();
         $loadedUserSource = $this->entityManager->getRepository(UserSource::class)->find($userSourceId);
         $this->assertEquals($userSourceId, $loadedUserSource->getId());
+        $this->assertGreaterThan(0, $userSource->getCreatorRelation()->getId());
+        $this->assertGreaterThan(0, $userSource->getLaw()->getId());
+        $this->assertFalse($userSource->hasPersonIdentitySource());
         $this->entityManager->remove($loadedUserSource);
         $this->entityManager->flush();
     }
