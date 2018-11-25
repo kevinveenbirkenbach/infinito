@@ -3,20 +3,20 @@
 namespace tests\Unit\Entity\Meta;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Meta\RelationInterface;
-use App\Entity\Meta\Relation;
 use Doctrine\Common\Collections\Collection;
+use App\Entity\Meta\Relation\Parent\AbstractParentRelation;
+use App\Entity\Meta\Relation\Parent\ParentRelationInterface;
 
-class RelationTest extends TestCase
+class AbstractParentRelationTest extends TestCase
 {
     /**
-     * @var RelationInterface
+     * @var ParentRelationInterface
      */
     protected $relation;
 
     public function setUp(): void
     {
-        $this->relation = new Relation();
+        $this->relation = new class extends AbstractParentRelation{};
     }
 
     public function testConstructor(): void
