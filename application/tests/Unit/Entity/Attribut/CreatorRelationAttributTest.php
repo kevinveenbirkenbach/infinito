@@ -5,7 +5,7 @@ namespace App\Tests\Unit\Entity\Attribut;
 use PHPUnit\Framework\TestCase;
 use App\Entity\Attribut\CreatorRelationAttributInterface;
 use App\Entity\Attribut\CreatorRelationAttribut;
-use App\Entity\Meta\Relation\CreatorRelationInterface;
+use App\Entity\Meta\Relation\Parent\CreatorRelationInterface;
 
 class CreatorRelationAttributTest extends TestCase
 {

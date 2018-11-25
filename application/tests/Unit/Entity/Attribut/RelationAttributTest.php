@@ -3,7 +3,7 @@
 namespace App\Tests\Unit\Entity\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Meta\RelationInterface;
+use App\Entity\Meta\Relation\RelationInterface;
 use App\Entity\Attribut\RelationAttributInterface;
 use App\Entity\Attribut\RelationAttribut;
 

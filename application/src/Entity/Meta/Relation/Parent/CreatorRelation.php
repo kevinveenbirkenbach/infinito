@@ -4,14 +4,13 @@ namespace App\Entity\Meta\Relation\Parent;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Meta\Relation\CreatorRelationInterface;
 use App\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz
  * @ORM\Entity()
  */
-class CreatorRelation extends AbstractParentRelation
+class CreatorRelation extends AbstractParentRelation implements CreatorRelationInterface
 {
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Source\AbstractSource",cascade={"persist", "remove"})
