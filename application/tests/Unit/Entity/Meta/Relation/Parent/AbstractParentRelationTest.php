@@ -16,7 +16,8 @@ class AbstractParentRelationTest extends TestCase
 
     public function setUp(): void
     {
-        $this->relation = new class extends AbstractParentRelation{};
+        $this->relation = new class() extends AbstractParentRelation {
+        };
     }
 
     public function testConstructor(): void

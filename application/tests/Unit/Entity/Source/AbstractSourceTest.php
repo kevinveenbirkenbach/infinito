@@ -8,7 +8,7 @@ use App\Entity\Meta\LawInterface;
 use Doctrine\Common\Collections\Collection;
 use App\Entity\Source\AbstractSource;
 use App\Entity\EntityInterface;
-use App\Entity\Meta\Relation\CreatorRelationInterface;
+use App\Entity\Meta\Relation\Parent\CreatorRelationInterface;
 
 /**
  * @author kevinfrantz
