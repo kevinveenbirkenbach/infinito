@@ -5,6 +5,7 @@ namespace App\Entity\Meta\Relation\Parent;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use App\Entity\Meta\Relation\CreatorRelationInterface;
+use App\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz
@@ -12,6 +13,14 @@ use App\Entity\Meta\Relation\CreatorRelationInterface;
  */
 class CreatorRelation extends AbstractParentRelation
 {
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Source\AbstractSource",cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="source_id", referencedColumnName="id",onDelete="CASCADE")
+     *
+     * @var SourceInterface
+     */
+    protected $source;
+
     /**
      * @ORM\ManyToMany(targetEntity="CreatorRelation",mappedBy="childs")
      *
