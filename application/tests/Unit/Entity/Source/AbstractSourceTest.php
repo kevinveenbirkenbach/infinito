@@ -40,28 +40,6 @@ class AbstractSourceTest extends TestCase
         $this->assertInstanceOf(Collection::class, $this->source->getMembers());
     }
 
-    public function testAddAndRemoveMember(): void
-    {
-        $member = $this->getSourceDummy();
-        $this->assertNull($this->source->addMember($member));
-        $this->assertEquals($member, $this->source->getMembers()->get(0));
-        $this->assertEquals($this->source, $member->getMemberships()->get(0));
-        $this->assertNull($this->source->removeMember($member));
-        $this->assertEquals(0, $this->source->getMembers()->count());
-        $this->assertEquals(0, $member->getMemberships()->count());
-    }
-
-    public function testAddAndRemoveMembership(): void
-    {
-        $membership = $this->getSourceDummy();
-        $this->assertNull($this->source->addMembership($membership));
-        $this->assertEquals($membership, $this->source->getMemberships()->get(0));
-        $this->assertEquals($this->source, $membership->getMembers()->get(0));
-        $this->assertNull($this->source->removeMembership($membership));
-        $this->assertEquals(0, $this->source->getMemberships()->count());
-        $this->assertEquals(0, $membership->getMembers()->count());
-    }
-
     public function testSlugInit(): void
     {
         $this->expectException(\TypeError::class);

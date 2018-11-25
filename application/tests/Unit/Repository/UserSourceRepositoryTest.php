@@ -5,6 +5,7 @@ namespace tests\Unit\Repository;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Doctrine\ORM\EntityManager;
 use App\Entity\Source\Complex\UserSource;
+use App\Domain\SourceManagement\SourceMemberManager;
 
 /**
  * @todo refactor this to an integration test!
@@ -30,7 +31,8 @@ class UserSourceRepositoryTest extends KernelTestCase
     {
         $insertSource = new UserSource();
         $origineSource = new UserSource();
-        $origineSource->addMember($insertSource);
+        $origineSourceMemberManager = new SourceMemberManager($origineSource);
+        $origineSourceMemberManager->addMember($insertSource);
         $this->entityManager->persist($insertSource);
         $this->entityManager->persist($origineSource);
         $this->entityManager->flush();
@@ -40,7 +42,7 @@ class UserSourceRepositoryTest extends KernelTestCase
             ->get(0));
         $this->assertEquals($origineSource, $insertSource->getMemberships()
             ->get(0));
-        $this->assertNull($origineSource->removeMember($insertSource));
+        $this->assertNull($origineSourceMemberManager->removeMember($insertSource));
         $this->assertEquals(0, $origineSource->getMembers()
             ->count());
         $this->assertEquals(0, $insertSource->getMemberships()
