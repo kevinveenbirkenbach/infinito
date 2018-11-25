@@ -5,7 +5,6 @@ namespace tests\unit\Entity\Source;
 use PHPUnit\Framework\TestCase;
 use App\Entity\Source\SourceInterface;
 use App\Entity\Meta\LawInterface;
-use App\Entity\Meta\RelationInterface;
 use Doctrine\Common\Collections\Collection;
 use App\Entity\Source\AbstractSource;
 use App\Entity\EntityInterface;

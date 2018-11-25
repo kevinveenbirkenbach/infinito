@@ -6,6 +6,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use App\Entity\Meta\Relation\CreatorRelationInterface;
 
+/**
+ * @author kevinfrantz
+ * @ORM\Entity()
+ */
 class CreatorRelation extends AbstractParentRelation
 {
     /**

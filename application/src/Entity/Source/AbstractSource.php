@@ -101,8 +101,8 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
         $this->creatorRelation->setSource($this);
         $this->law = new Law();
         $this->law->setSource($this);
-        /**
-         * 
+        /*
+         *
          * @todo Refactor the following attibutes
          */
         $this->memberships = new ArrayCollection();

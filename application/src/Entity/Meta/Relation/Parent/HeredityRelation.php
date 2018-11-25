@@ -5,6 +5,10 @@ namespace App\Entity\Meta\Relation\Parent;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @author kevinfrantz
+ * @ORM\Entity()
+ */
 class HeredityRelation extends AbstractParentRelation implements HeredityRelationInterface
 {
     /**

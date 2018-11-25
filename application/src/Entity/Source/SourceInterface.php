@@ -13,6 +13,6 @@ use App\Entity\Attribut\CreatorRelationAttributInterface;
 /**
  * @author kevinfrantz
  */
-interface SourceInterface extends IdAttributInterface, EntityInterface, MembershipsAttributInterface, LawAttributInterface, SlugAttributInterface, MembersAttributInterface,CreatorRelationAttributInterface
+interface SourceInterface extends IdAttributInterface, EntityInterface, MembershipsAttributInterface, LawAttributInterface, SlugAttributInterface, MembersAttributInterface, CreatorRelationAttributInterface
 {
 }

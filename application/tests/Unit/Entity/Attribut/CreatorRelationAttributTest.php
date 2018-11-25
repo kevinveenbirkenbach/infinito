@@ -3,9 +3,6 @@
 namespace App\Tests\Unit\Entity\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Attribut\ParentRelationAttributInterface;
-use App\Entity\Attribut\ParentRelationAttribut;
-use App\Entity\Meta\Relation\Parent\ParentRelationInterface;
 use App\Entity\Attribut\CreatorRelationAttributInterface;
 use App\Entity\Attribut\CreatorRelationAttribut;
 use App\Entity\Meta\Relation\CreatorRelationInterface;
