@@ -3,6 +3,7 @@
 namespace App\Entity\Meta;
 
 use App\Entity\EntityInterface;
+use App\Entity\Attribut\SourceAttributInterface;
 
 /**
  * Meta entities contain informations which describe sources.
@@ -10,6 +11,6 @@ use App\Entity\EntityInterface;
  *
  * @author kevinfrantz
  */
-interface MetaInterface extends EntityInterface
+interface MetaInterface extends EntityInterface, SourceAttributInterface
 {
 }
