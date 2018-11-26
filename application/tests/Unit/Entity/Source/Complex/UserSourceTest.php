@@ -22,7 +22,7 @@ class UserSourceTest extends TestCase
 
     public function testConstructor(): void
     {
-        $this->assertInstanceOf(Collection::class, $this->userSource->getMemberships());
+        $this->assertInstanceOf(Collection::class, $this->userSource->getMemberRelation()->getMemberships());
     }
 
     public function testHasPersonIdentitySource(): void
