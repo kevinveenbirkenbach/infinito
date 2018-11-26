@@ -36,21 +36,21 @@ class SourceMemberManagerTest extends TestCase
     {
         $member = $this->createSource();
         $this->assertNull($this->sourceMemberManager->addMember($member));
-        $this->assertEquals($member, $this->source->getMembers()->get(0));
-        $this->assertEquals($this->source, $member->getMemberships()->get(0));
+        $this->assertEquals($member, $this->source->getMemberRelation()->getMembers()->get(0)->getSource());
+        $this->assertEquals($this->source, $member->getMemberRelation()->getMemberships()->get(0)->getSource());
         $this->assertNull($this->sourceMemberManager->removeMember($member));
-        $this->assertEquals(0, $this->source->getMembers()->count());
-        $this->assertEquals(0, $member->getMemberships()->count());
+        $this->assertEquals(0, $this->source->getMemberRelation()->getMembers()->count());
+        $this->assertEquals(0, $member->getMemberRelation()->getMemberships()->count());
     }
 
     public function testAddAndRemoveMembership(): void
     {
         $membership = $this->createSource();
         $this->assertNull($this->sourceMemberManager->addMembership($membership));
-        $this->assertEquals($membership, $this->source->getMemberships()->get(0));
-        $this->assertEquals($this->source, $membership->getMembers()->get(0));
+        $this->assertEquals($membership, $this->source->getMemberRelation()->getMemberships()->get(0)->getSource());
+        $this->assertEquals($this->source, $membership->getMemberRelation()->getMembers()->get(0)->getSource());
         $this->assertNull($this->sourceMemberManager->removeMembership($membership));
-        $this->assertEquals(0, $this->source->getMemberships()->count());
-        $this->assertEquals(0, $membership->getMembers()->count());
+        $this->assertEquals(0, $this->source->getMemberRelation()->getMemberships()->count());
+        $this->assertEquals(0, $membership->getMemberRelation()->getMembers()->count());
     }
 }

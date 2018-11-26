@@ -3,6 +3,8 @@
 namespace App\Domain\SourceManagement;
 
 use App\Entity\Source\SourceInterface;
+use App\Domain\MemberManagement\MemberManagerInterface;
+use App\Domain\MemberManagement\MemberManager;
 
 final class SourceMemberManager implements SourceMemberManagerInterface
 {
@@ -11,40 +13,34 @@ final class SourceMemberManager implements SourceMemberManagerInterface
      */
     private $source;
 
+    /**
+     * @var MemberManagerInterface
+     */
+    private $memberManager;
+
     public function __construct(SourceInterface $source)
     {
         $this->source = $source;
+        $this->memberManager = new MemberManager($this->source->getMemberRelation());
     }
 
     public function addMember(SourceInterface $member): void
     {
-        if (!$this->source->getMembers()->contains($member)) {
-            $this->source->getMembers()[] = $member;
-            (new self($member))->addMembership($this->source);
-        }
+        $this->memberManager->addMember($member->getMemberRelation());
     }
 
     public function removeMember(SourceInterface $member): void
     {
-        if ($this->source->getMembers()->contains($member)) {
-            $this->source->getMembers()->removeElement($member);
-            (new self($member))->removeMembership($this->source);
-        }
+        $this->memberManager->removeMember($member->getMemberRelation());
     }
 
     public function addMembership(SourceInterface $membership): void
     {
-        if (!$this->source->getMemberships()->contains($membership)) {
-            $this->source->getMemberships()[] = $membership;
-            (new self($membership))->addMember($this->source);
-        }
+        $this->memberManager->addMembership($membership->getMemberRelation());
     }
 
     public function removeMembership(SourceInterface $membership): void
     {
-        if ($this->source->getMemberships()->contains($membership)) {
-            $this->source->getMemberships()->removeElement($membership);
-            (new self($membership))->removeMember($this->source);
-        }
+        $this->memberManager->removeMembership($membership->getMemberRelation());
     }
 }
