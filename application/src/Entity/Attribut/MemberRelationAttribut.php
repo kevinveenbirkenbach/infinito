@@ -11,7 +11,7 @@ trait MemberRelationAttribut
      */
     protected $memberRelation;
 
-    public function setMembersRelation(MemberRelationInterface $memberRelation): void
+    public function setMemberRelation(MemberRelationInterface $memberRelation): void
     {
         $this->memberRelation = $memberRelation;
     }
