@@ -38,14 +38,14 @@ class UserSourceRepositoryTest extends KernelTestCase
         $this->entityManager->flush();
         $this->assertGreaterThan(0, $insertSource->getId());
         $this->assertGreaterThan(0, $origineSource->getId());
-        $this->assertEquals($insertSource, $origineSource->getMembers()
-            ->get(0));
-        $this->assertEquals($origineSource, $insertSource->getMemberships()
-            ->get(0));
+        $this->assertEquals($insertSource, $origineSource->getMemberRelation()->getMembers()
+            ->get(0)->getSource());
+        $this->assertEquals($origineSource, $insertSource->getMemberRelation()->getMemberships()
+            ->get(0)->getSource());
         $this->assertNull($origineSourceMemberManager->removeMember($insertSource));
-        $this->assertEquals(0, $origineSource->getMembers()
+        $this->assertEquals(0, $origineSource->getMemberRelation()->getMembers()
             ->count());
-        $this->assertEquals(0, $insertSource->getMemberships()
+        $this->assertEquals(0, $insertSource->getMemberRelation()->getMemberships()
             ->count());
         $this->entityManager->remove($origineSource);
         $this->entityManager->flush();
