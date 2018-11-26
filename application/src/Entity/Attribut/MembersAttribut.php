@@ -3,7 +3,7 @@
 namespace App\Entity\Attribut;
 
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Source\SourceInterface;
+use App\Entity\Meta\Relation\Member\MemberRelationInterface;
 
 /**
  * @author kevinfrantz
@@ -11,12 +11,12 @@ use App\Entity\Source\SourceInterface;
 trait MembersAttribut
 {
     /**
-     * @var Collection|SourceInterface[]
+     * @var Collection|MemberRelationInterface[]
      */
     protected $members;
 
     /**
-     * @return Collection|SourceInterface[]
+     * @return Collection|MemberRelationInterface[]
      */
     public function getMembers(): Collection
     {
@@ -24,7 +24,7 @@ trait MembersAttribut
     }
 
     /**
-     * @param Collection|SourceInterface[] $members
+     * @param Collection|MemberRelationInterface[] $members
      */
     public function setMembers(Collection $members): void
     {

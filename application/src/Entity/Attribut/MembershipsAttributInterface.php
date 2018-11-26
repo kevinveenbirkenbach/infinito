@@ -3,7 +3,7 @@
 namespace App\Entity\Attribut;
 
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Source\SourceInterface;
+use App\Entity\Meta\Relation\Member\MemberRelationInterface;
 
 /**
  * @author kevinfrantz
@@ -11,12 +11,12 @@ use App\Entity\Source\SourceInterface;
 interface MembershipsAttributInterface
 {
     /**
-     * @param Collection|SourceInterface[] $groups
+     * @param Collection|MemberRelationInterface[] $groups
      */
     public function setMemberships(Collection $memberships): void;
 
     /**
-     * @return Collection|SourceInterface[]
+     * @return Collection|MemberRelationInterface[]
      */
     public function getMemberships(): Collection;
 }

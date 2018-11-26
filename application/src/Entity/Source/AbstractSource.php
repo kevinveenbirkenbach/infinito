@@ -5,19 +5,18 @@ namespace App\Entity\Source;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\Exclude;
 use App\Entity\AbstractEntity;
-use Doctrine\Common\Collections\Collection;
 use App\Entity\Attribut\LawAttribut;
 use App\Entity\Meta\LawInterface;
 use App\Entity\Meta\Law;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\Attribut\MembershipsAttribut;
 use App\Entity\Attribut\SlugAttribut;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
-use App\Entity\Attribut\MembersAttribut;
 use App\Entity\Attribut\CreatorRelationAttribut;
-use App\Entity\Meta\Relation\CreatorRelationInterface;
+use App\Entity\Meta\Relation\Parent\CreatorRelationInterface;
 use App\Entity\Meta\Relation\Parent\CreatorRelation;
+use App\Entity\Attribut\MemberRelationAttribut;
+use App\Entity\Meta\Relation\Member\MemberRelation;
 
 /**
  * @author kevinfrantz
@@ -47,7 +46,7 @@ use App\Entity\Meta\Relation\Parent\CreatorRelation;
  */
 abstract class AbstractSource extends AbstractEntity implements SourceInterface
 {
-    use MembershipsAttribut, LawAttribut,SlugAttribut,MembersAttribut,CreatorRelationAttribut;
+    use  LawAttribut,SlugAttribut,CreatorRelationAttribut, MemberRelationAttribut;
 
     /**
      * System slugs should be writen in UPPER CASES
@@ -69,22 +68,12 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
     protected $creatorRelation;
 
     /**
-     * Many Sources have many Source Members.
-     *
-     * @var Collection|SourceInterface[]
-     * @ORM\ManyToMany(targetEntity="AbstractSource", inversedBy="memberships",cascade={"persist", "remove"})
-     * @ORM\JoinTable(name="source_members",
-     *      joinColumns={@ORM\JoinColumn(name="source_id", referencedColumnName="id",onDelete="CASCADE")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="member_id", referencedColumnName="id",onDelete="CASCADE")}
-     *      )
+     * @var CreatorRelationInterface
+     * @ORM\OneToOne(targetEntity="App\Entity\Meta\Relation\Member\MemberRelation",cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="member_relation_id", referencedColumnName="id", onDelete="CASCADE")
+     * @Exclude
      */
-    protected $members;
-
-    /**
-     * @var Collection|SourceInterface[]
-     * @ORM\ManyToMany(targetEntity="AbstractSource",mappedBy="members")
-     */
-    protected $memberships;
+    protected $memberRelation;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Meta\Law",cascade={"persist", "remove"})
@@ -99,6 +88,8 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
         parent::__construct();
         $this->creatorRelation = new CreatorRelation();
         $this->creatorRelation->setSource($this);
+        $this->memberRelation = new MemberRelation();
+        $this->memberRelation->setSource($this);
         $this->law = new Law();
         $this->law->setSource($this);
         /*
