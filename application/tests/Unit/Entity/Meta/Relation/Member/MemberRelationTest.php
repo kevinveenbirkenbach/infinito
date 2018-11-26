@@ -22,6 +22,6 @@ class MemberRelationTest extends TestCase
     public function testConstructor(): void
     {
         $this->assertInstanceOf(Collection::class, $this->memberRelation->getMembers());
-        $this->assertInstanceOf(Collection::class, $this->memberRelation->getMembership());
+        $this->assertInstanceOf(Collection::class, $this->memberRelation->getMemberships());
     }
 }
