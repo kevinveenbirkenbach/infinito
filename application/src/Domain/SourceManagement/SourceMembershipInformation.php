@@ -28,7 +28,7 @@ class SourceMembershipInformation implements SourceMembershipInformationInterfac
         foreach ($memberships as $membership) {
             if (!$this->memberships->contains($membership)) {
                 $this->memberships->add($membership);
-                $this->itterateOverMemberships($membership->getMemberships());
+                $this->itterateOverMemberships($membership->getMemberRelation()->getMemberships());
             }
         }
     }
@@ -36,7 +36,7 @@ class SourceMembershipInformation implements SourceMembershipInformationInterfac
     public function getAllMemberships(): Collection
     {
         $this->memberships = new ArrayCollection();
-        $this->itterateOverMemberships($this->source->getMemberships());
+        $this->itterateOverMemberships($this->source->getMemberRelation()->getMemberships());
 
         return $this->memberships;
     }
