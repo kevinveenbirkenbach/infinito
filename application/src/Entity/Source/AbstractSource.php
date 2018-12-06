@@ -8,7 +8,6 @@ use App\Entity\AbstractEntity;
 use App\Entity\Attribut\LawAttribut;
 use App\Entity\Meta\LawInterface;
 use App\Entity\Meta\Law;
-use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Attribut\SlugAttribut;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -17,6 +16,7 @@ use App\Entity\Meta\Relation\Parent\CreatorRelationInterface;
 use App\Entity\Meta\Relation\Parent\CreatorRelation;
 use App\Entity\Attribut\MemberRelationAttribut;
 use App\Entity\Meta\Relation\Member\MemberRelation;
+use App\Entity\Meta\Relation\Member\MemberRelationInterface;
 
 /**
  * @author kevinfrantz
@@ -68,7 +68,7 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
     protected $creatorRelation;
 
     /**
-     * @var CreatorRelationInterface
+     * @var MemberRelationInterface
      * @ORM\OneToOne(targetEntity="App\Entity\Meta\Relation\Member\MemberRelation",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="member_relation_id", referencedColumnName="id", onDelete="CASCADE")
      * @Exclude
@@ -92,11 +92,5 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
         $this->memberRelation->setSource($this);
         $this->law = new Law();
         $this->law->setSource($this);
-        /*
-         *
-         * @todo Refactor the following attibutes
-         */
-        $this->memberships = new ArrayCollection();
-        $this->members = new ArrayCollection();
     }
 }

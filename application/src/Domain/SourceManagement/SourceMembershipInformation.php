@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\Collection;
 use App\Entity\Source\SourceInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 
-class SourceMembershipInformation implements SourceMembershipInformationInterface
+final class SourceMembershipInformation implements SourceMembershipInformationInterface
 {
     /**
      * @var SourceInterface
@@ -14,7 +14,7 @@ class SourceMembershipInformation implements SourceMembershipInformationInterfac
     private $source;
 
     /**
-     * @var Collection
+     * @var Collection|SourceInterface[]
      */
     private $memberships;
 
