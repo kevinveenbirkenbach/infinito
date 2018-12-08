@@ -5,6 +5,7 @@ namespace App\Domain\SourceManagement;
 use Doctrine\Common\Collections\Collection;
 use App\Entity\Source\SourceInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use App\Entity\Attribut\MemberRelationAttributInterface;
 
 final class SourceMemberInformation implements SourceMemberInformationInterface
 {
@@ -23,6 +24,9 @@ final class SourceMemberInformation implements SourceMemberInformationInterface
         $this->source = $source;
     }
 
+    /**
+     * @param Collection|MemberRelationAttributInterface[] $members
+     */
     private function itterateOverMembers(Collection $members): void
     {
         foreach ($members as $member) {

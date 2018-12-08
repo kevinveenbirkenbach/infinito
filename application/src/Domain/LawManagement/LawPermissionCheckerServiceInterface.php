@@ -2,7 +2,7 @@
 
 namespace App\Domain\LawManagement;
 
-use App\Entity\Source\SourceInterface;
+use App\Entity\Meta\RightInterface;
 
 /**
  * Allows to check if a source has rights on a source.
@@ -11,16 +11,10 @@ use App\Entity\Source\SourceInterface;
  */
 interface LawPermissionCheckerServiceInterface
 {
-    public function setRequestedSource(SourceInterface $requestedSource): void;
-
-    public function setClientSource(SourceInterface $clientSource): void;
-
-    public function checkPermission(): bool;
-
     /**
-     * Sets the permission type.
+     * Checks if the client has the right for executing.
      *
-     * @param string $type
+     * @return bool
      */
-    public function setType(string $type): void;
+    public function hasPermission(RightInterface $client): bool;
 }
