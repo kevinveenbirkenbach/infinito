@@ -8,6 +8,8 @@ use App\Entity\Source\SourceInterface;
 use App\Domain\SourceManagement\SourceMemberInformation;
 
 /**
+ * @todo Implement the check of conditions!
+ *
  * @author kevinfrantz
  */
 final class RightChecker implements RightCheckerInterface
@@ -18,46 +20,46 @@ final class RightChecker implements RightCheckerInterface
     private $right;
 
     /**
-     * @var Collection|SourceInterface[]
+     * @todo Implement a performant solution
+     *
+     * @return Collection
      */
-    private $allSourcesToWhichRightApplies;
-
-    /**
-     * Calling this function in the constructor can lead to side effects when the source changes!
-     * @todo Implement a clean solution!
-     */
-    private function setAllSourcesToWhichRightApplies(): void
+    private function getAllSourcesToWhichRightApplies(): Collection
     {
         $rightSourceMemberInformation = new SourceMemberInformation($this->right->getSource());
-        $this->allSourcesToWhichRightApplies = clone ($rightSourceMemberInformation->getAllMembers());
-        $this->allSourcesToWhichRightApplies->add($this->right->getSource());
+        $allSourcesToWhichRightApplies = clone $rightSourceMemberInformation->getAllMembers();
+        $allSourcesToWhichRightApplies->add($this->right->getSource());
+
+        return $allSourcesToWhichRightApplies;
     }
 
     private function hasSource(SourceInterface $source): bool
     {
-        return $this->allSourcesToWhichRightApplies->contains($source);   
+        return $this->getAllSourcesToWhichRightApplies()->contains($source);
     }
-    
-    private function isLayerEqual(string $layer):bool{
-        return ($this->right->getLayer() === $layer);
+
+    private function isLayerEqual(string $layer): bool
+    {
+        return $this->right->getLayer() === $layer;
     }
-    
-    private function isTypeEqual(string $type):bool{
-        return ($this->right->getType() === $type);
+
+    private function isTypeEqual(string $type): bool
+    {
+        return $this->right->getType() === $type;
     }
-    
-    private function checkPermission():bool{
+
+    private function checkPermission(): bool
+    {
         return $this->right->getGrant();
     }
 
     public function __construct(RightInterface $right)
     {
         $this->right = $right;
-        $this->setAllSourcesToWhichRightApplies();
     }
 
     public function isGranted(string $layer, string $type, SourceInterface $source): bool
     {
-        return ($this->isLayerEqual($layer) && $this->isTypeEqual($type) && $this->hasSource($source) && $this->checkPermission());
+        return $this->isLayerEqual($layer) && $this->isTypeEqual($type) && $this->hasSource($source) && $this->checkPermission();
     }
 }
