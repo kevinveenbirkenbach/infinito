@@ -38,39 +38,37 @@ class LawPermissionCheckerTest extends TestCase
         };
     }
 
+    private function checkClientPermission(): bool
+    {
+        return $this->lawPermissionChecker->hasPermission($this->client);
+    }
+
     public function setUp(): void
     {
         $this->client = new Right();
         $this->law = new Law();
         $this->lawPermissionChecker = new LawPermissionCheckerService($this->law);
-    }
-
-    public function testGeneralPermission(): void
-    {
         $source = $this->getSourceMock();
         $this->client->setSource($source);
         $this->client->setLayer(LayerType::SOURCE);
         $this->client->setType(RightType::READ);
-        $permission = $this->lawPermissionChecker->hasPermission($this->client);
-        $this->assertFalse($permission);
+    }
+
+    public function testGeneralPermission(): void
+    {
+        $this->assertFalse($this->checkClientPermission());
         $lawRight = clone $this->client;
         $this->law->getRights()->add($lawRight);
-        $permission = $this->lawPermissionChecker->hasPermission($this->client);
-        $this->assertTrue($permission);
+        $this->assertTrue($this->checkClientPermission());
         $this->client->setType(RightType::WRITE);
-        $permission = $this->lawPermissionChecker->hasPermission($this->client);
-        $this->assertFalse($permission);
+        $this->assertFalse($this->checkClientPermission());
     }
 
     public function testMemberPermission(): void
     {
         $parentSource = $this->getSourceMock();
-        $source = $this->getSourceMock();
-        $this->client->setSource($source);
-        $this->client->setLayer(LayerType::SOURCE);
-        $this->client->setType(RightType::READ);
-        $source->getMemberRelation()->getMemberships()->add($parentSource);
-        $parentSource->getMemberRelation()->getMembers()->add($source);
+        $this->client->getSource()->getMemberRelation()->getMemberships()->add($parentSource);
+        $parentSource->getMemberRelation()->getMembers()->add($this->client->getSource());
         $lawRight = clone $this->client;
         $lawRight->setSource($parentSource);
         $this->law->getRights()->add($lawRight);
@@ -83,10 +81,6 @@ class LawPermissionCheckerTest extends TestCase
 
     public function testSort(): void
     {
-        $source = $this->getSourceMock();
-        $this->client->setSource($source);
-        $this->client->setLayer(LayerType::SOURCE);
-        $this->client->setType(RightType::READ);
         $right1 = clone $this->client;
         $right1->setPriority(123);
         $right1->setGrant(false);
@@ -94,11 +88,13 @@ class LawPermissionCheckerTest extends TestCase
         $right2->setPriority(456);
         $right2->setGrant(true);
         $this->law->setRights(new ArrayCollection([$right1, $right2]));
-        $permission = $this->lawPermissionChecker->hasPermission($this->client);
-        $this->assertFalse($permission);
+        $this->assertFalse($this->checkClientPermission());
         $right2->setPriority(789);
         $right1->setPriority(101112);
-        $permission = $this->lawPermissionChecker->hasPermission($this->client);
-        $this->assertTrue($permission);
+        $this->assertTrue($this->checkClientPermission());
     }
+
+//     public function test2Rights():void{
+
+//     }
 }
