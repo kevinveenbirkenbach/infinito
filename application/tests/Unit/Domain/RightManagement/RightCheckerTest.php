@@ -51,7 +51,7 @@ class RightCheckerTest extends TestCase
         $this->type = RightType::READ;
         $this->source = $this->getSourceMock();
         $this->right = new Right();
-        $this->right->setSource($this->source);
+        $this->right->setReciever($this->source);
         $this->right->setType($this->type);
         $this->right->setLayer($this->layer);
         $this->rightManager = new RightChecker($this->right);
@@ -68,6 +68,8 @@ class RightCheckerTest extends TestCase
         $this->right->setGrant(false);
         $notGranted3 = $this->rightManager->isGranted($this->layer, $this->type, $this->source);
         $this->assertFalse($notGranted3);
+        $notGranted4 = $this->rightManager->isGranted($this->layer, $this->type, $this->getSourceMock());
+        $this->assertFalse($notGranted4);
     }
 
     public function testSecondDimension(): void

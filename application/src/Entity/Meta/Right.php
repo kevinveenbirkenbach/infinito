@@ -15,6 +15,7 @@ use App\Entity\Attribut\RecieverAttribut;
 use App\Entity\Attribut\LayerAttribut;
 use App\Entity\Attribut\RelationAttribut;
 use App\Entity\Attribut\PriorityAttribut;
+use App\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz
@@ -24,6 +25,14 @@ use App\Entity\Attribut\PriorityAttribut;
 class Right extends AbstractMeta implements RightInterface
 {
     use TypeAttribut,LawAttribut, RelationAttribut, GrantAttribut,ConditionAttribut,RecieverAttribut,LayerAttribut,PriorityAttribut;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Source\AbstractSource",cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="source_id", referencedColumnName="id",onDelete="CASCADE")
+     *
+     * @var SourceInterface The requested source to which the law applies
+     */
+    protected $source;
 
     /**
      * @ORM\Column(type="integer")
@@ -49,10 +58,11 @@ class Right extends AbstractMeta implements RightInterface
     protected $layer;
 
     /**
-     * @ORM\OneToOne(targetEntity="Reciever",cascade={"persist", "remove"})
+     * @todo Test and implement it on an correct way!
+     * @ORM\OneToOne(targetEntity="App\Entity\Source\AbstractSource",cascade={"persist"})
      * @ORM\JoinColumn(name="reciever_id", referencedColumnName="id",onDelete="CASCADE")
      *
-     * @var RecieverInterface
+     * @var SourceInterface
      */
     protected $reciever;
 
@@ -84,7 +94,5 @@ class Right extends AbstractMeta implements RightInterface
         parent::__construct();
         $this->grant = true;
         $this->priority = 0;
-        $this->reciever = new Reciever();
-        $this->reciever->setRight($this);
     }
 }

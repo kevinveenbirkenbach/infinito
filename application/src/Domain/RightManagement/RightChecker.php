@@ -26,9 +26,9 @@ final class RightChecker implements RightCheckerInterface
      */
     private function getAllSourcesToWhichRightApplies(): Collection
     {
-        $rightSourceMemberInformation = new SourceMemberInformation($this->right->getSource());
+        $rightSourceMemberInformation = new SourceMemberInformation($this->right->getReciever());
         $allSourcesToWhichRightApplies = clone $rightSourceMemberInformation->getAllMembers();
-        $allSourcesToWhichRightApplies->add($this->right->getSource());
+        $allSourcesToWhichRightApplies->add($this->right->getReciever());
 
         return $allSourcesToWhichRightApplies;
     }

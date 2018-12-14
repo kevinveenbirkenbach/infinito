@@ -2,7 +2,7 @@
 
 namespace App\Entity\Attribut;
 
-use App\Entity\Meta\RecieverInterface;
+use App\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz
@@ -10,16 +10,16 @@ use App\Entity\Meta\RecieverInterface;
 trait RecieverAttribut
 {
     /**
-     * @var RecieverInterface
+     * @var SourceInterface
      */
     protected $reciever;
 
-    public function setReciever(RecieverInterface $reciever): void
+    public function setReciever(SourceInterface $reciever): void
     {
         $this->reciever = $reciever;
     }
 
-    public function getReciever(): RecieverInterface
+    public function getReciever(): SourceInterface
     {
         return $this->reciever;
     }

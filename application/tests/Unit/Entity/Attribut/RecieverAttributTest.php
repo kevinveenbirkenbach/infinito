@@ -5,7 +5,7 @@ namespace Tests\Unit\Entity\Attribut;
 use PHPUnit\Framework\TestCase;
 use App\Entity\Attribut\RecieverAttributInterface;
 use App\Entity\Attribut\RecieverAttribut;
-use App\Entity\Meta\RecieverInterface;
+use App\Entity\Source\AbstractSource;
 
 class RecieverAttributTest extends TestCase
 {
@@ -29,7 +29,7 @@ class RecieverAttributTest extends TestCase
 
     public function testAccessors(): void
     {
-        $reciever = $this->createMock(RecieverInterface::class);
+        $reciever = $this->createMock(AbstractSource::class);
         $this->assertNull($this->reciever->setReciever($reciever));
         $this->assertEquals($reciever, $this->reciever->getReciever());
     }
