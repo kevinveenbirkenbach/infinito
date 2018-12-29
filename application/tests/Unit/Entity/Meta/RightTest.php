@@ -7,6 +7,8 @@ use App\DBAL\Types\RightType;
 use App\Entity\Meta\RightInterface;
 use App\Entity\Meta\Right;
 use App\Entity\Meta\Law;
+use App\DBAL\Types\LayerType;
+use App\Exception\NoValidChoice;
 
 /**
  * @todo Implement reciever test
@@ -18,7 +20,7 @@ class RightTest extends TestCase
     /**
      * @var RightInterface
      */
-    protected $right;
+    private $right;
 
     public function setUp(): void
     {
@@ -70,7 +72,21 @@ class RightTest extends TestCase
 
     public function testRight(): void
     {
-        $this->assertNull($this->right->setType(RightType::READ));
-        $this->assertEquals(RightType::READ, $this->right->getType());
+        foreach (RightType::getChoices() as $key => $value) {
+            $this->assertNull($this->right->setType($key));
+            $this->assertEquals($key, $this->right->getType());
+        }
+        $this->expectException(NoValidChoice::class);
+        $this->right->setType('NoneValidType');
+    }
+
+    public function testLayer(): void
+    {
+        foreach (LayerType::getChoices() as $key => $value) {
+            $this->assertNull($this->right->setLayer($key));
+            $this->assertEquals($key, $this->right->getLayer());
+        }
+        $this->expectException(NoValidChoice::class);
+        $this->right->setLayer('NoneValidLayer');
     }
 }

@@ -16,6 +16,7 @@ use App\Entity\Attribut\LayerAttribut;
 use App\Entity\Attribut\RelationAttribut;
 use App\Entity\Attribut\PriorityAttribut;
 use App\Entity\Source\SourceInterface;
+use App\Exception\NoValidChoice;
 
 /**
  * @author kevinfrantz
@@ -94,5 +95,21 @@ class Right extends AbstractMeta implements RightInterface
         parent::__construct();
         $this->grant = true;
         $this->priority = 0;
+    }
+
+    public function setType(string $type): void
+    {
+        if (!array_key_exists($type, RightType::getChoices())) {
+            throw new NoValidChoice();
+        }
+        $this->type = $type;
+    }
+
+    public function setLayer(string $layer): void
+    {
+        if (!array_key_exists($layer, LayerType::getChoices())) {
+            throw new NoValidChoice();
+        }
+        $this->layer = $layer;
     }
 }
