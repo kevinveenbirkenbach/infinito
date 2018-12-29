@@ -33,7 +33,9 @@ class SourceMemberInformationTest extends TestCase
     public function testOneDimension(): void
     {
         $this->source->getMemberRelation()->getMembers()->add(new TextSource());
-        $this->assertEquals(1, $this->sourceMemberInformation->getAllMembers()->count());
+        $allSourceMembers = $this->sourceMemberInformation->getAllMembers();
+        $this->assertEquals(1, $allSourceMembers->count());
+        $this->assertInstanceOf(SourceInterface::class, $allSourceMembers[0]);
     }
 
     public function testThreeDimension(): void
@@ -44,7 +46,11 @@ class SourceMemberInformationTest extends TestCase
         $source3 = new FullPersonNameSource();
         $source3->getMemberRelation()->getMembers()->add($source2);
         $this->source->getMemberRelation()->getMembers()->add($source3);
-        $this->assertEquals(3, $this->sourceMemberInformation->getAllMembers()->count());
+        $allSourceMembers = $this->sourceMemberInformation->getAllMembers();
+        $this->assertEquals(3, $allSourceMembers->count());
+        foreach ($allSourceMembers as $sourceMember) {
+            $this->assertInstanceOf(SourceInterface::class, $sourceMember);
+        }
     }
 
     public function testRecursion(): void
@@ -52,6 +58,10 @@ class SourceMemberInformationTest extends TestCase
         $recursiveSource = new UserSource();
         $recursiveSource->getMemberRelation()->getMembers()->add($this->source);
         $this->source->getMemberRelation()->getMembers()->add($recursiveSource);
-        $this->assertEquals(2, $this->sourceMemberInformation->getAllMembers()->count());
+        $allSourceMembers = $this->sourceMemberInformation->getAllMembers();
+        $this->assertEquals(2, $allSourceMembers->count());
+        foreach ($allSourceMembers as $sourceMember) {
+            $this->assertInstanceOf(SourceInterface::class, $sourceMember);
+        }
     }
 }
