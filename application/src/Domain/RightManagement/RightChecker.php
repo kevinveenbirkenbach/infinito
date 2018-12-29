@@ -33,9 +33,9 @@ final class RightChecker implements RightCheckerInterface
         return $allSourcesToWhichRightApplies;
     }
 
-    private function hasSource(SourceInterface $source): bool
+    private function hasClientSource(SourceInterface $clientSource): bool
     {
-        return $this->getAllSourcesToWhichRightApplies()->contains($source);
+        return $this->getAllSourcesToWhichRightApplies()->contains($clientSource);
     }
 
     private function isLayerEqual(string $layer): bool
@@ -60,6 +60,6 @@ final class RightChecker implements RightCheckerInterface
 
     public function isGranted(string $layer, string $type, SourceInterface $source): bool
     {
-        return $this->isLayerEqual($layer) && $this->isTypeEqual($type) && $this->hasSource($source) && $this->checkPermission();
+        return $this->isLayerEqual($layer) && $this->isTypeEqual($type) && $this->hasClientSource($source) && $this->checkPermission();
     }
 }
