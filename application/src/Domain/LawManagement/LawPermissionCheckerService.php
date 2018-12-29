@@ -8,6 +8,8 @@ use App\Entity\Meta\RightInterface;
 use Doctrine\Common\Collections\Collection;
 use App\Entity\Meta\LawInterface;
 use App\Domain\RightManagement\RightChecker;
+use App\Entity\Source\SourceInterface;
+use App\Domain\SourceManagement\SourceMemberInformation;
 
 /**
  * @todo Implement checking by operation sources
@@ -45,7 +47,7 @@ final class LawPermissionCheckerService implements LawPermissionCheckerServiceIn
      * @param Collection|RightInterface[] $rights
      * @param string                      $type
      *
-     * @return Collection
+     * @return Collection|RightInterface[]
      */
     private function getRightsByType(Collection $rights, string $type): Collection
     {
@@ -54,9 +56,52 @@ final class LawPermissionCheckerService implements LawPermissionCheckerServiceIn
 
     /**
      * @param Collection|RightInterface[] $rights
+     * @param SourceInterface             $reciever
+     *
+     * @return Collection|RightInterface[]
+     */
+    private function getRightsByReciever(Collection $rights, SourceInterface $reciever): Collection
+    {
+        $result = new ArrayCollection();
+        foreach ($rights as $right) {
+            if ($right->getReciever() === $reciever || $this->memberExist($right, $reciever)) {
+                $result->add($right);
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * @todo Implement!
+     *
+     * @param RightInterface  $right
+     * @param SourceInterface $recieverSource
+     *
+     * @return bool
+     */
+    private function memberExist(RightInterface $right, SourceInterface $recieverSource): bool
+    {
+        $rightMemberInformation = new SourceMemberInformation($right->getReciever());
+//         $rightMemberSources = $rightMemberInformation->getAllMembers();
+        $rightMemberSources = new ArrayCollection();
+        foreach ($rightMemberSources as $memberSource) {
+//             var_dump($memberSource);
+//             echo "______________________________";
+//             var_dump($recieverSource);
+            if ($memberSource === $recieverSource) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @param Collection|RightInterface[] $rights
      * @param string                      $layer
      *
-     * @return Collection
+     * @return Collection|RightInterface[]
      */
     private function getRightsByLayer(Collection $rights, string $layer): Collection
     {
@@ -98,7 +143,7 @@ final class LawPermissionCheckerService implements LawPermissionCheckerServiceIn
         $right = $rights[0];
         $rightChecker = new RightChecker($right);
 
-        return $rightChecker->isGranted($client->getLayer(), $client->getType(), $client->getSource());
+        return $rightChecker->isGranted($client->getLayer(), $client->getType(), $client->getReciever());
     }
 
     public function __construct(LawInterface $law)
@@ -111,6 +156,7 @@ final class LawPermissionCheckerService implements LawPermissionCheckerServiceIn
         $rights = clone $this->law->getRights();
         $rights = $this->getRightsByType($rights, $client->getType());
         $rights = $this->getRightsByLayer($rights, $client->getLayer());
+        $rights = $this->getRightsByReciever($rights, $client->getReciever());
         $rights = $this->sortByPriority($rights);
 
         return $this->isGranted($rights, $client);
