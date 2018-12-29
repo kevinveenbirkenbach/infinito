@@ -117,22 +117,24 @@ class LawPermissionCheckerTest extends TestCase
         $this->assertFalse($this->checkClientPermission());
     }
 
-//     /**
-//      * @todo Implement!
-//      */
-//     public function testChildMemberPermission(): void
-//     {
-//         $parentSource = $this->getSourceMock();
-//         $parentSource->setSlug('Parent Source');
-//         $sourceMemberManager = new SourceMemberManager($parentSource);
-//         $sourceMemberManager->addMember($this->clientSource);
-//         $parentSourceRight = $this->getClonedClientRight();
-//         $parentSourceRight->setReciever($parentSource);
-//         $this->law->getRights()->add($parentSourceRight);
-//         $this->assertTrue($this->checkClientPermission());
-//         $this->law->setRights(new ArrayCollection());
-//         $this->assertFalse($this->checkClientPermission());
-//     }
+    public function testChildMemberPermission(): void
+    {
+        $parentSource = $this->getSourceMock();
+        $parentSource->setSlug('Parent Source');
+        $parentSourceMemberManager = new SourceMemberManager($parentSource);
+        $parentSourceMemberManager->addMember($this->clientSource);
+        $this->assertEquals($parentSource, $this->clientSource->getMemberRelation()->getMemberships()->get(0)->getSource());
+        $this->assertEquals($this->clientSource, $parentSource->getMemberRelation()->getMembers()->get(0)->getSource());
+        $parentSourceRight = $this->getClonedClientRight();
+        $parentSourceRight->setReciever($parentSource);
+        $this->law->getRights()->add($parentSourceRight);
+        $this->assertEquals($parentSourceRight, $this->law->getRights()->get(0));
+        $this->assertEquals($parentSource, $parentSourceRight->getReciever());
+        $this->assertEquals($this->source, $parentSourceRight->getSource());
+        $this->assertTrue($this->checkClientPermission());
+        $this->law->setRights(new ArrayCollection());
+        $this->assertFalse($this->checkClientPermission());
+    }
 
     public function testGetRightsByType(): void
     {
