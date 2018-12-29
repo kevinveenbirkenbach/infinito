@@ -9,6 +9,7 @@ use App\Entity\Meta\Right;
 use App\Entity\Meta\Law;
 use App\DBAL\Types\LayerType;
 use App\Exception\NoValidChoice;
+use App\Entity\Source\AbstractSource;
 
 /**
  * @todo Implement reciever test
@@ -88,5 +89,28 @@ class RightTest extends TestCase
         }
         $this->expectException(NoValidChoice::class);
         $this->right->setLayer('NoneValidLayer');
+    }
+
+    /**
+     * Just to test if the clone function works like assumed.
+     */
+    public function testClone(): void
+    {
+        $source = $this->createMock(AbstractSource::class);
+        $reciever = $this->createMock(AbstractSource::class);
+        $grant = false;
+        $type = RightType::READ;
+        $layer = LayerType::SOURCE;
+        $this->right->setSource($source);
+        $this->right->setReciever($reciever);
+        $this->right->setGrant($grant);
+        $this->right->setType($type);
+        $this->right->setLayer($layer);
+        $rightClone = clone $this->right;
+        $this->assertEquals($source, $rightClone->getSource());
+        $this->assertEquals($reciever, $rightClone->getReciever());
+        $this->assertEquals($grant, $rightClone->getGrant());
+        $this->assertEquals($type, $rightClone->getType());
+        $this->assertEquals($layer, $rightClone->getLayer());
     }
 }
