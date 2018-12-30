@@ -83,12 +83,8 @@ final class LawPermissionCheckerService implements LawPermissionCheckerServiceIn
     private function memberExist(RightInterface $right, SourceInterface $recieverSource): bool
     {
         $rightMemberInformation = new SourceMemberInformation($right->getReciever());
-//         $rightMemberSources = $rightMemberInformation->getAllMembers();
-        $rightMemberSources = new ArrayCollection();
+        $rightMemberSources = $rightMemberInformation->getAllMembers();
         foreach ($rightMemberSources as $memberSource) {
-//             var_dump($memberSource);
-//             echo "______________________________";
-//             var_dump($recieverSource);
             if ($memberSource === $recieverSource) {
                 return true;
             }
