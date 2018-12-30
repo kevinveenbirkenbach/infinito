@@ -123,14 +123,23 @@ class LawPermissionCheckerTest extends TestCase
         $parentSource->setSlug('Parent Source');
         $parentSourceMemberManager = new SourceMemberManager($parentSource);
         $parentSourceMemberManager->addMember($this->clientSource);
+        /*
+         * The following asserts just check if the SourceMemberManager works like expected
+         */
         $this->assertEquals($parentSource, $this->clientSource->getMemberRelation()->getMemberships()->get(0)->getSource());
         $this->assertEquals($this->clientSource, $parentSource->getMemberRelation()->getMembers()->get(0)->getSource());
         $parentSourceRight = $this->getClonedClientRight();
         $parentSourceRight->setReciever($parentSource);
         $this->law->getRights()->add($parentSourceRight);
+        /*
+         * The following asserts just check if the in the tet defined values are like expected
+         */
         $this->assertEquals($parentSourceRight, $this->law->getRights()->get(0));
         $this->assertEquals($parentSource, $parentSourceRight->getReciever());
         $this->assertEquals($this->source, $parentSourceRight->getSource());
+        /*
+         * The following asserts are the important asserts for the test
+         */
         $this->assertTrue($this->checkClientPermission());
         $this->law->setRights(new ArrayCollection());
         $this->assertFalse($this->checkClientPermission());

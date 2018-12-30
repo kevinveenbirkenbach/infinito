@@ -42,6 +42,8 @@ final class SourceMemberInformation implements SourceMemberInformationInterface
     /**
      * @todo Implement tests!
      *
+     * @deprecated The input data should be correct!
+     *
      * @param EntityInterface $member
      */
     private function addMemberSource(EntityInterface $member): void
@@ -55,6 +57,8 @@ final class SourceMemberInformation implements SourceMemberInformationInterface
 
     /**
      * @todo Implement tests
+     *
+     * @deprecated The input data should be correct!
      *
      * @param EntityInterface $member
      *
