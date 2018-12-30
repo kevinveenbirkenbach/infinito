@@ -75,7 +75,7 @@ class RightCheckerTest extends TestCase
     public function testSecondDimension(): void
     {
         $secondSource = $this->getSourceMock();
-        $this->source->getMemberRelation()->getMembers()->add($secondSource);
+        $this->source->getMemberRelation()->getMembers()->add($secondSource->getMemberRelation());
         $granted = $this->rightManager->isGranted($this->layer, $this->type, $secondSource);
         $this->assertTrue($granted);
         $notGranted = $this->rightManager->isGranted(LayerType::SOURCE, $this->type, $secondSource);
@@ -91,8 +91,8 @@ class RightCheckerTest extends TestCase
     {
         $thirdSource = $this->getSourceMock();
         $secondSource = $this->getSourceMock();
-        $secondSource->getMemberRelation()->getMembers()->add($thirdSource);
-        $this->source->getMemberRelation()->getMembers()->add($secondSource);
+        $secondSource->getMemberRelation()->getMembers()->add($thirdSource->getMemberRelation());
+        $this->source->getMemberRelation()->getMembers()->add($secondSource->getMemberRelation());
         $granted = $this->rightManager->isGranted($this->layer, $this->type, $thirdSource);
         $this->assertTrue($granted);
         $notGranted = $this->rightManager->isGranted(LayerType::SOURCE, $this->type, $thirdSource);

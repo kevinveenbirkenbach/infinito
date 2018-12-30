@@ -5,9 +5,7 @@ namespace App\Domain\SourceManagement;
 use Doctrine\Common\Collections\Collection;
 use App\Entity\Source\SourceInterface;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\Attribut\MemberRelationAttributInterface;
 use App\Entity\Meta\Relation\Member\MemberRelationInterface;
-use App\Entity\EntityInterface;
 
 final class SourceMemberInformation implements SourceMemberInformationInterface
 {
@@ -27,50 +25,17 @@ final class SourceMemberInformation implements SourceMemberInformationInterface
     }
 
     /**
-     * @param Collection|MemberRelationAttributInterface[] $members
+     * @param Collection|MemberRelationInterface[] $members
      */
     private function itterateOverMembers(Collection $members): void
     {
         foreach ($members as $member) {
-            if (!$this->members->contains($member)) {
-                $this->addMemberSource($member);
-                $this->itterateOverMembers($this->getMemberMembers($member));
+            if (!$this->members->contains($member->getSource())) {
+                $this->members->add($member->getSource());
+                $memberMembers = $member->getMembers();
+                $this->itterateOverMembers($memberMembers);
             }
         }
-    }
-
-    /**
-     * @todo Implement tests!
-     *
-     * @deprecated The input data should be correct!
-     *
-     * @param EntityInterface $member
-     */
-    private function addMemberSource(EntityInterface $member): void
-    {
-        if ($member instanceof MemberRelationInterface) {
-            $this->members->add($member->getSource());
-        } else {
-            $this->members->add($member);
-        }
-    }
-
-    /**
-     * @todo Implement tests
-     *
-     * @deprecated The input data should be correct!
-     *
-     * @param EntityInterface $member
-     *
-     * @return Collection
-     */
-    private function getMemberMembers(EntityInterface $member): Collection
-    {
-        if ($member instanceof MemberRelationInterface) {
-            return $member->getMembers();
-        }
-
-        return $member->getMemberRelation()->getMembers();
     }
 
     /**
