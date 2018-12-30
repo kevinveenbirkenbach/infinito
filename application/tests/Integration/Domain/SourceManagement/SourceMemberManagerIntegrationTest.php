@@ -8,6 +8,7 @@ use App\Domain\SourceManagement\SourceMemberManagerInterface;
 use App\Entity\Source\AbstractSource;
 use App\Domain\SourceManagement\SourceMemberManager;
 use App\Domain\SourceManagement\SourceMemberInformation;
+use App\Domain\SourceManagement\SourceMembershipInformation;
 
 class SourceMemberManagerIntegrationTest extends TestCase
 {
@@ -41,5 +42,15 @@ class SourceMemberManagerIntegrationTest extends TestCase
         $this->assertEquals($childSource, $sourceMemberInformation->getAllMembers()->get(0));
         $this->sourceMemberManager->removeMember($childSource);
         $this->assertEquals(0, $sourceMemberInformation->getAllMembers()->count());
+    }
+
+    public function testSourceMembershipInformationIntegration(): void
+    {
+        $parentSource = $this->createSource();
+        $sourceMemberInformation = new SourceMembershipInformation($this->source);
+        $this->sourceMemberManager->addMembership($parentSource);
+        $this->assertEquals($parentSource, $sourceMemberInformation->getAllMemberships()->get(0));
+        $this->sourceMemberManager->removeMembership($parentSource);
+        $this->assertEquals(0, $sourceMemberInformation->getAllMemberships()->count());
     }
 }

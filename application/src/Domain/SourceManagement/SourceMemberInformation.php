@@ -32,8 +32,7 @@ final class SourceMemberInformation implements SourceMemberInformationInterface
         foreach ($members as $member) {
             if (!$this->members->contains($member->getSource())) {
                 $this->members->add($member->getSource());
-                $memberMembers = $member->getMembers();
-                $this->itterateOverMembers($memberMembers);
+                $this->itterateOverMembers($member->getMembers());
             }
         }
     }

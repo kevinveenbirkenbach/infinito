@@ -5,6 +5,7 @@ namespace App\Domain\SourceManagement;
 use Doctrine\Common\Collections\Collection;
 use App\Entity\Source\SourceInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use App\Entity\Meta\Relation\Member\MemberRelationInterface;
 
 final class SourceMembershipInformation implements SourceMembershipInformationInterface
 {
@@ -23,16 +24,24 @@ final class SourceMembershipInformation implements SourceMembershipInformationIn
         $this->source = $source;
     }
 
+    /**
+     * @param Collection|MemberRelationInterface[] $memberships
+     */
     private function itterateOverMemberships(Collection $memberships): void
     {
         foreach ($memberships as $membership) {
-            if (!$this->memberships->contains($membership)) {
-                $this->memberships->add($membership);
-                $this->itterateOverMemberships($membership->getMemberRelation()->getMemberships());
+            if (!$this->memberships->contains($membership->getSource())) {
+                $this->memberships->add($membership->getSource());
+                $this->itterateOverMemberships($membership->getMemberships());
             }
         }
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\SourceManagement\SourceMembershipInformationInterface::getAllMemberships()
+     */
     public function getAllMemberships(): Collection
     {
         $this->memberships = new ArrayCollection();
