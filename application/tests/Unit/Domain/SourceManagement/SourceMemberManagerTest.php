@@ -7,7 +7,6 @@ use App\Entity\Source\SourceInterface;
 use App\Domain\SourceManagement\SourceMemberManagerInterface;
 use App\Entity\Source\AbstractSource;
 use App\Domain\SourceManagement\SourceMemberManager;
-use App\Domain\SourceManagement\SourceMemberInformation;
 
 class SourceMemberManagerTest extends TestCase
 {
@@ -53,18 +52,5 @@ class SourceMemberManagerTest extends TestCase
         $this->assertNull($this->sourceMemberManager->removeMembership($membership));
         $this->assertEquals(0, $this->source->getMemberRelation()->getMemberships()->count());
         $this->assertEquals(0, $membership->getMemberRelation()->getMembers()->count());
-    }
-
-    /**
-     * @todo Move this function to an own integration test class
-     */
-    public function testSourceMemberInformationIntegration(): void
-    {
-        $childSource = $this->createSource();
-        $sourceMemberInformation = new SourceMemberInformation($this->source);
-        $this->sourceMemberManager->addMember($childSource);
-        $this->assertEquals($childSource, $sourceMemberInformation->getAllMembers()->get(0));
-        $this->sourceMemberManager->removeMember($childSource);
-        $this->assertEquals(0, $sourceMemberInformation->getAllMembers()->count());
     }
 }
