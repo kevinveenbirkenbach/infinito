@@ -8,6 +8,8 @@ use App\DBAL\Types\SystemSlugType;
 use App\Entity\Source\AbstractSource;
 
 /**
+ * This controller offers the standart routes for the template.
+ *
  * @author kevinfrantz
  */
 class DefaultController extends AbstractEntityController

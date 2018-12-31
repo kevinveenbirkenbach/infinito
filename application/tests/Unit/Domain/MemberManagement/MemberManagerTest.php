@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Domain\SourceManagement;
+namespace Tests\Unit\Domain\MemberManagement;
 
 use PHPUnit\Framework\TestCase;
 use App\Domain\MemberManagement\MemberManagerInterface;

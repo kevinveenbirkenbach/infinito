@@ -147,14 +147,14 @@ final class LawPermissionCheckerService implements LawPermissionCheckerServiceIn
         $this->law = $law;
     }
 
-    public function hasPermission(RightInterface $client): bool
+    public function hasPermission(RightInterface $clientRight): bool
     {
         $rights = clone $this->law->getRights();
-        $rights = $this->getRightsByType($rights, $client->getType());
-        $rights = $this->getRightsByLayer($rights, $client->getLayer());
-        $rights = $this->getRightsByReciever($rights, $client->getReciever());
+        $rights = $this->getRightsByType($rights, $clientRight->getType());
+        $rights = $this->getRightsByLayer($rights, $clientRight->getLayer());
+        $rights = $this->getRightsByReciever($rights, $clientRight->getReciever());
         $rights = $this->sortByPriority($rights);
 
-        return $this->isGranted($rights, $client);
+        return $this->isGranted($rights, $clientRight);
     }
 }

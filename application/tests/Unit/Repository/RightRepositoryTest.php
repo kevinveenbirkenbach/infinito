@@ -3,7 +3,6 @@
 namespace tests\Unit\Repository;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use App\Entity\Meta\RightInterface;
 use App\Entity\Meta\Right;
@@ -11,6 +10,7 @@ use App\DBAL\Types\LayerType;
 use App\DBAL\Types\RightType;
 use App\Entity\Meta\Law;
 use App\Entity\Meta\LawInterface;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * @todo specify tests for all attributes
@@ -22,29 +22,29 @@ class RightRepositoryTest extends KernelTestCase
     const PRIORITY = 123;
 
     /**
-     * @var EntityManager
+     * @var EntityManagerInterface
      */
-    protected $entityManager;
+    private $entityManager;
 
     /**
      * @var EntityRepository
      */
-    protected $rightRepository;
+    private $rightRepository;
 
     /**
      * @var RightInterface
      */
-    protected $loadedRight;
+    private $loadedRight;
 
     /**
      * @var RightInterface
      */
-    protected $right;
+    private $right;
 
     /**
      * @var LawInterface
      */
-    protected $law;
+    private $law;
 
     public function setUp(): void
     {

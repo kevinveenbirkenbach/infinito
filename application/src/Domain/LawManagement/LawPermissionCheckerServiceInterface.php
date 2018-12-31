@@ -16,5 +16,5 @@ interface LawPermissionCheckerServiceInterface
      *
      * @return bool
      */
-    public function hasPermission(RightInterface $client): bool;
+    public function hasPermission(RightInterface $clientRight): bool;
 }
