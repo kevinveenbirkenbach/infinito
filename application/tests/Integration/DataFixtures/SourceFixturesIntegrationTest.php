@@ -1,14 +1,14 @@
 <?php
 
-namespace Tests\Integration;
+namespace Tests\Integration\DataFixtures;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Doctrine\ORM\EntityManager;
 use App\Entity\Source\AbstractSource;
 use App\DBAL\Types\SystemSlugType;
-use App\Entity\Source\Primitive\Text\TextSourceInterface;
+use App\Entity\Source\Complex\UserSourceInterface;
 
-class FixturesIntegrationTest extends KernelTestCase
+class SourceFixturesIntegrationTest extends KernelTestCase
 {
     /**
      * @var EntityManager
@@ -21,13 +21,17 @@ class FixturesIntegrationTest extends KernelTestCase
         $this->entityManager = static::$kernel->getContainer()->get('doctrine')->getManager();
     }
 
-    public function testImpressum(): void
+    public function testImpressumSource(): void
     {
         $sourceRepository = $this->entityManager->getRepository(AbstractSource::class);
-        /**
-         * @var TextSourceInterface
-         */
         $imprint = $sourceRepository->findOneBy(['slug' => SystemSlugType::IMPRINT]);
         $this->assertInternalType('string', $imprint->getText());
+    }
+
+    public function testGuestUserSource(): void
+    {
+        $sourceRepository = $this->entityManager->getRepository(AbstractSource::class);
+        $userSource = $sourceRepository->findOneBy(['slug' => SystemSlugType::GUEST_USER]);
+        $this->assertInstanceOf(UserSourceInterface::class, $userSource);
     }
 }

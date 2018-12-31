@@ -13,7 +13,10 @@ final class SystemSlugType extends AbstractEnumType
 {
     public const IMPRINT = 'IMPRINT';
 
+    public const GUEST_USER = 'GUEST_USER';
+
     protected static $choices = [
         self::IMPRINT => 'imprint',
+        self::GUEST_USER => 'guest user',
     ];
 }
