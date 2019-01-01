@@ -3,6 +3,7 @@
 namespace App\Domain\SecureManagement;
 
 use App\Entity\Meta\RightInterface;
+use App\Exception\SourceAccessDenied;
 
 /**
  * @author kevinfrantz
@@ -10,6 +11,8 @@ use App\Entity\Meta\RightInterface;
 interface SecureSourceCheckerInterface
 {
     /**
+     * @throws SourceAccessDenied
+     *
      * @param RightInterface $right
      *
      * @return bool

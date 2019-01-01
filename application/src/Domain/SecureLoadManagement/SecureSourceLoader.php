@@ -4,9 +4,9 @@ namespace App\Domain\SecureLoadManagement;
 
 use App\Entity\Source\SourceInterface;
 use App\Entity\Meta\RightInterface;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Doctrine\Common\Persistence\ObjectRepository;
 use App\Domain\SecureManagement\SecureSourceChecker;
+use App\Exception\SourceAccessDenied;
 
 /**
  * @author kevinfrantz
@@ -71,6 +71,6 @@ final class SecureSourceLoader implements SecureSourceLoaderInterface
         if ($secureSourceChecker->hasPermission($requestedRight)) {
             return $source;
         }
-        throw new AccessDeniedHttpException();
+        throw new SourceAccessDenied();
     }
 }
