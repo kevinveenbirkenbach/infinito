@@ -7,6 +7,7 @@ use App\Entity\Attribut\RightsAttribute;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Attribut\RelationAttribut;
 use App\Entity\Source\SourceInterface;
+use App\Entity\Attribut\GrantAttribut;
 
 /**
  * @author kevinfrantz
@@ -15,7 +16,14 @@ use App\Entity\Source\SourceInterface;
  */
 class Law extends AbstractMeta implements LawInterface
 {
-    use RightsAttribute, RelationAttribut;
+    use RightsAttribute, RelationAttribut, GrantAttribut;
+
+    /**
+     * @ORM\Column(type="boolean",name="`grant`")
+     *
+     * @var bool the standart grant value
+     */
+    protected $grant;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Source\AbstractSource",cascade={"persist", "remove"})
@@ -36,5 +44,6 @@ class Law extends AbstractMeta implements LawInterface
     {
         parent::__construct();
         $this->rights = new ArrayCollection();
+        $this->grant = false;
     }
 }

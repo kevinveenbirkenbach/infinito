@@ -23,6 +23,7 @@ class LawTest extends TestCase
 
     public function testConstruct(): void
     {
+        $this->assertFalse($this->law->getGrant());
         $this->assertInstanceOf(Collection::class, $this->law->getRights());
     }
 

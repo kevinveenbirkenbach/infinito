@@ -134,7 +134,7 @@ final class LawPermissionCheckerService implements LawPermissionCheckerServiceIn
     private function isGranted(Collection $rights, RightInterface $client): bool
     {
         if (0 === $rights->count()) {
-            return false;
+            return $this->law->getGrant();
         }
         $right = $rights[0];
         $rightChecker = new RightChecker($right);

@@ -202,4 +202,11 @@ class LawPermissionCheckerTest extends TestCase
         ]));
         $this->assertTrue($this->checkClientPermission());
     }
+
+    public function testGrant(): void
+    {
+        $this->assertFalse($this->checkClientPermission());
+        $this->law->setGrant(true);
+        $this->assertTrue($this->checkClientPermission());
+    }
 }
