@@ -4,9 +4,9 @@ namespace App\Domain\SecureLoadManagement;
 
 use App\Entity\Source\SourceInterface;
 use App\Entity\Meta\RightInterface;
-use App\Domain\LawManagement\LawPermissionCheckerService;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Doctrine\Common\Persistence\ObjectRepository;
+use App\Domain\SecureManagement\SecureSourceChecker;
 
 /**
  * @author kevinfrantz
@@ -52,14 +52,6 @@ final class SecureSourceLoader implements SecureSourceLoaderInterface
         }
     }
 
-    private function hasPermission(SourceInterface $source): bool
-    {
-        $requestedRight = $this->getClonedRightWithModifiedSource($source);
-        $law = new LawPermissionCheckerService($source->getLaw());
-
-        return $law->hasPermission($requestedRight);
-    }
-
     public function __construct(ObjectRepository $sourceRepository, RightInterface $requestedRight)
     {
         $this->sourceRepository = $sourceRepository;
@@ -74,7 +66,9 @@ final class SecureSourceLoader implements SecureSourceLoaderInterface
     public function getSource(): SourceInterface
     {
         $source = $this->loadSource();
-        if ($this->hasPermission($source)) {
+        $requestedRight = $this->getClonedRightWithModifiedSource($source);
+        $secureSourceChecker = new SecureSourceChecker($source);
+        if ($secureSourceChecker->hasPermission($requestedRight)) {
             return $source;
         }
         throw new AccessDeniedHttpException();
