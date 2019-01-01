@@ -67,9 +67,6 @@ class RightRepositoryTest extends KernelTestCase
         $this->entityManager->persist($this->right);
         $this->entityManager->flush();
         $rightId = $this->right->getId();
-        /*
-         * @var RightInterface
-         */
         $this->loadedRight = $this->rightRepository->find($rightId);
         $this->assertEquals($rightId, $this->loadedRight->getId());
         $this->assertEquals(self::PRIORITY, $this->loadedRight->getPriority());

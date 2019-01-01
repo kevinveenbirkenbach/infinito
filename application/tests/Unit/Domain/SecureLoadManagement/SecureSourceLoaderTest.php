@@ -55,16 +55,16 @@ class SecureSourceLoaderTest extends KernelTestCase
         $secureSourceLoader->getSource();
     }
 
-//     public function testGranted(): void
-//     {
-//         $requestedSource = new TextSource();
-//         $requestedSource->setSlug(SystemSlugType::IMPRINT);
-//         $requestedRight = new Right();
-//         $requestedRight->setSource($requestedSource);
-//         $requestedRight->setLayer(LayerType::SOURCE);
-//         $requestedRight->setType(RightType::READ);
-//         $requestedRight->setReciever($this->sourceRepository->findOneBy(['slug' => SystemSlugType::GUEST_USER]));
-//         $secureSourceLoader = new SecureSourceLoader($this->sourceRepository, $requestedRight);
-//         $this->assertInstanceOf(TextSourceInterface::class, $secureSourceLoader->getSource());
-//     }
+    public function testGranted(): void
+    {
+        $requestedSource = new TextSource();
+        $requestedSource->setSlug(SystemSlugType::IMPRINT);
+        $requestedRight = new Right();
+        $requestedRight->setSource($requestedSource);
+        $requestedRight->setLayer(LayerType::SOURCE);
+        $requestedRight->setType(RightType::READ);
+        $requestedRight->setReciever($this->sourceRepository->findOneBy(['slug' => SystemSlugType::GUEST_USER]));
+        $secureSourceLoader = new SecureSourceLoader($this->sourceRepository, $requestedRight);
+        $this->assertInstanceOf(TextSourceInterface::class, $secureSourceLoader->getSource());
+    }
 }
