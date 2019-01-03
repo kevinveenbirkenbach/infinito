@@ -5,7 +5,6 @@ namespace Tests\Unit\Domain\SecureLoadManagement;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Doctrine\Common\Persistence\ObjectRepository;
 use App\Entity\Source\AbstractSource;
-use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use App\Domain\SecureLoadManagement\SecureSourceLoader;
 use App\Entity\Source\Primitive\Text\TextSource;
@@ -15,6 +14,7 @@ use App\DBAL\Types\LayerType;
 use App\DBAL\Types\RightType;
 use App\Entity\Source\Complex\UserSource;
 use App\Entity\Source\Primitive\Text\TextSourceInterface;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * @author kevinfrantz
@@ -28,17 +28,21 @@ class SecureSourceLoaderTest extends KernelTestCase
      */
     private $sourceRepository;
 
+    /**
+     * @var EntityManagerInterface
+     */
+    private $entityManager;
+
     public function setUp(): void
     {
-        $kernel = self::bootKernel();
-        $this->setSourceRepository($kernel);
+        self::bootKernel();
+        $this->entityManager = self::$container->get('doctrine.orm.default_entity_manager');
+        $this->setSourceRepository();
     }
 
-    private function setSourceRepository(KernelInterface $kernel): void
+    private function setSourceRepository(): void
     {
-        $this->sourceRepository = $kernel->getContainer()
-        ->get('doctrine')
-        ->getManager()->getRepository(AbstractSource::class);
+        $this->sourceRepository = $this->entityManager->getRepository(AbstractSource::class);
     }
 
     public function testAccessDeniedException(): void
@@ -50,7 +54,7 @@ class SecureSourceLoaderTest extends KernelTestCase
         $requestedRight->setLayer(LayerType::SOURCE);
         $requestedRight->setType(RightType::READ);
         $requestedRight->setReciever(new UserSource());
-        $secureSourceLoader = new SecureSourceLoader($this->sourceRepository, $requestedRight);
+        $secureSourceLoader = new SecureSourceLoader($this->entityManager, $requestedRight);
         $this->expectException(AccessDeniedHttpException::class);
         $secureSourceLoader->getSource();
     }
@@ -64,7 +68,7 @@ class SecureSourceLoaderTest extends KernelTestCase
         $requestedRight->setLayer(LayerType::SOURCE);
         $requestedRight->setType(RightType::READ);
         $requestedRight->setReciever($this->sourceRepository->findOneBy(['slug' => SystemSlugType::GUEST_USER]));
-        $secureSourceLoader = new SecureSourceLoader($this->sourceRepository, $requestedRight);
+        $secureSourceLoader = new SecureSourceLoader($this->entityManager, $requestedRight);
         $this->assertInstanceOf(TextSourceInterface::class, $secureSourceLoader->getSource());
     }
 }

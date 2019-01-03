@@ -7,6 +7,8 @@ use App\Entity\Meta\RightInterface;
 use Doctrine\Common\Persistence\ObjectRepository;
 use App\Domain\SecureManagement\SecureSourceChecker;
 use App\Exception\SourceAccessDenied;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Source\AbstractSource;
 
 /**
  * @author kevinfrantz
@@ -52,9 +54,9 @@ final class SecureSourceLoader implements SecureSourceLoaderInterface
         }
     }
 
-    public function __construct(ObjectRepository $sourceRepository, RightInterface $requestedRight)
+    public function __construct(EntityManagerInterface $entityManager, RightInterface $requestedRight)
     {
-        $this->sourceRepository = $sourceRepository;
+        $this->sourceRepository = $entityManager->getRepository(AbstractSource::class);
         $this->requestedRight = $requestedRight;
     }
 
