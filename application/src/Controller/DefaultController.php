@@ -6,6 +6,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use App\DBAL\Types\SystemSlugType;
 use App\Entity\Source\AbstractSource;
+use App\Entity\User;
+use App\Domain\SecureLoadManagement\SecureSourceLoader;
+use App\Entity\Meta\Right;
+use App\DBAL\Types\LayerType;
+use App\DBAL\Types\RightType;
 
 /**
  * This controller offers the standart routes for the template.
@@ -20,8 +25,24 @@ class DefaultController extends AbstractEntityController
      */
     public function imprint(): Response
     {
-        $source = $this->loadEntityBySlug(SystemSlugType::IMPRINT);
-        $view = $this->view($source, 200)
+        if ($this->getUser()) {
+            $user = $this->getUser();
+        } else {
+            $user = new User();
+            $user->setSource($this->getDoctrine()
+                ->getRepository(AbstractSource::class)
+                ->findOneBy(['slug' => SystemSlugType::GUEST_USER]));
+        }
+        $requestedSource = new class() extends AbstractSource {
+        };
+        $requestedSource->setSlug(SystemSlugType::IMPRINT);
+        $requestedRight = new Right();
+        $requestedRight->setSource($requestedSource);
+        $requestedRight->setReciever($user->getSource());
+        $requestedRight->setLayer(LayerType::SOURCE);
+        $requestedRight->setType(RightType::READ);
+        $secureSourceLoader = new SecureSourceLoader($this->getDoctrine()->getManager(), $requestedRight);
+        $view = $this->view($secureSourceLoader->getSource(), 200)
         ->setTemplate('standard/imprint.html.twig')
         ->setTemplateVar('source');
 
