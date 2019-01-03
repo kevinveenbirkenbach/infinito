@@ -2,7 +2,7 @@
 
 namespace App\Exception;
 
-class NotProcessedException extends \Exception
+final class NotProcessedException extends \Exception
 {
     public function __construct($message = null)
     {

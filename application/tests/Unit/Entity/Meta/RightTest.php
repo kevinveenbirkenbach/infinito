@@ -8,7 +8,7 @@ use App\Entity\Meta\RightInterface;
 use App\Entity\Meta\Right;
 use App\Entity\Meta\Law;
 use App\DBAL\Types\LayerType;
-use App\Exception\NoValidChoice;
+use App\Exception\NoValidChoiceException;
 use App\Entity\Source\AbstractSource;
 
 /**
@@ -77,7 +77,7 @@ class RightTest extends TestCase
             $this->assertNull($this->right->setType($key));
             $this->assertEquals($key, $this->right->getType());
         }
-        $this->expectException(NoValidChoice::class);
+        $this->expectException(NoValidChoiceException::class);
         $this->right->setType('NoneValidType');
     }
 
@@ -87,7 +87,7 @@ class RightTest extends TestCase
             $this->assertNull($this->right->setLayer($key));
             $this->assertEquals($key, $this->right->getLayer());
         }
-        $this->expectException(NoValidChoice::class);
+        $this->expectException(NoValidChoiceException::class);
         $this->right->setLayer('NoneValidLayer');
     }
 

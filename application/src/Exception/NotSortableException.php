@@ -2,6 +2,6 @@
 
 namespace App\Exception;
 
-class NotSortableException extends \Exception
+final class NotSortableException extends \Exception
 {
 }

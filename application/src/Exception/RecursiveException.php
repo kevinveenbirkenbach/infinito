@@ -2,6 +2,6 @@
 
 namespace App\Exception;
 
-class RecursiveException extends \Exception
+final class RecursiveException extends \Exception
 {
 }
