@@ -13,6 +13,7 @@ use App\Entity\Meta\Right;
 use App\DBAL\Types\LayerType;
 use App\DBAL\Types\RightType;
 use App\Entity\Meta\RightInterface;
+use App\Domain\SourceManagement\SourceRightManager;
 
 /**
  * @author kevinfrantz
@@ -31,6 +32,11 @@ class SourceFixtures extends Fixture
      */
     private $guestUserSource;
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \Doctrine\Common\DataFixtures\FixtureInterface::load()
+     */
     public function load(ObjectManager $manager)
     {
         $this->setGuestUserSource();
@@ -56,8 +62,8 @@ class SourceFixtures extends Fixture
     private function getImpressumRight(): RightInterface
     {
         $right = new Right();
-        $right->setSource($this->impressumSource);
-        $right->setLaw($this->impressumSource->getLaw());
+        $sourceRightManager = new SourceRightManager($this->impressumSource);
+        $sourceRightManager->addRight($right);
         $right->setLayer(LayerType::SOURCE);
         $right->setType(RightType::READ);
         $right->setReciever($this->guestUserSource);
