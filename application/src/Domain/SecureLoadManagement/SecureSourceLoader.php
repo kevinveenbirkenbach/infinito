@@ -50,7 +50,7 @@ final class SecureSourceLoader implements SecureSourceLoaderInterface
         try {
             return $this->sourceRepository->find($this->requestedRight->getSource()->getId());
         } catch (\Error $error) {
-            return $this->sourceRepository->findOneBy(['slug' => $this->requestedRight->getSource()->getSlug()]);
+            return $this->sourceRepository->findOneBySlug($this->requestedRight->getSource()->getSlug());
         }
     }
 

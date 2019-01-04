@@ -67,7 +67,7 @@ class SecureSourceLoaderTest extends KernelTestCase
         $requestedRight->setSource($requestedSource);
         $requestedRight->setLayer(LayerType::SOURCE);
         $requestedRight->setType(RightType::READ);
-        $requestedRight->setReciever($this->sourceRepository->findOneBy(['slug' => SystemSlugType::GUEST_USER]));
+        $requestedRight->setReciever($this->sourceRepository->findOneBySlug(SystemSlugType::GUEST_USER));
         $secureSourceLoader = new SecureSourceLoader($this->entityManager, $requestedRight);
         $this->assertInstanceOf(TextSourceInterface::class, $secureSourceLoader->getSource());
     }

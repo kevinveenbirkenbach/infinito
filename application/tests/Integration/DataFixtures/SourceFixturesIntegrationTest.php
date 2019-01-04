@@ -24,14 +24,14 @@ class SourceFixturesIntegrationTest extends KernelTestCase
     public function testImpressumSource(): void
     {
         $sourceRepository = $this->entityManager->getRepository(AbstractSource::class);
-        $imprint = $sourceRepository->findOneBy(['slug' => SystemSlugType::IMPRINT]);
+        $imprint = $sourceRepository->findOneBySlug(SystemSlugType::IMPRINT);
         $this->assertInternalType('string', $imprint->getText());
     }
 
     public function testGuestUserSource(): void
     {
         $sourceRepository = $this->entityManager->getRepository(AbstractSource::class);
-        $userSource = $sourceRepository->findOneBy(['slug' => SystemSlugType::GUEST_USER]);
+        $userSource = $sourceRepository->findOneBySlug(SystemSlugType::GUEST_USER);
         $this->assertInstanceOf(UserSourceInterface::class, $userSource);
     }
 }

@@ -23,9 +23,11 @@ use App\Entity\Meta\Relation\Member\MemberRelationInterface;
  *
  * For the members\memberships attribut checkout:
  *
+ * @todo Move parts of discriminator map to subclasses
+ *
  * @see http://www.inanzzz.com/index.php/post/h0jt/bidirectional-many-to-many-cascade-remove-and-orphan-removal-operations-in-doctrine
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\Source\SourceRepository")
  * @ORM\Table(name="source")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
@@ -54,6 +56,10 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
      *
      * @ORM\Column(type="string",length=30,nullable=true,unique=true)
      * @Assert\Regex(pattern="/^[a-z]+$/")
+     *
+     * @todo Check out if a plugin can solve this purpose;
+     *
+     * @see https://github.com/Atlantic18/DoctrineExtensions/blob/master/doc/sluggable.md
      *
      * @var string
      */

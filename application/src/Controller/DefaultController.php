@@ -31,7 +31,7 @@ class DefaultController extends AbstractEntityController
             $user = new User();
             $user->setSource($this->getDoctrine()
                 ->getRepository(AbstractSource::class)
-                ->findOneBy(['slug' => SystemSlugType::GUEST_USER]));
+                ->findOneBySlug(SystemSlugType::GUEST_USER));
         }
         $requestedSource = new class() extends AbstractSource {
         };
