@@ -6,11 +6,12 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use App\DBAL\Types\SystemSlugType;
 use App\Entity\Source\AbstractSource;
-use App\Entity\User;
 use App\Domain\SecureLoadManagement\SecureSourceLoader;
 use App\Entity\Meta\Right;
 use App\DBAL\Types\LayerType;
 use App\DBAL\Types\RightType;
+use App\Domain\UserManagement\UserIdentityManager;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * This controller offers the standart routes for the template.
@@ -23,16 +24,10 @@ class DefaultController extends AbstractEntityController
      * @todo Optimize function!
      * @Route("/imprint", name="imprint")
      */
-    public function imprint(): Response
+    public function imprint(EntityManagerInterface $entityManager): Response
     {
-        if ($this->getUser()) {
-            $user = $this->getUser();
-        } else {
-            $user = new User();
-            $user->setSource($this->getDoctrine()
-                ->getRepository(AbstractSource::class)
-                ->findOneBySlug(SystemSlugType::GUEST_USER));
-        }
+        $userIdentityManager = new UserIdentityManager($entityManager, $this->getUser());
+        $user = $userIdentityManager->getUser();
         $requestedSource = new class() extends AbstractSource {
         };
         $requestedSource->setSlug(SystemSlugType::IMPRINT);
