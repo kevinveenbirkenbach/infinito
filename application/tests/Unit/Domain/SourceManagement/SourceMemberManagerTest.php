@@ -5,8 +5,8 @@ namespace Tests\Unit\Domain\SourceManagement;
 use PHPUnit\Framework\TestCase;
 use App\Entity\Source\SourceInterface;
 use App\Domain\SourceManagement\SourceMemberManagerInterface;
-use App\Entity\Source\AbstractSource;
 use App\Domain\SourceManagement\SourceMemberManager;
+use App\Entity\Source\PureSource;
 
 class SourceMemberManagerTest extends TestCase
 {
@@ -20,21 +20,15 @@ class SourceMemberManagerTest extends TestCase
      */
     private $sourceMemberManager;
 
-    private function createSource(): SourceInterface
-    {
-        return new class() extends AbstractSource {
-        };
-    }
-
     public function setUp(): void
     {
-        $this->source = $this->createSource();
+        $this->source = new PureSource();
         $this->sourceMemberManager = new SourceMemberManager($this->source);
     }
 
     public function testAddAndRemoveMember(): void
     {
-        $member = $this->createSource();
+        $member = new PureSource();
         $this->assertNull($this->sourceMemberManager->addMember($member));
         $this->assertEquals($member, $this->source->getMemberRelation()->getMembers()->get(0)->getSource());
         $this->assertEquals($this->source, $member->getMemberRelation()->getMemberships()->get(0)->getSource());
@@ -45,7 +39,7 @@ class SourceMemberManagerTest extends TestCase
 
     public function testAddAndRemoveMembership(): void
     {
-        $membership = $this->createSource();
+        $membership = new PureSource();
         $this->assertNull($this->sourceMemberManager->addMembership($membership));
         $this->assertEquals($membership, $this->source->getMemberRelation()->getMemberships()->get(0)->getSource());
         $this->assertEquals($this->source, $membership->getMemberRelation()->getMembers()->get(0)->getSource());

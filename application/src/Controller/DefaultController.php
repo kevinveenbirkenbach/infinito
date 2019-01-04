@@ -12,6 +12,7 @@ use App\DBAL\Types\LayerType;
 use App\DBAL\Types\RightType;
 use App\Domain\UserManagement\UserIdentityManager;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Source\PureSource;
 
 /**
  * This controller offers the standart routes for the template.
@@ -28,8 +29,7 @@ final class DefaultController extends AbstractEntityController
     {
         $userIdentityManager = new UserIdentityManager($entityManager, $this->getUser());
         $user = $userIdentityManager->getUser();
-        $requestedSource = new class() extends AbstractSource {
-        };
+        $requestedSource = new PureSource();
         $requestedSource->setSlug(SystemSlugType::IMPRINT);
         $requestedRight = new Right();
         $requestedRight->setSource($requestedSource);

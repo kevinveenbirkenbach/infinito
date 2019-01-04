@@ -5,7 +5,6 @@ namespace Unit\Domain\SourceManagement;
 use PHPUnit\Framework\TestCase;
 use App\Entity\Source\SourceInterface;
 use App\Domain\SourceManagement\SourceRightManagerInterface;
-use App\Entity\Source\AbstractSource;
 use App\Domain\SourceManagement\SourceRightManager;
 use App\Entity\Meta\RightInterface;
 use App\Entity\Meta\Right;
@@ -13,6 +12,7 @@ use App\Entity\Meta\Law;
 use App\Exception\AllreadySetException;
 use App\Exception\NotSetException;
 use App\Exception\AllreadyDefinedException;
+use App\Entity\Source\PureSource;
 
 class SourceRightManagerTest extends TestCase
 {
@@ -31,15 +31,9 @@ class SourceRightManagerTest extends TestCase
      */
     private $right;
 
-    private function createSourceMock()
-    {
-        return new class() extends AbstractSource {
-        };
-    }
-
     public function setUp(): void
     {
-        $this->source = $this->createSourceMock();
+        $this->source = new PureSource();
         $this->sourceRightManager = new SourceRightManager($this->source);
         $this->right = new Right();
     }
@@ -53,7 +47,7 @@ class SourceRightManagerTest extends TestCase
 
     public function testSourceException(): void
     {
-        $this->right->setSource($this->createSourceMock());
+        $this->right->setSource(new PureSource());
         $this->expectException(AllreadyDefinedException::class);
         $this->sourceRightManager->addRight($this->right);
     }

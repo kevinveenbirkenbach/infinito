@@ -6,11 +6,11 @@ use PHPUnit\Framework\TestCase;
 use App\Entity\Meta\RightInterface;
 use App\Entity\Meta\Right;
 use App\Entity\Source\SourceInterface;
-use App\Entity\Source\AbstractSource;
 use App\DBAL\Types\LayerType;
 use App\Domain\RightManagement\RightCheckerInterface;
 use App\Domain\RightManagement\RightChecker;
 use App\DBAL\Types\RightType;
+use App\Entity\Source\PureSource;
 
 class RightCheckerTest extends TestCase
 {
@@ -39,17 +39,11 @@ class RightCheckerTest extends TestCase
      */
     private $rightManager;
 
-    private function getSourceMock(): SourceInterface
-    {
-        return new class() extends AbstractSource {
-        };
-    }
-
     public function setUp(): void
     {
         $this->layer = LayerType::RELATION;
         $this->type = RightType::READ;
-        $this->source = $this->getSourceMock();
+        $this->source = new PureSource();
         $this->right = new Right();
         $this->right->setReciever($this->source);
         $this->right->setType($this->type);
@@ -68,13 +62,13 @@ class RightCheckerTest extends TestCase
         $this->right->setGrant(false);
         $notGranted3 = $this->rightManager->isGranted($this->layer, $this->type, $this->source);
         $this->assertFalse($notGranted3);
-        $notGranted4 = $this->rightManager->isGranted($this->layer, $this->type, $this->getSourceMock());
+        $notGranted4 = $this->rightManager->isGranted($this->layer, $this->type, new PureSource());
         $this->assertFalse($notGranted4);
     }
 
     public function testSecondDimension(): void
     {
-        $secondSource = $this->getSourceMock();
+        $secondSource = new PureSource();
         $this->source->getMemberRelation()->getMembers()->add($secondSource->getMemberRelation());
         $granted = $this->rightManager->isGranted($this->layer, $this->type, $secondSource);
         $this->assertTrue($granted);
@@ -89,8 +83,8 @@ class RightCheckerTest extends TestCase
 
     public function testThirdDimension(): void
     {
-        $thirdSource = $this->getSourceMock();
-        $secondSource = $this->getSourceMock();
+        $thirdSource = new PureSource();
+        $secondSource = new PureSource();
         $secondSource->getMemberRelation()->getMembers()->add($thirdSource->getMemberRelation());
         $this->source->getMemberRelation()->getMembers()->add($secondSource->getMemberRelation());
         $granted = $this->rightManager->isGranted($this->layer, $this->type, $thirdSource);

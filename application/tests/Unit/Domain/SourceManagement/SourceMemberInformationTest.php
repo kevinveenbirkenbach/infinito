@@ -11,7 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Source\Complex\FullPersonNameSource;
 use App\Domain\SourceManagement\SourceMemberInformation;
 use App\Domain\SourceManagement\SourceMemberInformationInterface;
-use App\Entity\Source\AbstractSource;
+use App\Entity\Source\PureSource;
 
 class SourceMemberInformationTest extends TestCase
 {
@@ -24,12 +24,6 @@ class SourceMemberInformationTest extends TestCase
      * @var SourceMemberInformationInterface
      */
     private $sourceMemberInformation;
-
-    private function createSourceMock(): SourceInterface
-    {
-        return new class() extends AbstractSource {
-        };
-    }
 
     public function setUp(): void
     {
@@ -75,7 +69,7 @@ class SourceMemberInformationTest extends TestCase
     public function testError(): void
     {
         $this->expectException(\Error::class);
-        $this->source->getMemberRelation()->getMembers()->add($this->createSourceMock());
+        $this->source->getMemberRelation()->getMembers()->add(new PureSource());
         $this->sourceMemberInformation->getAllMembers();
     }
 }

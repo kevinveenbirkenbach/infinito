@@ -5,9 +5,9 @@ namespace Tests\Unit\Entity\Source\Complex\Collection;
 use PHPUnit\Framework\TestCase;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\Source\AbstractSource;
 use App\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
 use App\Entity\Source\Complex\Collection\TreeCollectionSource;
+use App\Entity\Source\PureSource;
 
 /**
  * @author kevinfrantz
@@ -32,8 +32,7 @@ class TreeCollectionSourceTest extends TestCase
 
     public function testAccessors()
     {
-        $member = new class() extends AbstractSource {
-        };
+        $member = new PureSource();
         $this->tree->setCollection(new ArrayCollection([
             $member,
         ]));

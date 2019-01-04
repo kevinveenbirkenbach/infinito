@@ -8,6 +8,9 @@ use App\Entity\Source\PureSource;
 use App\Entity\Source\AbstractSource;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @author kevinfrantz
+ */
 class PureSourceTest extends TestCase
 {
     /**

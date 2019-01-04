@@ -6,7 +6,6 @@ use PHPUnit\Framework\TestCase;
 use App\Domain\LawManagement\LawPermissionCheckerService;
 use App\Domain\LawManagement\LawPermissionCheckerServiceInterface;
 use App\Entity\Source\SourceInterface;
-use App\Entity\Source\AbstractSource;
 use App\Entity\Meta\Right;
 use App\DBAL\Types\LayerType;
 use App\DBAL\Types\RightType;
@@ -15,6 +14,7 @@ use App\Entity\Meta\LawInterface;
 use App\Entity\Meta\RightInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Domain\SourceManagement\SourceMemberManager;
+use App\Entity\Source\PureSource;
 
 /**
  * @author kevinfrantz
@@ -46,12 +46,6 @@ class LawPermissionCheckerTest extends TestCase
      */
     private $source;
 
-    private function getSourceMock(): SourceInterface
-    {
-        return new class() extends AbstractSource {
-        };
-    }
-
     private function checkClientPermission(): bool
     {
         return $this->lawPermissionChecker->hasPermission($this->clientRight);
@@ -79,13 +73,13 @@ class LawPermissionCheckerTest extends TestCase
 
     private function setSourceDummy(): void
     {
-        $this->source = $this->getSourceMock();
+        $this->source = new PureSource();
         $this->source->setSlug('Requested Source');
     }
 
     private function setClientSourceDummy(): void
     {
-        $this->clientSource = $this->getSourceMock();
+        $this->clientSource = new PureSource();
         $this->clientSource->setSlug('Client Source');
     }
 
@@ -119,7 +113,7 @@ class LawPermissionCheckerTest extends TestCase
 
     public function testChildMemberPermission(): void
     {
-        $parentSource = $this->getSourceMock();
+        $parentSource = new PureSource();
         $parentSource->setSlug('Parent Source');
         $parentSourceMemberManager = new SourceMemberManager($parentSource);
         $parentSourceMemberManager->addMember($this->clientSource);
@@ -190,7 +184,7 @@ class LawPermissionCheckerTest extends TestCase
         $right1 = $this->getClonedClientRight();
         $right1->setPriority(123);
         $right1->setGrant(false);
-        $right1->setReciever($this->getSourceMock());
+        $right1->setReciever(new PureSource());
         $right1->getReciever()->setSlug('Rigth1 Reciever');
         $right2 = $this->getClonedClientRight();
         $right2->setPriority(456);

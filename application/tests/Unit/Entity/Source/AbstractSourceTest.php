@@ -6,9 +6,9 @@ use PHPUnit\Framework\TestCase;
 use App\Entity\Source\SourceInterface;
 use App\Entity\Meta\LawInterface;
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Source\AbstractSource;
 use App\Entity\EntityInterface;
 use App\Entity\Meta\Relation\Parent\CreatorRelationInterface;
+use App\Entity\Source\PureSource;
 
 /**
  * @author kevinfrantz
@@ -20,15 +20,9 @@ class AbstractSourceTest extends TestCase
      */
     protected $source;
 
-    private function getSourceDummy(): SourceInterface
-    {
-        return new class() extends AbstractSource {
-        };
-    }
-
     public function setUp()
     {
-        $this->source = $this->getSourceDummy();
+        $this->source = new PureSource();
     }
 
     public function testConstructor(): void
