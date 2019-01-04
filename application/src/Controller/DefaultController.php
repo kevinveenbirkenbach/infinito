@@ -18,7 +18,7 @@ use Doctrine\ORM\EntityManagerInterface;
  *
  * @author kevinfrantz
  */
-class DefaultController extends AbstractEntityController
+final class DefaultController extends AbstractEntityController
 {
     /**
      * @todo Optimize function!

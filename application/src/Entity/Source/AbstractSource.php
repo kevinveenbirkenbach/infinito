@@ -32,6 +32,7 @@ use App\Entity\Meta\Relation\Member\MemberRelationInterface;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap({
+ * "pure" = "PureSource",
  * "text" = "App\Entity\Source\Primitive\Text\TextSource",
  * "operation"="App\Entity\Source\Operation\AbstractOperation",
  * "user" = "App\Entity\Source\Complex\UserSource",
