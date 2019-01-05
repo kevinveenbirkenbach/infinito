@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Integration;
+namespace Tests\Integration\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,7 +27,7 @@ class UrlIntegrationTest extends KernelTestCase
         }
     }
 
-    private function parameterlesGetRouteTest(string $url, int $status)
+    private function parameterlesGetRouteTest(string $url, int $status): void
     {
         $request = new Request([], [], [], [], [], ['REQUEST_URI' => $url, null]);
         $request->setMethod(Request::METHOD_GET);
