@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Controller\API\AbstractAPIController;
+use App\Entity\Source\PureSource;
 
 /**
  * @author kevinfrantz
@@ -28,7 +29,7 @@ class SourceApiController extends AbstractAPIController
     /**
      * @Route("/{_locale}/api/source.{_format}",
      * defaults={"_format"="json"} ,
-     * methods={"POST"}
+     * methods={"POST","GET"}
      * )
      * {@inheritdoc}
      *
@@ -36,6 +37,27 @@ class SourceApiController extends AbstractAPIController
      */
     public function create(Request $request): Response
     {
+        if (Request::METHOD_POST === $request->getMethod()) {
+            $response = new Response();
+            $response->setContent('Post Request!');
+
+            return $response;
+        }
+
+        $response = new Response();
+        $response->setContent('GET Request!');
+
+        return $response;
+
+        $requestedSource = new PureSource();
+        $requestedSource->setSlug(SystemSlugType::IMPRINT);
+        $requestedRight = new Right();
+        $requestedRight->setSource($requestedSource);
+        $requestedRight->setLayer(LayerType::SOURCE);
+        $requestedRight->setType(CRUDType::READ);
+        $sourceResponseManager = new SourceRESTResponseManager($this->getUser(), $entityManager, $requestedRight, $this->getViewHandler());
+
+        return $sourceResponseManager->getResponse();
     }
 
     /**

@@ -2,11 +2,11 @@
 
 namespace App\Controller\API;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use App\Controller\AbstractController;
 
 /**
  * @author kevinfrantz
  */
-abstract class AbstractAPIController extends Controller implements APIControllerInterface
+abstract class AbstractAPIController extends AbstractController implements APIControllerInterface
 {
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Integration\Controller\API;
+namespace Tests\Integration\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use App\DBAL\Types\LanguageType;
@@ -13,14 +13,14 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @todo Implement more tests for success etc.
  */
-class ApiUrlReachableIntegrationTest extends KernelTestCase
+class RoutesReachableIntegrationTest extends KernelTestCase
 {
     public function setUp(): void
     {
         self::bootKernel();
     }
 
-    public function testAllAPIRoutePossibilities()
+    public function testAllRoutePossibilities()
     {
         foreach (LayerType::getChoices() as $layer => $layerDescription) {
             $this->controller($layer);
@@ -52,8 +52,9 @@ class ApiUrlReachableIntegrationTest extends KernelTestCase
     private function language(string $entity, string $method): void
     {
         //$this->type('api/'.$entity, $method);
-        foreach (LanguageType::getChoices() as $language => $value) {
+        foreach (LanguageType::getChoices() as $language) {
             $this->type("$language/api/$entity", $method);
+            $this->type("$language/html/$entity", $method);
         }
     }
 

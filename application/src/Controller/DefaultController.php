@@ -18,7 +18,7 @@ use App\Domain\ResponseManagement\SourceRESTResponseManager;
  *
  * @author kevinfrantz
  */
-final class DefaultController extends AbstractEntityController
+final class DefaultController extends AbstractController
 {
     /**
      * @todo Optimize function!

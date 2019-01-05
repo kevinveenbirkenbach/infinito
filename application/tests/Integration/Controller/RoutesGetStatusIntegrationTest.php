@@ -5,7 +5,10 @@ namespace Tests\Integration\Controller;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\Request;
 
-class UrlIntegrationTest extends KernelTestCase
+/**
+ * @author kevinfrantz
+ */
+class RoutesGetStatusIntegrationTest extends KernelTestCase
 {
     const GET_URLS_STATUS = [
         'login' => 200,
@@ -13,6 +16,7 @@ class UrlIntegrationTest extends KernelTestCase
         'register' => 301,
         'logout' => 302,
         'profile/edit' => 302,
+        'spa' => 200,
     ];
 
     public function setUp(): void
