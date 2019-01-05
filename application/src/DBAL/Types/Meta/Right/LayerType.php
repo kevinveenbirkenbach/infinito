@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DBAL\Types;
+namespace App\DBAL\Types\Meta;
 
 use Fresh\DoctrineEnumBundle\DBAL\Types\AbstractEnumType;
 
@@ -14,6 +14,8 @@ final class LayerType extends AbstractEnumType
     public const SOURCE = 'source';
 
     public const LAW = 'law';
+
+    public const MEMBER = 'member';
 
     protected static $choices = [
         self::RELATION => 'relation',

@@ -8,6 +8,8 @@ use Fresh\DoctrineEnumBundle\DBAL\Types\AbstractEnumType;
  * Not integrated in the db. Just used for mapping.
  * May it will be helpfull for tracking ;).
  *
+ * @deprecated this class doesn't make sense here. Find an other place for it
+ *
  * @author kevinfrantz
  */
 final class MenuEventType extends AbstractEnumType

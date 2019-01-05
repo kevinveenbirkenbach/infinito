@@ -8,6 +8,10 @@ use Fresh\DoctrineEnumBundle\DBAL\Types\AbstractEnumType;
  * Containes the system slugs.
  *
  * @author kevinfrantz
+ *
+ * @todo Organize this somehow on an other way
+ *
+ * @deprecated
  */
 final class SystemSlugType extends AbstractEnumType
 {
