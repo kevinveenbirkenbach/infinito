@@ -10,8 +10,8 @@ use App\Domain\SecureLoadManagement\SecureSourceLoader;
 use App\Entity\Source\Primitive\Text\TextSource;
 use App\DBAL\Types\SystemSlugType;
 use App\Entity\Meta\Right;
-use App\DBAL\Types\LayerType;
-use App\DBAL\Types\RightType;
+use App\DBAL\Types\Meta\Right\LayerType;
+use App\DBAL\Types\Meta\Right\CRUDType;
 use App\Entity\Source\Complex\UserSource;
 use App\Entity\Source\Primitive\Text\TextSourceInterface;
 use Doctrine\ORM\EntityManagerInterface;
@@ -52,7 +52,7 @@ class SecureSourceLoaderTest extends KernelTestCase
         $requestedRight = new Right();
         $requestedRight->setSource($requestedSource);
         $requestedRight->setLayer(LayerType::SOURCE);
-        $requestedRight->setType(RightType::READ);
+        $requestedRight->setType(CRUDType::READ);
         $requestedRight->setReciever(new UserSource());
         $secureSourceLoader = new SecureSourceLoader($this->entityManager, $requestedRight);
         $this->expectException(AccessDeniedHttpException::class);
@@ -66,7 +66,7 @@ class SecureSourceLoaderTest extends KernelTestCase
         $requestedRight = new Right();
         $requestedRight->setSource($requestedSource);
         $requestedRight->setLayer(LayerType::SOURCE);
-        $requestedRight->setType(RightType::READ);
+        $requestedRight->setType(CRUDType::READ);
         $requestedRight->setReciever($this->sourceRepository->findOneBySlug(SystemSlugType::GUEST_USER));
         $secureSourceLoader = new SecureSourceLoader($this->entityManager, $requestedRight);
         $this->assertInstanceOf(TextSourceInterface::class, $secureSourceLoader->getSource());

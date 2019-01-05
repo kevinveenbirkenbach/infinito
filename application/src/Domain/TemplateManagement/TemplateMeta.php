@@ -2,7 +2,7 @@
 
 namespace App\Domain\TemplateManagement;
 
-use App\DBAL\Types\TemplateType;
+use App\DBAL\Types\RESTResponseType;
 
 /**
  * @author kevinfrantz
@@ -22,7 +22,7 @@ final class TemplateMeta implements TemplateMetaInterface
     /**
      * @var string
      */
-    private $type = TemplateType::HTML;
+    private $type = RESTResponseType::HTML;
 
     /**
      * @var string

@@ -5,7 +5,7 @@ namespace Tests\Integration\Controller\API;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\BrowserKit\Request;
 use App\DBAL\Types\LanguageType;
-use App\DBAL\Types\Meta\LayerType;
+use App\DBAL\Types\Meta\Right\LayerType;
 use App\DBAL\Types\RESTResponseType;
 
 /**

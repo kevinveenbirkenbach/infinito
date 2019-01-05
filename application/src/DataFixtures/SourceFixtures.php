@@ -10,8 +10,8 @@ use App\DBAL\Types\SystemSlugType;
 use App\Entity\Source\Complex\UserSource;
 use App\Entity\Source\Complex\UserSourceInterface;
 use App\Entity\Meta\Right;
-use App\DBAL\Types\LayerType;
-use App\DBAL\Types\RightType;
+use App\DBAL\Types\Meta\Right\LayerType;
+use App\DBAL\Types\Meta\Right\CRUDType;
 use App\Entity\Meta\RightInterface;
 use App\Domain\SourceManagement\SourceRightManager;
 
@@ -65,7 +65,7 @@ class SourceFixtures extends Fixture
         $sourceRightManager = new SourceRightManager($this->impressumSource);
         $sourceRightManager->addRight($right);
         $right->setLayer(LayerType::SOURCE);
-        $right->setType(RightType::READ);
+        $right->setType(CRUDType::READ);
         $right->setReciever($this->guestUserSource);
 
         return $right;

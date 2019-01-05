@@ -5,7 +5,7 @@ namespace Tests\Unit\Entity\Attribut;
 use PHPUnit\Framework\TestCase;
 use App\Entity\Attribut\LayerAttributInterface;
 use App\Entity\Attribut\LayerAttribut;
-use App\DBAL\Types\LayerType;
+use App\DBAL\Types\Meta\Right\LayerType;
 
 class LayerAttributTest extends TestCase
 {

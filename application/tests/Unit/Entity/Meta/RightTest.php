@@ -3,11 +3,11 @@
 namespace tests\unit\Entity;
 
 use PHPUnit\Framework\TestCase;
-use App\DBAL\Types\RightType;
+use App\DBAL\Types\Meta\Right\CRUDType;
 use App\Entity\Meta\RightInterface;
 use App\Entity\Meta\Right;
 use App\Entity\Meta\Law;
-use App\DBAL\Types\LayerType;
+use App\DBAL\Types\Meta\Right\LayerType;
 use App\Exception\NoValidChoiceException;
 use App\Entity\Source\AbstractSource;
 
@@ -73,7 +73,7 @@ class RightTest extends TestCase
 
     public function testRight(): void
     {
-        foreach (RightType::getChoices() as $key => $value) {
+        foreach (CRUDType::getChoices() as $key => $value) {
             $this->assertNull($this->right->setType($key));
             $this->assertEquals($key, $this->right->getType());
         }
@@ -99,7 +99,7 @@ class RightTest extends TestCase
         $source = $this->createMock(AbstractSource::class);
         $reciever = $this->createMock(AbstractSource::class);
         $grant = false;
-        $type = RightType::READ;
+        $type = CRUDType::READ;
         $layer = LayerType::SOURCE;
         $this->right->setSource($source);
         $this->right->setReciever($reciever);

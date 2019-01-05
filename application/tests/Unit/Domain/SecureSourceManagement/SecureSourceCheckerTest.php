@@ -8,8 +8,8 @@ use App\Domain\SecureManagement\SecureSourceCheckerInterface;
 use App\Entity\Source\AbstractSource;
 use App\Domain\SecureManagement\SecureSourceChecker;
 use App\Entity\Meta\Right;
-use App\DBAL\Types\LayerType;
-use App\DBAL\Types\RightType;
+use App\DBAL\Types\Meta\Right\LayerType;
+use App\DBAL\Types\Meta\Right\CRUDType;
 use App\Entity\Attribut\SourceAttribut;
 use App\Entity\Attribut\SourceAttributInterface;
 use App\Exception\SourceAccessDenied;
@@ -52,13 +52,13 @@ class SecureSourceCheckerTest extends TestCase
     {
         $right = new Right();
         $right->setLayer(LayerType::SOURCE);
-        $right->setType(RightType::WRITE);
+        $right->setType(CRUDType::UPDATE);
         $right->setReciever($this->recieverSource);
         $right->setSource($this->source);
         $this->source->getLaw()->getRights()->add($right);
         $requestedRight = clone $right;
         $this->assertTrue($this->securerSourceChecker->hasPermission($requestedRight));
-        $requestedRight->setType(RightType::READ);
+        $requestedRight->setType(CRUDType::READ);
         $this->assertFalse($this->securerSourceChecker->hasPermission($requestedRight));
     }
 
@@ -66,7 +66,7 @@ class SecureSourceCheckerTest extends TestCase
     {
         $right = new Right();
         $right->setLayer(LayerType::SOURCE);
-        $right->setType(RightType::WRITE);
+        $right->setType(CRUDType::UPDATE);
         $right->setReciever($this->recieverSource);
         $right->setSource($this->source);
         $this->source->getLaw()->getRights()->add($right);
@@ -76,7 +76,7 @@ class SecureSourceCheckerTest extends TestCase
         $this->source->setSource($attributSource);
         $requestedRight = clone $right;
         $this->assertTrue($this->securerSourceChecker->hasPermission($requestedRight));
-        $childRight->setType(RightType::READ);
+        $childRight->setType(CRUDType::READ);
         $this->expectException(SourceAccessDenied::class);
         $this->securerSourceChecker->hasPermission($requestedRight);
     }
@@ -85,7 +85,7 @@ class SecureSourceCheckerTest extends TestCase
     {
         $right = new Right();
         $right->setLayer(LayerType::SOURCE);
-        $right->setType(RightType::WRITE);
+        $right->setType(CRUDType::UPDATE);
         $right->setReciever($this->recieverSource);
         $right->setSource($this->source);
         $this->source->getLaw()->getRights()->add($right);
@@ -98,7 +98,7 @@ class SecureSourceCheckerTest extends TestCase
         $attribut1Source->setSource($attribut2Source);
         $requestedRight = clone $right;
         $this->assertTrue($this->securerSourceChecker->hasPermission($requestedRight));
-        $childRight->setType(RightType::READ);
+        $childRight->setType(CRUDType::READ);
         $this->expectException(SourceAccessDenied::class);
         $this->securerSourceChecker->hasPermission($requestedRight);
     }

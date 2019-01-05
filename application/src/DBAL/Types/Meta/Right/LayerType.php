@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DBAL\Types\Meta;
+namespace App\DBAL\Types\Meta\Right;
 
 use Fresh\DoctrineEnumBundle\DBAL\Types\AbstractEnumType;
 

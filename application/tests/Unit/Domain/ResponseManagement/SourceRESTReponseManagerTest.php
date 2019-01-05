@@ -9,8 +9,8 @@ use App\Entity\Meta\Right;
 use FOS\RestBundle\View\ViewHandlerInterface;
 use App\Entity\Source\PureSource;
 use App\DBAL\Types\SystemSlugType;
-use App\DBAL\Types\LayerType;
-use App\DBAL\Types\RightType;
+use App\DBAL\Types\Meta\Right\LayerType;
+use App\DBAL\Types\Meta\Right\CRUDType;
 use App\Domain\ResponseManagement\SourceRESTResponseManager;
 use App\Exception\AllreadyDefinedException;
 
@@ -67,7 +67,7 @@ class SourceRESTReponseManagerTest extends KernelTestCase
         $requestedRight->setSource($requestedSource);
         $requestedRight->setReciever(new PureSource());
         $requestedRight->setLayer(LayerType::SOURCE);
-        $requestedRight->setType(RightType::READ);
+        $requestedRight->setType(CRUDType::READ);
         $this->expectException(AllreadyDefinedException::class);
         $sourceResponseManager = new SourceRESTResponseManager(null, $this->entityManager, $requestedRight, $this->viewHandler);
         $sourceResponseManager->getResponse();

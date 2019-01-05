@@ -7,8 +7,8 @@ use App\Domain\LawManagement\LawPermissionCheckerService;
 use App\Domain\LawManagement\LawPermissionCheckerServiceInterface;
 use App\Entity\Source\SourceInterface;
 use App\Entity\Meta\Right;
-use App\DBAL\Types\LayerType;
-use App\DBAL\Types\RightType;
+use App\DBAL\Types\Meta\Right\LayerType;
+use App\DBAL\Types\Meta\Right\CRUDType;
 use App\Entity\Meta\Law;
 use App\Entity\Meta\LawInterface;
 use App\Entity\Meta\RightInterface;
@@ -87,7 +87,7 @@ class LawPermissionCheckerTest extends TestCase
     {
         $this->clientRight = new Right();
         $this->clientRight->setLayer(LayerType::SOURCE);
-        $this->clientRight->setType(RightType::READ);
+        $this->clientRight->setType(CRUDType::READ);
         $this->clientRight->setReciever($this->clientSource);
         $this->clientRight->setSource($this->source);
     }
@@ -107,7 +107,7 @@ class LawPermissionCheckerTest extends TestCase
     {
         $this->law->getRights()->add($this->getClonedClientRight());
         $this->assertTrue($this->checkClientPermission());
-        $this->clientRight->setType(RightType::WRITE);
+        $this->clientRight->setType(CRUDType::UPDATE);
         $this->assertFalse($this->checkClientPermission());
     }
 
@@ -142,10 +142,10 @@ class LawPermissionCheckerTest extends TestCase
     public function testGetRightsByType(): void
     {
         $right = $this->getClonedClientRight();
-        $right->setType(RightType::WRITE);
+        $right->setType(CRUDType::UPDATE);
         $this->law->getRights()->add($right);
         $this->assertFalse($this->checkClientPermission());
-        $right->setType(RightType::READ);
+        $right->setType(CRUDType::READ);
         $this->assertTrue($this->checkClientPermission());
     }
 

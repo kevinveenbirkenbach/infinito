@@ -7,8 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use App\DBAL\Types\SystemSlugType;
 use App\Entity\Source\AbstractSource;
 use App\Entity\Meta\Right;
-use App\DBAL\Types\LayerType;
-use App\DBAL\Types\RightType;
+use App\DBAL\Types\Meta\Right\LayerType;
+use App\DBAL\Types\Meta\Right\CRUDType;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Source\PureSource;
 use App\Domain\ResponseManagement\SourceRESTResponseManager;
@@ -31,7 +31,7 @@ final class DefaultController extends AbstractEntityController
         $requestedRight = new Right();
         $requestedRight->setSource($requestedSource);
         $requestedRight->setLayer(LayerType::SOURCE);
-        $requestedRight->setType(RightType::READ);
+        $requestedRight->setType(CRUDType::READ);
         $sourceResponseManager = new SourceRESTResponseManager($this->getUser(), $entityManager, $requestedRight, $this->getViewHandler());
 
         return $sourceResponseManager->getResponse();

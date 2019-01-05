@@ -6,8 +6,7 @@ use App\Entity\Attribut\TypeAttribut;
 use Doctrine\ORM\Mapping as ORM;
 use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
 use App\Entity\Attribut\LawAttribut;
-use App\DBAL\Types\LayerType;
-use App\DBAL\Types\RightType;
+use App\DBAL\Types\Meta\Right\LayerType;
 use App\Entity\Attribut\GrantAttribut;
 use App\Logic\Operation\OperationInterface;
 use App\Entity\Attribut\ConditionAttribut;
@@ -17,6 +16,7 @@ use App\Entity\Attribut\RelationAttribut;
 use App\Entity\Attribut\PriorityAttribut;
 use App\Entity\Source\SourceInterface;
 use App\Exception\NoValidChoiceException;
+use App\DBAL\Types\Meta\Right\CRUDType;
 
 /**
  * @author kevinfrantz
@@ -52,7 +52,7 @@ class Right extends AbstractMeta implements RightInterface
 
     /**
      * @ORM\Column(name="layer", type="LayerType", nullable=false)
-     * @DoctrineAssert\Enum(entity="App\DBAL\Types\LayerType")
+     * @DoctrineAssert\Enum(entity="App\DBAL\Types\Meta\Right\LayerType")
      *
      * @var string
      */
@@ -75,8 +75,8 @@ class Right extends AbstractMeta implements RightInterface
     protected $grant;
 
     /**
-     * @ORM\Column(name="type", type="RightType", nullable=false)
-     * @DoctrineAssert\Enum(entity="App\DBAL\Types\RightType")
+     * @ORM\Column(name="type", type="CRUDType", nullable=false)
+     * @DoctrineAssert\Enum(entity="App\DBAL\Types\Meta\Right\CRUDType")
      *
      * @var string
      */
@@ -99,7 +99,7 @@ class Right extends AbstractMeta implements RightInterface
 
     public function setType(string $type): void
     {
-        if (!array_key_exists($type, RightType::getChoices())) {
+        if (!array_key_exists($type, CRUDType::getChoices())) {
             throw new NoValidChoiceException();
         }
         $this->type = $type;

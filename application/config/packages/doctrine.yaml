@@ -16,8 +16,8 @@ doctrine:
             collate: utf8mb4_unicode_ci
         url: '%env(resolve:DATABASE_URL)%'
         types:
-            RightType: App\DBAL\Types\RightType
-            LayerType: App\DBAL\Types\LayerType
+            CRUDType: App\DBAL\Types\Meta\Right\CRUDType
+            LayerType: App\DBAL\Types\Meta\Right\LayerType
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
