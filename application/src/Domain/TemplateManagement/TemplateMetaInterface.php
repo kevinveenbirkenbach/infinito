@@ -5,6 +5,8 @@ namespace App\Domain\TemplateManagement;
 /**
  * Manages all informations which are needed to process templates.
  *
+ * @deprecated
+ *
  * @author kevinfrantz
  */
 interface TemplateMetaInterface

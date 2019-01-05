@@ -9,6 +9,8 @@ use App\Domain\FormManagement\FormMetaInterface;
 /**
  * A meta source offers informations, which the system needs to handle the source.
  *
+ * @deprecated
+ *
  * @author kevinfrantz
  */
 interface SourceMetaInterface

@@ -11,7 +11,7 @@ use App\Domain\FormManagement\FormMeta;
 /**
  * @author kevinfrantz
  */
-class SourceMeta implements SourceMetaInterface
+final class SourceMeta implements SourceMetaInterface
 {
     const FOLDER = 'entity';
 

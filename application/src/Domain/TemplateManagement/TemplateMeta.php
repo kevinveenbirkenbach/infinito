@@ -7,7 +7,7 @@ use App\DBAL\Types\TemplateType;
 /**
  * @author kevinfrantz
  */
-class TemplateMeta implements TemplateMetaInterface
+final class TemplateMeta implements TemplateMetaInterface
 {
     /**
      * @var array
