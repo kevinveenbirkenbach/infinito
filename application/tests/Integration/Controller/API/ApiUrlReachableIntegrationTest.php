@@ -29,6 +29,7 @@ class ApiUrlReachableIntegrationTest extends KernelTestCase
 
     private function controller(string $entity)
     {
+        $this->language($entity, Request::METHOD_GET);
         $this->language($entity, Request::METHOD_POST);
         $this->language($entity.'s', Request::METHOD_GET);
         $this->slugAndId($entity, Request::METHOD_PUT);
