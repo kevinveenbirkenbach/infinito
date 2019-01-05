@@ -23,5 +23,6 @@ script:
     - php ./vendor/bin/php-cs-fixer fix -v --diff --dry-run ./src/
     - bin/console doctrine:schema:validate --skip-sync
     - vendor/bin/phpunit --coverage-clover=coverage.xml
+    - shellcheck administration/*.sh
 after_success:
     - bash <(curl -s https://codecov.io/bash)
