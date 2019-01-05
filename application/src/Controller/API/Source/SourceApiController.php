@@ -13,7 +13,7 @@ use App\Controller\API\AbstractAPIController;
 class SourceApiController extends AbstractAPIController
 {
     /**
-     * @Route("/api/{_locale}/source/{identifier}.{_format}",
+     * @Route("/{_locale}/api/source/{identifier}.{_format}",
      * defaults={"_format"="json"} ,
      * methods={"GET"}
      * )
@@ -26,7 +26,7 @@ class SourceApiController extends AbstractAPIController
     }
 
     /**
-     * @Route("/api/{_locale}/source/.{_format}",
+     * @Route("/{_locale}/api/source.{_format}",
      * defaults={"_format"="json"} ,
      * methods={"POST"}
      * )
@@ -39,7 +39,7 @@ class SourceApiController extends AbstractAPIController
     }
 
     /**
-     * @Route("/api/{_locale}/source/{identifier}.{_format}",
+     * @Route("/{_locale}/api/source/{identifier}.{_format}",
      * defaults={"_format"="json"} ,
      * methods={"PUT"}
      * )
@@ -52,7 +52,7 @@ class SourceApiController extends AbstractAPIController
     }
 
     /**
-     * @Route("/api/{_locale}/sources/.{_format}",
+     * @Route("/{_locale}/api/sources/.{_format}",
      * defaults={"_format"="json"} ,
      * methods={"GET"}
      * )
@@ -65,7 +65,7 @@ class SourceApiController extends AbstractAPIController
     }
 
     /**
-     * @Route("/api/{_locale}/source/{identifier}.{_format}",
+     * @Route("/{_locale}/api/source/{identifier}.{_format}",
      * defaults={"_format"="json"} ,
      * methods={"DELETE"}
      * )

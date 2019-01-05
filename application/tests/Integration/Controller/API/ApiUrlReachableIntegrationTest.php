@@ -42,11 +42,17 @@ class ApiUrlReachableIntegrationTest extends KernelTestCase
         $this->language("$route/asdfg", $method);
     }
 
+    /**
+     * @todo Implement routing without i18l part!
+     *
+     * @param string $entity
+     * @param string $method
+     */
     private function language(string $entity, string $method): void
     {
-        $this->type('api/'.$entity, $method);
-        foreach (LanguageType::getChoices() as $key => $value) {
-            $this->type("api/$key/$entity", $method);
+        //$this->type('api/'.$entity, $method);
+        foreach (LanguageType::getChoices() as $language => $value) {
+            $this->type("$language/api/$entity", $method);
         }
     }
 
@@ -62,10 +68,9 @@ class ApiUrlReachableIntegrationTest extends KernelTestCase
     {
         $request = new Request([], [], [], [], [], [
             'REQUEST_URI' => $url,
-            'REQUEST_METHOD' => $method,
         ]);
-        $request->setMethod(Request::METHOD_GET);
+        $request->setMethod($method);
         $response = static::$kernel->handle($request);
-        $this->assertNotEquals(404, $response->getStatusCode(), "Route $url sends an 404 response!");
+        $this->assertNotEquals(404, $response->getStatusCode(), "Route $url with Method $method sends an 404 response!");
     }
 }
