@@ -29,11 +29,7 @@ class LayerAttributTest extends TestCase
 
     public function testAccessors(): void
     {
-        foreach ([
-            LayerType::LAW,
-            LayerType::RELATION,
-            LayerType::SOURCE,
-        ] as $value) {
+        foreach (LayerType::getChoices() as $value) {
             $this->assertNull($this->layer->setLayer($value));
             $this->assertEquals($value, $this->layer->getLayer());
         }

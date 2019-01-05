@@ -41,7 +41,7 @@ class RightCheckerTest extends TestCase
 
     public function setUp(): void
     {
-        $this->layer = LayerType::RELATION;
+        $this->layer = LayerType::MEMBER;
         $this->type = CRUDType::READ;
         $this->source = new PureSource();
         $this->right = new Right();

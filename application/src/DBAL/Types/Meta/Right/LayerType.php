@@ -9,7 +9,9 @@ use Fresh\DoctrineEnumBundle\DBAL\Types\AbstractEnumType;
  */
 final class LayerType extends AbstractEnumType
 {
-    public const RELATION = 'relation';
+    public const HEREDITY = 'heredity';
+
+    public const RIGHT = 'right';
 
     public const SOURCE = 'source';
 
@@ -17,9 +19,14 @@ final class LayerType extends AbstractEnumType
 
     public const MEMBER = 'member';
 
+    /**
+     * @var array Ordered by the importants of implementation
+     */
     protected static $choices = [
-        self::RELATION => 'relation',
-        self::LAW => 'law',
         self::SOURCE => 'source',
+        self::LAW => 'law',
+        self::RIGHT => 'right',
+        self::MEMBER => 'member',
+        self::HEREDITY => 'heredity',
     ];
 }
