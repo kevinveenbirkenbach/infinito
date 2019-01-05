@@ -3,10 +3,10 @@
 namespace Tests\Integration\Controller\API;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Symfony\Component\BrowserKit\Request;
 use App\DBAL\Types\LanguageType;
 use App\DBAL\Types\Meta\Right\LayerType;
 use App\DBAL\Types\RESTResponseType;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @author kevinfrantz
@@ -29,17 +29,17 @@ class ApiUrlReachableIntegrationTest extends KernelTestCase
 
     private function controller(string $entity)
     {
-        $this->language($entity, 'POST');
-        $this->language($entity.'s', 'GET');
-        $this->slugAndId($entity, 'PUT');
-        $this->slugAndId($entity, 'GET');
-        $this->slugAndId($entity, 'DELETE');
+        $this->language($entity, Request::METHOD_POST);
+        $this->language($entity.'s', Request::METHOD_GET);
+        $this->slugAndId($entity, Request::METHOD_PUT);
+        $this->slugAndId($entity, Request::METHOD_GET);
+        $this->slugAndId($entity, Request::METHOD_DELETE);
     }
 
     private function slugAndId(string $route, string $method): void
     {
-        $this->language("$route/12345", 'PUT');
-        $this->language("$route/asdfg", 'PUT');
+        $this->language("$route/12345", $method);
+        $this->language("$route/asdfg", $method);
     }
 
     private function language(string $entity, string $method): void
@@ -58,14 +58,14 @@ class ApiUrlReachableIntegrationTest extends KernelTestCase
         }
     }
 
-    private function routeAssert(string $url, int $method): void
+    private function routeAssert(string $url, string $method): void
     {
-        $request = new Request([], $method, [], [], [], [
+        $request = new Request([], [], [], [], [], [
             'REQUEST_URI' => $url,
-            null,
+            'REQUEST_METHOD' => $method,
         ]);
         $request->setMethod(Request::METHOD_GET);
         $response = static::$kernel->handle($request);
-        $this->assertNotEquals(404, $response->getStatusCode());
+        $this->assertNotEquals(404, $response->getStatusCode(), "Route $url sends an 404 response!");
     }
 }
