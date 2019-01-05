@@ -4,3 +4,4 @@ bash ./clear.sh &&
 bash ./schema-validate.sh &&
 bash ./test.sh &&
 bash ./test-code-format.sh
+bash ./shellcheck.sh
