@@ -9,6 +9,7 @@ use App\Domain\SecureCRUDManagement\SecureCRUDFactoryService;
 
 /**
  * @author kevinfrantz
+ *
  * @todo Implement!
  */
 class LawApiController extends AbstractAPIController

@@ -4,8 +4,8 @@ namespace App\Domain\SecureCRUDManagement;
 
 /**
  * @todo Implement!
- * @author kevinfrantz
  *
+ * @author kevinfrantz
  */
 interface SecureCRUDInterface
 {

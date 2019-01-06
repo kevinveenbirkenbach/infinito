@@ -7,8 +7,8 @@ use App\Entity\EntityInterface;
 
 /**
  * @todo Implement!
- * @author kevinfrantz
  *
+ * @author kevinfrantz
  */
 interface SecureCreatorInterface extends SecureCRUDInterface
 {

@@ -8,8 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Domain\SecureCRUDManagement\SecureCRUDFactoryService;
 
 /**
- * 
  * @author kevinfrantz
+ *
  * @todo Implement!
  */
 class MemberApiController extends AbstractAPIController

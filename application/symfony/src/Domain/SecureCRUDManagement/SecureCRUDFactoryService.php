@@ -9,8 +9,8 @@ use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
- * 
  * @author kevinfrantz
+ *
  * @todo Implement!
  * @todo substitute through child classes!
  */
