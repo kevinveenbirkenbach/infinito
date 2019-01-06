@@ -4,6 +4,7 @@ namespace App\Domain\SourceManagement;
 
 use App\Domain\EntityManagement\EntityMetaInformation;
 use App\Entity\Source\AbstractSource;
+use App\Exception\NotCorrectInstanceException;
 
 /**
  * @author kevinfrantz
@@ -22,7 +23,7 @@ final class SourceMetaInformation extends EntityMetaInformation implements Sourc
     public function __construct(\App\Entity\EntityInterface $entity)
     {
         if (!$entity instanceof AbstractSource) {
-            throw new \TypeError('Entity has to be an instance of '.AbstractSource::class);
+            throw new NotCorrectInstanceException('Entity has to be an instance of '.AbstractSource::class);
         }
         parent::__construct($entity);
     }

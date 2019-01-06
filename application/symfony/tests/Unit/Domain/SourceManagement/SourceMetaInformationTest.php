@@ -10,6 +10,8 @@ use App\Domain\SourceManagement\SourceMetaInformation;
 use App\Domain\SourceManagement\SourceMetaInformationInterface;
 use App\Domain\TemplateManagement\TemplatePathFormAndViewInterface;
 use App\Domain\FormManagement\FormMetaInformationInterface;
+use App\Entity\EntityInterface;
+use App\Exception\NotCorrectInstanceException;
 
 class SourceMetaInformationTest extends TestCase
 {
@@ -78,5 +80,11 @@ class SourceMetaInformationTest extends TestCase
     public function testFormMeta(): void
     {
         $this->assertInstanceOf(FormMetaInformationInterface::class, $this->sourceMetaInformation->getFormMetaInformation());
+    }
+
+    public function testTypeError(): void
+    {
+        $this->expectException(NotCorrectInstanceException::class);
+        new SourceMetaInformation($this->createMock(EntityInterface::class));
     }
 }
