@@ -5,9 +5,11 @@ namespace App\Controller\API\Meta;
 use App\Controller\API\AbstractAPIController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Domain\SecureCRUDManagement\SecureCRUDFactoryService;
 
 /**
  * @author kevinfrantz
+ * @todo Implement!
  */
 class LawApiController extends AbstractAPIController
 {
@@ -15,7 +17,7 @@ class LawApiController extends AbstractAPIController
     {
     }
 
-    public function create(Request $request): Response
+    public function create(Request $request, SecureCRUDFactoryService $crudFactory): Response
     {
     }
 
