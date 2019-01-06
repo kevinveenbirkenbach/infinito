@@ -6,8 +6,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
+ * Moved functions to
+ * @see AbstractAPIController
  * @author kevinfrantz
- *
+ * @deprecated Feel free to delete this interface!
  * @see https://de.wikipedia.org/wiki/CRUD
  */
 interface CRUDControllerInterface

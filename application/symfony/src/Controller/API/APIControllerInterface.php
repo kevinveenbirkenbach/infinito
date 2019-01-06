@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * @author kevinfrantz
  */
-interface APIControllerInterface extends CRUDControllerInterface
+interface APIControllerInterface
 {
     /**
      * @param Request $request HTTP Method GET with filtering parameters
