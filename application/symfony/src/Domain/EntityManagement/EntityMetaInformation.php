@@ -8,6 +8,7 @@ use App\Domain\TemplateManagement\TemplatePathFormAndView;
 use App\Domain\FormManagement\FormMetaInformationInterface;
 use App\Domain\FormManagement\FormMetaInformation;
 use App\Domain\PathManagement\NamespacePathMapInterface;
+use App\Domain\PathManagement\NamespacePathMap;
 
 /**
  * @author kevinfrantz
@@ -30,11 +31,6 @@ class EntityMetaInformation implements EntityMetaInformationInterface
     private $templatePathFormAndView;
 
     /**
-     * @var array
-     */
-    private $basicPathArray;
-
-    /**
      * @var string
      */
     protected $pureName;
@@ -50,11 +46,6 @@ class EntityMetaInformation implements EntityMetaInformationInterface
     private $formMetaInformation;
 
     /**
-     * @var string
-     */
-    private $basicPathString;
-    
-    /**
      * @var NamespacePathMapInterface
      */
     private $namespacePathMap;
@@ -67,31 +58,23 @@ class EntityMetaInformation implements EntityMetaInformationInterface
         $this->entity = $entity;
         $this->entityReflection = new \ReflectionClass($entity);
         $this->setBasicPathArray();
-        $this->setBasicPathString();
         $this->setPureName();
         $this->setInterfaceReflection();
         $this->setTemplatePathFormAndView();
         $this->formMetaInformation = new FormMetaInformation($this);
     }
 
-    private function setBasicPathString(): void
-    {
-        $this->basicPathString = implode('/', $this->basicPathArray);
-    }
-
     private function setTemplatePathFormAndView(): void
     {
-        $this->templatePathFormAndView = new TemplatePathFormAndView(implode('/', $this->basicPathArray), $this->pureName);
+        $this->templatePathFormAndView = new TemplatePathFormAndView($this->namespacePathMap->getPath(), $this->pureName);
     }
 
     private function setBasicPathArray(): void
     {
         $namespace = $this->entityReflection->getNamespaceName();
         $namespaceWithoutRoot = str_replace('App\\Entity\\', '', $namespace);
-        $this->basicPathArray = [];
-        foreach (explode('\\', $namespaceWithoutRoot) as $element) {
-            $this->basicPathArray[] = strtolower($element);
-        }
+        $this->namespacePathMap = new NamespacePathMap();
+        $this->namespacePathMap->setNamespace($namespaceWithoutRoot);
     }
 
     private function setInterfaceReflection(): void
@@ -104,16 +87,6 @@ class EntityMetaInformation implements EntityMetaInformationInterface
     {
         $withoutAbstract = str_replace('Abstract', '', $this->entityReflection->getShortName());
         $this->pureName = strtolower($withoutAbstract);
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @see \App\Domain\EntityManagement\EntityMetaInformationInterface::getBasicPathArray()
-     */
-    public function getBasicPathArray(): array
-    {
-        return $this->basicPathArray;
     }
 
     /**
@@ -179,10 +152,10 @@ class EntityMetaInformation implements EntityMetaInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\EntityManagement\EntityMetaInformationInterface::getBasicPathString()
+     * @see \App\Domain\EntityManagement\EntityMetaInformationInterface::getNamespacePathMap()
      */
-    public function getBasicPathString(): string
+    public function getNamespacePathMap(): NamespacePathMapInterface
     {
-        return $this->basicPathString;
+        return $this->namespacePathMap;
     }
 }

@@ -115,4 +115,14 @@ final class TemplatePathInformation implements TemplatePathInformationInterface
         $this->type = $type;
         $this->init();
     }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\TemplateManagement\TemplatePathInformationInterface::getType()
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
 }

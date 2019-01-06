@@ -2,6 +2,8 @@
 
 namespace App\Domain\TemplateManagement;
 
+use App\DBAL\Types\RESTResponseType;
+
 /**
  * Manages all informations which are needed to process templates.
  *
@@ -18,4 +20,11 @@ interface TemplatePathInformationInterface extends ReloadTypeInterface
      * @return string a template without a frame
      */
     public function getAtomTemplatePath(): string;
+
+    /**
+     * @see RESTResponseType::$choices
+     *
+     * @return string Type of the template
+     */
+    public function getType(): string;
 }

@@ -40,7 +40,7 @@ final class FormMetaInformation implements FormMetaInformationInterface
     private function setFormClass(): void
     {
         $this->formClass = 'App\\Form';
-        foreach ($this->entityMetaInformation->getBasicPathArray() as $element) {
+        foreach ($this->entityMetaInformation->getNamespacePathMap()->getFolders() as $element) {
             $this->formClass .= '\\'.ucfirst($element);
         }
         $this->formClass .= '\\'.ucfirst($this->entityMetaInformation->getPureName()).'Type';

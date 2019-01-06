@@ -5,6 +5,8 @@ namespace App\Domain\EntityManagement;
 use App\Entity\EntityInterface;
 use App\Domain\TemplateManagement\TemplatePathFormAndViewInterface;
 use App\Domain\FormManagement\FormMetaInformationInterface;
+use App\Domain\PathManagement\NamespacePathMap;
+use App\Domain\PathManagement\NamespacePathMapInterface;
 
 /**
  * Offers informations, which the system needs to handle Entities.
@@ -29,11 +31,6 @@ interface EntityMetaInformationInterface
     public function getTemplatePathFormAndView(): TemplatePathFormAndViewInterface;
 
     /**
-     * @return array the namespace elements without the root
-     */
-    public function getBasicPathArray(): array;
-
-    /**
      * @return string Short class name in lower case without "Abstract"
      */
     public function getPureName(): string;
@@ -49,7 +46,7 @@ interface EntityMetaInformationInterface
     public function getFormMetaInformation(): FormMetaInformationInterface;
 
     /**
-     * @return string
+     * @return NamespacePathMap
      */
-    public function getBasicPathString(): string;
+    public function getNamespacePathMap(): NamespacePathMapInterface;
 }

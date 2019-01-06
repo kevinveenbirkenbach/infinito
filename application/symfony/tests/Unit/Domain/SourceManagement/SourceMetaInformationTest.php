@@ -39,7 +39,7 @@ class SourceMetaInformationTest extends TestCase
     {
         $subset = ['source', 'complex'];
         $amount = count($subset);
-        $basicPathArray = $this->sourceMetaInformation->getBasicPathArray();
+        $basicPathArray = $this->sourceMetaInformation->getNamespacePathMap()->getFolders();
         for ($index = 0; $index < $amount; ++$index) {
             $this->assertEquals($subset[$index], $basicPathArray[$index]);
         }

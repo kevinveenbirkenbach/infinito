@@ -9,6 +9,9 @@ use App\Domain\SourceManagement\SourceMetaInformation;
 use App\Domain\FormManagement\FormMetaInformation;
 use App\Domain\TemplateManagement\TemplatePathInformationInterface;
 
+/**
+ * @author kevinfrantz
+ */
 class FormMetaInformationTest extends TestCase
 {
     /**

@@ -36,7 +36,7 @@ class TemplatePathInformationTest extends TestCase
     {
         $this->source = new FirstNameSource();
         $sourceMeta = new SourceMetaInformation($this->source);
-        $folder = implode('/', $sourceMeta->getBasicPathArray());
+        $folder = $sourceMeta->getNamespacePathMap()->getPath();
         $this->templateMeta = new TemplatePathInformation($sourceMeta->getPureName(), $folder, 'entity');
     }
 
@@ -56,7 +56,7 @@ class TemplatePathInformationTest extends TestCase
             $this->templateMeta->reloadType($type);
             $this->assertEquals($this->getExpectedPath($type, 'atom'), $this->templateMeta->getAtomTemplatePath());
             $this->assertEquals($this->getExpectedPath($type, 'molecule'), $this->templateMeta->getMoleculeTemplatePath());
-            $this->assertEquals($type, $this->templateMeta->getTemplateType());
+            $this->assertEquals($type, $this->templateMeta->getType());
         }
     }
 }
