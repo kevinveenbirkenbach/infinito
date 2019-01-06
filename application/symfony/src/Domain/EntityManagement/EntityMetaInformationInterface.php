@@ -47,4 +47,9 @@ interface EntityMetaInformationInterface
      * @return FormMetaInformationInterface The meta informations about the form
      */
     public function getFormMetaInformation(): FormMetaInformationInterface;
+
+    /**
+     * @return string
+     */
+    public function getBasicPathString(): string;
 }

@@ -3,20 +3,20 @@
 namespace Tests\Unit\Domain\SourceManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\SourceManagement\SourceMetaInterface;
 use App\Entity\Source\Complex\UserSource;
-use App\Domain\SourceManagement\SourceMeta;
 use App\Entity\Source\Complex\UserSourceInterface;
-use App\Domain\TemplateManagement\TemplateMetaInterface;
 use App\Entity\Source\SourceInterface;
-use App\Domain\FormManagement\FormMetaInterface;
+use App\Domain\SourceManagement\SourceMetaInformation;
+use App\Domain\SourceManagement\SourceMetaInformationInterface;
+use App\Domain\TemplateManagement\TemplatePathFormAndViewInterface;
+use App\Domain\FormManagement\FormMetaInformationInterface;
 
-class SourceMetaTest extends TestCase
+class SourceMetaInformationTest extends TestCase
 {
     /**
-     * @var SourceMetaInterface
+     * @var SourceMetaInformationInterface
      */
-    protected $sourceMeta;
+    protected $sourceMetaInformation;
 
     /**
      * @var SourceInterface
@@ -26,20 +26,20 @@ class SourceMetaTest extends TestCase
     public function setUp(): void
     {
         $this->source = new UserSource();
-        $this->sourceMeta = new SourceMeta($this->source);
+        $this->sourceMetaInformation = new SourceMetaInformation($this->source);
     }
 
     public function testBasicName(): void
     {
-        $this->assertEquals('user', $this->sourceMeta->getBasicName());
-        $this->assertNotEquals('user2', $this->sourceMeta->getBasicName());
+        $this->assertEquals('user', $this->sourceMetaInformation->getPureName());
+        $this->assertNotEquals('user2', $this->sourceMetaInformation->getPureName());
     }
 
     public function testBasicPath(): void
     {
         $subset = ['source', 'complex'];
         $amount = count($subset);
-        $basicPathArray = $this->sourceMeta->getBasicPathArray();
+        $basicPathArray = $this->sourceMetaInformation->getBasicPathArray();
         for ($index = 0; $index < $amount; ++$index) {
             $this->assertEquals($subset[$index], $basicPathArray[$index]);
         }
@@ -52,7 +52,7 @@ class SourceMetaTest extends TestCase
         /**
          * @var \ReflectionClass
          */
-        $interfaceReflection = $this->sourceMeta->getInterfaceReflection();
+        $interfaceReflection = $this->sourceMetaInformation->getInterfaceReflection();
         $this->assertEquals(UserSourceInterface::class, $interfaceReflection->getName());
     }
 
@@ -61,22 +61,22 @@ class SourceMetaTest extends TestCase
         /**
          * @var \ReflectionClass
          */
-        $sourceReflection = $this->sourceMeta->getSourceReflection();
+        $sourceReflection = $this->sourceMetaInformation->getEntityReflection();
         $this->assertEquals(UserSource::class, $sourceReflection->getName());
     }
 
     public function testTemplateMeta(): void
     {
-        $this->assertInstanceOf(TemplateMetaInterface::class, $this->sourceMeta->getTemplateMeta());
+        $this->assertInstanceOf(TemplatePathFormAndViewInterface::class, $this->sourceMetaInformation->getTemplatePathFormAndView());
     }
 
     public function testSource(): void
     {
-        $this->assertEquals($this->source, $this->sourceMeta->getSource());
+        $this->assertEquals($this->source, $this->sourceMetaInformation->getEntity());
     }
 
     public function testFormMeta(): void
     {
-        $this->assertInstanceOf(FormMetaInterface::class, $this->sourceMeta->getFormMeta());
+        $this->assertInstanceOf(FormMetaInformationInterface::class, $this->sourceMetaInformation->getFormMetaInformation());
     }
 }

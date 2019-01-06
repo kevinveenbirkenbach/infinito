@@ -4,9 +4,10 @@ namespace App\Domain\EntityManagement;
 
 use App\Domain\TemplateManagement\TemplatePathFormAndViewInterface;
 use App\Entity\EntityInterface;
-use src\Domain\TemplateManagement\TemplatePathFormAndView;
+use App\Domain\TemplateManagement\TemplatePathFormAndView;
 use App\Domain\FormManagement\FormMetaInformationInterface;
 use App\Domain\FormManagement\FormMetaInformation;
+use App\Domain\PathManagement\NamespacePathMapInterface;
 
 /**
  * @author kevinfrantz
@@ -36,7 +37,7 @@ class EntityMetaInformation implements EntityMetaInformationInterface
     /**
      * @var string
      */
-    private $pureName;
+    protected $pureName;
 
     /**
      * @var EntityInterface
@@ -49,6 +50,16 @@ class EntityMetaInformation implements EntityMetaInformationInterface
     private $formMetaInformation;
 
     /**
+     * @var string
+     */
+    private $basicPathString;
+    
+    /**
+     * @var NamespacePathMapInterface
+     */
+    private $namespacePathMap;
+
+    /**
      * @param EntityInterface $entity
      */
     public function __construct(EntityInterface $entity)
@@ -56,10 +67,16 @@ class EntityMetaInformation implements EntityMetaInformationInterface
         $this->entity = $entity;
         $this->entityReflection = new \ReflectionClass($entity);
         $this->setBasicPathArray();
+        $this->setBasicPathString();
         $this->setPureName();
         $this->setInterfaceReflection();
         $this->setTemplatePathFormAndView();
         $this->formMetaInformation = new FormMetaInformation($this);
+    }
+
+    private function setBasicPathString(): void
+    {
+        $this->basicPathString = implode('/', $this->basicPathArray);
     }
 
     private function setTemplatePathFormAndView(): void
@@ -157,5 +174,15 @@ class EntityMetaInformation implements EntityMetaInformationInterface
     public function getFormMetaInformation(): FormMetaInformationInterface
     {
         return $this->formMetaInformation;
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\EntityManagement\EntityMetaInformationInterface::getBasicPathString()
+     */
+    public function getBasicPathString(): string
+    {
+        return $this->basicPathString;
     }
 }

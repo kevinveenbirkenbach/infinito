@@ -9,6 +9,10 @@ use App\DBAL\Types\RESTResponseType;
  */
 final class TemplatePathInformation implements TemplatePathInformationInterface
 {
+    const MOLECULE_FOLDER = 'molecule';
+
+    const ATOM_FOLDER = 'atom';
+
     /**
      * @var string
      */
@@ -73,12 +77,12 @@ final class TemplatePathInformation implements TemplatePathInformationInterface
 
     private function setMoleculeTemplatePath(): void
     {
-        $this->moleculeTemplatePath = 'molecule/'.$this->suffix;
+        $this->moleculeTemplatePath = self::MOLECULE_FOLDER.'/'.$this->prefix.'/'.$this->suffix;
     }
 
     private function setAtomTemplatePath(): void
     {
-        $this->atomTemplatePath = 'atom/'.$this->suffix;
+        $this->atomTemplatePath = self::ATOM_FOLDER.'/'.$this->prefix.'/'.$this->suffix;
     }
 
     /**

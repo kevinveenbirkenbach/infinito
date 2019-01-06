@@ -1,0 +1,62 @@
+<?php
+
+namespace Tests\Unit\Domain\TemplateManagement;
+
+use PHPUnit\Framework\TestCase;
+use App\Entity\Source\Primitive\Name\FirstNameSource;
+use App\Entity\Source\SourceInterface;
+use App\Domain\TemplateManagement\TemplatePathInformation;
+use App\Domain\SourceManagement\SourceMetaInformation;
+use App\DBAL\Types\RESTResponseType;
+
+class TemplatePathInformationTest extends TestCase
+{
+    /**
+     * @var TemplatePathInformation
+     */
+    private $templateMeta;
+
+    /**
+     * @var SourceInterface
+     */
+    private $source;
+
+    /**
+     * @param string $type
+     * @param string $context
+     *
+     * @return string
+     */
+    private function getExpectedPath(string $type, string $context): string
+    {
+        return $context.'/entity/source/primitive/name/firstname.'.$type.'.twig';
+    }
+
+    public function setUp(): void
+    {
+        $this->source = new FirstNameSource();
+        $sourceMeta = new SourceMetaInformation($this->source);
+        $folder = implode('/', $sourceMeta->getBasicPathArray());
+        $this->templateMeta = new TemplatePathInformation($sourceMeta->getPureName(), $folder, 'entity');
+    }
+
+    public function testFrameTemplatePath(): void
+    {
+        $this->assertEquals($this->getExpectedPath('html', 'molecule'), $this->templateMeta->getMoleculeTemplatePath());
+    }
+
+    public function testContentTemplatePath(): void
+    {
+        $this->assertEquals($this->getExpectedPath('html', 'atom'), $this->templateMeta->getAtomTemplatePath());
+    }
+
+    public function testSetType(): void
+    {
+        foreach (RESTResponseType::getChoices() as $type) {
+            $this->templateMeta->reloadType($type);
+            $this->assertEquals($this->getExpectedPath($type, 'atom'), $this->templateMeta->getAtomTemplatePath());
+            $this->assertEquals($this->getExpectedPath($type, 'molecule'), $this->templateMeta->getMoleculeTemplatePath());
+            $this->assertEquals($type, $this->templateMeta->getTemplateType());
+        }
+    }
+}
