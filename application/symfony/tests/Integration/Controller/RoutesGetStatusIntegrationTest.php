@@ -16,7 +16,7 @@ class RoutesGetStatusIntegrationTest extends KernelTestCase
         'register' => 301,
         'logout' => 302,
         'profile/edit' => 302,
-        'spa' => 200,
+        'spa' => 302,
     ];
 
     public function setUp(): void
