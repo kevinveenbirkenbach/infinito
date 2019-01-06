@@ -14,6 +14,12 @@ use App\Domain\TemplateManagement\TemplatePathInformationInterface;
  */
 class FormMetaInformationTest extends TestCase
 {
+    const FORM_CLASS = 'App\Form\Source\Primitive\Name\SurnameType';
+
+    const FORM_VIEW_ATOM = 'atom/form/source/primitive/name/surname.html.twig';
+
+    const FORM_VIEW_MOLECULE = 'molecule/form/source/primitive/name/surname.html.twig';
+
     /**
      * @var FormMetaInformationInterface
      */
@@ -27,7 +33,13 @@ class FormMetaInformationTest extends TestCase
 
     public function testGetFormClass(): void
     {
-        $this->assertEquals('App\Form\Source\Primitive\Name\SurnameType', $this->formMeta->getFormClass());
+        $this->assertEquals(self::FORM_CLASS, $this->formMeta->getFormClass());
+    }
+
+    public function testGetView(): void
+    {
+        $this->assertEquals(self::FORM_VIEW_ATOM, $this->formMeta->getTemplatePathInformation()->getAtomTemplatePath());
+        $this->assertEquals(self::FORM_VIEW_MOLECULE, $this->formMeta->getTemplatePathInformation()->getMoleculeTemplatePath());
     }
 
     public function testTemplateMeta(): void

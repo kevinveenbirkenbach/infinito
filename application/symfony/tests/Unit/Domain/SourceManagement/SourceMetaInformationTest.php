@@ -15,15 +15,20 @@ use App\Exception\NotCorrectInstanceException;
 
 class SourceMetaInformationTest extends TestCase
 {
+    const FOLDERS = [
+        'source',
+        'complex',
+    ];
+
     /**
      * @var SourceMetaInformationInterface
      */
-    protected $sourceMetaInformation;
+    private $sourceMetaInformation;
 
     /**
      * @var SourceInterface
      */
-    protected $source;
+    private $source;
 
     public function setUp(): void
     {
@@ -37,16 +42,15 @@ class SourceMetaInformationTest extends TestCase
         $this->assertNotEquals('user2', $this->sourceMetaInformation->getPureName());
     }
 
-    public function testBasicPath(): void
+    public function testFolders(): void
     {
-        $subset = ['source', 'complex'];
-        $amount = count($subset);
-        $basicPathArray = $this->sourceMetaInformation->getNamespacePathMap()->getFolders();
+        $amount = count(self::FOLDERS);
+        $folders = $this->sourceMetaInformation->getNamespacePathMap()->getFolders();
         for ($index = 0; $index < $amount; ++$index) {
-            $this->assertEquals($subset[$index], $basicPathArray[$index]);
+            $this->assertEquals(self::FOLDERS[$index], $folders[$index]);
         }
-        $this->assertArraySubset($subset, $basicPathArray);
-        $this->assertEquals($amount, count($basicPathArray));
+        $this->assertArraySubset(self::FOLDERS, $folders);
+        $this->assertEquals($amount, count($folders));
     }
 
     public function testInterfaceReflection(): void

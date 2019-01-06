@@ -57,7 +57,7 @@ class EntityMetaInformation implements EntityMetaInformationInterface
     {
         $this->entity = $entity;
         $this->entityReflection = new \ReflectionClass($entity);
-        $this->setBasicPathArray();
+        $this->setNamespacePathMap();
         $this->setPureName();
         $this->setInterfaceReflection();
         $this->setTemplatePathFormAndView();
@@ -66,10 +66,10 @@ class EntityMetaInformation implements EntityMetaInformationInterface
 
     private function setTemplatePathFormAndView(): void
     {
-        $this->templatePathFormAndView = new TemplatePathFormAndView($this->namespacePathMap->getPath(), $this->pureName);
+        $this->templatePathFormAndView = new TemplatePathFormAndView($this->pureName, $this->namespacePathMap->getPath());
     }
 
-    private function setBasicPathArray(): void
+    private function setNamespacePathMap(): void
     {
         $namespace = $this->entityReflection->getNamespaceName();
         $namespaceWithoutRoot = str_replace('App\\Entity\\', '', $namespace);

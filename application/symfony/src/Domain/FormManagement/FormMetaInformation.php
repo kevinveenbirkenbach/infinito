@@ -18,11 +18,6 @@ final class FormMetaInformation implements FormMetaInformationInterface
     private $entityMetaInformation;
 
     /**
-     * @var TemplatePathInformationInterface
-     */
-    private $templatePathInformation;
-
-    /**
      * @var string
      */
     private $formClass;
@@ -33,7 +28,6 @@ final class FormMetaInformation implements FormMetaInformationInterface
     public function __construct(EntityMetaInformationInterface $entityMetaInformation)
     {
         $this->entityMetaInformation = $entityMetaInformation;
-        $this->setTemplateMetaInformation();
         $this->setFormClass();
     }
 
@@ -44,11 +38,6 @@ final class FormMetaInformation implements FormMetaInformationInterface
             $this->formClass .= '\\'.ucfirst($element);
         }
         $this->formClass .= '\\'.ucfirst($this->entityMetaInformation->getPureName()).'Type';
-    }
-
-    private function setTemplateMetaInformation(): void
-    {
-        $this->templatePathInformation = $this->entityMetaInformation->getTemplatePathFormAndView()->getForm();
     }
 
     /**
@@ -68,6 +57,6 @@ final class FormMetaInformation implements FormMetaInformationInterface
      */
     public function getTemplatePathInformation(): TemplatePathInformationInterface
     {
-        return $this->templatePathInformation;
+        return $this->entityMetaInformation->getTemplatePathFormAndView()->getForm();
     }
 }
