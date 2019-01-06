@@ -1,18 +1,15 @@
 <?php
 
-namespace src\Domain\TemplateManagement;
+namespace App\Domain\TemplateManagement;
 
-use App\Domain\TemplateManagement\TemplatePathFormAndViewInterface;
-use App\Domain\TemplateManagement\TemplatePathInformation;
-use App\Domain\TemplateManagement\TemplatePathInformationInterface;
-use App\Domain\FormManagement\FormMeta;
+use App\Domain\FormManagement\FormMetaInformation;
 
 /**
  * @author kevinfrantz
  */
 final class TemplatePathFormAndView implements TemplatePathFormAndViewInterface
 {
-    const FORM_FOLDER = FormMeta::FOLDER;
+    const FORM_FOLDER = FormMetaInformation::FOLDER;
 
     const VIEW_FOLDER = 'view';
 
@@ -52,7 +49,7 @@ final class TemplatePathFormAndView implements TemplatePathFormAndViewInterface
      */
     private function setView(string $file, string $folder): void
     {
-        $this->view = new TemplatePathInformation($file, $folder, $type, self::VIEW_FOLDER);
+        $this->view = new TemplatePathInformation($file, $folder, self::VIEW_FOLDER);
     }
 
     /**
