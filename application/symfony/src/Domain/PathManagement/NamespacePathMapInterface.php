@@ -32,10 +32,10 @@ interface NamespacePathMapInterface
     /**
      * @param array|string[] $folders
      */
-    public function setFolderArray(array $folders): void;
+    public function setFolders(array $folders): void;
 
     /**
      * @return array|string[]
      */
-    public function getFolderArray(): array;
+    public function getFolders(): array;
 }
