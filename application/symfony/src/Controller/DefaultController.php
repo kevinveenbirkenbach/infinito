@@ -5,7 +5,6 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use App\DBAL\Types\SystemSlugType;
-use App\Entity\Source\AbstractSource;
 use App\Entity\Meta\Right;
 use App\DBAL\Types\Meta\Right\LayerType;
 use App\DBAL\Types\Meta\Right\CRUDType;
@@ -43,10 +42,5 @@ final class DefaultController extends AbstractController
     public function homepage(): Response
     {
         return $this->render('standard/homepage.html.twig');
-    }
-
-    protected function setEntityName(): void
-    {
-        $this->entityName = AbstractSource::class;
     }
 }
