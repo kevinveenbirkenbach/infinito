@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\SecureCRUDManagement\Create;
+namespace App\Domain\SecureCRUDManagement\CRUD\Create;
 
 use App\Domain\SecureCRUDManagement\SecureCRUDInterface;
 use App\Entity\EntityInterface;

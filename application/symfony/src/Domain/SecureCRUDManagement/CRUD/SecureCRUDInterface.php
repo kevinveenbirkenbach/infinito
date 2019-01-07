@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\SecureCRUDManagement;
+namespace App\Domain\SecureCRUDManagement\CRUD;
 
 /**
  * @todo Implement!

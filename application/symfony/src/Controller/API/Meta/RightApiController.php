@@ -5,7 +5,6 @@ namespace App\Controller\API\Meta;
 use App\Controller\API\AbstractAPIController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use App\Domain\SecureCRUDManagement\SecureCRUDFactoryService;
 
 /**
  * @author kevinfrantz
@@ -18,9 +17,9 @@ class RightApiController extends AbstractAPIController
     {
     }
 
-    public function create(Request $request, SecureCRUDFactoryService $crudFactory): Response
-    {
-    }
+//     public function create(Request $request, SecureCRUDFactoryService $crudFactory): Response
+//     {
+//     }
 
     public function update(Request $request, $identifier): Response
     {

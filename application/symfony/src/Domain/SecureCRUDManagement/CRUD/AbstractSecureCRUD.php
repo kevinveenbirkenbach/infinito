@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Domain\SecureCRUDManagement;
+namespace App\Domain\SecureCRUDManagement\CRUD;
 
 /**
  * @author kevinfrantz
- *
- * @todo Implement!
  */
 abstract class AbstractSecureCRUD implements SecureCRUDInterface
 {

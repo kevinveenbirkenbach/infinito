@@ -7,8 +7,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Controller\API\AbstractAPIController;
 use App\Entity\Source\PureSource;
-use App\Domain\SecureCRUDManagement\SecureCRUDFactoryService;
-use App\Domain\SecureCRUDManagement\Create\SecureSourceCreatorInterface;
 
 /**
  * @author kevinfrantz
@@ -30,51 +28,51 @@ class SourceApiController extends AbstractAPIController
     {
     }
 
-    /**
-     * @Route("/{_locale}/api/source.{_format}",
-     * defaults={"_format"="json"} ,
-     * methods={"POST","GET"}
-     * )
-     * {@inheritdoc}
-     *
-     * @see \App\Controller\API\AbstractAPIController::create()
-     */
-    public function create(Request $request, SecureCRUDFactoryService $crudFactory): Response
-    {
-        $response = new Response();
-        if (!$this->getUser()) {
-            //throw $this->createAccessDeniedException('The user must be logged in!');
-        }
-
-        if (Request::METHOD_POST === $request->getMethod()) {
-            $response = new Response();
-            $response->setContent('Post Request!');
-
-            return $response;
-        }
-        /**
-         * @var SecureSourceCreatorInterface
-         */
-        $sourceCreator = $crudFactory->create();
-        $response->setContent($sourceCreator->create()->getText());
-
-        return $response;
-
+//     /**
+//      * @Route("/{_locale}/api/source.{_format}",
+//      * defaults={"_format"="json"} ,
+//      * methods={"POST","GET"}
+//      * )
+//      * {@inheritdoc}
+//      *
+//      * @see \App\Controller\API\AbstractAPIController::create()
+//      */
+//     public function create(Request $request, SecureCRUDFactoryService $crudFactory): Response
+//     {
 //         $response = new Response();
-//         $response->setContent('GET Request!');
+//         if (!$this->getUser()) {
+//             //throw $this->createAccessDeniedException('The user must be logged in!');
+//         }
+
+//         if (Request::METHOD_POST === $request->getMethod()) {
+//             $response = new Response();
+//             $response->setContent('Post Request!');
+
+//             return $response;
+//         }
+//         /**
+//          * @var SecureSourceCreatorInterface
+//          */
+//         $sourceCreator = $crudFactory->create();
+//         $response->setContent($sourceCreator->create()->getText());
 
 //         return $response;
 
-//         $requestedSource = new PureSource();
-//         $requestedSource->setSlug(SystemSlugType::IMPRINT);
-//         $requestedRight = new Right();
-//         $requestedRight->setSource($requestedSource);
-//         $requestedRight->setLayer(LayerType::SOURCE);
-//         $requestedRight->setType(CRUDType::READ);
-//         $sourceResponseManager = new SourceRESTResponseManager($this->getUser(), $entityManager, $requestedRight, $this->getViewHandler());
+    // //         $response = new Response();
+    // //         $response->setContent('GET Request!');
 
-//         return $sourceResponseManager->getResponse();
-    }
+    // //         return $response;
+
+    // //         $requestedSource = new PureSource();
+    // //         $requestedSource->setSlug(SystemSlugType::IMPRINT);
+    // //         $requestedRight = new Right();
+    // //         $requestedRight->setSource($requestedSource);
+    // //         $requestedRight->setLayer(LayerType::SOURCE);
+    // //         $requestedRight->setType(CRUDType::READ);
+    // //         $sourceResponseManager = new SourceRESTResponseManager($this->getUser(), $entityManager, $requestedRight, $this->getViewHandler());
+
+    // //         return $sourceResponseManager->getResponse();
+//     }
 
     /**
      * @Route("/{_locale}/api/source/{identifier}.{_format}",

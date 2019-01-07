@@ -5,7 +5,6 @@ namespace App\Controller\API;
 use App\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use App\Domain\SecureCRUDManagement\SecureCRUDFactoryService;
 
 /**
  * @author kevinfrantz
@@ -21,7 +20,7 @@ abstract class AbstractAPIController extends AbstractController
      *
      * @return Response
      */
-    abstract public function create(Request $request, SecureCRUDFactoryService $crudFactory): Response;
+//     abstract public function create(Request $request, SecureCRUDFactoryService $crudFactory): Response;
 
     /**
      * @param Request    $request    HTTP Method GET
