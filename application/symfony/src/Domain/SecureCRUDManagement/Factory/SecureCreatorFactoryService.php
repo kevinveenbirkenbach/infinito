@@ -3,9 +3,8 @@
 namespace App\Domain\SecureCRUDManagement\Factory;
 
 use App\Entity\Meta\RightInterface;
-use App\DBAL\Types\Meta\Right\LayerType;
 use App\Domain\SecureCRUDManagement\CRUD\Create\SecureCreatorInterface;
-use App\Domain\SecureCRUDManagement\CRUD\Create\SecureSourceCreator;
+use App\DBAL\Types\Meta\Right\CRUDType;
 
 /**
  * @author kevinfrantz
@@ -14,6 +13,19 @@ use App\Domain\SecureCRUDManagement\CRUD\Create\SecureSourceCreator;
  */
 final class SecureCreatorFactoryService extends AbstractSecureCRUDFactoryService
 {
+    const CRUD_TYPE = CRUDType::CREATE;
+
+    /**
+     * @param string $layer
+     * @param string $crud
+     *
+     * @return string
+     */
+    protected function getClassName(string $layer, string $crud): string
+    {
+        return 'Secure'.ucfirst(strtolower($layer)).'Creator';
+    }
+
     /**
      * {@inheritdoc}
      *
@@ -21,10 +33,8 @@ final class SecureCreatorFactoryService extends AbstractSecureCRUDFactoryService
      */
     public function create(RightInterface $requestedRight): SecureCreatorInterface
     {
-        switch ($requestedRight->getLayer()) {
-            case LayerType::SOURCE:
-                return new SecureSourceCreator($this->request, $this->security);
-            case LayerType::MEMBER:
-        }
+        $namespace = $this->getCRUDNamespace($requestedRight->getLayer(), self::CRUD_TYPE);
+
+        return new $namespace($this->request, $this->security);
     }
 }

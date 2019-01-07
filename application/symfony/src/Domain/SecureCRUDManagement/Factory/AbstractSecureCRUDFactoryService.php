@@ -40,7 +40,7 @@ abstract class AbstractSecureCRUDFactoryService implements SecureCRUDFactoryServ
      *
      * @return string
      */
-    private function getClassName(string $layer, string $crud): string
+    protected function getClassName(string $layer, string $crud): string
     {
         return 'Secure'.ucfirst(strtolower($layer)).$this->getCrud($crud);
     }
