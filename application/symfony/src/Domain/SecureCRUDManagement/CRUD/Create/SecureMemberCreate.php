@@ -7,7 +7,7 @@ use App\Entity\EntityInterface;
 /**
  * @author kevinfrantz
  */
-final class SecureMemberCreator extends AbstractSecureCreator
+final class SecureMemberCreate extends AbstractSecureCreate
 {
     public function create(): EntityInterface
     {

@@ -3,7 +3,7 @@
 namespace App\Domain\SecureCRUDManagement\Factory;
 
 use App\Entity\Meta\RightInterface;
-use App\Domain\SecureCRUDManagement\CRUD\Create\SecureCreatorInterface;
+use App\Domain\SecureCRUDManagement\CRUD\SecureCRUDInterface;
 
 /**
  * @author kevinfrantz
@@ -11,7 +11,7 @@ use App\Domain\SecureCRUDManagement\CRUD\Create\SecureCreatorInterface;
 interface SecureCRUDFactoryServiceInterface
 {
     /**
-     * @return SecureCreatorInterface
+     * @return SecureCRUDInterface
      */
-    public function create(RightInterface $requestedRight): SecureCreatorInterface;
+    public function create(RightInterface $requestedRight): SecureCRUDInterface;
 }

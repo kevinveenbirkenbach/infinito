@@ -10,7 +10,7 @@ use App\Domain\SecureCRUDManagement\CRUD\SecureCRUDInterface;
  *
  * @author kevinfrantz
  */
-interface SecureCreatorInterface extends SecureCRUDInterface
+interface SecureCreateInterface extends SecureCRUDInterface
 {
     /**
      * @return EntityInterface The created entity

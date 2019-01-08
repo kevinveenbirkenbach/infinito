@@ -7,6 +7,6 @@ use App\Domain\SecureCRUDManagement\CRUD\AbstractSecureCRUD;
 /**
  * @author kevinfrantz
  */
-abstract class AbstractSecureCreator extends AbstractSecureCRUD implements SecureCreatorInterface
+abstract class AbstractSecureCreate extends AbstractSecureCRUD implements SecureCreateInterface
 {
 }

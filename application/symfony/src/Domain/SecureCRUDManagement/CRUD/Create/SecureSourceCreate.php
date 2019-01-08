@@ -3,19 +3,25 @@
 namespace App\Domain\SecureCRUDManagement\CRUD\Create;
 
 use App\Entity\EntityInterface;
+use App\Entity\Source\Primitive\Text\TextSource;
 
 /**
  * @author kevinfrantz
+ *
+ * @todo Implement!
  */
-final class SecureHeredityCreator extends AbstractSecureCreator
+final class SecureSourceCreate extends AbstractSecureCreate
 {
     /**
-     * @todo Implement
      * {@inheritdoc}
      *
      * @see \App\Domain\SecureCRUDManagement\CRUD\Create\SecureCreatorInterface::create()
      */
     public function create(): EntityInterface
     {
+        $source = new TextSource();
+        $source->setText('Hello World!');
+
+        return $source;
     }
 }

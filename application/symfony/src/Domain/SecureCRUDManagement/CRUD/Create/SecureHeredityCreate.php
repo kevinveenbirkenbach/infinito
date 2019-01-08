@@ -7,13 +7,12 @@ use App\Entity\EntityInterface;
 /**
  * @author kevinfrantz
  */
-final class SecureRightCreator extends AbstractSecureCreator
+final class SecureHeredityCreate extends AbstractSecureCreate
 {
     /**
-     * @todo Implement!
-     * {@inheritdoc}
+     * @todo Implement
      *
-     * @see \App\Domain\SecureCRUDManagement\CRUD\Create\SecureCreatorInterface::create()
+     * @return EntityInterface
      */
     public function create(): EntityInterface
     {
