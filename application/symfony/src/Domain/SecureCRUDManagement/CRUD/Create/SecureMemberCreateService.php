@@ -7,14 +7,10 @@ use App\Entity\EntityInterface;
 /**
  * @author kevinfrantz
  */
-final class SecureHeredityCreate extends AbstractSecureCreate
+final class SecureMemberCreateService extends AbstractSecureCreateService
 {
-    /**
-     * @todo Implement
-     *
-     * @return EntityInterface
-     */
     public function create(): EntityInterface
     {
+        //todo implement!
     }
 }

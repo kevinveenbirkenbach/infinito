@@ -3,14 +3,14 @@
 namespace App\Domain\SecureCRUDManagement\CRUD\Create;
 
 use App\Entity\EntityInterface;
-use App\Domain\SecureCRUDManagement\CRUD\SecureCRUDInterface;
+use App\Domain\SecureCRUDManagement\CRUD\SecureCRUDServiceInterface;
 
 /**
  * @todo Implement!
  *
  * @author kevinfrantz
  */
-interface SecureCreateInterface extends SecureCRUDInterface
+interface SecureCreateServiceInterface extends SecureCRUDServiceInterface
 {
     /**
      * @return EntityInterface The created entity

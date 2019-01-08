@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\SecureLoadManagement;
+namespace App\Domain\SecureCRUDManagement\CRUD\Read;
 
 use App\Entity\Source\SourceInterface;
 use App\Entity\Meta\RightInterface;
@@ -9,11 +9,15 @@ use App\Domain\SecureManagement\SecureSourceChecker;
 use App\Exception\SourceAccessDenied;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Source\AbstractSource;
+use App\Domain\SecureCRUDManagement\CRUD\AbstractSecureCRUDService;
+use App\Entity\EntityInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Security\Core\Security;
 
 /**
  * @author kevinfrantz
  */
-final class SecureSourceLoader implements SecureSourceLoaderInterface
+final class SecureSourceReadService extends AbstractSecureCRUDService //implements SecureSourceReadServiceInterface
 {
     /**
      * @todo It would be better to specify the type
@@ -23,20 +27,13 @@ final class SecureSourceLoader implements SecureSourceLoaderInterface
     private $sourceRepository;
 
     /**
-     * The source attribute of the right needs a slug OR id.
-     *
-     * @var RightInterface the right which is requested
-     */
-    private $requestedRight;
-
-    /**
      * @param SourceInterface $source
      *
      * @return RightInterface
      */
-    private function getClonedRightWithModifiedSource(SourceInterface $source): RightInterface
+    private function getClonedRightWithModifiedSource(SourceInterface $source, RightInterface $requestedRight): RightInterface
     {
-        $requestedRight = clone $this->requestedRight;
+        $requestedRight = clone $requestedRight;
         $requestedRight->setSource($source);
 
         return $requestedRight;
@@ -54,21 +51,26 @@ final class SecureSourceLoader implements SecureSourceLoaderInterface
         }
     }
 
-    public function __construct(EntityManagerInterface $entityManager, RightInterface $requestedRight)
-    {
-        $this->sourceRepository = $entityManager->getRepository(AbstractSource::class);
-        $this->requestedRight = $requestedRight;
-    }
-
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\SecureLoadManagement\SecureSourceLoaderInterface::getSource()
+     * @see \App\Domain\SecureCRUDManagement\AbstractSecureCRUDService::__construct()
      */
-    public function getSource(): SourceInterface
+    public function __construct(RequestStack $requestStack, Security $security, EntityManagerInterface $entityManager)
+    {
+        $this->sourceRepository = $entityManager->getRepository(AbstractSource::class);
+        parent::__construct($requestStack, $security, $entityManager);
+    }
+
+    /**
+     * @param RightInterface $requestedRight
+     *
+     * @return EntityInterface
+     */
+    public function read(RightInterface $requestedRight): EntityInterface
     {
         $source = $this->loadSource();
-        $requestedRight = $this->getClonedRightWithModifiedSource($source);
+        $requestedRight = $this->getClonedRightWithModifiedSource($source, $requestedRight);
         $secureSourceChecker = new SecureSourceChecker($source);
         if ($secureSourceChecker->hasPermission($requestedRight)) {
             return $source;

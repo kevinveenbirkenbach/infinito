@@ -10,12 +10,10 @@ use App\Entity\Source\Primitive\Text\TextSource;
  *
  * @todo Implement!
  */
-final class SecureSourceCreate extends AbstractSecureCreate
+final class SecureSourceCreateService extends AbstractSecureCreateService
 {
     /**
-     * {@inheritdoc}
-     *
-     * @see \App\Domain\SecureCRUDManagement\CRUD\Create\SecureCreatorInterface::create()
+     * @return EntityInterface
      */
     public function create(): EntityInterface
     {

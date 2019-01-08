@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\Security;
 use App\Domain\SecureCRUDManagement\Factory\SecureCRUDFactoryService;
 use App\DBAL\Types\Meta\Right\LayerType;
 use App\Entity\Meta\Right;
-use App\Domain\SecureCRUDManagement\CRUD\SecureCRUDInterface;
+use App\Domain\SecureCRUDManagement\CRUD\SecureCRUDServiceInterface;
 use App\DBAL\Types\Meta\Right\CRUDType;
 
 /**
@@ -50,7 +50,7 @@ class SecureCRUDFactoryServiceTest extends KernelTestCase
                     $requestedRight->setLayer($layer);
                     $requestedRight->setType($crud);
                     $secureCreator = $this->secureCRUDFactoryService->create($requestedRight);
-                    $this->assertInstanceOf(SecureCRUDInterface::class, $secureCreator);
+                    $this->assertInstanceOf(SecureCRUDServiceInterface::class, $secureCreator);
                 }
             }
         }

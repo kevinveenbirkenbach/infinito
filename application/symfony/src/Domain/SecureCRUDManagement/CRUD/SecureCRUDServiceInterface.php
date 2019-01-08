@@ -7,6 +7,6 @@ namespace App\Domain\SecureCRUDManagement\CRUD;
  *
  * @author kevinfrantz
  */
-interface SecureCRUDInterface
+interface SecureCRUDServiceInterface
 {
 }

@@ -9,14 +9,16 @@ use App\Entity\Meta\RightInterface;
 use App\Domain\UserManagement\UserIdentityManager;
 use FOS\RestBundle\View\ViewHandlerInterface;
 use App\Entity\Source\SourceInterface;
-use App\Domain\SecureLoadManagement\SecureSourceLoader;
 use FOS\RestBundle\View\View;
 use App\Exception\AllreadyDefinedException;
+use App\Domain\SecureCRUDManagement\CRUD\Read\SecureSourceReadService;
 
 /**
  * @author kevinfrantz
+ *
+ * @todo Implement as a service!
  */
-class SourceRESTResponseManager implements SourceRESTResponseManagerInterface
+final class SourceRESTResponseManager implements SourceRESTResponseManagerInterface
 {
     /**
      * @var UserInterface
@@ -64,14 +66,14 @@ class SourceRESTResponseManager implements SourceRESTResponseManagerInterface
         $this->setView();
     }
 
-    protected function setView(): void
+    private function setView(): void
     {
         $this->view = new View($this->loadedSource, 200);
     }
 
     private function setLoadedSource(): void
     {
-        $secureSourceLoader = new SecureSourceLoader($this->entityManager, $this->requestedRight);
+        $secureSourceLoader = new SecureSourceReadService($this->entityManager, $this->requestedRight);
         $this->loadedSource = $secureSourceLoader->getSource();
     }
 
@@ -100,6 +102,11 @@ class SourceRESTResponseManager implements SourceRESTResponseManagerInterface
         }
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\ResponseManagement\SourceRESTResponseManagerInterface::getResponse()
+     */
     public function getResponse(): Response
     {
         return $this->viewHandler->handle($this->view);

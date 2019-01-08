@@ -7,7 +7,7 @@ use App\Entity\EntityInterface;
 /**
  * @author kevinfrantz
  */
-final class SecureRightCreate extends AbstractSecureCreate
+final class SecureRightCreateService extends AbstractSecureCreateService
 {
     /**
      * @todo Implement!

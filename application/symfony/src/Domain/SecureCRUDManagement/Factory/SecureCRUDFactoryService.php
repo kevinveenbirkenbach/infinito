@@ -2,35 +2,17 @@
 
 namespace App\Domain\SecureCRUDManagement\Factory;
 
-use App\Domain\SecureCRUDManagement\CRUD\SecureCRUDInterface;
 use App\Entity\Meta\RightInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\Security;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Domain\SecureCRUDManagement\AbstractSecureCRUDService;
+use App\Domain\SecureCRUDManagement\CRUD\SecureCRUDServiceInterface;
 
 /**
  * @author kevinfrantz
  *
  * @todo Improve code performance
  */
-final class SecureCRUDFactoryService implements SecureCRUDFactoryServiceInterface
+final class SecureCRUDFactoryService extends AbstractSecureCRUDService implements SecureCRUDFactoryServiceInterface
 {
-    /**
-     * @var Request
-     */
-    private $request;
-
-    /**
-     * @var Security
-     */
-    private $security;
-
-    /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
-
     /**
      * @param string $crud
      *
@@ -59,14 +41,7 @@ final class SecureCRUDFactoryService implements SecureCRUDFactoryServiceInterfac
      */
     private function getCRUDNamespace(string $layer, string $crud): string
     {
-        return 'App\\Domain\\SecureCRUDManagement\\CRUD\\'.$this->getCrud($crud).'\\'.$this->getClassName($layer, $crud);
-    }
-
-    public function __construct(RequestStack $requestStack, Security $security, EntityManagerInterface $entityManager)
-    {
-        $this->request = $requestStack->getCurrentRequest();
-        $this->security = $security;
-        $this->entityManager = $entityManager;
+        return 'App\\Domain\\SecureCRUDManagement\\CRUD\\'.$this->getCrud($crud).'\\'.$this->getClassName($layer, $crud).'Service';
     }
 
     /**
@@ -74,10 +49,10 @@ final class SecureCRUDFactoryService implements SecureCRUDFactoryServiceInterfac
      *
      * @see \App\Domain\SecureCRUDManagement\Factory\SecureCRUDFactoryServiceInterface::create()
      */
-    public function create(RightInterface $requestedRight): SecureCRUDInterface
+    public function create(RightInterface $requestedRight): SecureCRUDServiceInterface
     {
         $namespace = $this->getCRUDNamespace($requestedRight->getLayer(), $requestedRight->getType());
 
-        return new $namespace($this->request, $this->security, $this->entityManager);
+        return new $namespace($this->requestStack, $this->security, $this->entityManager);
     }
 }

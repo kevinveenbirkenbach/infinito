@@ -1,12 +1,10 @@
 <?php
 
-namespace Tests\Unit\Domain\SecureLoadManagement;
+namespace tests\Unit\Domain\SecureCRUDManagement\CRUD\Read;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Doctrine\Common\Persistence\ObjectRepository;
-use App\Entity\Source\AbstractSource;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use App\Domain\SecureLoadManagement\SecureSourceLoader;
 use App\Entity\Source\Primitive\Text\TextSource;
 use App\DBAL\Types\SystemSlugType;
 use App\Entity\Meta\Right;
@@ -15,13 +13,15 @@ use App\DBAL\Types\Meta\Right\CRUDType;
 use App\Entity\Source\Complex\UserSource;
 use App\Entity\Source\Primitive\Text\TextSourceInterface;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Domain\SecureCRUDManagement\CRUD\Read\SecureSourceReadService;
+use Symfony\Component\Security\Core\Security;
 
 /**
  * @author kevinfrantz
  *
  * @todo Implement more tests
  */
-class SecureSourceLoaderTest extends KernelTestCase
+class SecureSourceReadServiceTest extends KernelTestCase
 {
     /**
      * @var ObjectRepository
@@ -33,16 +33,18 @@ class SecureSourceLoaderTest extends KernelTestCase
      */
     private $entityManager;
 
+    /**
+     * @var SecureSourceReadService
+     */
+    private $secureSourceReadService;
+
     public function setUp(): void
     {
         self::bootKernel();
-        $this->entityManager = self::$container->get('doctrine.orm.default_entity_manager');
-        $this->setSourceRepository();
-    }
-
-    private function setSourceRepository(): void
-    {
-        $this->sourceRepository = $this->entityManager->getRepository(AbstractSource::class);
+        $requestStack = self::$container->get('request_stack');
+        $security = new Security(self::$kernel->getContainer());
+        $entityManager = self::$container->get('doctrine.orm.default_entity_manager');
+        $this->secureSourceReadService = new SecureSourceReadService($requestStack, $security, $entityManager);
     }
 
     public function testAccessDeniedException(): void
@@ -54,9 +56,8 @@ class SecureSourceLoaderTest extends KernelTestCase
         $requestedRight->setLayer(LayerType::SOURCE);
         $requestedRight->setType(CRUDType::READ);
         $requestedRight->setReciever(new UserSource());
-        $secureSourceLoader = new SecureSourceLoader($this->entityManager, $requestedRight);
         $this->expectException(AccessDeniedHttpException::class);
-        $secureSourceLoader->getSource();
+        $this->secureSourceReadService->read($requestedRight);
     }
 
     public function testGranted(): void
@@ -68,7 +69,7 @@ class SecureSourceLoaderTest extends KernelTestCase
         $requestedRight->setLayer(LayerType::SOURCE);
         $requestedRight->setType(CRUDType::READ);
         $requestedRight->setReciever($this->sourceRepository->findOneBySlug(SystemSlugType::GUEST_USER));
-        $secureSourceLoader = new SecureSourceLoader($this->entityManager, $requestedRight);
-        $this->assertInstanceOf(TextSourceInterface::class, $secureSourceLoader->getSource());
+        $textSourceResponse = $this->secureSourceReadService->read($requestedRight);
+        $this->assertInstanceOf(TextSourceInterface::class, $textSourceResponse);
     }
 }
