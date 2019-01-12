@@ -6,6 +6,8 @@ use Fresh\DoctrineEnumBundle\DBAL\Types\AbstractEnumType;
 
 /**
  * @author kevinfrantz
+ *
+ * @todo Implement more layers and refactor!
  */
 final class LayerType extends AbstractEnumType
 {
