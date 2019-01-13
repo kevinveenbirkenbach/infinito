@@ -50,7 +50,7 @@ class RequestedRight implements RequestedRightInterface
      */
     private function isIdEquals(): bool
     {
-        if ($this->requestedSource->hasId() && $this->source->hasId()) {
+        if (!$this->requestedSource->hasId() || !$this->source->hasId()) {
             return false;
         }
 
@@ -62,7 +62,7 @@ class RequestedRight implements RequestedRightInterface
      */
     private function isSlugEquals(): bool
     {
-        if ($this->requestedSource->hasSlug() && $this->source->hasSlug()) {
+        if (!$this->requestedSource->hasSlug() || !$this->source->hasSlug()) {
             return false;
         }
 
@@ -70,11 +70,19 @@ class RequestedRight implements RequestedRightInterface
     }
 
     /**
+     * @return bool Returns true if the source is not set!
+     */
+    private function isSourceNotSet(): bool
+    {
+        return !isset($this->source);
+    }
+
+    /**
      * @return bool Tells if a reload of the source is neccessary
      */
     private function isReloadNeccessary(): bool
     {
-        return $this->isIdEquals() && $this->isSlugEquals();
+        return $this->isSourceNotSet() || $this->isIdEquals() || $this->isSlugEquals();
     }
 
     /**
@@ -88,9 +96,17 @@ class RequestedRight implements RequestedRightInterface
     {
         if ($this->isReloadNeccessary()) {
             $this->loadSource();
+            $this->setSourceIfNotSet();
         }
 
         return $this->source;
+    }
+
+    private function setSourceIfNotSet(): void
+    {
+        if (!isset($this->source)) {
+            $this->source = $this->requestedSource;
+        }
     }
 
     /**
@@ -101,6 +117,5 @@ class RequestedRight implements RequestedRightInterface
     final public function setRequestedSource(RequestedSourceInterface $requestedSource)
     {
         $this->requestedSource = $requestedSource;
-        $this->loadSource();
     }
 }

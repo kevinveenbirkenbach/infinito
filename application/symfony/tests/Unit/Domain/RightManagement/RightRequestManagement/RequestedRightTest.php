@@ -1,0 +1,64 @@
+<?php
+
+namespace tests\Unit\Domain\RightManagement\RightRequestManagement;
+
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use App\Domain\RightManagement\RightRequestManagement\RequestedRightInterface;
+use App\Domain\RightManagement\RightRequestManagement\RequestedRight;
+use App\Entity\Source\AbstractSource;
+use App\DBAL\Types\Meta\Right\LayerType;
+use App\Domain\SourceManagement\RequestedSource;
+use App\DBAL\Types\SystemSlugType;
+use App\Domain\SourceManagement\RequestedSourceInterface;
+
+/**
+ * @author kevinfrantz
+ */
+class RequestedRightTest extends KernelTestCase
+{
+    /**
+     * @var RequestedRightInterface
+     */
+    private $requestedRight;
+
+    public function setUp(): void
+    {
+        self::bootKernel();
+        $entityManager = self::$container->get('doctrine.orm.default_entity_manager');
+        $sourceRepository = $entityManager->getRepository(AbstractSource::class);
+        $this->requestedRight = new RequestedRight($sourceRepository);
+    }
+
+    public function testLayer(): void
+    {
+        $layer = LayerType::SOURCE;
+        $this->assertNull($this->requestedRight->setLayer($layer));
+        $this->assertEquals($layer, $this->requestedRight->getLayer());
+    }
+
+    public function testLayerException(): void
+    {
+        $this->expectException(\TypeError::class);
+        var_dump($this->requestedRight->getLayer());
+    }
+
+    public function testUnsavedRequestedSource(): void
+    {
+        $source = $this->createMock(RequestedSource::class);
+        $this->requestedRight->setRequestedSource($source);
+        $this->assertEquals($source, $this->requestedRight->getSource());
+    }
+
+    public function testKnownSource(): void
+    {
+        $requestedSource = new RequestedSource();
+        $requestedSource->setSlug(SystemSlugType::IMPRINT);
+        $this->requestedRight->setRequestedSource($requestedSource);
+        $sourceResponse1 = $this->requestedRight->getSource();
+        $this->assertGreaterThan(0, $sourceResponse1->getId());
+        $requestedSource->setSlug('');
+        $sourceResponse2 = $this->requestedRight->getSource();
+        $this->assertInstanceOf(RequestedSourceInterface::class, $sourceResponse2);
+        $this->assertFalse($sourceResponse2->hasId());
+    }
+}
