@@ -2,37 +2,41 @@
 
 namespace Tests\Unit\Domain\UserManagement;
 
-use App\Domain\UserManagement\UserIdentityManager;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use App\DBAL\Types\SystemSlugType;
 use App\Entity\User;
+use App\Domain\UserManagement\UserSourceDirector;
+use App\Repository\Source\SourceRepository;
+use App\Entity\Source\AbstractSource;
 
-class UserIdentityManagerTest extends KernelTestCase
+/**
+ * @author kevinfrantz
+ */
+class UserSourceDirectorTest extends KernelTestCase
 {
     /**
-     * @var EntityManagerInterface
+     * @var SourceRepository
      */
-    private $entityManager;
+    private $sourceRepository;
 
     public function setUp(): void
     {
         self::bootKernel();
-        $this->entityManager = self::$container->get('doctrine.orm.default_entity_manager');
+        $this->sourceRepository = self::$container->get('doctrine.orm.default_entity_manager')->getRepository(AbstractSource::class);
     }
 
     public function testGuestUser(): void
     {
         $origineUser = null;
-        $userIdentityManager = new UserIdentityManager($this->entityManager, $origineUser);
+        $userIdentityManager = new UserSourceDirector($this->sourceRepository, $origineUser);
         $expectedUser = $userIdentityManager->getUser();
         $this->assertEquals(SystemSlugType::GUEST_USER, $expectedUser->getSource()->getSlug());
     }
 
     public function testUser(): void
     {
-        $origineUser = new User();
-        $userIdentityManager = new UserIdentityManager($this->entityManager, $origineUser);
+        $origineUser = $this->createMock(User::class);
+        $userIdentityManager = new UserSourceDirector($this->sourceRepository, $origineUser);
         $expectedUser = $userIdentityManager->getUser();
         $this->assertEquals($origineUser, $expectedUser);
     }
