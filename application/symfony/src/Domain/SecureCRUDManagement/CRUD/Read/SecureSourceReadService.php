@@ -4,7 +4,6 @@ namespace App\Domain\SecureCRUDManagement\CRUD\Read;
 
 use App\Entity\Source\SourceInterface;
 use App\Entity\Meta\RightInterface;
-use Doctrine\Common\Persistence\ObjectRepository;
 use App\Domain\SecureManagement\SecureSourceChecker;
 use App\Exception\SourceAccessDenied;
 use Doctrine\ORM\EntityManagerInterface;
@@ -53,6 +52,7 @@ final class SecureSourceReadService extends AbstractSecureCRUDService //implemen
 
     /**
      * @todo This will not work! Change interface to requested right!
+     *
      * @param RightInterface $requestedRight
      *
      * @return EntityInterface
