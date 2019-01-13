@@ -33,9 +33,4 @@ abstract class AbstractEntity implements EntityInterface
     {
         $this->version = 0;
     }
-
-    public function __toString(): string
-    {
-        return __CLASS__.':'.spl_object_hash($this);
-    }
 }

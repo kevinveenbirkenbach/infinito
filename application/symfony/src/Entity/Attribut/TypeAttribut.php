@@ -3,6 +3,8 @@
 namespace App\Entity\Attribut;
 
 /**
+ * @todo Implement a trait for crud which substitute this one.
+ *
  * @author kevinfrantz
  */
 trait TypeAttribut

@@ -19,6 +19,8 @@ use App\Exception\NoValidChoiceException;
 use App\DBAL\Types\Meta\Right\CRUDType;
 
 /**
+ * @todo Remove relation attribut!
+ *
  * @author kevinfrantz
  * @ORM\Table(name="meta_right")
  * @ORM\Entity(repositoryClass="App\Repository\RightRepository")
