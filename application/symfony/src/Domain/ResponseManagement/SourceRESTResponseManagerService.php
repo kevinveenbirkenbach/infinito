@@ -7,6 +7,7 @@ use App\Entity\UserInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Meta\RightInterface;
 use App\Domain\UserManagement\UserIdentityManager;
+use Symfony\Component\Security\Core\User\UserInterface as CoreUserInterface;
 use FOS\RestBundle\View\ViewHandlerInterface;
 use App\Entity\Source\SourceInterface;
 use FOS\RestBundle\View\View;
@@ -18,13 +19,8 @@ use App\Domain\SecureCRUDManagement\CRUD\Read\SecureSourceReadService;
  *
  * @todo Implement as a service!
  */
-final class SourceRESTResponseManager implements SourceRESTResponseManagerInterface
+final class SourceRESTResponseManagerService implements SourceRESTResponseManagerServiceInterface
 {
-    /**
-     * @var UserInterface
-     */
-    private $user;
-
     /**
      * @var EntityManagerInterface
      */
@@ -36,31 +32,19 @@ final class SourceRESTResponseManager implements SourceRESTResponseManagerInterf
     private $requestedRight;
 
     /**
-     * @var ViewHandlerInterface
-     */
-    private $viewHandler;
-
-    /**
      * @var SourceInterface
      */
     private $loadedSource;
-
+    
     /**
-     * @var View
+     * @var UserInterface
      */
-    private $view;
+    private $user;
 
-    /**
-     * @param UserInterface          $user
-     * @param EntityManagerInterface $entityManager
-     * @param RightInterface         $requestedRight
-     * @param ViewHandlerInterface   $viewHandler
-     */
-    public function __construct(?UserInterface $user, EntityManagerInterface $entityManager, RightInterface $requestedRight, ViewHandlerInterface $viewHandler)
+    public function __construct(CoreUserInterface $user,SecureSourceReadService $secureSourceRead, EntityManagerInterface $entityManager, RightInterface $requestedRight)
     {
         $this->entityManager = $entityManager;
-        $this->viewHandler = $viewHandler;
-        $this->setUser($user);
+        $this->user = $user;
         $this->setRequestedRight($requestedRight);
         $this->setLoadedSource();
         $this->setView();
@@ -69,21 +53,6 @@ final class SourceRESTResponseManager implements SourceRESTResponseManagerInterf
     private function setView(): void
     {
         $this->view = new View($this->loadedSource, 200);
-    }
-
-    private function setLoadedSource(): void
-    {
-        $secureSourceLoader = new SecureSourceReadService($this->entityManager, $this->requestedRight);
-        $this->loadedSource = $secureSourceLoader->getSource();
-    }
-
-    /**
-     * @param UserInterface $user
-     */
-    private function setUser(?UserInterface $user): void
-    {
-        $userIdentityManager = new UserIdentityManager($this->entityManager, $user);
-        $this->user = $userIdentityManager->getUser();
     }
 
     /**
@@ -103,12 +72,11 @@ final class SourceRESTResponseManager implements SourceRESTResponseManagerInterf
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @see \App\Domain\ResponseManagement\SourceRESTResponseManagerInterface::getResponse()
+     * {@inheritDoc}
+     * @see \App\Domain\ResponseManagement\SourceRESTResponseManagerServiceInterface::getResponse()
      */
-    public function getResponse(): Response
+    public function getResponse(ViewHandlerInterface $viewHandler): Response
     {
-        return $this->viewHandler->handle($this->view);
+        return $viewHandler->handle($this->view);
     }
 }
