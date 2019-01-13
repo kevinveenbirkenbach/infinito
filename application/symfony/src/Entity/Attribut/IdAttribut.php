@@ -21,4 +21,9 @@ trait IdAttribut
     {
         return $this->id;
     }
+
+    public function hasId(): bool
+    {
+        return isset($this->id);
+    }
 }

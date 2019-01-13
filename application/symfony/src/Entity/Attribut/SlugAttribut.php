@@ -2,6 +2,9 @@
 
 namespace App\Entity\Attribut;
 
+/**
+ * @author kevinfrantz
+ */
 trait SlugAttribut
 {
     /**
@@ -17,5 +20,10 @@ trait SlugAttribut
     public function getSlug(): string
     {
         return $this->slug;
+    }
+
+    public function hasSlug(): bool
+    {
+        return isset($this->slug);
     }
 }
