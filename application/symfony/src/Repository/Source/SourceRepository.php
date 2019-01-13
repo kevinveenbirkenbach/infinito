@@ -29,10 +29,10 @@ final class SourceRepository extends EntityRepository
      */
     public function findOneByIdOrSlug(RequestedSourceInterface $requestedSource): ?SourceInterface
     {
-        try {
+        if ($requestedSource->hasId()) {
             return $this->find($requestedSource->getId());
-        } catch (\Error $error) {
-            return $this->findOneBySlug($requestedSource->getSlug());
         }
+
+        return $this->findOneBySlug($requestedSource->getSlug());
     }
 }
