@@ -14,6 +14,24 @@ final class SourceRepository extends EntityRepository
      */
     public function findOneBySlug(string $slug): ?SourceInterface
     {
-        return $this->findOneBy(['slug' => $slug]);
+        return $this->findOneBy([
+            'slug' => $slug,
+        ]);
+    }
+
+    /**
+     * Loads a source by id or if not defined, by slug.
+     *
+     * @param SourceInterface $requestedSource
+     *
+     * @return SourceInterface|null
+     */
+    public function findOneByIdOrSlug(SourceInterface $requestedSource): ?SourceInterface
+    {
+        try {
+            return $this->find($requestedSource->getId());
+        } catch (\Error $error) {
+            return $this->findOneBySlug($requestedSource->getSlug());
+        }
     }
 }
