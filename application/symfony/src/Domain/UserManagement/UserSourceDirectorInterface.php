@@ -4,7 +4,7 @@ namespace App\Domain\UserManagement;
 
 use App\Entity\UserInterface;
 
-interface UserIdentityManagerInterface
+interface UserSourceDirectorInterface
 {
     /**
      * @return UserInterface
