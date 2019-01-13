@@ -13,6 +13,7 @@ use App\Domain\SecureCRUDManagement\CRUD\AbstractSecureCRUDService;
 use App\Entity\EntityInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Security;
+use App\Repository\Source\SourceRepository;
 
 /**
  * @author kevinfrantz
@@ -22,7 +23,7 @@ final class SecureSourceReadService extends AbstractSecureCRUDService //implemen
     /**
      * @todo It would be better to specify the type
      *
-     * @var ObjectRepository
+     * @var SourceRepository
      */
     private $sourceRepository;
 
@@ -40,18 +41,6 @@ final class SecureSourceReadService extends AbstractSecureCRUDService //implemen
     }
 
     /**
-     * @return SourceInterface
-     */
-    private function loadSource(): SourceInterface
-    {
-        try {
-            return $this->sourceRepository->find($this->requestedRight->getSource()->getId());
-        } catch (\Error $error) {
-            return $this->sourceRepository->findOneBySlug($this->requestedRight->getSource()->getSlug());
-        }
-    }
-
-    /**
      * {@inheritdoc}
      *
      * @see \App\Domain\SecureCRUDManagement\AbstractSecureCRUDService::__construct()
@@ -63,13 +52,14 @@ final class SecureSourceReadService extends AbstractSecureCRUDService //implemen
     }
 
     /**
+     * @todo This will not work! Change interface to requested right!
      * @param RightInterface $requestedRight
      *
      * @return EntityInterface
      */
     public function read(RightInterface $requestedRight): EntityInterface
     {
-        $source = $this->loadSource();
+        $source = $requestedRight->getSource();
         $requestedRight = $this->getClonedRightWithModifiedSource($source, $requestedRight);
         $secureSourceChecker = new SecureSourceChecker($source);
         if ($secureSourceChecker->hasPermission($requestedRight)) {
