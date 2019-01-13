@@ -7,6 +7,6 @@ use App\Entity\Source\AbstractSource;
 /**
  * @author kevinfrantz
  */
-final class RequestedSource extends AbstractSource implements RequestedSourceInterface
+class RequestedSource extends AbstractSource implements RequestedSourceInterface
 {
 }
