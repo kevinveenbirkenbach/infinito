@@ -9,9 +9,13 @@ use App\Entity\Source\SourceInterface;
 use App\Entity\Attribut\TypeAttribut;
 use App\Entity\Attribut\LayerAttribut;
 use App\Entity\Attribut\RecieverAttribut;
+use App\Exception\PreconditionFailedException;
+use App\Exception\NotSetException;
 
 /**
  * @author kevinfrantz
+ *
+ * @todo Check out if the performance of this class can be optimized!
  */
 class RequestedRight implements RequestedRightInterface
 {
@@ -46,43 +50,14 @@ class RequestedRight implements RequestedRightInterface
     }
 
     /**
-     * @return bool
+     * @throws PreconditionFailedException If the source has no id or slug
      */
-    private function isIdEquals(): bool
+    private function validateRequestedSource(): void
     {
-        if (!$this->requestedSource->hasId() || !$this->source->hasId()) {
-            return false;
+        if ($this->requestedSource->hasSlug() || $this->requestedSource->hasId()) {
+            return;
         }
-
-        return $this->requestedSource->getId() === $this->source->getId();
-    }
-
-    /**
-     * @return bool
-     */
-    private function isSlugEquals(): bool
-    {
-        if (!$this->requestedSource->hasSlug() || !$this->source->hasSlug()) {
-            return false;
-        }
-
-        return $this->requestedSource->getSlug() === $this->source->getSlug();
-    }
-
-    /**
-     * @return bool Returns true if the source is not set!
-     */
-    private function isSourceNotSet(): bool
-    {
-        return !isset($this->source);
-    }
-
-    /**
-     * @return bool Tells if a reload of the source is neccessary
-     */
-    private function isReloadNeccessary(): bool
-    {
-        return $this->isSourceNotSet() || $this->isIdEquals() || $this->isSlugEquals();
+        throw new PreconditionFailedException(get_class($this->requestedSource).' needs to have a defined attribut id or slug!');
     }
 
     /**
@@ -94,19 +69,19 @@ class RequestedRight implements RequestedRightInterface
      */
     final public function getSource(): SourceInterface
     {
-        if ($this->isReloadNeccessary()) {
-            $this->loadSource();
-            $this->setSourceIfNotSet();
-        }
+        $this->validateRequestedSource();
+        $this->loadSource();
+        $this->validateLoad();
 
         return $this->source;
     }
 
-    private function setSourceIfNotSet(): void
+    private function validateLoad(): void
     {
-        if (!isset($this->source)) {
-            $this->source = $this->requestedSource;
+        if ($this->source) {
+            return;
         }
+        throw new NotSetException('The Requested Source couldn\'t be found!');
     }
 
     /**
