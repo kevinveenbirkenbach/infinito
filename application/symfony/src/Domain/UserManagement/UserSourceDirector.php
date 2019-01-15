@@ -3,10 +3,9 @@
 namespace App\Domain\UserManagement;
 
 use App\Entity\UserInterface;
-use Doctrine\ORM\EntityManagerInterface;
 use App\DBAL\Types\SystemSlugType;
 use App\Entity\User;
-use App\Repository\Source\SourceRepository;
+use App\Repository\Source\SourceRepositoryInterface;
 
 /**
  * @author kevinfrantz
@@ -19,7 +18,7 @@ final class UserSourceDirector implements UserSourceDirectorInterface
     private $user;
 
     /**
-     * @var SourceRepository
+     * @var SourceRepositoryInterface
      */
     private $sourceRepository;
 
@@ -38,10 +37,10 @@ final class UserSourceDirector implements UserSourceDirectorInterface
     }
 
     /**
-     * @param EntityManagerInterface $entityManager
-     * @param UserInterface          $user
+     * @param SourceRepositoryInterface $sourceRepository
+     * @param UserInterface             $user
      */
-    public function __construct(SourceRepository $sourceRepository, ?UserInterface $user)
+    public function __construct(SourceRepositoryInterface $sourceRepository, ?UserInterface $user)
     {
         $this->sourceRepository = $sourceRepository;
         $this->setUser($user);

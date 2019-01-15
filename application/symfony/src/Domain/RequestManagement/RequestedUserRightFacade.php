@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domain\RightManagement\RightRequestManagement;
+namespace App\Domain\RequestManagement;
 
 use App\Entity\Source\SourceInterface;
-use App\Domain\SourceManagement\RequestedSourceInterface;
 use App\Domain\UserManagement\UserSourceDirectorInterface;
+use App\Exception\SetNotPossibleException;
 
 /**
  * @author kevinfrantz
@@ -37,7 +37,7 @@ final class RequestedUserRightFacade implements RequestedUserRightFacadeInterfac
      */
     public function setReciever(SourceInterface $reciever): void
     {
-        $this->requestedRight->setReciever($reciever);
+        throw new SetNotPossibleException('It\'s not possible to set the reciever!');
     }
 
     /**
@@ -103,7 +103,7 @@ final class RequestedUserRightFacade implements RequestedUserRightFacadeInterfac
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\RightManagement\RightRequestManagement\RequestedRightInterface::setRequestedSource()
+     * @see \App\Domain\RequestManagement\RequestedRightInterface::setRequestedSource()
      */
     public function setRequestedSource(RequestedSourceInterface $requestedSource)
     {

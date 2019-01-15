@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\RightManagement\RightRequestManagement;
+namespace App\Domain\RequestManagement;
 
 /**
  * Allows to use a right as a Service.

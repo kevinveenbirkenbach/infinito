@@ -1,16 +1,14 @@
 <?php
 
-namespace App\Domain\RightManagement\RightRequestManagement;
+namespace App\Domain\RequestManagement;
 
-use Doctrine\ORM\EntityManager;
-use App\Repository\Source\SourceRepository;
-use App\Domain\SourceManagement\RequestedSourceInterface;
 use App\Entity\Source\SourceInterface;
 use App\Entity\Attribut\TypeAttribut;
 use App\Entity\Attribut\LayerAttribut;
 use App\Entity\Attribut\RecieverAttribut;
 use App\Exception\PreconditionFailedException;
 use App\Exception\NotSetException;
+use App\Repository\Source\SourceRepositoryInterface;
 
 /**
  * @author kevinfrantz
@@ -22,7 +20,7 @@ class RequestedRight implements RequestedRightInterface
     use TypeAttribut, LayerAttribut, RecieverAttribut;
 
     /**
-     * @var SourceRepository
+     * @var SourceRepositoryInterface
      */
     private $sourceRepository;
 
@@ -37,9 +35,9 @@ class RequestedRight implements RequestedRightInterface
     private $requestedSource;
 
     /**
-     * @param EntityManager $entityManager
+     * @param SourceRepositoryInterface $sourceRepository
      */
-    public function __construct(SourceRepository $sourceRepository)
+    public function __construct(SourceRepositoryInterface $sourceRepository)
     {
         $this->sourceRepository = $sourceRepository;
     }
@@ -65,7 +63,7 @@ class RequestedRight implements RequestedRightInterface
      *
      * @see https://en.wikipedia.org/wiki/Lazy_loading
      * {@inheritdoc}
-     * @see \App\Domain\RightManagement\RightRequestManagement\RequestedRightInterface::getSource()
+     * @see \App\Domain\RequestManagement\RequestedRightInterface::getSource()
      */
     final public function getSource(): SourceInterface
     {
@@ -87,7 +85,7 @@ class RequestedRight implements RequestedRightInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\RightManagement\RightRequestManagement\RequestedRightInterface::setRequestedSource()
+     * @see \App\Domain\RequestManagement\RequestedRightInterface::setRequestedSource()
      */
     final public function setRequestedSource(RequestedSourceInterface $requestedSource)
     {

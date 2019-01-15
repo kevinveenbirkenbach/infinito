@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\SourceManagement;
+namespace App\Domain\RequestManagement;
 
 use App\Entity\Source\SourceInterface;
 

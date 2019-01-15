@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\RightManagement\RightRequestManagement;
+namespace App\Domain\RequestManagement;
 
 /**
  * Offers a Service for managing the rights.

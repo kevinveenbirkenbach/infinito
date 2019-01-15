@@ -4,15 +4,13 @@ namespace App\Repository\Source;
 
 use Doctrine\ORM\EntityRepository;
 use App\Entity\Source\SourceInterface;
-use App\Domain\SourceManagement\RequestedSourceInterface;
+use App\Domain\RequestManagement\RequestedSourceInterface;
 
-final class SourceRepository extends EntityRepository
+/**
+ * @author kevinfrantz
+ */
+final class SourceRepository extends EntityRepository implements SourceRepositoryInterface
 {
-    /**
-     * @param string $slug
-     *
-     * @return SourceInterface|null
-     */
     public function findOneBySlug(string $slug): ?SourceInterface
     {
         return $this->findOneBy([
@@ -20,13 +18,6 @@ final class SourceRepository extends EntityRepository
         ]);
     }
 
-    /**
-     * Loads a source by id or if not defined, by slug.
-     *
-     * @param RequestedSourceInterface $requestedSource
-     *
-     * @return SourceInterface|null
-     */
     public function findOneByIdOrSlug(RequestedSourceInterface $requestedSource): ?SourceInterface
     {
         if ($requestedSource->hasId()) {

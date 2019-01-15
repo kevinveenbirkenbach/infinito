@@ -1,15 +1,15 @@
 <?php
 
-namespace tests\Unit\Domain\RightManagement\RightRequestManagement;
+namespace tests\Unit\Domain\RequestManagement;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use App\Domain\RightManagement\RightRequestManagement\RequestedRightInterface;
-use App\Domain\RightManagement\RightRequestManagement\RequestedRight;
+use App\Domain\RequestManagement\RequestedRightInterface;
+use App\Domain\RequestManagement\RequestedRight;
 use App\Entity\Source\AbstractSource;
 use App\DBAL\Types\Meta\Right\LayerType;
-use App\Domain\SourceManagement\RequestedSource;
+use App\Domain\RequestManagement\RequestedSource;
 use App\DBAL\Types\SystemSlugType;
-use App\Domain\SourceManagement\RequestedSourceInterface;
+use App\Domain\RequestManagement\RequestedSourceInterface;
 use App\Exception\PreconditionFailedException;
 use App\Exception\NotSetException;
 
