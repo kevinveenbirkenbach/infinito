@@ -83,9 +83,9 @@ class RightTest extends TestCase
 
     public function testLayer(): void
     {
-        foreach (LayerType::getChoices() as $key => $value) {
-            $this->assertNull($this->right->setLayer($key));
-            $this->assertEquals($key, $this->right->getLayer());
+        foreach (LayerType::getChoices() as $choice) {
+            $this->assertNull($this->right->setLayer($choice));
+            $this->assertEquals($choice, $this->right->getLayer());
         }
         $this->expectException(NoValidChoiceException::class);
         $this->right->setLayer('NoneValidLayer');

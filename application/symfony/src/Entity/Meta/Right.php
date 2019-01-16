@@ -6,7 +6,6 @@ use App\Entity\Attribut\CrudAttribut;
 use Doctrine\ORM\Mapping as ORM;
 use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
 use App\Entity\Attribut\LawAttribut;
-use App\DBAL\Types\Meta\Right\LayerType;
 use App\Entity\Attribut\GrantAttribut;
 use App\Logic\Operation\OperationInterface;
 use App\Entity\Attribut\ConditionAttribut;
@@ -15,8 +14,6 @@ use App\Entity\Attribut\LayerAttribut;
 use App\Entity\Attribut\RelationAttribut;
 use App\Entity\Attribut\PriorityAttribut;
 use App\Entity\Source\SourceInterface;
-use App\Exception\NoValidChoiceException;
-use App\DBAL\Types\Meta\Right\CRUDType;
 
 /**
  * @todo Remove relation attribut!
@@ -97,18 +94,5 @@ class Right extends AbstractMeta implements RightInterface
         parent::__construct();
         $this->grant = true;
         $this->priority = 0;
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @see \App\Entity\Attribut\LayerAttributInterface::setLayer()
-     */
-    public function setLayer(string $layer): void
-    {
-        if (!array_key_exists($layer, LayerType::getChoices())) {
-            throw new NoValidChoiceException();
-        }
-        $this->layer = $layer;
     }
 }

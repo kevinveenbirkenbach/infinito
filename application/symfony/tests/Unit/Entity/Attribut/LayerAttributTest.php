@@ -6,17 +6,21 @@ use PHPUnit\Framework\TestCase;
 use App\Entity\Attribut\LayerAttributInterface;
 use App\Entity\Attribut\LayerAttribut;
 use App\DBAL\Types\Meta\Right\LayerType;
+use App\Exception\NoValidChoiceException;
 
+/**
+ * @author kevinfrantz
+ */
 class LayerAttributTest extends TestCase
 {
     /**
      * @var LayerAttributInterface
      */
-    protected $layer;
+    protected $layerAttribut;
 
     public function setUp(): void
     {
-        $this->layer = new class() implements LayerAttributInterface {
+        $this->layerAttribut = new class() implements LayerAttributInterface {
             use LayerAttribut;
         };
     }
@@ -24,14 +28,16 @@ class LayerAttributTest extends TestCase
     public function testConstruct(): void
     {
         $this->expectException(\TypeError::class);
-        $this->layer->getLayer();
+        $this->layerAttribut->getLayer();
     }
 
     public function testAccessors(): void
     {
-        foreach (LayerType::getChoices() as $value) {
-            $this->assertNull($this->layer->setLayer($value));
-            $this->assertEquals($value, $this->layer->getLayer());
+        foreach (LayerType::getChoices() as $enum) {
+            $this->assertNull($this->layerAttribut->setLayer($enum));
+            $this->assertEquals($enum, $this->layerAttribut->getLayer());
         }
+        $this->expectException(NoValidChoiceException::class);
+        $this->layerAttribut->setLayer('NoneValidLayer');
     }
 }
