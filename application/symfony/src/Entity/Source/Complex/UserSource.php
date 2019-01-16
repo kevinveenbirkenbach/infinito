@@ -9,7 +9,7 @@ use App\Entity\Attribut\PersonIdentitySourceAttribut;
 
 /**
  * @author kevinfrantz
- * @ORM\Entity(repositoryClass="App\Repository\UserSourceRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\Source\Complex\UserSourceRepository")
  */
 class UserSource extends AbstractComplexSource implements UserSourceInterface
 {

@@ -23,7 +23,7 @@ use App\DBAL\Types\Meta\Right\CRUDType;
  *
  * @author kevinfrantz
  * @ORM\Table(name="meta_right")
- * @ORM\Entity(repositoryClass="App\Repository\RightRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\Meta\RightRepository")
  */
 class Right extends AbstractMeta implements RightInterface
 {
@@ -99,6 +99,11 @@ class Right extends AbstractMeta implements RightInterface
         $this->priority = 0;
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Entity\Attribut\TypeAttributInterface::setType()
+     */
     public function setType(string $type): void
     {
         if (!array_key_exists($type, CRUDType::getChoices())) {
@@ -107,6 +112,11 @@ class Right extends AbstractMeta implements RightInterface
         $this->type = $type;
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Entity\Attribut\LayerAttributInterface::setLayer()
+     */
     public function setLayer(string $layer): void
     {
         if (!array_key_exists($layer, LayerType::getChoices())) {

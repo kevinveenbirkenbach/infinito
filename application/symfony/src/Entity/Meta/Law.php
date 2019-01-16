@@ -12,7 +12,7 @@ use App\Entity\Attribut\GrantAttribut;
 /**
  * @author kevinfrantz
  * @ORM\Table(name="meta_law")
- * @ORM\Entity(repositoryClass="App\Repository\LawRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\Meta\LawRepository")
  */
 class Law extends AbstractMeta implements LawInterface
 {

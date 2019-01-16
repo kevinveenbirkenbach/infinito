@@ -2,15 +2,14 @@
 
 namespace App\Repository\Source;
 
-use Doctrine\Common\Persistence\ObjectRepository;
-use Doctrine\Common\Collections\Selectable;
 use App\Entity\Source\SourceInterface;
 use App\Domain\RequestManagement\RequestedSourceInterface;
+use App\Repository\RepositoryInterface;
 
 /**
  * @author kevinfrantz
  */
-interface SourceRepositoryInterface extends ObjectRepository, Selectable
+interface SourceRepositoryInterface extends RepositoryInterface
 {
     /**
      * Finds an Entity by slug.

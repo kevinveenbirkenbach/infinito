@@ -7,6 +7,6 @@ use Doctrine\ORM\EntityRepository;
 /**
  * @author kevinfrantz
  */
-class RightRepository extends EntityRepository
+abstract class AbstractRepository extends EntityRepository implements RepositoryInterface
 {
 }
