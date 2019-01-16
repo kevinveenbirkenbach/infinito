@@ -56,7 +56,7 @@ class RightRepositoryTest extends KernelTestCase
         $this->right = new Right();
         $this->right->setPriority(self::PRIORITY);
         $this->right->setLayer(LayerType::SOURCE);
-        $this->right->setType(CRUDType::READ);
+        $this->right->setCrud(CRUDType::READ);
         $this->law = new Law();
         $this->entityManager->persist($this->law);
         $this->right->setLaw($this->law);

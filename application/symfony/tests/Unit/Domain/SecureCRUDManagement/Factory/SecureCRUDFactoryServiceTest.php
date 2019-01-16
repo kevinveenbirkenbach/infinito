@@ -48,7 +48,7 @@ class SecureCRUDFactoryServiceTest extends KernelTestCase
                 if (!in_array($layer, self::EXCLUDED_TYPES[$crud])) {
                     $requestedRight = new Right();
                     $requestedRight->setLayer($layer);
-                    $requestedRight->setType($crud);
+                    $requestedRight->setCrud($crud);
                     $secureCreator = $this->secureCRUDFactoryService->create($requestedRight);
                     $this->assertInstanceOf(SecureCRUDServiceInterface::class, $secureCreator);
                 }

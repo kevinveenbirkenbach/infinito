@@ -45,7 +45,7 @@ final class RightChecker implements RightCheckerInterface
 
     private function isTypeEqual(string $type): bool
     {
-        return $this->right->getType() === $type;
+        return $this->right->getCrud() === $type;
     }
 
     private function checkPermission(): bool

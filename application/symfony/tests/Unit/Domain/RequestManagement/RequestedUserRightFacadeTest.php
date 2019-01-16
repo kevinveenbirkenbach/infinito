@@ -44,11 +44,11 @@ class RequestedUserRightFacadeTest extends TestCase
         $userSourceDirector->method('getUser')->willReturn($user);
         $requestedRight = $this->createMock(RequestedRightInterface::class);
         $requestedRight->method('getLayer')->willReturn($layer);
-        $requestedRight->method('getType')->willReturn($type);
+        $requestedRight->method('getCrud')->willReturn($type);
         $requestedRight->method('getSource')->willReturn($source);
         $requestedUserRightFacade = new RequestedUserRightFacade($userSourceDirector, $requestedRight);
         $this->assertEquals($layer, $requestedUserRightFacade->getLayer());
-        $this->assertEquals($type, $requestedUserRightFacade->getType());
+        $this->assertEquals($type, $requestedUserRightFacade->getCrud());
         $this->assertEquals($source, $requestedUserRightFacade->getSource());
         $this->assertEquals($reciever, $requestedUserRightFacade->getReciever());
     }
@@ -66,10 +66,10 @@ class RequestedUserRightFacadeTest extends TestCase
         $userSourceDirector = new UserSourceDirector($sourceRepository, $user);
         $requestedUserRightFacade = new RequestedUserRightFacade($userSourceDirector, $requestedRight);
         $this->assertNull($requestedUserRightFacade->setLayer($layer));
-        $this->assertNull($requestedUserRightFacade->setType($type));
+        $this->assertNull($requestedUserRightFacade->setCrud($type));
         $this->assertNull($requestedUserRightFacade->setRequestedSource($requestedSource));
         $this->assertEquals($layer, $requestedRight->getLayer());
-        $this->assertEquals($type, $requestedRight->getType());
+        $this->assertEquals($type, $requestedRight->getCrud());
         $this->expectException(NotSetException::class);
         $this->assertNotInstanceOf(RequestedSourceInterface::class, $requestedRight->getSource());
     }

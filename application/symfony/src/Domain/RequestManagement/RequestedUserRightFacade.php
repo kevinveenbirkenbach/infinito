@@ -63,11 +63,11 @@ final class RequestedUserRightFacade implements RequestedUserRightFacadeInterfac
     /**
      * {@inheritdoc}
      *
-     * @see \App\Entity\Attribut\TypeAttributInterface::getType()
+     * @see \App\Entity\Attribut\CrudAttributInterface::getCrud()
      */
-    public function getType(): string
+    public function getCrud(): string
     {
-        return $this->requestedRight->getType();
+        return $this->requestedRight->getCrud();
     }
 
     /**
@@ -93,11 +93,11 @@ final class RequestedUserRightFacade implements RequestedUserRightFacadeInterfac
     /**
      * {@inheritdoc}
      *
-     * @see \App\Entity\Attribut\TypeAttributInterface::setType()
+     * @see \App\Entity\Attribut\CrudAttributInterface::setCrud()
      */
-    public function setType(string $type): void
+    public function setCrud(string $type): void
     {
-        $this->requestedRight->setType($type);
+        $this->requestedRight->setCrud($type);
     }
 
     /**

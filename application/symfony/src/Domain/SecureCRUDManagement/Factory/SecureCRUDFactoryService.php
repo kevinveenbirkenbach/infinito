@@ -51,7 +51,7 @@ final class SecureCRUDFactoryService extends AbstractSecureCRUDService implement
      */
     public function create(RightInterface $requestedRight): SecureCRUDServiceInterface
     {
-        $namespace = $this->getCRUDNamespace($requestedRight->getLayer(), $requestedRight->getType());
+        $namespace = $this->getCRUDNamespace($requestedRight->getLayer(), $requestedRight->getCrud());
 
         return new $namespace($this->requestStack, $this->security, $this->entityManager);
     }

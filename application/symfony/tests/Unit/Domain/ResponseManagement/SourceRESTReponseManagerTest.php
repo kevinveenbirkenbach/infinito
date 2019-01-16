@@ -67,7 +67,7 @@ class SourceRESTReponseManagerTest extends KernelTestCase
         $requestedRight->setSource($requestedSource);
         $requestedRight->setReciever(new PureSource());
         $requestedRight->setLayer(LayerType::SOURCE);
-        $requestedRight->setType(CRUDType::READ);
+        $requestedRight->setCrud(CRUDType::READ);
         $this->expectException(AllreadyDefinedException::class);
         $sourceResponseManager = new SourceRESTResponseManager(null, $this->entityManager, $requestedRight, $this->viewHandler);
         $sourceResponseManager->getResponse();

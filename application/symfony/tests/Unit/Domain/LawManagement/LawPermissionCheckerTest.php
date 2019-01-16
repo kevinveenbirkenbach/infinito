@@ -87,7 +87,7 @@ class LawPermissionCheckerTest extends TestCase
     {
         $this->clientRight = new Right();
         $this->clientRight->setLayer(LayerType::SOURCE);
-        $this->clientRight->setType(CRUDType::READ);
+        $this->clientRight->setCrud(CRUDType::READ);
         $this->clientRight->setReciever($this->clientSource);
         $this->clientRight->setSource($this->source);
     }
@@ -107,7 +107,7 @@ class LawPermissionCheckerTest extends TestCase
     {
         $this->law->getRights()->add($this->getClonedClientRight());
         $this->assertTrue($this->checkClientPermission());
-        $this->clientRight->setType(CRUDType::UPDATE);
+        $this->clientRight->setCrud(CRUDType::UPDATE);
         $this->assertFalse($this->checkClientPermission());
     }
 
@@ -142,10 +142,10 @@ class LawPermissionCheckerTest extends TestCase
     public function testGetRightsByType(): void
     {
         $right = $this->getClonedClientRight();
-        $right->setType(CRUDType::UPDATE);
+        $right->setCrud(CRUDType::UPDATE);
         $this->law->getRights()->add($right);
         $this->assertFalse($this->checkClientPermission());
-        $right->setType(CRUDType::READ);
+        $right->setCrud(CRUDType::READ);
         $this->assertTrue($this->checkClientPermission());
     }
 

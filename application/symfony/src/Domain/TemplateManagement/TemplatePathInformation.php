@@ -119,9 +119,9 @@ final class TemplatePathInformation implements TemplatePathInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\TemplateManagement\TemplatePathInformationInterface::getType()
+     * @see \App\Domain\TemplateManagement\TemplatePathInformationInterface::getCrud()
      */
-    public function getType(): string
+    public function getCrud(): string
     {
         return $this->type;
     }

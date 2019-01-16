@@ -26,5 +26,5 @@ interface TemplatePathInformationInterface extends ReloadTypeInterface
      *
      * @return string Type of the template
      */
-    public function getType(): string;
+    public function getCrud(): string;
 }

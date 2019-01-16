@@ -68,7 +68,7 @@ class SourceApiController extends AbstractAPIController
     // //         $requestedRight = new Right();
     // //         $requestedRight->setSource($requestedSource);
     // //         $requestedRight->setLayer(LayerType::SOURCE);
-    // //         $requestedRight->setType(CRUDType::READ);
+    // //         $requestedRight->setCrud(CRUDType::READ);
     // //         $sourceResponseManager = new SourceRESTResponseManager($this->getUser(), $entityManager, $requestedRight, $this->getViewHandler());
 
     // //         return $sourceResponseManager->getResponse();

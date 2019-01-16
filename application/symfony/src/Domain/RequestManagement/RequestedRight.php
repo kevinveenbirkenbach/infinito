@@ -3,7 +3,7 @@
 namespace App\Domain\RequestManagement;
 
 use App\Entity\Source\SourceInterface;
-use App\Entity\Attribut\TypeAttribut;
+use App\Entity\Attribut\CrudAttribut;
 use App\Entity\Attribut\LayerAttribut;
 use App\Entity\Attribut\RecieverAttribut;
 use App\Exception\PreconditionFailedException;
@@ -17,7 +17,7 @@ use App\Repository\Source\SourceRepositoryInterface;
  */
 class RequestedRight implements RequestedRightInterface
 {
-    use TypeAttribut, LayerAttribut, RecieverAttribut;
+    use CrudAttribut, LayerAttribut, RecieverAttribut;
 
     /**
      * @var SourceRepositoryInterface

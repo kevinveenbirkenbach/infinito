@@ -65,7 +65,7 @@ class SourceFixtures extends Fixture
         $sourceRightManager = new SourceRightManager($this->impressumSource);
         $sourceRightManager->addRight($right);
         $right->setLayer(LayerType::SOURCE);
-        $right->setType(CRUDType::READ);
+        $right->setCrud(CRUDType::READ);
         $right->setReciever($this->guestUserSource);
 
         return $right;

@@ -52,13 +52,13 @@ class SecureSourceCheckerTest extends TestCase
     {
         $right = new Right();
         $right->setLayer(LayerType::SOURCE);
-        $right->setType(CRUDType::UPDATE);
+        $right->setCrud(CRUDType::UPDATE);
         $right->setReciever($this->recieverSource);
         $right->setSource($this->source);
         $this->source->getLaw()->getRights()->add($right);
         $requestedRight = clone $right;
         $this->assertTrue($this->securerSourceChecker->hasPermission($requestedRight));
-        $requestedRight->setType(CRUDType::READ);
+        $requestedRight->setCrud(CRUDType::READ);
         $this->assertFalse($this->securerSourceChecker->hasPermission($requestedRight));
     }
 
@@ -66,7 +66,7 @@ class SecureSourceCheckerTest extends TestCase
     {
         $right = new Right();
         $right->setLayer(LayerType::SOURCE);
-        $right->setType(CRUDType::UPDATE);
+        $right->setCrud(CRUDType::UPDATE);
         $right->setReciever($this->recieverSource);
         $right->setSource($this->source);
         $this->source->getLaw()->getRights()->add($right);
@@ -76,7 +76,7 @@ class SecureSourceCheckerTest extends TestCase
         $this->source->setSource($attributSource);
         $requestedRight = clone $right;
         $this->assertTrue($this->securerSourceChecker->hasPermission($requestedRight));
-        $childRight->setType(CRUDType::READ);
+        $childRight->setCrud(CRUDType::READ);
         $this->expectException(SourceAccessDenied::class);
         $this->securerSourceChecker->hasPermission($requestedRight);
     }
@@ -85,7 +85,7 @@ class SecureSourceCheckerTest extends TestCase
     {
         $right = new Right();
         $right->setLayer(LayerType::SOURCE);
-        $right->setType(CRUDType::UPDATE);
+        $right->setCrud(CRUDType::UPDATE);
         $right->setReciever($this->recieverSource);
         $right->setSource($this->source);
         $this->source->getLaw()->getRights()->add($right);
@@ -98,7 +98,7 @@ class SecureSourceCheckerTest extends TestCase
         $attribut1Source->setSource($attribut2Source);
         $requestedRight = clone $right;
         $this->assertTrue($this->securerSourceChecker->hasPermission($requestedRight));
-        $childRight->setType(CRUDType::READ);
+        $childRight->setCrud(CRUDType::READ);
         $this->expectException(SourceAccessDenied::class);
         $this->securerSourceChecker->hasPermission($requestedRight);
     }

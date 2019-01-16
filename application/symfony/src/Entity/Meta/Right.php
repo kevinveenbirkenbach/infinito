@@ -2,7 +2,7 @@
 
 namespace App\Entity\Meta;
 
-use App\Entity\Attribut\TypeAttribut;
+use App\Entity\Attribut\CrudAttribut;
 use Doctrine\ORM\Mapping as ORM;
 use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
 use App\Entity\Attribut\LawAttribut;
@@ -27,7 +27,7 @@ use App\DBAL\Types\Meta\Right\CRUDType;
  */
 class Right extends AbstractMeta implements RightInterface
 {
-    use TypeAttribut,LawAttribut, RelationAttribut, GrantAttribut,ConditionAttribut,RecieverAttribut,LayerAttribut,PriorityAttribut;
+    use CrudAttribut,LawAttribut, RelationAttribut, GrantAttribut,ConditionAttribut,RecieverAttribut,LayerAttribut,PriorityAttribut;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Source\AbstractSource",cascade={"persist", "remove"})
@@ -77,12 +77,12 @@ class Right extends AbstractMeta implements RightInterface
     protected $grant;
 
     /**
-     * @ORM\Column(name="type", type="CRUDType", nullable=false)
+     * @ORM\Column(name="crud", type="CRUDType", nullable=false)
      * @DoctrineAssert\Enum(entity="App\DBAL\Types\Meta\Right\CRUDType")
      *
      * @var string
      */
-    protected $type;
+    protected $crud;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Source\Operation\AbstractOperation",cascade={"persist"})
@@ -102,14 +102,14 @@ class Right extends AbstractMeta implements RightInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Entity\Attribut\TypeAttributInterface::setType()
+     * @see \App\Entity\Attribut\CrudAttributInterface::setCrud()
      */
-    public function setType(string $type): void
+    public function setCrud(string $crud): void
     {
-        if (!array_key_exists($type, CRUDType::getChoices())) {
+        if (!array_key_exists($crud, CRUDType::getChoices())) {
             throw new NoValidChoiceException();
         }
-        $this->type = $type;
+        $this->crud = $crud;
     }
 
     /**

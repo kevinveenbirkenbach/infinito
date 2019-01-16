@@ -2,7 +2,7 @@
 
 namespace App\Domain\RequestManagement;
 
-use App\Entity\Attribut\TypeAttributInterface;
+use App\Entity\Attribut\CrudAttributInterface;
 use App\Entity\Attribut\RecieverAttributInterface;
 use App\Entity\Attribut\LayerAttributInterface;
 use App\Entity\Source\SourceInterface;
@@ -10,7 +10,7 @@ use App\Entity\Source\SourceInterface;
 /**
  * @author kevinfrantz
  */
-interface RequestedRightInterface extends TypeAttributInterface, RecieverAttributInterface, LayerAttributInterface
+interface RequestedRightInterface extends CrudAttributInterface, RecieverAttributInterface, LayerAttributInterface
 {
     /**
      * @param RequestedSourceInterface $requestedSource

@@ -54,7 +54,7 @@ class SecureSourceReadServiceTest extends KernelTestCase
         $requestedRight = new Right();
         $requestedRight->setSource($requestedSource);
         $requestedRight->setLayer(LayerType::SOURCE);
-        $requestedRight->setType(CRUDType::READ);
+        $requestedRight->setCrud(CRUDType::READ);
         $requestedRight->setReciever(new UserSource());
         $this->expectException(AccessDeniedHttpException::class);
         $this->secureSourceReadService->read($requestedRight);
@@ -67,7 +67,7 @@ class SecureSourceReadServiceTest extends KernelTestCase
         $requestedRight = new Right();
         $requestedRight->setSource($requestedSource);
         $requestedRight->setLayer(LayerType::SOURCE);
-        $requestedRight->setType(CRUDType::READ);
+        $requestedRight->setCrud(CRUDType::READ);
         $requestedRight->setReciever($this->sourceRepository->findOneBySlug(SystemSlugType::GUEST_USER));
         $textSourceResponse = $this->secureSourceReadService->read($requestedRight);
         $this->assertInstanceOf(TextSourceInterface::class, $textSourceResponse);

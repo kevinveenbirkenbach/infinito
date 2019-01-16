@@ -56,7 +56,7 @@ class TemplatePathInformationTest extends TestCase
             $this->templateMeta->reloadType($type);
             $this->assertEquals($this->getExpectedPath($type, 'atom'), $this->templateMeta->getAtomTemplatePath());
             $this->assertEquals($this->getExpectedPath($type, 'molecule'), $this->templateMeta->getMoleculeTemplatePath());
-            $this->assertEquals($type, $this->templateMeta->getType());
+            $this->assertEquals($type, $this->templateMeta->getCrud());
         }
     }
 }
