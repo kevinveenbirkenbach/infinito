@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\Unit\Repository;
+namespace tests\Unit\Repository\Source;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Doctrine\ORM\EntityManager;
