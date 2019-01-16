@@ -9,7 +9,7 @@ use App\Exception\SetNotPossibleException;
 /**
  * @author kevinfrantz
  */
-final class RequestedUserRightFacade implements RequestedUserRightFacadeInterface
+class RequestedUserRightFacade implements RequestedUserRightFacadeInterface
 {
     /**
      * @var UserSourceDirectorInterface
