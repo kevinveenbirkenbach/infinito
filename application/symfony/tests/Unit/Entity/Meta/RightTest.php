@@ -73,9 +73,9 @@ class RightTest extends TestCase
 
     public function testRight(): void
     {
-        foreach (CRUDType::getChoices() as $key => $value) {
-            $this->assertNull($this->right->setCrud($key));
-            $this->assertEquals($key, $this->right->getCrud());
+        foreach (CRUDType::getChoices() as $enum) {
+            $this->assertNull($this->right->setCrud($enum));
+            $this->assertEquals($enum, $this->right->getCrud());
         }
         $this->expectException(NoValidChoiceException::class);
         $this->right->setCrud('NoneValidType');

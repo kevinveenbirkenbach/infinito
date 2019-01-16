@@ -102,19 +102,6 @@ class Right extends AbstractMeta implements RightInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Entity\Attribut\CrudAttributInterface::setCrud()
-     */
-    public function setCrud(string $crud): void
-    {
-        if (!array_key_exists($crud, CRUDType::getChoices())) {
-            throw new NoValidChoiceException();
-        }
-        $this->crud = $crud;
-    }
-
-    /**
-     * {@inheritdoc}
-     *
      * @see \App\Entity\Attribut\LayerAttributInterface::setLayer()
      */
     public function setLayer(string $layer): void
