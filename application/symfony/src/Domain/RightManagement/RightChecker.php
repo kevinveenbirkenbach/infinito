@@ -33,26 +33,47 @@ final class RightChecker implements RightCheckerInterface
         return $allSourcesToWhichRightApplies;
     }
 
+    /**
+     * @param SourceInterface $clientSource
+     *
+     * @return bool
+     */
     private function hasClientSource(SourceInterface $clientSource): bool
     {
         return $this->getAllSourcesToWhichRightApplies()->contains($clientSource);
     }
 
+    /**
+     * @param string $layer
+     *
+     * @return bool
+     */
     private function isLayerEqual(string $layer): bool
     {
         return $this->right->getLayer() === $layer;
     }
 
+    /**
+     * @param string $type
+     *
+     * @return bool
+     */
     private function isTypeEqual(string $type): bool
     {
         return $this->right->getCrud() === $type;
     }
 
+    /**
+     * @return bool
+     */
     private function checkPermission(): bool
     {
         return $this->right->getGrant();
     }
 
+    /**
+     * @param RightInterface $right
+     */
     public function __construct(RightInterface $right)
     {
         $this->right = $right;

@@ -7,6 +7,9 @@ use App\Entity\Source\SourceInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Meta\Relation\Member\MemberRelationInterface;
 
+/**
+ * @author kevinfrantz
+ */
 final class SourceMemberInformation implements SourceMemberInformationInterface
 {
     /**
@@ -19,6 +22,9 @@ final class SourceMemberInformation implements SourceMemberInformationInterface
      */
     private $members;
 
+    /**
+     * @param SourceInterface $source
+     */
     public function __construct(SourceInterface $source)
     {
         $this->source = $source;

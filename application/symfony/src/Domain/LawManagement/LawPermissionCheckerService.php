@@ -142,11 +142,19 @@ final class LawPermissionCheckerService implements LawPermissionCheckerServiceIn
         return $rightChecker->isGranted($client->getLayer(), $client->getCrud(), $client->getReciever());
     }
 
+    /**
+     * @param LawInterface $law
+     */
     public function __construct(LawInterface $law)
     {
         $this->law = $law;
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\LawManagement\LawPermissionCheckerServiceInterface::hasPermission()
+     */
     public function hasPermission(RightInterface $clientRight): bool
     {
         $rights = clone $this->law->getRights();
