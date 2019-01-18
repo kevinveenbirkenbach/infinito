@@ -7,7 +7,7 @@ use App\Domain\UserManagement\UserSourceDirectorServiceInterface;
 /**
  * @author kevinfrantz
  */
-final class RequestedUserRightFacadeService extends RequestedUserRightFacade implements RequestedUserRightFacadeServiceInterface
+final class RequestedUserRightService extends RequestedUserRight implements RequestedUserRightServiceInterface
 {
     /**
      * @param UserSourceDirectorServiceInterface $userSourceDirectorService

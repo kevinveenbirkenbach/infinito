@@ -4,7 +4,7 @@ namespace tests\Unit\Domain\RightManagement;
 
 use PHPUnit\Framework\TestCase;
 use App\Entity\User;
-use App\Domain\RequestManagement\RequestedUserRightFacade;
+use App\Domain\RequestManagement\RequestedUserRight;
 use App\DBAL\Types\Meta\Right\LayerType;
 use App\DBAL\Types\Meta\Right\CRUDType;
 use App\Entity\Source\AbstractSource;
@@ -21,13 +21,13 @@ use App\Exception\SetNotPossibleException;
 /**
  * @author kevinfrantz
  */
-class RequestedUserRightFacadeTest extends TestCase
+class RequestedUserRightTest extends TestCase
 {
     public function testInterface(): void
     {
         $userSourceDirector = $this->createMock(UserSourceDirectorInterface::class);
         $requestedRight = $this->createMock(RequestedRightInterface::class);
-        $requestedUserRightFacade = new RequestedUserRightFacade($userSourceDirector, $requestedRight);
+        $requestedUserRightFacade = new RequestedUserRight($userSourceDirector, $requestedRight);
         $this->assertInstanceOf(RequestedRightInterface::class, $requestedUserRightFacade);
     }
 
@@ -46,7 +46,7 @@ class RequestedUserRightFacadeTest extends TestCase
         $requestedRight->method('getLayer')->willReturn($layer);
         $requestedRight->method('getCrud')->willReturn($type);
         $requestedRight->method('getSource')->willReturn($source);
-        $requestedUserRightFacade = new RequestedUserRightFacade($userSourceDirector, $requestedRight);
+        $requestedUserRightFacade = new RequestedUserRight($userSourceDirector, $requestedRight);
         $this->assertEquals($layer, $requestedUserRightFacade->getLayer());
         $this->assertEquals($type, $requestedUserRightFacade->getCrud());
         $this->assertEquals($source, $requestedUserRightFacade->getSource());
@@ -64,7 +64,7 @@ class RequestedUserRightFacadeTest extends TestCase
         $requestedRight = new RequestedRight($sourceRepository);
         $user = $this->createMock(User::class);
         $userSourceDirector = new UserSourceDirector($sourceRepository, $user);
-        $requestedUserRightFacade = new RequestedUserRightFacade($userSourceDirector, $requestedRight);
+        $requestedUserRightFacade = new RequestedUserRight($userSourceDirector, $requestedRight);
         $this->assertNull($requestedUserRightFacade->setLayer($layer));
         $this->assertNull($requestedUserRightFacade->setCrud($type));
         $this->assertNull($requestedUserRightFacade->setRequestedSource($requestedSource));
@@ -79,7 +79,7 @@ class RequestedUserRightFacadeTest extends TestCase
         $reciever = $this->createMock(AbstractSource::class);
         $userSourceDirector = $this->createMock(UserSourceDirectorInterface::class);
         $requestedRight = $this->createMock(RequestedRightInterface::class);
-        $requestedUserRightFacade = new RequestedUserRightFacade($userSourceDirector, $requestedRight);
+        $requestedUserRightFacade = new RequestedUserRight($userSourceDirector, $requestedRight);
         $this->expectException(SetNotPossibleException::class);
         $requestedUserRightFacade->setReciever($reciever);
     }

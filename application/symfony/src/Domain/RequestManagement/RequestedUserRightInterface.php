@@ -7,6 +7,6 @@ namespace App\Domain\RequestManagement;
  *
  * @author kevinfrantz
  */
-interface RequestedUserRightFacadeInterface extends RequestedRightInterface
+interface RequestedUserRightInterface extends RequestedRightInterface
 {
 }
