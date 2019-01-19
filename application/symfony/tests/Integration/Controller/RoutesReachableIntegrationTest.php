@@ -22,12 +22,15 @@ class RoutesReachableIntegrationTest extends KernelTestCase
 
     public function testAllRoutePossibilities()
     {
-        foreach (LayerType::getChoices() as $layer => $layerDescription) {
+        foreach (LayerType::getChoices() as $layer) {
             $this->controller($layer);
         }
     }
 
-    private function controller(string $entity)
+    /**
+     * @param string $entity
+     */
+    private function controller(string $entity): void
     {
         $this->language($entity, Request::METHOD_GET);
         $this->language($entity, Request::METHOD_POST);
@@ -37,6 +40,10 @@ class RoutesReachableIntegrationTest extends KernelTestCase
         $this->slugAndId($entity, Request::METHOD_DELETE);
     }
 
+    /**
+     * @param string $route
+     * @param string $method
+     */
     private function slugAndId(string $route, string $method): void
     {
         $this->language("$route/12345", $method);
@@ -58,6 +65,10 @@ class RoutesReachableIntegrationTest extends KernelTestCase
         }
     }
 
+    /**
+     * @param string $route
+     * @param string $method
+     */
     private function type(string $route, string $method): void
     {
         $this->routeAssert($route, $method);
@@ -66,6 +77,10 @@ class RoutesReachableIntegrationTest extends KernelTestCase
         }
     }
 
+    /**
+     * @param string $url
+     * @param string $method
+     */
     private function routeAssert(string $url, string $method): void
     {
         $request = new Request([], [], [], [], [], [
