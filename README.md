@@ -37,8 +37,8 @@ Further information you will find in the [administration README.md](./administra
 ## Application
 Further information you will find in the [application README.md](./application/README.md).
 
-## Documentation
-Further information you will find in the [DOCUMENTATION.md](./DOCUMENTATION.md).
+## Documentation Convention
+Further information you will find in the [DOCUMENTATION.md](./DOCUMENTATION_CONVENTION.md).
 
 ## Author
 [Kevin Veen-Birkenbach](kevin@veen.world) \\ [Frantz](mail@Kevin-Frantz.de) <br />
