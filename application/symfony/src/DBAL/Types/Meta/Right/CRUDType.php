@@ -7,7 +7,7 @@ use Fresh\DoctrineEnumBundle\DBAL\Types\AbstractEnumType;
 /**
  * @author kevinfrantz
  */
-final class CRUDType extends AbstractEnumType
+class CRUDType extends AbstractEnumType
 {
     public const CREATE = 'create';
 
