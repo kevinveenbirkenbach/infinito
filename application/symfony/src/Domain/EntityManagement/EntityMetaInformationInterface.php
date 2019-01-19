@@ -9,7 +9,7 @@ use App\Domain\PathManagement\NamespacePathMap;
 use App\Domain\PathManagement\NamespacePathMapInterface;
 
 /**
- * Offers informations, which the system needs to handle Entities.
+ * Offers some meta information about an entity.
  *
  * @author kevinfrantz
  */

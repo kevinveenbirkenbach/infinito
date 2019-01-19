@@ -3,8 +3,8 @@
 namespace Unit\Domain\LawManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\LawManagement\LawPermissionCheckerService;
-use App\Domain\LawManagement\LawPermissionCheckerServiceInterface;
+use App\Domain\LawManagement\LawPermissionChecker;
+use App\Domain\LawManagement\LawPermissionCheckerInterface;
 use App\Entity\Source\SourceInterface;
 use App\Entity\Meta\Right;
 use App\DBAL\Types\Meta\Right\LayerType;
@@ -22,7 +22,7 @@ use App\Entity\Source\PureSource;
 class LawPermissionCheckerTest extends TestCase
 {
     /**
-     * @var LawPermissionCheckerServiceInterface The service which checks the law
+     * @var LawPermissionCheckerInterface The service which checks the law
      */
     private $lawPermissionChecker;
 
@@ -62,7 +62,7 @@ class LawPermissionCheckerTest extends TestCase
 
     private function setLawPermissionChecker(): void
     {
-        $this->lawPermissionChecker = new LawPermissionCheckerService($this->law);
+        $this->lawPermissionChecker = new LawPermissionChecker($this->law);
     }
 
     private function setLawDummy(): void

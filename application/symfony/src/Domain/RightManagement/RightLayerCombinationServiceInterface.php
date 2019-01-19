@@ -6,6 +6,8 @@ use App\DBAL\Types\Meta\Right\LayerType;
 use App\DBAL\Types\Meta\Right\CRUDType;
 
 /**
+ * Allows to get the possible cruds for a layer, or the possible layers for a crud.
+ *
  * @author kevinfrantz
  */
 interface RightLayerCombinationServiceInterface

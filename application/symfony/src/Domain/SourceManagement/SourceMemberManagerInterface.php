@@ -4,6 +4,11 @@ namespace App\Domain\SourceManagement;
 
 use App\Entity\Source\SourceInterface;
 
+/**
+ * Offers to add and remove source members and memberships.
+ *
+ * @author kevinfrantz
+ */
 interface SourceMemberManagerInterface
 {
     /**

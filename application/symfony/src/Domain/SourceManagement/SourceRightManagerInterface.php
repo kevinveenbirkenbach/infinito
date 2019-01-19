@@ -7,6 +7,11 @@ use App\Exception\AllreadySetException;
 use App\Exception\AllreadyDefinedException;
 use App\Exception\NotSetException;
 
+/**
+ * Allows to add and remove rights of a source.
+ *
+ * @author kevinfrantz
+ */
 interface SourceRightManagerInterface
 {
     /**

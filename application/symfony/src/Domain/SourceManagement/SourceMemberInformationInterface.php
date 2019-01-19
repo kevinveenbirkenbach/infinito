@@ -5,6 +5,11 @@ namespace App\Domain\SourceManagement;
 use Doctrine\Common\Collections\Collection;
 use App\Entity\Source\SourceInterface;
 
+/**
+ * Offers to get all source members over all dimensions.
+ *
+ * @author kevinfrantz
+ */
 interface SourceMemberInformationInterface
 {
     /**

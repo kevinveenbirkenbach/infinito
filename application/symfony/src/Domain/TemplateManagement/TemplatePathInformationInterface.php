@@ -22,6 +22,8 @@ interface TemplatePathInformationInterface extends ReloadTypeInterface
     public function getAtomTemplatePath(): string;
 
     /**
+     * @todo Check if this is really needed. Otherwise remove it!
+     *
      * @see RESTResponseType::$choices
      *
      * @return string Type of the template

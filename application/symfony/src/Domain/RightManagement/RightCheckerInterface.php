@@ -5,6 +5,8 @@ namespace App\Domain\RightManagement;
 use App\Entity\Source\SourceInterface;
 
 /**
+ * Checks if the crud, layer and source combination is granted by a right.
+ *
  * @author kevinfrantz
  */
 interface RightCheckerInterface

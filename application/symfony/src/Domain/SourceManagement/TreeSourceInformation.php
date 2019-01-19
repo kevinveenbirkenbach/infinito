@@ -15,7 +15,7 @@ use App\Entity\Source\SourceInterface;
  *
  * @todo Maybe lazy loading would be helpfull for performance
  */
-final class TreeSourceService extends AbstractSourceService implements TreeSourceServiceInterface
+final class TreeSourceInformation implements TreeSourceInformationInterface
 {
     /**
      * @var TreeCollectionSourceInterface
@@ -36,6 +36,9 @@ final class TreeSourceService extends AbstractSourceService implements TreeSourc
      */
     private $leaves;
 
+    /**
+     * @param TreeCollectionSource $source
+     */
     public function __construct(TreeCollectionSource $source)
     {
         $this->source = $source;
@@ -44,6 +47,11 @@ final class TreeSourceService extends AbstractSourceService implements TreeSourc
         $this->basicSort();
     }
 
+    /**
+     * @param SourceInterface $member
+     *
+     * @return bool
+     */
     private function sortMember(SourceInterface $member): bool
     {
         if ($member instanceof TreeCollectionSource) {
@@ -60,6 +68,11 @@ final class TreeSourceService extends AbstractSourceService implements TreeSourc
         }
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\SourceManagement\TreeSourceInformationInterface::getBranches()
+     */
     public function getBranches(): Collection
     {
         return $this->branches;
@@ -70,7 +83,7 @@ final class TreeSourceService extends AbstractSourceService implements TreeSourc
      * @todo Remove the getAllBranches use inside the function.
      * {@inheritdoc}
      *
-     * @see \App\Domain\SourceManagement\TreeSourceServiceInterface::getAllBranches()
+     * @see \App\Domain\SourceManagement\TreeSourceInformationInterface::getAllBranches()
      */
     public function getAllBranches(): Collection
     {
@@ -82,6 +95,10 @@ final class TreeSourceService extends AbstractSourceService implements TreeSourc
         return $allBranches;
     }
 
+    /**
+     * @param TreeCollectionSourceInterface $branch
+     * @param ArrayCollection               $allBranches
+     */
     private function itterateOverBranch(TreeCollectionSourceInterface $branch, ArrayCollection $allBranches): void
     {
         foreach ((new self($branch))->getBranches() as $branchBranch) {
@@ -94,11 +111,21 @@ final class TreeSourceService extends AbstractSourceService implements TreeSourc
         }
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\SourceManagement\TreeSourceInformationInterface::getLeaves()
+     */
     public function getLeaves(): Collection
     {
         return $this->leaves;
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\SourceManagement\TreeSourceInformationInterface::getAllLeaves()
+     */
     public function getAllLeaves(): Collection
     {
         $leaves = new ArrayCollection($this->getLeaves()->toArray());

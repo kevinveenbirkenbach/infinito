@@ -6,13 +6,13 @@ use PHPUnit\Framework\TestCase;
 use App\Entity\Source\Complex\Collection\TreeCollectionSource;
 use App\Entity\Source\SourceInterface;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Domain\SourceManagement\TreeSourceServiceInterface;
-use App\Domain\SourceManagement\TreeSourceService;
+use App\Domain\SourceManagement\TreeSourceInformationInterface;
+use App\Domain\SourceManagement\TreeSourceInformation;
 
-class TreeSourceServiceTest extends TestCase
+class TreeSourceInformationTest extends TestCase
 {
     /**
-     * @var TreeSourceServiceInterface
+     * @var TreeSourceInformationInterface
      */
     protected $treeService;
 
@@ -31,7 +31,7 @@ class TreeSourceServiceTest extends TestCase
         $tree2->setCollection(new ArrayCollection([$leave3, $leave4, $tree5, $leave5]));
         $collection = new ArrayCollection([$tree2, $tree3, $leave1, $leave2, $tree4, $tree1]);
         $tree1->setCollection($collection);
-        $this->treeService = new TreeSourceService($tree1);
+        $this->treeService = new TreeSourceInformation($tree1);
     }
 
     public function testGetLeaves(): void

@@ -5,11 +5,11 @@ namespace App\Domain\LawManagement;
 use App\Entity\Meta\RightInterface;
 
 /**
- * Allows to check if a source has rights on a source.
+ * Allows to check if a right has permission by a law.
  *
  * @author kevinfrantz
  */
-interface LawPermissionCheckerServiceInterface
+interface LawPermissionCheckerInterface
 {
     /**
      * Checks if the client has the right for executing.

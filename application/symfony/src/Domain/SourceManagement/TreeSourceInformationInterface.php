@@ -4,7 +4,12 @@ namespace App\Domain\SourceManagement;
 
 use Doctrine\Common\Collections\Collection;
 
-interface TreeSourceServiceInterface
+/**
+ * Allows to get branches and leaves of a tree.
+ *
+ * @author kevinfrantz
+ */
+interface TreeSourceInformationInterface
 {
     /**
      * Delivers the branches of the actual tree back.

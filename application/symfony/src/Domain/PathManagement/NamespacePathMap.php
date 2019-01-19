@@ -3,7 +3,7 @@
 namespace App\Domain\PathManagement;
 
 /**
- * Be carefull with the case sensivity.
+ * @todo Be carefull with the case sensivity. Solve this!
  *
  * @author kevinfrantz
  */

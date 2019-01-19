@@ -4,6 +4,13 @@ namespace App\Domain\MemberManagement;
 
 use App\Entity\Meta\Relation\Member\MemberRelationInterface;
 
+/**
+ * Allows to add and remove members and memberships from member relations.
+ *
+ * @see MemberRelationInterface
+ *
+ * @author kevinfrantz
+ */
 final class MemberManager implements MemberManagerInterface
 {
     /**

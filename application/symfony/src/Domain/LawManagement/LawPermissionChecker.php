@@ -17,7 +17,7 @@ use App\Domain\SourceManagement\SourceMemberInformation;
  *
  * @author kevinfrantz
  */
-final class LawPermissionCheckerService implements LawPermissionCheckerServiceInterface
+final class LawPermissionChecker implements LawPermissionCheckerInterface
 {
     /**
      * @var LawInterface
@@ -153,7 +153,7 @@ final class LawPermissionCheckerService implements LawPermissionCheckerServiceIn
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\LawManagement\LawPermissionCheckerServiceInterface::hasPermission()
+     * @see \App\Domain\LawManagement\LawPermissionCheckerInterface::hasPermission()
      */
     public function hasPermission(RightInterface $clientRight): bool
     {

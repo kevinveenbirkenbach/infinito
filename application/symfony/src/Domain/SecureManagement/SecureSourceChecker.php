@@ -4,7 +4,7 @@ namespace App\Domain\SecureManagement;
 
 use App\Entity\Meta\RightInterface;
 use App\Entity\Source\SourceInterface;
-use App\Domain\LawManagement\LawPermissionCheckerService;
+use App\Domain\LawManagement\LawPermissionChecker;
 use App\Exception\SourceAccessDenied;
 
 /**
@@ -94,7 +94,7 @@ final class SecureSourceChecker implements SecureSourceCheckerInterface
      */
     public function hasPermission(RightInterface $requestedRight): bool
     {
-        $law = new LawPermissionCheckerService($this->source->getLaw());
+        $law = new LawPermissionChecker($this->source->getLaw());
 
         return $law->hasPermission($requestedRight) && $this->itterateOverSourceAttributs($requestedRight);
     }
