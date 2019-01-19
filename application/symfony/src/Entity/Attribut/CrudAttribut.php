@@ -6,8 +6,6 @@ use App\Exception\NoValidChoiceException;
 use App\DBAL\Types\Meta\Right\CRUDType;
 
 /**
- * @todo Implement a trait for crud which substitute this one.
- *
  * @author kevinfrantz
  */
 trait CrudAttribut
