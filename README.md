@@ -35,7 +35,7 @@ To contributions of this project the "Contributor Covenant Code of Conduct" appl
 Further information you will find in the [administration README.md](./administration/README.md).
 
 ## Application
-Further information you will find in the [application README.md](./application/README.md).
+Further information about the application and the architecture you will find in the [application README.md](./application/README.md).
 
 ## Documentation Convention
 Further information you will find in the [DOCUMENTATION.md](./DOCUMENTATION_CONVENTION.md).

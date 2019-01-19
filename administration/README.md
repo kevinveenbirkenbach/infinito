@@ -42,7 +42,7 @@ This script copies the ***.env.dist*** files to the right locations.
 This script formats the PHP code with [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer).
 
 ###  [generate-coverage-report.sh](./generate-coverage-report.sh.sh)
-This script generates a coverage report with PHPUnit [PHPUnit](https://phpunit.de/).
+This script generates a coverage report with  [PHPUnit](https://phpunit.de/).
 
 ### [init.sh](./init.sh)
 
