@@ -3,9 +3,9 @@ This folder contains the [domain logic](https://en.wikipedia.org/wiki/Business_l
 
 ## Conventions
 ### Services
-Classes which are optimized to be injected as a service MUST end on the suffix ** *Service.php**.
+Classes which are optimized to be injected as a service MUST end on the suffix **Service.php**.
 ## Folders
-A folder MUST end on the suffix ** *Management ** to show that it has the purpose to manage something.
+A folder MUST end on the suffix **Management.php** to show that it has the purpose to manage something.
 
 # Domain Overview
 
