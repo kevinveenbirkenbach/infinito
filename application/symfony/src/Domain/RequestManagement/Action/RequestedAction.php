@@ -10,6 +10,7 @@ use App\Domain\RequestManagement\Right\RequestedRightInterface;
 
 /**
  * @author kevinfrantz
+ *
  * @todo Implement!
  */
 class RequestedAction extends RequestedUser implements RequestedActionInterface

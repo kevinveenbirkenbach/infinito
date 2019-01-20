@@ -9,7 +9,6 @@ use App\Entity\Attribut\LawAttribut;
 use App\Entity\Meta\LawInterface;
 use App\Entity\Meta\Law;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Validator\Constraints as Assert;
 use App\Entity\Attribut\CreatorRelationAttribut;
 use App\Entity\Meta\Relation\Parent\CreatorRelationInterface;
 use App\Entity\Meta\Relation\Parent\CreatorRelation;

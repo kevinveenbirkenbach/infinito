@@ -9,6 +9,6 @@ use App\Entity\Attribut\SlugAttributInterface;
 /**
  * @author kevinfrantz
  */
-interface EntityInterface extends VersionAttributInterface, IdAttributInterface,SlugAttributInterface
+interface EntityInterface extends VersionAttributInterface, IdAttributInterface, SlugAttributInterface
 {
 }

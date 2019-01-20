@@ -9,9 +9,9 @@ A folder MUST end on the suffix ** *Management ** to show that it has the purpos
 
 # Domain Overview
 
-## CRUD Management
-### Repository Factory Service
-Offers a fabric for entity repositories.
+## Repository Management
+### Layer Repository Factory Service
+Offers a fabric to produce entity repositories by layer
 ## Entity Management
 ### Entity Meta Information ###
 Offers some meta information about an entity

@@ -45,7 +45,7 @@ abstract class AbstractEntity implements EntityInterface
      * @var string
      */
     protected $slug;
-    
+
     public function __construct()
     {
         $this->version = 0;
