@@ -105,7 +105,7 @@ class RequestedUser implements RequestedUserInterface
     /**
      * @param RequestedEntityInterface $requestedSource
      */
-    public function setRequestedEntity(RequestedEntityInterface $requestedSource)
+    public function setRequestedEntity(RequestedEntityInterface $requestedSource): void
     {
         $this->requestedRight->setRequestedEntity($requestedSource);
     }

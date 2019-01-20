@@ -33,7 +33,7 @@ class RequestedRight implements RequestedRightInterface
     /**
      * @var RequestedEntityInterface
      */
-    private $requestedSource;
+    private $requestedEntity;
 
     /**
      * @param SourceRepositoryInterface $sourceRepository
@@ -45,7 +45,7 @@ class RequestedRight implements RequestedRightInterface
 
     private function loadSource(): void
     {
-        $this->source = $this->sourceRepository->findOneByIdOrSlug($this->requestedSource);
+        $this->source = $this->sourceRepository->findOneByIdOrSlug($this->requestedEntity);
     }
 
     /**
@@ -53,10 +53,10 @@ class RequestedRight implements RequestedRightInterface
      */
     private function validateRequestedEntity(): void
     {
-        if ($this->requestedSource->hasSlug() || $this->requestedSource->hasId()) {
+        if ($this->requestedEntity->hasSlug() || $this->requestedEntity->hasId()) {
             return;
         }
-        throw new PreconditionFailedException(get_class($this->requestedSource).' needs to have a defined attribut id or slug!');
+        throw new PreconditionFailedException(get_class($this->requestedEntity).' needs to have a defined attribut id or slug!');
     }
 
     /**
@@ -88,8 +88,8 @@ class RequestedRight implements RequestedRightInterface
      *
      * @see \App\Domain\RequestManagement\Right\RequestedRightInterface::setRequestedEntity()
      */
-    final public function setRequestedEntity(RequestedEntityInterface $requestedSource)
+    final public function setRequestedEntity(RequestedEntityInterface $requestedSource): void
     {
-        $this->requestedSource = $requestedSource;
+        $this->requestedEntity = $requestedSource;
     }
 }

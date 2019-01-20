@@ -16,7 +16,7 @@ interface RequestedRightInterface extends CrudAttributInterface, RecieverAttribu
     /**
      * @param RequestedEntityInterface $requestedSource
      */
-    public function setRequestedEntity(RequestedEntityInterface $requestedSource);
+    public function setRequestedEntity(RequestedEntityInterface $requestedSource): void;
 
     /**
      * {@inheritdoc}
