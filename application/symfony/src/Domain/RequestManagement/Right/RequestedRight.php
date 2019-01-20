@@ -10,6 +10,7 @@ use App\Exception\PreconditionFailedException;
 use App\Exception\NotSetException;
 use App\Repository\Source\SourceRepositoryInterface;
 use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use App\Attribut\RequestedEntityAttribut;
 
 /**
  * @author kevinfrantz
@@ -18,7 +19,7 @@ use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
  */
 class RequestedRight implements RequestedRightInterface
 {
-    use CrudAttribut, LayerAttribut, RecieverAttribut;
+    use CrudAttribut, LayerAttribut, RecieverAttribut, RequestedEntityAttribut;
 
     /**
      * @var SourceRepositoryInterface

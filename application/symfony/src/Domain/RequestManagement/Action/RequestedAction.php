@@ -27,11 +27,6 @@ class RequestedAction extends RequestedUser implements RequestedActionInterface
     ];
 
     /**
-     * @var RequestedRightInterface
-     */
-    private $requestedRight;
-
-    /**
      * @param RequestedRightInterface $requestedRight
      */
     public function __construct(RequestedRightInterface $requestedRight)

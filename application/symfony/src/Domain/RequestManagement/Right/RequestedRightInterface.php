@@ -6,18 +6,13 @@ use App\Attribut\CrudAttributInterface;
 use App\Attribut\RecieverAttributInterface;
 use App\Attribut\LayerAttributInterface;
 use App\Entity\Source\SourceInterface;
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use App\Attribut\RequestedEntityAttributInterface;
 
 /**
  * @author kevinfrantz
  */
-interface RequestedRightInterface extends CrudAttributInterface, RecieverAttributInterface, LayerAttributInterface
+interface RequestedRightInterface extends CrudAttributInterface, RecieverAttributInterface, LayerAttributInterface, RequestedEntityAttributInterface
 {
-    /**
-     * @param RequestedEntityInterface $requestedSource
-     */
-    public function setRequestedEntity(RequestedEntityInterface $requestedSource): void;
-
     /**
      * {@inheritdoc}
      *
