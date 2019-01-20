@@ -5,7 +5,7 @@ namespace tests\Unit\Repository\Source;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use App\Repository\Source\SourceRepositoryInterface;
 use App\Entity\Source\AbstractSource;
-use App\Domain\RequestManagement\RequestedSourceInterface;
+use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use App\DBAL\Types\SystemSlugType;
 use App\Entity\Source\SourceInterface;
 
@@ -30,12 +30,12 @@ class SourceRepositoryTest extends KernelTestCase
 
     public function testLoadBySlugOrId(): void
     {
-        $requestedSource = $this->createMock(RequestedSourceInterface::class);
+        $requestedSource = $this->createMock(RequestedEntityInterface::class);
         $requestedSource->method('hasSlug')->willReturn(true);
         $requestedSource->method('getSlug')->willReturn(SystemSlugType::IMPRINT);
         $imprint = $this->sourceRepository->findOneByIdOrSlug($requestedSource);
         $this->assertInstanceOf(SourceInterface::class, $imprint);
-        $requestedSource2 = $this->createMock(RequestedSourceInterface::class);
+        $requestedSource2 = $this->createMock(RequestedEntityInterface::class);
         $requestedSource2->method('hasId')->willReturn(true);
         $requestedSource2->method('getId')->willReturn($imprint->getId());
         $imprint2 = $this->sourceRepository->findOneByIdOrSlug($requestedSource2);

@@ -1,15 +1,15 @@
 <?php
 
-namespace tests\Unit\Domain\RequestManagement;
+namespace tests\Unit\Domain\RequestManagement\Entity;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use App\Domain\RequestManagement\RequestedRightInterface;
-use App\Domain\RequestManagement\RequestedRight;
+use App\Domain\RequestManagement\Right\RequestedRightInterface;
+use App\Domain\RequestManagement\Right\RequestedRight;
 use App\Entity\Source\AbstractSource;
 use App\DBAL\Types\Meta\Right\LayerType;
-use App\Domain\RequestManagement\RequestedSource;
+use App\Domain\RequestManagement\Entity\RequestedEntity;
 use App\DBAL\Types\SystemSlugType;
-use App\Domain\RequestManagement\RequestedSourceInterface;
+use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use App\Exception\PreconditionFailedException;
 use App\Exception\NotSetException;
 
@@ -44,19 +44,19 @@ class RequestedRightTest extends KernelTestCase
         var_dump($this->requestedRight->getLayer());
     }
 
-    public function testRequestedSourceWithoutAttributes(): void
+    public function testRequestedEntityWithoutAttributes(): void
     {
-        $requestedSource = $this->createMock(RequestedSource::class);
-        $this->requestedRight->setRequestedSource($requestedSource);
+        $requestedSource = $this->createMock(RequestedEntity::class);
+        $this->requestedRight->setRequestedEntity($requestedSource);
         $this->expectException(PreconditionFailedException::class);
         $this->requestedRight->getSource();
     }
 
     public function testKnownSource(): void
     {
-        $requestedSource = new RequestedSource();
+        $requestedSource = new RequestedEntity();
         $requestedSource->setSlug(SystemSlugType::IMPRINT);
-        $this->requestedRight->setRequestedSource($requestedSource);
+        $this->requestedRight->setRequestedEntity($requestedSource);
         $sourceResponse1 = $this->requestedRight->getSource();
         $this->assertGreaterThan(0, $sourceResponse1->getId());
         $requestedSource->setSlug('');
@@ -67,11 +67,11 @@ class RequestedRightTest extends KernelTestCase
     public function testEqualsSlug(): void
     {
         $slug = SystemSlugType::IMPRINT;
-        $requestedSource = $this->createMock(RequestedSourceInterface::class);
+        $requestedSource = $this->createMock(RequestedEntityInterface::class);
         $requestedSource->method('getSlug')->willReturn($slug);
         $requestedSource->method('hasSlug')->willReturn(true);
         $this->assertEquals($slug, $requestedSource->getSlug());
-        $this->requestedRight->setRequestedSource($requestedSource);
+        $this->requestedRight->setRequestedEntity($requestedSource);
         $responseSource1 = $this->requestedRight->getSource();
         $responseSource2 = $this->requestedRight->getSource();
         $this->assertEquals($responseSource1, $responseSource2);

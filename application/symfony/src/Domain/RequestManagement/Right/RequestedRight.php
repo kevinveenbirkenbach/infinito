@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\RequestManagement;
+namespace App\Domain\RequestManagement\Right;
 
 use App\Entity\Source\SourceInterface;
 use App\Entity\Attribut\CrudAttribut;
@@ -9,6 +9,7 @@ use App\Entity\Attribut\RecieverAttribut;
 use App\Exception\PreconditionFailedException;
 use App\Exception\NotSetException;
 use App\Repository\Source\SourceRepositoryInterface;
+use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
 
 /**
  * @author kevinfrantz
@@ -30,7 +31,7 @@ class RequestedRight implements RequestedRightInterface
     private $source;
 
     /**
-     * @var RequestedSourceInterface
+     * @var RequestedEntityInterface
      */
     private $requestedSource;
 
@@ -50,7 +51,7 @@ class RequestedRight implements RequestedRightInterface
     /**
      * @throws PreconditionFailedException If the source has no id or slug
      */
-    private function validateRequestedSource(): void
+    private function validateRequestedEntity(): void
     {
         if ($this->requestedSource->hasSlug() || $this->requestedSource->hasId()) {
             return;
@@ -63,11 +64,11 @@ class RequestedRight implements RequestedRightInterface
      *
      * @see https://en.wikipedia.org/wiki/Lazy_loading
      * {@inheritdoc}
-     * @see \App\Domain\RequestManagement\RequestedRightInterface::getSource()
+     * @see \App\Domain\RequestManagement\Right\RequestedRightInterface::getSource()
      */
     final public function getSource(): SourceInterface
     {
-        $this->validateRequestedSource();
+        $this->validateRequestedEntity();
         $this->loadSource();
         $this->validateLoad();
 
@@ -85,9 +86,9 @@ class RequestedRight implements RequestedRightInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\RequestManagement\RequestedRightInterface::setRequestedSource()
+     * @see \App\Domain\RequestManagement\Right\RequestedRightInterface::setRequestedEntity()
      */
-    final public function setRequestedSource(RequestedSourceInterface $requestedSource)
+    final public function setRequestedEntity(RequestedEntityInterface $requestedSource)
     {
         $this->requestedSource = $requestedSource;
     }

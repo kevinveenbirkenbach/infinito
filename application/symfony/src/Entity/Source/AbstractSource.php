@@ -8,7 +8,6 @@ use App\Entity\AbstractEntity;
 use App\Entity\Attribut\LawAttribut;
 use App\Entity\Meta\LawInterface;
 use App\Entity\Meta\Law;
-use App\Entity\Attribut\SlugAttribut;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Entity\Attribut\CreatorRelationAttribut;
@@ -49,22 +48,7 @@ use App\Entity\Meta\Relation\Member\MemberRelationInterface;
  */
 abstract class AbstractSource extends AbstractEntity implements SourceInterface
 {
-    use  LawAttribut,SlugAttribut,CreatorRelationAttribut, MemberRelationAttribut;
-
-    /**
-     * System slugs should be writen in UPPER CASES
-     * Slugs which are defined by the user are checked via the assert.
-     *
-     * @ORM\Column(type="string",length=30,nullable=true,unique=true)
-     * @Assert\Regex(pattern="/^[a-z]+$/")
-     *
-     * @todo Check out if a plugin can solve this purpose;
-     *
-     * @see https://github.com/Atlantic18/DoctrineExtensions/blob/master/doc/sluggable.md
-     *
-     * @var string
-     */
-    protected $slug;
+    use  LawAttribut,CreatorRelationAttribut, MemberRelationAttribut;
 
     /**
      * @var CreatorRelationInterface

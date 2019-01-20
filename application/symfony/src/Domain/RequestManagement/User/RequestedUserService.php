@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Domain\RequestManagement;
+namespace App\Domain\RequestManagement\User;
 
 use App\Domain\UserManagement\UserSourceDirectorServiceInterface;
+use App\Domain\RequestManagement\Right\RequestedRightServiceInterface;
 
 /**
  * @author kevinfrantz
  */
-final class RequestedUserRightService extends RequestedUserRight implements RequestedUserRightServiceInterface
+final class RequestedUserService extends RequestedUser implements RequestedUserServiceInterface
 {
     /**
      * @param UserSourceDirectorServiceInterface $userSourceDirectorService

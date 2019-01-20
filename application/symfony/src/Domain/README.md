@@ -9,6 +9,9 @@ A folder MUST end on the suffix ** *Management ** to show that it has the purpos
 
 # Domain Overview
 
+## CRUD Management
+### Repository Factory Service
+Offers a fabric for entity repositories.
 ## Entity Management
 ### Entity Meta Information ###
 Offers some meta information about an entity
@@ -31,18 +34,7 @@ Maps a path to a namespace.
 
 ## Request Management
 
-Offers classes to manage requests for rights, users and sources.
-
-### Logic
-- Requested Right
-- Requested Source
-- Requested User
-
-### Services
-- Requested Right Service
-- Requested Source Service
-- Requested User Service
-
+Offers classes to manage requests for rights, users and sources. A [detailed description](./RequestManagement/README.md) is available.
 ## Right Management
 ### Right Checker ###
 Checks if the crud, layer and source combination is granted by a right.

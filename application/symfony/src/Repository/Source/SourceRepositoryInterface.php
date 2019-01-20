@@ -3,7 +3,7 @@
 namespace App\Repository\Source;
 
 use App\Entity\Source\SourceInterface;
-use App\Domain\RequestManagement\RequestedSourceInterface;
+use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use App\Repository\RepositoryInterface;
 
 /**
@@ -23,9 +23,9 @@ interface SourceRepositoryInterface extends RepositoryInterface
     /**
      * Loads a source by id or if not defined, by slug.
      *
-     * @param RequestedSourceInterface $requestedSource
+     * @param RequestedEntityInterface $requestedSource
      *
      * @return SourceInterface|null
      */
-    public function findOneByIdOrSlug(RequestedSourceInterface $requestedSource): ?SourceInterface;
+    public function findOneByIdOrSlug(RequestedEntityInterface $requestedSource): ?SourceInterface;
 }

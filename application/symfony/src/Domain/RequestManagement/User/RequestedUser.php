@@ -1,15 +1,17 @@
 <?php
 
-namespace App\Domain\RequestManagement;
+namespace App\Domain\RequestManagement\User;
 
 use App\Entity\Source\SourceInterface;
 use App\Domain\UserManagement\UserSourceDirectorInterface;
 use App\Exception\SetNotPossibleException;
+use App\Domain\RequestManagement\Right\RequestedRightInterface;
+use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
 
 /**
  * @author kevinfrantz
  */
-class RequestedUserRight implements RequestedUserRightInterface
+class RequestedUser implements RequestedUserInterface
 {
     /**
      * @var UserSourceDirectorInterface
@@ -101,12 +103,10 @@ class RequestedUserRight implements RequestedUserRightInterface
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @see \App\Domain\RequestManagement\RequestedRightInterface::setRequestedSource()
+     * @param RequestedEntityInterface $requestedSource
      */
-    public function setRequestedSource(RequestedSourceInterface $requestedSource)
+    public function setRequestedEntity(RequestedEntityInterface $requestedSource)
     {
-        $this->requestedRight->setRequestedSource($requestedSource);
+        $this->requestedRight->setRequestedEntity($requestedSource);
     }
 }

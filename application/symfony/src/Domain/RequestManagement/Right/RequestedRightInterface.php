@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Domain\RequestManagement;
+namespace App\Domain\RequestManagement\Right;
 
 use App\Entity\Attribut\CrudAttributInterface;
 use App\Entity\Attribut\RecieverAttributInterface;
 use App\Entity\Attribut\LayerAttributInterface;
 use App\Entity\Source\SourceInterface;
+use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
 
 /**
  * @author kevinfrantz
@@ -13,9 +14,9 @@ use App\Entity\Source\SourceInterface;
 interface RequestedRightInterface extends CrudAttributInterface, RecieverAttributInterface, LayerAttributInterface
 {
     /**
-     * @param RequestedSourceInterface $requestedSource
+     * @param RequestedEntityInterface $requestedSource
      */
-    public function setRequestedSource(RequestedSourceInterface $requestedSource);
+    public function setRequestedEntity(RequestedEntityInterface $requestedSource);
 
     /**
      * {@inheritdoc}
