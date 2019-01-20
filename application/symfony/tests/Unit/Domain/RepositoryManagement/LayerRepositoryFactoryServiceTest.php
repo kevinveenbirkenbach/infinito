@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 use App\Domain\RepositoryManagement\LayerRepositoryFactoryService;
 use App\Repository\RepositoryInterface;
+use App\Exception\NotSetException;
 
 /**
  * @author kevinfrantz
@@ -26,9 +27,11 @@ class LayerRepositoryFactoryServiceTest extends KernelTestCase
 
     public function testGetRepository(): void
     {
-        foreach (LayerRepositoryFactoryService::LAYER_CLASS_MAP as $layer => $class) {
+        foreach (array_keys(LayerRepositoryFactoryService::LAYER_CLASS_MAP) as $layer) {
             $repositoy = $this->layerRepositoryFactoryService->getRepository($layer);
             $this->assertInstanceOf(RepositoryInterface::class, $repositoy);
         }
+        $this->expectException(NotSetException::class);
+        $repositoy = $this->layerRepositoryFactoryService->getRepository('UnknownLayer');
     }
 }
