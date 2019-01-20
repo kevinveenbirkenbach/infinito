@@ -2,10 +2,10 @@
 
 namespace App\Entity;
 
-use App\Entity\Attribut\IdAttribut;
+use App\Attribut\IdAttribut;
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Attribut\VersionAttribut;
-use App\Entity\Attribut\SlugAttribut;
+use App\Attribut\VersionAttribut;
+use App\Attribut\SlugAttribut;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

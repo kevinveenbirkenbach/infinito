@@ -3,7 +3,7 @@
 namespace App\Entity\Source\Complex\Collection;
 
 use App\Entity\Source\AbstractSource;
-use App\Entity\Attribut\CollectionAttribut;
+use App\Attribut\CollectionAttribut;
 use Doctrine\Common\Collections\Collection;
 use App\Entity\Source\SourceInterface;
 use Doctrine\ORM\Mapping as ORM;

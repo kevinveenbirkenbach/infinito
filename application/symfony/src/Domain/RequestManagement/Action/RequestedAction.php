@@ -2,7 +2,7 @@
 
 namespace App\Domain\RequestManagement\Action;
 
-use App\Entity\Attribut\ActionTypeAttribut;
+use App\Attribut\ActionTypeAttribut;
 use App\DBAL\Types\ActionType;
 use App\DBAL\Types\Meta\Right\CRUDType;
 use App\Domain\RequestManagement\User\RequestedUser;
@@ -42,7 +42,7 @@ class RequestedAction extends RequestedUser implements RequestedActionInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Entity\Attribut\ActionTypeAttributInterface::setActionType()
+     * @see \App\Attribut\ActionTypeAttributInterface::setActionType()
      */
     public function setActionType(string $actionType): void
     {

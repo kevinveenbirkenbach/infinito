@@ -3,9 +3,9 @@
 namespace App\Domain\RequestManagement\Right;
 
 use App\Entity\Source\SourceInterface;
-use App\Entity\Attribut\CrudAttribut;
-use App\Entity\Attribut\LayerAttribut;
-use App\Entity\Attribut\RecieverAttribut;
+use App\Attribut\CrudAttribut;
+use App\Attribut\LayerAttribut;
+use App\Attribut\RecieverAttribut;
 use App\Exception\PreconditionFailedException;
 use App\Exception\NotSetException;
 use App\Repository\Source\SourceRepositoryInterface;

@@ -3,9 +3,9 @@
 namespace App\Entity\Source\Complex;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Attribut\UserAttribut;
+use App\Attribut\UserAttribut;
 use App\Entity\UserInterface;
-use App\Entity\Attribut\PersonIdentitySourceAttribut;
+use App\Attribut\PersonIdentitySourceAttribut;
 
 /**
  * @author kevinfrantz

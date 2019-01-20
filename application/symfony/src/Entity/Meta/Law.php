@@ -3,11 +3,11 @@
 namespace App\Entity\Meta;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Attribut\RightsAttribute;
+use App\Attribut\RightsAttribute;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\Attribut\RelationAttribut;
+use App\Attribut\RelationAttribut;
 use App\Entity\Source\SourceInterface;
-use App\Entity\Attribut\GrantAttribut;
+use App\Attribut\GrantAttribut;
 
 /**
  * @author kevinfrantz

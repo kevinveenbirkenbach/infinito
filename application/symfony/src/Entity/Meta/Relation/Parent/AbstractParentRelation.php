@@ -2,9 +2,9 @@
 
 namespace App\Entity\Meta\Relation\Parent;
 
-use App\Entity\Attribut\IdAttribut;
-use App\Entity\Attribut\ParentsAttribut;
-use App\Entity\Attribut\ChildsAttribut;
+use App\Attribut\IdAttribut;
+use App\Attribut\ParentsAttribut;
+use App\Attribut\ChildsAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Meta\Relation\AbstractRelation;
 

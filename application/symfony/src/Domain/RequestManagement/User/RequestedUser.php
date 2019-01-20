@@ -35,7 +35,7 @@ class RequestedUser implements RequestedUserInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Entity\Attribut\RecieverAttributInterface::setReciever()
+     * @see \App\Attribut\RecieverAttributInterface::setReciever()
      */
     public function setReciever(SourceInterface $reciever): void
     {
@@ -45,7 +45,7 @@ class RequestedUser implements RequestedUserInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Entity\Attribut\RecieverAttributInterface::getReciever()
+     * @see \App\Attribut\RecieverAttributInterface::getReciever()
      */
     public function getReciever(): SourceInterface
     {
@@ -55,7 +55,7 @@ class RequestedUser implements RequestedUserInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Entity\Attribut\LayerAttributInterface::setLayer()
+     * @see \App\Attribut\LayerAttributInterface::setLayer()
      */
     public function setLayer(string $layer): void
     {
@@ -65,7 +65,7 @@ class RequestedUser implements RequestedUserInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Entity\Attribut\CrudAttributInterface::getCrud()
+     * @see \App\Attribut\CrudAttributInterface::getCrud()
      */
     public function getCrud(): string
     {
@@ -75,7 +75,7 @@ class RequestedUser implements RequestedUserInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Entity\Attribut\LayerAttributInterface::getLayer()
+     * @see \App\Attribut\LayerAttributInterface::getLayer()
      */
     public function getLayer(): string
     {
@@ -85,7 +85,7 @@ class RequestedUser implements RequestedUserInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Entity\Attribut\SourceAttributInterface::getSource()
+     * @see \App\Attribut\SourceAttributInterface::getSource()
      */
     public function getSource(): SourceInterface
     {
@@ -95,7 +95,7 @@ class RequestedUser implements RequestedUserInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Entity\Attribut\CrudAttributInterface::setCrud()
+     * @see \App\Attribut\CrudAttributInterface::setCrud()
      */
     public function setCrud(string $type): void
     {

@@ -10,8 +10,8 @@ use App\Domain\SecureManagement\SecureSourceChecker;
 use App\Entity\Meta\Right;
 use App\DBAL\Types\Meta\Right\LayerType;
 use App\DBAL\Types\Meta\Right\CRUDType;
-use App\Entity\Attribut\SourceAttribut;
-use App\Entity\Attribut\SourceAttributInterface;
+use App\Attribut\SourceAttribut;
+use App\Attribut\SourceAttributInterface;
 use App\Exception\SourceAccessDenied;
 
 /**

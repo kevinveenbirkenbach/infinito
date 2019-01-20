@@ -3,7 +3,7 @@
 namespace App\Entity\Source\Primitive\Text;
 
 use App\Entity\Source\Primitive\AbstractPrimitiveSource;
-use App\Entity\Attribut\TextAttribut;
+use App\Attribut\TextAttribut;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

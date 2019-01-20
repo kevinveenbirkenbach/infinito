@@ -2,8 +2,8 @@
 
 namespace App\Entity\Source\Complex;
 
-use App\Entity\Attribut\UserAttributInterface;
-use App\Entity\Attribut\PersonIdentitySourceAttributInterface;
+use App\Attribut\UserAttributInterface;
+use App\Attribut\PersonIdentitySourceAttributInterface;
 
 /**
  * @author kevinfrantz

@@ -2,17 +2,17 @@
 
 namespace App\Entity\Meta;
 
-use App\Entity\Attribut\CrudAttribut;
+use App\Attribut\CrudAttribut;
 use Doctrine\ORM\Mapping as ORM;
 use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
-use App\Entity\Attribut\LawAttribut;
-use App\Entity\Attribut\GrantAttribut;
+use App\Attribut\LawAttribut;
+use App\Attribut\GrantAttribut;
 use App\Logic\Operation\OperationInterface;
-use App\Entity\Attribut\ConditionAttribut;
-use App\Entity\Attribut\RecieverAttribut;
-use App\Entity\Attribut\LayerAttribut;
-use App\Entity\Attribut\RelationAttribut;
-use App\Entity\Attribut\PriorityAttribut;
+use App\Attribut\ConditionAttribut;
+use App\Attribut\RecieverAttribut;
+use App\Attribut\LayerAttribut;
+use App\Attribut\RelationAttribut;
+use App\Attribut\PriorityAttribut;
 use App\Entity\Source\SourceInterface;
 
 /**

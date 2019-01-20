@@ -2,8 +2,8 @@
 
 namespace App\Entity\Source\Complex;
 
-use App\Entity\Attribut\FirstNameSourceAttributInterface;
-use App\Entity\Attribut\SurnameSourceAttributInterface;
+use App\Attribut\FirstNameSourceAttributInterface;
+use App\Attribut\SurnameSourceAttributInterface;
 
 /**
  * @todo Maybe a middle name would be helpfull in the future ;)

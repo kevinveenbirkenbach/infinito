@@ -4,11 +4,11 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
-use App\Entity\Attribut\SourceAttribut;
-use App\Entity\Attribut\IdAttribut;
+use App\Attribut\SourceAttribut;
+use App\Attribut\IdAttribut;
 use App\Entity\Source\Complex\UserSourceInterface;
 use App\Entity\Source\Complex\UserSource;
-use App\Entity\Attribut\VersionAttribut;
+use App\Attribut\VersionAttribut;
 
 /**
  * @author kevinfrantz

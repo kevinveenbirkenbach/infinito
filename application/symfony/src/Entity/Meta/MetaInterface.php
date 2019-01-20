@@ -3,7 +3,7 @@
 namespace App\Entity\Meta;
 
 use App\Entity\EntityInterface;
-use App\Entity\Attribut\SourceAttributInterface;
+use App\Attribut\SourceAttributInterface;
 
 /**
  * Meta entities contain informations which describe sources.

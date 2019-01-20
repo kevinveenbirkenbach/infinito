@@ -3,7 +3,7 @@
 namespace App\Entity\Meta;
 
 use App\Entity\AbstractEntity;
-use App\Entity\Attribut\SourceAttribut;
+use App\Attribut\SourceAttribut;
 
 /**
  * @todo Implement source attribut

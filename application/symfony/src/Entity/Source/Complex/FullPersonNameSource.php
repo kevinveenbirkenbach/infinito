@@ -2,8 +2,8 @@
 
 namespace App\Entity\Source\Complex;
 
-use App\Entity\Attribut\FirstNameSourceAttribut;
-use App\Entity\Attribut\SurnameSourceAttribut;
+use App\Attribut\FirstNameSourceAttribut;
+use App\Attribut\SurnameSourceAttribut;
 use App\Entity\Source\Primitive\Name\SurnameSource;
 use App\Entity\Source\Primitive\Name\FirstNameSource;
 use Doctrine\ORM\Mapping as ORM;

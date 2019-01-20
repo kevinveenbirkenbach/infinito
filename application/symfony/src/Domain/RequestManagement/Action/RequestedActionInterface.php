@@ -2,7 +2,7 @@
 
 namespace App\Domain\RequestManagement\Action;
 
-use App\Entity\Attribut\ActionTypeAttributInterface;
+use App\Attribut\ActionTypeAttributInterface;
 use App\Domain\RequestManagement\User\RequestedUserInterface;
 
 /**

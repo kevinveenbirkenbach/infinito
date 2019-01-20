@@ -2,9 +2,9 @@
 
 namespace App\Entity;
 
-use App\Entity\Attribut\VersionAttributInterface;
-use App\Entity\Attribut\IdAttributInterface;
-use App\Entity\Attribut\SlugAttributInterface;
+use App\Attribut\VersionAttributInterface;
+use App\Attribut\IdAttributInterface;
+use App\Attribut\SlugAttributInterface;
 
 /**
  * @author kevinfrantz

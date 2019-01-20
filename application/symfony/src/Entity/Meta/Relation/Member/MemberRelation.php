@@ -3,8 +3,8 @@
 namespace App\Entity\Meta\Relation\Member;
 
 use App\Entity\Meta\Relation\AbstractRelation;
-use App\Entity\Attribut\MembersAttribut;
-use App\Entity\Attribut\MembershipsAttribut;
+use App\Attribut\MembersAttribut;
+use App\Attribut\MembershipsAttribut;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;

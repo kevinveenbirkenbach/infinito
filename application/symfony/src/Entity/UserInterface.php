@@ -3,8 +3,8 @@
 namespace App\Entity;
 
 use FOS\UserBundle\Model\UserInterface as FOSUserInterface;
-use App\Entity\Attribut\SourceAttributInterface;
-use App\Entity\Attribut\VersionAttributInterface;
+use App\Attribut\SourceAttributInterface;
+use App\Attribut\VersionAttributInterface;
 
 /**
  * @author kevinfrantz

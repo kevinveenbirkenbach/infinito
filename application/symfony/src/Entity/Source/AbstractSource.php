@@ -5,14 +5,14 @@ namespace App\Entity\Source;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\Exclude;
 use App\Entity\AbstractEntity;
-use App\Entity\Attribut\LawAttribut;
+use App\Attribut\LawAttribut;
 use App\Entity\Meta\LawInterface;
 use App\Entity\Meta\Law;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use App\Entity\Attribut\CreatorRelationAttribut;
+use App\Attribut\CreatorRelationAttribut;
 use App\Entity\Meta\Relation\Parent\CreatorRelationInterface;
 use App\Entity\Meta\Relation\Parent\CreatorRelation;
-use App\Entity\Attribut\MemberRelationAttribut;
+use App\Attribut\MemberRelationAttribut;
 use App\Entity\Meta\Relation\Member\MemberRelation;
 use App\Entity\Meta\Relation\Member\MemberRelationInterface;
 

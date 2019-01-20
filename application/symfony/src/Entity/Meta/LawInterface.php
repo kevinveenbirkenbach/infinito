@@ -2,8 +2,8 @@
 
 namespace App\Entity\Meta;
 
-use App\Entity\Attribut\RightsAttributInterface;
-use App\Entity\Attribut\GrantAttributInterface;
+use App\Attribut\RightsAttributInterface;
+use App\Attribut\GrantAttributInterface;
 
 /**
  * @author kevinfrantz

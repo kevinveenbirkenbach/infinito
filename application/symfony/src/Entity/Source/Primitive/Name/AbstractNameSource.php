@@ -3,7 +3,7 @@
 namespace App\Entity\Source\Primitive\Name;
 
 use App\Entity\Source\Primitive\AbstractPrimitiveSource;
-use App\Entity\Attribut\NameAttribut;
+use App\Attribut\NameAttribut;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 

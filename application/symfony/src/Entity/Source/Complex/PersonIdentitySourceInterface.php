@@ -2,7 +2,7 @@
 
 namespace App\Entity\Source\Complex;
 
-use App\Entity\Attribut\FullPersonNameSourceAttributInterface;
+use App\Attribut\FullPersonNameSourceAttributInterface;
 
 interface PersonIdentitySourceInterface extends ComplexSourceInterface, FullPersonNameSourceAttributInterface
 {

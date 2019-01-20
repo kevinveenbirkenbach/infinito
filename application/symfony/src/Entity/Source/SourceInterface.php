@@ -2,11 +2,11 @@
 
 namespace App\Entity\Source;
 
-use App\Entity\Attribut\IdAttributInterface;
+use App\Attribut\IdAttributInterface;
 use App\Entity\EntityInterface;
-use App\Entity\Attribut\LawAttributInterface;
-use App\Entity\Attribut\CreatorRelationAttributInterface;
-use App\Entity\Attribut\MemberRelationAttributInterface;
+use App\Attribut\LawAttributInterface;
+use App\Attribut\CreatorRelationAttributInterface;
+use App\Attribut\MemberRelationAttributInterface;
 
 /**
  * @author kevinfrantz
