@@ -15,8 +15,8 @@ use App\Domain\UserManagement\UserSourceDirector;
 use App\Repository\Source\SourceRepositoryInterface;
 use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use App\DBAL\Types\SystemSlugType;
-use App\Exception\NotSetException;
 use App\Exception\SetNotPossibleException;
+use App\Exception\NotCorrectInstanceException;
 
 /**
  * @author kevinfrantz
@@ -61,7 +61,7 @@ class RequestedUserTest extends TestCase
         $requestedSource->method('getSlug')->willReturn(SystemSlugType::IMPRINT);
         $requestedSource->method('hasSlug')->willReturn(true);
         $sourceRepository = $this->createMock(SourceRepositoryInterface::class);
-        $requestedRight = new RequestedRight($sourceRepository);
+        $requestedRight = new RequestedRight();
         $user = $this->createMock(User::class);
         $userSourceDirector = new UserSourceDirector($sourceRepository, $user);
         $requestedUserRightFacade = new RequestedUser($userSourceDirector, $requestedRight);
@@ -70,7 +70,7 @@ class RequestedUserTest extends TestCase
         $this->assertNull($requestedUserRightFacade->setRequestedEntity($requestedSource));
         $this->assertEquals($layer, $requestedRight->getLayer());
         $this->assertEquals($type, $requestedRight->getCrud());
-        $this->expectException(NotSetException::class);
+        $this->expectException(NotCorrectInstanceException::class);
         $this->assertNotInstanceOf(RequestedEntityInterface::class, $requestedRight->getSource());
     }
 

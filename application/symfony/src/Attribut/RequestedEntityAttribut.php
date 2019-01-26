@@ -6,6 +6,8 @@ use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
 
 /**
  * @author kevinfrantz
+ *
+ * @see RequestedEntityAttributInterface
  */
 trait RequestedEntityAttribut
 {
@@ -28,5 +30,13 @@ trait RequestedEntityAttribut
     public function setRequestedEntity(RequestedEntityInterface $requestedEntity): void
     {
         $this->requestedEntity = $requestedEntity;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasRequestedEntity(): bool
+    {
+        return isset($this->requestedEntity);
     }
 }

@@ -7,6 +7,9 @@ use App\Attribut\RightAttributInterface;
 use App\Attribut\RightAttribut;
 use App\Entity\Meta\RightInterface;
 
+/**
+ * @author kevinfrantz
+ */
 class RightAttributTest extends TestCase
 {
     /***

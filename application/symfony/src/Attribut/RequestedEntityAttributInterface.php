@@ -10,6 +10,11 @@ use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
 interface RequestedEntityAttributInterface
 {
     /**
+     * @return bool
+     */
+    public function hasRequestedEntity(): bool;
+
+    /**
      * @return RequestedEntityInterface
      */
     public function getRequestedEntity(): RequestedEntityInterface;

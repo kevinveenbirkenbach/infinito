@@ -14,6 +14,7 @@ use App\Entity\Source\AbstractSource;
 use App\Exception\NotSetException;
 use App\Repository\RepositoryInterface;
 use App\Entity\Source\SourceInterface;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * @author kevinfrantz
@@ -53,19 +54,44 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
+     * @throws NotSetException
+     */
+    private function validateHasIdentity(): void
+    {
+        if (!($this->hasId() || $this->hasSlug())) {
+            throw new NotSetException('No identity attribut like id or slug was set!');
+        }
+    }
+
+    /**
+     * @param EntityInterface|null $entity
+     *
+     * @throws NotFoundHttpException
+     */
+    private function validateLoadedEntity(?EntityInterface $entity): void
+    {
+        if (!$entity) {
+            throw new NotFoundHttpException('Entity with {id:"'.$this->id.'",slug:"'.$this->slug.'"} not found');
+        }
+    }
+
+    /**
+     * Sorry for the messed function, but should work ;)
      * {@inheritdoc}
      *
      * @see \App\Domain\RequestManagement\Entity\RequestedEntityInterface::getEntity()
      */
     public function getEntity(): EntityInterface
     {
+        $this->validateHasIdentity();
         if ($this->hasSlug()) {
-            return $this->loadBySlug();
+            $entity = $this->loadBySlug();
+        } elseif ($this->hasId()) {
+            $entity = $this->loadById();
         }
-        if ($this->hasId()) {
-            return $this->loadById();
-        }
-        throw new NotSetException('No identity attribut like id or slug was set!');
+        $this->validateLoadedEntity($entity);
+
+        return $entity;
     }
 
     /**
@@ -82,9 +108,9 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     /**
      * @throws NotCorrectInstanceException
      *
-     * @return SourceInterface
+     * @return SourceInterface|null
      */
-    private function loadBySlug(): SourceInterface
+    private function loadBySlug(): ?SourceInterface
     {
         $repository = $this->getEntityRepository();
         if ($repository instanceof SourceRepositoryInterface) {
@@ -94,9 +120,9 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
-     * @return EntityInterface
+     * @return EntityInterface|null
      */
-    private function loadById(): EntityInterface
+    private function loadById(): ?EntityInterface
     {
         $repository = $this->getEntityRepository();
 
@@ -112,7 +138,7 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     public function setRequestedRight($requestedRight): void
     {
         $this->requestedRight = $requestedRight;
-        if ($this->requestedRight !== $this) {
+        if (!$this->requestedRight->hasRequestedEntity()) {
             $this->requestedRight->setRequestedEntity($this);
         }
     }

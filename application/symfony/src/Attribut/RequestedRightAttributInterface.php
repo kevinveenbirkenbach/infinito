@@ -10,6 +10,11 @@ use App\Domain\RequestManagement\Right\RequestedRightInterface;
 interface RequestedRightAttributInterface
 {
     /**
+     * @return bool
+     */
+    public function hasRequestedRight(): bool;
+
+    /**
      * @param RequestedRightInterface $requestedRight
      */
     public function setRequestedRight(RequestedRightInterface $requestedRight): void;

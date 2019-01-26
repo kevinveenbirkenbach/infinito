@@ -25,6 +25,14 @@ trait RequestedRightAttribut
     }
 
     /**
+     * @return bool
+     */
+    public function hasRequestedRight(): bool
+    {
+        return isset($this->requestedRight);
+    }
+
+    /**
      * @return RequestedRightInterface
      */
     public function getRequestedRight(): RequestedRightInterface

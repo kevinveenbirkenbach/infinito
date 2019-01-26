@@ -28,11 +28,6 @@ class RequestedRight implements RequestedRightInterface
     private $source;
 
     /**
-     * @var RequestedEntityInterface
-     */
-    private $requestedEntity;
-
-    /**
      * @throws NotCorrectInstanceException
      */
     private function loadSource(): void
@@ -40,11 +35,15 @@ class RequestedRight implements RequestedRightInterface
         $entity = $this->requestedEntity->getEntity();
         if ($entity instanceof SourceInterface) {
             $this->source = $entity;
+
+            return;
         }
         if ($entity instanceof MetaInterface) {
             $this->source = $entity->getSource();
+
+            return;
         }
-        throw new NotCorrectInstanceException('The entity instance can\'t be processed');
+        throw new NotCorrectInstanceException('The entity instance '.get_class($entity).' can\'t be processed');
     }
 
     /**
@@ -92,7 +91,7 @@ class RequestedRight implements RequestedRightInterface
     final public function setRequestedEntity(RequestedEntityInterface $requestedEntity): void
     {
         $this->requestedEntity = $requestedEntity;
-        if ($requestedEntity->getRequestedRight() !== $this) {
+        if (!$requestedEntity->hasRequestedRight()) {
             $this->requestedEntity->setRequestedRight($this);
         }
     }

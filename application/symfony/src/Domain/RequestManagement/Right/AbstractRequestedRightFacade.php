@@ -114,4 +114,14 @@ abstract class AbstractRequestedRightFacade implements RequestedRightInterface
     {
         $this->requestedRight->setReciever($reciever);
     }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Attribut\RequestedEntityAttributInterface::hasRequestedEntity()
+     */
+    public function hasRequestedEntity(): bool
+    {
+        $this->requestedRight->hasRequestedEntity();
+    }
 }

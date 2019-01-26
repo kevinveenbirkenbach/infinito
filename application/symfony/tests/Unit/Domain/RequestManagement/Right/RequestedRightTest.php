@@ -5,13 +5,15 @@ namespace tests\Unit\Domain\RequestManagement\Entity;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use App\Domain\RequestManagement\Right\RequestedRightInterface;
 use App\Domain\RequestManagement\Right\RequestedRight;
-use App\Entity\Source\AbstractSource;
 use App\DBAL\Types\Meta\Right\LayerType;
 use App\Domain\RequestManagement\Entity\RequestedEntity;
 use App\DBAL\Types\SystemSlugType;
 use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use App\Exception\PreconditionFailedException;
-use App\Exception\NotSetException;
+use App\Entity\Source\PureSource;
+use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use App\Domain\RepositoryManagement\LayerRepositoryFactoryService;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * @author kevinfrantz
@@ -23,12 +25,17 @@ class RequestedRightTest extends KernelTestCase
      */
     private $requestedRight;
 
+    /**
+     * @var LayerRepositoryFactoryServiceInterface
+     */
+    private $layerRepositoryFactoryService;
+
     public function setUp(): void
     {
         self::bootKernel();
         $entityManager = self::$container->get('doctrine.orm.default_entity_manager');
-        $sourceRepository = $entityManager->getRepository(AbstractSource::class);
-        $this->requestedRight = new RequestedRight($sourceRepository);
+        $this->layerRepositoryFactoryService = new LayerRepositoryFactoryService($entityManager);
+        $this->requestedRight = new RequestedRight();
     }
 
     public function testLayer(): void
@@ -54,24 +61,27 @@ class RequestedRightTest extends KernelTestCase
 
     public function testKnownSource(): void
     {
-        $requestedSource = new RequestedEntity();
-        $requestedSource->setSlug(SystemSlugType::IMPRINT);
-        $this->requestedRight->setRequestedEntity($requestedSource);
+        $requestedEntity = new RequestedEntity($this->layerRepositoryFactoryService);
+        $requestedEntity->setSlug(SystemSlugType::IMPRINT);
+        $this->requestedRight->setRequestedEntity($requestedEntity);
+        $this->requestedRight->setLayer(LayerType::SOURCE);
         $sourceResponse1 = $this->requestedRight->getSource();
         $this->assertGreaterThan(0, $sourceResponse1->getId());
-        $requestedSource->setSlug('');
-        $this->expectException(NotSetException::class);
+        $requestedEntity->setSlug('');
+        $this->expectException(NotFoundHttpException::class);
         $this->requestedRight->getSource();
     }
 
     public function testEqualsSlug(): void
     {
         $slug = SystemSlugType::IMPRINT;
-        $requestedSource = $this->createMock(RequestedEntityInterface::class);
-        $requestedSource->method('getSlug')->willReturn($slug);
-        $requestedSource->method('hasSlug')->willReturn(true);
-        $this->assertEquals($slug, $requestedSource->getSlug());
-        $this->requestedRight->setRequestedEntity($requestedSource);
+        $requestedEntityEntity = new PureSource();
+        $requestedEntity = $this->createMock(RequestedEntityInterface::class);
+        $requestedEntity->method('getSlug')->willReturn($slug);
+        $requestedEntity->method('hasSlug')->willReturn(true);
+        $requestedEntity->method('getEntity')->willReturn($requestedEntityEntity);
+        $this->assertEquals($slug, $requestedEntity->getSlug());
+        $this->requestedRight->setRequestedEntity($requestedEntity);
         $responseSource1 = $this->requestedRight->getSource();
         $responseSource2 = $this->requestedRight->getSource();
         $this->assertEquals($responseSource1, $responseSource2);
