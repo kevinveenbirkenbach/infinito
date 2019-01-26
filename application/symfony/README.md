@@ -1,15 +1,16 @@
-The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”,
-“SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be
-interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
+## backend application
 
-# standards
+## conventions
 
-## coding standards
+### coding
 
-### php
+#### symfony
+The application MUST use Symfony 4. coding standards
+
+#### php
 PHP code MUST follow the [PSR-4](https://www.php-fig.org/psr/psr-4/) standard.
 
-### twig
+#### twig
 Twig templates MUST follow the [Symfony Template best practices](https://symfony.com/doc/current/best_practices/templates.html).
 
 ### naming
@@ -26,8 +27,8 @@ A abstract class MUST be named *AbstractClassname*.
 
 It SHOULD be based in the directory of the classes which inherit from it.
 
-#### entities
+###### entities
 
-##### source
+####### source
 
 A source MUST be named *SourcenameSource*.
