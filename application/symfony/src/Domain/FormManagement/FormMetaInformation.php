@@ -7,6 +7,8 @@ use App\Domain\EntityManagement\EntityMetaInformationInterface;
 
 /**
  * @author kevinfrantz
+ *
+ * @deprecated
  */
 final class FormMetaInformation implements FormMetaInformationInterface
 {

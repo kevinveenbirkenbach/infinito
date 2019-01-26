@@ -6,6 +6,8 @@ use App\DBAL\Types\RESTResponseType;
 
 /**
  * @author kevinfrantz
+ *
+ * @deprecated
  */
 interface ReloadTypeInterface
 {

@@ -6,6 +6,8 @@ use App\Domain\TemplateManagement\TemplatePathInformationInterface;
 
 /**
  * @author kevinfrantz
+ *
+ * @deprecated
  */
 interface FormMetaInformationInterface
 {

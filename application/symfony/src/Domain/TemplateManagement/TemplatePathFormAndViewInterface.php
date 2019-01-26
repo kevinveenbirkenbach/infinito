@@ -3,6 +3,8 @@
 namespace App\Domain\TemplateManagement;
 
 /**
+ * @deprecated
+ *
  * @author kevinfrantz
  */
 interface TemplatePathFormAndViewInterface extends ReloadTypeInterface

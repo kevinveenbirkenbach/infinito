@@ -6,6 +6,8 @@ use App\Domain\FormManagement\FormMetaInformation;
 
 /**
  * @author kevinfrantz
+ *
+ * @deprecated
  */
 final class TemplatePathFormAndView implements TemplatePathFormAndViewInterface
 {
