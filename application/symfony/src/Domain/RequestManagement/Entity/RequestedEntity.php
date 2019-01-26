@@ -102,4 +102,18 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
 
         return $repository->find($this->id);
     }
+
+    /**
+     * Overriding is neccessary to declare the correct relation
+     * {@inheritdoc}
+     *
+     * @see \App\Attribut\RequestedRightAttributInterface::setRequestedRight()
+     */
+    public function setRequestedRight($requestedRight): void
+    {
+        $this->requestedRight = $requestedRight;
+        if ($this->requestedRight !== $this) {
+            $this->requestedRight->setRequestedEntity($this);
+        }
+    }
 }

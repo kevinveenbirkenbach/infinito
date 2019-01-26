@@ -8,9 +8,10 @@ use App\Attribut\LayerAttribut;
 use App\Attribut\RecieverAttribut;
 use App\Exception\PreconditionFailedException;
 use App\Exception\NotSetException;
-use App\Repository\Source\SourceRepositoryInterface;
 use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use App\Attribut\RequestedEntityAttribut;
+use App\Entity\Meta\MetaInterface;
+use App\Exception\NotCorrectInstanceException;
 
 /**
  * @author kevinfrantz
@@ -20,11 +21,6 @@ use App\Attribut\RequestedEntityAttribut;
 class RequestedRight implements RequestedRightInterface
 {
     use CrudAttribut, LayerAttribut, RecieverAttribut, RequestedEntityAttribut;
-
-    /**
-     * @var SourceRepositoryInterface
-     */
-    private $sourceRepository;
 
     /**
      * @var SourceInterface
@@ -37,16 +33,18 @@ class RequestedRight implements RequestedRightInterface
     private $requestedEntity;
 
     /**
-     * @param SourceRepositoryInterface $sourceRepository
+     * @throws NotCorrectInstanceException
      */
-    public function __construct(SourceRepositoryInterface $sourceRepository)
-    {
-        $this->sourceRepository = $sourceRepository;
-    }
-
     private function loadSource(): void
     {
-        $this->source = $this->sourceRepository->findOneByIdOrSlug($this->requestedEntity);
+        $entity = $this->requestedEntity->getEntity();
+        if ($entity instanceof SourceInterface) {
+            $this->source = $entity;
+        }
+        if ($entity instanceof MetaInterface) {
+            $this->source = $entity->getSource();
+        }
+        throw new NotCorrectInstanceException('The entity instance can\'t be processed');
     }
 
     /**
@@ -85,12 +83,17 @@ class RequestedRight implements RequestedRightInterface
     }
 
     /**
+     * Overriding is neccessary to declare the correct relation.
+     *
      * {@inheritdoc}
      *
      * @see \App\Domain\RequestManagement\Right\RequestedRightInterface::setRequestedEntity()
      */
-    final public function setRequestedEntity(RequestedEntityInterface $requestedSource): void
+    final public function setRequestedEntity(RequestedEntityInterface $requestedEntity): void
     {
-        $this->requestedEntity = $requestedSource;
+        $this->requestedEntity = $requestedEntity;
+        if ($requestedEntity->getRequestedRight() !== $this) {
+            $this->requestedEntity->setRequestedRight($this);
+        }
     }
 }
