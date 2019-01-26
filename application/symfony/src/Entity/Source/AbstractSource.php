@@ -15,6 +15,8 @@ use App\Entity\Meta\Relation\Parent\CreatorRelation;
 use App\Attribut\MemberRelationAttribut;
 use App\Entity\Meta\Relation\Member\MemberRelation;
 use App\Entity\Meta\Relation\Member\MemberRelationInterface;
+use App\Attribut\SlugAttribut;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @author kevinfrantz
@@ -47,7 +49,22 @@ use App\Entity\Meta\Relation\Member\MemberRelationInterface;
  */
 abstract class AbstractSource extends AbstractEntity implements SourceInterface
 {
-    use  LawAttribut,CreatorRelationAttribut, MemberRelationAttribut;
+    use  LawAttribut,CreatorRelationAttribut, MemberRelationAttribut, SlugAttribut;
+
+    /**
+     * System slugs should be writen in UPPER CASES
+     * Slugs which are defined by the user are checked via the assert.
+     *
+     * @ORM\Column(type="string",length=30,nullable=true,unique=true)
+     * @Assert\Regex(pattern="/^[a-z]+$/")
+     *
+     * @todo Check out if a plugin can solve this purpose;
+     *
+     * @see https://github.com/Atlantic18/DoctrineExtensions/blob/master/doc/sluggable.md
+     *
+     * @var string
+     */
+    protected $slug;
 
     /**
      * @var CreatorRelationInterface

@@ -5,6 +5,6 @@ namespace App\Domain\RequestManagement\Entity;
 /**
  * @author kevinfrantz
  */
-interface RequestedEntityServiceInterface
+interface RequestedEntityServiceInterface extends RequestedEntityInterface
 {
 }
