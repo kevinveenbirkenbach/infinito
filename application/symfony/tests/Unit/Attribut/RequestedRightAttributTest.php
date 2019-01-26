@@ -34,6 +34,6 @@ class RequestedRightAttributTest extends TestCase
     {
         $requestedRight = $this->createMock(RequestedRightInterface::class);
         $this->assertNull($this->requestedRightAttribut->setRequestedRight($requestedRight));
-        $this->assertEquals($reciever, $this->requestedRightAttribut->getRequestedRight());
+        $this->assertEquals($requestedRight, $this->requestedRightAttribut->getRequestedRight());
     }
 }
