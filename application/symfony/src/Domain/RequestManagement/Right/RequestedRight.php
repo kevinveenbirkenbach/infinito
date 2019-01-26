@@ -7,7 +7,6 @@ use App\Attribut\CrudAttribut;
 use App\Attribut\LayerAttribut;
 use App\Attribut\RecieverAttribut;
 use App\Exception\PreconditionFailedException;
-use App\Exception\NotSetException;
 use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use App\Attribut\RequestedEntityAttribut;
 use App\Entity\Meta\MetaInterface;
@@ -68,17 +67,8 @@ class RequestedRight implements RequestedRightInterface
     {
         $this->validateRequestedEntity();
         $this->loadSource();
-        $this->validateLoad();
 
         return $this->source;
-    }
-
-    private function validateLoad(): void
-    {
-        if ($this->source) {
-            return;
-        }
-        throw new NotSetException('The Requested Source couldn\'t be found!');
     }
 
     /**

@@ -14,6 +14,8 @@ use App\Entity\Source\PureSource;
 use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 use App\Domain\RepositoryManagement\LayerRepositoryFactoryService;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use App\Entity\Meta\Law;
+use App\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz
@@ -48,7 +50,7 @@ class RequestedRightTest extends KernelTestCase
     public function testLayerException(): void
     {
         $this->expectException(\TypeError::class);
-        var_dump($this->requestedRight->getLayer());
+        $this->requestedRight->getLayer();
     }
 
     public function testRequestedEntityWithoutAttributes(): void
@@ -85,5 +87,22 @@ class RequestedRightTest extends KernelTestCase
         $responseSource1 = $this->requestedRight->getSource();
         $responseSource2 = $this->requestedRight->getSource();
         $this->assertEquals($responseSource1, $responseSource2);
+    }
+
+    public function testMetaEntity(): void
+    {
+        $slug = 123;
+        $source = $this->createMock(SourceInterface::class);
+        $entity = new Law();
+        $entity->setSource($source);
+        $requestedEntity = $this->createMock(RequestedEntityInterface::class);
+        $requestedEntity->method('getSlug')->willReturn($slug);
+        $requestedEntity->method('hasSlug')->willReturn(true);
+        $requestedEntity->method('getEntity')->willReturn($entity);
+        $this->assertEquals($slug, $requestedEntity->getSlug());
+        $this->requestedRight->setRequestedEntity($requestedEntity);
+        $this->requestedRight->setLayer(LayerType::LAW);
+        $responseSource1 = $this->requestedRight->getSource();
+        $this->assertEquals($responseSource1, $source);
     }
 }

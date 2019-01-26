@@ -122,6 +122,6 @@ abstract class AbstractRequestedRightFacade implements RequestedRightInterface
      */
     public function hasRequestedEntity(): bool
     {
-        $this->requestedRight->hasRequestedEntity();
+        return $this->requestedRight->hasRequestedEntity();
     }
 }

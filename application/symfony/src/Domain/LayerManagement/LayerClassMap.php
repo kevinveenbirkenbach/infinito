@@ -5,6 +5,8 @@ namespace App\Domain\LayerManagement;
 use App\DBAL\Types\Meta\Right\LayerType;
 use App\Entity\Source\AbstractSource;
 use App\Exception\NotSetException;
+use App\Entity\Meta\Law;
+use App\Entity\Meta\Right;
 
 /**
  * @author kevinfrantz
@@ -13,6 +15,8 @@ final class LayerClassMap implements LayerClassMapInterface
 {
     const LAYER_CLASS_MAP = [
         LayerType::SOURCE => AbstractSource::class,
+        LayerType::LAW => Law::class,
+        LayerType::RIGHT => Right::class,
     ];
 
     /**

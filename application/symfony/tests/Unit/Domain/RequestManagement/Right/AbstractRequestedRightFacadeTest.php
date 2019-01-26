@@ -48,12 +48,14 @@ class AbstractRequestedRightFacadeTest extends TestCase
         $requestedRight->method('getSource')->willReturn($source);
         $requestedRight->method('getReciever')->willReturn($reciever);
         $requestedRight->method('getRequestedEntity')->willReturn($requestedEntity);
+        $requestedRight->method('hasRequestedEntity')->willReturn(true);
         $requestedRightFacade = $this->getRequestedRightFacade($requestedRight);
         $this->assertEquals($layer, $requestedRightFacade->getLayer());
         $this->assertEquals($type, $requestedRightFacade->getCrud());
         $this->assertEquals($source, $requestedRightFacade->getSource());
         $this->assertEquals($reciever, $requestedRightFacade->getReciever());
         $this->assertEquals($requestedEntity, $requestedRightFacade->getRequestedEntity());
+        $this->assertTrue($requestedRightFacade->hasRequestedEntity());
     }
 
     public function testSetters(): void
