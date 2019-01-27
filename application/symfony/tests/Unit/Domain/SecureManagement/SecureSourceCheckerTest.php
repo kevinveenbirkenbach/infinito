@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Domain\SecureSourceManagement;
+namespace Tests\Unit\Domain\SecureManagement;
 
 use PHPUnit\Framework\TestCase;
 use App\Entity\Source\SourceInterface;
