@@ -19,7 +19,7 @@ final class LayerActionMap implements LayerActionMapInterface
             ActionType::CREATE,
             ActionType::UPDATE,
             ActionType::DELETE,
-            ActionType::LIST,
+            ActionType::THREAD,
         ],
     ];
 

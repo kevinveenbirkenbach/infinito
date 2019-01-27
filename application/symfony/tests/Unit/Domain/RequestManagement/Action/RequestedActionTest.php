@@ -41,7 +41,7 @@ class RequestedActionTest extends TestCase
 
     public function testList(): void
     {
-        $list = ActionType::LIST;
+        $list = ActionType::THREAD;
         $this->action->setActionType($list);
         $this->assertEquals($list, $this->action->getActionType());
         $this->assertEquals(CRUDType::READ, $this->requestedRight->getCrud());

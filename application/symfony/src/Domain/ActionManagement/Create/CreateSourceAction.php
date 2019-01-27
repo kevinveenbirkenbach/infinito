@@ -7,10 +7,6 @@ namespace App\Domain\ActionManagement\Create;
  */
 final class CreateSourceAction extends AbstractCreateAction
 {
-    protected function isSecure(): bool
-    {
-    }
-
     protected function isValidByForm(): bool
     {
     }

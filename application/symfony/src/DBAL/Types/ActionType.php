@@ -11,13 +11,13 @@ use App\DBAL\Types\Meta\Right\CRUDType;
  */
 final class ActionType extends CRUDType
 {
-    const LIST = 'list';
+    const THREAD = 'thread';
 
     protected static $choices = [
         parent::CREATE => 'create',
         parent::READ => 'read',
         parent::UPDATE => 'update',
         parent::DELETE => 'delete',
-        self::LIST => 'list',
+        self::THREAD => 'thread',
     ];
 }

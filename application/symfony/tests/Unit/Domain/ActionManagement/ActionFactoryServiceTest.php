@@ -2,16 +2,15 @@
 
 namespace tests\Unit\Domain\SecureCRUDManagement\Factory;
 
-use App\DBAL\Types\Meta\Right\LayerType;
 use PHPUnit\Framework\TestCase;
 use App\Domain\ActionManagement\ActionFactoryServiceInterface;
 use App\Domain\ActionManagement\ActionFactoryService;
 use App\Domain\ActionManagement\ActionServiceInterface;
-use App\DBAL\Types\ActionType;
 use App\Domain\ActionManagement\ActionInterface;
 use App\Domain\RequestManagement\Action\RequestedActionInterface;
 use App\Domain\RequestManagement\Action\RequestedAction;
 use App\Domain\RequestManagement\Right\RequestedRight;
+use App\Domain\LayerManagement\LayerActionMap;
 
 /**
  * @author kevinfrantz
@@ -44,8 +43,8 @@ class ActionFactoryServiceTest extends TestCase
 
     public function testCreate(): void
     {
-        foreach (ActionType::getChoices() as $action) {
-            foreach (LayerType::getChoices() as $layer) {
+        foreach (LayerActionMap::LAYER_ACTION_MAP as $layer => $actions) {
+            foreach ($actions as $action) {
                 $this->requestedAction->setLayer($layer);
                 $this->requestedAction->setActionType($action);
                 $result = $this->actionFactoryService->create();
