@@ -10,7 +10,8 @@ use App\Domain\ActionManagement\ActionServiceInterface;
 use App\DBAL\Types\ActionType;
 use App\Domain\ActionManagement\ActionInterface;
 use App\Domain\RequestManagement\Action\RequestedActionInterface;
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use App\Domain\RequestManagement\Action\RequestedAction;
+use App\Domain\RequestManagement\Right\RequestedRightInterface;
 
 /**
  * @author kevinfrantz
@@ -34,21 +35,22 @@ class ActionFactoryServiceTest extends TestCase
 
     public function setUp(): void
     {
-        $this->requestedEntity = $this->createMock(RequestedEntityInterface::class);
-        $this->requestedAction = $this->createMock(RequestedActionInterface::class);
+        $requestedRight = $this->createMock(RequestedRightInterface::class);
+        $this->requestedAction = new RequestedAction($requestedRight);
         $this->actionService = $this->createMock(ActionServiceInterface::class);
         $this->actionService->method('getRequestedAction')->willReturn($this->requestedAction);
         $this->actionFactoryService = new ActionFactoryService($this->actionService);
     }
 
+    
     public function testCreate(): void
     {
         foreach (ActionType::getChoices() as $action) {
             foreach (LayerType::getChoices() as $layer) {
-                $this->requestedAction->method('getLayer')->willReturn($layer);
-                $this->requestedAction->method('getActionType')->willReturn($action);
-                $action = $this->actionFactoryService->create();
-                $this->assertInstanceOf(ActionInterface::class, $action);
+                $this->requestedAction->setLayer($layer);
+                $this->requestedAction->setActionType($action);
+                $result = $this->actionFactoryService->create();
+                $this->assertInstanceOf(ActionInterface::class, $result);
             }
         }
     }
