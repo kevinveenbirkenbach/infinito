@@ -4,16 +4,17 @@
 [![Build Status](https://travis-ci.org/KevinFrantz/infinito.svg?branch=master)](https://travis-ci.org/KevinFrantz/infinito) [![codecov](https://codecov.io/gh/KevinFrantz/infinito/branch/master/graph/badge.svg)](https://codecov.io/gh/KevinFrantz/infinito) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0) [![Code of Conduct](https://img.shields.io/badge/%E2%9D%A4-code%20of%20conduct-blue.svg?style=flat)](https://github.com/KevinFrantz/infinito/blob/master/CODE_OF_CONDUCT.md)
 
 ## Idea
-This software should offer a cloud based application\\framework for GUI based development and data management.
+This software should offer a cloud based application\\framework for GUI and REST based development and data management.
 
-### Core\\USP\\Target
+### Core Functions, USP & Target
 - High differentiable of rights for persons, groups and devices
-- Interface for persons and devices (IoT)
+- Data interface for persons and devices (IoT)
 - Support of mixtures between executables and data
 - Versioning of every state of the used data
-- Automized transparency for users about their data
-- Expanding the standard program paradigma of classes and objects through ***sources***
-- Implementation of all big standard applications via API to manage them over one interface 
+- Automized transparency for users about their data and use
+- Expanding the standard program paradigma of classes and objects through sources
+- Implementation of all big standard applications via API to manage them over one interface
+- High scalability (IaaS compatible)
 
 ## Setup
 To run the application you need docker.
@@ -39,5 +40,6 @@ Further information you will find in the [application README.md](./application/R
 ## Documentation
 Further information you will find in the [DOCUMENTATION.md](./DOCUMENTATION.md).
 
-## Main Author
-[Kevin Veen-Birkenbach](kevin@veen.world) aka. [Kevin Frantz](mail@Kevin-Frantz.de).  
+## Author
+[Kevin Veen-Birkenbach](kevin@veen.world) \\ [Frantz](mail@Kevin-Frantz.de) <br />
+ [Xing](https://www.xing.com/profile/Kevin_Frantz2/) | [LinkedIn](https://www.linkedin.com/in/kevinfrantz/)
