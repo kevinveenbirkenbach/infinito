@@ -9,10 +9,13 @@ use App\DBAL\Types\Meta\Right\CRUDType;
 use App\Entity\Meta\Right;
 use App\Domain\RequestManagement\Right\RequestedRight;
 use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use App\Domain\SecureManagement\SecureEntityChecker;
+use App\Domain\SecureManagement\SecureRequestedRightChecker;
 use App\Domain\RightManagement\RightTransformerService;
 
-class SecureEntityCheckerTest extends TestCase
+/**
+ * @author kevinfrantz
+ */
+class SecureRequestedRightCheckerTest extends TestCase
 {
     public function testGranted(): void
     {
@@ -37,7 +40,7 @@ class SecureEntityCheckerTest extends TestCase
         $requestedEntity->method('getEntity')->willReturn($source);
         $requestedRight->setRequestedEntity($requestedEntity);
         $rightTransformerService = new RightTransformerService();
-        $secureEntityChecker = new SecureEntityChecker($rightTransformerService);
+        $secureEntityChecker = new SecureRequestedRightChecker($rightTransformerService);
         $result = $secureEntityChecker->check($requestedRight);
         $this->assertTrue($result);
     }
@@ -65,7 +68,7 @@ class SecureEntityCheckerTest extends TestCase
         $requestedEntity->method('getEntity')->willReturn($source);
         $requestedRight->setRequestedEntity($requestedEntity);
         $rightTransformerService = new RightTransformerService();
-        $secureEntityChecker = new SecureEntityChecker($rightTransformerService);
+        $secureEntityChecker = new SecureRequestedRightChecker($rightTransformerService);
         $result = $secureEntityChecker->check($requestedRight);
         $this->assertFalse($result);
     }

@@ -9,7 +9,7 @@ use App\Domain\RequestManagement\Right\RequestedRightInterface;
  *
  * @author kevinfrantz
  */
-interface SecureEntityCheckerInterface
+interface SecureRequestedRightCheckerInterface
 {
     /**
      * @param RequestedRightInterface $requestedRight

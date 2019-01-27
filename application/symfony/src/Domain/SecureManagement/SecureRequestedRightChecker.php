@@ -9,7 +9,7 @@ use App\Domain\RightManagement\RightTransformerServiceInterface;
 /**
  * @author kevinfrantz
  */
-final class SecureEntityChecker implements SecureEntityCheckerInterface
+final class SecureRequestedRightChecker implements SecureRequestedRightCheckerInterface
 {
     /**
      * @var RightTransformerServiceInterface
