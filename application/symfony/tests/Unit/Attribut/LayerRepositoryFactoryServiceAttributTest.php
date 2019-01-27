@@ -10,7 +10,7 @@ use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 /**
  * @author kevinfrantz
  */
-class RequestAttributTest extends TestCase
+class LayerRepositoryFactoryServiceAttributTest extends TestCase
 {
     /**
      * @var LayerRepositoryFactoryServiceAttributInterface
