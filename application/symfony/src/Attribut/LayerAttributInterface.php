@@ -7,7 +7,13 @@ namespace App\Attribut;
  */
 interface LayerAttributInterface
 {
+    /**
+     * @param string $layer
+     */
     public function setLayer(string $layer): void;
 
+    /**
+     * @return string
+     */
     public function getLayer(): string;
 }

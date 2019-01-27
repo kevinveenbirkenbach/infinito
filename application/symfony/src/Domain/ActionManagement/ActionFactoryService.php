@@ -2,6 +2,8 @@
 
 namespace App\Domain\ActionManagement;
 
+use App\Exception\NoDefaultClassException;
+
 /**
  * @author kevinfrantz
  */
@@ -56,8 +58,10 @@ final class ActionFactoryService extends AbstractActionConstructor implements Ac
             return $class;
         }
         $defaultClass = $this->getActionNamespace($action);
-
-        return $defaultClass;
+        if (class_exists($defaultClass)) {
+            return $defaultClass;
+        }
+        throw new NoDefaultClassException("There is no default substitution class for $class with attributes {layer:\"$layer\",action:\"$action\"}");
     }
 
     /**

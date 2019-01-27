@@ -11,7 +11,7 @@ use App\DBAL\Types\ActionType;
 use App\Domain\ActionManagement\ActionInterface;
 use App\Domain\RequestManagement\Action\RequestedActionInterface;
 use App\Domain\RequestManagement\Action\RequestedAction;
-use App\Domain\RequestManagement\Right\RequestedRightInterface;
+use App\Domain\RequestManagement\Right\RequestedRight;
 
 /**
  * @author kevinfrantz
@@ -35,14 +35,13 @@ class ActionFactoryServiceTest extends TestCase
 
     public function setUp(): void
     {
-        $requestedRight = $this->createMock(RequestedRightInterface::class);
+        $requestedRight = new RequestedRight();
         $this->requestedAction = new RequestedAction($requestedRight);
         $this->actionService = $this->createMock(ActionServiceInterface::class);
         $this->actionService->method('getRequestedAction')->willReturn($this->requestedAction);
         $this->actionFactoryService = new ActionFactoryService($this->actionService);
     }
 
-    
     public function testCreate(): void
     {
         foreach (ActionType::getChoices() as $action) {

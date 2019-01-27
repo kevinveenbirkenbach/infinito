@@ -10,6 +10,7 @@ use App\Domain\RequestManagement\Action\RequestedAction;
 use App\DBAL\Types\ActionType;
 use App\DBAL\Types\Meta\Right\CRUDType;
 use App\Repository\Source\SourceRepositoryInterface;
+use App\DBAL\Types\Meta\Right\LayerType;
 
 /**
  * @author kevinfrantz
@@ -52,6 +53,15 @@ class RequestedActionTest extends TestCase
             $this->action->setActionType($crud);
             $this->assertEquals($crud, $this->action->getActionType());
             $this->assertEquals($crud, $this->requestedRight->getCrud());
+        }
+    }
+
+    public function testLayer(): void
+    {
+        foreach (LayerType::getChoices() as $LayerType) {
+            $this->action->setLayer($LayerType);
+            $this->assertEquals($LayerType, $this->action->getLayer());
+            $this->assertEquals($LayerType, $this->requestedRight->getLayer());
         }
     }
 }

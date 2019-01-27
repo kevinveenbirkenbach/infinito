@@ -7,6 +7,8 @@ use App\Exception\NoValidChoiceException;
 
 /**
  * @author kevinfrantz
+ *
+ * @see LayerAttributInterface
  */
 trait LayerAttribut
 {
@@ -25,7 +27,7 @@ trait LayerAttribut
     public function setLayer(string $layer): void
     {
         if (!array_key_exists($layer, LayerType::getChoices())) {
-            throw new NoValidChoiceException();
+            throw new NoValidChoiceException("'$layer' is not a correct layer type.");
         }
         $this->layer = $layer;
     }
