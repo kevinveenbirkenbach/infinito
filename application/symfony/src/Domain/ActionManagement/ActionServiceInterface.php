@@ -6,7 +6,6 @@ use App\Domain\RequestManagement\Action\RequestedActionInterface;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\RepositoryInterface;
 use Symfony\Component\Form\FormBuilderInterface;
-use App\Entity\EntityInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
@@ -37,11 +36,9 @@ interface ActionServiceInterface
     public function getRepository(): RepositoryInterface;
 
     /**
-     * @param EntityInterface $entity
-     *
      * @return FormBuilderInterface
      */
-    public function getForm(EntityInterface $entity): FormBuilderInterface;
+    public function getForm(): FormBuilderInterface;
 
     /**
      * @return EntityManagerInterface

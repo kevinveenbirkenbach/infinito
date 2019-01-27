@@ -10,7 +10,6 @@ use App\Domain\FormManagement\EntityFormBuilderServiceInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use App\Repository\RepositoryInterface;
 use Symfony\Component\Form\FormBuilderInterface;
-use App\Entity\EntityInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
@@ -84,9 +83,11 @@ final class ActionService implements ActionServiceInterface
     /**
      * @return FormBuilderInterface
      */
-    public function getForm(EntityInterface $entity): FormBuilderInterface
+    public function getForm(): FormBuilderInterface
     {
-        $this->entityFormBuilderService->create($entity);
+        $entity = $this->requestedAction->getRequestedEntity()->getEntity();
+
+        return $this->entityFormBuilderService->create($entity);
     }
 
     /**
