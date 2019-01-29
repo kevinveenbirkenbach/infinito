@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Domain\ResponseManagement;
+namespace App\Domain\MapManagement;
 
-use App\Domain\MapManagement\AbstractMap;
 use App\DBAL\Types\ActionType;
 use Symfony\Component\HttpFoundation\Request;
 

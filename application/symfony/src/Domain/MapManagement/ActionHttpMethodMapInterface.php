@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\ResponseManagement;
+namespace App\Domain\MapManagement;
 
 /**
  * This class offers a map for ActionTypes to HttpMethods.
