@@ -4,11 +4,12 @@ namespace App\Domain\LayerManagement;
 
 use App\DBAL\Types\Meta\Right\LayerType;
 use App\DBAL\Types\ActionType;
+use App\Domain\MapManagement\AbstractMap;
 
 /**
  * @author kevinfrantz
  */
-final class LayerActionMap implements LayerActionMapInterface
+final class LayerActionMap extends AbstractMap implements LayerActionMapInterface
 {
     /**
      * @var array Add new combination possibilities to this map!
@@ -30,14 +31,7 @@ final class LayerActionMap implements LayerActionMapInterface
      */
     public static function getLayers(string $action): array
     {
-        $layers = [];
-        foreach (self::LAYER_ACTION_MAP as $layer => $actions) {
-            if (in_array($action, $actions)) {
-                $layers[] = $layer;
-            }
-        }
-
-        return $layers;
+        return parent::getIndizesByValue($action, self::LAYER_ACTION_MAP);
     }
 
     /**
@@ -47,10 +41,6 @@ final class LayerActionMap implements LayerActionMapInterface
      */
     public static function getActions(string $layer): array
     {
-        if (array_key_exists($layer, self::LAYER_ACTION_MAP)) {
-            return self::LAYER_ACTION_MAP[$layer];
-        }
-
-        return [];
+        return parent::getValuesByIndex($layer, self::LAYER_ACTION_MAP);
     }
 }
