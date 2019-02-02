@@ -5,8 +5,9 @@ namespace Tests\Integration\DataFixtures;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Doctrine\ORM\EntityManager;
 use App\Entity\Source\AbstractSource;
-use App\DBAL\Types\SystemSlugType;
 use App\Entity\Source\Complex\UserSourceInterface;
+use App\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
+use App\Domain\FixtureManagement\FixtureSource\GuestUserFixtureSource;
 
 class SourceFixturesIntegrationTest extends KernelTestCase
 {
@@ -24,14 +25,14 @@ class SourceFixturesIntegrationTest extends KernelTestCase
     public function testImpressumSource(): void
     {
         $sourceRepository = $this->entityManager->getRepository(AbstractSource::class);
-        $imprint = $sourceRepository->findOneBySlug(SystemSlugType::IMPRINT);
+        $imprint = $sourceRepository->findOneBySlug(ImpressumFixtureSource::SLUG);
         $this->assertInternalType('string', $imprint->getText());
     }
 
     public function testGuestUserSource(): void
     {
         $sourceRepository = $this->entityManager->getRepository(AbstractSource::class);
-        $userSource = $sourceRepository->findOneBySlug(SystemSlugType::GUEST_USER);
+        $userSource = $sourceRepository->findOneBySlug(GuestUserFixtureSource::SLUG);
         $this->assertInstanceOf(UserSourceInterface::class, $userSource);
     }
 }

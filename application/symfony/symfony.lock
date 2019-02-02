@@ -131,6 +131,9 @@
     "friendsofsymfony/user-bundle": {
         "version": "v2.1.2"
     },
+    "haydenpierce/class-finder": {
+        "version": "0.2.0"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
