@@ -13,9 +13,9 @@ class FormClassNameServiceTest extends TestCase
 {
     public function testGetName()
     {
-        $entity = new PureSource();
+        $entityClass = PureSource::class;
         $formNameService = new FormClassNameService();
-        $entityForm = $formNameService->getName($entity);
+        $entityForm = $formNameService->getClass($entityClass);
         $this->assertEquals('App\\Form\\Source\\PureSourceType', $entityForm);
     }
 }

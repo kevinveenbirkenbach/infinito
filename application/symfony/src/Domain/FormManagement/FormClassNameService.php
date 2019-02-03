@@ -2,8 +2,6 @@
 
 namespace App\Domain\FormManagement;
 
-use App\Entity\EntityInterface;
-
 /**
  * @author kevinfrantz
  */
@@ -16,14 +14,13 @@ final class FormClassNameService implements FormClassNameServiceInterface
     const SUFFIX = 'Type';
 
     /**
-     * @param EntityInterface $entity
+     * {@inheritdoc}
      *
-     * @return string
+     * @see \App\Domain\FormManagement\FormClassNameServiceInterface::getClass()
      */
-    public function getName(EntityInterface $entity): string
+    public function getClass(string $origineClass): string
     {
-        $class = get_class($entity);
-        $replaced = str_replace(self::ENTITY_BASE_PATH, self::FORM_BASE_PATH, $class);
+        $replaced = str_replace(self::ENTITY_BASE_PATH, self::FORM_BASE_PATH, $origineClass);
         $withSuffix = $replaced.self::SUFFIX;
 
         return $withSuffix;

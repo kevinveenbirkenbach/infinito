@@ -30,11 +30,12 @@ abstract class AbstractAction extends AbstractActionConstructor implements Actio
 
     /**
      * @throws \Exception
-     *                    {@inheritdoc}
+     *
+     * {@inheritdoc}
      *
      * @see \App\Domain\ActionManagement\ActionInterface::execute()
      */
-    public function execute()
+    final public function execute()
     {
         if ($this->isSecure()) {
             if ($this->isValidByForm()) {

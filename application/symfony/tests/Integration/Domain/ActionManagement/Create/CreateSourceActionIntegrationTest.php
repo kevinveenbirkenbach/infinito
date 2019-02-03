@@ -6,7 +6,7 @@ use App\Domain\ActionManagement\Create\CreateSourceAction;
 use App\Domain\ActionManagement\ActionService;
 use App\Domain\ActionManagement\Create\CreateActionInterface;
 use App\Domain\ActionManagement\ActionServiceInterface;
-use App\Domain\FormManagement\EntityFormBuilderServiceInterface;
+use App\Domain\FormManagement\RequestedEntityFormBuilderServiceInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 use App\Domain\SecureManagement\SecureRequestedRightCheckerInterface;
@@ -16,8 +16,13 @@ use App\Domain\RequestManagement\Right\RequestedRightService;
 use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use App\DBAL\Types\ActionType;
+use App\Domain\RequestManagement\User\RequestedUserService;
+use App\Domain\UserManagement\UserSourceDirectorService;
+use Symfony\Component\Security\Core\Security;
 
 /**
+ * @todo Implement test and logic!!!!!
+ *
  * @author kevinfrantz
  */
 class CreateSourceActionIntegrationTest extends KernelTestCase
@@ -37,28 +42,31 @@ class CreateSourceActionIntegrationTest extends KernelTestCase
      */
     private $requestedActionService;
 
-//     public function setUp(): void
-//     {
-//         self::bootKernel();
-//         $entityManager = static::$kernel->getContainer()->get('doctrine')->getManager();
-//         $requestedRightService = new RequestedRightService();
-//         $this->requestedActionService = new RequestedActionService($requestedRightService);
-//         $this->requestedActionService->setActionType(ActionType::CREATE);
-//         $entityFormBuilderService = $this->createMock(EntityFormBuilderServiceInterface::class);
-//         $requestStack = $this->createMock(RequestStack::class);
-//         $layerRepositoryFactoryService = $this->createMock(LayerRepositoryFactoryServiceInterface::class);
-//         $secureRequestedRightChecker = $this->createMock(SecureRequestedRightCheckerInterface::class);
-//         $this->actionService = new ActionService($this->requestedActionService, $secureRequestedRightChecker, $requestStack, $layerRepositoryFactoryService, $entityFormBuilderService, $entityManager);
-//         $this->createSourceAction = new CreateSourceAction($this->actionService);
-//     }
+    public function setUp(): void
+    {
+        self::bootKernel();
+        $entityManager = static::$kernel->getContainer()
+            ->get('doctrine')
+            ->getManager();
+        $security = $this->createMock(Security::class);
+        $userSourceDirectorService = new UserSourceDirectorService($entityManager, $security);
+        $requestedRightService = new RequestedRightService();
+        $requestedUserService = new RequestedUserService($userSourceDirectorService, $requestedRightService);
+        $this->requestedActionService = new RequestedActionService($userSourceDirectorService, $requestedUserService);
+        $this->requestedActionService->setActionType(ActionType::CREATE);
+        $entityFormBuilderService = $this->createMock(RequestedEntityFormBuilderServiceInterface::class);
+        $requestStack = $this->createMock(RequestStack::class);
+        $layerRepositoryFactoryService = $this->createMock(LayerRepositoryFactoryServiceInterface::class);
+        $secureRequestedRightChecker = $this->createMock(SecureRequestedRightCheckerInterface::class);
+        $this->actionService = new ActionService($this->requestedActionService, $secureRequestedRightChecker, $requestStack, $layerRepositoryFactoryService, $entityFormBuilderService, $entityManager);
+        $this->createSourceAction = new CreateSourceAction($this->actionService);
+    }
 
-//     public function testCreateWithGuestUser(): void
-//     {
-//         $this->requestedActionService->setReciever($reciever);
-//         $this->assertInstanceOf(PureSourceInterface::class, $this->createSourceAction->execute());
-//     }
+    public function testCreateWithGuestUser(): void
+    {
+        $this->assertInstanceOf(PureSourceInterface::class, $this->createSourceAction->execute());
+    }
 
 //     public function testCreatedWithKnownUser(): void
-//     {
-//     }
+//     {}
 }

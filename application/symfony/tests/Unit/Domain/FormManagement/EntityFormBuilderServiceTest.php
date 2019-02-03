@@ -3,10 +3,11 @@
 namespace tests\Unit\Domain\FormManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\FormManagement\EntityFormBuilderService;
 use Symfony\Component\Form\FormBuilderInterface;
 use App\Domain\FormManagement\FormClassNameServiceInterface;
-use App\Entity\EntityInterface;
+use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use App\Entity\Source\PureSource;
+use App\Domain\FormManagement\RequestedEntityFormBuilderService;
 
 /**
  * @author kevinfrantz
@@ -22,10 +23,13 @@ class EntityFormBuilderServiceTest extends TestCase
         $formBuilder = $this->createMock(FormBuilderInterface::class);
         $formBuilder->method('create')->willReturn($expectedResult);
         $formClassNameService = $this->createMock(FormClassNameServiceInterface::class);
-        $formClassNameService->method('getName')->willReturn('dummyNamespace');
-        $entityFormBuilderService = new EntityFormBuilderService($formBuilder, $formClassNameService);
-        $entity = $this->createMock(EntityInterface::class);
-        $result = $entityFormBuilderService->create($entity);
+        $formClassNameService->method('getClass')->willReturn('dummyNamespace');
+        $entityFormBuilderService = new RequestedEntityFormBuilderService($formBuilder, $formClassNameService);
+        $entity = new PureSource();
+        $entityRequested = $this->createMock(RequestedEntityInterface::class);
+        $entityRequested->method('hasIdentity')->willReturn(true);
+        $entityRequested->method('getEntity')->willReturn($entity);
+        $result = $entityFormBuilderService->create($entityRequested);
         $this->assertEquals($expectedResult, $result);
     }
 }

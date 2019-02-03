@@ -14,5 +14,5 @@ interface FormClassNameServiceInterface
      *
      * @return string The name of the form of the entity
      */
-    public function getName(EntityInterface $entity): string;
+    public function getClass(string $origineClass): string;
 }

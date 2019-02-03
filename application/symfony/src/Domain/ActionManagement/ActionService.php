@@ -6,7 +6,7 @@ use App\Domain\RequestManagement\Action\RequestedActionInterface;
 use App\Domain\SecureManagement\SecureRequestedRightCheckerInterface;
 use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 use Symfony\Component\HttpFoundation\Request;
-use App\Domain\FormManagement\EntityFormBuilderServiceInterface;
+use App\Domain\FormManagement\RequestedEntityFormBuilderServiceInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use App\Repository\RepositoryInterface;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -38,7 +38,7 @@ final class ActionService implements ActionServiceInterface
     private $layerRepositoryFactoryService;
 
     /**
-     * @var
+     * @var RequestedEntityFormBuilderServiceInterface
      */
     private $entityFormBuilderService;
 
@@ -50,13 +50,13 @@ final class ActionService implements ActionServiceInterface
     /**
      * @param RequestedActionInterface $requestedAction
      */
-    public function __construct(RequestedActionInterface $requestedAction, SecureRequestedRightCheckerInterface $secureRequestedRightChecker, RequestStack $requestStack, LayerRepositoryFactoryServiceInterface $layerRepositoryFactoryService, EntityFormBuilderServiceInterface $entityFormBuilderService, EntityManagerInterface $entityManager)
+    public function __construct(RequestedActionInterface $requestedAction, SecureRequestedRightCheckerInterface $secureRequestedRightChecker, RequestStack $requestStack, LayerRepositoryFactoryServiceInterface $layerRepositoryFactoryService, RequestedEntityFormBuilderServiceInterface $requestedEntityFormBuilderService, EntityManagerInterface $entityManager)
     {
         $this->requestedAction = $requestedAction;
         $this->secureRequestedRightChecker = $secureRequestedRightChecker;
         $this->requestStack = $requestStack;
         $this->layerRepositoryFactoryService = $layerRepositoryFactoryService;
-        $this->entityFormBuilderService = $entityFormBuilderService;
+        $this->entityFormBuilderService = $requestedEntityFormBuilderService;
         $this->entityManager = $entityManager;
     }
 
@@ -85,9 +85,9 @@ final class ActionService implements ActionServiceInterface
      */
     public function getForm(): FormBuilderInterface
     {
-        $entity = $this->requestedAction->getRequestedEntity()->getEntity();
+        $requestedEntity = $this->requestedAction->getRequestedEntity();
 
-        return $this->entityFormBuilderService->create($entity);
+        return $this->entityFormBuilderService->create($requestedEntity);
     }
 
     /**
