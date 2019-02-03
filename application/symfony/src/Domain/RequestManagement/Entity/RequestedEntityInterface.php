@@ -22,6 +22,11 @@ interface RequestedEntityInterface extends EntityInterface, SlugAttributInterfac
     public function setIdentity($identity): void;
 
     /**
+     * @return bool True if an identity attribut is defined
+     */
+    public function hasIdentity(): bool;
+
+    /**
      * @return EntityInterface
      */
     public function getEntity(): EntityInterface;

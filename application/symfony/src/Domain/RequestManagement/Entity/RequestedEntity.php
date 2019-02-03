@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Domain\RequestManagement\Entity;
 
 use App\Entity\AbstractEntity;
@@ -17,59 +18,44 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use App\Attribut\ClassAttribut;
 use App\Exception\AllreadyDefinedException;
 use App\Domain\RequestManagement\Right\RequestedRightInterface;
-use App\Exception\NotDefinedException;
 
 /**
- *
  * @author kevinfrantz
  */
 class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
 {
-    use SlugAttribut, 
+    use SlugAttribut,
     RequestedRightAttribut,
-    ClassAttribut{ setClass as private setClassTrait; getClass as private getClassTrait;}
+    ClassAttribut{ setClass as private setClassTrait; getClass as private getClassTrait; }
 
     /**
-     *
      * @var LayerRepositoryFactoryServiceInterface
      */
     private $layerRepositoryFactoryService;
 
     /**
-     *
-     * @return bool True if an identity attribut is defined
-     */
-    private function hasIdentity(): bool
-    {
-        return $this->hasId() || $this->hasSlug();
-    }
-
-    /**
-     *
      * @throws NotSetException
      */
     private function validateHasIdentity(): void
     {
-        if (! ($this->hasId() || $this->hasSlug())) {
+        if (!($this->hasId() || $this->hasSlug())) {
             throw new NotSetException('No identity attribut like id or slug was set!');
         }
     }
 
     /**
-     *
      * @param EntityInterface|null $entity
      *
      * @throws NotFoundHttpException
      */
     private function validateLoadedEntity(?EntityInterface $entity): void
     {
-        if (! $entity) {
-            throw new NotFoundHttpException('Entity with {id:"' . $this->id . '",slug:"' . $this->slug . '"} not found');
+        if (!$entity) {
+            throw new NotFoundHttpException('Entity with {id:"'.$this->id.'",slug:"'.$this->slug.'"} not found');
         }
     }
 
     /**
-     *
      * @return EntityInterface|SourceInterface|null
      */
     private function loadEntityBySlugOrId(): ?EntityInterface
@@ -77,11 +63,11 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
         if ($this->hasSlug()) {
             return $this->loadBySlug();
         }
+
         return $this->loadById();
     }
 
     /**
-     *
      * @throws NotCorrectInstanceException
      *
      * @return SourceInterface|null
@@ -92,11 +78,10 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
         if ($repository instanceof SourceRepositoryInterface) {
             return $repository->findOneBySlug($this->slug);
         }
-        throw new NotCorrectInstanceException('To read an entity by slug is just allowed for entitys of type ' . AbstractSource::class);
+        throw new NotCorrectInstanceException('To read an entity by slug is just allowed for entitys of type '.AbstractSource::class);
     }
 
     /**
-     *
      * @return EntityInterface|null
      */
     private function loadById(): ?EntityInterface
@@ -107,7 +92,6 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
-     *
      * @return RepositoryInterface
      */
     private function getEntityRepository(): RepositoryInterface
@@ -119,7 +103,6 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
-     *
      * @param EntityManagerInterface $entityManager
      */
     public function __construct(LayerRepositoryFactoryServiceInterface $layerRepositoryFactoryService)
@@ -128,7 +111,16 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
+     * {@inheritdoc}
      *
+     * @see \App\Domain\RequestManagement\Entity\RequestedEntityInterface::hasIdentity()
+     */
+    public function hasIdentity(): bool
+    {
+        return $this->hasId() || $this->hasSlug();
+    }
+
+    /**
      * {@inheritdoc}
      *
      * @see \App\Domain\RequestManagement\Entity\RequestedEntityInterface::setIdentity()
@@ -149,7 +141,6 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
-     *
      * {@inheritdoc}
      *
      * @see \App\Attribut\ClassAttributInterface::setClass()
@@ -163,7 +154,6 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
-     *
      * {@inheritdoc}
      *
      * @see \App\Domain\RequestManagement\Entity\RequestedEntityInterface::getEntity()
@@ -178,7 +168,7 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
-     * Overriding is neccessary to declare the correct relation
+     * Overriding is neccessary to declare the correct relation.
      *
      * {@inheritdoc}
      *
@@ -187,13 +177,12 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     public function setRequestedRight(RequestedRightInterface $requestedRight): void
     {
         $this->requestedRight = $requestedRight;
-        if (! $this->requestedRight->hasRequestedEntity()) {
+        if (!$this->requestedRight->hasRequestedEntity()) {
             $this->requestedRight->setRequestedEntity($this);
         }
     }
 
     /**
-     *
      * {@inheritdoc}
      *
      * @see \App\Attribut\ClassAttributInterface::getClass()

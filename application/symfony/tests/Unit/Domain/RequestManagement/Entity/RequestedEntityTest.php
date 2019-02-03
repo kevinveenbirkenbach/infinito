@@ -72,8 +72,9 @@ class RequestedEntityTest extends TestCase
         $this->expectException(AllreadyDefinedException::class);
         $requestedEntity->setClass(AbstractSource::class);
     }
-    
-    public function testSetClass():void{
+
+    public function testSetClass(): void
+    {
         $class = AbstractSource::class;
         $entityMock = $this->createMock(EntityInterface::class);
         $repository = $this->createMock(RepositoryInterface::class);
