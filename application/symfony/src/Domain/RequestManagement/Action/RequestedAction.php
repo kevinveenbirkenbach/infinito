@@ -6,7 +6,8 @@ use App\Attribut\ActionTypeAttribut;
 use App\DBAL\Types\ActionType;
 use App\DBAL\Types\Meta\Right\CRUDType;
 use App\Domain\RequestManagement\User\RequestedUser;
-use App\Domain\RequestManagement\Right\RequestedRightInterface;
+use App\Domain\RequestManagement\User\RequestedUserInterface;
+use App\Domain\UserManagement\UserSourceDirectorInterface;
 
 /**
  * @author kevinfrantz
@@ -27,11 +28,13 @@ class RequestedAction extends RequestedUser implements RequestedActionInterface
     ];
 
     /**
-     * @param RequestedRightInterface $requestedRight
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\RequestManagement\User\RequestedUser::__construct()
      */
-    public function __construct(RequestedRightInterface $requestedRight)
+    public function __construct(UserSourceDirectorInterface $userSourceDirector, RequestedUserInterface $requestedUser)
     {
-        $this->requestedRight = $requestedRight;
+        parent::__construct($userSourceDirector, $requestedUser);
     }
 
     /**

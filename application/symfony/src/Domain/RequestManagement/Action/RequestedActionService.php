@@ -2,7 +2,8 @@
 
 namespace App\Domain\RequestManagement\Action;
 
-use App\Domain\RequestManagement\Right\RequestedRightServiceInterface;
+use App\Domain\RequestManagement\User\RequestedUserServiceInterface;
+use App\Domain\UserManagement\UserSourceDirectorInterface;
 
 /**
  * @author kevinfrantz
@@ -10,10 +11,11 @@ use App\Domain\RequestManagement\Right\RequestedRightServiceInterface;
 final class RequestedActionService extends RequestedAction implements RequestedActionServiceInterface
 {
     /**
-     * @param RequestedRightServiceInterface $requestedRightService
+     * @param UserSourceDirectorInterface   $userSourceDirector
+     * @param RequestedUserServiceInterface $requestedUserService
      */
-    public function __construct(RequestedRightServiceInterface $requestedRightService)
+    public function __construct(UserSourceDirectorInterface $userSourceDirector, RequestedUserServiceInterface $requestedUserService)
     {
-        parent::__construct($requestedRightService);
+        parent::__construct($userSourceDirector, $requestedUserService);
     }
 }

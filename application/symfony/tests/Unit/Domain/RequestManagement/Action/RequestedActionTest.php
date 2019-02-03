@@ -11,6 +11,9 @@ use App\DBAL\Types\ActionType;
 use App\DBAL\Types\Meta\Right\CRUDType;
 use App\Repository\Source\SourceRepositoryInterface;
 use App\DBAL\Types\Meta\Right\LayerType;
+use App\Domain\UserManagement\UserSourceDirector;
+use App\Domain\RequestManagement\User\RequestedUser;
+use App\Entity\Source\Complex\UserSourceInterface;
 
 /**
  * @author kevinfrantz
@@ -34,9 +37,14 @@ class RequestedActionTest extends TestCase
      */
     public function setUp(): void
     {
+        $userSource = $this->createMock(UserSourceInterface::class);
         $sourceRepository = $this->createMock(SourceRepositoryInterface::class);
-        $this->requestedRight = new RequestedRight($sourceRepository);
-        $this->action = new RequestedAction($this->requestedRight);
+        $sourceRepository->method('findOneBySlug')->willReturn($userSource);
+        $user = null;
+        $userSourceDirector = new UserSourceDirector($sourceRepository, $user);
+        $requestedRight = new RequestedRight();
+        $this->requestedRight = new RequestedUser($userSourceDirector, $requestedRight);
+        $this->action = new RequestedAction($userSourceDirector, $this->requestedRight);
     }
 
     public function testList(): void

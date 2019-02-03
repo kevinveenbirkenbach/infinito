@@ -9,6 +9,6 @@ namespace App\Domain\RequestManagement\Action;
  *
  * @author kevinfrantz
  */
-interface RequestedActionServiceInterface
+interface RequestedActionServiceInterface extends RequestedActionInterface
 {
 }

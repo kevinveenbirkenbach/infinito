@@ -7,6 +7,6 @@ namespace App\Domain\RequestManagement\Right;
  *
  * @author kevinfrantz
  */
-final class RequestedRightService extends RequestedRight
+final class RequestedRightService extends RequestedRight implements RequestedRightServiceInterface
 {
 }

@@ -11,6 +11,8 @@ use App\Domain\RequestManagement\Action\RequestedActionInterface;
 use App\Domain\RequestManagement\Action\RequestedAction;
 use App\Domain\RequestManagement\Right\RequestedRight;
 use App\Domain\LayerManagement\LayerActionMap;
+use App\Domain\RequestManagement\User\RequestedUser;
+use App\Domain\UserManagement\UserSourceDirectorInterface;
 
 /**
  * @author kevinfrantz
@@ -35,7 +37,9 @@ class ActionFactoryServiceTest extends TestCase
     public function setUp(): void
     {
         $requestedRight = new RequestedRight();
-        $this->requestedAction = new RequestedAction($requestedRight);
+        $userSourceDirector = $this->createMock(UserSourceDirectorInterface::class);
+        $requestedUser = new RequestedUser($userSourceDirector, $requestedRight);
+        $this->requestedAction = new RequestedAction($userSourceDirector, $requestedUser);
         $this->actionService = $this->createMock(ActionServiceInterface::class);
         $this->actionService->method('getRequestedAction')->willReturn($this->requestedAction);
         $this->actionFactoryService = new ActionFactoryService($this->actionService);

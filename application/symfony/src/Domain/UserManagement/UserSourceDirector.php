@@ -3,9 +3,9 @@
 namespace App\Domain\UserManagement;
 
 use App\Entity\UserInterface;
-use App\DBAL\Types\SystemSlugType;
 use App\Entity\User;
 use App\Repository\Source\SourceRepositoryInterface;
+use App\Domain\FixtureManagement\FixtureSource\GuestUserFixtureSource;
 
 /**
  * @author kevinfrantz
@@ -33,7 +33,7 @@ final class UserSourceDirector implements UserSourceDirectorInterface
             return;
         }
         $this->user = new User();
-        $this->user->setSource($this->sourceRepository->findOneBySlug(SystemSlugType::GUEST_USER));
+        $this->user->setSource($this->sourceRepository->findOneBySlug(GuestUserFixtureSource::getSlug()));
     }
 
     /**
