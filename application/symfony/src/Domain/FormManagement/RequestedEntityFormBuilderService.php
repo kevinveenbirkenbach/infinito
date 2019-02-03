@@ -8,7 +8,7 @@ use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
 /**
  * @author kevinfrantz
  */
-final class RequestedEntityFormBuilderService implements EntityFormBuilderServiceInterface
+final class RequestedEntityFormBuilderService implements RequestedEntityFormBuilderServiceInterface
 {
     /**
      * @var FormBuilderInterface
