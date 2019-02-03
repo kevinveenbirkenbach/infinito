@@ -11,6 +11,8 @@ use App\Domain\RequestManagement\Right\RequestedRightInterface;
 use App\DBAL\Types\Meta\Right\LayerType;
 use App\Repository\RepositoryInterface;
 use App\Entity\EntityInterface;
+use App\Entity\Source\AbstractSource;
+use App\Exception\AllreadyDefinedException;
 
 /**
  * @author kevinfrantz
@@ -66,5 +68,24 @@ class RequestedEntityTest extends TestCase
         $requestedEntity->setRequestedRight($requestedRight);
         $entityResult = $requestedEntity->getEntity();
         $this->assertEquals($entityMock, $entityResult);
+        $this->assertEquals(get_class($entityMock), $requestedEntity->getClass());
+        $this->expectException(AllreadyDefinedException::class);
+        $requestedEntity->setClass(AbstractSource::class);
+    }
+    
+    public function testSetClass():void{
+        $class = AbstractSource::class;
+        $entityMock = $this->createMock(EntityInterface::class);
+        $repository = $this->createMock(RepositoryInterface::class);
+        $repository->method('find')->willReturn($entityMock);
+        $layerRepositoryFactoryService = $this->createMock(LayerRepositoryFactoryServiceInterface::class);
+        $layerRepositoryFactoryService->method('getRepository')->willReturn($repository);
+        $requestedEntity = new RequestedEntity($layerRepositoryFactoryService);
+        $this->assertFalse($requestedEntity->hasClass());
+        $this->assertNull($requestedEntity->setClass($class));
+        $this->assertTrue($requestedEntity->hasClass());
+        $this->assertEquals($class, $requestedEntity->getClass());
+        $this->expectException(AllreadyDefinedException::class);
+        $requestedEntity->setIdentity('123343');
     }
 }

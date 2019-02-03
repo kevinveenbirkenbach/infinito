@@ -5,13 +5,14 @@ namespace App\Domain\RequestManagement\Entity;
 use App\Entity\EntityInterface;
 use App\Attribut\SlugAttributInterface;
 use App\Attribut\RequestedRightAttributInterface;
+use App\Attribut\ClassAttributInterface;
 
 /**
  * A requested entity containes the stumb attributes to load an entity.
  *
  * @author kevinfrantz
  */
-interface RequestedEntityInterface extends EntityInterface, SlugAttributInterface, RequestedRightAttributInterface
+interface RequestedEntityInterface extends EntityInterface, SlugAttributInterface, RequestedRightAttributInterface, ClassAttributInterface
 {
     /**
      * Sets the slug or the id.
