@@ -24,6 +24,11 @@ final class SecureRequestedRightChecker implements SecureRequestedRightCheckerIn
         $this->rightTransformerService = $rightTransformerService;
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\SecureManagement\SecureRequestedRightCheckerInterface::check()
+     */
     public function check(RequestedRightInterface $requestedRight): bool
     {
         $source = $requestedRight->getSource();
