@@ -6,7 +6,6 @@ use App\Domain\ActionManagement\Create\CreateSourceAction;
 use App\Domain\ActionManagement\ActionService;
 use App\Domain\ActionManagement\Create\CreateActionInterface;
 use App\Domain\ActionManagement\ActionServiceInterface;
-use App\Domain\FormManagement\RequestedEntityFormBuilderServiceInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 use App\Domain\SecureManagement\SecureRequestedRightCheckerInterface;
@@ -19,6 +18,7 @@ use App\DBAL\Types\ActionType;
 use App\Domain\RequestManagement\User\RequestedUserService;
 use App\Domain\UserManagement\UserSourceDirectorService;
 use Symfony\Component\Security\Core\Security;
+use App\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
 
 /**
  * @todo Implement test and logic!!!!!
@@ -54,7 +54,7 @@ class CreateSourceActionIntegrationTest extends KernelTestCase
         $requestedUserService = new RequestedUserService($userSourceDirectorService, $requestedRightService);
         $this->requestedActionService = new RequestedActionService($userSourceDirectorService, $requestedUserService);
         $this->requestedActionService->setActionType(ActionType::CREATE);
-        $entityFormBuilderService = $this->createMock(RequestedEntityFormBuilderServiceInterface::class);
+        $entityFormBuilderService = $this->createMock(RequestedActionFormBuilderServiceInterface::class);
         $requestStack = $this->createMock(RequestStack::class);
         $layerRepositoryFactoryService = $this->createMock(LayerRepositoryFactoryServiceInterface::class);
         $secureRequestedRightChecker = $this->createMock(SecureRequestedRightCheckerInterface::class);

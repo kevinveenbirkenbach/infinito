@@ -7,12 +7,13 @@ use Symfony\Component\Form\FormBuilderInterface;
 use App\Domain\FormManagement\FormClassNameServiceInterface;
 use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use App\Entity\Source\PureSource;
-use App\Domain\FormManagement\RequestedEntityFormBuilderService;
+use App\Domain\FormManagement\RequestedActionFormBuilderService;
+use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 
 /**
  * @author kevinfrantz
  */
-class EntityFormBuilderServiceTest extends TestCase
+class RequestedActionFormBuilderServiceTest extends TestCase
 {
     /**
      * Could be that this test includes a bit to much mocking -.-.
@@ -24,12 +25,15 @@ class EntityFormBuilderServiceTest extends TestCase
         $formBuilder->method('create')->willReturn($expectedResult);
         $formClassNameService = $this->createMock(FormClassNameServiceInterface::class);
         $formClassNameService->method('getClass')->willReturn('dummyNamespace');
-        $entityFormBuilderService = new RequestedEntityFormBuilderService($formBuilder, $formClassNameService);
         $entity = new PureSource();
-        $entityRequested = $this->createMock(RequestedEntityInterface::class);
-        $entityRequested->method('hasIdentity')->willReturn(true);
-        $entityRequested->method('getEntity')->willReturn($entity);
-        $result = $entityFormBuilderService->create($entityRequested);
+        $requestedEntity = $this->createMock(RequestedEntityInterface::class);
+        $requestedEntity->method('hasIdentity')->willReturn(true);
+        $requestedEntity->method('getEntity')->willReturn($entity);
+        $requestedAction = $this->createMock(RequestedActionServiceInterface::class);
+        $requestedAction->method('getRequestedEntity')->willReturn($requestedEntity);
+        $entityFormBuilderService = new RequestedActionFormBuilderService($formBuilder, $formClassNameService, $requestedAction);
+        $result = $entityFormBuilderService->create($requestedAction);
         $this->assertEquals($expectedResult, $result);
+        $this->assertEquals($entityFormBuilderService->create($requestedAction), $entityFormBuilderService->createByService());
     }
 }

@@ -3,12 +3,12 @@
 namespace App\Domain\FormManagement;
 
 use Symfony\Component\Form\FormBuilderInterface;
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use App\Domain\RequestManagement\Action\RequestedActionInterface;
 
 /**
  * @author kevinfrantz
  */
-final class RequestedEntityFormBuilderService implements RequestedEntityFormBuilderServiceInterface
+class RequestedActionFormBuilder implements RequestedActionFormBuilderInterface
 {
     /**
      * @var FormBuilderInterface
@@ -30,14 +30,16 @@ final class RequestedEntityFormBuilderService implements RequestedEntityFormBuil
     }
 
     /**
-     * {@inheritdoc}
+     * @param RequestedActionInterface $requestedAction
      *
-     * @see \App\Domain\FormManagement\EntityFormBuilderServiceInterface::create()
+     * @return FormBuilderInterface
      */
-    public function create(RequestedEntityInterface $requestedEntity): FormBuilderInterface
+    public function create(RequestedActionInterface $requestedAction): FormBuilderInterface
     {
+        $requestedEntity = $requestedAction->getRequestedEntity();
+        $actionType = $requestedAction->getActionType();
         $origineClass = $requestedEntity->getClass();
-        $class = $this->formClassNameService->getClass($origineClass);
+        $class = $this->formClassNameService->getClass($origineClass, $actionType);
         if ($requestedEntity->hasIdentity()) {
             $entity = $requestedEntity->getEntity();
         }
