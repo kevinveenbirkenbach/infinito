@@ -16,4 +16,9 @@ interface ClassAttributInterface
      * @return string
      */
     public function getClass(): string;
+
+    /**
+     * @return bool True if class is defined
+     */
+    public function hasClass(): bool;
 }

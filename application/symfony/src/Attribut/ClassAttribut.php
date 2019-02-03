@@ -36,4 +36,12 @@ trait ClassAttribut
     {
         return $this->class;
     }
+
+    /**
+     * @return bool
+     */
+    public function hasClass(): bool
+    {
+        return isset($this->class);
+    }
 }

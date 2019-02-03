@@ -24,6 +24,7 @@ class ClassAttributTest extends TestCase
 
     public function testConstructor(): void
     {
+        $this->assertFalse($this->classAttribut->hasClass());
         $this->expectException(\TypeError::class);
         $this->classAttribut->getClass();
     }
@@ -32,6 +33,7 @@ class ClassAttributTest extends TestCase
     {
         $class = AbstractSource::class;
         $this->assertNull($this->classAttribut->setClass($class));
+        $this->assertTrue($this->classAttribut->hasClass());
         $this->assertEquals($class, $this->classAttribut->getClass());
     }
 
