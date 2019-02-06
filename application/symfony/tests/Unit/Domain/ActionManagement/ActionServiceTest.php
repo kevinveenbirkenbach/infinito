@@ -118,11 +118,11 @@ class ActionServiceTest extends TestCase
         $this->assertEquals($request, $result);
     }
 
-    public function testGetForm(): void
+    public function testGetCurrentFormBuilder(): void
     {
         $form = $this->createMock(FormBuilderInterface::class);
         $this->requestedActionFormBuilderService->method('createByService')->willReturn($form);
-        $result = $this->actionService->getForm();
+        $result = $this->actionService->getCurrentFormBuilder();
         $this->assertEquals($form, $result);
     }
 }

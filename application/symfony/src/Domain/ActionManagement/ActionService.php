@@ -83,7 +83,7 @@ final class ActionService implements ActionServiceInterface
     /**
      * @return FormBuilderInterface
      */
-    public function getForm(): FormBuilderInterface
+    public function getCurrentFormBuilder(): FormBuilderInterface
     {
         return $this->requestedActionFormBuilderService->createByService();
     }

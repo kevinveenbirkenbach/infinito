@@ -48,7 +48,7 @@ final class RightTransformerService implements RightTransformerServiceInterface
         $attributes = [];
         $reflection = new \ReflectionClass($right);
         $methods = $reflection->getMethods(\ReflectionMethod::IS_PUBLIC);
-        /**
+        /*
          * @var \ReflectionMethod
          */
         foreach ($methods as $method) {

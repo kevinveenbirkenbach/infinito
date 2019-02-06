@@ -38,7 +38,7 @@ interface ActionServiceInterface
     /**
      * @return FormBuilderInterface
      */
-    public function getForm(): FormBuilderInterface;
+    public function getCurrentFormBuilder(): FormBuilderInterface;
 
     /**
      * @return EntityManagerInterface
