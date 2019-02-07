@@ -18,7 +18,7 @@ This software should offer a cloud based application\\framework for GUI and REST
 - High scalability (IaaS compatible)
 
 ### Basic Use Case Diagram
-The following [use case diagram](https://de.wikipedia.org/wiki/Anwendungsfall) doesn't cover all use cases of the software. It just gives a brief overview over the functionalities of sources.  
+The following [use case diagram](https://de.wikipedia.org/wiki/Anwendungsfall) doesn't cover all use cases of the software. It just gives a brief overview over some functionalities of sources.
 ![Server Architecture](.meta/use-case-brainstorming.png)
 
 ## Setup
