@@ -17,6 +17,10 @@ This software should offer a cloud based application\\framework for GUI and REST
 - Implementation of all big standard applications via API to manage them over one interface
 - High scalability (IaaS compatible)
 
+### Basic Use Case Diagram
+The following [use case diagram](https://de.wikipedia.org/wiki/Anwendungsfall) doesn't cover all use cases of the software. It just gives a brief overview over the functionalities of sources.  
+![Server Architecture](.meta/use-case-brainstorming.png)
+
 ## Setup
 To run the application you need docker.
 
