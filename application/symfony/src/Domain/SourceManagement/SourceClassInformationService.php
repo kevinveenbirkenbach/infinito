@@ -75,7 +75,7 @@ final class SourceClassInformationService implements SourceClassInformationServi
         $this->allClasses[] = $this->transformPathToClass($path);
     }
 
-    private function loadClasses()
+    private function loadClasses(): void
     {
         $recursiveDirectoryIterator = new \RecursiveDirectoryIterator(self::FOLDER);
         $files = new \RecursiveIteratorIterator($recursiveDirectoryIterator, \RecursiveIteratorIterator::SELF_FIRST);

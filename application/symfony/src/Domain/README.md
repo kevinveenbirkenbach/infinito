@@ -41,6 +41,8 @@ Checks if the crud, layer and source combination is granted by a right.
 ### Right Layer Combination Service ###
 Allows to get the possible cruds for a layer, or the possible layers for a crud.
 ## Source Management
+### Source Class Information Service ###
+Offers to get all source classes, or source classes by a namespace. 
 ### Source Member Information ###
 Offers to get all source members over all dimensions.
 ### Source Member Manager

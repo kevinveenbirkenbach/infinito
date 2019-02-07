@@ -7,6 +7,8 @@ namespace App\Attribut;
  */
 interface ClassAttributInterface
 {
+    const CLASS_ATTRIBUT_NAME = 'class';
+
     /**
      * @param string $class
      */

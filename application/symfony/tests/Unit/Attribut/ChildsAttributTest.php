@@ -3,20 +3,20 @@
 namespace Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\ChildsAttributeInterface;
+use App\Attribut\ChildsAttributInterface;
 use App\Attribut\ChildsAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class ChildsAttributTest extends TestCase
 {
     /**
-     * @var ChildsAttributeInterface
+     * @var ChildsAttributInterface
      */
     protected $childs;
 
     public function setUp(): void
     {
-        $this->childs = new class() implements ChildsAttributeInterface {
+        $this->childs = new class() implements ChildsAttributInterface {
             use ChildsAttribut;
         };
     }

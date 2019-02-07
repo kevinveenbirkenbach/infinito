@@ -10,6 +10,8 @@ use App\Entity\Meta\RightInterface;
  */
 interface RightsAttributInterface
 {
+    const RIGHTS_ATTRIBUT_NAME = 'rights';
+
     /**
      * @param Collection|RightInterface[] $rights
      */

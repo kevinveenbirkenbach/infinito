@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\Collection;
 /**
  * @author kevinfrantz
  */
-interface ChildsAttributeInterface
+interface ChildsAttributInterface
 {
     public function setChilds(Collection $childs): void;
 

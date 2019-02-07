@@ -3,7 +3,7 @@
 namespace App\Entity\Meta;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Attribut\RightsAttribute;
+use App\Attribut\RightsAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Attribut\RelationAttribut;
 use App\Entity\Source\SourceInterface;
@@ -16,7 +16,7 @@ use App\Attribut\GrantAttribut;
  */
 class Law extends AbstractMeta implements LawInterface
 {
-    use RightsAttribute, RelationAttribut, GrantAttribut;
+    use RightsAttribut, RelationAttribut, GrantAttribut;
 
     /**
      * @ORM\Column(type="boolean",name="`grant`")

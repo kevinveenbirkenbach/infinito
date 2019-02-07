@@ -6,8 +6,10 @@ use Doctrine\Common\Collections\Collection;
 
 /**
  * @author kevinfrantz
+ *
+ * @see RightsAttributInterface
  */
-trait RightsAttribute
+trait RightsAttribut
 {
     /**
      * @var Collection

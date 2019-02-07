@@ -4,6 +4,8 @@ This folder containes the attributs which are used by entity, domain logic etc.
 Each attribut containes out of an interface and a trait.
 ## Interface
 The interface MUST define a __get-__ and a __set-method__. Optional an interface can define a __has-method__.
+For meta processing an interface SHOULD contain one constant which is named by the schema __<<ATTRIBUT>>_ATTRIBUT_NAME__.
+An interface MUST NOT implement other constants. 
 ### Methods
 #### Set
 The __setter__ MUST return nothing(void). It SHOULD throw an exception if the value is not valid.

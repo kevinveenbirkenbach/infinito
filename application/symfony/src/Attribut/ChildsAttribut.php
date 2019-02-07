@@ -5,12 +5,14 @@ namespace App\Attribut;
 use Doctrine\Common\Collections\Collection;
 
 /**
+ * @see ChildsAttributInterface
+ *
  * @author kevinfrantz
  */
 trait ChildsAttribut
 {
     /**
-     * @var Collection|ChildsAttributeInterface[]
+     * @var Collection|ChildsAttributInterface[]
      */
     protected $childs;
 
