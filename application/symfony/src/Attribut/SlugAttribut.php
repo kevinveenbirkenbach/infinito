@@ -6,6 +6,8 @@ use App\Exception\UnvalidValueException;
 
 /**
  * @author kevinfrantz
+ *
+ * @see SlugAttributInterface
  */
 trait SlugAttribut
 {

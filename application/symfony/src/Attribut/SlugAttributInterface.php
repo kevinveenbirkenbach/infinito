@@ -7,6 +7,8 @@ namespace App\Attribut;
  */
 interface SlugAttributInterface
 {
+    const SLUG_ATTRIBUT_NAME = 'slug';
+
     /**
      * @param string $slug
      */
