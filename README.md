@@ -38,6 +38,10 @@ Further information you will find in the [administration README.md](./administra
 ## Application
 Further information about the application and the architecture you will find in the [application README.md](./application/README.md).
 
+## Server Architecture
+To realize a high scalable and CI setup with [kubernetes](https://kubernetes.io/), [docker](https://www.docker.com/) and [Jenkins](https://jenkins.io/) use the following schema.
+![Server Architecture](.meta/container-server-architecture.png)
+
 ## Documentation Convention
 Further information you will find in the [DOCUMENTATION.md](./DOCUMENTATION_CONVENTION.md).
 
