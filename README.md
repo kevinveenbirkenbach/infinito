@@ -5,8 +5,8 @@
 
 
 ## Idea
-This software should offer a cloud based application\\framework for GUI and REST based development and data management.
 
+This software should offer a cloud based application\\framework for GUI and REST based development and data management. A use case diagram [is available](.meta/use-case-brainstorming.png) .
 ### Core Functions, USP & Target
 - High differentiable of rights for persons, groups and devices
 - Data interface for persons and devices (IoT)
@@ -16,10 +16,6 @@ This software should offer a cloud based application\\framework for GUI and REST
 - Expanding the standard program paradigma of classes and objects through sources
 - Implementation of all big standard applications via API to manage them over one interface
 - High scalability (IaaS compatible)
-
-### Basic Use Case Diagram
-The following [use case diagram](https://de.wikipedia.org/wiki/Anwendungsfall) doesn't cover all use cases of the software. It just gives a brief overview over some functionalities of sources.
-![Server Architecture](.meta/use-case-brainstorming.png)
 
 ## Setup
 To run the application you need docker.
