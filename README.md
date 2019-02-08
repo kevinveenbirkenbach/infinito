@@ -13,7 +13,7 @@ This software should offer a cloud based application\\framework for GUI and REST
 - Support of mixtures between executables and data
 - Versioning of every state of the used data
 - Automized transparency for users about their data and use
-- Expanding the standard program paradigma of classes and objects through [sources](application/symfony/src/Entity/Source/README.md);
+- Expanding the standard program paradigma of classes and objects through [sources](application/symfony/src/Entity/Source/README.md).
 - Implementation of all big standard applications via API to manage them over one interface
 - High scalability (IaaS compatible)
 

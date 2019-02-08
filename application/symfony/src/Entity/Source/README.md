@@ -1,5 +1,5 @@
 # Source
-Entities are the core component of infinito.
+Sources are the core component of infinito.
 ## Purpose
 The whole domain logic just processes sources. This allows a high layer of abstraction.
 ### Functions
@@ -7,7 +7,7 @@ The whole domain logic just processes sources. This allows a high layer of abstr
 - Connect data of APIS, executable, and static documents
 - High scalability of rights
 - Versioning of every state of a source
-- Process different kinds of types through a identical core of domain logic.
+- Process different kinds of types through a identical core of domain logic
 - Easy to modify and to expand
 
 ## UML
@@ -16,7 +16,7 @@ The following UML shows the context of source entities.
 
 ## Types
 ### Primitive
-Just contain one MySql native data type.
+Just contain out of one [MySQL native data type](https://dev.mysql.com/doc/refman/8.0/en/data-types.html).
 ### Complex
 Contain out of other sources. E.g. primitives and executables.
 #### Executable
