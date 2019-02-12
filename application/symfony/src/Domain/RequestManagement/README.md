@@ -8,8 +8,9 @@ One class contains the __logic__ and the other class contains the __service__. T
 #### Entity
 A **requested entity** contains the attributes to manage the entity which should be handled by an action
 #### Right
-This is the basic request layer from which the other layers inhiere. The relation from a **requested right** to a **requested entity** is 1:0,1
+This is the basic request layer from which the other layers inhiere. A **requested right** contains a **requested entity**.
+
 #### User
-A **requested user** contains is a parent of **requested action**.
+A **requested user** is a parent of **requested action** and contains out of one **requested right**.
 #### Action
-A **requested action** contains inhieres from **requested user**.
+A **requested action** inhieres from **requested user** and contains a **requested user**.
