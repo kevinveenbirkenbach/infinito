@@ -11,6 +11,7 @@ class SourceType extends AbstractType
 {
     /**
      * @deprecated
+     *
      * @var string
      */
     const CLASS_PARAMETER_NAME = 'class';

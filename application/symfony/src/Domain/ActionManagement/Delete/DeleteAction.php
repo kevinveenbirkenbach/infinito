@@ -24,9 +24,9 @@ final class DeleteAction extends AbstractAction
      * @todo Implement!
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\AbstractAction::isValidByForm()
+     * @see \App\Domain\ActionManagement\AbstractAction::isValid()
      */
-    protected function isValidByForm(): bool
+    protected function isValid(): bool
     {
         return true;
     }

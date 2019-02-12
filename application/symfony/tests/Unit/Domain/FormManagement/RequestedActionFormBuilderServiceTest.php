@@ -37,6 +37,5 @@ class RequestedActionFormBuilderServiceTest extends TestCase
         //$this->assertTrue(method_exists($result, 'isValid'));
         $this->assertEquals($formBuilder, $result);
         $this->assertEquals($entityFormBuilderService->create($requestedAction), $entityFormBuilderService->createByService());
-        
     }
 }

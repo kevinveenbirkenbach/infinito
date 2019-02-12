@@ -22,7 +22,7 @@ class RequestedActionFormBuilder implements RequestedActionFormBuilderInterface
     private $formClassNameService;
 
     /**
-     * @param FormFactoryInterface $formFactory
+     * @param FormFactoryInterface          $formFactory
      * @param FormClassNameServiceInterface $formClassNameService
      */
     public function __construct(FormFactoryInterface $formFactory, FormClassNameServiceInterface $formClassNameService)

@@ -19,7 +19,7 @@ abstract class AbstractAction extends AbstractActionConstructor implements Actio
     /**
      * @return bool
      */
-    abstract protected function isValidByForm(): bool;
+    abstract protected function isValid(): bool;
 
     /**
      * Process the routine.
@@ -38,7 +38,7 @@ abstract class AbstractAction extends AbstractActionConstructor implements Actio
     final public function execute()
     {
         if ($this->isSecure()) {
-            if ($this->isValidByForm()) {
+            if ($this->isValid()) {
                 return $this->proccess();
             }
             throw new NotValidByFormException('The requested Entity is not valid!');

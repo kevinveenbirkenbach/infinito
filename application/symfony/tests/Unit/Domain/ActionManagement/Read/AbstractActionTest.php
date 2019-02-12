@@ -36,7 +36,7 @@ class AbstractActionTest extends TestCase
                 return $this->isSecure;
             }
 
-            protected function isValidByForm(): bool
+            protected function isValid(): bool
             {
                 return $this->validByForm;
             }

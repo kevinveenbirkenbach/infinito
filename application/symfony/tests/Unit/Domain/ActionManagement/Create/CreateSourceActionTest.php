@@ -16,7 +16,6 @@ use App\Domain\SecureManagement\SecureRequestedRightCheckerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 use App\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
-use App\Form\Source\PureSourceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use App\Form\Source\PureSourceTypeInterface;
 

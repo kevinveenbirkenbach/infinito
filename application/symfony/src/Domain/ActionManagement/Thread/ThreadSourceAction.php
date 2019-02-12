@@ -16,10 +16,20 @@ final class ThreadSourceAction extends AbstractThreadAction
     {
     }
 
-    protected function isValidByForm(): bool
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\ActionManagement\AbstractAction::isValid()
+     */
+    protected function isValid(): bool
     {
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\ActionManagement\AbstractAction::proccess()
+     */
     protected function proccess()
     {
     }

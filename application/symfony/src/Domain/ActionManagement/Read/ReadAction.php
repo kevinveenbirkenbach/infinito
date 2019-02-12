@@ -23,9 +23,9 @@ final class ReadAction extends AbstractAction implements ReadActionInterface
      * @todo Implement!
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\AbstractAction::isValidByForm()
+     * @see \App\Domain\ActionManagement\AbstractAction::isValid()
      */
-    protected function isValidByForm(): bool
+    protected function isValid(): bool
     {
         return true;
     }

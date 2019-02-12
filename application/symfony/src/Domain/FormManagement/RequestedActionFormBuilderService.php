@@ -4,7 +4,6 @@ namespace App\Domain\FormManagement;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
-use FOS\UserBundle\Form\Factory\FormFactory;
 use Symfony\Component\Form\FormFactoryInterface;
 
 /**
