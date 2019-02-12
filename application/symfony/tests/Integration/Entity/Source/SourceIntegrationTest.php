@@ -15,7 +15,7 @@ class SourceIntegrationTest extends TestCase
     /**
      * @var string
      */
-    const SOURCE_DIRECTORY = __DIR__.'/../../src/Entity/Source';
+    const SOURCE_DIRECTORY = __DIR__.'/../../../../src/Entity/Source';
 
     /**
      * @var ArrayCollection
