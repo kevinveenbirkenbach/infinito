@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Integration;
+namespace Tests\Integration\Entity\Source;
 
 use PHPUnit\Framework\TestCase;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -12,6 +12,9 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class SourceIntegrationTest extends TestCase
 {
+    /**
+     * @var string
+     */
     const SOURCE_DIRECTORY = __DIR__.'/../../src/Entity/Source';
 
     /**
