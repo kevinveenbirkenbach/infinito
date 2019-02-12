@@ -31,6 +31,7 @@ class RequestedUser extends AbstractRequestedRightFacade implements RequestedUse
      * You MUST NO use this method! Use UserSourceDirector instead!
      *
      * @see UserSourceDirectorInterface
+     * @deprecated
      * {@inheritdoc}
      * @see \App\Attribut\RecieverAttributInterface::setReciever()
      */

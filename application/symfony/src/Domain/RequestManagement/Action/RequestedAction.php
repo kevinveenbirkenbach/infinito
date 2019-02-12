@@ -28,6 +28,7 @@ class RequestedAction extends RequestedUser implements RequestedActionInterface
     ];
 
     /**
+     * @todo Optimize this constructor! The UserSourceDirector is not used in this class!
      * {@inheritdoc}
      *
      * @see \App\Domain\RequestManagement\User\RequestedUser::__construct()

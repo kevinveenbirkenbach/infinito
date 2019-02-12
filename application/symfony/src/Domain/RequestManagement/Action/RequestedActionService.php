@@ -11,6 +11,8 @@ use App\Domain\UserManagement\UserSourceDirectorInterface;
 final class RequestedActionService extends RequestedAction implements RequestedActionServiceInterface
 {
     /**
+     * @todo Optimize this constructor! The UserSourceDirector is not used in this class!
+     *
      * @param UserSourceDirectorInterface   $userSourceDirector
      * @param RequestedUserServiceInterface $requestedUserService
      */
