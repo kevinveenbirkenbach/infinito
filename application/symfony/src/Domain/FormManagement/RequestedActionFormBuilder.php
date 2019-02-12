@@ -4,6 +4,7 @@ namespace App\Domain\FormManagement;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use App\Domain\RequestManagement\Action\RequestedActionInterface;
+use Symfony\Component\Form\FormFactoryInterface;
 
 /**
  * @author kevinfrantz
@@ -11,9 +12,9 @@ use App\Domain\RequestManagement\Action\RequestedActionInterface;
 class RequestedActionFormBuilder implements RequestedActionFormBuilderInterface
 {
     /**
-     * @var FormBuilderInterface
+     * @var FormFactoryInterface
      */
-    private $formBuilder;
+    private $formFactory;
 
     /**
      * @var FormClassNameServiceInterface
@@ -21,12 +22,12 @@ class RequestedActionFormBuilder implements RequestedActionFormBuilderInterface
     private $formClassNameService;
 
     /**
-     * @param FormBuilderInterface          $formBuilder
+     * @param FormFactoryInterface $formFactory
      * @param FormClassNameServiceInterface $formClassNameService
      */
-    public function __construct(FormBuilderInterface $formBuilder, FormClassNameServiceInterface $formClassNameService)
+    public function __construct(FormFactoryInterface $formFactory, FormClassNameServiceInterface $formClassNameService)
     {
-        $this->formBuilder = $formBuilder;
+        $this->formFactory = $formFactory;
         $this->formClassNameService = $formClassNameService;
     }
 
@@ -44,7 +45,7 @@ class RequestedActionFormBuilder implements RequestedActionFormBuilderInterface
         if ($requestedEntity->hasIdentity()) {
             $entity = $requestedEntity->getEntity();
         }
-        $form = $this->formBuilder->create($class, $entity);
+        $form = $this->formFactory->createBuilder($class, $entity);
 
         return $form;
     }

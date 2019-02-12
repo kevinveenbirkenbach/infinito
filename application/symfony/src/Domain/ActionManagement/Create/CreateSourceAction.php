@@ -41,7 +41,7 @@ final class CreateSourceAction extends AbstractCreateAction
      */
     protected function isValidByForm(): bool
     {
-        $this->actionService->getForm();
+        return $this->actionService->getCurrentFormBuilder()->getForm()->isValid();
     }
 
     /**

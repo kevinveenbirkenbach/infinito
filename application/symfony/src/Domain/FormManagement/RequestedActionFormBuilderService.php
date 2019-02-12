@@ -4,6 +4,8 @@ namespace App\Domain\FormManagement;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use FOS\UserBundle\Form\Factory\FormFactory;
+use Symfony\Component\Form\FormFactoryInterface;
 
 /**
  * @author kevinfrantz
@@ -20,9 +22,9 @@ final class RequestedActionFormBuilderService extends RequestedActionFormBuilder
      *
      * @see \App\Domain\FormManagement\RequestedActionFormBuilder::__construct()
      */
-    public function __construct(FormBuilderInterface $formBuilder, FormClassNameServiceInterface $formClassNameService, RequestedActionServiceInterface $requestedActionService)
+    public function __construct(FormFactoryInterface $formFactory, FormClassNameServiceInterface $formClassNameService, RequestedActionServiceInterface $requestedActionService)
     {
-        parent::__construct($formBuilder, $formClassNameService);
+        parent::__construct($formFactory, $formClassNameService);
         $this->requestedActionService = $requestedActionService;
     }
 
