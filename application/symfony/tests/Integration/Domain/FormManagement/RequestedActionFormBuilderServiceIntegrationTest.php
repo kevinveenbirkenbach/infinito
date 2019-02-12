@@ -17,6 +17,7 @@ use App\DBAL\Types\ActionType;
 use App\Domain\RequestManagement\Entity\RequestedEntityService;
 use App\Domain\RepositoryManagement\LayerRepositoryFactoryService;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Form\Form;
 
 /**
  * @author kevinfrantz
@@ -66,8 +67,9 @@ class RequestedActionFormBuilderServiceIntegrationTest extends KernelTestCase
         $class = PureSource::class;
         $this->requestedEntity->setClass($class);
         $result = $this->requestedActionFormBuilderService->create($this->requestedActionService);
-        //$this->assertTrue(method_exists($result, 'isValid'));
         $this->assertInstanceOf(FormBuilderInterface::class, $result);
+        $this->assertInstanceOf(Form::class, $result->getForm());
+        $this->assertTrue(method_exists($result->getForm(), 'isValid'));
         //Tests if the origine builder and the service function return the same value by the requestedActionService
         $this->assertEquals($this->requestedActionFormBuilderService->create($this->requestedActionService), $this->requestedActionFormBuilderService->createByService());
     }
