@@ -7,7 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 /**
  * @author kevinfrantz
  */
-final class PureSourceType extends SourceType
+final class PureSourceCreateType extends SourceType
 {
     /**
      * {@inheritdoc}
