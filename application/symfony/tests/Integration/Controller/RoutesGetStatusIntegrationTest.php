@@ -19,6 +19,11 @@ class RoutesGetStatusIntegrationTest extends KernelTestCase
         'spa' => 302,
     ];
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \PHPUnit\Framework\TestCase::setUp()
+     */
     public function setUp(): void
     {
         self::bootKernel();
@@ -31,6 +36,10 @@ class RoutesGetStatusIntegrationTest extends KernelTestCase
         }
     }
 
+    /**
+     * @param string $url
+     * @param int    $status
+     */
     private function parameterlesGetRouteTest(string $url, int $status): void
     {
         $request = new Request([], [], [], [], [], ['REQUEST_URI' => $url, null]);

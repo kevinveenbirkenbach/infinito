@@ -15,6 +15,11 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class RoutesReachableIntegrationTest extends KernelTestCase
 {
+    /**
+     * {@inheritdoc}
+     *
+     * @see \PHPUnit\Framework\TestCase::setUp()
+     */
     public function setUp(): void
     {
         self::bootKernel();

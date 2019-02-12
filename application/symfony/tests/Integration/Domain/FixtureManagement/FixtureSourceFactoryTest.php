@@ -17,6 +17,11 @@ class FixtureSourceFactoryTest extends TestCase
      */
     protected $fixtureSources;
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \PHPUnit\Framework\TestCase::setUp()
+     */
     public function setUp(): void
     {
         $this->fixtureSources = FixtureSourceFactory::getAllFixtureSources();

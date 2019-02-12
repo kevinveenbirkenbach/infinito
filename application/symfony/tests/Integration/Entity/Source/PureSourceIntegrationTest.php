@@ -28,6 +28,11 @@ class PureSourceIntegrationTest extends KernelTestCase
      */
     private $pureSource;
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \PHPUnit\Framework\TestCase::setUp()
+     */
     public function setUp(): void
     {
         self::bootKernel();

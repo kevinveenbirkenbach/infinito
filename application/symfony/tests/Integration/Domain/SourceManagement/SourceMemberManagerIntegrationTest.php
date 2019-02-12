@@ -22,6 +22,11 @@ class SourceMemberManagerIntegrationTest extends TestCase
      */
     private $sourceMemberManager;
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \PHPUnit\Framework\TestCase::setUp()
+     */
     public function setUp(): void
     {
         $this->source = new PureSource();

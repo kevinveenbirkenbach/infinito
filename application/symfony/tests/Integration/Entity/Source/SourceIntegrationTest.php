@@ -44,6 +44,11 @@ class SourceIntegrationTest extends TestCase
         }
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \PHPUnit\Framework\TestCase::setUp()
+     */
     public function setUp(): void
     {
         $this->sources = new ArrayCollection();

@@ -16,6 +16,11 @@ class SourceFixturesIntegrationTest extends KernelTestCase
      */
     protected $entityManager;
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \PHPUnit\Framework\TestCase::setUp()
+     */
     public function setUp(): void
     {
         self::bootKernel();
