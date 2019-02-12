@@ -19,13 +19,17 @@ class SourceIntegrationTest extends TestCase
      */
     protected $sources;
 
-    private function iterate(string $path)
+    /**
+     * @param string $path
+     */
+    private function iterate(string $path): void
     {
         $directoryIterator = new \DirectoryIterator($path);
         foreach ($directoryIterator as $fileInfo) {
             if (!in_array($fileInfo->getFilename(), [
                 '.',
                 '..',
+                'README.md',
             ])) {
                 $pathname = $fileInfo->getPathname();
                 if ($fileInfo->isDir()) {
@@ -43,6 +47,11 @@ class SourceIntegrationTest extends TestCase
         $this->iterate(self::SOURCE_DIRECTORY);
     }
 
+    /**
+     * @param string $path
+     *
+     * @return string
+     */
     private function filterSourcePath(string $path): string
     {
         $path = str_replace('/Abstract', '/', $path);
@@ -51,6 +60,11 @@ class SourceIntegrationTest extends TestCase
         return $path;
     }
 
+    /**
+     * @param string $path
+     *
+     * @return string
+     */
     private function getInterfacePath(string $path): string
     {
         return $this->filterSourcePath($path).'Interface.php';
