@@ -5,6 +5,7 @@ namespace App\Domain\FormManagement;
 use Symfony\Component\Form\FormBuilderInterface;
 use App\Domain\RequestManagement\Action\RequestedActionInterface;
 use Symfony\Component\Form\FormFactoryInterface;
+use App\Exception\NotSetException;
 
 /**
  * @author kevinfrantz
@@ -20,6 +21,18 @@ class RequestedActionFormBuilder implements RequestedActionFormBuilderInterface
      * @var FormClassNameServiceInterface
      */
     private $formClassNameService;
+
+    /**
+     * @param RequestedActionInterface $requestedAction
+     *
+     * @throws NotSetException If the requested action can't be processed
+     */
+    private function validateRequestedAction(RequestedActionInterface $requestedAction): void
+    {
+        if (!$requestedAction->hasRequestedEntity()) {
+            throw new NotSetException('The <<requested entity>> attribut of a <<requested action>> must be set, to be processed by '.__CLASS__.'!');
+        }
+    }
 
     /**
      * @param FormFactoryInterface          $formFactory
@@ -38,6 +51,7 @@ class RequestedActionFormBuilder implements RequestedActionFormBuilderInterface
      */
     public function create(RequestedActionInterface $requestedAction): FormBuilderInterface
     {
+        $this->validateRequestedAction($requestedAction);
         $requestedEntity = $requestedAction->getRequestedEntity();
         $actionType = $requestedAction->getActionType();
         $origineClass = $requestedEntity->getClass();
