@@ -49,4 +49,14 @@ class RequestedUser extends AbstractRequestedRightFacade implements RequestedUse
     {
         return $this->userSourceDirector->getUser()->getSource();
     }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\RequestManagement\User\RequestedUserInterface::getUserSourceDirector()
+     */
+    public function getUserSourceDirector(): UserSourceDirectorInterface
+    {
+        return $this->userSourceDirector;
+    }
 }

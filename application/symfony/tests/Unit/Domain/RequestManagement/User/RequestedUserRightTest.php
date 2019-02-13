@@ -83,4 +83,12 @@ class RequestedUserTest extends TestCase
         $this->expectException(SetNotPossibleException::class);
         $requestedUserRightFacade->setReciever($reciever);
     }
+
+    public function testGetUserDirector(): void
+    {
+        $userSourceDirector = $this->createMock(UserSourceDirectorInterface::class);
+        $requestedRight = $this->createMock(RequestedRightInterface::class);
+        $requestedUserRightFacade = new RequestedUser($userSourceDirector, $requestedRight);
+        $this->assertEquals($userSourceDirector, $requestedUserRightFacade->getUserSourceDirector());
+    }
 }

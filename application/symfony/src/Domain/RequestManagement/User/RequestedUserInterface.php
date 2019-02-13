@@ -3,6 +3,7 @@
 namespace App\Domain\RequestManagement\User;
 
 use App\Domain\RequestManagement\Right\RequestedRightInterface;
+use App\Domain\UserManagement\UserSourceDirectorInterface;
 
 /**
  * Offers a Service for managing the rights.
@@ -11,4 +12,8 @@ use App\Domain\RequestManagement\Right\RequestedRightInterface;
  */
 interface RequestedUserInterface extends RequestedRightInterface
 {
+    /**
+     * @return UserSourceDirectorInterface
+     */
+    public function getUserSourceDirector(): UserSourceDirectorInterface;
 }
