@@ -17,6 +17,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use App\Entity\EntityInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use App\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
+use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 
 /**
  * @author kevinfrantz
@@ -24,9 +25,9 @@ use App\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
 class ActionServiceTest extends TestCase
 {
     /**
-     * @var RequestedActionInterface|MockObject
+     * @var RequestedActionServiceInterface|MockObject
      */
-    private $requestedAction;
+    private $requestedActionService;
 
     /**
      * @var SecureRequestedRightCheckerInterface|MockObject
@@ -75,15 +76,15 @@ class ActionServiceTest extends TestCase
         $this->requestedEntity = $this->createMock(RequestedEntityInterface::class);
         $this->requestedEntity->method('getEntity')->willReturn($this->entity);
 
-        $this->requestedAction = $this->createMock(RequestedActionInterface::class);
-        $this->requestedAction->method('getRequestedEntity')->willReturn($this->requestedEntity);
+        $this->requestedActionService = $this->createMock(RequestedActionServiceInterface::class);
+        $this->requestedActionService->method('getRequestedEntity')->willReturn($this->requestedEntity);
 
         $this->secureRequestedRightChecker = $this->createMock(SecureRequestedRightCheckerInterface::class);
         $this->requestedActionFormBuilderService = $this->createMock(RequestedActionFormBuilderServiceInterface::class);
         $this->requestStack = $this->createMock(RequestStack::class);
         $this->layerRepositoryFactoryService = $this->createMock(LayerRepositoryFactoryServiceInterface::class);
         $this->entityManager = $this->createMock(EntityManagerInterface::class);
-        $this->actionService = new ActionService($this->requestedAction, $this->secureRequestedRightChecker, $this->requestStack, $this->layerRepositoryFactoryService, $this->requestedActionFormBuilderService, $this->entityManager);
+        $this->actionService = new ActionService($this->requestedActionService, $this->secureRequestedRightChecker, $this->requestStack, $this->layerRepositoryFactoryService, $this->requestedActionFormBuilderService, $this->entityManager);
     }
 
     public function testIsRequestedActionSecure(): void

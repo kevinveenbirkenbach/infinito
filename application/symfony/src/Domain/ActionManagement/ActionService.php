@@ -3,7 +3,6 @@
 namespace App\Domain\ActionManagement;
 
 use App\Domain\RequestManagement\Action\RequestedActionInterface;
-use App\Domain\SecureManagement\SecureRequestedRightCheckerInterface;
 use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -11,6 +10,8 @@ use App\Repository\RepositoryInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
+use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use App\Domain\SecureManagement\SecureRequestedRightCheckerInterface;
 
 /**
  * @author kevinfrantz
@@ -48,11 +49,11 @@ final class ActionService implements ActionServiceInterface
     private $entityManager;
 
     /**
-     * @param RequestedActionInterface $requestedAction
+     * @param RequestedActionInterface $requestedActionService
      */
-    public function __construct(RequestedActionInterface $requestedAction, SecureRequestedRightCheckerInterface $secureRequestedRightChecker, RequestStack $requestStack, LayerRepositoryFactoryServiceInterface $layerRepositoryFactoryService, RequestedActionFormBuilderServiceInterface $requestedActionFormBuilderService, EntityManagerInterface $entityManager)
+    public function __construct(RequestedActionServiceInterface $requestedActionService, SecureRequestedRightCheckerInterface $secureRequestedRightChecker, RequestStack $requestStack, LayerRepositoryFactoryServiceInterface $layerRepositoryFactoryService, RequestedActionFormBuilderServiceInterface $requestedActionFormBuilderService, EntityManagerInterface $entityManager)
     {
-        $this->requestedAction = $requestedAction;
+        $this->requestedAction = $requestedActionService;
         $this->secureRequestedRightChecker = $secureRequestedRightChecker;
         $this->requestStack = $requestStack;
         $this->layerRepositoryFactoryService = $layerRepositoryFactoryService;
