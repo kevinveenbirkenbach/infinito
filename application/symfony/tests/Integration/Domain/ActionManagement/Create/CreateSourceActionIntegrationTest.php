@@ -18,7 +18,10 @@ use App\DBAL\Types\ActionType;
 use App\Domain\RequestManagement\User\RequestedUserService;
 use App\Domain\UserManagement\UserSourceDirectorService;
 use Symfony\Component\Security\Core\Security;
-use App\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
+use Symfony\Component\HttpFoundation\Request;
+use App\Domain\FormManagement\RequestedActionFormBuilderService;
+use App\Domain\FormManagement\FormClassNameService;
+use App\Domain\RequestManagement\Entity\RequestedEntityService;
 
 /**
  * @todo Implement test and logic!!!!!
@@ -42,20 +45,30 @@ class CreateSourceActionIntegrationTest extends KernelTestCase
      */
     private $requestedActionService;
 
+    /**
+     * @var Request
+     */
+    private $request;
+
     public function setUp(): void
     {
         self::bootKernel();
+        $formFactory = self::$container->get('form.factory');
         $entityManager = static::$kernel->getContainer()
             ->get('doctrine')
             ->getManager();
         $security = $this->createMock(Security::class);
         $userSourceDirectorService = new UserSourceDirectorService($entityManager, $security);
-        $requestedRightService = new RequestedRightService();
+        $requestedEntityService = new RequestedEntityService();
+        $requestedRightService = new RequestedRightService($requestedEntityService);
         $requestedUserService = new RequestedUserService($userSourceDirectorService, $requestedRightService);
         $this->requestedActionService = new RequestedActionService($requestedUserService);
         $this->requestedActionService->setActionType(ActionType::CREATE);
-        $entityFormBuilderService = $this->createMock(RequestedActionFormBuilderServiceInterface::class);
+        $formClassNameService = new FormClassNameService();
+        $entityFormBuilderService = new RequestedActionFormBuilderService($formFactory, $formClassNameService, $this->requestedActionService);
+        $this->request = new Request();
         $requestStack = $this->createMock(RequestStack::class);
+        $requestStack->method('getCurrentRequest')->willReturn($this->request);
         $layerRepositoryFactoryService = $this->createMock(LayerRepositoryFactoryServiceInterface::class);
         $secureRequestedRightChecker = $this->createMock(SecureRequestedRightCheckerInterface::class);
         $this->actionService = new ActionService($this->requestedActionService, $secureRequestedRightChecker, $requestStack, $layerRepositoryFactoryService, $entityFormBuilderService, $entityManager);

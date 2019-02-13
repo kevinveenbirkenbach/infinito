@@ -29,6 +29,14 @@ abstract class AbstractAction extends AbstractActionConstructor implements Actio
     abstract protected function proccess();
 
     /**
+     * This function can be implemented in the child classes for preparation.
+     */
+    protected function prepare(): void
+    {
+        return;
+    }
+
+    /**
      * @throws \Exception
      *
      * {@inheritdoc}
@@ -37,6 +45,7 @@ abstract class AbstractAction extends AbstractActionConstructor implements Actio
      */
     final public function execute()
     {
+        $this->prepare();
         if ($this->isSecure()) {
             if ($this->isValid()) {
                 return $this->proccess();

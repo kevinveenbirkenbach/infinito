@@ -11,6 +11,7 @@ use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use App\Attribut\RequestedEntityAttribut;
 use App\Entity\Meta\MetaInterface;
 use App\Exception\NotCorrectInstanceException;
+use App\Domain\RequestManagement\Entity\RequestedEntity;
 
 /**
  * @author kevinfrantz
@@ -54,6 +55,16 @@ class RequestedRight implements RequestedRightInterface
             return;
         }
         throw new PreconditionFailedException(get_class($this->requestedEntity).' needs to have a defined attribut id or slug!');
+    }
+
+    /**
+     * @param RequestedEntity|null $requestedEntity
+     */
+    public function __construct(?RequestedEntity $requestedEntity = null)
+    {
+        if ($requestedEntity) {
+            $this->setRequestedEntity($requestedEntity);
+        }
     }
 
     /**

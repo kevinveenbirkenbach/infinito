@@ -11,7 +11,6 @@ use App\Entity\Source\AbstractSource;
 use App\Domain\UserManagement\UserSourceDirectorInterface;
 use App\Domain\RequestManagement\Right\RequestedRightInterface;
 use App\Domain\RequestManagement\Right\RequestedRight;
-use App\Repository\Source\SourceRepositoryInterface;
 use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use App\DBAL\Types\SystemSlugType;
 use App\Exception\SetNotPossibleException;
@@ -66,8 +65,7 @@ class AbstractRequestedRightFacadeTest extends TestCase
         $requestedEntity = $this->createMock(RequestedEntityInterface::class);
         $requestedEntity->method('getSlug')->willReturn(SystemSlugType::IMPRINT);
         $requestedEntity->method('hasSlug')->willReturn(true);
-        $sourceRepository = $this->createMock(SourceRepositoryInterface::class);
-        $requestedRight = new RequestedRight($sourceRepository);
+        $requestedRight = new RequestedRight();
         $requestedRightFacade = $this->getRequestedRightFacade($requestedRight);
         $this->assertNull($requestedRightFacade->setLayer($layer));
         $this->assertNull($requestedRightFacade->setCrud($type));

@@ -5,6 +5,7 @@ namespace App\Domain\ActionManagement\Create;
 use App\Domain\SourceManagement\SourceClassInformationService;
 use App\Form\Source\SourceType;
 use App\Entity\Source\AbstractSource;
+use Symfony\Component\Form\Form;
 
 /**
  * @author kevinfrantz
@@ -23,15 +24,36 @@ final class CreateSourceAction extends AbstractCreateAction
      */
     private $sourceClass;
 
+    /**
+     * @var Form
+     */
+    private $form;
+
     private function setSourceClass(): void
     {
         $request = $this->actionService->getRequest();
         $this->sourceClass = $request->get(SourceType::CLASS_PARAMETER_NAME, self::DEFAULT_CLASS);
     }
 
-    private function prepare(): void
+    private function setFormClass(): void
+    {
+        $this->form = $this->actionService->getCurrentFormBuilder()->getForm();
+    }
+
+    private function handleRequest(): void
+    {
+        $this->form->handleRequest($this->actionService->getRequest());
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\ActionManagement\AbstractAction::prepare()
+     */
+    protected function prepare(): void
     {
         $this->setSourceClass();
+        $this->setFormClass();
     }
 
     /**
@@ -41,7 +63,7 @@ final class CreateSourceAction extends AbstractCreateAction
      */
     protected function isValid(): bool
     {
-        return $this->actionService->getCurrentFormBuilder()->getForm()->isValid();
+        return $this->form->isValid();
     }
 
     /**
