@@ -44,7 +44,7 @@ class RequestedActionTest extends TestCase
         $userSourceDirector = new UserSourceDirector($sourceRepository, $user);
         $requestedRight = new RequestedRight();
         $this->requestedRight = new RequestedUser($userSourceDirector, $requestedRight);
-        $this->action = new RequestedAction($userSourceDirector, $this->requestedRight);
+        $this->action = new RequestedAction($this->requestedRight);
     }
 
     public function testList(): void

@@ -17,7 +17,8 @@ class RequestedActionServiceTest extends TestCase
     {
         $userSourceDirector = $this->createMock(UserSourceDirectorInterface::class);
         $requestedUserService = $this->createMock(RequestedUserServiceInterface::class);
-        $service = new RequestedActionService($userSourceDirector, $requestedUserService);
+        $requestedUserService->method('getUserSourceDirector')->willReturn($userSourceDirector);
+        $service = new RequestedActionService($requestedUserService);
         $this->assertInstanceOf(RequestedActionServiceInterface::class, $service);
     }
 }

@@ -52,7 +52,7 @@ class CreateSourceActionIntegrationTest extends KernelTestCase
         $userSourceDirectorService = new UserSourceDirectorService($entityManager, $security);
         $requestedRightService = new RequestedRightService();
         $requestedUserService = new RequestedUserService($userSourceDirectorService, $requestedRightService);
-        $this->requestedActionService = new RequestedActionService($userSourceDirectorService, $requestedUserService);
+        $this->requestedActionService = new RequestedActionService($requestedUserService);
         $this->requestedActionService->setActionType(ActionType::CREATE);
         $entityFormBuilderService = $this->createMock(RequestedActionFormBuilderServiceInterface::class);
         $requestStack = $this->createMock(RequestStack::class);

@@ -39,7 +39,7 @@ class ActionFactoryServiceTest extends TestCase
         $requestedRight = new RequestedRight();
         $userSourceDirector = $this->createMock(UserSourceDirectorInterface::class);
         $requestedUser = new RequestedUser($userSourceDirector, $requestedRight);
-        $this->requestedAction = new RequestedAction($userSourceDirector, $requestedUser);
+        $this->requestedAction = new RequestedAction($requestedUser);
         $this->actionService = $this->createMock(ActionServiceInterface::class);
         $this->actionService->method('getRequestedAction')->willReturn($this->requestedAction);
         $this->actionFactoryService = new ActionFactoryService($this->actionService);

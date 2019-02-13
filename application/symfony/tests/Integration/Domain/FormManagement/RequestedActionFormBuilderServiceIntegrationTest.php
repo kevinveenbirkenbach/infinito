@@ -57,7 +57,7 @@ class RequestedActionFormBuilderServiceIntegrationTest extends KernelTestCase
         $requestedRightService = new RequestedRightService();
         $requestedRightService->setRequestedEntity($this->requestedEntity);
         $requestedUserService = new RequestedUserService($userSourceDirectorService, $requestedRightService);
-        $this->requestedActionService = new RequestedActionService($userSourceDirectorService, $requestedUserService);
+        $this->requestedActionService = new RequestedActionService($requestedUserService);
         $this->requestedActionService->setActionType(ActionType::CREATE);
         $this->requestedActionFormBuilderService = new RequestedActionFormBuilderService($formFactory, $formClassNameService, $this->requestedActionService);
     }

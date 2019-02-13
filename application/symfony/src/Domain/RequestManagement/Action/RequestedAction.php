@@ -7,7 +7,6 @@ use App\DBAL\Types\ActionType;
 use App\DBAL\Types\Meta\Right\CRUDType;
 use App\Domain\RequestManagement\User\RequestedUser;
 use App\Domain\RequestManagement\User\RequestedUserInterface;
-use App\Domain\UserManagement\UserSourceDirectorInterface;
 
 /**
  * @author kevinfrantz
@@ -28,14 +27,11 @@ class RequestedAction extends RequestedUser implements RequestedActionInterface
     ];
 
     /**
-     * @todo Optimize this constructor! The UserSourceDirector is not used in this class!
-     * {@inheritdoc}
-     *
-     * @see \App\Domain\RequestManagement\User\RequestedUser::__construct()
+     * @param RequestedUserInterface $requestedUser
      */
-    public function __construct(UserSourceDirectorInterface $userSourceDirector, RequestedUserInterface $requestedUser)
+    public function __construct(RequestedUserInterface $requestedUser)
     {
-        parent::__construct($userSourceDirector, $requestedUser);
+        parent::__construct($requestedUser->getUserSourceDirector(), $requestedUser);
     }
 
     /**
