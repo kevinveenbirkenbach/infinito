@@ -16,6 +16,6 @@ final class PureSourceCreateType extends SourceType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('slug')->add('class');
+        $builder->add('slug');
     }
 }

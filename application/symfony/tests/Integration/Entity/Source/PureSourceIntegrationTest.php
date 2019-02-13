@@ -48,7 +48,6 @@ class PureSourceIntegrationTest extends KernelTestCase
         $this->assertGreaterThan(0, $this->pureSource->getId());
         $this->entityManager->remove($this->pureSource);
         $this->entityManager->flush();
-        $this->expectException(\TypeError::class);
-        $this->pureSource->getId();
+        $this->assertNull($this->pureSource->getId());
     }
 }

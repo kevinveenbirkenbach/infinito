@@ -27,8 +27,7 @@ class SlugAttributTest extends TestCase
     public function testConstructor(): void
     {
         $this->assertFalse($this->slugAttribut->hasSlug());
-        $this->expectException(\TypeError::class);
-        $this->slugAttribut->getSlug();
+        $this->assertNull($this->slugAttribut->getSlug());
     }
 
     public function testAccessors(): void

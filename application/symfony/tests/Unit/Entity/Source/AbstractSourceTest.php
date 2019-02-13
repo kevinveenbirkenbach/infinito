@@ -38,7 +38,6 @@ class AbstractSourceTest extends TestCase
 
     public function testSlugInit(): void
     {
-        $this->expectException(\TypeError::class);
-        $this->source->getSlug();
+        $this->assertNull($this->source->getSlug());
     }
 }

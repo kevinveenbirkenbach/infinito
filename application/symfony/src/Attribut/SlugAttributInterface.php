@@ -15,9 +15,14 @@ interface SlugAttributInterface
     public function setSlug(string $slug): void;
 
     /**
-     * @return string
+     * Don't use this function to check if a slug is set
+     * Use instead:.
+     *
+     * @see self::hasSlug()
+     *
+     * @return string|null
      */
-    public function getSlug(): string;
+    public function getSlug(): ?string;
 
     /**
      * @return bool Checks if a slug is set

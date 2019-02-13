@@ -52,8 +52,7 @@ class UserSourceRepositoryTest extends KernelTestCase
         $this->assertGreaterThan(0, $insertSource->getId());
         $this->entityManager->remove($insertSource);
         $this->entityManager->flush();
-        $this->expectException(\TypeError::class);
-        $insertSource->getId();
+        $this->assertNull($insertSource->getId());
     }
 
     public function testCreation(): void

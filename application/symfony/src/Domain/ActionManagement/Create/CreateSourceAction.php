@@ -35,9 +35,14 @@ final class CreateSourceAction extends AbstractCreateAction
         $this->sourceClass = $request->get(SourceType::CLASS_PARAMETER_NAME, self::DEFAULT_CLASS);
     }
 
-    private function setFormClass(): void
+    private function setForm(): void
     {
         $this->form = $this->actionService->getCurrentFormBuilder()->getForm();
+    }
+
+    private function setRequestedEntityClass(): void
+    {
+        $this->actionService->getRequestedAction()->getRequestedEntity()->setClass($this->sourceClass);
     }
 
     private function handleRequest(): void
@@ -53,7 +58,8 @@ final class CreateSourceAction extends AbstractCreateAction
     protected function prepare(): void
     {
         $this->setSourceClass();
-        $this->setFormClass();
+        $this->setRequestedEntityClass();
+        $this->setForm();
     }
 
     /**
@@ -63,6 +69,11 @@ final class CreateSourceAction extends AbstractCreateAction
      */
     protected function isValid(): bool
     {
+        //The following Exception just exists out of debuging reasons during the development process
+        if (!$this->form->isSubmitted()) {
+            throw new \Exception('The form is not submitted!');
+        }
+
         return $this->form->isValid();
     }
 

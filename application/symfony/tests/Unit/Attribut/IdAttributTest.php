@@ -26,8 +26,7 @@ class IdAttributTest extends TestCase
     public function testConstruct(): void
     {
         $this->assertFalse($this->id->hasId());
-        $this->expectException(\TypeError::class);
-        $this->id->getId();
+        $this->assertNull($this->id->getId());
     }
 
     public function testAccessors(): void

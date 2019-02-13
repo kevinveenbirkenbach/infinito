@@ -22,6 +22,8 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Domain\FormManagement\RequestedActionFormBuilderService;
 use App\Domain\FormManagement\FormClassNameService;
 use App\Domain\RequestManagement\Entity\RequestedEntityService;
+use App\Entity\Source\PureSource;
+use App\Attribut\ClassAttributInterface;
 
 /**
  * @todo Implement test and logic!!!!!
@@ -77,6 +79,7 @@ class CreateSourceActionIntegrationTest extends KernelTestCase
 
     public function testCreateWithGuestUser(): void
     {
+        $this->request->attributes->set(ClassAttributInterface::CLASS_ATTRIBUT_NAME, PureSource::class);
         $this->assertInstanceOf(PureSourceInterface::class, $this->createSourceAction->execute());
     }
 

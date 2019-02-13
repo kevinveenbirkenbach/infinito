@@ -13,9 +13,14 @@ interface IdAttributInterface
     public function setId(int $id): void;
 
     /**
-     * @return int
+     * Don't use this function to check if an id is set.
+     * Use instead:.
+     *
+     * @see self::hasId()
+     *
+     * @return int|null
      */
-    public function getId(): int;
+    public function getId(): ?int;
 
     /**
      * @return bool Checks if attribute is set
