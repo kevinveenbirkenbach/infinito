@@ -89,4 +89,12 @@ class RequestedEntityTest extends TestCase
         $this->expectException(AllreadyDefinedException::class);
         $requestedEntity->setIdentity('123343');
     }
+
+    public function testValidateLayerRepositoryFactoryService(): void
+    {
+        $requestedEntity = new RequestedEntity();
+        $requestedEntity->setSlug('ABABEBA');
+        $this->expectException(NotSetException::class);
+        $requestedEntity->getEntity();
+    }
 }

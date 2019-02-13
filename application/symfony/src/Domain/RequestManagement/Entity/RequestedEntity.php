@@ -5,7 +5,6 @@ namespace App\Domain\RequestManagement\Entity;
 use App\Entity\AbstractEntity;
 use App\Entity\EntityInterface;
 use App\Attribut\SlugAttribut;
-use Doctrine\ORM\EntityManagerInterface;
 use App\Attribut\RequestedRightAttribut;
 use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 use App\Repository\Source\SourceRepositoryInterface;
@@ -18,6 +17,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use App\Attribut\ClassAttribut;
 use App\Exception\AllreadyDefinedException;
 use App\Domain\RequestManagement\Right\RequestedRightInterface;
+use App\Domain\RepositoryManagement\LayerRepositoryFactoryService;
 
 /**
  * @author kevinfrantz
@@ -29,7 +29,10 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     ClassAttribut{ setClass as private setClassTrait; getClass as private getClassTrait; }
 
     /**
-     * @var LayerRepositoryFactoryServiceInterface
+     * BE AWARE:
+     * This attribut can lead to sideeffects, because it can be defined, or NULL.
+     *
+     * @var LayerRepositoryFactoryServiceInterface|null
      */
     private $layerRepositoryFactoryService;
 
@@ -92,10 +95,21 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
+     * @throws NotFoundHttpException
+     */
+    private function validateLayerRepositoryFactoryService(): void
+    {
+        if (!$this->layerRepositoryFactoryService) {
+            throw new NotSetException('The operation is not possible, because the class '.LayerRepositoryFactoryService::class.' is not injected!');
+        }
+    }
+
+    /**
      * @return RepositoryInterface
      */
     private function getEntityRepository(): RepositoryInterface
     {
+        $this->validateLayerRepositoryFactoryService();
         $layer = $this->requestedRight->getLayer();
         $repository = $this->layerRepositoryFactoryService->getRepository($layer);
 
@@ -103,9 +117,9 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
-     * @param EntityManagerInterface $entityManager
+     * @param LayerRepositoryFactoryServiceInterface|null $layerRepositoryFactoryService
      */
-    public function __construct(LayerRepositoryFactoryServiceInterface $layerRepositoryFactoryService)
+    public function __construct(?LayerRepositoryFactoryServiceInterface $layerRepositoryFactoryService = null)
     {
         $this->layerRepositoryFactoryService = $layerRepositoryFactoryService;
     }
