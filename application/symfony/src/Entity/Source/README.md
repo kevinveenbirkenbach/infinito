@@ -12,7 +12,7 @@ The whole domain logic just processes sources. This allows a high layer of abstr
 
 ## UML
 The following UML shows the context of source entities.
-![Entity UML](../.meta/uml.png)
+![Entity UML](../.meta/uml.svg)
 
 ## Types
 ### Primitive

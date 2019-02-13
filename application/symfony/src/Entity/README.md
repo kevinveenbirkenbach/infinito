@@ -3,7 +3,7 @@ This namespace uses [Doctrine ORM](https://www.doctrine-project.org/projects/doc
 
 ## UML
 The following [UML diagram](https://de.wikipedia.org/wiki/Unified_Modeling_Language) shows on an abstract way how the entities are organized.
-![Entity UML](.meta/uml.png)
+![Entity UML](.meta/uml.svg)
 
 ## See
 Also check out the [Source README.md](Source/README.md).
