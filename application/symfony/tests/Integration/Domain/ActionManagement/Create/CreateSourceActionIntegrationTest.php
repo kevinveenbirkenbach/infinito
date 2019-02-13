@@ -7,8 +7,6 @@ use App\Domain\ActionManagement\ActionService;
 use App\Domain\ActionManagement\Create\CreateActionInterface;
 use App\Domain\ActionManagement\ActionServiceInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
-use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
-use App\Domain\SecureManagement\SecureRequestedRightCheckerInterface;
 use App\Entity\Source\PureSourceInterface;
 use App\Domain\RequestManagement\Action\RequestedActionService;
 use App\Domain\RequestManagement\Right\RequestedRightService;
@@ -24,6 +22,9 @@ use App\Domain\FormManagement\FormClassNameService;
 use App\Domain\RequestManagement\Entity\RequestedEntityService;
 use App\Entity\Source\PureSource;
 use App\Attribut\ClassAttributInterface;
+use App\Domain\RepositoryManagement\LayerRepositoryFactoryService;
+use App\Domain\SecureManagement\SecureRequestedRightChecker;
+use App\Domain\RightManagement\RightTransformerService;
 
 /**
  * @todo Implement test and logic!!!!!
@@ -52,6 +53,11 @@ class CreateSourceActionIntegrationTest extends KernelTestCase
      */
     private $request;
 
+    /**
+     * @var RequestStack
+     */
+    private $requestStack;
+
     public function setUp(): void
     {
         self::bootKernel();
@@ -69,16 +75,23 @@ class CreateSourceActionIntegrationTest extends KernelTestCase
         $formClassNameService = new FormClassNameService();
         $entityFormBuilderService = new RequestedActionFormBuilderService($formFactory, $formClassNameService, $this->requestedActionService);
         $this->request = new Request();
-        $requestStack = $this->createMock(RequestStack::class);
-        $requestStack->method('getCurrentRequest')->willReturn($this->request);
-        $layerRepositoryFactoryService = $this->createMock(LayerRepositoryFactoryServiceInterface::class);
-        $secureRequestedRightChecker = $this->createMock(SecureRequestedRightCheckerInterface::class);
-        $this->actionService = new ActionService($this->requestedActionService, $secureRequestedRightChecker, $requestStack, $layerRepositoryFactoryService, $entityFormBuilderService, $entityManager);
+        $this->requestStack = new RequestStack();
+        $this->requestStack->push($this->request);
+        $layerRepositoryFactoryService = new LayerRepositoryFactoryService($entityManager);
+        $rightTransformerService = new RightTransformerService();
+        $secureRequestedRightChecker = new SecureRequestedRightChecker($rightTransformerService);
+        $this->actionService = new ActionService($this->requestedActionService, $secureRequestedRightChecker, $this->requestStack, $layerRepositoryFactoryService, $entityFormBuilderService, $entityManager);
         $this->createSourceAction = new CreateSourceAction($this->actionService);
+    }
+
+    public function testPreconditions(): void
+    {
+        $this->assertEquals($this->request, $this->requestStack->getCurrentRequest());
     }
 
     public function testCreateWithGuestUser(): void
     {
+        $this->request->setMethod(Request::METHOD_POST);
         $this->request->attributes->set(ClassAttributInterface::CLASS_ATTRIBUT_NAME, PureSource::class);
         $this->assertInstanceOf(PureSourceInterface::class, $this->createSourceAction->execute());
     }

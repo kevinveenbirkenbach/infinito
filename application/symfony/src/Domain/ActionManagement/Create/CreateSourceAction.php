@@ -60,6 +60,7 @@ final class CreateSourceAction extends AbstractCreateAction
         $this->setSourceClass();
         $this->setRequestedEntityClass();
         $this->setForm();
+        $this->handleRequest();
     }
 
     /**
@@ -84,6 +85,5 @@ final class CreateSourceAction extends AbstractCreateAction
      */
     protected function proccess()
     {
-        $this->prepare();
     }
 }
