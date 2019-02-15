@@ -4,7 +4,6 @@ namespace tests\Integration\Domain\RequestManagement\Entity;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use App\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
-use App\Domain\RequestManagement\Entity\RequestedEntityService;
 use App\Entity\Source\AbstractSource;
 
 /**
@@ -25,7 +24,7 @@ class RequestedEntityServiceIntegrationTest extends KernelTestCase
     public function setUp(): void
     {
         self::bootKernel();
-        $this->requestedEntityService = self::$container->get(RequestedEntityService::class);
+        $this->requestedEntityService = self::$container->get(RequestedEntityServiceInterface::class);
     }
 
     public function testClassAccessors(): void

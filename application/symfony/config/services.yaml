@@ -5,7 +5,6 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
-
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -44,7 +43,7 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-
-    # testing configuration
+    
+    # Needed for integration tests
     App\Domain\RequestManagement\Entity\RequestedEntityService:
-       public: true
+        public: true
