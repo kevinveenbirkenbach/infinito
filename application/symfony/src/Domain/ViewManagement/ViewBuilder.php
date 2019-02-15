@@ -3,10 +3,10 @@
 namespace App\Domain\ViewManagement;
 
 use FOS\RestBundle\View\View;
-use App\Domain\SecureCRUDManagement\Factory\SecureCRUDFactoryService;
-use App\Domain\SecureCRUDManagement\Factory\SecureCRUDFactoryServiceInterface;
-use App\Domain\RequestManagement\User\RequestedUserInterface;
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use App\Domain\RequestManagement\Action\RequestedActionInterface;
+use App\Domain\ActionManagement\ActionServiceInterface;
+use App\Domain\ActionManagement\ActionFactoryServiceInterface;
+use App\Domain\ActionManagement\ActionFactoryService;
 
 /**
  * @author kevinfrantz
@@ -19,36 +19,23 @@ class ViewBuilder implements ViewBuilderInterface
     protected $view;
 
     /**
-     * @var SecureCRUDFactoryServiceInterface
+     * @var RequestedActionInterface
      */
-    protected $secureCrudFactoryService;
+    protected $actionService;
 
     /**
-     * @var RequestedEntityInterface
+     * @var ActionFactoryServiceInterface
      */
-    protected $requestedEntity;
+    protected $actionFactoryService;
 
     /**
-     * @var RequestedUserInterface
+     * @param ActionServiceInterface        $actionService
+     * @param ActionFactoryServiceInterface $actionFactoryService
      */
-    protected $requestedUser;
-
-    /**
-     * @param RequestedUserInterface   $requestedUserRight
-     * @param SecureCRUDFactoryService $secureCrudFactoryService
-     */
-    public function __construct(RequestedUserInterface $requestedUserRight, SecureCRUDFactoryService $secureCrudFactoryService, RequestedEntityInterface $requestedEntity)
+    public function __construct(ActionServiceInterface $actionService, ActionFactoryServiceInterface $actionFactoryService)
     {
         $this->view = new View();
-        $this->requestedUser = $requestedUserRight;
-        $this->secureCrudFactoryService = $secureCrudFactoryService;
-        $this->requestedEntity = $requestedEntity;
-    }
-
-    private function process()
-    {
-        $secureCrudService = $this->secureCrudFactoryService->create($this->requestedUser);
-        $entity = $secureCrudService->process($this->requestedEntity);
+        $this->actionService = $actionService;
     }
 
     /**
@@ -56,5 +43,25 @@ class ViewBuilder implements ViewBuilderInterface
      */
     public function getView(): View
     {
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\ViewManagement\ViewBuilderInterface::getActionService()
+     */
+    public function getActionService(): ActionServiceInterface
+    {
+        return $this->actionService;
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\ViewManagement\ViewBuilderInterface::build()
+     */
+    public function build(): void
+    {
+        $this->view->create();
     }
 }

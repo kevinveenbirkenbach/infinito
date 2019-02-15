@@ -8,6 +8,9 @@ use App\DBAL\Types\RESTResponseType;
  * Manages all informations which are needed to process templates.
  *
  * @author kevinfrantz
+ *
+ * @deprecated
+ * @see TemplatePathServiceInterface
  */
 interface TemplatePathInformationInterface extends ReloadTypeInterface
 {

@@ -8,9 +8,6 @@ The application MUST use [Symfony 4. coding standards](https://symfony.com/doc/c
 ### PHP
 PHP code MUST follow the [PSR-4](https://www.php-fig.org/psr/psr-4/) standard.
 
-### Twig
-Twig templates MUST follow the [Symfony Template best practices](https://symfony.com/doc/current/best_practices/templates.html).
-
 ### Naming
 
 #### Interfaces

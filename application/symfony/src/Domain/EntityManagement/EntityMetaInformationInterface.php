@@ -11,6 +11,8 @@ use App\Domain\PathManagement\NamespacePathMapInterface;
 /**
  * Offers some meta information about an entity.
  *
+ * @deprecated
+ *
  * @author kevinfrantz
  */
 interface EntityMetaInformationInterface

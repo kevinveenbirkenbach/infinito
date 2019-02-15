@@ -12,6 +12,8 @@ use App\Domain\PathManagement\NamespacePathMap;
 
 /**
  * @author kevinfrantz
+ *
+ * @deprecated
  */
 class EntityMetaInformation implements EntityMetaInformationInterface
 {

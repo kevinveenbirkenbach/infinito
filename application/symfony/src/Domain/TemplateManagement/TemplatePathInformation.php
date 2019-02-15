@@ -6,6 +6,9 @@ use App\DBAL\Types\RESTResponseType;
 
 /**
  * @author kevinfrantz
+ *
+ * @deprecated
+ * @see TemplatePathService
  */
 final class TemplatePathInformation implements TemplatePathInformationInterface
 {
