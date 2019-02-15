@@ -4,7 +4,10 @@ namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Domain\MVCManagement\MVCRoutineServiceInterface;
+use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use App\DBAL\Types\ActionType;
+use App\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
 
 /**
  * This controller offers the standart routes for the template.
@@ -19,8 +22,12 @@ final class DefaultController extends AbstractController
      * @todo Optimize function!
      * @Route("/imprint.{_format}", defaults={"_format"="json"}, name="imprint")
      */
-    public function imprint(EntityManagerInterface $entityManager): Response
+    public function imprint(MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService): Response
     {
+        $requestedActionService->setActionType(ActionType::READ);
+        $requestedActionService->getRequestedEntity()->setSlug(ImpressumFixtureSource::SLUG);
+        $view = $mvcRoutineService->process();
+        $this->handleView($view);
     }
 
     /**

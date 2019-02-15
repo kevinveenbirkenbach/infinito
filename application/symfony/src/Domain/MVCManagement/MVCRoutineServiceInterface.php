@@ -12,12 +12,9 @@ use FOS\RestBundle\View\View;
 interface MVCRoutineServiceInterface
 {
     /**
-     * Process the injected services.
-     */
-    public function process(): void;
-
-    /**
+     * Process through the layers.
+     *
      * @return View
      */
-    public function getView(): View;
+    public function process(): View;
 }
