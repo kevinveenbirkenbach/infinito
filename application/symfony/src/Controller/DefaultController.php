@@ -16,19 +16,19 @@ use App\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
  */
 final class DefaultController extends AbstractController
 {
-    /**
-     * @deprecated Use load via source instead of fixed route
-     *
-     * @todo Optimize function!
-     * @Route("/imprint.{_format}", defaults={"_format"="json"}, name="imprint")
-     */
-    public function imprint(MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService): Response
-    {
-        $requestedActionService->setActionType(ActionType::READ);
-        $requestedActionService->getRequestedEntity()->setSlug(ImpressumFixtureSource::SLUG);
-        $view = $mvcRoutineService->process();
-        $this->handleView($view);
-    }
+//     /**
+//      * @deprecated Use load via source instead of fixed route
+//      *
+//      * @todo Optimize function!
+//      * @Route("/imprint.{_format}", defaults={"_format"="json"}, name="imprint")
+//      */
+//     public function imprint(MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService): Response
+//     {
+    // //         $requestedActionService->setActionType(ActionType::READ);
+    // //         $requestedActionService->getRequestedEntity()->setSlug(ImpressumFixtureSource::SLUG);
+    // //         $view = $mvcRoutineService->process();
+    // //         $this->handleView($view);
+//     }
 
     /**
      * @Route("/", name="homepage")
