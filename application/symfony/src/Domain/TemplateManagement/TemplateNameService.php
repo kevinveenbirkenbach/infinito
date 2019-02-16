@@ -95,11 +95,21 @@ final class TemplateNameService implements TemplateNameServiceInterface
         return $this->getBasePath().$type.$this->getShortName().$this->getActionSuffix().self::TWIG_SUFFIX;
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\TemplateManagement\TemplateNameServiceInterface::getAtomTemplateName()
+     */
     public function getAtomTemplateName(): string
     {
         return $this->getTemplatePath(self::ATOM_PRAEFFIX);
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\TemplateManagement\TemplateNameServiceInterface::getMoleculeTemplateName()
+     */
     public function getMoleculeTemplateName(): string
     {
         return $this->getTemplatePath(self::MOLECULE_PRAEFFIX);
