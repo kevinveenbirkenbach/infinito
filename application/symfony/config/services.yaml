@@ -34,7 +34,7 @@ services:
     # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/*'
-        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Exception,Kernel.php}'
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
     App\Controller\:
@@ -46,4 +46,12 @@ services:
     
     # Needed for integration tests
     App\Domain\RequestManagement\Entity\RequestedEntityService:
+        public: true
+    App\Domain\RequestManagement\Right\RequestedRightService:
+        public: true
+    App\Domain\UserManagement\UserSourceDirectorService:
+        public: true
+    App\Domain\RequestManagement\User\RequestedUserService:
+        public: true
+    App\Domain\RequestManagement\Action\RequestedActionService:
         public: true

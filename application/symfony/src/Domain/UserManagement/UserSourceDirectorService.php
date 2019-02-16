@@ -6,6 +6,7 @@ use App\Entity\UserInterface;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Security\Core\Security;
 use App\Entity\Source\AbstractSource;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * @author kevinfrantz
@@ -25,10 +26,10 @@ final class UserSourceDirectorService implements UserSourceDirectorServiceInterf
     private $security;
 
     /**
-     * @param EntityManager $entityManager
+     * @param EntityManager $entityManagerInterface
      * @param Security      $security
      */
-    public function __construct(EntityManager $entityManager, Security $security)
+    public function __construct(EntityManagerInterface $entityManager, Security $security)
     {
         $this->entityManager = $entityManager;
         $this->security = $security;

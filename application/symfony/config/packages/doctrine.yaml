@@ -29,3 +29,5 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Entity'
                 prefix: 'App\Entity'
                 alias: App
+        #resolve_target_entities:
+        #    App\Domain\RequestManagement\Right\RequestedRightServiceInterface: App\Domain\RequestManagement\Right\RequestedRightService2
