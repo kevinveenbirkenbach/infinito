@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\Unit\Repository\Meta;
+namespace tests\Integration\Repository\Meta;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Doctrine\ORM\EntityRepository;
@@ -17,8 +17,11 @@ use Doctrine\ORM\EntityManagerInterface;
  *
  * @author kevinfrantz
  */
-class RightRepositoryTest extends KernelTestCase
+class RightRepositoryIntegrationTest extends KernelTestCase
 {
+    /**
+     * @var int
+     */
     const PRIORITY = 123;
 
     /**
@@ -59,11 +62,11 @@ class RightRepositoryTest extends KernelTestCase
         $this->right->setCrud(CRUDType::READ);
         $this->law = new Law();
         $this->entityManager->persist($this->law);
-        $this->right->setLaw($this->law);
     }
 
     public function testCreation(): void
     {
+        $this->right->setLaw($this->law);
         $this->entityManager->persist($this->right);
         $this->entityManager->flush();
         $rightId = $this->right->getId();
@@ -73,6 +76,14 @@ class RightRepositoryTest extends KernelTestCase
         $this->deleteRight();
         $this->assertNull($this->rightRepository->find($rightId));
         $this->loadedRight = null;
+    }
+
+    public function testThatEveryEntityHasAPersistedLaw(): void
+    {
+        foreach ($this->rightRepository->findAll() as $right) {
+            $this->assertInstanceOf(LawInterface::class, $right->getLaw());
+            $this->assertGreaterThan(0, $right->getLaw()->getId());
+        }
     }
 
     private function deleteRight(): void

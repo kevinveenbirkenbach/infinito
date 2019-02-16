@@ -43,7 +43,7 @@ class Right extends AbstractMeta implements RightInterface
 
     /**
      * @ORM\ManyToOne(targetEntity="Law", inversedBy="rights")
-     * @ORM\JoinColumn(name="law_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="law_id", referencedColumnName="id",nullable=false)
      *
      * @var LawInterface
      */
