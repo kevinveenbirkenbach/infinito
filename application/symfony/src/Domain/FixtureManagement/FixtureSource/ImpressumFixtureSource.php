@@ -29,6 +29,7 @@ final class ImpressumFixtureSource extends AbstractFixtureSource
         $right->setSource($impressumSource);
         $right->setLayer(LayerType::SOURCE);
         $right->setCrud(CRUDType::READ);
+        $right->setLaw($impressumSource->getLaw());
         $impressumSource->getLaw()->getRights()->add($right);
 
         return $impressumSource;
