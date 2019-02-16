@@ -29,7 +29,8 @@ final class DefaultController extends AbstractController
         $requestedActionService->setLayer(LayerType::SOURCE);
         $requestedActionService->getRequestedEntity()->setSlug(ImpressumFixtureSource::SLUG);
         $view = $mvcRoutineService->process();
-        $this->handleView($view);
+
+        return $this->handleView($view);
     }
 
     /**

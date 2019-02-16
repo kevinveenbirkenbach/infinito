@@ -31,9 +31,9 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     {
         switch (gettype($result)) {
             case 'object':
-                return ['entity' => $this->result];
+                return ['entity' => $result];
             case 'array':
-                return ['enitits' => $this->result];
+                return ['entities' => $result];
             case 'null':
                 return [];
         }
