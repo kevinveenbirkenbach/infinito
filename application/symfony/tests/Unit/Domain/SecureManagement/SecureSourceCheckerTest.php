@@ -102,4 +102,22 @@ class SecureSourceCheckerTest extends TestCase
         $this->expectException(SourceAccessDenied::class);
         $this->securerSourceChecker->hasPermission($requestedRight);
     }
+
+    public function testRightAppliesToAll(): void
+    {
+        $right = new Right();
+        $right->setLayer(LayerType::SOURCE);
+        $right->setCrud(CRUDType::READ);
+        $right->setReciever($this->recieverSource);
+        $right->setSource($this->source);
+        $this->assertFalse($this->securerSourceChecker->hasPermission($right));
+        $requestedRight = new Right();
+        $requestedRight->setLayer(LayerType::SOURCE);
+        $requestedRight->setCrud(CRUDType::READ);
+        $requestedRight->setSource($this->source);
+        $this->source->getLaw()->getRights()->add($requestedRight);
+        $this->assertTrue($this->securerSourceChecker->hasPermission($right));
+        $requestedRight->setReciever($this->createSourceMock());
+        $this->assertFalse($this->securerSourceChecker->hasPermission($right));
+    }
 }
