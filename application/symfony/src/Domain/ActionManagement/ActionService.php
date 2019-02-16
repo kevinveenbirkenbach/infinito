@@ -11,7 +11,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
 use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
-use App\Domain\SecureManagement\SecureRequestedRightCheckerInterface;
+use App\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
 
 /**
  * @author kevinfrantz
@@ -29,9 +29,9 @@ final class ActionService implements ActionServiceInterface
     private $requestedAction;
 
     /**
-     * @var SecureRequestedRightCheckerInterface
+     * @var SecureRequestedRightCheckerServiceInterface
      */
-    private $secureRequestedRightChecker;
+    private $secureRequestedRightCheckerService;
 
     /**
      * @var LayerRepositoryFactoryServiceInterface
@@ -51,10 +51,10 @@ final class ActionService implements ActionServiceInterface
     /**
      * @param RequestedActionInterface $requestedActionService
      */
-    public function __construct(RequestedActionServiceInterface $requestedActionService, SecureRequestedRightCheckerInterface $secureRequestedRightChecker, RequestStack $requestStack, LayerRepositoryFactoryServiceInterface $layerRepositoryFactoryService, RequestedActionFormBuilderServiceInterface $requestedActionFormBuilderService, EntityManagerInterface $entityManager)
+    public function __construct(RequestedActionServiceInterface $requestedActionService, SecureRequestedRightCheckerServiceInterface $secureRequestedRightChecker, RequestStack $requestStack, LayerRepositoryFactoryServiceInterface $layerRepositoryFactoryService, RequestedActionFormBuilderServiceInterface $requestedActionFormBuilderService, EntityManagerInterface $entityManager)
     {
         $this->requestedAction = $requestedActionService;
-        $this->secureRequestedRightChecker = $secureRequestedRightChecker;
+        $this->secureRequestedRightCheckerService = $secureRequestedRightChecker;
         $this->requestStack = $requestStack;
         $this->layerRepositoryFactoryService = $layerRepositoryFactoryService;
         $this->requestedActionFormBuilderService = $requestedActionFormBuilderService;
@@ -78,7 +78,7 @@ final class ActionService implements ActionServiceInterface
      */
     public function isRequestedActionSecure(): bool
     {
-        return $this->secureRequestedRightChecker->check($this->requestedAction);
+        return $this->secureRequestedRightCheckerService->check($this->requestedAction);
     }
 
     /**

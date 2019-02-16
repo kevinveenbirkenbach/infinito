@@ -4,6 +4,9 @@ namespace App\Domain\ActionManagement;
 
 use App\Entity\EntityInterface;
 
+/**
+ * @author kevinfrantz
+ */
 interface ActionInterface
 {
     /**

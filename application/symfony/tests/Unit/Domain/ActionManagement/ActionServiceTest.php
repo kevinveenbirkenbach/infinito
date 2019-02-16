@@ -5,7 +5,6 @@ namespace tests\Unit\Domain\ActionManagement;
 use PHPUnit\Framework\TestCase;
 use App\Domain\ActionManagement\ActionService;
 use App\Domain\RequestManagement\Action\RequestedActionInterface;
-use App\Domain\SecureManagement\SecureRequestedRightCheckerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
@@ -18,6 +17,7 @@ use App\Entity\EntityInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use App\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
 use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use App\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
 
 /**
  * @author kevinfrantz
@@ -30,9 +30,9 @@ class ActionServiceTest extends TestCase
     private $requestedActionService;
 
     /**
-     * @var SecureRequestedRightCheckerInterface|MockObject
+     * @var SecureRequestedRightCheckerServiceInterface
      */
-    private $secureRequestedRightChecker;
+    private $secureRequestedRightCheckerService;
 
     /**
      * @var RequestedActionFormBuilderServiceInterface|MockObject
@@ -79,17 +79,17 @@ class ActionServiceTest extends TestCase
         $this->requestedActionService = $this->createMock(RequestedActionServiceInterface::class);
         $this->requestedActionService->method('getRequestedEntity')->willReturn($this->requestedEntity);
 
-        $this->secureRequestedRightChecker = $this->createMock(SecureRequestedRightCheckerInterface::class);
+        $this->secureRequestedRightCheckerService = $this->createMock(SecureRequestedRightCheckerServiceInterface::class);
         $this->requestedActionFormBuilderService = $this->createMock(RequestedActionFormBuilderServiceInterface::class);
         $this->requestStack = $this->createMock(RequestStack::class);
         $this->layerRepositoryFactoryService = $this->createMock(LayerRepositoryFactoryServiceInterface::class);
         $this->entityManager = $this->createMock(EntityManagerInterface::class);
-        $this->actionService = new ActionService($this->requestedActionService, $this->secureRequestedRightChecker, $this->requestStack, $this->layerRepositoryFactoryService, $this->requestedActionFormBuilderService, $this->entityManager);
+        $this->actionService = new ActionService($this->requestedActionService, $this->secureRequestedRightCheckerService, $this->requestStack, $this->layerRepositoryFactoryService, $this->requestedActionFormBuilderService, $this->entityManager);
     }
 
     public function testIsRequestedActionSecure(): void
     {
-        $this->secureRequestedRightChecker->method('check')->willReturn(true);
+        $this->secureRequestedRightCheckerService->method('check')->willReturn(true);
         $this->assertTrue($this->actionService->isRequestedActionSecure());
     }
 

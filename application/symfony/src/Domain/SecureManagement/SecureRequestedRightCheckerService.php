@@ -9,7 +9,7 @@ use App\Domain\RightManagement\RightTransformerServiceInterface;
 /**
  * @author kevinfrantz
  */
-final class SecureRequestedRightChecker implements SecureRequestedRightCheckerInterface
+final class SecureRequestedRightCheckerService implements SecureRequestedRightCheckerServiceInterface
 {
     /**
      * @var RightTransformerServiceInterface
@@ -27,7 +27,7 @@ final class SecureRequestedRightChecker implements SecureRequestedRightCheckerIn
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\SecureManagement\SecureRequestedRightCheckerInterface::check()
+     * @see \App\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface::check()
      */
     public function check(RequestedRightInterface $requestedRight): bool
     {

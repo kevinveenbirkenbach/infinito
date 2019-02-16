@@ -12,7 +12,7 @@ use App\Entity\Source\PureSourceInterface;
 use App\Domain\ActionManagement\ActionService;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
-use App\Domain\SecureManagement\SecureRequestedRightCheckerInterface;
+use App\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 use App\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
@@ -31,7 +31,7 @@ class CreateSourceActionTest extends TestCase
         $request->query->set(ClassAttributInterface::CLASS_ATTRIBUT_NAME, PureSource::class);
         $request->request->set(SlugAttributInterface::SLUG_ATTRIBUT_NAME, 'randomname');
         $requestedActionService = $this->createMock(RequestedActionServiceInterface::class);
-        $secureRequestedRightChecker = $this->createMock(SecureRequestedRightCheckerInterface::class);
+        $secureRequestedRightChecker = $this->createMock(SecureRequestedRightCheckerServiceInterface::class);
         $entityManager = $this->createMock(EntityManagerInterface::class);
         $pureSourceType = $this->createMock(PureSourceTypeInterface::class);
         $pureSourceType->method('isValid')->willReturn(true);

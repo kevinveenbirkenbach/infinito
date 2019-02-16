@@ -57,3 +57,5 @@ services:
         public: true
     App\Domain\FormManagement\RequestedActionFormBuilderService:
         public: true
+    App\Domain\SecureManagement\SecureRequestedRightCheckerService:
+        public: true

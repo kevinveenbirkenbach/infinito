@@ -23,7 +23,7 @@ use App\Domain\RequestManagement\Entity\RequestedEntityService;
 use App\Entity\Source\PureSource;
 use App\Attribut\ClassAttributInterface;
 use App\Domain\RepositoryManagement\LayerRepositoryFactoryService;
-use App\Domain\SecureManagement\SecureRequestedRightChecker;
+use App\Domain\SecureManagement\SecureRequestedRightCheckerService;
 use App\Domain\RightManagement\RightTransformerService;
 
 /**
@@ -79,7 +79,7 @@ class CreateSourceActionIntegrationTest extends KernelTestCase
         $this->requestStack->push($this->request);
         $layerRepositoryFactoryService = new LayerRepositoryFactoryService($entityManager);
         $rightTransformerService = new RightTransformerService();
-        $secureRequestedRightChecker = new SecureRequestedRightChecker($rightTransformerService);
+        $secureRequestedRightChecker = new SecureRequestedRightCheckerService($rightTransformerService);
         $this->actionService = new ActionService($this->requestedActionService, $secureRequestedRightChecker, $this->requestStack, $layerRepositoryFactoryService, $entityFormBuilderService, $entityManager);
         $this->createSourceAction = new CreateSourceAction($this->actionService);
     }
