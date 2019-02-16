@@ -19,10 +19,13 @@ This software should offer a cloud based application\\framework for GUI and REST
 - High scalability (IaaS compatible)
 
 ### Use Case
-The following use case diagram is work in process and just gives an short overview over the software and the actors
+The following use case diagram is work in process and just gives an short overview over the software and the actors.
 ![Use Case Diagram](.meta/use-case-brainstorming.svg)
 
-## Setup
+## Administration
+Further information you will find in the [administration README.md](./administration/README.md).
+
+### Setup
 To run the application you need docker.
 
 After installing docker you just need to run
@@ -30,25 +33,26 @@ After installing docker you just need to run
 bash ./administration/init.sh
 ```
 in the root directory of the repository.
+## Architecture
 
-## License
-The "GNU AFFERO GENERAL PUBLIC LICENSE" applies to this project. See [LICENSE.txt](./LICENSE.txt).
-
-## Code of Conduct
-To contributions of this project the "Contributor Covenant Code of Conduct" applies. See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
-
-## Administration
-Further information you will find in the [administration README.md](./administration/README.md).
-
-## Application
+### Application Architecture
 Further information about the application and the architecture you will find in the [application README.md](./application/README.md).
 
-## Server Architecture
+### Server Architecture
 To realize a high scalable and CI setup with [kubernetes](https://kubernetes.io/), [docker](https://www.docker.com/) and [Jenkins](https://jenkins.io/) use the following schema.
 ![Server Architecture](.meta/container-server-architecture.png)
 
-## Documentation Convention
-Further information you will find in the [DOCUMENTATION.md](./DOCUMENTATION_CONVENTION.md).
+## Conventions
+This project follows multiple conventions and rules apply to it. If you're interested in participating in this project you MUST follow them.
+
+### Documentation
+[Documentation conventions](./DOCUMENTATION_CONVENTION.md) apply to this project.
+
+### License
+The ["GNU AFFERO GENERAL PUBLIC LICENSE"](./LICENSE.txt) applies to this project.
+
+### Code of Conduct
+To contributions of this project the ["Contributor Covenant Code of Conduct"](./CODE_OF_CONDUCT.md) applies.
 
 ## Author
 [Kevin Veen-Birkenbach](kevin@veen.world) \\ [Frantz](mail@Kevin-Frantz.de) <br />
