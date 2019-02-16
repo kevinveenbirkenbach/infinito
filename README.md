@@ -19,7 +19,7 @@ This software should offer a cloud based application\\framework for GUI and REST
 - High scalability (IaaS compatible)
 
 ### Use Case
-The following use case diagram is work in process and just gives an short overview over the software and the actors.
+The following use case diagram is work in process and gives an short overview over the software and the actors.
 ![Use Case Diagram](.meta/use-case-brainstorming.svg)
 
 ## Administration
