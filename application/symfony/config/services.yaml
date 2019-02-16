@@ -55,3 +55,5 @@ services:
         public: true
     App\Domain\RequestManagement\Action\RequestedActionService:
         public: true
+    App\Domain\FormManagement\RequestedActionFormBuilderService:
+        public: true

@@ -8,16 +8,10 @@ use App\Entity\Source\PureSource;
 use App\Domain\FormManagement\RequestedActionFormBuilderService;
 use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use App\Domain\FormManagement\FormClassNameService;
-use App\Domain\RequestManagement\Action\RequestedActionService;
-use App\Domain\RequestManagement\User\RequestedUserService;
-use App\Domain\RequestManagement\Right\RequestedRightService;
-use App\Domain\UserManagement\UserSourceDirectorServiceInterface;
 use App\DBAL\Types\ActionType;
-use App\Domain\RequestManagement\Entity\RequestedEntityService;
-use App\Domain\RepositoryManagement\LayerRepositoryFactoryService;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\Form;
+use App\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
+use App\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
 
 /**
  * @author kevinfrantz
@@ -47,19 +41,10 @@ class RequestedActionFormBuilderServiceIntegrationTest extends KernelTestCase
     public function setUp(): void
     {
         self::bootKernel();
-        $formFactory = self::$container->get('form.factory');
-        //$entityManager = self::$container->get('doctrine.orm.default_entity_manager');
-        $entityManager = $this->createMock(EntityManagerInterface::class);
-        $userSourceDirectorService = $this->createMock(UserSourceDirectorServiceInterface::class);
-        $formClassNameService = new FormClassNameService();
-        $layerRepositoryFactoryService = new LayerRepositoryFactoryService($entityManager);
-        $this->requestedEntity = new RequestedEntityService($layerRepositoryFactoryService);
-        $requestedRightService = new RequestedRightService($this->requestedEntity);
-        $requestedRightService->setRequestedEntity($this->requestedEntity);
-        $requestedUserService = new RequestedUserService($userSourceDirectorService, $requestedRightService);
-        $this->requestedActionService = new RequestedActionService($requestedUserService);
+        $this->requestedActionFormBuilderService = self::$container->get(RequestedActionFormBuilderServiceInterface::class);
+        $this->requestedEntity = self::$container->get(RequestedEntityServiceInterface::class);
+        $this->requestedActionService = self::$container->get(RequestedActionServiceInterface::class);
         $this->requestedActionService->setActionType(ActionType::CREATE);
-        $this->requestedActionFormBuilderService = new RequestedActionFormBuilderService($formFactory, $formClassNameService, $this->requestedActionService);
     }
 
     public function testCreate(): void
