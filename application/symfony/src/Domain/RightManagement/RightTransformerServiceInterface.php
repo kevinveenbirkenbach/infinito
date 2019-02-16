@@ -3,7 +3,7 @@
 namespace App\Domain\RightManagement;
 
 use App\Entity\Meta\RightInterface;
-use App\Domain\RequestManagement\Right\RequestedRight;
+use App\Domain\RequestManagement\Right\RequestedRightInterface;
 
 /**
  * Allows to transform an Requested Right to a Entity Right.
@@ -13,9 +13,9 @@ use App\Domain\RequestManagement\Right\RequestedRight;
 interface RightTransformerServiceInterface
 {
     /**
-     * @param RequestedRight $requestedRight
+     * @param RequestedRightInterface $requestedRight
      *
      * @return RightInterface
      */
-    public function transform(RequestedRight $requestedRight): RightInterface;
+    public function transform(RequestedRightInterface $requestedRight): RightInterface;
 }

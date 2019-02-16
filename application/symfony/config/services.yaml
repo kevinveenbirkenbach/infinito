@@ -61,3 +61,6 @@ services:
         public: true
     App\Domain\ActionManagement\ActionService:
         public: true
+    App\Domain\ActionManagement\ActionHandlerService:
+        public: true
+        

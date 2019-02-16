@@ -10,6 +10,9 @@ use App\Domain\FixtureManagement\FixtureSource\FixtureSourceInterface;
  */
 final class FixtureSourceFactory implements FixtureSourceFactoryInterface
 {
+    /**
+     * @var string Namespace in which the fixture sources are saved
+     */
     const FIXTURE_SOURCE_NAMESPACE = 'App\Domain\FixtureManagement\FixtureSource';
 
     /**

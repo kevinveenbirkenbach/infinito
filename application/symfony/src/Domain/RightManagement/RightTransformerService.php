@@ -2,7 +2,6 @@
 
 namespace App\Domain\RightManagement;
 
-use App\Domain\RequestManagement\Right\RequestedRight;
 use App\Entity\Meta\RightInterface;
 use App\Domain\RequestManagement\Right\RequestedRightInterface;
 use App\Entity\Meta\Right;
@@ -12,10 +11,19 @@ use App\Entity\Meta\Right;
  */
 final class RightTransformerService implements RightTransformerServiceInterface
 {
+    /**
+     * @var string Prefix for setter functions
+     */
     const SET_PREFIX = 'set';
 
+    /**
+     * @var string Prefix for getter functions
+     */
     const GET_PREFIX = 'get';
 
+    /**
+     * @var string Prefix for has functions
+     */
     const HAS_PREFIX = 'has';
 
     /**
@@ -126,7 +134,7 @@ final class RightTransformerService implements RightTransformerServiceInterface
      *
      * @see \App\Domain\RightManagement\RightTransformerServiceInterface::transform()
      */
-    public function transform(RequestedRight $requestedRight): RightInterface
+    public function transform(RequestedRightInterface $requestedRight): RightInterface
     {
         $right = new Right();
         $attributes = $this->getAttributesExistInBoth($right, $requestedRight);
