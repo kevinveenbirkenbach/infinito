@@ -6,6 +6,8 @@ use App\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz
+ *
+ * @see RecieverAttributInterface
  */
 trait RecieverAttribut
 {
@@ -14,13 +16,27 @@ trait RecieverAttribut
      */
     protected $reciever;
 
-    public function setReciever(SourceInterface $reciever): void
+    /**
+     * @param SourceInterface $reciever
+     */
+    public function setReciever(?SourceInterface $reciever): void
     {
         $this->reciever = $reciever;
     }
 
+    /**
+     * @return SourceInterface
+     */
     public function getReciever(): SourceInterface
     {
         return $this->reciever;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasReciever(): bool
+    {
+        return isset($this->reciever);
     }
 }

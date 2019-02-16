@@ -12,6 +12,9 @@ use App\Domain\RightManagement\RightChecker;
 use App\DBAL\Types\Meta\Right\CRUDType;
 use App\Entity\Source\PureSource;
 
+/**
+ * @author kevinfrantz
+ */
 class RightCheckerTest extends TestCase
 {
     /**
@@ -96,5 +99,17 @@ class RightCheckerTest extends TestCase
         $this->right->setGrant(false);
         $notGranted3 = $this->rightManager->isGranted($this->layer, $this->type, $thirdSource);
         $this->assertFalse($notGranted3);
+    }
+
+    public function testAppliesToAll(): void
+    {
+        $this->assertNull($this->right->setReciever(null));
+        $this->assertTrue($this->rightManager->isGranted($this->layer, $this->type, $this->source));
+        $source2 = new PureSource();
+        $this->assertTrue($this->rightManager->isGranted($this->layer, $this->type, $source2));
+        $source3 = new PureSource();
+        $this->assertNull($this->right->setReciever($source3));
+        $this->assertTrue($this->rightManager->isGranted($this->layer, $this->type, $source3));
+        $this->assertFalse($this->rightManager->isGranted($this->layer, $this->type, $source2));
     }
 }

@@ -72,6 +72,24 @@ final class RightChecker implements RightCheckerInterface
     }
 
     /**
+     * @return bool
+     */
+    private function doesRightApplyToAllSources(): bool
+    {
+        return !$this->right->hasReciever();
+    }
+
+    /**
+     * @param SourceInterface $source
+     *
+     * @return bool
+     */
+    private function doesRightApply(SourceInterface $source): bool
+    {
+        return $this->doesRightApplyToAllSources() || $this->hasClientSource($source);
+    }
+
+    /**
      * @param RightInterface $right
      */
     public function __construct(RightInterface $right)
@@ -79,8 +97,13 @@ final class RightChecker implements RightCheckerInterface
         $this->right = $right;
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Domain\RightManagement\RightCheckerInterface::isGranted()
+     */
     public function isGranted(string $layer, string $type, SourceInterface $source): bool
     {
-        return $this->isLayerEqual($layer) && $this->isTypeEqual($type) && $this->hasClientSource($source) && $this->checkPermission();
+        return $this->isLayerEqual($layer) && $this->isTypeEqual($type) && $this->doesRightApply($source) && $this->checkPermission();
     }
 }

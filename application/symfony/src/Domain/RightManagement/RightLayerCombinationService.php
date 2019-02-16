@@ -10,6 +10,9 @@ use App\DBAL\Types\Meta\Right\CRUDType;
  */
 final class RightLayerCombinationService implements RightLayerCombinationServiceInterface
 {
+    /**
+     * @var array
+     */
     const EXLUDED_RIGHTS_BY_LAYER = [
         LayerType::HEREDITY => [
             CRUDType::CREATE,

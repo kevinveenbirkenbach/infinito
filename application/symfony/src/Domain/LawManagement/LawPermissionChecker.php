@@ -55,16 +55,26 @@ final class LawPermissionChecker implements LawPermissionCheckerInterface
     }
 
     /**
+     * @param RightInterface $right
+     *
+     * @return bool True if right applies to all
+     */
+    private function doesRightApplyToAll(RightInterface $right): bool
+    {
+        return !$right->hasReciever();
+    }
+
+    /**
      * @param Collection|RightInterface[] $rights
-     * @param SourceInterface             $reciever
+     * @param RightInterface              $requestedRight
      *
      * @return Collection|RightInterface[]
      */
-    private function getRightsByReciever(Collection $rights, SourceInterface $reciever): Collection
+    private function getRightsByReciever(Collection $rights, RightInterface $requestedRight): Collection
     {
         $result = new ArrayCollection();
         foreach ($rights as $right) {
-            if ($right->getReciever() === $reciever || $this->memberExist($right, $reciever)) {
+            if ($this->doesRightApplyToAll($right) || $right->getReciever() === $requestedRight->getReciever() || $this->memberExist($right, $requestedRight->getReciever())) {
                 $result->add($right);
             }
         }
@@ -160,7 +170,7 @@ final class LawPermissionChecker implements LawPermissionCheckerInterface
         $rights = clone $this->law->getRights();
         $rights = $this->getRightsByCrud($rights, $clientRight->getCrud());
         $rights = $this->getRightsByLayer($rights, $clientRight->getLayer());
-        $rights = $this->getRightsByReciever($rights, $clientRight->getReciever());
+        $rights = $this->getRightsByReciever($rights, $clientRight);
         $rights = $this->sortByPriority($rights);
 
         return $this->isGranted($rights, $clientRight);

@@ -203,4 +203,24 @@ class LawPermissionCheckerTest extends TestCase
         $this->law->setGrant(true);
         $this->assertTrue($this->checkClientPermission());
     }
+
+    public function testAppliesToAll(): void
+    {
+        $clientSource = new PureSource();
+        $clientRight = new Right();
+        $clientRight->setLayer(LayerType::SOURCE);
+        $clientRight->setCrud(CRUDType::READ);
+        $clientRight->setSource($this->source);
+        $clientRight->setReciever($clientSource);
+        $this->assertFalse($this->lawPermissionChecker->hasPermission($clientRight));
+        $right = new Right();
+        $right->setLayer(LayerType::SOURCE);
+        $right->setCrud(CRUDType::READ);
+        $right->setSource($this->source);
+        $this->law->getRights()->add($right);
+        $this->assertTrue($this->lawPermissionChecker->hasPermission($clientRight));
+        $otherReciever = new PureSource();
+        $right->setReciever($otherReciever);
+        $this->assertFalse($this->lawPermissionChecker->hasPermission($clientRight));
+    }
 }

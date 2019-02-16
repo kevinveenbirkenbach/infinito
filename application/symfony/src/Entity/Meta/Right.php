@@ -60,9 +60,9 @@ class Right extends AbstractMeta implements RightInterface
     /**
      * @todo Test and implement it on an correct way!
      * @ORM\OneToOne(targetEntity="App\Entity\Source\AbstractSource",cascade={"persist"})
-     * @ORM\JoinColumn(name="reciever_id", referencedColumnName="id",onDelete="CASCADE")
+     * @ORM\JoinColumn(name="reciever_id", referencedColumnName="id",onDelete="CASCADE",nullable=true)
      *
-     * @var SourceInterface
+     * @var SourceInterface|null if null then the right should apply to all sources
      */
     protected $reciever;
 

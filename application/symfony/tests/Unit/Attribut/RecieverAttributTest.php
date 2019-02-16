@@ -23,6 +23,7 @@ class RecieverAttributTest extends TestCase
 
     public function testConstructor(): void
     {
+        $this->assertFalse($this->reciever->hasReciever());
         $this->expectException(\TypeError::class);
         $this->reciever->getReciever();
     }
@@ -30,7 +31,9 @@ class RecieverAttributTest extends TestCase
     public function testAccessors(): void
     {
         $reciever = $this->createMock(AbstractSource::class);
+        $this->assertFalse($this->reciever->hasReciever());
         $this->assertNull($this->reciever->setReciever($reciever));
         $this->assertEquals($reciever, $this->reciever->getReciever());
+        $this->assertTrue($this->reciever->hasReciever());
     }
 }

@@ -35,7 +35,7 @@ class RequestedUser extends AbstractRequestedRightFacade implements RequestedUse
      * {@inheritdoc}
      * @see \App\Attribut\RecieverAttributInterface::setReciever()
      */
-    public function setReciever(SourceInterface $reciever): void
+    public function setReciever(?SourceInterface $reciever): void
     {
         throw new SetNotPossibleException('It\'s not possible to set the reciever! Set it via '.UserSourceDirectorInterface::class.'!');
     }

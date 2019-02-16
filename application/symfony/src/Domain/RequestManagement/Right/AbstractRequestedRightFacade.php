@@ -110,7 +110,7 @@ abstract class AbstractRequestedRightFacade implements RequestedRightInterface
      *
      * @see \App\Attribut\RecieverAttributInterface::setReciever()
      */
-    public function setReciever(SourceInterface $reciever): void
+    public function setReciever(?SourceInterface $reciever): void
     {
         $this->requestedRight->setReciever($reciever);
     }
@@ -123,5 +123,15 @@ abstract class AbstractRequestedRightFacade implements RequestedRightInterface
     public function hasRequestedEntity(): bool
     {
         return $this->requestedRight->hasRequestedEntity();
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \App\Attribut\RecieverAttributInterface::hasReciever()
+     */
+    public function hasReciever(): bool
+    {
+        return $this->requestedRight->hasReciever();
     }
 }
