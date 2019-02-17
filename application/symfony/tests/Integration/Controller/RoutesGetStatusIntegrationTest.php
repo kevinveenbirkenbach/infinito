@@ -12,7 +12,6 @@ class RoutesGetStatusIntegrationTest extends KernelTestCase
 {
     const GET_URLS_STATUS = [
         'login' => 200,
-        'imprint' => 200,
         'register' => 301,
         'logout' => 302,
         'profile/edit' => 302,
