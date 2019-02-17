@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
-use FOS\RestBundle\Controller\FOSRestController;
+use FOS\RestBundle\Controller\AbstractFOSRestController;
 
 /**
  * @author kevinfrantz
  */
-abstract class AbstractController extends FOSRestController
+abstract class AbstractController extends AbstractFOSRestController
 {
 }
