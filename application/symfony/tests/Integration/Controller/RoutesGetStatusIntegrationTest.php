@@ -45,6 +45,6 @@ class RoutesGetStatusIntegrationTest extends KernelTestCase
         $request = new Request([], [], [], [], [], ['REQUEST_URI' => $url, null]);
         $request->setMethod(Request::METHOD_GET);
         $response = static::$kernel->handle($request);
-        $this->assertEquals($status, $response->getStatusCode());
+        $this->assertEquals($status, $response->getStatusCode(), "Url <<$url>> with status <<$status>> is not reachable.");
     }
 }
