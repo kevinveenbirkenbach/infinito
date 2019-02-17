@@ -3,16 +3,16 @@
 namespace Tests\Unit\Domain\SecureManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\SourceInterface;
-use App\Domain\SecureManagement\SecureSourceCheckerInterface;
-use App\Entity\Source\AbstractSource;
-use App\Domain\SecureManagement\SecureSourceChecker;
-use App\Entity\Meta\Right;
-use App\DBAL\Types\Meta\Right\LayerType;
-use App\DBAL\Types\Meta\Right\CRUDType;
-use App\Attribut\SourceAttribut;
-use App\Attribut\SourceAttributInterface;
-use App\Exception\SourceAccessDenied;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Domain\SecureManagement\SecureSourceCheckerInterface;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Domain\SecureManagement\SecureSourceChecker;
+use Infinito\Entity\Meta\Right;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\Attribut\SourceAttribut;
+use Infinito\Attribut\SourceAttributInterface;
+use Infinito\Exception\SourceAccessDenied;
 
 /**
  * @author kevinfrantz

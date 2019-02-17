@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\TemplateManagement;
+namespace Infinito\Domain\TemplateManagement;
 
-use App\DBAL\Types\RESTResponseType;
+use Infinito\DBAL\Types\RESTResponseType;
 
 /**
  * @author kevinfrantz
@@ -91,7 +91,7 @@ final class TemplatePathInformation implements TemplatePathInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\TemplateManagement\TemplatePathInformationInterface::getAtomTemplatePath()
+     * @see \Infinito\Domain\TemplateManagement\TemplatePathInformationInterface::getAtomTemplatePath()
      */
     public function getAtomTemplatePath(): string
     {
@@ -101,7 +101,7 @@ final class TemplatePathInformation implements TemplatePathInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\TemplateManagement\TemplatePathInformationInterface::getMoleculeTemplatePath()
+     * @see \Infinito\Domain\TemplateManagement\TemplatePathInformationInterface::getMoleculeTemplatePath()
      */
     public function getMoleculeTemplatePath(): string
     {
@@ -111,7 +111,7 @@ final class TemplatePathInformation implements TemplatePathInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\TemplateManagement\TemplatePathInformationInterface::reloadType()
+     * @see \Infinito\Domain\TemplateManagement\TemplatePathInformationInterface::reloadType()
      */
     public function reloadType(string $type): void
     {
@@ -122,7 +122,7 @@ final class TemplatePathInformation implements TemplatePathInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\TemplateManagement\TemplatePathInformationInterface::getCrud()
+     * @see \Infinito\Domain\TemplateManagement\TemplatePathInformationInterface::getCrud()
      */
     public function getCrud(): string
     {

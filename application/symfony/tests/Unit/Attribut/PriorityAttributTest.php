@@ -3,8 +3,8 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\PriorityAttributInterface;
-use App\Attribut\PriorityAttribut;
+use Infinito\Attribut\PriorityAttributInterface;
+use Infinito\Attribut\PriorityAttribut;
 
 /**
  * @author kevinfrantz

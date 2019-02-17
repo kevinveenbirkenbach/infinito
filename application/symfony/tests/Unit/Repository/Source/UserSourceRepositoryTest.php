@@ -4,8 +4,8 @@ namespace tests\Unit\Repository\Source;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Doctrine\ORM\EntityManager;
-use App\Entity\Source\Complex\UserSource;
-use App\Domain\SourceManagement\SourceMemberManager;
+use Infinito\Entity\Source\Complex\UserSource;
+use Infinito\Domain\SourceManagement\SourceMemberManager;
 
 /**
  * @todo refactor this to an integration test!

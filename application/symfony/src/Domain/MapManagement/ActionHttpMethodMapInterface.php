@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\MapManagement;
+namespace Infinito\Domain\MapManagement;
 
 /**
  * This class offers a map for ActionTypes to HttpMethods.

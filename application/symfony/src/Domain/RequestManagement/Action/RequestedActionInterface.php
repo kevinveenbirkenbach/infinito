@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\RequestManagement\Action;
+namespace Infinito\Domain\RequestManagement\Action;
 
-use App\Attribut\ActionTypeAttributInterface;
-use App\Domain\RequestManagement\User\RequestedUserInterface;
+use Infinito\Attribut\ActionTypeAttributInterface;
+use Infinito\Domain\RequestManagement\User\RequestedUserInterface;
 
 /**
  * An action containes multiple attributes which are neccessary to process a request.

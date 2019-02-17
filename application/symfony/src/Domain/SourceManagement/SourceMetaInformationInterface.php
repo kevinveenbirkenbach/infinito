@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\SourceManagement;
+namespace Infinito\Domain\SourceManagement;
 
-use App\Domain\EntityManagement\EntityMetaInformationInterface;
+use Infinito\Domain\EntityManagement\EntityMetaInformationInterface;
 
 /**
  * @author kevinfrantz

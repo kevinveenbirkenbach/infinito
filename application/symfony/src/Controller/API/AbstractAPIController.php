@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller\API;
+namespace Infinito\Controller\API;
 
-use App\Controller\AbstractController;
+use Infinito\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 

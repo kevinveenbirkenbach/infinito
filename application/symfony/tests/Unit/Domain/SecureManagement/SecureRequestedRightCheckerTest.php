@@ -3,15 +3,15 @@
 namespace tests\Unit\Domain\SecureManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\AbstractSource;
-use App\DBAL\Types\Meta\Right\LayerType;
-use App\DBAL\Types\Meta\Right\CRUDType;
-use App\Entity\Meta\Right;
-use App\Domain\RequestManagement\Right\RequestedRight;
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use App\Domain\SecureManagement\SecureRequestedRightCheckerService;
-use App\Domain\RightManagement\RightTransformerService;
-use App\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\Entity\Meta\Right;
+use Infinito\Domain\RequestManagement\Right\RequestedRight;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerService;
+use Infinito\Domain\RightManagement\RightTransformerService;
+use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
 
 /**
  * @author kevinfrantz

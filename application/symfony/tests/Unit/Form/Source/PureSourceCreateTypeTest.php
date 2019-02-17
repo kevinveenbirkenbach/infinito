@@ -3,8 +3,8 @@
 namespace tests\Unit\Form\Source;
 
 use Symfony\Component\Form\Test\TypeTestCase;
-use App\Entity\Source\PureSource;
-use App\Form\Source\PureSourceCreateType;
+use Infinito\Entity\Source\PureSource;
+use Infinito\Form\Source\PureSourceCreateType;
 
 /**
  * @author kevinfrantz

@@ -5,9 +5,9 @@ namespace tests\unit\Entity\Meta;
 use PHPUnit\Framework\TestCase;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\Meta\LawInterface;
-use App\Entity\Meta\Law;
-use App\Entity\Meta\Right;
+use Infinito\Entity\Meta\LawInterface;
+use Infinito\Entity\Meta\Law;
+use Infinito\Entity\Meta\Right;
 
 class LawTest extends TestCase
 {

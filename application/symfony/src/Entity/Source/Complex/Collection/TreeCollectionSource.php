@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Source\Complex\Collection;
+namespace Infinito\Entity\Source\Complex\Collection;
 
 use Doctrine\ORM\Mapping as ORM;
 

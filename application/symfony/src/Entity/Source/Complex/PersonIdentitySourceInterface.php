@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\Source\Complex;
+namespace Infinito\Entity\Source\Complex;
 
-use App\Attribut\FullPersonNameSourceAttributInterface;
+use Infinito\Attribut\FullPersonNameSourceAttributInterface;
 
 interface PersonIdentitySourceInterface extends ComplexSourceInterface, FullPersonNameSourceAttributInterface
 {

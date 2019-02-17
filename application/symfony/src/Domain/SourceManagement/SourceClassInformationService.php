@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\SourceManagement;
+namespace Infinito\Domain\SourceManagement;
 
 /**
  * @author kevinfrantz
@@ -15,7 +15,7 @@ final class SourceClassInformationService implements SourceClassInformationServi
     /**
      * @var string Namespace praefix for sources
      */
-    const SOURCE_CLASS_NAMESPACE = 'App\\Entity\\Source';
+    const SOURCE_CLASS_NAMESPACE = 'Infinito\\Entity\\Source';
 
     /**
      * @var string Suffix to identifie php files
@@ -106,7 +106,7 @@ final class SourceClassInformationService implements SourceClassInformationServi
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\SourceManagement\SourceClassInformationServiceInterface::getAllSourceClasses()
+     * @see \Infinito\Domain\SourceManagement\SourceClassInformationServiceInterface::getAllSourceClasses()
      */
     public function getAllSourceClasses(): array
     {
@@ -116,7 +116,7 @@ final class SourceClassInformationService implements SourceClassInformationServi
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\SourceManagement\SourceClassInformationServiceInterface::getAllSubSourceClasses()
+     * @see \Infinito\Domain\SourceManagement\SourceClassInformationServiceInterface::getAllSubSourceClasses()
      */
     public function getAllSubSourceClasses(string $subNamespace): array
     {

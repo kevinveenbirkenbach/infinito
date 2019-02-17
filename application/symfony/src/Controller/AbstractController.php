@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace Infinito\Controller;
 
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 

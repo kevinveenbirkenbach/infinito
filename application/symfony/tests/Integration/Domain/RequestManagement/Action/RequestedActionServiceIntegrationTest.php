@@ -3,8 +3,8 @@
 namespace tests\Integration\Domain\RequestManagement\Action;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
-use App\DBAL\Types\ActionType;
+use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use Infinito\DBAL\Types\ActionType;
 
 /**
  * @author kevinfrantz

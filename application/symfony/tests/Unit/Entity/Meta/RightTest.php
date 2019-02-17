@@ -3,13 +3,13 @@
 namespace tests\unit\Entity;
 
 use PHPUnit\Framework\TestCase;
-use App\DBAL\Types\Meta\Right\CRUDType;
-use App\Entity\Meta\RightInterface;
-use App\Entity\Meta\Right;
-use App\Entity\Meta\Law;
-use App\DBAL\Types\Meta\Right\LayerType;
-use App\Exception\NoValidChoiceException;
-use App\Entity\Source\AbstractSource;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\Entity\Meta\RightInterface;
+use Infinito\Entity\Meta\Right;
+use Infinito\Entity\Meta\Law;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Exception\NoValidChoiceException;
+use Infinito\Entity\Source\AbstractSource;
 
 /**
  * @todo Implement reciever test

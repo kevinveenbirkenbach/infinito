@@ -3,7 +3,7 @@
 namespace Event;
 
 use PHPUnit\Framework\TestCase;
-use App\Event\Menu\MenuEvent;
+use Infinito\Event\Menu\MenuEvent;
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
 use Symfony\Component\HttpFoundation\RequestStack;

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\FormManagement;
+namespace Infinito\Domain\FormManagement;
 
 use Symfony\Component\Form\FormBuilderInterface;
-use App\Domain\RequestManagement\Action\RequestedActionInterface;
+use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
 
 /**
  * Allowes to create an form which fits to an entity.

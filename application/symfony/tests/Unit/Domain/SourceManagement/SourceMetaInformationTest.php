@@ -3,15 +3,15 @@
 namespace Tests\Unit\Domain\SourceManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Complex\UserSource;
-use App\Entity\Source\Complex\UserSourceInterface;
-use App\Entity\Source\SourceInterface;
-use App\Domain\SourceManagement\SourceMetaInformation;
-use App\Domain\SourceManagement\SourceMetaInformationInterface;
-use App\Domain\TemplateManagement\TemplatePathFormAndViewInterface;
-use App\Domain\FormManagement\FormMetaInformationInterface;
-use App\Entity\EntityInterface;
-use App\Exception\NotCorrectInstanceException;
+use Infinito\Entity\Source\Complex\UserSource;
+use Infinito\Entity\Source\Complex\UserSourceInterface;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Domain\SourceManagement\SourceMetaInformation;
+use Infinito\Domain\SourceManagement\SourceMetaInformationInterface;
+use Infinito\Domain\TemplateManagement\TemplatePathFormAndViewInterface;
+use Infinito\Domain\FormManagement\FormMetaInformationInterface;
+use Infinito\Entity\EntityInterface;
+use Infinito\Exception\NotCorrectInstanceException;
 
 class SourceMetaInformationTest extends TestCase
 {

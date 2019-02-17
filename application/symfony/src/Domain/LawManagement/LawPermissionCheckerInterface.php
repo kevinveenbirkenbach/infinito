@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\LawManagement;
+namespace Infinito\Domain\LawManagement;
 
-use App\Entity\Meta\RightInterface;
+use Infinito\Entity\Meta\RightInterface;
 
 /**
  * Allows to check if a right has permission by a law.

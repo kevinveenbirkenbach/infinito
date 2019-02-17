@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Domain\SourceManagement;
+namespace Infinito\Domain\SourceManagement;
 
-use App\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
-use App\Entity\Source\Complex\Collection\TreeCollectionSource;
+use Infinito\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
+use Infinito\Entity\Source\Complex\Collection\TreeCollectionSource;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\Source\SourceInterface;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * Allows to iterate over a tree.
@@ -71,7 +71,7 @@ final class TreeSourceInformation implements TreeSourceInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\SourceManagement\TreeSourceInformationInterface::getBranches()
+     * @see \Infinito\Domain\SourceManagement\TreeSourceInformationInterface::getBranches()
      */
     public function getBranches(): Collection
     {
@@ -83,7 +83,7 @@ final class TreeSourceInformation implements TreeSourceInformationInterface
      * @todo Remove the getAllBranches use inside the function.
      * {@inheritdoc}
      *
-     * @see \App\Domain\SourceManagement\TreeSourceInformationInterface::getAllBranches()
+     * @see \Infinito\Domain\SourceManagement\TreeSourceInformationInterface::getAllBranches()
      */
     public function getAllBranches(): Collection
     {
@@ -114,7 +114,7 @@ final class TreeSourceInformation implements TreeSourceInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\SourceManagement\TreeSourceInformationInterface::getLeaves()
+     * @see \Infinito\Domain\SourceManagement\TreeSourceInformationInterface::getLeaves()
      */
     public function getLeaves(): Collection
     {
@@ -124,7 +124,7 @@ final class TreeSourceInformation implements TreeSourceInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\SourceManagement\TreeSourceInformationInterface::getAllLeaves()
+     * @see \Infinito\Domain\SourceManagement\TreeSourceInformationInterface::getAllLeaves()
      */
     public function getAllLeaves(): Collection
     {

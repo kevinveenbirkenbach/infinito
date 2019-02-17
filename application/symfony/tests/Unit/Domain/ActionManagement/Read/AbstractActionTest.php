@@ -3,11 +3,11 @@
 namespace tests\Unit\Domain\ActionManagement\Read;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\ActionManagement\ActionInterface;
-use App\Domain\ActionManagement\AbstractAction;
-use App\Domain\ActionManagement\ActionServiceInterface;
+use Infinito\Domain\ActionManagement\ActionInterface;
+use Infinito\Domain\ActionManagement\AbstractAction;
+use Infinito\Domain\ActionManagement\ActionServiceInterface;
 use PHPUnit\Framework\MockObject\MockObject;
-use App\Exception\NotValidByFormException;
+use Infinito\Exception\NotValidByFormException;
 
 /**
  * @author kevinfrantz

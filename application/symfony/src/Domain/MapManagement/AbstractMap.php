@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\MapManagement;
+namespace Infinito\Domain\MapManagement;
 
 /**
  * This class offers the basic functions for managing an 2 dimensional map.

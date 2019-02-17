@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exception;
+namespace Infinito\Exception;
 
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 

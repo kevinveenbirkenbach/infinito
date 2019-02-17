@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
-use App\Entity\Meta\Relation\Member\MemberRelationInterface;
+use Infinito\Entity\Meta\Relation\Member\MemberRelationInterface;
 
 trait MemberRelationAttribut
 {

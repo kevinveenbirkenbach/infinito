@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\FormManagement;
+namespace Infinito\Domain\FormManagement;
 
 /**
  * @author kevinfrantz
@@ -10,12 +10,12 @@ final class FormClassNameService implements FormClassNameServiceInterface
     /**
      * @var string Folder in which the entities are stored
      */
-    const ENTITY_BASE_PATH = 'App\\Entity';
+    const ENTITY_BASE_PATH = 'Infinito\\Entity';
 
     /**
      * @var string Folder in which the forms are stored
      */
-    const FORM_BASE_PATH = 'App\\Form';
+    const FORM_BASE_PATH = 'Infinito\\Form';
 
     /**
      * @var string Suffix to identifie form classes
@@ -25,7 +25,7 @@ final class FormClassNameService implements FormClassNameServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\FormManagement\FormClassNameServiceInterface::getClass()
+     * @see \Infinito\Domain\FormManagement\FormClassNameServiceInterface::getClass()
      */
     public function getClass(string $origineClass, string $type = ''): string
     {

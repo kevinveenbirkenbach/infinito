@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
-use App\Entity\Source\SourceInterface;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz

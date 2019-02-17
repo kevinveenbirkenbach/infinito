@@ -1,5 +1,5 @@
 simple_things_entity_audit:
     audited_entities:
-        #- App\Entity\AbstractSource
-        - App\Entity\NameSource
-        - App\Entity\UserSource
+        #- Infinito\Entity\AbstractSource
+        - Infinito\Entity\NameSource
+        - Infinito\Entity\UserSource

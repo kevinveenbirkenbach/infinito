@@ -4,9 +4,9 @@ namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Attribut\MembersAttributInterface;
-use App\Entity\Source\SourceInterface;
-use App\Attribut\MembersAttribut;
+use Infinito\Attribut\MembersAttributInterface;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Attribut\MembersAttribut;
 
 class MembersAttributTest extends TestCase
 {

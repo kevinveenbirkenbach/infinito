@@ -3,10 +3,10 @@
 namespace tests\unit\Entity\Source\Complex;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Complex\FullPersonNameSourceInterface;
-use App\Entity\Source\Complex\FullPersonNameSource;
-use App\Entity\Source\Primitive\Name\SurnameSourceInterface;
-use App\Entity\Source\Primitive\Name\FirstNameSourceInterface;
+use Infinito\Entity\Source\Complex\FullPersonNameSourceInterface;
+use Infinito\Entity\Source\Complex\FullPersonNameSource;
+use Infinito\Entity\Source\Primitive\Name\SurnameSourceInterface;
+use Infinito\Entity\Source\Primitive\Name\FirstNameSourceInterface;
 
 class FullPersonNameSourceTest extends TestCase
 {

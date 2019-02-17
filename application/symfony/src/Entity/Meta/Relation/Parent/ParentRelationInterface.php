@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Entity\Meta\Relation\Parent;
+namespace Infinito\Entity\Meta\Relation\Parent;
 
-use App\Attribut\ParentsAttributInterface;
-use App\Attribut\ChildsAttributInterface;
-use App\Entity\Meta\Relation\RelationInterface;
+use Infinito\Attribut\ParentsAttributInterface;
+use Infinito\Attribut\ChildsAttributInterface;
+use Infinito\Entity\Meta\Relation\RelationInterface;
 
 interface ParentRelationInterface extends RelationInterface, ParentsAttributInterface, ChildsAttributInterface
 {

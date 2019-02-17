@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domain\ActionManagement\Create;
+namespace Infinito\Domain\ActionManagement\Create;
 
-use App\Domain\SourceManagement\SourceClassInformationService;
-use App\Form\Source\SourceType;
-use App\Entity\Source\AbstractSource;
+use Infinito\Domain\SourceManagement\SourceClassInformationService;
+use Infinito\Form\Source\SourceType;
+use Infinito\Entity\Source\AbstractSource;
 use Symfony\Component\Form\Form;
 
 /**
@@ -53,7 +53,7 @@ final class CreateSourceAction extends AbstractCreateAction
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\AbstractAction::prepare()
+     * @see \Infinito\Domain\ActionManagement\AbstractAction::prepare()
      */
     protected function prepare(): void
     {
@@ -66,7 +66,7 @@ final class CreateSourceAction extends AbstractCreateAction
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\AbstractAction::isValid()
+     * @see \Infinito\Domain\ActionManagement\AbstractAction::isValid()
      */
     protected function isValid(): bool
     {
@@ -81,7 +81,7 @@ final class CreateSourceAction extends AbstractCreateAction
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\AbstractAction::proccess()
+     * @see \Infinito\Domain\ActionManagement\AbstractAction::proccess()
      */
     protected function proccess()
     {

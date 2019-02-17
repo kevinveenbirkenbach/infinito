@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Domain\EntityManagement;
+namespace Infinito\Domain\EntityManagement;
 
-use App\Entity\EntityInterface;
-use App\Domain\TemplateManagement\TemplatePathFormAndViewInterface;
-use App\Domain\FormManagement\FormMetaInformationInterface;
-use App\Domain\PathManagement\NamespacePathMap;
-use App\Domain\PathManagement\NamespacePathMapInterface;
+use Infinito\Entity\EntityInterface;
+use Infinito\Domain\TemplateManagement\TemplatePathFormAndViewInterface;
+use Infinito\Domain\FormManagement\FormMetaInformationInterface;
+use Infinito\Domain\PathManagement\NamespacePathMap;
+use Infinito\Domain\PathManagement\NamespacePathMapInterface;
 
 /**
  * Offers some meta information about an entity.

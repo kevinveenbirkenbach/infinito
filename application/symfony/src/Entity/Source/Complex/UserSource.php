@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Entity\Source\Complex;
+namespace Infinito\Entity\Source\Complex;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Attribut\UserAttribut;
-use App\Entity\UserInterface;
-use App\Attribut\PersonIdentitySourceAttribut;
+use Infinito\Attribut\UserAttribut;
+use Infinito\Entity\UserInterface;
+use Infinito\Attribut\PersonIdentitySourceAttribut;
 
 /**
  * @author kevinfrantz
- * @ORM\Entity(repositoryClass="App\Repository\Source\Complex\UserSourceRepository")
+ * @ORM\Entity(repositoryClass="Infinito\Repository\Source\Complex\UserSourceRepository")
  */
 class UserSource extends AbstractComplexSource implements UserSourceInterface
 {
     use UserAttribut,PersonIdentitySourceAttribut;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="Infinito\Entity\User",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id",onDelete="CASCADE")
      *
      * @var UserInterface

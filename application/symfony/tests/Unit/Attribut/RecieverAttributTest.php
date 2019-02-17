@@ -3,9 +3,9 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\RecieverAttributInterface;
-use App\Attribut\RecieverAttribut;
-use App\Entity\Source\AbstractSource;
+use Infinito\Attribut\RecieverAttributInterface;
+use Infinito\Attribut\RecieverAttribut;
+use Infinito\Entity\Source\AbstractSource;
 
 class RecieverAttributTest extends TestCase
 {

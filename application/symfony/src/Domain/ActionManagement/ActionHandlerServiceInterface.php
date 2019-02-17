@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\ActionManagement;
+namespace Infinito\Domain\ActionManagement;
 
-use App\Entity\EntityInterface;
+use Infinito\Entity\EntityInterface;
 
 /**
  * @author kevinfrantz

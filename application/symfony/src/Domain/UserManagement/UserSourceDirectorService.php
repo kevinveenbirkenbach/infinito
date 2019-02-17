@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Domain\UserManagement;
+namespace Infinito\Domain\UserManagement;
 
-use App\Entity\UserInterface;
+use Infinito\Entity\UserInterface;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Security\Core\Security;
-use App\Entity\Source\AbstractSource;
+use Infinito\Entity\Source\AbstractSource;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**

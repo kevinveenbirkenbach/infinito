@@ -3,9 +3,9 @@
 namespace Tests\Unit\Form;
 
 use PHPUnit\Framework\TestCase;
-use App\Form\AbstractType;
+use Infinito\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use App\Form\UserType;
+use Infinito\Form\UserType;
 use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormFactoryInterface;

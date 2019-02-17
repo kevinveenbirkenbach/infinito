@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\RequestManagement\Right;
+namespace Infinito\Domain\RequestManagement\Right;
 
-use App\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
 
 /**
  * Allows to use a right as a Service.

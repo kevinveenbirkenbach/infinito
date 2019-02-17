@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Meta\Relation\Member\MemberRelationInterface;
+use Infinito\Entity\Meta\Relation\Member\MemberRelationInterface;
 
 /**
  * @author kevinfrantz

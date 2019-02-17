@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Domain\EntityManagement;
+namespace Infinito\Domain\EntityManagement;
 
-use App\Domain\TemplateManagement\TemplatePathFormAndViewInterface;
-use App\Entity\EntityInterface;
-use App\Domain\TemplateManagement\TemplatePathFormAndView;
-use App\Domain\FormManagement\FormMetaInformationInterface;
-use App\Domain\FormManagement\FormMetaInformation;
-use App\Domain\PathManagement\NamespacePathMapInterface;
-use App\Domain\PathManagement\NamespacePathMap;
+use Infinito\Domain\TemplateManagement\TemplatePathFormAndViewInterface;
+use Infinito\Entity\EntityInterface;
+use Infinito\Domain\TemplateManagement\TemplatePathFormAndView;
+use Infinito\Domain\FormManagement\FormMetaInformationInterface;
+use Infinito\Domain\FormManagement\FormMetaInformation;
+use Infinito\Domain\PathManagement\NamespacePathMapInterface;
+use Infinito\Domain\PathManagement\NamespacePathMap;
 
 /**
  * @author kevinfrantz
@@ -74,7 +74,7 @@ class EntityMetaInformation implements EntityMetaInformationInterface
     private function setNamespacePathMap(): void
     {
         $namespace = $this->entityReflection->getNamespaceName();
-        $namespaceWithoutRoot = str_replace('App\\Entity\\', '', $namespace);
+        $namespaceWithoutRoot = str_replace('Infinito\\Entity\\', '', $namespace);
         $this->namespacePathMap = new NamespacePathMap();
         $this->namespacePathMap->setNamespace($namespaceWithoutRoot);
     }
@@ -94,7 +94,7 @@ class EntityMetaInformation implements EntityMetaInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\EntityManagement\EntityMetaInformationInterface::getInterfaceReflection()
+     * @see \Infinito\Domain\EntityManagement\EntityMetaInformationInterface::getInterfaceReflection()
      */
     public function getInterfaceReflection(): \ReflectionClass
     {
@@ -104,7 +104,7 @@ class EntityMetaInformation implements EntityMetaInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\EntityManagement\EntityMetaInformationInterface::getPureName()
+     * @see \Infinito\Domain\EntityManagement\EntityMetaInformationInterface::getPureName()
      */
     public function getPureName(): string
     {
@@ -114,7 +114,7 @@ class EntityMetaInformation implements EntityMetaInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\EntityManagement\EntityMetaInformationInterface::getTemplatePathFormAndView()
+     * @see \Infinito\Domain\EntityManagement\EntityMetaInformationInterface::getTemplatePathFormAndView()
      */
     public function getTemplatePathFormAndView(): TemplatePathFormAndViewInterface
     {
@@ -124,7 +124,7 @@ class EntityMetaInformation implements EntityMetaInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\EntityManagement\EntityMetaInformationInterface::getEntity()
+     * @see \Infinito\Domain\EntityManagement\EntityMetaInformationInterface::getEntity()
      */
     public function getEntity(): EntityInterface
     {
@@ -134,7 +134,7 @@ class EntityMetaInformation implements EntityMetaInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\EntityManagement\EntityMetaInformationInterface::getEntityReflection()
+     * @see \Infinito\Domain\EntityManagement\EntityMetaInformationInterface::getEntityReflection()
      */
     public function getEntityReflection(): \ReflectionClass
     {
@@ -144,7 +144,7 @@ class EntityMetaInformation implements EntityMetaInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\EntityManagement\EntityMetaInformationInterface::getFormMetaInformation()
+     * @see \Infinito\Domain\EntityManagement\EntityMetaInformationInterface::getFormMetaInformation()
      */
     public function getFormMetaInformation(): FormMetaInformationInterface
     {
@@ -154,7 +154,7 @@ class EntityMetaInformation implements EntityMetaInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\EntityManagement\EntityMetaInformationInterface::getNamespacePathMap()
+     * @see \Infinito\Domain\EntityManagement\EntityMetaInformationInterface::getNamespacePathMap()
      */
     public function getNamespacePathMap(): NamespacePathMapInterface
     {

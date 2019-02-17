@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Tests\Unit;
+namespace Infinito\Tests\Unit;
 
-use App\Kernel;
-use App\Tests\AbstractTestCase;
+use Infinito\Kernel;
+use Tests\AbstractTestCase;
 
 /**
  * This tests just exist to keep the code covering high.

@@ -3,13 +3,13 @@
 namespace tests\unit\Entity;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\User;
-use App\Entity\Source\Complex\UserSource;
-use App\Entity\UserInterface;
+use Infinito\Entity\User;
+use Infinito\Entity\Source\Complex\UserSource;
+use Infinito\Entity\UserInterface;
 
 /**
  * @author kevinfrantz
-use App\Entity\Source\UserSource;
+use Infinito\Entity\Source\UserSource;
  */
 class UserTest extends TestCase
 {

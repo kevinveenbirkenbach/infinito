@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\UserManagement;
+namespace Infinito\Domain\UserManagement;
 
-use App\Entity\UserInterface;
+use Infinito\Entity\UserInterface;
 
 /**
  * Offers based on an user variable a user with a source.

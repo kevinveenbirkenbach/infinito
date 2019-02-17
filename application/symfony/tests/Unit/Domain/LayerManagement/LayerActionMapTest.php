@@ -3,9 +3,9 @@
 namespace tests\Unit\Domain\LayerManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\DBAL\Types\ActionType;
-use App\Domain\LayerManagement\LayerActionMap;
-use App\DBAL\Types\Meta\Right\LayerType;
+use Infinito\DBAL\Types\ActionType;
+use Infinito\Domain\LayerManagement\LayerActionMap;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
 
 /**
  * @author kevinfrantz

@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Entity\Meta;
+namespace Infinito\Entity\Meta;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Attribut\RightsAttribut;
+use Infinito\Attribut\RightsAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Attribut\RelationAttribut;
-use App\Entity\Source\SourceInterface;
-use App\Attribut\GrantAttribut;
+use Infinito\Attribut\RelationAttribut;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Attribut\GrantAttribut;
 
 /**
  * @author kevinfrantz
  * @ORM\Table(name="meta_law")
- * @ORM\Entity(repositoryClass="App\Repository\Meta\LawRepository")
+ * @ORM\Entity(repositoryClass="Infinito\Repository\Meta\LawRepository")
  */
 class Law extends AbstractMeta implements LawInterface
 {
@@ -26,7 +26,7 @@ class Law extends AbstractMeta implements LawInterface
     protected $grant;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Source\AbstractSource",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="Infinito\Entity\Source\AbstractSource",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="source_id", referencedColumnName="id",onDelete="CASCADE")
      *
      * @var SourceInterface

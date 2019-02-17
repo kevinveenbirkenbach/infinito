@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Domain\ActionManagement;
+namespace Infinito\Domain\ActionManagement;
 
-use App\Domain\RequestManagement\Action\RequestedActionInterface;
-use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
+use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
-use App\Repository\RepositoryInterface;
+use Infinito\Repository\RepositoryInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
-use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
-use App\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
+use Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
+use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
 
 /**
  * @author kevinfrantz
@@ -64,7 +64,7 @@ final class ActionService implements ActionServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\ActionServiceInterface::getRequestedAction()
+     * @see \Infinito\Domain\ActionManagement\ActionServiceInterface::getRequestedAction()
      */
     public function getRequestedAction(): RequestedActionInterface
     {
@@ -74,7 +74,7 @@ final class ActionService implements ActionServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\ActionServiceInterface::isRequestedActionSecure()
+     * @see \Infinito\Domain\ActionManagement\ActionServiceInterface::isRequestedActionSecure()
      */
     public function isRequestedActionSecure(): bool
     {
@@ -92,7 +92,7 @@ final class ActionService implements ActionServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\ActionServiceInterface::getRequest()
+     * @see \Infinito\Domain\ActionManagement\ActionServiceInterface::getRequest()
      */
     public function getRequest(): Request
     {
@@ -100,9 +100,9 @@ final class ActionService implements ActionServiceInterface
     }
 
     /**
-     * {@use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;inheritDoc}.
+     * {@use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;inheritDoc}.
      *
-     * @see \App\Domain\ActionManagement\ActionServiceInterface::getRepository()
+     * @see \Infinito\Domain\ActionManagement\ActionServiceInterface::getRepository()
      */
     public function getRepository(): RepositoryInterface
     {
@@ -114,7 +114,7 @@ final class ActionService implements ActionServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\ActionServiceInterface::getEntityManager()
+     * @see \Infinito\Domain\ActionManagement\ActionServiceInterface::getEntityManager()
      */
     public function getEntityManager(): EntityManagerInterface
     {

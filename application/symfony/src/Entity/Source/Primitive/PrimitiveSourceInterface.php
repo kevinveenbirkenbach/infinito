@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\Source\Primitive;
+namespace Infinito\Entity\Source\Primitive;
 
-use App\Entity\Source\SourceInterface;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * Primitive sources contain one attribut, which is not a source.

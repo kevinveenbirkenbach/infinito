@@ -4,13 +4,13 @@ namespace tests\Unit\Domain\SecureCRUDManagement\CRUD\Read;
 
 use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Framework\TestCase;
-use App\Domain\ActionManagement\Read\ReadAction;
-use App\Domain\ActionManagement\ActionServiceInterface;
-use App\Domain\ActionManagement\Read\ReadActionInterface;
-use App\Exception\NotSecureException;
-use App\Domain\RequestManagement\Action\RequestedActionInterface;
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use App\Entity\Source\SourceInterface;
+use Infinito\Domain\ActionManagement\Read\ReadAction;
+use Infinito\Domain\ActionManagement\ActionServiceInterface;
+use Infinito\Domain\ActionManagement\Read\ReadActionInterface;
+use Infinito\Exception\NotSecureException;
+use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz

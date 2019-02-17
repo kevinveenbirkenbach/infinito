@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
 
 /**
  * @author kevinfrantz

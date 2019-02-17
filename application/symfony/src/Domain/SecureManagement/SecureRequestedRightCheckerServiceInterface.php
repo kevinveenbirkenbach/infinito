@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\SecureManagement;
+namespace Infinito\Domain\SecureManagement;
 
-use App\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
 
 /**
  * Allows to check if a RequestedRight is valid.

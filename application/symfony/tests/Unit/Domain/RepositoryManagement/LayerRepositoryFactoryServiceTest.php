@@ -3,11 +3,11 @@
 namespace tests\Unit\Domain\RepositoryManagement;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
-use App\Domain\RepositoryManagement\LayerRepositoryFactoryService;
-use App\Repository\RepositoryInterface;
-use App\Exception\NotSetException;
-use App\Domain\LayerManagement\LayerClassMap;
+use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryService;
+use Infinito\Repository\RepositoryInterface;
+use Infinito\Exception\NotSetException;
+use Infinito\Domain\LayerManagement\LayerClassMap;
 
 /**
  * @author kevinfrantz

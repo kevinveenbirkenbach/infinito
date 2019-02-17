@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\ActionManagement\Read;
+namespace Infinito\Domain\ActionManagement\Read;
 
-use App\Domain\ActionManagement\ActionInterface;
+use Infinito\Domain\ActionManagement\ActionInterface;
 
 /**
  * Needed for mocking with PHPUnit!

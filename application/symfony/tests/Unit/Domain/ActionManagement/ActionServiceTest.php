@@ -3,21 +3,21 @@
 namespace tests\Unit\Domain\ActionManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\ActionManagement\ActionService;
-use App\Domain\RequestManagement\Action\RequestedActionInterface;
+use Infinito\Domain\ActionManagement\ActionService;
+use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
-use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
-use App\Domain\ActionManagement\ActionServiceInterface;
-use App\Repository\RepositoryInterface;
+use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\ActionManagement\ActionServiceInterface;
+use Infinito\Repository\RepositoryInterface;
 use Symfony\Component\HttpFoundation\Request;
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use PHPUnit\Framework\MockObject\MockObject;
-use App\Entity\EntityInterface;
+use Infinito\Entity\EntityInterface;
 use Symfony\Component\Form\FormBuilderInterface;
-use App\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
-use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
-use App\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
+use Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
+use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
 
 /**
  * @author kevinfrantz

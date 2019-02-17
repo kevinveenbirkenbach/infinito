@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
-use App\Entity\UserInterface;
+use Infinito\Entity\UserInterface;
 
 /**
  * @author kevinfrantz

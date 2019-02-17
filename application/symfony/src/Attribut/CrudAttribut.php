@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
-use App\Exception\NoValidChoiceException;
-use App\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\Exception\NoValidChoiceException;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
 
 /**
  * @author kevinfrantz

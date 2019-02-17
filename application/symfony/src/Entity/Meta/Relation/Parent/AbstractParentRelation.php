@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Entity\Meta\Relation\Parent;
+namespace Infinito\Entity\Meta\Relation\Parent;
 
-use App\Attribut\IdAttribut;
-use App\Attribut\ParentsAttribut;
-use App\Attribut\ChildsAttribut;
+use Infinito\Attribut\IdAttribut;
+use Infinito\Attribut\ParentsAttribut;
+use Infinito\Attribut\ChildsAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\Meta\Relation\AbstractRelation;
+use Infinito\Entity\Meta\Relation\AbstractRelation;
 
 /**
  * This class represents a relation.

@@ -3,16 +3,16 @@
 namespace tests\Unit\Domain\SecureCRUDManagement\Factory;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\ActionManagement\ActionFactoryServiceInterface;
-use App\Domain\ActionManagement\ActionFactoryService;
-use App\Domain\ActionManagement\ActionServiceInterface;
-use App\Domain\ActionManagement\ActionInterface;
-use App\Domain\RequestManagement\Action\RequestedActionInterface;
-use App\Domain\RequestManagement\Action\RequestedAction;
-use App\Domain\RequestManagement\Right\RequestedRight;
-use App\Domain\LayerManagement\LayerActionMap;
-use App\Domain\RequestManagement\User\RequestedUser;
-use App\Domain\UserManagement\UserSourceDirectorInterface;
+use Infinito\Domain\ActionManagement\ActionFactoryServiceInterface;
+use Infinito\Domain\ActionManagement\ActionFactoryService;
+use Infinito\Domain\ActionManagement\ActionServiceInterface;
+use Infinito\Domain\ActionManagement\ActionInterface;
+use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
+use Infinito\Domain\RequestManagement\Action\RequestedAction;
+use Infinito\Domain\RequestManagement\Right\RequestedRight;
+use Infinito\Domain\LayerManagement\LayerActionMap;
+use Infinito\Domain\RequestManagement\User\RequestedUser;
+use Infinito\Domain\UserManagement\UserSourceDirectorInterface;
 
 /**
  * @author kevinfrantz

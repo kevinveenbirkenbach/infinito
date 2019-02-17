@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
-use App\Exception\UnvalidValueException;
+use Infinito\Exception\UnvalidValueException;
 
 /**
  * @author kevinfrantz

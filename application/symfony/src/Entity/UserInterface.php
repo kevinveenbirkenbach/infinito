@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Entity;
+namespace Infinito\Entity;
 
 use FOS\UserBundle\Model\UserInterface as FOSUserInterface;
-use App\Attribut\SourceAttributInterface;
-use App\Attribut\VersionAttributInterface;
+use Infinito\Attribut\SourceAttributInterface;
+use Infinito\Attribut\VersionAttributInterface;
 
 /**
  * @author kevinfrantz

@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Form\Type;
+namespace Infinito\Form\Type;
 
-use App\Form\AbstractType;
+use Infinito\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use App\Domain\SourceManagement\SourceClassInformationService;
+use Infinito\Domain\SourceManagement\SourceClassInformationService;
 
 /**
  * @author kevinfrantz
  */
 final class SourceType extends AbstractType implements SourceTypeInterface
 {
-    const UNUSED_PRAEFIX = 'App\\Entity\\Source';
+    const UNUSED_PRAEFIX = 'Infinito\\Entity\\Source';
 
     /**
      * @param string $class

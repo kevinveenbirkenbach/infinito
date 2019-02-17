@@ -3,8 +3,8 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\IdAttribut;
-use App\Attribut\IdAttributInterface;
+use Infinito\Attribut\IdAttribut;
+use Infinito\Attribut\IdAttributInterface;
 
 /**
  * @author kevinfrantz

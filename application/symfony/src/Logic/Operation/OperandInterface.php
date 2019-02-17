@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Logic\Operation;
+namespace Infinito\Logic\Operation;
 
-use App\Logic\Result\ResultInterface;
+use Infinito\Logic\Result\ResultInterface;
 
 /**
  * @author kevinfrantz

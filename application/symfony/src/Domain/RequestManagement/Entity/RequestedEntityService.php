@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\RequestManagement\Entity;
+namespace Infinito\Domain\RequestManagement\Entity;
 
-use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 
 /**
  * @author kevinfrantz

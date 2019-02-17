@@ -3,19 +3,19 @@
 namespace tests\Unit\Domain\RightManagement\User;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\User;
-use App\Domain\RequestManagement\User\RequestedUser;
-use App\DBAL\Types\Meta\Right\LayerType;
-use App\DBAL\Types\Meta\Right\CRUDType;
-use App\Entity\Source\AbstractSource;
-use App\Domain\UserManagement\UserSourceDirectorInterface;
-use App\Domain\RequestManagement\Right\RequestedRightInterface;
-use App\Domain\RequestManagement\Right\RequestedRight;
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use App\DBAL\Types\SystemSlugType;
-use App\Exception\SetNotPossibleException;
-use App\Entity\Source\SourceInterface;
-use App\Domain\RequestManagement\Right\AbstractRequestedRightFacade;
+use Infinito\Entity\User;
+use Infinito\Domain\RequestManagement\User\RequestedUser;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Domain\UserManagement\UserSourceDirectorInterface;
+use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Domain\RequestManagement\Right\RequestedRight;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\DBAL\Types\SystemSlugType;
+use Infinito\Exception\SetNotPossibleException;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Domain\RequestManagement\Right\AbstractRequestedRightFacade;
 
 /**
  * @author kevinfrantz

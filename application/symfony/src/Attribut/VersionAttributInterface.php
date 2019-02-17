@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
 /**
  * Entities which implement this interface can lock stuff on an optimistic base.

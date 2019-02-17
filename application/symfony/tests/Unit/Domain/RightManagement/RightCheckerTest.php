@@ -3,14 +3,14 @@
 namespace Tests\Unit\Domain\RightManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Meta\RightInterface;
-use App\Entity\Meta\Right;
-use App\Entity\Source\SourceInterface;
-use App\DBAL\Types\Meta\Right\LayerType;
-use App\Domain\RightManagement\RightCheckerInterface;
-use App\Domain\RightManagement\RightChecker;
-use App\DBAL\Types\Meta\Right\CRUDType;
-use App\Entity\Source\PureSource;
+use Infinito\Entity\Meta\RightInterface;
+use Infinito\Entity\Meta\Right;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Domain\RightManagement\RightCheckerInterface;
+use Infinito\Domain\RightManagement\RightChecker;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\Entity\Source\PureSource;
 
 /**
  * @author kevinfrantz

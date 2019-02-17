@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\ActionManagement;
+namespace Infinito\Domain\ActionManagement;
 
 /**
  * @author kevinfrantz
@@ -23,7 +23,7 @@ final class ActionHandlerService implements ActionHandlerServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\ActionHandlerServiceInterface::handle()
+     * @see \Infinito\Domain\ActionManagement\ActionHandlerServiceInterface::handle()
      */
     public function handle()
     {

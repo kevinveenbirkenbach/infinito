@@ -3,10 +3,10 @@
 namespace tests\Unit\Domain\RequestManagement\User;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\RequestManagement\User\RequestedUserService;
-use App\Domain\UserManagement\UserSourceDirectorServiceInterface;
-use App\Domain\RequestManagement\User\RequestedUserServiceInterface;
-use App\Domain\RequestManagement\Right\RequestedRightServiceInterface;
+use Infinito\Domain\RequestManagement\User\RequestedUserService;
+use Infinito\Domain\UserManagement\UserSourceDirectorServiceInterface;
+use Infinito\Domain\RequestManagement\User\RequestedUserServiceInterface;
+use Infinito\Domain\RequestManagement\Right\RequestedRightServiceInterface;
 
 /**
  * @author kevinfrantz

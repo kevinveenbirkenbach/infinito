@@ -3,9 +3,9 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\RequestedEntityAttribut;
-use App\Attribut\RequestedEntityAttributInterface;
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\Attribut\RequestedEntityAttribut;
+use Infinito\Attribut\RequestedEntityAttributInterface;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
 
 /**
  * @author kevinfrantz

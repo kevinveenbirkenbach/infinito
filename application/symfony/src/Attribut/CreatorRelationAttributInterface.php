@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
-use App\Entity\Meta\Relation\Parent\CreatorRelationInterface;
+use Infinito\Entity\Meta\Relation\Parent\CreatorRelationInterface;
 
 interface CreatorRelationAttributInterface
 {

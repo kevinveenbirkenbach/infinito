@@ -3,9 +3,9 @@
 namespace Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\ClassAttributInterface;
-use App\Attribut\ClassAttribut;
-use App\Entity\Source\AbstractSource;
+use Infinito\Attribut\ClassAttributInterface;
+use Infinito\Attribut\ClassAttribut;
+use Infinito\Entity\Source\AbstractSource;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ClassAttributTest extends TestCase

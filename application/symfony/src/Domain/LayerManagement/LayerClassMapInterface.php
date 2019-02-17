@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\LayerManagement;
+namespace Infinito\Domain\LayerManagement;
 
 /**
  * @author kevinfrantz

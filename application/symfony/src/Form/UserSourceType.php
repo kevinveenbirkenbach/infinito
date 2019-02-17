@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Form;
+namespace Infinito\Form;
 
-use App\Entity\User;
+use Infinito\Entity\User;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 

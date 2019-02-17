@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DBAL\Types;
+namespace Infinito\DBAL\Types;
 
 use Fresh\DoctrineEnumBundle\DBAL\Types\AbstractEnumType;
 

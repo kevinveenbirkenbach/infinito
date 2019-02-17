@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Form\Source;
+namespace Infinito\Form\Source;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use App\Entity\Source\PureSource;
-use App\Attribut\SlugAttributInterface;
-use App\Attribut\ClassAttributInterface;
+use Infinito\Entity\Source\PureSource;
+use Infinito\Attribut\SlugAttributInterface;
+use Infinito\Attribut\ClassAttributInterface;
 
 /**
  * @author kevinfrantz

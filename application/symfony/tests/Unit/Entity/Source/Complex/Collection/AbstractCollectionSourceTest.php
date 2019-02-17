@@ -3,8 +3,8 @@
 namespace Tests\Unit\Entity\Source\Complex\Collection;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Complex\Collection\CollectionSourceInterface;
-use App\Entity\Source\Complex\Collection\AbstractCollectionSource;
+use Infinito\Entity\Source\Complex\Collection\CollectionSourceInterface;
+use Infinito\Entity\Source\Complex\Collection\AbstractCollectionSource;
 use Doctrine\Common\Collections\Collection;
 
 class AbstractCollectionSourceTest extends TestCase

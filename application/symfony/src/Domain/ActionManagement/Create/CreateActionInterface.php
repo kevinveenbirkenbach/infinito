@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\ActionManagement\Create;
+namespace Infinito\Domain\ActionManagement\Create;
 
-use App\Domain\ActionManagement\ActionInterface;
+use Infinito\Domain\ActionManagement\ActionInterface;
 
 /**
  * @author kevinfrantz

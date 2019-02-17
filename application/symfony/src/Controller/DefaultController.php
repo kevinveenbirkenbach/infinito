@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Controller;
+namespace Infinito\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
-use App\Domain\MVCManagement\MVCRoutineServiceInterface;
-use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
-use App\DBAL\Types\ActionType;
-use App\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
-use App\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Domain\MVCManagement\MVCRoutineServiceInterface;
+use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use Infinito\DBAL\Types\ActionType;
+use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
 
 /**
  * This controller offers the standart routes for the template.

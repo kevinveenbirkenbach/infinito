@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\TemplateManagement;
+namespace Infinito\Domain\TemplateManagement;
 
-use App\DBAL\Types\RESTResponseType;
+use Infinito\DBAL\Types\RESTResponseType;
 
 /**
  * Manages all informations which are needed to process templates.

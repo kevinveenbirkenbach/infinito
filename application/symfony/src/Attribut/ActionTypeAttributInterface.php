@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
-use App\DBAL\Types\ActionType;
+use Infinito\DBAL\Types\ActionType;
 
 /**
  * @author kevinfrantz

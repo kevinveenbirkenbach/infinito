@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity\Source\Primitive\Text;
+namespace Infinito\Entity\Source\Primitive\Text;
 
-use App\Entity\Source\Primitive\AbstractPrimitiveSource;
-use App\Attribut\TextAttribut;
+use Infinito\Entity\Source\Primitive\AbstractPrimitiveSource;
+use Infinito\Attribut\TextAttribut;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

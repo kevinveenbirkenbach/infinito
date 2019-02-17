@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Repository\Source;
+namespace Infinito\Repository\Source;
 
-use App\Entity\Source\SourceInterface;
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use App\Repository\AbstractRepository;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\Repository\AbstractRepository;
 
 /**
  * @author kevinfrantz
@@ -14,7 +14,7 @@ final class SourceRepository extends AbstractRepository implements SourceReposit
     /**
      * {@inheritdoc}
      *
-     * @see \App\Repository\Source\SourceRepositoryInterface::findOneBySlug()
+     * @see \Infinito\Repository\Source\SourceRepositoryInterface::findOneBySlug()
      */
     public function findOneBySlug(string $slug): ?SourceInterface
     {
@@ -26,7 +26,7 @@ final class SourceRepository extends AbstractRepository implements SourceReposit
     /**
      * {@inheritdoc}
      *
-     * @see \App\Repository\Source\SourceRepositoryInterface::findOneByIdOrSlug()
+     * @see \Infinito\Repository\Source\SourceRepositoryInterface::findOneByIdOrSlug()
      */
     public function findOneByIdOrSlug(RequestedEntityInterface $requestedSource): ?SourceInterface
     {

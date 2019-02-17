@@ -3,9 +3,9 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\RequestManagement\Right\RequestedRightInterface;
-use App\Attribut\RequestedRightAttributInterface;
-use App\Attribut\RequestedRightAttribut;
+use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Attribut\RequestedRightAttributInterface;
+use Infinito\Attribut\RequestedRightAttribut;
 
 /**
  * @author kevinfrantz

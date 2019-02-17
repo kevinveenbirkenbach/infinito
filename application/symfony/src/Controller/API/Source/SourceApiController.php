@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Controller\API\Source;
+namespace Infinito\Controller\API\Source;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use App\Controller\API\AbstractAPIController;
-use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
-use App\Domain\MVCManagement\MVCRoutineServiceInterface;
-use App\DBAL\Types\ActionType;
-use App\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Controller\API\AbstractAPIController;
+use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use Infinito\Domain\MVCManagement\MVCRoutineServiceInterface;
+use Infinito\DBAL\Types\ActionType;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
 
 /**
  * @author kevinfrantz
@@ -25,7 +25,7 @@ class SourceApiController extends AbstractAPIController
      * )
      * {@inheritdoc}
      *
-     * @see \App\Controller\API\AbstractAPIController::read()
+     * @see \Infinito\Controller\API\AbstractAPIController::read()
      */
     public function read(MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, $identifier): Response
     {
@@ -44,7 +44,7 @@ class SourceApiController extends AbstractAPIController
      * )
      * {@inheritdoc}
      *
-     * @see \App\Controller\API\AbstractAPIController::update()
+     * @see \Infinito\Controller\API\AbstractAPIController::update()
      */
     public function update(Request $request, $identifier): Response
     {
@@ -57,7 +57,7 @@ class SourceApiController extends AbstractAPIController
      * )
      * {@inheritdoc}
      *
-     * @see \App\Controller\API\AbstractAPIController::list()
+     * @see \Infinito\Controller\API\AbstractAPIController::list()
      */
     public function list(Request $request): Response
     {
@@ -70,7 +70,7 @@ class SourceApiController extends AbstractAPIController
      * )
      * {@inheritdoc}
      *
-     * @see \App\Controller\API\AbstractAPIController::delete()
+     * @see \Infinito\Controller\API\AbstractAPIController::delete()
      */
     public function delete(Request $request, $identifier): Response
     {

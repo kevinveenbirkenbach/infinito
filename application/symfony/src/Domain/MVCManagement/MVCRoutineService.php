@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Domain\MVCManagement;
+namespace Infinito\Domain\MVCManagement;
 
 use FOS\RestBundle\View\View;
-use App\Entity\EntityInterface;
-use App\Domain\ActionManagement\ActionHandlerServiceInterface;
-use App\Domain\TemplateManagement\TemplateNameServiceInterface;
+use Infinito\Entity\EntityInterface;
+use Infinito\Domain\ActionManagement\ActionHandlerServiceInterface;
+use Infinito\Domain\TemplateManagement\TemplateNameServiceInterface;
 
 /**
  * @author kevinfrantz
@@ -51,7 +51,7 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\MVCManagement\MVCRoutineServiceInterface::process()
+     * @see \Infinito\Domain\MVCManagement\MVCRoutineServiceInterface::process()
      */
     public function process(): View
     {
@@ -65,7 +65,7 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\MVCManagement\MVCRoutineServiceInterface::getView()
+     * @see \Infinito\Domain\MVCManagement\MVCRoutineServiceInterface::getView()
      */
     public function getView(array $data): View
     {

@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Domain\LawManagement;
+namespace Infinito\Domain\LawManagement;
 
 use PhpCollection\CollectionInterface;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\Meta\RightInterface;
+use Infinito\Entity\Meta\RightInterface;
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Meta\LawInterface;
-use App\Domain\RightManagement\RightChecker;
-use App\Entity\Source\SourceInterface;
-use App\Domain\SourceManagement\SourceMemberInformation;
+use Infinito\Entity\Meta\LawInterface;
+use Infinito\Domain\RightManagement\RightChecker;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Domain\SourceManagement\SourceMemberInformation;
 
 /**
  * @todo Implement checking by operation sources
@@ -163,7 +163,7 @@ final class LawPermissionChecker implements LawPermissionCheckerInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\LawManagement\LawPermissionCheckerInterface::hasPermission()
+     * @see \Infinito\Domain\LawManagement\LawPermissionCheckerInterface::hasPermission()
      */
     public function hasPermission(RightInterface $clientRight): bool
     {

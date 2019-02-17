@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\FormManagement;
+namespace Infinito\Domain\FormManagement;
 
 use Symfony\Component\Form\FormBuilderInterface;
 

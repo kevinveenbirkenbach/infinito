@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Entity\Source\Complex;
+namespace Infinito\Entity\Source\Complex;
 
-use App\Attribut\FirstNameSourceAttribut;
-use App\Attribut\SurnameSourceAttribut;
-use App\Entity\Source\Primitive\Name\SurnameSource;
-use App\Entity\Source\Primitive\Name\FirstNameSource;
+use Infinito\Attribut\FirstNameSourceAttribut;
+use Infinito\Attribut\SurnameSourceAttribut;
+use Infinito\Entity\Source\Primitive\Name\SurnameSource;
+use Infinito\Entity\Source\Primitive\Name\FirstNameSource;
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Source\Primitive\Name\SurnameSourceInterface;
-use App\Entity\Source\Primitive\Name\FirstNameSourceInterface;
+use Infinito\Entity\Source\Primitive\Name\SurnameSourceInterface;
+use Infinito\Entity\Source\Primitive\Name\FirstNameSourceInterface;
 
 /**
  * @author kevinfrantz
@@ -19,7 +19,7 @@ class FullPersonNameSource extends AbstractComplexSource implements FullPersonNa
     use FirstNameSourceAttribut,SurnameSourceAttribut;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Source\Primitive\Name\SurnameSource",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="Infinito\Entity\Source\Primitive\Name\SurnameSource",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="surname_id", referencedColumnName="id",onDelete="CASCADE")
      *
      * @var SurnameSourceInterface
@@ -27,7 +27,7 @@ class FullPersonNameSource extends AbstractComplexSource implements FullPersonNa
     protected $surnameSource;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Source\Primitive\Name\FirstNameSource",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="Infinito\Entity\Source\Primitive\Name\FirstNameSource",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="firstname_id", referencedColumnName="id",onDelete="CASCADE")
      *
      * @var FirstNameSourceInterface

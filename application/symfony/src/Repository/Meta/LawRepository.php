@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository\Meta;
+namespace Infinito\Repository\Meta;
 
-use App\Repository\AbstractRepository;
+use Infinito\Repository\AbstractRepository;
 
 /**
  * @author kevinfrantz

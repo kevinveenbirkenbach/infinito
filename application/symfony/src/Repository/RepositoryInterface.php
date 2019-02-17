@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace Infinito\Repository;
 
 use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\Common\Collections\Selectable;

@@ -1,33 +1,33 @@
 <?php
 
-namespace App\Entity\Meta;
+namespace Infinito\Entity\Meta;
 
-use App\Attribut\CrudAttribut;
+use Infinito\Attribut\CrudAttribut;
 use Doctrine\ORM\Mapping as ORM;
 use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
-use App\Attribut\LawAttribut;
-use App\Attribut\GrantAttribut;
-use App\Logic\Operation\OperationInterface;
-use App\Attribut\ConditionAttribut;
-use App\Attribut\RecieverAttribut;
-use App\Attribut\LayerAttribut;
-use App\Attribut\RelationAttribut;
-use App\Attribut\PriorityAttribut;
-use App\Entity\Source\SourceInterface;
+use Infinito\Attribut\LawAttribut;
+use Infinito\Attribut\GrantAttribut;
+use Infinito\Logic\Operation\OperationInterface;
+use Infinito\Attribut\ConditionAttribut;
+use Infinito\Attribut\RecieverAttribut;
+use Infinito\Attribut\LayerAttribut;
+use Infinito\Attribut\RelationAttribut;
+use Infinito\Attribut\PriorityAttribut;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * @todo Remove relation attribut!
  *
  * @author kevinfrantz
  * @ORM\Table(name="meta_right")
- * @ORM\Entity(repositoryClass="App\Repository\Meta\RightRepository")
+ * @ORM\Entity(repositoryClass="Infinito\Repository\Meta\RightRepository")
  */
 class Right extends AbstractMeta implements RightInterface
 {
     use CrudAttribut,LawAttribut, RelationAttribut, GrantAttribut,ConditionAttribut,RecieverAttribut,LayerAttribut,PriorityAttribut;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Source\AbstractSource",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="Infinito\Entity\Source\AbstractSource",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="source_id", referencedColumnName="id",onDelete="CASCADE")
      *
      * @var SourceInterface The requested source to which the law applies
@@ -51,7 +51,7 @@ class Right extends AbstractMeta implements RightInterface
 
     /**
      * @ORM\Column(name="layer", type="LayerType", nullable=false)
-     * @DoctrineAssert\Enum(entity="App\DBAL\Types\Meta\Right\LayerType")
+     * @DoctrineAssert\Enum(entity="Infinito\DBAL\Types\Meta\Right\LayerType")
      *
      * @var string
      */
@@ -59,7 +59,7 @@ class Right extends AbstractMeta implements RightInterface
 
     /**
      * @todo Test and implement it on an correct way!
-     * @ORM\OneToOne(targetEntity="App\Entity\Source\AbstractSource",cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="Infinito\Entity\Source\AbstractSource",cascade={"persist"})
      * @ORM\JoinColumn(name="reciever_id", referencedColumnName="id",onDelete="CASCADE",nullable=true)
      *
      * @var SourceInterface|null if null then the right should apply to all sources
@@ -75,14 +75,14 @@ class Right extends AbstractMeta implements RightInterface
 
     /**
      * @ORM\Column(name="crud", type="CRUDType", nullable=false)
-     * @DoctrineAssert\Enum(entity="App\DBAL\Types\Meta\Right\CRUDType")
+     * @DoctrineAssert\Enum(entity="Infinito\DBAL\Types\Meta\Right\CRUDType")
      *
      * @var string
      */
     protected $crud;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Source\Operation\AbstractOperation",cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="Infinito\Entity\Source\Operation\AbstractOperation",cascade={"persist"})
      * @ORM\JoinColumn(name="operation_id", referencedColumnName="id",nullable=true)
      *
      * @var OperationInterface

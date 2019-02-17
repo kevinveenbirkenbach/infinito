@@ -14,7 +14,7 @@ services:
                             # fetching services directly from the container via $container->get() won't work.
                             # The best practice is to be explicit about your dependencies anyway.
     app.menu_builder:
-        class: App\Menu\Menu
+        class: Infinito\Menu\Menu
     app.menu.usertopbar:
         class: Knp\Menu\MenuItem
         factory: ['@app.menu_builder', 'userTopbar']
@@ -32,12 +32,12 @@ services:
             - { name: knp_menu.menu, alias: nodeSubbar }
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
-    App\:
+    Infinito\:
         resource: '../src/*'
         exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Exception,Kernel.php}'
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
-    App\Controller\:
+    Infinito\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
@@ -45,22 +45,22 @@ services:
     # please note that last definitions always *replace* previous ones
     
     # Needed for integration tests
-    App\Domain\RequestManagement\Entity\RequestedEntityService:
+    Infinito\Domain\RequestManagement\Entity\RequestedEntityService:
         public: true
-    App\Domain\RequestManagement\Right\RequestedRightService:
+    Infinito\Domain\RequestManagement\Right\RequestedRightService:
         public: true
-    App\Domain\UserManagement\UserSourceDirectorService:
+    Infinito\Domain\UserManagement\UserSourceDirectorService:
         public: true
-    App\Domain\RequestManagement\User\RequestedUserService:
+    Infinito\Domain\RequestManagement\User\RequestedUserService:
         public: true
-    App\Domain\RequestManagement\Action\RequestedActionService:
+    Infinito\Domain\RequestManagement\Action\RequestedActionService:
         public: true
-    App\Domain\FormManagement\RequestedActionFormBuilderService:
+    Infinito\Domain\FormManagement\RequestedActionFormBuilderService:
         public: true
-    App\Domain\SecureManagement\SecureRequestedRightCheckerService:
+    Infinito\Domain\SecureManagement\SecureRequestedRightCheckerService:
         public: true
-    App\Domain\ActionManagement\ActionService:
+    Infinito\Domain\ActionManagement\ActionService:
         public: true
-    App\Domain\ActionManagement\ActionHandlerService:
+    Infinito\Domain\ActionManagement\ActionHandlerService:
         public: true
         

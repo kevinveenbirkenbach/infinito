@@ -3,9 +3,9 @@
 namespace tests\Integration\Domain\FixtureManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\FixtureManagement\FixtureSourceFactory;
-use App\Domain\FixtureManagement\FixtureSource\FixtureSourceInterface;
-use App\Entity\Source\SourceInterface;
+use Infinito\Domain\FixtureManagement\FixtureSourceFactory;
+use Infinito\Domain\FixtureManagement\FixtureSource\FixtureSourceInterface;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz

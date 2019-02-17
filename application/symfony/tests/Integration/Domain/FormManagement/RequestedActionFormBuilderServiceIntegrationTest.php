@@ -3,15 +3,15 @@
 namespace tests\Integration\Domain\FormManagement;
 
 use Symfony\Component\Form\FormBuilderInterface;
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use App\Entity\Source\PureSource;
-use App\Domain\FormManagement\RequestedActionFormBuilderService;
-use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\Entity\Source\PureSource;
+use Infinito\Domain\FormManagement\RequestedActionFormBuilderService;
+use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use App\DBAL\Types\ActionType;
+use Infinito\DBAL\Types\ActionType;
 use Symfony\Component\Form\Form;
-use App\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
-use App\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
+use Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
 
 /**
  * @author kevinfrantz

@@ -3,10 +3,10 @@
 namespace Tests\Unit\Domain\MemberManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\MemberManagement\MemberManagerInterface;
-use App\Entity\Meta\Relation\Member\MemberRelationInterface;
-use App\Entity\Meta\Relation\Member\MemberRelation;
-use App\Domain\MemberManagement\MemberManager;
+use Infinito\Domain\MemberManagement\MemberManagerInterface;
+use Infinito\Entity\Meta\Relation\Member\MemberRelationInterface;
+use Infinito\Entity\Meta\Relation\Member\MemberRelation;
+use Infinito\Domain\MemberManagement\MemberManager;
 
 class MemberManagerTest extends TestCase
 {

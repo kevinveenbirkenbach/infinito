@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
-use App\Logic\Operation\OperationInterface;
+use Infinito\Logic\Operation\OperationInterface;
 
 /**
  * @author kevinfrantz

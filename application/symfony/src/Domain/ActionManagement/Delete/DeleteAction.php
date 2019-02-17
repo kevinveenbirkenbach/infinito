@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\ActionManagement\Delete;
+namespace Infinito\Domain\ActionManagement\Delete;
 
-use App\Domain\ActionManagement\AbstractAction;
+use Infinito\Domain\ActionManagement\AbstractAction;
 
 /**
  * @author kevinfrantz
@@ -13,7 +13,7 @@ final class DeleteAction extends AbstractAction
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\AbstractAction::isSecure()
+     * @see \Infinito\Domain\ActionManagement\AbstractAction::isSecure()
      */
     protected function isSecure(): bool
     {
@@ -24,7 +24,7 @@ final class DeleteAction extends AbstractAction
      * @todo Implement!
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\AbstractAction::isValid()
+     * @see \Infinito\Domain\ActionManagement\AbstractAction::isValid()
      */
     protected function isValid(): bool
     {
@@ -34,7 +34,7 @@ final class DeleteAction extends AbstractAction
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\AbstractAction::proccess()
+     * @see \Infinito\Domain\ActionManagement\AbstractAction::proccess()
      */
     protected function proccess()
     {

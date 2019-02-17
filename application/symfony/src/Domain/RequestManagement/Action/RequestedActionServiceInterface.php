@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\RequestManagement\Action;
+namespace Infinito\Domain\RequestManagement\Action;
 
 /**
  * Allows to use a action as a service.

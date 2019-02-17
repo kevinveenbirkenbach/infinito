@@ -3,9 +3,9 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\UserAttributInterface;
-use App\Attribut\UserAttribut;
-use App\Entity\UserInterface;
+use Infinito\Attribut\UserAttributInterface;
+use Infinito\Attribut\UserAttribut;
+use Infinito\Entity\UserInterface;
 
 /**
  * @author kevinfrantz

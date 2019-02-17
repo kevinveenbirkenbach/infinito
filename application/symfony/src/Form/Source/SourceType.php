@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Form\Source;
+namespace Infinito\Form\Source;
 
-use App\Form\AbstractType;
+use Infinito\Form\AbstractType;
 
 /**
  * @author kevinfrantz

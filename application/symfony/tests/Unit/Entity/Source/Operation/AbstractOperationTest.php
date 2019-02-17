@@ -3,14 +3,14 @@
 namespace tests\unit\Entity\Source\Operand;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Operation\AbstractOperation;
-use App\Entity\Source\Operation\OperationInterface;
+use Infinito\Entity\Source\Operation\AbstractOperation;
+use Infinito\Entity\Source\Operation\OperationInterface;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Logic\Operation\OperandInterface;
-use App\Logic\Result\ResultInterface;
-use App\Logic\Result\Result;
-use App\Exception\NotProcessedException;
+use Infinito\Logic\Operation\OperandInterface;
+use Infinito\Logic\Result\ResultInterface;
+use Infinito\Logic\Result\Result;
+use Infinito\Exception\NotProcessedException;
 
 class AbstractOperationTest extends TestCase
 {

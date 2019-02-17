@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Entity;
+namespace Infinito\Entity;
 
-use App\Attribut\IdAttribut;
+use Infinito\Attribut\IdAttribut;
 use Doctrine\ORM\Mapping as ORM;
-use App\Attribut\VersionAttribut;
+use Infinito\Attribut\VersionAttribut;
 
 /**
  * @author kevinfrantz

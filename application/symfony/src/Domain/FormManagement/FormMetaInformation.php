@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\FormManagement;
+namespace Infinito\Domain\FormManagement;
 
-use App\Domain\TemplateManagement\TemplatePathInformationInterface;
-use App\Domain\EntityManagement\EntityMetaInformationInterface;
+use Infinito\Domain\TemplateManagement\TemplatePathInformationInterface;
+use Infinito\Domain\EntityManagement\EntityMetaInformationInterface;
 
 /**
  * @author kevinfrantz
@@ -35,7 +35,7 @@ final class FormMetaInformation implements FormMetaInformationInterface
 
     private function setFormClass(): void
     {
-        $this->formClass = 'App\\Form';
+        $this->formClass = 'Infinito\\Form';
         foreach ($this->entityMetaInformation->getNamespacePathMap()->getFolders() as $element) {
             $this->formClass .= '\\'.ucfirst($element);
         }
@@ -45,7 +45,7 @@ final class FormMetaInformation implements FormMetaInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\FormManagement\FormMetaInformationInterface::getFormClass()
+     * @see \Infinito\Domain\FormManagement\FormMetaInformationInterface::getFormClass()
      */
     public function getFormClass(): string
     {
@@ -55,7 +55,7 @@ final class FormMetaInformation implements FormMetaInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\FormManagement\FormMetaInformationInterface::getTemplatePathInformation()
+     * @see \Infinito\Domain\FormManagement\FormMetaInformationInterface::getTemplatePathInformation()
      */
     public function getTemplatePathInformation(): TemplatePathInformationInterface
     {

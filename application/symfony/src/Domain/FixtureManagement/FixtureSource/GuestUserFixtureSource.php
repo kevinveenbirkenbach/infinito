@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\FixtureManagement\FixtureSource;
+namespace Infinito\Domain\FixtureManagement\FixtureSource;
 
-use App\Entity\Source\SourceInterface;
-use App\Entity\Source\Complex\UserSource;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Entity\Source\Complex\UserSource;
 
 /**
  * This class containes the guest user.
@@ -17,7 +17,7 @@ final class GuestUserFixtureSource extends AbstractFixtureSource
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\FixtureManagement\FixtureSource\FixtureSourceInterface::getORMReadyObject()
+     * @see \Infinito\Domain\FixtureManagement\FixtureSource\FixtureSourceInterface::getORMReadyObject()
      */
     public function getORMReadyObject(): SourceInterface
     {

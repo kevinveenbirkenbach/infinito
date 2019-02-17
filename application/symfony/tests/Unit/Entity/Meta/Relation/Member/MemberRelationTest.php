@@ -3,8 +3,8 @@
 namespace Tests\Unit\Entity\Meta\Relation\Member;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Meta\Relation\Member\MemberRelation;
-use App\Entity\Meta\Relation\Member\MemberRelationInterface;
+use Infinito\Entity\Meta\Relation\Member\MemberRelation;
+use Infinito\Entity\Meta\Relation\Member\MemberRelationInterface;
 use Doctrine\Common\Collections\Collection;
 
 class MemberRelationTest extends TestCase

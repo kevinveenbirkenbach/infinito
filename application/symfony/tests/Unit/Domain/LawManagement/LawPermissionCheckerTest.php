@@ -3,18 +3,18 @@
 namespace Unit\Domain\LawManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\LawManagement\LawPermissionChecker;
-use App\Domain\LawManagement\LawPermissionCheckerInterface;
-use App\Entity\Source\SourceInterface;
-use App\Entity\Meta\Right;
-use App\DBAL\Types\Meta\Right\LayerType;
-use App\DBAL\Types\Meta\Right\CRUDType;
-use App\Entity\Meta\Law;
-use App\Entity\Meta\LawInterface;
-use App\Entity\Meta\RightInterface;
+use Infinito\Domain\LawManagement\LawPermissionChecker;
+use Infinito\Domain\LawManagement\LawPermissionCheckerInterface;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Entity\Meta\Right;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\Entity\Meta\Law;
+use Infinito\Entity\Meta\LawInterface;
+use Infinito\Entity\Meta\RightInterface;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Domain\SourceManagement\SourceMemberManager;
-use App\Entity\Source\PureSource;
+use Infinito\Domain\SourceManagement\SourceMemberManager;
+use Infinito\Entity\Source\PureSource;
 
 /**
  * @author kevinfrantz

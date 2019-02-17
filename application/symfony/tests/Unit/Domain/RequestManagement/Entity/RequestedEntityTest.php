@@ -3,16 +3,16 @@
 namespace tests\Unit\Domain\RequestManagement\Entity;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\RequestManagement\Entity\RequestedEntity;
-use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
-use App\Exception\NotSetException;
-use App\Exception\NotCorrectInstanceException;
-use App\Domain\RequestManagement\Right\RequestedRightInterface;
-use App\DBAL\Types\Meta\Right\LayerType;
-use App\Repository\RepositoryInterface;
-use App\Entity\EntityInterface;
-use App\Entity\Source\AbstractSource;
-use App\Exception\AllreadyDefinedException;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntity;
+use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Exception\NotSetException;
+use Infinito\Exception\NotCorrectInstanceException;
+use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Repository\RepositoryInterface;
+use Infinito\Entity\EntityInterface;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Exception\AllreadyDefinedException;
 
 /**
  * @author kevinfrantz

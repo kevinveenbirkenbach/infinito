@@ -3,9 +3,9 @@
 namespace tests\unit\Entity\Source\Complex;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Complex\PersonIdentitySourceInterface;
-use App\Entity\Source\Complex\PersonIdentitySource;
-use App\Entity\Source\Complex\FullPersonNameSourceInterface;
+use Infinito\Entity\Source\Complex\PersonIdentitySourceInterface;
+use Infinito\Entity\Source\Complex\PersonIdentitySource;
+use Infinito\Entity\Source\Complex\FullPersonNameSourceInterface;
 
 class PersonIdentitySourceTest extends TestCase
 {

@@ -3,9 +3,9 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\FirstNameSourceAttribut;
-use App\Attribut\FirstNameSourceAttributInterface;
-use App\Entity\Source\Primitive\Name\FirstNameSourceInterface;
+use Infinito\Attribut\FirstNameSourceAttribut;
+use Infinito\Attribut\FirstNameSourceAttributInterface;
+use Infinito\Entity\Source\Primitive\Name\FirstNameSourceInterface;
 
 /**
  * @author kevinfrantz

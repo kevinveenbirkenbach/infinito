@@ -3,8 +3,8 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\CollectionAttributInterface;
-use App\Attribut\CollectionAttribut;
+use Infinito\Attribut\CollectionAttributInterface;
+use Infinito\Attribut\CollectionAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class CollectionAttributTest extends TestCase

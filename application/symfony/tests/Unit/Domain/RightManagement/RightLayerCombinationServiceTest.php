@@ -3,10 +3,10 @@
 namespace tests\Unit\Domain\RightManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\RightManagement\RightLayerCombinationServiceInterface;
-use App\Domain\RightManagement\RightLayerCombinationService;
-use App\DBAL\Types\Meta\Right\CRUDType;
-use App\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Domain\RightManagement\RightLayerCombinationServiceInterface;
+use Infinito\Domain\RightManagement\RightLayerCombinationService;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
 
 /**
  * @author kevinfrantz

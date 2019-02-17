@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\ActionManagement;
+namespace Infinito\Domain\ActionManagement;
 
 /**
  * Offers a function to create an action object by the RequestedActionService.

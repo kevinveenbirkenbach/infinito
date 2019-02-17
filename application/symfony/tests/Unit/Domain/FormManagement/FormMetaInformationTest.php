@@ -3,18 +3,18 @@
 namespace Tests\Unit\Domain\FormManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Primitive\Name\SurnameSource;
-use App\Domain\FormManagement\FormMetaInformationInterface;
-use App\Domain\SourceManagement\SourceMetaInformation;
-use App\Domain\FormManagement\FormMetaInformation;
-use App\Domain\TemplateManagement\TemplatePathInformationInterface;
+use Infinito\Entity\Source\Primitive\Name\SurnameSource;
+use Infinito\Domain\FormManagement\FormMetaInformationInterface;
+use Infinito\Domain\SourceManagement\SourceMetaInformation;
+use Infinito\Domain\FormManagement\FormMetaInformation;
+use Infinito\Domain\TemplateManagement\TemplatePathInformationInterface;
 
 /**
  * @author kevinfrantz
  */
 class FormMetaInformationTest extends TestCase
 {
-    const FORM_CLASS = 'App\Form\Source\Primitive\Name\SurnameType';
+    const FORM_CLASS = 'Infinito\Form\Source\Primitive\Name\SurnameType';
 
     const FORM_VIEW_ATOM = 'atom/form/source/primitive/name/surname.html.twig';
 

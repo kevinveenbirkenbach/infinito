@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domain\ActionManagement;
+namespace Infinito\Domain\ActionManagement;
 
-use App\Entity\EntityInterface;
-use App\Exception\NotSecureException;
-use App\Exception\NotValidByFormException;
+use Infinito\Entity\EntityInterface;
+use Infinito\Exception\NotSecureException;
+use Infinito\Exception\NotValidByFormException;
 
 /**
  * @author kevinfrantz
@@ -41,7 +41,7 @@ abstract class AbstractAction extends AbstractActionConstructor implements Actio
      *
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\ActionInterface::execute()
+     * @see \Infinito\Domain\ActionManagement\ActionInterface::execute()
      */
     final public function execute()
     {

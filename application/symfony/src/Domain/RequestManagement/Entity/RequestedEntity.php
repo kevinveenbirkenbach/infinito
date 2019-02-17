@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Domain\RequestManagement\Entity;
+namespace Infinito\Domain\RequestManagement\Entity;
 
-use App\Entity\AbstractEntity;
-use App\Entity\EntityInterface;
-use App\Attribut\SlugAttribut;
-use App\Attribut\RequestedRightAttribut;
-use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
-use App\Repository\Source\SourceRepositoryInterface;
-use App\Exception\NotCorrectInstanceException;
-use App\Entity\Source\AbstractSource;
-use App\Exception\NotSetException;
-use App\Repository\RepositoryInterface;
-use App\Entity\Source\SourceInterface;
+use Infinito\Entity\AbstractEntity;
+use Infinito\Entity\EntityInterface;
+use Infinito\Attribut\SlugAttribut;
+use Infinito\Attribut\RequestedRightAttribut;
+use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Repository\Source\SourceRepositoryInterface;
+use Infinito\Exception\NotCorrectInstanceException;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Exception\NotSetException;
+use Infinito\Repository\RepositoryInterface;
+use Infinito\Entity\Source\SourceInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use App\Attribut\ClassAttribut;
-use App\Exception\AllreadyDefinedException;
-use App\Domain\RequestManagement\Right\RequestedRightInterface;
-use App\Domain\RepositoryManagement\LayerRepositoryFactoryService;
+use Infinito\Attribut\ClassAttribut;
+use Infinito\Exception\AllreadyDefinedException;
+use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryService;
 
 /**
  * @author kevinfrantz
@@ -127,7 +127,7 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\RequestManagement\Entity\RequestedEntityInterface::hasIdentity()
+     * @see \Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface::hasIdentity()
      */
     public function hasIdentity(): bool
     {
@@ -137,7 +137,7 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\RequestManagement\Entity\RequestedEntityInterface::setIdentity()
+     * @see \Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface::setIdentity()
      */
     public function setIdentity($identity): void
     {
@@ -157,7 +157,7 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Attribut\ClassAttributInterface::setClass()
+     * @see \Infinito\Attribut\ClassAttributInterface::setClass()
      */
     public function setClass(string $class): void
     {
@@ -170,7 +170,7 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\RequestManagement\Entity\RequestedEntityInterface::getEntity()
+     * @see \Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface::getEntity()
      */
     public function getEntity(): EntityInterface
     {
@@ -186,7 +186,7 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
      *
      * {@inheritdoc}
      *
-     * @see \App\Attribut\RequestedRightAttributInterface::setRequestedRight()
+     * @see \Infinito\Attribut\RequestedRightAttributInterface::setRequestedRight()
      */
     public function setRequestedRight(RequestedRightInterface $requestedRight): void
     {
@@ -199,7 +199,7 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Attribut\ClassAttributInterface::getClass()
+     * @see \Infinito\Attribut\ClassAttributInterface::getClass()
      */
     public function getClass(): string
     {

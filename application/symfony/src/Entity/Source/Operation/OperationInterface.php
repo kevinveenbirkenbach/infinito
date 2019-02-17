@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity\Source\Operation;
+namespace Infinito\Entity\Source\Operation;
 
-use App\Entity\Source\Operation\Attribut\OperandsAttributInterface;
-use App\Logic\Operation\OperationInterface as OperationInterfaceOrigine;
+use Infinito\Entity\Source\Operation\Attribut\OperandsAttributInterface;
+use Infinito\Logic\Operation\OperationInterface as OperationInterfaceOrigine;
 
 interface OperationInterface extends OperandsAttributInterface, OperationInterfaceOrigine
 {

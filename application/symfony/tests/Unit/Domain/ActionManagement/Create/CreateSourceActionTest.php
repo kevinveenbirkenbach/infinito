@@ -3,21 +3,21 @@
 namespace tests\Unit\Domain\ActionManagement\Create;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\ActionManagement\Create\CreateSourceAction;
+use Infinito\Domain\ActionManagement\Create\CreateSourceAction;
 use Symfony\Component\HttpFoundation\Request;
-use App\Entity\Source\PureSource;
-use App\Attribut\ClassAttributInterface;
-use App\Attribut\SlugAttributInterface;
-use App\Entity\Source\PureSourceInterface;
-use App\Domain\ActionManagement\ActionService;
+use Infinito\Entity\Source\PureSource;
+use Infinito\Attribut\ClassAttributInterface;
+use Infinito\Attribut\SlugAttributInterface;
+use Infinito\Entity\Source\PureSourceInterface;
+use Infinito\Domain\ActionManagement\ActionService;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
-use App\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
+use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
-use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
-use App\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
+use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
 use Symfony\Component\Form\FormBuilderInterface;
-use App\Form\Source\PureSourceTypeInterface;
+use Infinito\Form\Source\PureSourceTypeInterface;
 
 /**
  * @author kevinfrantz

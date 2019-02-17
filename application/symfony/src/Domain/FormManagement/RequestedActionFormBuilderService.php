@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\FormManagement;
+namespace Infinito\Domain\FormManagement;
 
 use Symfony\Component\Form\FormBuilderInterface;
-use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 
 /**
@@ -19,7 +19,7 @@ final class RequestedActionFormBuilderService extends RequestedActionFormBuilder
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\FormManagement\RequestedActionFormBuilder::__construct()
+     * @see \Infinito\Domain\FormManagement\RequestedActionFormBuilder::__construct()
      */
     public function __construct(FormFactoryInterface $formFactory, FormClassNameServiceInterface $formClassNameService, RequestedActionServiceInterface $requestedActionService)
     {
@@ -30,7 +30,7 @@ final class RequestedActionFormBuilderService extends RequestedActionFormBuilder
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\FormManagement\RequestedActionFormBuilderServiceInterface::createByRequestedActionService()
+     * @see \Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface::createByRequestedActionService()
      */
     public function createByService(): FormBuilderInterface
     {

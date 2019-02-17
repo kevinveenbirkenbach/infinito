@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form\Type;
+namespace Infinito\Form\Type;
 
 use Symfony\Component\Form\FormTypeInterface;
 

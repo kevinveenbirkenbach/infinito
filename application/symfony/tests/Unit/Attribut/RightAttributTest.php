@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Tests\Unit\Attribut;
+namespace Infinito\Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\RightAttributInterface;
-use App\Attribut\RightAttribut;
-use App\Entity\Meta\RightInterface;
+use Infinito\Attribut\RightAttributInterface;
+use Infinito\Attribut\RightAttribut;
+use Infinito\Entity\Meta\RightInterface;
 
 /**
  * @author kevinfrantz

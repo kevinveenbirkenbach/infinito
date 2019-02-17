@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Repository\Source;
+namespace Infinito\Repository\Source;
 
-use App\Entity\Source\SourceInterface;
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use App\Repository\RepositoryInterface;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\Repository\RepositoryInterface;
 
 /**
  * @author kevinfrantz

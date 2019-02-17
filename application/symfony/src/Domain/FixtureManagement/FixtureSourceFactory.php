@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\FixtureManagement;
+namespace Infinito\Domain\FixtureManagement;
 
 use HaydenPierce\ClassFinder\ClassFinder;
-use App\Domain\FixtureManagement\FixtureSource\FixtureSourceInterface;
+use Infinito\Domain\FixtureManagement\FixtureSource\FixtureSourceInterface;
 
 /**
  * @author kevinfrantz
@@ -13,7 +13,7 @@ final class FixtureSourceFactory implements FixtureSourceFactoryInterface
     /**
      * @var string Namespace in which the fixture sources are saved
      */
-    const FIXTURE_SOURCE_NAMESPACE = 'App\Domain\FixtureManagement\FixtureSource';
+    const FIXTURE_SOURCE_NAMESPACE = 'Infinito\Domain\FixtureManagement\FixtureSource';
 
     /**
      * @return array|FixtureSourceInterface[]

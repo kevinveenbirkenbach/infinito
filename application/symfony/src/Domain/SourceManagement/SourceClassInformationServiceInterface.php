@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\SourceManagement;
+namespace Infinito\Domain\SourceManagement;
 
 /**
  * Offers informations about the source classes.

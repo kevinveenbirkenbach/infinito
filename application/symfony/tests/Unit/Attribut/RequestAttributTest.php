@@ -3,8 +3,8 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\RequestAttributInterface;
-use App\Attribut\RequestAttribut;
+use Infinito\Attribut\RequestAttributInterface;
+use Infinito\Attribut\RequestAttribut;
 use Symfony\Component\HttpFoundation\Request;
 
 /**

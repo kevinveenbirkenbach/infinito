@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Entity\Source\Operation;
+namespace Infinito\Entity\Source\Operation;
 
-use App\Logic\Result\Result;
+use Infinito\Logic\Result\Result;
 use Doctrine\ORM\Mapping as ORM;
-use App\Exception\NotDefinedException;
+use Infinito\Exception\NotDefinedException;
 
 /**
  * @author kevinfrantz

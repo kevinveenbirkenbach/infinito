@@ -2,9 +2,9 @@
 
 namespace Tests\Unit\Entity\Subscriber;
 
-use App\Subscriber\SourceMenuSubscriber;
+use Infinito\Subscriber\SourceMenuSubscriber;
 use Symfony\Component\Translation\Translator;
-use App\Event\Menu\MenuEvent;
+use Infinito\Event\Menu\MenuEvent;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Request;

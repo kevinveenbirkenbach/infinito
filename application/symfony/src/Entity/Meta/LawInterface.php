@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity\Meta;
+namespace Infinito\Entity\Meta;
 
-use App\Attribut\RightsAttributInterface;
-use App\Attribut\GrantAttributInterface;
+use Infinito\Attribut\RightsAttributInterface;
+use Infinito\Attribut\GrantAttributInterface;
 
 /**
  * @author kevinfrantz

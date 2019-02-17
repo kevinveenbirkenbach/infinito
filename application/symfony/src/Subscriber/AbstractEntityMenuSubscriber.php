@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Subscriber;
+namespace Infinito\Subscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Knp\Menu\ItemInterface;

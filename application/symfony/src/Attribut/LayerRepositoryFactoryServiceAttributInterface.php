@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
-use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 
 /**
  * @author kevinfrantz

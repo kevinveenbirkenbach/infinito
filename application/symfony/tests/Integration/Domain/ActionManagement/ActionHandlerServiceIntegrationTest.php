@@ -3,12 +3,12 @@
 namespace tests\Integration\Domain\ActionManagement;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use App\Domain\ActionManagement\ActionHandlerServiceInterface;
-use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
-use App\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
-use App\Entity\Source\SourceInterface;
-use App\DBAL\Types\ActionType;
-use App\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Domain\ActionManagement\ActionHandlerServiceInterface;
+use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\DBAL\Types\ActionType;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
 
 /**
  * @author kevinfrantz

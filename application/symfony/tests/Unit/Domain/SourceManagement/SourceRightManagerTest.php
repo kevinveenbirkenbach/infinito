@@ -3,16 +3,16 @@
 namespace Unit\Domain\SourceManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\SourceInterface;
-use App\Domain\SourceManagement\SourceRightManagerInterface;
-use App\Domain\SourceManagement\SourceRightManager;
-use App\Entity\Meta\RightInterface;
-use App\Entity\Meta\Right;
-use App\Entity\Meta\Law;
-use App\Exception\AllreadySetException;
-use App\Exception\NotSetException;
-use App\Exception\AllreadyDefinedException;
-use App\Entity\Source\PureSource;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Domain\SourceManagement\SourceRightManagerInterface;
+use Infinito\Domain\SourceManagement\SourceRightManager;
+use Infinito\Entity\Meta\RightInterface;
+use Infinito\Entity\Meta\Right;
+use Infinito\Entity\Meta\Law;
+use Infinito\Exception\AllreadySetException;
+use Infinito\Exception\NotSetException;
+use Infinito\Exception\AllreadyDefinedException;
+use Infinito\Entity\Source\PureSource;
 
 class SourceRightManagerTest extends TestCase
 {

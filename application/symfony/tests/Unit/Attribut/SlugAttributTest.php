@@ -3,9 +3,9 @@
 namespace Tests\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\SlugAttributInterface;
-use App\Attribut\SlugAttribut;
-use App\Exception\UnvalidValueException;
+use Infinito\Attribut\SlugAttributInterface;
+use Infinito\Attribut\SlugAttribut;
+use Infinito\Exception\UnvalidValueException;
 
 /**
  * @author kevinfrantz

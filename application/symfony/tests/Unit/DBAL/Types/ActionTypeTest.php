@@ -3,7 +3,7 @@
 namespace tests\Unit\DBAL\Types;
 
 use PHPUnit\Framework\TestCase;
-use App\DBAL\Types\ActionType;
+use Infinito\DBAL\Types\ActionType;
 
 /**
  * @author kevinfrantz

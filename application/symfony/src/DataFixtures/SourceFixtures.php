@@ -1,10 +1,10 @@
 <?php
 
-namespace App\DataFixtures;
+namespace Infinito\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use App\Domain\FixtureManagement\FixtureSourceFactory;
+use Infinito\Domain\FixtureManagement\FixtureSourceFactory;
 
 /**
  * @author kevinfrantz

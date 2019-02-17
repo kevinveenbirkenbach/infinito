@@ -3,11 +3,11 @@
 namespace Tests\Unit\Domain\UserManagement;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use App\DBAL\Types\SystemSlugType;
-use App\Entity\User;
-use App\Domain\UserManagement\UserSourceDirector;
-use App\Repository\Source\SourceRepository;
-use App\Entity\Source\AbstractSource;
+use Infinito\DBAL\Types\SystemSlugType;
+use Infinito\Entity\User;
+use Infinito\Domain\UserManagement\UserSourceDirector;
+use Infinito\Repository\Source\SourceRepository;
+use Infinito\Entity\Source\AbstractSource;
 
 /**
  * @author kevinfrantz

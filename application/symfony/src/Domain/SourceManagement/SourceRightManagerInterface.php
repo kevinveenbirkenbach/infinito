@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Domain\SourceManagement;
+namespace Infinito\Domain\SourceManagement;
 
-use App\Entity\Meta\RightInterface;
-use App\Exception\AllreadySetException;
-use App\Exception\AllreadyDefinedException;
-use App\Exception\NotSetException;
+use Infinito\Entity\Meta\RightInterface;
+use Infinito\Exception\AllreadySetException;
+use Infinito\Exception\AllreadyDefinedException;
+use Infinito\Exception\NotSetException;
 
 /**
  * Allows to add and remove rights of a source.

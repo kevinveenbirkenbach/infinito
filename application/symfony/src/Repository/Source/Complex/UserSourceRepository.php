@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository\Source\Complex;
+namespace Infinito\Repository\Source\Complex;
 
-use App\Repository\AbstractRepository;
+use Infinito\Repository\AbstractRepository;
 
 /**
  * @author kevinfrantz

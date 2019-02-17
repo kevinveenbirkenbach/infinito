@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\TemplateManagement;
+namespace Infinito\Domain\TemplateManagement;
 
-use App\Domain\FormManagement\FormMetaInformation;
+use Infinito\Domain\FormManagement\FormMetaInformation;
 
 /**
  * @author kevinfrantz
@@ -57,7 +57,7 @@ final class TemplatePathFormAndView implements TemplatePathFormAndViewInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\TemplateManagement\TemplatePathFormAndViewInterface::getForm()
+     * @see \Infinito\Domain\TemplateManagement\TemplatePathFormAndViewInterface::getForm()
      */
     public function getForm(): TemplatePathInformationInterface
     {
@@ -67,7 +67,7 @@ final class TemplatePathFormAndView implements TemplatePathFormAndViewInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\TemplateManagement\TemplatePathFormAndViewInterface::getView()
+     * @see \Infinito\Domain\TemplateManagement\TemplatePathFormAndViewInterface::getView()
      */
     public function getView(): TemplatePathInformation
     {
@@ -77,7 +77,7 @@ final class TemplatePathFormAndView implements TemplatePathFormAndViewInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\TemplateManagement\ReloadTypeInterface::reloadType()
+     * @see \Infinito\Domain\TemplateManagement\ReloadTypeInterface::reloadType()
      */
     public function reloadType(string $type): void
     {

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\RightManagement;
+namespace Infinito\Domain\RightManagement;
 
-use App\DBAL\Types\Meta\Right\LayerType;
-use App\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
 
 /**
  * @author kevinfrantz
@@ -62,7 +62,7 @@ final class RightLayerCombinationService implements RightLayerCombinationService
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\RightManagement\RightLayerCombinationServiceInterface::getPossibleCruds()
+     * @see \Infinito\Domain\RightManagement\RightLayerCombinationServiceInterface::getPossibleCruds()
      */
     public function getPossibleCruds(string $layer): array
     {
@@ -72,7 +72,7 @@ final class RightLayerCombinationService implements RightLayerCombinationService
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\RightManagement\RightLayerCombinationServiceInterface::getPossibleLayers()
+     * @see \Infinito\Domain\RightManagement\RightLayerCombinationServiceInterface::getPossibleLayers()
      */
     public function getPossibleLayers(string $crudType): array
     {

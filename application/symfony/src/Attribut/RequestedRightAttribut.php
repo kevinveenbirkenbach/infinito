@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
-use App\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
 
 /**
  * @author kevinfrantz

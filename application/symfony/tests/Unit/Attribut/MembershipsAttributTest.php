@@ -3,10 +3,10 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\MembershipsAttributInterface;
-use App\Attribut\MembershipsAttribut;
+use Infinito\Attribut\MembershipsAttributInterface;
+use Infinito\Attribut\MembershipsAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
+use Infinito\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
 
 class MembershipsAttributTest extends TestCase
 {

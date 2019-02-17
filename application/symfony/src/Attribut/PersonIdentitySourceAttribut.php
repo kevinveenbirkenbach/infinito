@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
-use App\Entity\Source\Complex\PersonIdentitySourceInterface;
+use Infinito\Entity\Source\Complex\PersonIdentitySourceInterface;
 
 trait PersonIdentitySourceAttribut
 {

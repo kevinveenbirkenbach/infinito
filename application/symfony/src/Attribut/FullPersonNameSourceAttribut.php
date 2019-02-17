@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
-use App\Entity\Source\Complex\FullPersonNameSourceInterface;
+use Infinito\Entity\Source\Complex\FullPersonNameSourceInterface;
 
 trait FullPersonNameSourceAttribut
 {

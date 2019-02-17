@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\FixtureManagement\FixtureSource;
+namespace Infinito\Domain\FixtureManagement\FixtureSource;
 
-use App\Entity\Source\SourceInterface;
-use App\Attribut\SlugAttributInterface;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Attribut\SlugAttributInterface;
 
 /**
  * This interface allows to save the configuration values of an fixture in a class.

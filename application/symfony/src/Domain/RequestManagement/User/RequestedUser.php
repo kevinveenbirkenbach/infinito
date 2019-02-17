@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Domain\RequestManagement\User;
+namespace Infinito\Domain\RequestManagement\User;
 
-use App\Entity\Source\SourceInterface;
-use App\Domain\UserManagement\UserSourceDirectorInterface;
-use App\Exception\SetNotPossibleException;
-use App\Domain\RequestManagement\Right\RequestedRightInterface;
-use App\Domain\RequestManagement\Right\AbstractRequestedRightFacade;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Domain\UserManagement\UserSourceDirectorInterface;
+use Infinito\Exception\SetNotPossibleException;
+use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Domain\RequestManagement\Right\AbstractRequestedRightFacade;
 
 /**
  * @author kevinfrantz
@@ -33,7 +33,7 @@ class RequestedUser extends AbstractRequestedRightFacade implements RequestedUse
      * @see UserSourceDirectorInterface
      * @deprecated
      * {@inheritdoc}
-     * @see \App\Attribut\RecieverAttributInterface::setReciever()
+     * @see \Infinito\Attribut\RecieverAttributInterface::setReciever()
      */
     public function setReciever(?SourceInterface $reciever): void
     {
@@ -43,7 +43,7 @@ class RequestedUser extends AbstractRequestedRightFacade implements RequestedUse
     /**
      * {@inheritdoc}
      *
-     * @see \App\Attribut\RecieverAttributInterface::getReciever()
+     * @see \Infinito\Attribut\RecieverAttributInterface::getReciever()
      */
     public function getReciever(): SourceInterface
     {
@@ -53,7 +53,7 @@ class RequestedUser extends AbstractRequestedRightFacade implements RequestedUse
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\RequestManagement\User\RequestedUserInterface::getUserSourceDirector()
+     * @see \Infinito\Domain\RequestManagement\User\RequestedUserInterface::getUserSourceDirector()
      */
     public function getUserSourceDirector(): UserSourceDirectorInterface
     {

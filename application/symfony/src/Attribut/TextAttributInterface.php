@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
 interface TextAttributInterface
 {

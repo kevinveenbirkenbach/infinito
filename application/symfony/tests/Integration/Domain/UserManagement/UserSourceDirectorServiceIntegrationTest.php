@@ -3,8 +3,8 @@
 namespace tests\Integration\Domain\UserManagement;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use App\Domain\UserManagement\UserSourceDirectorServiceInterface;
-use App\Entity\UserInterface;
+use Infinito\Domain\UserManagement\UserSourceDirectorServiceInterface;
+use Infinito\Entity\UserInterface;
 
 /**
  * @author kevinfrantz

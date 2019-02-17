@@ -3,8 +3,8 @@
 namespace tests\Unit\Domain\PathManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\PathManagement\NamespacePathMapInterface;
-use App\Domain\PathManagement\NamespacePathMap;
+use Infinito\Domain\PathManagement\NamespacePathMapInterface;
+use Infinito\Domain\PathManagement\NamespacePathMap;
 
 /**
  * @author kevinfrantz

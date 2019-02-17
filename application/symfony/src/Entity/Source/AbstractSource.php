@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Entity\Source;
+namespace Infinito\Entity\Source;
 
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\Exclude;
-use App\Entity\AbstractEntity;
-use App\Attribut\LawAttribut;
-use App\Entity\Meta\LawInterface;
-use App\Entity\Meta\Law;
+use Infinito\Entity\AbstractEntity;
+use Infinito\Attribut\LawAttribut;
+use Infinito\Entity\Meta\LawInterface;
+use Infinito\Entity\Meta\Law;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use App\Attribut\CreatorRelationAttribut;
-use App\Entity\Meta\Relation\Parent\CreatorRelationInterface;
-use App\Entity\Meta\Relation\Parent\CreatorRelation;
-use App\Attribut\MemberRelationAttribut;
-use App\Entity\Meta\Relation\Member\MemberRelation;
-use App\Entity\Meta\Relation\Member\MemberRelationInterface;
-use App\Attribut\SlugAttribut;
+use Infinito\Attribut\CreatorRelationAttribut;
+use Infinito\Entity\Meta\Relation\Parent\CreatorRelationInterface;
+use Infinito\Entity\Meta\Relation\Parent\CreatorRelation;
+use Infinito\Attribut\MemberRelationAttribut;
+use Infinito\Entity\Meta\Relation\Member\MemberRelation;
+use Infinito\Entity\Meta\Relation\Member\MemberRelationInterface;
+use Infinito\Attribut\SlugAttribut;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -27,23 +27,23 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @see http://www.inanzzz.com/index.php/post/h0jt/bidirectional-many-to-many-cascade-remove-and-orphan-removal-operations-in-doctrine
  *
- * @ORM\Entity(repositoryClass="App\Repository\Source\SourceRepository")
+ * @ORM\Entity(repositoryClass="Infinito\Repository\Source\SourceRepository")
  * @ORM\Table(name="source")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap({
  * "pure" = "PureSource",
- * "text" = "App\Entity\Source\Primitive\Text\TextSource",
- * "operation"="App\Entity\Source\Operation\AbstractOperation",
- * "user" = "App\Entity\Source\Complex\UserSource",
- * "fullpersonname" = "App\Entity\Source\Complex\FullPersonNameSource",
- * "personidentitysource"="App\Entity\Source\Complex\PersonIdentitySource",
- * "fullpersonnamesource"="App\Entity\Source\Complex\FullPersonNameSource",
- * "member" = "App\Entity\Source\Complex\Collection\TreeCollectionSource",
- * "and" = "App\Entity\Source\Operation\AndOperation",
- * "nickname" = "App\Entity\Source\Primitive\Name\NicknameSource",
- * "firstname" = "App\Entity\Source\Primitive\Name\FirstNameSource",
- * "surname" = "App\Entity\Source\Primitive\Name\SurnameSource"
+ * "text" = "Infinito\Entity\Source\Primitive\Text\TextSource",
+ * "operation"="Infinito\Entity\Source\Operation\AbstractOperation",
+ * "user" = "Infinito\Entity\Source\Complex\UserSource",
+ * "fullpersonname" = "Infinito\Entity\Source\Complex\FullPersonNameSource",
+ * "personidentitysource"="Infinito\Entity\Source\Complex\PersonIdentitySource",
+ * "fullpersonnamesource"="Infinito\Entity\Source\Complex\FullPersonNameSource",
+ * "member" = "Infinito\Entity\Source\Complex\Collection\TreeCollectionSource",
+ * "and" = "Infinito\Entity\Source\Operation\AndOperation",
+ * "nickname" = "Infinito\Entity\Source\Primitive\Name\NicknameSource",
+ * "firstname" = "Infinito\Entity\Source\Primitive\Name\FirstNameSource",
+ * "surname" = "Infinito\Entity\Source\Primitive\Name\SurnameSource"
  * })
  * @UniqueEntity("slug",ignoreNull=true)
  */
@@ -68,7 +68,7 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
 
     /**
      * @var CreatorRelationInterface
-     * @ORM\OneToOne(targetEntity="App\Entity\Meta\Relation\Parent\CreatorRelation",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="Infinito\Entity\Meta\Relation\Parent\CreatorRelation",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="creator_relation_id", referencedColumnName="id", onDelete="CASCADE")
      * @Exclude
      */
@@ -76,14 +76,14 @@ abstract class AbstractSource extends AbstractEntity implements SourceInterface
 
     /**
      * @var MemberRelationInterface
-     * @ORM\OneToOne(targetEntity="App\Entity\Meta\Relation\Member\MemberRelation",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="Infinito\Entity\Meta\Relation\Member\MemberRelation",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="member_relation_id", referencedColumnName="id", onDelete="CASCADE")
      * @Exclude
      */
     protected $memberRelation;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Meta\Law",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="Infinito\Entity\Meta\Law",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="law_id", referencedColumnName="id", onDelete="CASCADE")
      *
      * @var LawInterface

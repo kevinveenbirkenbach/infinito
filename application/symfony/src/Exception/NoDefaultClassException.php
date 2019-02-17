@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exception;
+namespace Infinito\Exception;
 
 /**
  * @author kevinfrantz

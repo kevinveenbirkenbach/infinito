@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\RightManagement;
+namespace Infinito\Domain\RightManagement;
 
-use App\Entity\Source\SourceInterface;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * Checks if the crud, layer and source combination is granted by a right.

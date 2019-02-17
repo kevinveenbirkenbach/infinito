@@ -3,9 +3,9 @@
 namespace tests\Unit\Domain\FormManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\FormManagement\FormClassNameService;
-use App\Entity\Source\PureSource;
-use App\DBAL\Types\ActionType;
+use Infinito\Domain\FormManagement\FormClassNameService;
+use Infinito\Entity\Source\PureSource;
+use Infinito\DBAL\Types\ActionType;
 
 /**
  * @author kevinfrantz
@@ -17,7 +17,7 @@ class FormClassNameServiceTest extends TestCase
         $entityClass = PureSource::class;
         $formNameService = new FormClassNameService();
         $entityForm = $formNameService->getClass($entityClass);
-        $this->assertEquals('App\\Form\\Source\\PureSourceType', $entityForm);
+        $this->assertEquals('Infinito\\Form\\Source\\PureSourceType', $entityForm);
     }
 
     public function testWithType(): void
@@ -25,6 +25,6 @@ class FormClassNameServiceTest extends TestCase
         $entityClass = PureSource::class;
         $formNameService = new FormClassNameService();
         $entityForm = $formNameService->getClass($entityClass, ActionType::CREATE);
-        $this->assertEquals('App\\Form\\Source\\PureSourceCreateType', $entityForm);
+        $this->assertEquals('Infinito\\Form\\Source\\PureSourceCreateType', $entityForm);
     }
 }

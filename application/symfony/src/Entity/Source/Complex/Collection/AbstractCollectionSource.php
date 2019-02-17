@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Entity\Source\Complex\Collection;
+namespace Infinito\Entity\Source\Complex\Collection;
 
-use App\Entity\Source\AbstractSource;
-use App\Attribut\CollectionAttribut;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Attribut\CollectionAttribut;
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Source\SourceInterface;
+use Infinito\Entity\Source\SourceInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -18,7 +18,7 @@ abstract class AbstractCollectionSource extends AbstractSource implements Collec
 
     /**
      * @var Collection|SourceInterface[]
-     * @ORM\ManyToMany(targetEntity="App\Entity\Source\AbstractSource")
+     * @ORM\ManyToMany(targetEntity="Infinito\Entity\Source\AbstractSource")
      * @ORM\JoinTable(name="collection_source",
      *      joinColumns={@ORM\JoinColumn(name="collection_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="source_id", referencedColumnName="id")}

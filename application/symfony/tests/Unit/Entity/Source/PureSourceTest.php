@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\Entity\Source;
 
-use App\Entity\Source\PureSourceInterface;
-use App\Entity\Source\SourceInterface;
-use App\Entity\Source\PureSource;
-use App\Entity\Source\AbstractSource;
+use Infinito\Entity\Source\PureSourceInterface;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Entity\Source\PureSource;
+use Infinito\Entity\Source\AbstractSource;
 use PHPUnit\Framework\TestCase;
 
 /**

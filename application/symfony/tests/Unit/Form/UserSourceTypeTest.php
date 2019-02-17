@@ -3,10 +3,10 @@
 namespace Tests\Unit\Form;
 
 use PHPUnit\Framework\TestCase;
-use App\Form\AbstractType;
+use Infinito\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use App\Form\UserSourceType;
+use Infinito\Form\UserSourceType;
 
 /**
  * This class just exists to keep the code coverage high.

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Meta\Relation\Parent;
+namespace Infinito\Entity\Meta\Relation\Parent;
 
 interface HeredityRelationInterface extends ParentRelationInterface
 {

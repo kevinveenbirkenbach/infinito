@@ -3,8 +3,8 @@
 namespace tests\unit\Entity;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\EntityInterface;
-use App\Entity\AbstractEntity;
+use Infinito\Entity\EntityInterface;
+use Infinito\Entity\AbstractEntity;
 
 class AbstractEntityTest extends TestCase
 {

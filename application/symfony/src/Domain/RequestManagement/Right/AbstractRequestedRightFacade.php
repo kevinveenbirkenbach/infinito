@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\RequestManagement\Right;
+namespace Infinito\Domain\RequestManagement\Right;
 
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use App\Entity\Source\SourceInterface;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * Offers a facade to wrapp a requested right.
@@ -28,7 +28,7 @@ abstract class AbstractRequestedRightFacade implements RequestedRightInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Attribut\RecieverAttributInterface::getReciever()
+     * @see \Infinito\Attribut\RecieverAttributInterface::getReciever()
      */
     public function getReciever(): SourceInterface
     {
@@ -38,7 +38,7 @@ abstract class AbstractRequestedRightFacade implements RequestedRightInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Attribut\LayerAttributInterface::setLayer()
+     * @see \Infinito\Attribut\LayerAttributInterface::setLayer()
      */
     public function setLayer(string $layer): void
     {
@@ -48,7 +48,7 @@ abstract class AbstractRequestedRightFacade implements RequestedRightInterface
     /**
      * @deprecated
      * {@inheritdoc}
-     * @see \App\Domain\RequestManagement\Right\RequestedRightInterface::getSource()
+     * @see \Infinito\Domain\RequestManagement\Right\RequestedRightInterface::getSource()
      */
     public function getSource(): SourceInterface
     {
@@ -58,7 +58,7 @@ abstract class AbstractRequestedRightFacade implements RequestedRightInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Attribut\LayerAttributInterface::getLayer()
+     * @see \Infinito\Attribut\LayerAttributInterface::getLayer()
      */
     public function getLayer(): string
     {
@@ -68,7 +68,7 @@ abstract class AbstractRequestedRightFacade implements RequestedRightInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Attribut\RequestedEntityAttributInterface::setRequestedEntity()
+     * @see \Infinito\Attribut\RequestedEntityAttributInterface::setRequestedEntity()
      */
     public function setRequestedEntity(RequestedEntityInterface $requestedEntity): void
     {
@@ -78,7 +78,7 @@ abstract class AbstractRequestedRightFacade implements RequestedRightInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Attribut\CrudAttributInterface::setCrud()
+     * @see \Infinito\Attribut\CrudAttributInterface::setCrud()
      */
     public function setCrud(string $crud): void
     {
@@ -88,7 +88,7 @@ abstract class AbstractRequestedRightFacade implements RequestedRightInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Attribut\CrudAttributInterface::getCrud()
+     * @see \Infinito\Attribut\CrudAttributInterface::getCrud()
      */
     public function getCrud(): string
     {
@@ -98,7 +98,7 @@ abstract class AbstractRequestedRightFacade implements RequestedRightInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Attribut\RequestedEntityAttributInterface::getRequestedEntity()
+     * @see \Infinito\Attribut\RequestedEntityAttributInterface::getRequestedEntity()
      */
     public function getRequestedEntity(): RequestedEntityInterface
     {
@@ -108,7 +108,7 @@ abstract class AbstractRequestedRightFacade implements RequestedRightInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Attribut\RecieverAttributInterface::setReciever()
+     * @see \Infinito\Attribut\RecieverAttributInterface::setReciever()
      */
     public function setReciever(?SourceInterface $reciever): void
     {
@@ -118,7 +118,7 @@ abstract class AbstractRequestedRightFacade implements RequestedRightInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Attribut\RequestedEntityAttributInterface::hasRequestedEntity()
+     * @see \Infinito\Attribut\RequestedEntityAttributInterface::hasRequestedEntity()
      */
     public function hasRequestedEntity(): bool
     {
@@ -128,7 +128,7 @@ abstract class AbstractRequestedRightFacade implements RequestedRightInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Attribut\RecieverAttributInterface::hasReciever()
+     * @see \Infinito\Attribut\RecieverAttributInterface::hasReciever()
      */
     public function hasReciever(): bool
     {

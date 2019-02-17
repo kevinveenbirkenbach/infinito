@@ -2,10 +2,10 @@
 
 namespace tests\Unit\Domain\UserManagement;
 
-use App\Domain\UserManagement\UserSourceDirectorInterface;
-use App\Domain\UserManagement\UserSourceDirectorService;
-use App\Entity\User;
-use App\Entity\Source\SourceInterface;
+use Infinito\Domain\UserManagement\UserSourceDirectorInterface;
+use Infinito\Domain\UserManagement\UserSourceDirectorService;
+use Infinito\Entity\User;
+use Infinito\Entity\Source\SourceInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Security\Core\Security;
 

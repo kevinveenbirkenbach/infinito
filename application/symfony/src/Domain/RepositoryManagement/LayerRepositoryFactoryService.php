@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domain\RepositoryManagement;
+namespace Infinito\Domain\RepositoryManagement;
 
-use App\Repository\RepositoryInterface;
+use Infinito\Repository\RepositoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Domain\LayerManagement\LayerClassMap;
+use Infinito\Domain\LayerManagement\LayerClassMap;
 
 /**
  * @author kevinfrantz

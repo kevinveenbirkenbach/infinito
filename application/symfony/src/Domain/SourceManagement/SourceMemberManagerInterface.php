@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\SourceManagement;
+namespace Infinito\Domain\SourceManagement;
 
-use App\Entity\Source\SourceInterface;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * Offers to add and remove source members and memberships.

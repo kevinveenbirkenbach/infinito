@@ -4,9 +4,9 @@ namespace Integration\Entity\Source;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use App\Repository\Source\SourceRepository;
-use App\Entity\Source\PureSourceInterface;
-use App\Entity\Source\PureSource;
+use Infinito\Repository\Source\SourceRepository;
+use Infinito\Entity\Source\PureSourceInterface;
+use Infinito\Entity\Source\PureSource;
 
 /**
  * @author kevinfrantz

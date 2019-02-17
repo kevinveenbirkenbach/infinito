@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\ActionManagement\Update;
+namespace Infinito\Domain\ActionManagement\Update;
 
 /**
  * @author kevinfrantz
@@ -10,7 +10,7 @@ final class UpdateSourceAction extends AbstractUpdateAction
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\AbstractAction::isSecure()
+     * @see \Infinito\Domain\ActionManagement\AbstractAction::isSecure()
      */
     protected function isSecure(): bool
     {
@@ -19,7 +19,7 @@ final class UpdateSourceAction extends AbstractUpdateAction
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\AbstractAction::isValid()
+     * @see \Infinito\Domain\ActionManagement\AbstractAction::isValid()
      */
     protected function isValid(): bool
     {
@@ -28,7 +28,7 @@ final class UpdateSourceAction extends AbstractUpdateAction
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\AbstractAction::proccess()
+     * @see \Infinito\Domain\ActionManagement\AbstractAction::proccess()
      */
     protected function proccess()
     {

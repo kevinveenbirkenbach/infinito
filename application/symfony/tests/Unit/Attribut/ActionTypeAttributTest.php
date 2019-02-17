@@ -3,10 +3,10 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Exception\NoValidChoiceException;
-use App\Attribut\ActionTypeAttributInterface;
-use App\Attribut\ActionTypeAttribut;
-use App\DBAL\Types\ActionType;
+use Infinito\Exception\NoValidChoiceException;
+use Infinito\Attribut\ActionTypeAttributInterface;
+use Infinito\Attribut\ActionTypeAttribut;
+use Infinito\DBAL\Types\ActionType;
 
 /**
  * @author kevinfrantz

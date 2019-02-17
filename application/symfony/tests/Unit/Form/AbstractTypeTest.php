@@ -3,7 +3,7 @@
 namespace Tests\Unit\Form;
 
 use PHPUnit\Framework\TestCase;
-use App\Form\AbstractType;
+use Infinito\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 

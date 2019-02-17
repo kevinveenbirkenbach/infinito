@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\Meta\Relation;
+namespace Infinito\Entity\Meta\Relation;
 
-use App\Entity\Meta\MetaInterface;
+use Infinito\Entity\Meta\MetaInterface;
 
 /**
  * Describes a relation of a source to another source.

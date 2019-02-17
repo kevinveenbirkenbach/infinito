@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity\Meta;
+namespace Infinito\Entity\Meta;
 
-use App\Entity\EntityInterface;
-use App\Attribut\SourceAttributInterface;
+use Infinito\Entity\EntityInterface;
+use Infinito\Attribut\SourceAttributInterface;
 
 /**
  * Meta entities contain informations which describe sources.

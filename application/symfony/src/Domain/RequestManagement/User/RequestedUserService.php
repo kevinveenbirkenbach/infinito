@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\RequestManagement\User;
+namespace Infinito\Domain\RequestManagement\User;
 
-use App\Domain\UserManagement\UserSourceDirectorServiceInterface;
-use App\Domain\RequestManagement\Right\RequestedRightServiceInterface;
+use Infinito\Domain\UserManagement\UserSourceDirectorServiceInterface;
+use Infinito\Domain\RequestManagement\Right\RequestedRightServiceInterface;
 
 /**
  * @author kevinfrantz

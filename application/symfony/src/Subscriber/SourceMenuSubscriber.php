@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Subscriber;
+namespace Infinito\Subscriber;
 
-use App\Event\Menu\MenuEvent;
-use App\DBAL\Types\MenuEventType;
+use Infinito\Event\Menu\MenuEvent;
+use Infinito\DBAL\Types\MenuEventType;
 
 class SourceMenuSubscriber extends AbstractEntityMenuSubscriber
 {

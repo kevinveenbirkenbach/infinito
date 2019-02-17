@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domain\SourceManagement;
+namespace Infinito\Domain\SourceManagement;
 
-use App\Domain\EntityManagement\EntityMetaInformation;
-use App\Entity\Source\AbstractSource;
-use App\Exception\NotCorrectInstanceException;
+use Infinito\Domain\EntityManagement\EntityMetaInformation;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Exception\NotCorrectInstanceException;
 
 /**
  * @author kevinfrantz
@@ -16,11 +16,11 @@ final class SourceMetaInformation extends EntityMetaInformation implements Sourc
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\EntityManagement\EntityMetaInformation::__construct()
+     * @see \Infinito\Domain\EntityManagement\EntityMetaInformation::__construct()
      *
      * @param $entity AbstractSource
      */
-    public function __construct(\App\Entity\EntityInterface $entity)
+    public function __construct(\Infinito\Entity\EntityInterface $entity)
     {
         if (!$entity instanceof AbstractSource) {
             throw new NotCorrectInstanceException('Entity has to be an instance of '.AbstractSource::class);
@@ -31,7 +31,7 @@ final class SourceMetaInformation extends EntityMetaInformation implements Sourc
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\EntityManagement\EntityMetaInformation::setPureName()
+     * @see \Infinito\Domain\EntityManagement\EntityMetaInformation::setPureName()
      */
     protected function setPureName(): void
     {

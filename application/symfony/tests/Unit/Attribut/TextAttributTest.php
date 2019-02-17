@@ -3,8 +3,8 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\TextAttributInterface;
-use App\Attribut\TextAttribut;
+use Infinito\Attribut\TextAttributInterface;
+use Infinito\Attribut\TextAttribut;
 
 /**
  * @author kevinfrantz

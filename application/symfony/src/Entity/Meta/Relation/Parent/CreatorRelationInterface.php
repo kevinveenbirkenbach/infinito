@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\Meta\Relation\Parent;
+namespace Infinito\Entity\Meta\Relation\Parent;
 
-use App\Entity\Meta\Relation\RelationInterface;
+use Infinito\Entity\Meta\Relation\RelationInterface;
 
 interface CreatorRelationInterface extends RelationInterface
 {

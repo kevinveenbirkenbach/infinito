@@ -3,9 +3,9 @@
 namespace Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\ConditionAttributInterface;
-use App\Attribut\ConditionAttribut;
-use App\Logic\Operation\OperationInterface;
+use Infinito\Attribut\ConditionAttributInterface;
+use Infinito\Attribut\ConditionAttribut;
+use Infinito\Logic\Operation\OperationInterface;
 
 class ConditionAttributTest extends TestCase
 {

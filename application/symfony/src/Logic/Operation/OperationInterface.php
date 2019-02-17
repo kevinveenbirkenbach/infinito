@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Logic\Operation;
+namespace Infinito\Logic\Operation;
 
 use Doctrine\Common\Collections\Collection;
 

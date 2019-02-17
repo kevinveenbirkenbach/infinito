@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Domain\SecureManagement;
+namespace Infinito\Domain\SecureManagement;
 
-use App\Entity\Meta\RightInterface;
-use App\Entity\Source\SourceInterface;
-use App\Domain\LawManagement\LawPermissionChecker;
-use App\Exception\SourceAccessDenied;
+use Infinito\Entity\Meta\RightInterface;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Domain\LawManagement\LawPermissionChecker;
+use Infinito\Exception\SourceAccessDenied;
 
 /**
  * @author kevinfrantz
@@ -90,7 +90,7 @@ final class SecureSourceChecker implements SecureSourceCheckerInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\SecureManagement\SecureSourceCheckerInterface::hasPermission()
+     * @see \Infinito\Domain\SecureManagement\SecureSourceCheckerInterface::hasPermission()
      */
     public function hasPermission(RightInterface $requestedRight): bool
     {

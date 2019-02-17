@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity\Meta;
+namespace Infinito\Entity\Meta;
 
-use App\Entity\AbstractEntity;
-use App\Attribut\SourceAttribut;
+use Infinito\Entity\AbstractEntity;
+use Infinito\Attribut\SourceAttribut;
 
 /**
  * @todo Implement source attribut

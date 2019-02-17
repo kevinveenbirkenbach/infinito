@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\RequestManagement\Action;
+namespace Infinito\Domain\RequestManagement\Action;
 
-use App\Domain\RequestManagement\User\RequestedUserServiceInterface;
+use Infinito\Domain\RequestManagement\User\RequestedUserServiceInterface;
 
 /**
  * @author kevinfrantz

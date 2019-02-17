@@ -3,10 +3,10 @@
 namespace tests\unit\Entity\Source\Complex;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Complex\UserSourceInterface;
-use App\Entity\Source\Complex\UserSource;
+use Infinito\Entity\Source\Complex\UserSourceInterface;
+use Infinito\Entity\Source\Complex\UserSource;
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Source\Complex\PersonIdentitySourceInterface;
+use Infinito\Entity\Source\Complex\PersonIdentitySourceInterface;
 
 class UserSourceTest extends TestCase
 {

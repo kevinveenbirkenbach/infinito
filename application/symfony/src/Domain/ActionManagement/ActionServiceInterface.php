@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domain\ActionManagement;
+namespace Infinito\Domain\ActionManagement;
 
-use App\Domain\RequestManagement\Action\RequestedActionInterface;
+use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
 use Symfony\Component\HttpFoundation\Request;
-use App\Repository\RepositoryInterface;
+use Infinito\Repository\RepositoryInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\ORM\EntityManagerInterface;
 

@@ -3,10 +3,10 @@
 namespace tests\Unit\Domain\TemplateManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\TemplateManagement\TemplateNameServiceInterface;
-use App\Domain\TemplateManagement\TemplateNameService;
-use App\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
-use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use Infinito\Domain\TemplateManagement\TemplateNameServiceInterface;
+use Infinito\Domain\TemplateManagement\TemplateNameService;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
+use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 
 /**
  * @author kevinfrantz
@@ -21,7 +21,7 @@ class TemplateNameServiceTest extends TestCase
     /**
      * @var string
      */
-    const CLASS_NAME = 'App\\Entity\\Source\\PureSource';
+    const CLASS_NAME = 'Infinito\\Entity\\Source\\PureSource';
 
     /**
      * @var string

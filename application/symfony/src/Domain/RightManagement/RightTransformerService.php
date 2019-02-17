@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domain\RightManagement;
+namespace Infinito\Domain\RightManagement;
 
-use App\Entity\Meta\RightInterface;
-use App\Domain\RequestManagement\Right\RequestedRightInterface;
-use App\Entity\Meta\Right;
+use Infinito\Entity\Meta\RightInterface;
+use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Entity\Meta\Right;
 
 /**
  * @author kevinfrantz
@@ -132,7 +132,7 @@ final class RightTransformerService implements RightTransformerServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\RightManagement\RightTransformerServiceInterface::transform()
+     * @see \Infinito\Domain\RightManagement\RightTransformerServiceInterface::transform()
      */
     public function transform(RequestedRightInterface $requestedRight): RightInterface
     {

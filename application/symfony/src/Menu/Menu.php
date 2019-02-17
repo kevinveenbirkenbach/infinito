@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Menu;
+namespace Infinito\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
-use App\Event\Menu\MenuEvent;
-use App\DBAL\Types\MenuEventType;
+use Infinito\Event\Menu\MenuEvent;
+use Infinito\DBAL\Types\MenuEventType;
 
 class Menu
 {

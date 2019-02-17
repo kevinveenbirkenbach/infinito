@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\RepositoryManagement;
+namespace Infinito\Domain\RepositoryManagement;
 
-use App\Repository\RepositoryInterface;
+use Infinito\Repository\RepositoryInterface;
 
 /**
  * Offers a fabric to produce entity repositories by layer.

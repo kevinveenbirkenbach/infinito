@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\UserManagement;
+namespace Infinito\Domain\UserManagement;
 
 /**
  * Offers UserSourceDirector to be used as a Service.

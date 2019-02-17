@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Entity\Source;
+namespace Infinito\Entity\Source;
 
-use App\Attribut\IdAttributInterface;
-use App\Entity\EntityInterface;
-use App\Attribut\LawAttributInterface;
-use App\Attribut\CreatorRelationAttributInterface;
-use App\Attribut\MemberRelationAttributInterface;
-use App\Attribut\SlugAttributInterface;
+use Infinito\Attribut\IdAttributInterface;
+use Infinito\Entity\EntityInterface;
+use Infinito\Attribut\LawAttributInterface;
+use Infinito\Attribut\CreatorRelationAttributInterface;
+use Infinito\Attribut\MemberRelationAttributInterface;
+use Infinito\Attribut\SlugAttributInterface;
 
 /**
  * @author kevinfrantz

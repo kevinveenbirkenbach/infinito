@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\RequestManagement\User;
+namespace Infinito\Domain\RequestManagement\User;
 
-use App\Domain\RequestManagement\Right\RequestedRightInterface;
-use App\Domain\UserManagement\UserSourceDirectorInterface;
+use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Domain\UserManagement\UserSourceDirectorInterface;
 
 /**
  * Offers a Service for managing the rights.

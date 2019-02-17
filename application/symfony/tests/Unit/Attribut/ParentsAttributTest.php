@@ -3,8 +3,8 @@
 namespace Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\ParentsAttributInterface;
-use App\Attribut\ParentsAttribut;
+use Infinito\Attribut\ParentsAttributInterface;
+use Infinito\Attribut\ParentsAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class ParentsAttributTest extends TestCase

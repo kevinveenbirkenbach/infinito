@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Domain\RequestManagement\Action;
+namespace Infinito\Domain\RequestManagement\Action;
 
-use App\Attribut\ActionTypeAttribut;
-use App\DBAL\Types\ActionType;
-use App\DBAL\Types\Meta\Right\CRUDType;
-use App\Domain\RequestManagement\User\RequestedUser;
-use App\Domain\RequestManagement\User\RequestedUserInterface;
+use Infinito\Attribut\ActionTypeAttribut;
+use Infinito\DBAL\Types\ActionType;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\Domain\RequestManagement\User\RequestedUser;
+use Infinito\Domain\RequestManagement\User\RequestedUserInterface;
 
 /**
  * @author kevinfrantz
@@ -37,7 +37,7 @@ class RequestedAction extends RequestedUser implements RequestedActionInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Attribut\ActionTypeAttributInterface::setActionType()
+     * @see \Infinito\Attribut\ActionTypeAttributInterface::setActionType()
      */
     public function setActionType(string $actionType): void
     {

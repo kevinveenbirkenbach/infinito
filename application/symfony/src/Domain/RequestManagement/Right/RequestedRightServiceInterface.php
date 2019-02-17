@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\RequestManagement\Right;
+namespace Infinito\Domain\RequestManagement\Right;
 
 /**
  * Allows to use a right as a Service.

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Domain\ViewManagement;
+namespace Infinito\Domain\ViewManagement;
 
 use FOS\RestBundle\View\View;
-use App\Domain\RequestManagement\Action\RequestedActionInterface;
-use App\Domain\ActionManagement\ActionServiceInterface;
-use App\Domain\ActionManagement\ActionFactoryServiceInterface;
-use App\Domain\ActionManagement\ActionFactoryService;
+use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
+use Infinito\Domain\ActionManagement\ActionServiceInterface;
+use Infinito\Domain\ActionManagement\ActionFactoryServiceInterface;
+use Infinito\Domain\ActionManagement\ActionFactoryService;
 
 /**
  * @author kevinfrantz
@@ -48,7 +48,7 @@ class ViewBuilder implements ViewBuilderInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\ViewManagement\ViewBuilderInterface::getActionService()
+     * @see \Infinito\Domain\ViewManagement\ViewBuilderInterface::getActionService()
      */
     public function getActionService(): ActionServiceInterface
     {
@@ -58,7 +58,7 @@ class ViewBuilder implements ViewBuilderInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\ViewManagement\ViewBuilderInterface::build()
+     * @see \Infinito\Domain\ViewManagement\ViewBuilderInterface::build()
      */
     public function build(): void
     {

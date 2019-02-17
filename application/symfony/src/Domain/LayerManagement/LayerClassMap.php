@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Domain\LayerManagement;
+namespace Infinito\Domain\LayerManagement;
 
-use App\DBAL\Types\Meta\Right\LayerType;
-use App\Entity\Source\AbstractSource;
-use App\Exception\NotSetException;
-use App\Entity\Meta\Law;
-use App\Entity\Meta\Right;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Exception\NotSetException;
+use Infinito\Entity\Meta\Law;
+use Infinito\Entity\Meta\Right;
 
 /**
  * @author kevinfrantz

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\FormManagement;
+namespace Infinito\Domain\FormManagement;
 
-use App\Entity\EntityInterface;
+use Infinito\Entity\EntityInterface;
 
 /**
  * @author kevinfrantz

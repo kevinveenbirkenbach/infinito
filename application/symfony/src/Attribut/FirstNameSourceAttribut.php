@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
-use App\Entity\Source\Primitive\Name\FirstNameSourceInterface;
+use Infinito\Entity\Source\Primitive\Name\FirstNameSourceInterface;
 
 trait FirstNameSourceAttribut
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Entity\Meta\Relation\Member;
+namespace Infinito\Entity\Meta\Relation\Member;
 
-use App\Entity\Meta\Relation\RelationInterface;
-use App\Attribut\MembersAttributInterface;
-use App\Attribut\MembershipsAttributInterface;
+use Infinito\Entity\Meta\Relation\RelationInterface;
+use Infinito\Attribut\MembersAttributInterface;
+use Infinito\Attribut\MembershipsAttributInterface;
 
 interface MemberRelationInterface extends RelationInterface, MembersAttributInterface, MembershipsAttributInterface
 {

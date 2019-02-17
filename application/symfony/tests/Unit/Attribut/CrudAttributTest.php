@@ -3,10 +3,10 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\CrudAttributInterface;
-use App\Attribut\CrudAttribut;
-use App\DBAL\Types\Meta\Right\CRUDType;
-use App\Exception\NoValidChoiceException;
+use Infinito\Attribut\CrudAttributInterface;
+use Infinito\Attribut\CrudAttribut;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\Exception\NoValidChoiceException;
 
 /**
  * @author kevinfrantz

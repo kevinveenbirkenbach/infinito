@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\ActionManagement;
+namespace Infinito\Domain\ActionManagement;
 
 /**
  * This class just containes the constructor

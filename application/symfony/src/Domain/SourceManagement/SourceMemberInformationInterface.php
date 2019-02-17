@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\SourceManagement;
+namespace Infinito\Domain\SourceManagement;
 
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Source\SourceInterface;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * Offers to get all source members over all dimensions.

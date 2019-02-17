@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Source\Operation;
+namespace Infinito\Entity\Source\Operation;
 
 interface AndOperationInterface extends OperationInterface
 {

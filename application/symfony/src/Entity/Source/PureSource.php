@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Source;
+namespace Infinito\Entity\Source;
 
 use Doctrine\ORM\Mapping as ORM;
 

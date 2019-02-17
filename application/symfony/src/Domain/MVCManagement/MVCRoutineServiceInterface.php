@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\MVCManagement;
+namespace Infinito\Domain\MVCManagement;
 
 use FOS\RestBundle\View\View;
 

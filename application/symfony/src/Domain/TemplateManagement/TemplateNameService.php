@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\TemplateManagement;
+namespace Infinito\Domain\TemplateManagement;
 
-use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 
 /**
  * @author kevinfrantz
@@ -12,7 +12,7 @@ final class TemplateNameService implements TemplateNameServiceInterface
     /**
      * @var string The namespace which should be ignored
      */
-    const BASE_NAMESPACE = 'App\\Entity';
+    const BASE_NAMESPACE = 'Infinito\\Entity';
 
     /**
      * @var string the basic entry point for templates
@@ -98,7 +98,7 @@ final class TemplateNameService implements TemplateNameServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\TemplateManagement\TemplateNameServiceInterface::getAtomTemplateName()
+     * @see \Infinito\Domain\TemplateManagement\TemplateNameServiceInterface::getAtomTemplateName()
      */
     public function getAtomTemplateName(): string
     {
@@ -108,7 +108,7 @@ final class TemplateNameService implements TemplateNameServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\TemplateManagement\TemplateNameServiceInterface::getMoleculeTemplateName()
+     * @see \Infinito\Domain\TemplateManagement\TemplateNameServiceInterface::getMoleculeTemplateName()
      */
     public function getMoleculeTemplateName(): string
     {

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\RightManagement;
+namespace Infinito\Domain\RightManagement;
 
-use App\DBAL\Types\Meta\Right\LayerType;
-use App\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
 
 /**
  * Allows to get the possible cruds for a layer, or the possible layers for a crud.

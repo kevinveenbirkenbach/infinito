@@ -3,7 +3,7 @@
 namespace tests\Integration\Domain\ActionManagement;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use App\Domain\ActionManagement\ActionServiceInterface;
+use Infinito\Domain\ActionManagement\ActionServiceInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**

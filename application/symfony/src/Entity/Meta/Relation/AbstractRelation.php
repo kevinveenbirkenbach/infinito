@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity\Meta\Relation;
+namespace Infinito\Entity\Meta\Relation;
 
-use App\Entity\Meta\AbstractMeta;
-use App\Entity\Source\SourceInterface;
+use Infinito\Entity\Meta\AbstractMeta;
+use Infinito\Entity\Source\SourceInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 abstract class AbstractRelation extends AbstractMeta implements RelationInterface
 {
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Source\AbstractSource",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="Infinito\Entity\Source\AbstractSource",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="source_id", referencedColumnName="id",onDelete="CASCADE")
      *
      * @var SourceInterface

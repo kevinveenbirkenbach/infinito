@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity\Source\Primitive\Name;
+namespace Infinito\Entity\Source\Primitive\Name;
 
-use App\Entity\Source\Primitive\AbstractPrimitiveSource;
-use App\Attribut\NameAttribut;
+use Infinito\Entity\Source\Primitive\AbstractPrimitiveSource;
+use Infinito\Attribut\NameAttribut;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 

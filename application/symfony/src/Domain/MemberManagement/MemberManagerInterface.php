@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\MemberManagement;
+namespace Infinito\Domain\MemberManagement;
 
-use App\Entity\Meta\Relation\Member\MemberRelationInterface;
+use Infinito\Entity\Meta\Relation\Member\MemberRelationInterface;
 
 interface MemberManagerInterface
 {

@@ -3,12 +3,12 @@
 namespace Tests\Integration\Domain\SourceManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\SourceInterface;
-use App\Domain\SourceManagement\SourceMemberManagerInterface;
-use App\Domain\SourceManagement\SourceMemberManager;
-use App\Domain\SourceManagement\SourceMemberInformation;
-use App\Domain\SourceManagement\SourceMembershipInformation;
-use App\Entity\Source\PureSource;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Domain\SourceManagement\SourceMemberManagerInterface;
+use Infinito\Domain\SourceManagement\SourceMemberManager;
+use Infinito\Domain\SourceManagement\SourceMemberInformation;
+use Infinito\Domain\SourceManagement\SourceMembershipInformation;
+use Infinito\Entity\Source\PureSource;
 
 class SourceMemberManagerIntegrationTest extends TestCase
 {

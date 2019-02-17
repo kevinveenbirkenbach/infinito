@@ -3,9 +3,9 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\LayerRepositoryFactoryServiceAttributInterface;
-use App\Attribut\LayerRepositoryFactoryServiceAttribut;
-use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Attribut\LayerRepositoryFactoryServiceAttributInterface;
+use Infinito\Attribut\LayerRepositoryFactoryServiceAttribut;
+use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 
 /**
  * @author kevinfrantz

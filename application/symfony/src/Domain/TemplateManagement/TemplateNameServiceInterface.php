@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\TemplateManagement;
+namespace Infinito\Domain\TemplateManagement;
 
 /**
  * @author kevinfrantz

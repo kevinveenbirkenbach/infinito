@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\ActionManagement\Update;
+namespace Infinito\Domain\ActionManagement\Update;
 
-use App\Domain\ActionManagement\AbstractAction;
+use Infinito\Domain\ActionManagement\AbstractAction;
 
 /**
  * @author kevinfrantz

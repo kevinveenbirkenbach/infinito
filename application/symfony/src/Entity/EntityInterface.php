@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace Infinito\Entity;
 
-use App\Attribut\VersionAttributInterface;
-use App\Attribut\IdAttributInterface;
+use Infinito\Attribut\VersionAttributInterface;
+use Infinito\Attribut\IdAttributInterface;
 
 /**
  * @author kevinfrantz

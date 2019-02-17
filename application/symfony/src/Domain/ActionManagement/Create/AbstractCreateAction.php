@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\ActionManagement\Create;
+namespace Infinito\Domain\ActionManagement\Create;
 
-use App\Domain\ActionManagement\AbstractAction;
+use Infinito\Domain\ActionManagement\AbstractAction;
 
 /**
  * @author kevinfrantz
@@ -13,7 +13,7 @@ abstract class AbstractCreateAction extends AbstractAction implements CreateActi
      * In general everybody should be allowed to create everything!
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\AbstractAction::isSecure()
+     * @see \Infinito\Domain\ActionManagement\AbstractAction::isSecure()
      */
     protected function isSecure(): bool
     {

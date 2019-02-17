@@ -3,8 +3,8 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\GrantAttribut;
-use App\Attribut\GrantAttributInterface;
+use Infinito\Attribut\GrantAttribut;
+use Infinito\Attribut\GrantAttributInterface;
 
 class GrantAttributTest extends TestCase
 {

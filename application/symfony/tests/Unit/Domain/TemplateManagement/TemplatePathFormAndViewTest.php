@@ -3,8 +3,8 @@
 namespace tests\Unit\Domain\TemplateManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\TemplateManagement\TemplatePathFormAndView;
-use App\DBAL\Types\RESTResponseType;
+use Infinito\Domain\TemplateManagement\TemplatePathFormAndView;
+use Infinito\DBAL\Types\RESTResponseType;
 
 /**
  * @author kevinfrantz

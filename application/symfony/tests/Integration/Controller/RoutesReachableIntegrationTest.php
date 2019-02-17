@@ -3,9 +3,9 @@
 namespace Tests\Integration\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use App\DBAL\Types\LanguageType;
-use App\DBAL\Types\Meta\Right\LayerType;
-use App\DBAL\Types\RESTResponseType;
+use Infinito\DBAL\Types\LanguageType;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\DBAL\Types\RESTResponseType;
 use Symfony\Component\HttpFoundation\Request;
 
 /**

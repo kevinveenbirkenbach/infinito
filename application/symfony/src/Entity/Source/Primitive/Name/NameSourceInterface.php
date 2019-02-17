@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity\Source\Primitive\Name;
+namespace Infinito\Entity\Source\Primitive\Name;
 
-use App\Entity\Source\Primitive\PrimitiveSourceInterface;
-use App\Attribut\NameAttributInterface;
+use Infinito\Entity\Source\Primitive\PrimitiveSourceInterface;
+use Infinito\Attribut\NameAttributInterface;
 
 interface NameSourceInterface extends PrimitiveSourceInterface, NameAttributInterface
 {

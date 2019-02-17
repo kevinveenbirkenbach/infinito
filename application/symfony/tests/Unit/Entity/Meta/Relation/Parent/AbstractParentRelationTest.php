@@ -4,8 +4,8 @@ namespace tests\Unit\Entity\Meta;
 
 use PHPUnit\Framework\TestCase;
 use Doctrine\Common\Collections\Collection;
-use App\Entity\Meta\Relation\Parent\AbstractParentRelation;
-use App\Entity\Meta\Relation\Parent\ParentRelationInterface;
+use Infinito\Entity\Meta\Relation\Parent\AbstractParentRelation;
+use Infinito\Entity\Meta\Relation\Parent\ParentRelationInterface;
 
 class AbstractParentRelationTest extends TestCase
 {

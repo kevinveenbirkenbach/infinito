@@ -1,10 +1,10 @@
 <?php
 
-namespace App\DBAL\Types;
+namespace Infinito\DBAL\Types;
 
 use Fresh\DoctrineEnumBundle\DBAL\Types\AbstractEnumType;
-use App\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
-use App\Domain\FixtureManagement\FixtureSource\GuestUserFixtureSource;
+use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
+use Infinito\Domain\FixtureManagement\FixtureSource\GuestUserFixtureSource;
 
 /**
  * Containes the system slugs.

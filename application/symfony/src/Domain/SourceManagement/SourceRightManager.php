@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Domain\SourceManagement;
+namespace Infinito\Domain\SourceManagement;
 
-use App\Entity\Meta\RightInterface;
-use App\Entity\Source\SourceInterface;
-use App\Exception\AllreadySetException;
-use App\Entity\Source\AbstractSource;
-use App\Entity\Meta\Law;
-use App\Exception\AllreadyDefinedException;
-use App\Exception\NotSetException;
+use Infinito\Entity\Meta\RightInterface;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Exception\AllreadySetException;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Entity\Meta\Law;
+use Infinito\Exception\AllreadyDefinedException;
+use Infinito\Exception\NotSetException;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -56,7 +56,7 @@ final class SourceRightManager implements SourceRightManagerInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\SourceManagement\SourceRightManagerInterface::addRight()
+     * @see \Infinito\Domain\SourceManagement\SourceRightManagerInterface::addRight()
      */
     public function addRight(RightInterface $right): void
     {
@@ -72,7 +72,7 @@ final class SourceRightManager implements SourceRightManagerInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\SourceManagement\SourceRightManagerInterface::removeRight()
+     * @see \Infinito\Domain\SourceManagement\SourceRightManagerInterface::removeRight()
      */
     public function removeRight(RightInterface $right): void
     {

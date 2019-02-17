@@ -3,19 +3,19 @@
 namespace tests\Unit\Domain\RequestManagement\Entity;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use App\Domain\RequestManagement\Right\RequestedRightInterface;
-use App\Domain\RequestManagement\Right\RequestedRight;
-use App\DBAL\Types\Meta\Right\LayerType;
-use App\Domain\RequestManagement\Entity\RequestedEntity;
-use App\DBAL\Types\SystemSlugType;
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use App\Exception\PreconditionFailedException;
-use App\Entity\Source\PureSource;
-use App\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
-use App\Domain\RepositoryManagement\LayerRepositoryFactoryService;
+use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Domain\RequestManagement\Right\RequestedRight;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntity;
+use Infinito\DBAL\Types\SystemSlugType;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\Exception\PreconditionFailedException;
+use Infinito\Entity\Source\PureSource;
+use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryService;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use App\Entity\Meta\Law;
-use App\Entity\Source\SourceInterface;
+use Infinito\Entity\Meta\Law;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz

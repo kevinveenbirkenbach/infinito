@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Tests\Unit\Attribut;
+namespace Infinito\Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\ParentRelationAttributInterface;
-use App\Attribut\ParentRelationAttribut;
-use App\Entity\Meta\Relation\Parent\ParentRelationInterface;
+use Infinito\Attribut\ParentRelationAttributInterface;
+use Infinito\Attribut\ParentRelationAttribut;
+use Infinito\Entity\Meta\Relation\Parent\ParentRelationInterface;
 
 class ParentRelationAttributTest extends TestCase
 {

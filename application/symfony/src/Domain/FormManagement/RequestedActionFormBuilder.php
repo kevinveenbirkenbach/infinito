@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Domain\FormManagement;
+namespace Infinito\Domain\FormManagement;
 
 use Symfony\Component\Form\FormBuilderInterface;
-use App\Domain\RequestManagement\Action\RequestedActionInterface;
+use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
 use Symfony\Component\Form\FormFactoryInterface;
-use App\Exception\NotSetException;
+use Infinito\Exception\NotSetException;
 
 /**
  * @author kevinfrantz

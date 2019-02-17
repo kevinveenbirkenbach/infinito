@@ -3,9 +3,9 @@
 namespace tests\unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\NameSourceAttributInterface;
-use App\Attribut\NameSourceAttribut;
-use App\Entity\Source\Primitive\Name\NameSourceInterface;
+use Infinito\Attribut\NameSourceAttributInterface;
+use Infinito\Attribut\NameSourceAttribut;
+use Infinito\Entity\Source\Primitive\Name\NameSourceInterface;
 
 class NameSourceAttributTest extends TestCase
 {

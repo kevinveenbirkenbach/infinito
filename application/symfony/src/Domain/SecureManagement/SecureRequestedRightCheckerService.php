@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domain\SecureManagement;
+namespace Infinito\Domain\SecureManagement;
 
-use App\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Domain\RightManagement\RightTransformerServiceInterface;
+use Infinito\Domain\RightManagement\RightTransformerServiceInterface;
 
 /**
  * @author kevinfrantz
@@ -27,7 +27,7 @@ final class SecureRequestedRightCheckerService implements SecureRequestedRightCh
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface::check()
+     * @see \Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface::check()
      */
     public function check(RequestedRightInterface $requestedRight): bool
     {

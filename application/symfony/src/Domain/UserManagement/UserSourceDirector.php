@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Domain\UserManagement;
+namespace Infinito\Domain\UserManagement;
 
-use App\Entity\UserInterface;
-use App\Entity\User;
-use App\Repository\Source\SourceRepositoryInterface;
-use App\Domain\FixtureManagement\FixtureSource\GuestUserFixtureSource;
+use Infinito\Entity\UserInterface;
+use Infinito\Entity\User;
+use Infinito\Repository\Source\SourceRepositoryInterface;
+use Infinito\Domain\FixtureManagement\FixtureSource\GuestUserFixtureSource;
 
 /**
  * @author kevinfrantz
@@ -49,7 +49,7 @@ final class UserSourceDirector implements UserSourceDirectorInterface
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\UserManagement\UserSourceDirectorInterface::getUser()
+     * @see \Infinito\Domain\UserManagement\UserSourceDirectorInterface::getUser()
      */
     public function getUser(): UserInterface
     {

@@ -3,10 +3,10 @@
 namespace tests\Unit\Domain\FormManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Exception\NotSetException;
-use App\Domain\RequestManagement\Action\RequestedActionInterface;
-use App\Domain\FormManagement\RequestedActionFormBuilder;
-use App\Domain\FormManagement\FormClassNameServiceInterface;
+use Infinito\Exception\NotSetException;
+use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
+use Infinito\Domain\FormManagement\RequestedActionFormBuilder;
+use Infinito\Domain\FormManagement\FormClassNameServiceInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 
 /**

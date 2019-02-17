@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\FixtureManagement;
+namespace Infinito\Domain\FixtureManagement;
 
-use App\Domain\FixtureManagement\FixtureSource\FixtureSourceInterface;
+use Infinito\Domain\FixtureManagement\FixtureSource\FixtureSourceInterface;
 
 /**
  * Offers a Factory to produce sources.

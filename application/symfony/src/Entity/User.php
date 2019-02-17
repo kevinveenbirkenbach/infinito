@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Entity;
+namespace Infinito\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
-use App\Attribut\SourceAttribut;
-use App\Attribut\IdAttribut;
-use App\Entity\Source\Complex\UserSourceInterface;
-use App\Entity\Source\Complex\UserSource;
-use App\Attribut\VersionAttribut;
+use Infinito\Attribut\SourceAttribut;
+use Infinito\Attribut\IdAttribut;
+use Infinito\Entity\Source\Complex\UserSourceInterface;
+use Infinito\Entity\Source\Complex\UserSource;
+use Infinito\Attribut\VersionAttribut;
 
 /**
  * @author kevinfrantz
  * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="Infinito\Repository\UserRepository")
  */
 class User extends BaseUser implements UserInterface
 {
@@ -21,7 +21,7 @@ class User extends BaseUser implements UserInterface
 
     /**
      * @var UserSourceInterface
-     * @ORM\OneToOne(targetEntity="App\Entity\Source\Complex\UserSource",cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="Infinito\Entity\Source\Complex\UserSource",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="source_user_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $source;

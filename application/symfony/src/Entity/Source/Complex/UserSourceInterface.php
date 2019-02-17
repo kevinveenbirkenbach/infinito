@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity\Source\Complex;
+namespace Infinito\Entity\Source\Complex;
 
-use App\Attribut\UserAttributInterface;
-use App\Attribut\PersonIdentitySourceAttributInterface;
+use Infinito\Attribut\UserAttributInterface;
+use Infinito\Attribut\PersonIdentitySourceAttributInterface;
 
 /**
  * @author kevinfrantz

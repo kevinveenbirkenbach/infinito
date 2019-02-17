@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\Source\Complex;
+namespace Infinito\Entity\Source\Complex;
 
-use App\Entity\Source\AbstractSource;
+use Infinito\Entity\Source\AbstractSource;
 
 /**
  * @author kevinfrantz

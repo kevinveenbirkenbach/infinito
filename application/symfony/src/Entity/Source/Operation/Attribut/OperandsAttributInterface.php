@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Source\Operation\Attribut;
+namespace Infinito\Entity\Source\Operation\Attribut;
 
 use Doctrine\Common\Collections\Collection;
 

@@ -23,7 +23,7 @@ class AttributIntegrationTest extends TestCase
     /**
      * @var string The namespace of the attributs
      */
-    const NAMESPACE = 'App\\Attribut';
+    const NAMESPACE = 'Infinito\\Attribut';
 
     /**
      * @var string

@@ -3,8 +3,8 @@
 namespace tests\unit\Entity\Source\Primitive;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Primitive\Name\NameSourceInterface;
-use App\Entity\Source\Primitive\Name\AbstractNameSource;
+use Infinito\Entity\Source\Primitive\Name\NameSourceInterface;
+use Infinito\Entity\Source\Primitive\Name\AbstractNameSource;
 
 /**
  * @author kevinfrantz

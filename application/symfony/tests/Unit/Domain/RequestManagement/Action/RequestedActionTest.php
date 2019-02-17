@@ -3,17 +3,17 @@
 namespace tests\Unit\Domain\RequestManagement\Action;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\RequestManagement\Right\RequestedRightInterface;
-use App\Domain\RequestManagement\Action\RequestedActionInterface;
-use App\Domain\RequestManagement\Right\RequestedRight;
-use App\Domain\RequestManagement\Action\RequestedAction;
-use App\DBAL\Types\ActionType;
-use App\DBAL\Types\Meta\Right\CRUDType;
-use App\Repository\Source\SourceRepositoryInterface;
-use App\DBAL\Types\Meta\Right\LayerType;
-use App\Domain\UserManagement\UserSourceDirector;
-use App\Domain\RequestManagement\User\RequestedUser;
-use App\Entity\Source\Complex\UserSourceInterface;
+use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
+use Infinito\Domain\RequestManagement\Right\RequestedRight;
+use Infinito\Domain\RequestManagement\Action\RequestedAction;
+use Infinito\DBAL\Types\ActionType;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\Repository\Source\SourceRepositoryInterface;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Domain\UserManagement\UserSourceDirector;
+use Infinito\Domain\RequestManagement\User\RequestedUser;
+use Infinito\Entity\Source\Complex\UserSourceInterface;
 
 /**
  * @author kevinfrantz

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\SecureManagement;
+namespace Infinito\Domain\SecureManagement;
 
-use App\Entity\Meta\RightInterface;
-use App\Exception\SourceAccessDenied;
+use Infinito\Entity\Meta\RightInterface;
+use Infinito\Exception\SourceAccessDenied;
 
 /**
  * @author kevinfrantz

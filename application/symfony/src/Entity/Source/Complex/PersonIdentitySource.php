@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\Source\Complex;
+namespace Infinito\Entity\Source\Complex;
 
-use App\Attribut\FullPersonNameSourceAttribut;
+use Infinito\Attribut\FullPersonNameSourceAttribut;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

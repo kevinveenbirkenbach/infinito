@@ -16,8 +16,8 @@ doctrine:
             collate: utf8mb4_unicode_ci
         url: '%env(resolve:DATABASE_URL)%'
         types:
-            CRUDType: App\DBAL\Types\Meta\Right\CRUDType
-            LayerType: App\DBAL\Types\Meta\Right\LayerType
+            CRUDType: Infinito\DBAL\Types\Meta\Right\CRUDType
+            LayerType: Infinito\DBAL\Types\Meta\Right\LayerType
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
@@ -27,7 +27,7 @@ doctrine:
                 is_bundle: false
                 type: annotation
                 dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
+                prefix: 'Infinito\Entity'
                 alias: App
         #resolve_target_entities:
-        #    App\Domain\RequestManagement\Right\RequestedRightServiceInterface: App\Domain\RequestManagement\Right\RequestedRightService2
+        #    Infinito\Domain\RequestManagement\Right\RequestedRightServiceInterface: Infinito\Domain\RequestManagement\Right\RequestedRightService2

@@ -3,8 +3,8 @@
 namespace Tests\Unit\Entity\Source\Primitive\Text;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Primitive\Text\TextSourceInterface;
-use App\Entity\Source\Primitive\Text\TextSource;
+use Infinito\Entity\Source\Primitive\Text\TextSourceInterface;
+use Infinito\Entity\Source\Primitive\Text\TextSource;
 
 class TextSourceTest extends TestCase
 {

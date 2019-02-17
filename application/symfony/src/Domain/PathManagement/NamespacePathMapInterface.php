@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\PathManagement;
+namespace Infinito\Domain\PathManagement;
 
 /**
  * Allows to map a path to an namespace.

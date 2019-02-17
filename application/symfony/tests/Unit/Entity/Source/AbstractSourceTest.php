@@ -3,12 +3,12 @@
 namespace tests\unit\Entity\Source;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\SourceInterface;
-use App\Entity\Meta\LawInterface;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Entity\Meta\LawInterface;
 use Doctrine\Common\Collections\Collection;
-use App\Entity\EntityInterface;
-use App\Entity\Meta\Relation\Parent\CreatorRelationInterface;
-use App\Entity\Source\PureSource;
+use Infinito\Entity\EntityInterface;
+use Infinito\Entity\Meta\Relation\Parent\CreatorRelationInterface;
+use Infinito\Entity\Source\PureSource;
 
 /**
  * @author kevinfrantz

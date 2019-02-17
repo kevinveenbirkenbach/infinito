@@ -3,20 +3,20 @@
 namespace tests\Unit\Domain\RightManagement\User;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\User;
-use App\Domain\RequestManagement\User\RequestedUser;
-use App\DBAL\Types\Meta\Right\LayerType;
-use App\DBAL\Types\Meta\Right\CRUDType;
-use App\Entity\Source\AbstractSource;
-use App\Domain\UserManagement\UserSourceDirectorInterface;
-use App\Domain\RequestManagement\Right\RequestedRightInterface;
-use App\Domain\RequestManagement\Right\RequestedRight;
-use App\Domain\UserManagement\UserSourceDirector;
-use App\Repository\Source\SourceRepositoryInterface;
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use App\DBAL\Types\SystemSlugType;
-use App\Exception\SetNotPossibleException;
-use App\Exception\NotCorrectInstanceException;
+use Infinito\Entity\User;
+use Infinito\Domain\RequestManagement\User\RequestedUser;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Domain\UserManagement\UserSourceDirectorInterface;
+use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Domain\RequestManagement\Right\RequestedRight;
+use Infinito\Domain\UserManagement\UserSourceDirector;
+use Infinito\Repository\Source\SourceRepositoryInterface;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\DBAL\Types\SystemSlugType;
+use Infinito\Exception\SetNotPossibleException;
+use Infinito\Exception\NotCorrectInstanceException;
 
 /**
  * @author kevinfrantz

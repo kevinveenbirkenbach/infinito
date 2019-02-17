@@ -2,29 +2,29 @@
 
 namespace Tests\Integration\Domain\ActionManagement\Create;
 
-use App\Domain\ActionManagement\Create\CreateSourceAction;
-use App\Domain\ActionManagement\ActionService;
-use App\Domain\ActionManagement\Create\CreateActionInterface;
-use App\Domain\ActionManagement\ActionServiceInterface;
+use Infinito\Domain\ActionManagement\Create\CreateSourceAction;
+use Infinito\Domain\ActionManagement\ActionService;
+use Infinito\Domain\ActionManagement\Create\CreateActionInterface;
+use Infinito\Domain\ActionManagement\ActionServiceInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
-use App\Entity\Source\PureSourceInterface;
-use App\Domain\RequestManagement\Action\RequestedActionService;
-use App\Domain\RequestManagement\Right\RequestedRightService;
-use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use Infinito\Entity\Source\PureSourceInterface;
+use Infinito\Domain\RequestManagement\Action\RequestedActionService;
+use Infinito\Domain\RequestManagement\Right\RequestedRightService;
+use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use App\DBAL\Types\ActionType;
-use App\Domain\RequestManagement\User\RequestedUserService;
-use App\Domain\UserManagement\UserSourceDirectorService;
+use Infinito\DBAL\Types\ActionType;
+use Infinito\Domain\RequestManagement\User\RequestedUserService;
+use Infinito\Domain\UserManagement\UserSourceDirectorService;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Request;
-use App\Domain\FormManagement\RequestedActionFormBuilderService;
-use App\Domain\FormManagement\FormClassNameService;
-use App\Domain\RequestManagement\Entity\RequestedEntityService;
-use App\Entity\Source\PureSource;
-use App\Attribut\ClassAttributInterface;
-use App\Domain\RepositoryManagement\LayerRepositoryFactoryService;
-use App\Domain\SecureManagement\SecureRequestedRightCheckerService;
-use App\Domain\RightManagement\RightTransformerService;
+use Infinito\Domain\FormManagement\RequestedActionFormBuilderService;
+use Infinito\Domain\FormManagement\FormClassNameService;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityService;
+use Infinito\Entity\Source\PureSource;
+use Infinito\Attribut\ClassAttributInterface;
+use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryService;
+use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerService;
+use Infinito\Domain\RightManagement\RightTransformerService;
 
 /**
  * @todo Implement test and logic!!!!!

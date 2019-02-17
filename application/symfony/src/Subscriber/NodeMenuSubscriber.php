@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Subscriber;
+namespace Infinito\Subscriber;
 
-use App\DBAL\Types\MenuEventType;
-use App\Event\Menu\MenuEvent;
+use Infinito\DBAL\Types\MenuEventType;
+use Infinito\Event\Menu\MenuEvent;
 
 /**
  * @author kevinfrantz

@@ -3,14 +3,14 @@
 namespace Tests\Unit\Domain\SourceManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\SourceManagement\SourceMembershipInformationInterface;
-use App\Domain\SourceManagement\SourceMembershipInformation;
-use App\Entity\Source\SourceInterface;
-use App\Entity\Source\Complex\UserSource;
-use App\Entity\Source\Primitive\Text\TextSource;
-use App\Entity\Source\Primitive\Name\FirstNameSource;
+use Infinito\Domain\SourceManagement\SourceMembershipInformationInterface;
+use Infinito\Domain\SourceManagement\SourceMembershipInformation;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Entity\Source\Complex\UserSource;
+use Infinito\Entity\Source\Primitive\Text\TextSource;
+use Infinito\Entity\Source\Primitive\Name\FirstNameSource;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\Source\Complex\FullPersonNameSource;
+use Infinito\Entity\Source\Complex\FullPersonNameSource;
 
 class SourceMembershipInformationTest extends TestCase
 {

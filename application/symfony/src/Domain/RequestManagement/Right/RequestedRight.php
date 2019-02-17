@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Domain\RequestManagement\Right;
+namespace Infinito\Domain\RequestManagement\Right;
 
-use App\Entity\Source\SourceInterface;
-use App\Attribut\CrudAttribut;
-use App\Attribut\LayerAttribut;
-use App\Attribut\RecieverAttribut;
-use App\Exception\PreconditionFailedException;
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use App\Attribut\RequestedEntityAttribut;
-use App\Entity\Meta\MetaInterface;
-use App\Exception\NotCorrectInstanceException;
-use App\Domain\RequestManagement\Entity\RequestedEntity;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Attribut\CrudAttribut;
+use Infinito\Attribut\LayerAttribut;
+use Infinito\Attribut\RecieverAttribut;
+use Infinito\Exception\PreconditionFailedException;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\Attribut\RequestedEntityAttribut;
+use Infinito\Entity\Meta\MetaInterface;
+use Infinito\Exception\NotCorrectInstanceException;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntity;
 
 /**
  * @author kevinfrantz
@@ -72,7 +72,7 @@ class RequestedRight implements RequestedRightInterface
      *
      * @see https://en.wikipedia.org/wiki/Lazy_loading
      * {@inheritdoc}
-     * @see \App\Domain\RequestManagement\Right\RequestedRightInterface::getSource()
+     * @see \Infinito\Domain\RequestManagement\Right\RequestedRightInterface::getSource()
      */
     final public function getSource(): SourceInterface
     {
@@ -87,7 +87,7 @@ class RequestedRight implements RequestedRightInterface
      *
      * {@inheritdoc}
      *
-     * @see \App\Domain\RequestManagement\Right\RequestedRightInterface::setRequestedEntity()
+     * @see \Infinito\Domain\RequestManagement\Right\RequestedRightInterface::setRequestedEntity()
      */
     final public function setRequestedEntity(RequestedEntityInterface $requestedEntity): void
     {

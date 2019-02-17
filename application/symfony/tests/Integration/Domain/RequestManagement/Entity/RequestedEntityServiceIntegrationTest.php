@@ -3,8 +3,8 @@
 namespace tests\Integration\Domain\RequestManagement\Entity;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use App\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
-use App\Entity\Source\AbstractSource;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
+use Infinito\Entity\Source\AbstractSource;
 
 /**
  * @author kevinfrantz

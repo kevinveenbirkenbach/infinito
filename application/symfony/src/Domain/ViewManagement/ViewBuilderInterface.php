@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domain\ViewManagement;
+namespace Infinito\Domain\ViewManagement;
 
 use FOS\RestBundle\View\View;
-use App\Domain\ActionManagement\ActionServiceInterface;
+use Infinito\Domain\ActionManagement\ActionServiceInterface;
 
 /**
  * @author kevinfrantz

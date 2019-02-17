@@ -4,8 +4,8 @@ namespace tests\Unit\Domain\MapManagement;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
-use App\Domain\MapManagement\ActionHttpMethodMap;
-use App\DBAL\Types\ActionType;
+use Infinito\Domain\MapManagement\ActionHttpMethodMap;
+use Infinito\DBAL\Types\ActionType;
 
 /**
  * @author kevinfrantz

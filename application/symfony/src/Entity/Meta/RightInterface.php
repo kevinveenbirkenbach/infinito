@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Entity\Meta;
+namespace Infinito\Entity\Meta;
 
-use App\Attribut\CrudAttributInterface;
-use App\Attribut\LawAttributInterface;
-use App\Attribut\RecieverAttributInterface;
-use App\Attribut\GrantAttributInterface;
-use App\Attribut\ConditionAttributInterface;
-use App\Attribut\LayerAttributInterface;
-use App\Attribut\RelationAttributInterface;
-use App\Attribut\PriorityAttributInterface;
+use Infinito\Attribut\CrudAttributInterface;
+use Infinito\Attribut\LawAttributInterface;
+use Infinito\Attribut\RecieverAttributInterface;
+use Infinito\Attribut\GrantAttributInterface;
+use Infinito\Attribut\ConditionAttributInterface;
+use Infinito\Attribut\LayerAttributInterface;
+use Infinito\Attribut\RelationAttributInterface;
+use Infinito\Attribut\PriorityAttributInterface;
 
 /**
  * @author kevinfrantz

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Tests\Unit\Controller;
+namespace Infinito\Tests\Unit\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use App\Controller\DefaultController;
+use Infinito\Controller\DefaultController;
 
 /**
  * @author kevinfrantz

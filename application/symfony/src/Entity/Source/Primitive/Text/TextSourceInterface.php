@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity\Source\Primitive\Text;
+namespace Infinito\Entity\Source\Primitive\Text;
 
-use App\Entity\Source\Primitive\PrimitiveSourceInterface;
-use App\Attribut\TextAttributInterface;
+use Infinito\Entity\Source\Primitive\PrimitiveSourceInterface;
+use Infinito\Attribut\TextAttributInterface;
 
 interface TextSourceInterface extends PrimitiveSourceInterface, TextAttributInterface
 {

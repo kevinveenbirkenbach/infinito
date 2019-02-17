@@ -3,10 +3,10 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\LayerAttributInterface;
-use App\Attribut\LayerAttribut;
-use App\DBAL\Types\Meta\Right\LayerType;
-use App\Exception\NoValidChoiceException;
+use Infinito\Attribut\LayerAttributInterface;
+use Infinito\Attribut\LayerAttribut;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Exception\NoValidChoiceException;
 
 /**
  * @author kevinfrantz

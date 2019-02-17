@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Domain\RequestManagement\Entity;
+namespace Infinito\Domain\RequestManagement\Entity;
 
-use App\Entity\EntityInterface;
-use App\Attribut\SlugAttributInterface;
-use App\Attribut\RequestedRightAttributInterface;
-use App\Attribut\ClassAttributInterface;
+use Infinito\Entity\EntityInterface;
+use Infinito\Attribut\SlugAttributInterface;
+use Infinito\Attribut\RequestedRightAttributInterface;
+use Infinito\Attribut\ClassAttributInterface;
 
 /**
  * A requested entity containes the stumb attributes to load an entity.

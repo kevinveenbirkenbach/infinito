@@ -3,11 +3,11 @@
 namespace Tests\Unit\Domain\TemplateManagement;
 
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\Primitive\Name\FirstNameSource;
-use App\Entity\Source\SourceInterface;
-use App\Domain\TemplateManagement\TemplatePathInformation;
-use App\Domain\SourceManagement\SourceMetaInformation;
-use App\DBAL\Types\RESTResponseType;
+use Infinito\Entity\Source\Primitive\Name\FirstNameSource;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Domain\TemplateManagement\TemplatePathInformation;
+use Infinito\Domain\SourceManagement\SourceMetaInformation;
+use Infinito\DBAL\Types\RESTResponseType;
 
 class TemplatePathInformationTest extends TestCase
 {

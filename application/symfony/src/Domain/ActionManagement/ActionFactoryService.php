@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Domain\ActionManagement;
+namespace Infinito\Domain\ActionManagement;
 
-use App\Exception\NoDefaultClassException;
+use Infinito\Exception\NoDefaultClassException;
 
 /**
  * @author kevinfrantz
  */
 final class ActionFactoryService extends AbstractActionConstructor implements ActionFactoryServiceInterface
 {
-    const BASE_NAMESPACE = 'App\\Domain\\ActionManagement\\';
+    const BASE_NAMESPACE = 'Infinito\\Domain\\ActionManagement\\';
 
     const CLASS_SUFFIX = 'Action';
 
@@ -67,7 +67,7 @@ final class ActionFactoryService extends AbstractActionConstructor implements Ac
     /**
      * {@inheritdoc}
      *
-     * @see \App\Domain\ActionManagement\ActionFactoryServiceInterface::create()
+     * @see \Infinito\Domain\ActionManagement\ActionFactoryServiceInterface::create()
      */
     public function create(): ActionInterface
     {

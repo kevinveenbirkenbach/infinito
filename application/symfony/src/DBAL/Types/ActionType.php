@@ -1,8 +1,8 @@
 <?php
 
-namespace App\DBAL\Types;
+namespace Infinito\DBAL\Types;
 
-use App\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
 
 /**
  * Containes all actions which can be done.

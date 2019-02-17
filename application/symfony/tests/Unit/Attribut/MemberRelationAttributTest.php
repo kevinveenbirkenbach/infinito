@@ -3,9 +3,9 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\MemberRelationAttributInterface;
-use App\Attribut\MemberRelationAttribut;
-use App\Entity\Meta\Relation\Member\MemberRelationInterface;
+use Infinito\Attribut\MemberRelationAttributInterface;
+use Infinito\Attribut\MemberRelationAttribut;
+use Infinito\Entity\Meta\Relation\Member\MemberRelationInterface;
 
 class MemberRelationAttributTest extends TestCase
 {

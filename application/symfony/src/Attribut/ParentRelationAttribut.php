@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
-use App\Entity\Meta\Relation\Parent\ParentRelationInterface;
+use Infinito\Entity\Meta\Relation\Parent\ParentRelationInterface;
 
 trait ParentRelationAttribut
 {

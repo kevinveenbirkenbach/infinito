@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity\Source\Complex;
+namespace Infinito\Entity\Source\Complex;
 
-use App\Attribut\FirstNameSourceAttributInterface;
-use App\Attribut\SurnameSourceAttributInterface;
+use Infinito\Attribut\FirstNameSourceAttributInterface;
+use Infinito\Attribut\SurnameSourceAttributInterface;
 
 /**
  * @todo Maybe a middle name would be helpfull in the future ;)

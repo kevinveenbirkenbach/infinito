@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exception;
+namespace Infinito\Exception;
 
 class NotCorrectInstanceException extends \TypeError
 {

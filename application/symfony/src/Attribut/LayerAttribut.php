@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Attribut;
+namespace Infinito\Attribut;
 
-use App\DBAL\Types\Meta\Right\LayerType;
-use App\Exception\NoValidChoiceException;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Exception\NoValidChoiceException;
 
 /**
  * @author kevinfrantz

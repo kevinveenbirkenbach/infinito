@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Event\Menu;
+namespace Infinito\Event\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;

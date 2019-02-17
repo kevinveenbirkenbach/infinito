@@ -4,12 +4,12 @@ namespace tests\Integration\Repository\Meta;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Doctrine\ORM\EntityRepository;
-use App\Entity\Meta\RightInterface;
-use App\Entity\Meta\Right;
-use App\DBAL\Types\Meta\Right\LayerType;
-use App\DBAL\Types\Meta\Right\CRUDType;
-use App\Entity\Meta\Law;
-use App\Entity\Meta\LawInterface;
+use Infinito\Entity\Meta\RightInterface;
+use Infinito\Entity\Meta\Right;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\Entity\Meta\Law;
+use Infinito\Entity\Meta\LawInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Logic\Result;
+namespace Infinito\Logic\Result;
 
 /**
  * @author kevinfrantz

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Entity\Meta\Relation\Member;
+namespace Infinito\Entity\Meta\Relation\Member;
 
-use App\Entity\Meta\Relation\AbstractRelation;
-use App\Attribut\MembersAttribut;
-use App\Attribut\MembershipsAttribut;
+use Infinito\Entity\Meta\Relation\AbstractRelation;
+use Infinito\Attribut\MembersAttribut;
+use Infinito\Attribut\MembershipsAttribut;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;

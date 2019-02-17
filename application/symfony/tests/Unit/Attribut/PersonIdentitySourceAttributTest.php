@@ -3,9 +3,9 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use App\Attribut\PersonIdentitySourceAttributInterface;
-use App\Attribut\PersonIdentitySourceAttribut;
-use App\Entity\Source\Complex\PersonIdentitySourceInterface;
+use Infinito\Attribut\PersonIdentitySourceAttributInterface;
+use Infinito\Attribut\PersonIdentitySourceAttribut;
+use Infinito\Entity\Source\Complex\PersonIdentitySourceInterface;
 
 /**
  * @todo Implement abstract test class for entity attributs

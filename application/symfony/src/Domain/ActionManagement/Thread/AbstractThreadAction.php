@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\ActionManagement\Thread;
+namespace Infinito\Domain\ActionManagement\Thread;
 
-use App\Domain\ActionManagement\AbstractAction;
+use Infinito\Domain\ActionManagement\AbstractAction;
 
 /**
  * @author kevinfrantz

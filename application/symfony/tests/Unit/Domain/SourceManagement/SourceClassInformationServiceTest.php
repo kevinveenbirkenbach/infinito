@@ -2,11 +2,11 @@
 
 namespace tests\Unit\Domain\SourceManagement;
 
-use App\Domain\SourceManagement\SourceClassInformationServiceInterface;
-use App\Domain\SourceManagement\SourceClassInformationService;
+use Infinito\Domain\SourceManagement\SourceClassInformationServiceInterface;
+use Infinito\Domain\SourceManagement\SourceClassInformationService;
 use PHPUnit\Framework\TestCase;
-use App\Entity\Source\PureSource;
-use App\Entity\Source\Complex\AbstractComplexSource;
+use Infinito\Entity\Source\PureSource;
+use Infinito\Entity\Source\Complex\AbstractComplexSource;
 
 /**
  * @author kevinfrantz
@@ -37,7 +37,7 @@ class SourceClassInformationServiceTest extends TestCase
 
     public function testSubSource(): void
     {
-        $allClasses = $this->sourceClassInformationService->getAllSubSourceClasses('App\\Entity\\Source\\Complex');
+        $allClasses = $this->sourceClassInformationService->getAllSubSourceClasses('Infinito\\Entity\\Source\\Complex');
         $this->assertFalse(in_array(PureSource::class, $allClasses));
         $this->assertTrue(in_array(AbstractComplexSource::class, $allClasses));
     }

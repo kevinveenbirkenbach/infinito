@@ -4,11 +4,11 @@ namespace tests\Unit\Repository;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Doctrine\ORM\EntityManager;
-use App\Repository\UserRepository;
-use App\Entity\User;
-use App\Entity\UserInterface;
-use App\Entity\Source\Complex\PersonIdentitySourceInterface;
-use App\Entity\Source\Complex\PersonIdentitySource;
+use Infinito\Repository\UserRepository;
+use Infinito\Entity\User;
+use Infinito\Entity\UserInterface;
+use Infinito\Entity\Source\Complex\PersonIdentitySourceInterface;
+use Infinito\Entity\Source\Complex\PersonIdentitySource;
 
 class UserRepositoryTest extends KernelTestCase
 {

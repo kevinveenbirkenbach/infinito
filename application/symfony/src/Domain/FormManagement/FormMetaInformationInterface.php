@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\FormManagement;
+namespace Infinito\Domain\FormManagement;
 
-use App\Domain\TemplateManagement\TemplatePathInformationInterface;
+use Infinito\Domain\TemplateManagement\TemplatePathInformationInterface;
 
 /**
  * @author kevinfrantz

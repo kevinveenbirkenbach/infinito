@@ -3,8 +3,8 @@
 namespace Tests\Unit\Logic;
 
 use PHPUnit\Framework\TestCase;
-use App\Logic\Result\ResultInterface;
-use App\Logic\Result\Result;
+use Infinito\Logic\Result\ResultInterface;
+use Infinito\Logic\Result\Result;
 
 class ResultTest extends TestCase
 {

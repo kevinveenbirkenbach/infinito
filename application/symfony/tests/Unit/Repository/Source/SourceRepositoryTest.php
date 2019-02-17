@@ -3,11 +3,11 @@
 namespace tests\Unit\Repository\Source;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use App\Repository\Source\SourceRepositoryInterface;
-use App\Entity\Source\AbstractSource;
-use App\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use App\DBAL\Types\SystemSlugType;
-use App\Entity\Source\SourceInterface;
+use Infinito\Repository\Source\SourceRepositoryInterface;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\DBAL\Types\SystemSlugType;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz

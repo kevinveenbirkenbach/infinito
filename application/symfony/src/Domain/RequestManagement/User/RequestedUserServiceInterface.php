@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\RequestManagement\User;
+namespace Infinito\Domain\RequestManagement\User;
 
 /**
  * @author kevinfrantz
