@@ -28,7 +28,7 @@ abstract class AbstractAPIController extends AbstractController
      *
      * @return Response
      */
-    abstract public function read(Request $request, $identifier): Response;
+//     abstract public function read(Request $request, $identifier): Response;
 
     /**
      * @param Request    $request    HTTP Method PUT

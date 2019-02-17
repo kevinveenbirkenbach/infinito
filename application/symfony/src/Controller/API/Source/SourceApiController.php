@@ -6,6 +6,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Controller\API\AbstractAPIController;
+use App\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use App\Domain\MVCManagement\MVCRoutineServiceInterface;
+use App\DBAL\Types\ActionType;
+use App\DBAL\Types\Meta\Right\LayerType;
 
 /**
  * @author kevinfrantz
@@ -23,8 +27,14 @@ class SourceApiController extends AbstractAPIController
      *
      * @see \App\Controller\API\AbstractAPIController::read()
      */
-    public function read(Request $request, $identifier): Response
+    public function read(MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, $identifier): Response
     {
+        $requestedActionService->setActionType(ActionType::READ);
+        $requestedActionService->setLayer(LayerType::SOURCE);
+        $requestedActionService->getRequestedEntity()->setIdentity($identifier);
+        $view = $mvcRoutineService->process();
+
+        return $this->handleView($view);
     }
 
     /**
