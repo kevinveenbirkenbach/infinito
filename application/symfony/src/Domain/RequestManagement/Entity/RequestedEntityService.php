@@ -7,7 +7,7 @@ use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 /**
  * @author kevinfrantz
  */
-final class RequestedEntityService extends RequestedEntity implements RequestedEntityServiceInterface
+class RequestedEntityService extends LazyRequestedEntity implements RequestedEntityServiceInterface
 {
     /**
      * @param LayerRepositoryFactoryServiceInterface $layerRepositoryFactoryService

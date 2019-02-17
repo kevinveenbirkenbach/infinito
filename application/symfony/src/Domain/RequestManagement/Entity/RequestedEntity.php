@@ -1,4 +1,5 @@
 <?php
+
 namespace Infinito\Domain\RequestManagement\Entity;
 
 use Infinito\Entity\AbstractEntity;
@@ -17,11 +18,10 @@ use Infinito\Attribut\ClassAttribut;
 use Infinito\Exception\AllreadyDefinedException;
 use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
 use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryService;
-use Infinito\Attribut\SlugAttributInterface;
 
 /**
- *
  * @author kevinfrantz
+ *
  * @todo Move lazy load to an own child class
  */
 class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
@@ -29,12 +29,6 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     use SlugAttribut,
     RequestedRightAttribut,
     ClassAttribut{ setClass as private setClassTrait; getClass as private getClassTrait; }
-
-    /**
-     *
-     * @var EntityInterface|NULL Important for lazy loading
-     */
-    private static $lazyLoadedEntity;
 
     /**
      * BE AWARE:
@@ -45,44 +39,28 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     private $layerRepositoryFactoryService;
 
     /**
-     *
      * @throws NotSetException
      */
     private function validateHasIdentity(): void
     {
-        if (! ($this->hasId() || $this->hasSlug())) {
+        if (!($this->hasId() || $this->hasSlug())) {
             throw new NotSetException('No identity attribut like id or slug was set!');
         }
     }
 
     /**
-     *
      * @param EntityInterface|null $entity
      *
      * @throws NotFoundHttpException
      */
     private function validateLoadedEntity(?EntityInterface $entity): void
     {
-        if (! $entity) {
-            throw new NotFoundHttpException('Entity with {id:"' . $this->id . '",slug:"' . $this->slug . '"} not found');
+        if (!$entity) {
+            throw new NotFoundHttpException('Entity with {id:"'.$this->id.'",slug:"'.$this->slug.'"} not found');
         }
     }
 
     /**
-     *
-     * @return EntityInterface The lazy loaded entity
-     */
-    private function lazyLoadEntity(): ?EntityInterface
-    {
-        if ($this->isLazyLoadNeccessary()) {
-            $entity = $this->loadEntityBySlugOrId();
-            self::$lazyLoadedEntity = $entity;
-        }
-        return self::$lazyLoadedEntity;
-    }
-
-    /**
-     *
      * @return EntityInterface|SourceInterface|null
      */
     private function loadEntityBySlugOrId(): ?EntityInterface
@@ -95,26 +73,6 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
-     *
-     * @return bool True if a reload is neccessary
-     */
-    private function isLazyLoadNeccessary(): bool
-    {
-        if (self::$lazyLoadedEntity) {
-            if ($this->hasId()) {
-                return $this->id !== self::$lazyLoadedEntity->getId();
-            }
-            if ($this->hasSlug()) {
-                if (self::$lazyLoadedEntity instanceof SlugAttributInterface) {
-                    return $this->slug !== self::$lazyLoadedEntity->getSlug();
-                }
-            }
-        }
-        return true;
-    }
-
-    /**
-     *
      * @throws NotCorrectInstanceException
      *
      * @return SourceInterface|null
@@ -125,11 +83,10 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
         if ($repository instanceof SourceRepositoryInterface) {
             return $repository->findOneBySlug($this->slug);
         }
-        throw new NotCorrectInstanceException('To read an entity by slug is just allowed for entitys of type ' . AbstractSource::class);
+        throw new NotCorrectInstanceException('To read an entity by slug is just allowed for entitys of type '.AbstractSource::class);
     }
 
     /**
-     *
      * @return EntityInterface|null
      */
     private function loadById(): ?EntityInterface
@@ -140,18 +97,16 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
-     *
      * @throws NotFoundHttpException
      */
     private function validateLayerRepositoryFactoryService(): void
     {
-        if (! $this->layerRepositoryFactoryService) {
-            throw new NotSetException('The operation is not possible, because the class ' . LayerRepositoryFactoryService::class . ' is not injected!');
+        if (!$this->layerRepositoryFactoryService) {
+            throw new NotSetException('The operation is not possible, because the class '.LayerRepositoryFactoryService::class.' is not injected!');
         }
     }
 
     /**
-     *
      * @return RepositoryInterface
      */
     private function getEntityRepository(): RepositoryInterface
@@ -164,7 +119,14 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
-     *
+     * @return EntityInterface|null
+     */
+    protected function loadEntity(): ?EntityInterface
+    {
+        return $this->loadEntityBySlugOrId();
+    }
+
+    /**
      * @param LayerRepositoryFactoryServiceInterface|null $layerRepositoryFactoryService
      */
     public function __construct(?LayerRepositoryFactoryServiceInterface $layerRepositoryFactoryService = null)
@@ -173,7 +135,6 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
-     *
      * {@inheritdoc}
      *
      * @see \Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface::hasIdentity()
@@ -184,7 +145,6 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
-     *
      * {@inheritdoc}
      *
      * @see \Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface::setIdentity()
@@ -205,7 +165,6 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
-     *
      * {@inheritdoc}
      *
      * @see \Infinito\Attribut\ClassAttributInterface::setClass()
@@ -219,16 +178,14 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
-     *
      * {@inheritdoc}
      *
      * @see \Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface::getEntity()
      */
-    public function getEntity(): EntityInterface
+    final public function getEntity(): EntityInterface
     {
         $this->validateHasIdentity();
-        $entity = $this->loadEntityBySlugOrId();
-        //$entity = $this->lazyLoadEntity();
+        $entity = $this->loadEntity();
         $this->validateLoadedEntity($entity);
 
         return $entity;
@@ -244,13 +201,12 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     public function setRequestedRight(RequestedRightInterface $requestedRight): void
     {
         $this->requestedRight = $requestedRight;
-        if (! $this->requestedRight->hasRequestedEntity()) {
+        if (!$this->requestedRight->hasRequestedEntity()) {
             $this->requestedRight->setRequestedEntity($this);
         }
     }
 
     /**
-     *
      * {@inheritdoc}
      *
      * @see \Infinito\Attribut\ClassAttributInterface::getClass()
