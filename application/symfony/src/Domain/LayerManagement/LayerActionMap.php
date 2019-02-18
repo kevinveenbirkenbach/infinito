@@ -20,7 +20,7 @@ final class LayerActionMap extends AbstractMap implements LayerActionMapInterfac
             ActionType::CREATE,
             ActionType::UPDATE,
             ActionType::DELETE,
-            ActionType::THREAD,
+            ActionType::EXECUTE,
         ],
     ];
 

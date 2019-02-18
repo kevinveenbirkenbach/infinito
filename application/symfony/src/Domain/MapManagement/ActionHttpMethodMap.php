@@ -26,7 +26,7 @@ final class ActionHttpMethodMap extends AbstractMap implements ActionHttpMethodM
             Request::METHOD_GET,
             Request::METHOD_DELETE,
         ],
-        ActionType::THREAD => [
+        ActionType::EXECUTE => [
             Request::METHOD_GET,
         ],
     ];

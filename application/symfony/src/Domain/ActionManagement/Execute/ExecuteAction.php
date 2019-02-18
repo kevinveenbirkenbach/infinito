@@ -1,11 +1,11 @@
 <?php
 
-namespace Infinito\Domain\ActionManagement\Thread;
+namespace Infinito\Domain\ActionManagement\Execute;
 
 /**
  * @author kevinfrantz
  */
-final class ThreadSourceAction extends AbstractThreadAction
+final class ExecuteAction extends AbstractExecuteAction
 {
     /**
      * {@inheritdoc}

@@ -23,7 +23,7 @@ class RequestedAction extends RequestedUser implements RequestedActionInterface
      * @var array Containes the mapping of non standard actions to a crud
      */
     const ACTION_CRUD_MAP = [
-        ActionType::THREAD => CRUDType::READ,
+        ActionType::EXECUTE => CRUDType::READ,
     ];
 
     /**

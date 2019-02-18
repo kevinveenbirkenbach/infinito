@@ -11,13 +11,19 @@ use Infinito\DBAL\Types\Meta\Right\CRUDType;
  */
 final class ActionType extends CRUDType
 {
-    const THREAD = 'thread';
+    /**
+     * @var string
+     */
+    const EXECUTE = 'execute';
 
+    /**
+     * @var array
+     */
     protected static $choices = [
         parent::CREATE => 'create',
         parent::READ => 'read',
         parent::UPDATE => 'update',
         parent::DELETE => 'delete',
-        self::THREAD => 'thread',
+        self::EXECUTE => 'execute',
     ];
 }

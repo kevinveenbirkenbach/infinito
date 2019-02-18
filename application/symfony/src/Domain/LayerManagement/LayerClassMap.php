@@ -13,6 +13,9 @@ use Infinito\Entity\Meta\Right;
  */
 final class LayerClassMap implements LayerClassMapInterface
 {
+    /**
+     * @var array|string[]
+     */
     const LAYER_CLASS_MAP = [
         LayerType::SOURCE => AbstractSource::class,
         LayerType::LAW => Law::class,

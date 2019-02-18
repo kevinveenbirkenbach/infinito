@@ -30,7 +30,7 @@ class RequestedActionServiceIntegrationTest extends KernelTestCase
 
     public function testActionAccessors(): void
     {
-        $actionType = ActionType::THREAD;
+        $actionType = ActionType::EXECUTE;
         $this->assertNull($this->requestedActionService->setActionType($actionType));
         $this->assertEquals($actionType, $this->requestedActionService->getActionType());
     }

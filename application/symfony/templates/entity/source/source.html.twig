@@ -1,26 +1,25 @@
 {% extends "frames/default.html.twig" %}
 {% block title %}
-{% trans %}
-Source
-{% endtrans %}
+	{{ 'Source'|trans }}: {% if entity.hasSlug %}{{ entity.slug }}{% endif %}#{{ entity.id }}
 {% endblock %}
 {% block content %}
 <h1>
-	Source: {% if entity.hasSlug %}{{ entity.slug }}{% endif %}#{{ entity.id }}
+	{{ 'Source'|trans }}: {% if entity.hasSlug %}{{ entity.slug }}{% endif %}#{{ entity.id }}
 </h1>
 <div id="accordion">
+{% for action in layer_action_map.getActions('source') %}
 	<div class="card">
-		<div class="card-header" id="headingExecute">
+		<div class="card-header" id="heading_{{ action }}">
 			<h5 class="mb-0">
 				<button class="btn btn-link collapsed" data-toggle="collapse"
-					data-target="#collapseExecute" aria-expanded="false"
-					aria-controls="collapseExecute">
-					<i class="fas fa-microchip"></i> Execute
+					data-target="#collapse_{{ action }}" aria-expanded="false"
+					aria-controls="collapse_{{ action }}">
+					<i class="{{ action_icon_class_map.getIconClass(action) }}"></i> {{ action|trans }}
 				</button>
 			</h5>
 		</div>
-		<div id="collapseExecute" class="collapse"
-			aria-labelledby="headingExecute" data-parent="#accordion">
+		<div id="collapse_{{ action }}" class="collapse"
+			aria-labelledby="heading_{{ action }}" data-parent="#accordion">
 			<div class="card-body">Anim pariatur cliche reprehenderit, enim
 				eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
 				officia aute, non cupidatat skateboard dolor brunch. Food truck
@@ -33,6 +32,11 @@ Source
 				accusamus labore sustainable VHS.</div>
 		</div>
 	</div>
+	
+{% endfor %}
+</div>
+<hr />
+<div id="accordion">
 	<div class="card">
 		<div class="card-header" id="headingOne">
 			<h5 class="mb-0">
@@ -48,54 +52,6 @@ Source
 			<div class="card-body">
 				{{ entity.text }}
 			</div>
-		</div>
-	</div>
-	<div class="card">
-		<div class="card-header" id="headingTwo">
-			<h5 class="mb-0">
-				<button class="btn btn-link collapsed" data-toggle="collapse"
-					data-target="#collapseTwo" aria-expanded="false"
-					aria-controls="collapseTwo">
-					<i class="fas fa-pencil-alt"></i> Update
-				</button>
-			</h5>
-		</div>
-		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-			data-parent="#accordion">
-			<div class="card-body">Anim pariatur cliche reprehenderit, enim
-				eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-				officia aute, non cupidatat skateboard dolor brunch. Food truck
-				quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-				aliqua put a bird on it squid single-origin coffee nulla assumenda
-				shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
-				anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-				butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw
-				denim aesthetic synth nesciunt you probably haven't heard of them
-				accusamus labore sustainable VHS.</div>
-		</div>
-	</div>
-	<div class="card">
-		<div class="card-header" id="headingDelete">
-			<h5 class="mb-0">
-				<button class="btn btn-link collapsed" data-toggle="collapse"
-					data-target="#collapseDelete" aria-expanded="false"
-					aria-controls="collapseDelete">
-					<i class="fas fa-trash-alt"></i> Delete
-				</button>
-			</h5>
-		</div>
-		<div id="collapseDelete" class="collapse"
-			aria-labelledby="headingDelete" data-parent="#accordion">
-			<div class="card-body">Anim pariatur cliche reprehenderit, enim
-				eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-				officia aute, non cupidatat skateboard dolor brunch. Food truck
-				quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-				aliqua put a bird on it squid single-origin coffee nulla assumenda
-				shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
-				anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-				butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw
-				denim aesthetic synth nesciunt you probably haven't heard of them
-				accusamus labore sustainable VHS.</div>
 		</div>
 	</div>
 	<div class="card">
