@@ -12,7 +12,7 @@ interface ActionInterface
     /**
      * Executes the action.
      *
-     * @return EntityInterface|EntityInterface[]|null
+     * @return EntityInterface|null
      */
-    public function execute();
+    public function execute(): ?EntityInterface;
 }

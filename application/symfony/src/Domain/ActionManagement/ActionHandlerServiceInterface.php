@@ -12,7 +12,7 @@ interface ActionHandlerServiceInterface
     /**
      * Process an action an returns the results.
      *
-     * @return EntityInterface|EntityInterface[]
+     * @return EntityInterface|null
      */
-    public function handle();
+    public function handle(): ?EntityInterface;
 }

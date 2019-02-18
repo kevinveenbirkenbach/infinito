@@ -43,7 +43,7 @@ abstract class AbstractAction extends AbstractActionConstructor implements Actio
      *
      * @see \Infinito\Domain\ActionManagement\ActionInterface::execute()
      */
-    final public function execute()
+    final public function execute(): ?EntityInterface
     {
         $this->prepare();
         if ($this->isSecure()) {

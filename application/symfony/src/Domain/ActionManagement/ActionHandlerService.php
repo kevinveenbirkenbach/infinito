@@ -2,6 +2,8 @@
 
 namespace Infinito\Domain\ActionManagement;
 
+use Infinito\Entity\EntityInterface;
+
 /**
  * @author kevinfrantz
  */
@@ -25,7 +27,7 @@ final class ActionHandlerService implements ActionHandlerServiceInterface
      *
      * @see \Infinito\Domain\ActionManagement\ActionHandlerServiceInterface::handle()
      */
-    public function handle()
+    public function handle(): ?EntityInterface
     {
         return $this->actionFactoryService->create()->execute();
     }
