@@ -10,6 +10,11 @@ use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 class TemplateNameService implements TemplateNameServiceInterface
 {
     /**
+     * @var unknown
+     */
+    const BASE_TEMPLATE_DIR = __DIR__.'/../../../templates/';
+
+    /**
      * @var string The namespace which should be ignored
      */
     const BASE_NAMESPACE = 'Infinito\\Entity';
@@ -71,7 +76,7 @@ class TemplateNameService implements TemplateNameServiceInterface
         $origineClass = $this->getClass();
         $baseReplaced = str_replace(self::BASE_NAMESPACE, self::BASE_ENTITY_TEMPLATE_FOLDER, $origineClass);
         $elements = explode('\\', $baseReplaced);
-        array_pop($elements); //Removes class name
+        array_pop($elements); // Removes class name
         $templatePath = implode('/', $elements);
         $lowerCasePath = strtolower($templatePath);
 
@@ -129,5 +134,30 @@ class TemplateNameService implements TemplateNameServiceInterface
     public function getMoleculeTemplateName(): string
     {
         return $this->getTemplatePath(self::MOLECULE_PRAEFFIX);
+    }
+
+    private function templateExists(string $template): bool
+    {
+        return file_exists(self::BASE_TEMPLATE_DIR.$template);
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \Infinito\Domain\TemplateManagement\TemplateNameServiceInterface::doesAtomTemplateExists()
+     */
+    public function doesAtomTemplateExist(): bool
+    {
+        return $this->templateExists($this->getAtomTemplateName());
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \Infinito\Domain\TemplateManagement\TemplateNameServiceInterface::doesMoleculeTemplateExists()
+     */
+    public function doesMoleculeTemplateExist(): bool
+    {
+        return $this->templateExists($this->getMoleculeTemplateName());
     }
 }

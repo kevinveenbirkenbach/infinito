@@ -16,4 +16,14 @@ interface TemplateNameServiceInterface
      * @return string a template without a frame
      */
     public function getAtomTemplateName(): string;
+
+    /**
+     * @return bool True if template exists
+     */
+    public function doesAtomTemplateExist(): bool;
+
+    /**
+     * @return bool True if template exists
+     */
+    public function doesMoleculeTemplateExist(): bool;
 }
