@@ -6,3 +6,4 @@ twig:
     globals:
         layer_action_map: "@Infinito\\Domain\\LayerManagement\\LayerActionMap"
         action_icon_class_map: "@Infinito\\Domain\\TwigManagement\\ActionIconClassMap"
+        action_template_name_service: "@Infinito\\Domain\\TemplateManagement\\ActionTemplateNameServiceInterface"

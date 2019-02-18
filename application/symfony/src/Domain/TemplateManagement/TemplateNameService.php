@@ -7,7 +7,7 @@ use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 /**
  * @author kevinfrantz
  */
-final class TemplateNameService implements TemplateNameServiceInterface
+class TemplateNameService implements TemplateNameServiceInterface
 {
     /**
      * @var string The namespace which should be ignored
@@ -40,6 +40,22 @@ final class TemplateNameService implements TemplateNameServiceInterface
     private $requestedActionService;
 
     /**
+     * @return string
+     */
+    protected function getActionType(): string
+    {
+        return $this->requestedActionService->getActionType();
+    }
+
+    /**
+     * @return string
+     */
+    protected function getClass(): string
+    {
+        return $this->requestedActionService->getRequestedEntity()->getClass();
+    }
+
+    /**
      * @param RequestedActionServiceInterface $requestedActionService
      */
     public function __construct(RequestedActionServiceInterface $requestedActionService)
@@ -52,7 +68,7 @@ final class TemplateNameService implements TemplateNameServiceInterface
      */
     private function getBasePath(): string
     {
-        $origineClass = $this->requestedActionService->getRequestedEntity()->getClass();
+        $origineClass = $this->getClass();
         $baseReplaced = str_replace(self::BASE_NAMESPACE, self::BASE_ENTITY_TEMPLATE_FOLDER, $origineClass);
         $elements = explode('\\', $baseReplaced);
         array_pop($elements); //Removes class name
@@ -67,7 +83,7 @@ final class TemplateNameService implements TemplateNameServiceInterface
      */
     private function getShortName(): string
     {
-        $origineClass = $this->requestedActionService->getRequestedEntity()->getClass();
+        $origineClass = $this->getClass();
         $elements = explode('\\', $origineClass);
         $class = $elements[count($elements) - 1];
         $lcFirst = lcfirst($class);
@@ -82,7 +98,7 @@ final class TemplateNameService implements TemplateNameServiceInterface
      */
     private function getActionSuffix(): string
     {
-        return '_'.strtolower($this->requestedActionService->getActionType());
+        return '_'.strtolower($this->getActionType());
     }
 
     /**

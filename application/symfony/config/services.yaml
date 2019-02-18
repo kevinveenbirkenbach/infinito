@@ -44,6 +44,9 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
     
+    # Map Interfaces to concrete classes
+    Infinito\Domain\TemplateManagement\TemplateNameServiceInterface: "@Infinito\\Domain\\TemplateManagement\\TemplateNameService"
+    
     # Needed for integration tests
     Infinito\Domain\RequestManagement\Entity\RequestedEntityService:
         public: true
