@@ -45,11 +45,4 @@ abstract class AbstractAPIController extends AbstractController
      * @return Response
      */
     abstract public function delete(Request $request, $identifier): Response;
-
-    /**
-     * @param Request $request HTTP Method GET with filtering parameters
-     *
-     * @return Response
-     */
-    abstract public function list(Request $request): Response;
 }

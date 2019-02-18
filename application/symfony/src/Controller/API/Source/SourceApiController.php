@@ -14,34 +14,48 @@ use Infinito\DBAL\Types\Meta\Right\LayerType;
 /**
  * @author kevinfrantz
  *
- * @todo Implement!
+ * @see https://symfony.com/blog/new-in-symfony-4-1-prefix-imported-route-names
+ * @see https://symfony.com/blog/new-in-symfony-4-1-internationalized-routing
+ * @Route(
+ *  {
+ *      "en":"/source/{identity}.{_format}",
+ *      "de":"/quelle/{identity}.{_format}",
+ *      "eo":"/fonto/{identity}.{_format}",
+ *      "es":"/fontanar/{identity}.{_format}",
+ *      "nl":"/bron/{identity}.{_format}"
+ *  },
+ *  defaults={
+ *      "identity"="",
+ *      "_format"="json"
+ *  } ,
+ *  name="source_"
+ * )
  */
 class SourceApiController extends AbstractAPIController
 {
     /**
-     * @Route("/{_locale}/api/source/{identifier}.{_format}",
-     * defaults={"_format"="json"} ,
+     * @Route(
      * methods={"GET"}
      * )
      * {@inheritdoc}
      *
      * @see \Infinito\Controller\API\AbstractAPIController::read()
      */
-    public function read(MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, $identifier): Response
+    public function read(MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, $identity): Response
     {
         $requestedActionService->setActionType(ActionType::READ);
         $requestedActionService->setLayer(LayerType::SOURCE);
-        $requestedActionService->getRequestedEntity()->setIdentity($identifier);
+        $requestedActionService->getRequestedEntity()->setIdentity($identity);
         $view = $mvcRoutineService->process();
 
         return $this->handleView($view);
     }
 
     /**
-     * @Route("/{_locale}/api/source/{identifier}.{_format}",
-     * defaults={"_format"="json"} ,
+     *@Route(
      * methods={"PUT"}
      * )
+     *
      * {@inheritdoc}
      *
      * @see \Infinito\Controller\API\AbstractAPIController::update()
@@ -51,21 +65,7 @@ class SourceApiController extends AbstractAPIController
     }
 
     /**
-     * @Route("/{_locale}/api/sources/.{_format}",
-     * defaults={"_format"="json"} ,
-     * methods={"GET"}
-     * )
-     * {@inheritdoc}
-     *
-     * @see \Infinito\Controller\API\AbstractAPIController::list()
-     */
-    public function list(Request $request): Response
-    {
-    }
-
-    /**
-     * @Route("/{_locale}/api/source/{identifier}.{_format}",
-     * defaults={"_format"="json"} ,
+     * @Route(
      * methods={"DELETE"}
      * )
      * {@inheritdoc}
