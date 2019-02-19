@@ -2,6 +2,8 @@
 
 namespace Infinito\Domain\TemplateManagement;
 
+use Doctrine\Common\Collections\Collection;
+
 /**
  * This class offers a temporary data store to pass data from the controller logic to the template.
  *
@@ -30,4 +32,9 @@ interface ActionTemplateDataStoreServiceInterface
      * @return bool True if the data is set
      */
     public function isDataStored(string $actionType): bool;
+
+    /**
+     * @return Collection
+     */
+    public function getAllStoredData(): Collection;
 }

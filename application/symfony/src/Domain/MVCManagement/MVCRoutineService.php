@@ -3,15 +3,19 @@
 namespace Infinito\Domain\MVCManagement;
 
 use FOS\RestBundle\View\View;
-use Infinito\Entity\EntityInterface;
 use Infinito\Domain\ActionManagement\ActionHandlerServiceInterface;
 use Infinito\Domain\TemplateManagement\TemplateNameServiceInterface;
+use Infinito\Domain\TemplateManagement\ActionTemplateDataStoreServiceInterface;
+use Infinito\Attribut\ActionTypeAttribut;
+use Infinito\DBAL\Types\ActionType;
 
 /**
  * @author kevinfrantz
  */
 final class MVCRoutineService implements MVCRoutineServiceInterface
 {
+    use ActionTypeAttribut;
+
     /**
      * @var ActionHandlerServiceInterface
      */
@@ -23,27 +27,30 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     private $templateNameService;
 
     /**
-     * @param EntityInterface[]|EntityInterface|null $result
-     *
-     * @return array Well formated data for view
+     * @var ActionTemplateDataStoreServiceInterface
      */
-    private function getViewData($result): array
+    private $actionTemplateDataStore;
+
+    /**
+     * @return View
+     */
+    private function getView(): View
     {
-        switch (gettype($result)) {
-            case 'object':
-                return ['entity' => $result];
-            case 'null':
-                return [];
-        }
+        $view = View::create();
+        $view->setTemplate($this->templateNameService->getMoleculeTemplateName());
+        $view->setData($this->actionTemplateDataStore->getAllStoredData());
+
+        return $view;
     }
 
     /**
      * @param ActionHandlerServiceInterface $actionHandlerService
      */
-    public function __construct(ActionHandlerServiceInterface $actionHandlerService, TemplateNameServiceInterface $templateNameService)
+    public function __construct(ActionHandlerServiceInterface $actionHandlerService, TemplateNameServiceInterface $templateNameService, ActionTemplateDataStoreServiceInterface $actionTemplateDataStore)
     {
         $this->actionHandlerService = $actionHandlerService;
         $this->templateNameService = $templateNameService;
+        $this->actionTemplateDataStore = $actionTemplateDataStore;
     }
 
     /**
@@ -53,24 +60,13 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
      */
     public function process(): View
     {
-        $result = $this->actionHandlerService->handle();
-        $data = $this->getViewData($result);
-        $view = $this->getView($data);
+        if (!$this->actionType) {
+            $result = $this->actionHandlerService->handle();
+            $this->actionTemplateDataStore->setData(ActionType::READ, $result);
+            $view = $this->getView();
 
-        return $view;
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @see \Infinito\Domain\MVCManagement\MVCRoutineServiceInterface::getView()
-     */
-    public function getView(array $data): View
-    {
-        $view = View::create();
-        $view->setTemplate($this->templateNameService->getMoleculeTemplateName());
-        $view->setData($data);
-
-        return $view;
+            return $view;
+        }
+        throw new \Exception('Not implemented yet!');
     }
 }

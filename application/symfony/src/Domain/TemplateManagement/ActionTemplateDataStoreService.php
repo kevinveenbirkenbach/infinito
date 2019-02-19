@@ -12,6 +12,7 @@ use Infinito\Form\AbstractType;
 use Infinito\Entity\EntityInterface;
 use Infinito\Domain\ActionManagement\AbstractAction;
 use Infinito\Exception\NotCorrectInstanceException;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @author kevinfrantz
@@ -30,9 +31,9 @@ final class ActionTemplateDataStoreService implements ActionTemplateDataStoreSer
     ];
 
     /**
-     * @var ArrayCollection
+     * @var Collection
      */
-    private $actionDataMap;
+    private $actionDataStore;
 
     /**
      * @param string $actionType
@@ -68,7 +69,7 @@ final class ActionTemplateDataStoreService implements ActionTemplateDataStoreSer
 
     public function __construct()
     {
-        $this->actionDataMap = new ArrayCollection();
+        $this->actionDataStore = new ArrayCollection();
     }
 
     /**
@@ -81,7 +82,7 @@ final class ActionTemplateDataStoreService implements ActionTemplateDataStoreSer
         if ($this->isValidActionType($actionType) && $this->isValidActionData($actionType, $data) && $this->isDataStored($actionType)) {
             throw new AllreadySetException("The data for the action type <<$actionType>> is allready set!");
         }
-        $this->actionDataMap->set($actionType, $data);
+        $this->actionDataStore->set($actionType, $data);
     }
 
     /**
@@ -92,7 +93,7 @@ final class ActionTemplateDataStoreService implements ActionTemplateDataStoreSer
     public function getData(string $actionType)
     {
         if ($this->isValidActionType($actionType) && $this->isDataStored($actionType)) {
-            return $this->actionDataMap->get($actionType);
+            return $this->actionDataStore->get($actionType);
         }
         throw new NotSetException("The data for the action type <<$actionType>> is not set!");
     }
@@ -104,6 +105,16 @@ final class ActionTemplateDataStoreService implements ActionTemplateDataStoreSer
      */
     public function isDataStored(string $actionType): bool
     {
-        return $this->actionDataMap->containsKey($actionType);
+        return $this->actionDataStore->containsKey($actionType);
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \Infinito\Domain\TemplateManagement\ActionTemplateDataStoreServiceInterface::getAllData()
+     */
+    public function getAllStoredData(): Collection
+    {
+        return $this->actionDataStore;
     }
 }

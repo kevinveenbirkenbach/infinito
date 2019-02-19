@@ -1,4 +1,5 @@
 {% extends "frames/default.html.twig" %}
+{% set entity = action_template_data_store_service.getData('read') %}
 {% block title %}
 	{{ 'Source'|trans }}: {% if entity.hasSlug %}{{ entity.slug }}{% endif %}#{{ entity.id }}
 {% endblock %}
