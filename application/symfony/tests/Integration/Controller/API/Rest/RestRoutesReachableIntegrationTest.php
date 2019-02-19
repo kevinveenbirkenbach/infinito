@@ -46,7 +46,7 @@ class RestRoutesReachableIntegrationTest extends KernelTestCase
                                     $this->routeAssert($url, $method);
                                     break;
                                 case ActionType::EXECUTE:
-                                    $url = "$baseUrl/$uri/action/execute.$format";
+                                    $url = "$baseUrl/$uri/execute.$format";
                                     $this->routeAssert($url, $method);
                                     break;
                                 default:

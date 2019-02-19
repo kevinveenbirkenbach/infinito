@@ -8,7 +8,7 @@ The scheme for the rest api is the following:
 | api/rest/{entity}.{format} | HEAD |    Returns the create information for a specific entity |
 | api/rest/{entity}.{format} | POST | Creates a specific entity and returns it.  |
 | api/rest/{entity}/{uri}.{format} | GET |    Returns a specific entity. Including all actions |
-| api/rest/{entity}/{uri}/{action}.{format} | GET | Returns the result for an action of an specific entity. |
+| api/rest/{entity}/{uri}/{action}.{format} | GET | Returns the output for an action of an specific entity. |
 | api/rest/{entity}/{uri}.{format} | PUT, PATCH | Updates a specific entity and returns it. |
 | api/rest/{entity}/{uri}.{format} | DELETE | Deletes a specific entity|
 
