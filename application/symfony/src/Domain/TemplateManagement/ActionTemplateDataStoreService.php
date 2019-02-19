@@ -10,9 +10,9 @@ use Infinito\Exception\NotDefinedException;
 use Infinito\Exception\NoValidChoiceException;
 use Infinito\Form\AbstractType;
 use Infinito\Entity\EntityInterface;
-use Infinito\Domain\ActionManagement\AbstractAction;
 use Infinito\Exception\NotCorrectInstanceException;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Form\FormView;
 
 /**
  * @author kevinfrantz
@@ -25,7 +25,7 @@ final class ActionTemplateDataStoreService implements ActionTemplateDataStoreSer
     const ACTION_DATA_MAPPING = [
         ActionType::CREATE => AbstractType::class,
         ActionType::READ => EntityInterface::class, // Mayber change this to refection later!
-        ActionType::UPDATE => AbstractAction::class,
+        ActionType::UPDATE => FormView::class,
         ActionType::DELETE => EntityInterface::class,
         ActionType::EXECUTE => EntityInterface::class, // This is just a dummy value to pass tests. Substitute it!
     ];
@@ -64,7 +64,7 @@ final class ActionTemplateDataStoreService implements ActionTemplateDataStoreSer
         if ($data instanceof $instance) {
             return true;
         }
-        throw new NotCorrectInstanceException("The intance doesn\'t map to <<$instance>>.");
+        throw new NotCorrectInstanceException('The data class <<'.get_class($data).">> for action type <<$actionType>> doesn't map to instance <<$instance>>.");
     }
 
     public function __construct()

@@ -8,6 +8,8 @@ use Infinito\Domain\TemplateManagement\TemplateNameServiceInterface;
 use Infinito\Domain\TemplateManagement\ActionTemplateDataStoreServiceInterface;
 use Infinito\Attribut\ActionTypeAttribut;
 use Infinito\DBAL\Types\ActionType;
+use Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
+use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 
 /**
  * @author kevinfrantz
@@ -32,6 +34,16 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     private $actionTemplateDataStore;
 
     /**
+     * @var RequestedActionFormBuilderServiceInterface
+     */
+    private $requestedActionFormBuilderService;
+
+    /**
+     * @var RequestedActionServiceInterface
+     */
+    private $requestedActionService;
+
+    /**
      * @return View
      */
     private function getView(): View
@@ -46,14 +58,17 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     /**
      * @param ActionHandlerServiceInterface $actionHandlerService
      */
-    public function __construct(ActionHandlerServiceInterface $actionHandlerService, TemplateNameServiceInterface $templateNameService, ActionTemplateDataStoreServiceInterface $actionTemplateDataStore)
+    public function __construct(ActionHandlerServiceInterface $actionHandlerService, TemplateNameServiceInterface $templateNameService, ActionTemplateDataStoreServiceInterface $actionTemplateDataStore, RequestedActionFormBuilderServiceInterface $requestedActionFormBuilderService, RequestedActionServiceInterface $requestedActionService)
     {
         $this->actionHandlerService = $actionHandlerService;
         $this->templateNameService = $templateNameService;
         $this->actionTemplateDataStore = $actionTemplateDataStore;
+        $this->requestedActionFormBuilderService = $requestedActionFormBuilderService;
+        $this->requestedActionService = $requestedActionService;
     }
 
     /**
+     * @todo Optimize the whole following function. It's just implemented like this for test reasons.
      * {@inheritdoc}
      *
      * @see \Infinito\Domain\MVCManagement\MVCRoutineServiceInterface::process()
@@ -61,8 +76,14 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     public function process(): View
     {
         if (!$this->actionType) {
-            $result = $this->actionHandlerService->handle();
-            $this->actionTemplateDataStore->setData(ActionType::READ, $result);
+            //UPDATE
+            $this->requestedActionService->setActionType(ActionType::CREATE);
+            $updateForm = $this->requestedActionFormBuilderService->createByService()->getForm()->createView();
+            $this->actionTemplateDataStore->setData(ActionType::UPDATE, $updateForm);
+            //READ
+            $this->requestedActionService->setActionType(ActionType::READ);
+            $read = $this->actionHandlerService->handle();
+            $this->actionTemplateDataStore->setData(ActionType::READ, $read);
             $view = $this->getView();
 
             return $view;
