@@ -10,6 +10,11 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ImprintFixtureSourceTest extends KernelTestCase
 {
+    /**
+     * {@inheritdoc}
+     *
+     * @see \PHPUnit\Framework\TestCase::setUp()
+     */
     public function setUp(): void
     {
         self::bootKernel();
@@ -18,7 +23,7 @@ class ImprintFixtureSourceTest extends KernelTestCase
     public function testImprintSourceReachable(): void
     {
         $request = new Request([], [], [], [], [], [
-            'REQUEST_URI' => 'source/imprint.html',
+            'REQUEST_URI' => 'api/rest/source/imprint.html',
         ]);
         $request->setMethod(Request::METHOD_GET);
         $response = static::$kernel->handle($request);

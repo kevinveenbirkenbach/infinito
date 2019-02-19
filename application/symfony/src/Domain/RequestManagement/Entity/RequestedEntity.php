@@ -13,11 +13,11 @@ use Infinito\Entity\Source\AbstractSource;
 use Infinito\Exception\NotSetException;
 use Infinito\Repository\RepositoryInterface;
 use Infinito\Entity\Source\SourceInterface;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Infinito\Attribut\ClassAttribut;
 use Infinito\Exception\AllreadyDefinedException;
 use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
 use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryService;
+use Infinito\Exception\EntityNotFoundHttpException;
 
 /**
  * @author kevinfrantz
@@ -51,12 +51,12 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     /**
      * @param EntityInterface|null $entity
      *
-     * @throws NotFoundHttpException
+     * @throws EntityNotFoundHttpException
      */
     private function validateLoadedEntity(?EntityInterface $entity): void
     {
         if (!$entity) {
-            throw new NotFoundHttpException('Entity with {id:"'.$this->id.'",slug:"'.$this->slug.'"} not found');
+            throw new EntityNotFoundHttpException('Entity with {id:"'.$this->id.'",slug:"'.$this->slug.'"} not found');
         }
     }
 
@@ -97,7 +97,7 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
-     * @throws NotFoundHttpException
+     * @throws NotSetException
      */
     private function validateLayerRepositoryFactoryService(): void
     {

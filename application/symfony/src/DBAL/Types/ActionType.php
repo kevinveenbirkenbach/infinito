@@ -12,7 +12,7 @@ use Infinito\DBAL\Types\Meta\Right\CRUDType;
 final class ActionType extends CRUDType
 {
     /**
-     * @var string
+     * @var string this action executes an entity
      */
     const EXECUTE = 'execute';
 

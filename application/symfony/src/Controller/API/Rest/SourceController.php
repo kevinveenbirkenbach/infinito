@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Controller\API\Source;
+namespace Infinito\Controller\API\Rest;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,20 +18,19 @@ use Infinito\DBAL\Types\Meta\Right\LayerType;
  * @see https://symfony.com/blog/new-in-symfony-4-1-internationalized-routing
  * @Route(
  *  {
- *      "en":"/source/{identity}.{_format}",
- *      "de":"/quelle/{identity}.{_format}",
- *      "eo":"/fonto/{identity}.{_format}",
- *      "es":"/fontanar/{identity}.{_format}",
- *      "nl":"/bron/{identity}.{_format}"
+ *      "en":"/api/rest/source/{identity}.{_format}",
+ *      "de":"/api/rest/quelle/{identity}.{_format}",
+ *      "eo":"/api/rest/fonto/{identity}.{_format}",
+ *      "es":"/api/rest/fontanar/{identity}.{_format}",
+ *      "nl":"/api/rest/bron/{identity}.{_format}"
  *  },
  *  defaults={
  *      "identity"="",
  *      "_format"="json"
- *  } ,
- *  name="source_"
+ *  }
  * )
  */
-class SourceApiController extends AbstractAPIController
+final class SourceController extends AbstractAPIController
 {
     /**
      * @Route(

@@ -25,7 +25,7 @@ class ActionHttpMethodTest extends TestCase
 
     public function testCreateActionTrue(): void
     {
-        $subset = [Request::METHOD_GET, Request::METHOD_POST];
+        $subset = [Request::METHOD_POST, Request::METHOD_HEAD];
         $action = ActionType::CREATE;
         $haystack = ActionHttpMethodMap::getHttpMethods($action);
         $this->assertSubsetInArray($subset, $haystack, true);
@@ -34,7 +34,7 @@ class ActionHttpMethodTest extends TestCase
 
     public function testCreateActionFalse(): void
     {
-        $subset = [Request::METHOD_GET, Request::METHOD_POST];
+        $subset = [Request::METHOD_POST, Request::METHOD_HEAD];
         $action = 'wrong value';
         $haystack = ActionHttpMethodMap::getHttpMethods($action);
         $this->assertSubsetInArray($subset, $haystack, false);

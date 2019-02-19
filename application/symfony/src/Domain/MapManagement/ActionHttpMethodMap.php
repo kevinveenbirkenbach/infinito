@@ -10,20 +10,22 @@ use Symfony\Component\HttpFoundation\Request;
  */
 final class ActionHttpMethodMap extends AbstractMap implements ActionHttpMethodMapInterface
 {
+    /**
+     * @var array
+     */
     const ACTION_HTTP_METHOD_MAP = [
         ActionType::READ => [
             Request::METHOD_GET,
         ],
         ActionType::CREATE => [
             Request::METHOD_POST,
-            Request::METHOD_GET,
+            Request::METHOD_HEAD,
         ],
         ActionType::UPDATE => [
             Request::METHOD_PUT,
-            Request::METHOD_GET,
+            Request::METHOD_PATCH,
         ],
         ActionType::DELETE => [
-            Request::METHOD_GET,
             Request::METHOD_DELETE,
         ],
         ActionType::EXECUTE => [

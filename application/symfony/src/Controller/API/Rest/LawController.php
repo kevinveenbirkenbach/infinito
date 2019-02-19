@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Controller\API\Meta;
+namespace Infinito\Controller\API\Rest;
 
 use Infinito\Controller\API\AbstractAPIController;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
  *
  * @todo Implement!
  */
-class LawApiController extends AbstractAPIController
+final class LawController extends AbstractAPIController
 {
     public function read(Request $request, $identifier): Response
     {
