@@ -15,14 +15,14 @@ use Symfony\Component\HttpFoundation\Request;
  */
 abstract class AbstractAPIController extends AbstractController
 {
-    /**
+    /*
      * @param Request $request HTTP Method POST with the object attributes as parameters
      *
      * @return Response
      */
 //     abstract public function create(Request $request, SecureCRUDFactoryService $crudFactory): Response;
 
-    /**
+    /*
      * @param Request    $request    HTTP Method GET
      * @param int|string $identifier The slug or id of the object
      *
@@ -30,19 +30,19 @@ abstract class AbstractAPIController extends AbstractController
      */
 //     abstract public function read(Request $request, $identifier): Response;
 
-    /**
+    /*
      * @param Request    $request    HTTP Method PUT
      * @param int|string $identifier The slug or id of the object
      *
      * @return Response
      */
-    abstract public function update(Request $request, $identifier): Response;
+//     abstract public function update(Request $request, $identifier): Response;
 
-    /**
+    /*
      * @param Request    $request    HTTP Method DELETE with the object attributes as parameters
      * @param int|string $identifier The slug or id of the object
      *
      * @return Response
      */
-    abstract public function delete(Request $request, $identifier): Response;
+//     abstract public function delete(Request $request, $identifier): Response;
 }
