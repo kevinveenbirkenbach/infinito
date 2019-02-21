@@ -78,21 +78,21 @@ abstract class AbstractRequestedRightFacade implements RequestedRightInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Attribut\CrudAttributInterface::setCrud()
+     * @see \Infinito\Attribut\ActionTypeAttributInterface::setActionType()
      */
-    public function setCrud(string $crud): void
+    public function setActionType(string $actionType): void
     {
-        $this->requestedRight->setCrud($crud);
+        $this->requestedRight->setActionType($actionType);
     }
 
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Attribut\CrudAttributInterface::getCrud()
+     * @see \Infinito\Attribut\ActionTypeAttributInterface::getActionType()
      */
-    public function getCrud(): string
+    public function getActionType(): string
     {
-        return $this->requestedRight->getCrud();
+        return $this->requestedRight->getActionType();
     }
 
     /**

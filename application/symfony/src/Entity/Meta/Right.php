@@ -2,7 +2,6 @@
 
 namespace Infinito\Entity\Meta;
 
-use Infinito\Attribut\CrudAttribut;
 use Doctrine\ORM\Mapping as ORM;
 use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
 use Infinito\Attribut\LawAttribut;
@@ -14,6 +13,7 @@ use Infinito\Attribut\LayerAttribut;
 use Infinito\Attribut\RelationAttribut;
 use Infinito\Attribut\PriorityAttribut;
 use Infinito\Entity\Source\SourceInterface;
+use Infinito\Attribut\ActionTypeAttribut;
 
 /**
  * @todo Remove relation attribut!
@@ -24,7 +24,7 @@ use Infinito\Entity\Source\SourceInterface;
  */
 class Right extends AbstractMeta implements RightInterface
 {
-    use CrudAttribut,LawAttribut, RelationAttribut, GrantAttribut,ConditionAttribut,RecieverAttribut,LayerAttribut,PriorityAttribut;
+    use ActionTypeAttribut,LawAttribut, RelationAttribut, GrantAttribut,ConditionAttribut,RecieverAttribut,LayerAttribut,PriorityAttribut;
 
     /**
      * @ORM\OneToOne(targetEntity="Infinito\Entity\Source\AbstractSource",cascade={"persist", "remove"})
@@ -74,12 +74,12 @@ class Right extends AbstractMeta implements RightInterface
     protected $grant;
 
     /**
-     * @ORM\Column(name="crud", type="CRUDType", nullable=false)
-     * @DoctrineAssert\Enum(entity="Infinito\DBAL\Types\Meta\Right\CRUDType")
+     * @ORM\Column(name="action", type="ActionType", nullable=false)
+     * @DoctrineAssert\Enum(entity="Infinito\DBAL\Types\ActionType")
      *
      * @var string
      */
-    protected $crud;
+    protected $actionType;
 
     /**
      * @ORM\OneToOne(targetEntity="Infinito\Entity\Source\Operation\AbstractOperation",cascade={"persist"})

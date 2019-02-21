@@ -6,6 +6,8 @@ use Fresh\DoctrineEnumBundle\DBAL\Types\AbstractEnumType;
 
 /**
  * @author kevinfrantz
+ *
+ * @see https://de.wikipedia.org/wiki/CRUD
  */
 class CRUDType extends AbstractEnumType
 {

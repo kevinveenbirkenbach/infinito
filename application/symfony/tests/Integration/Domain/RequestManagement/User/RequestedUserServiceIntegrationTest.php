@@ -30,7 +30,7 @@ class RequestedUserServiceIntegrationTest extends KernelTestCase
     public function testCrudAccessors(): void
     {
         $crud = CRUDType::READ;
-        $this->assertNull($this->requestedUserService->setCrud($crud));
-        $this->assertEquals($crud, $this->requestedUserService->getCrud());
+        $this->assertNull($this->requestedUserService->setActionType($crud));
+        $this->assertEquals($crud, $this->requestedUserService->getActionType());
     }
 }

@@ -8,6 +8,7 @@ use Symfony\Component\Translation\TranslatorInterface;
 use Knp\Menu\ItemInterface;
 use Infinito\Event\Menu\MenuEvent;
 use Infinito\DBAL\Types\MenuEventType;
+use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
 
 class UserMenuSubscriber implements EventSubscriberInterface
 {
@@ -27,6 +28,9 @@ class UserMenuSubscriber implements EventSubscriberInterface
         $this->translator = $translator;
     }
 
+    /**
+     * @param MenuEvent $event
+     */
     public function onUserMenuConfigure(MenuEvent $event): void
     {
         $menu = $event->getItem();
@@ -38,7 +42,7 @@ class UserMenuSubscriber implements EventSubscriberInterface
         ]);
 
         $menu->addChild($this->translator->trans('imprint'), [
-            'route' => 'imprint',
+            'uri' => 'rest/api/source/'.strtolower(ImpressumFixtureSource::SLUG).'.html',
             'attributes' => [
                 'icon' => 'fas fa-address-card',
             ],

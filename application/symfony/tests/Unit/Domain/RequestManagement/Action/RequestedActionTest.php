@@ -52,7 +52,7 @@ class RequestedActionTest extends TestCase
         $list = ActionType::EXECUTE;
         $this->action->setActionType($list);
         $this->assertEquals($list, $this->action->getActionType());
-        $this->assertEquals(CRUDType::READ, $this->requestedRight->getCrud());
+        $this->assertEquals(CRUDType::READ, $this->requestedRight->getActionType());
     }
 
     public function testCrud(): void
@@ -60,7 +60,7 @@ class RequestedActionTest extends TestCase
         foreach (CRUDType::getChoices() as $crud) {
             $this->action->setActionType($crud);
             $this->assertEquals($crud, $this->action->getActionType());
-            $this->assertEquals($crud, $this->requestedRight->getCrud());
+            $this->assertEquals($crud, $this->requestedRight->getActionType());
         }
     }
 

@@ -3,7 +3,6 @@
 namespace Infinito\Domain\RequestManagement\Right;
 
 use Infinito\Entity\Source\SourceInterface;
-use Infinito\Attribut\CrudAttribut;
 use Infinito\Attribut\LayerAttribut;
 use Infinito\Attribut\RecieverAttribut;
 use Infinito\Exception\PreconditionFailedException;
@@ -12,6 +11,7 @@ use Infinito\Attribut\RequestedEntityAttribut;
 use Infinito\Entity\Meta\MetaInterface;
 use Infinito\Exception\NotCorrectInstanceException;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntity;
+use Infinito\Attribut\ActionTypeAttribut;
 
 /**
  * @author kevinfrantz
@@ -20,7 +20,7 @@ use Infinito\Domain\RequestManagement\Entity\RequestedEntity;
  */
 class RequestedRight implements RequestedRightInterface
 {
-    use CrudAttribut, LayerAttribut, RecieverAttribut, RequestedEntityAttribut;
+    use ActionTypeAttribut, LayerAttribut, RecieverAttribut, RequestedEntityAttribut;
 
     /**
      * @var SourceInterface

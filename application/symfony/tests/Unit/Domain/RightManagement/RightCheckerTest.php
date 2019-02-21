@@ -49,7 +49,7 @@ class RightCheckerTest extends TestCase
         $this->source = new PureSource();
         $this->right = new Right();
         $this->right->setReciever($this->source);
-        $this->right->setCrud($this->type);
+        $this->right->setActionType($this->type);
         $this->right->setLayer($this->layer);
         $this->rightManager = new RightChecker($this->right);
     }

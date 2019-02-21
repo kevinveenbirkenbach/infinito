@@ -6,7 +6,7 @@ use Infinito\Entity\Source\SourceInterface;
 use Infinito\Entity\Source\Primitive\Text\TextSource;
 use Infinito\Entity\Meta\Right;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
-use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\DBAL\Types\ActionType;
 
 /**
  * @author kevinfrantz
@@ -28,7 +28,7 @@ final class ImpressumFixtureSource extends AbstractFixtureSource
         $right = new Right();
         $right->setSource($impressumSource);
         $right->setLayer(LayerType::SOURCE);
-        $right->setCrud(CRUDType::READ);
+        $right->setActionType(ActionType::READ);
         $right->setLaw($impressumSource->getLaw());
         $impressumSource->getLaw()->getRights()->add($right);
 

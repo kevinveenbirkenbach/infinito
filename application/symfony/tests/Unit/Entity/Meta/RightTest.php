@@ -61,7 +61,7 @@ class RightTest extends TestCase
     public function testConstructorType(): void
     {
         $this->expectException(\TypeError::class);
-        $this->assertNull($this->right->getCrud());
+        $this->assertNull($this->right->getActionType());
     }
 
     public function testLaw(): void
@@ -74,11 +74,11 @@ class RightTest extends TestCase
     public function testRight(): void
     {
         foreach (CRUDType::getChoices() as $enum) {
-            $this->assertNull($this->right->setCrud($enum));
-            $this->assertEquals($enum, $this->right->getCrud());
+            $this->assertNull($this->right->setActionType($enum));
+            $this->assertEquals($enum, $this->right->getActionType());
         }
         $this->expectException(NoValidChoiceException::class);
-        $this->right->setCrud('NoneValidType');
+        $this->right->setActionType('NoneValidType');
     }
 
     public function testLayer(): void
@@ -104,13 +104,13 @@ class RightTest extends TestCase
         $this->right->setSource($source);
         $this->right->setReciever($reciever);
         $this->right->setGrant($grant);
-        $this->right->setCrud($type);
+        $this->right->setActionType($type);
         $this->right->setLayer($layer);
         $rightClone = clone $this->right;
         $this->assertEquals($source, $rightClone->getSource());
         $this->assertEquals($reciever, $rightClone->getReciever());
         $this->assertEquals($grant, $rightClone->getGrant());
-        $this->assertEquals($type, $rightClone->getCrud());
+        $this->assertEquals($type, $rightClone->getActionType());
         $this->assertEquals($layer, $rightClone->getLayer());
     }
 }

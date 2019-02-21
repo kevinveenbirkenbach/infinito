@@ -26,13 +26,13 @@ class RightTransformerServiceTest extends TestCase
         $requestedEntity->method('getEntity')->willReturn($source);
         $requestedEntity->method('hasRequestedRight')->willReturn(true);
         $requestedRight = new RequestedRight();
-        $requestedRight->setCrud($crud);
+        $requestedRight->setActionType($crud);
         $requestedRight->setLayer($layer);
         $requestedRight->setRequestedEntity($requestedEntity);
         $requestedRight->setReciever($reciever);
         $transformer = new RightTransformerService();
         $right = $transformer->transform($requestedRight);
-        $this->assertEquals($crud, $right->getCrud());
+        $this->assertEquals($crud, $right->getActionType());
         $this->assertEquals($layer, $right->getLayer());
         $this->assertEquals($reciever, $right->getReciever());
         $this->assertEquals($source, $right->getSource());

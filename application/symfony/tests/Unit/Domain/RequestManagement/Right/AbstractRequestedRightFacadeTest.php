@@ -43,7 +43,7 @@ class AbstractRequestedRightFacadeTest extends TestCase
         $reciever = $this->createMock(AbstractSource::class);
         $requestedRight = $this->createMock(RequestedRightInterface::class);
         $requestedRight->method('getLayer')->willReturn($layer);
-        $requestedRight->method('getCrud')->willReturn($type);
+        $requestedRight->method('getActionType')->willReturn($type);
         $requestedRight->method('getSource')->willReturn($source);
         $requestedRight->method('getReciever')->willReturn($reciever);
         $requestedRight->method('getRequestedEntity')->willReturn($requestedEntity);
@@ -51,7 +51,7 @@ class AbstractRequestedRightFacadeTest extends TestCase
         $requestedRight->method('hasReciever')->willReturn(true);
         $requestedRightFacade = $this->getRequestedRightFacade($requestedRight);
         $this->assertEquals($layer, $requestedRightFacade->getLayer());
-        $this->assertEquals($type, $requestedRightFacade->getCrud());
+        $this->assertEquals($type, $requestedRightFacade->getActionType());
         $this->assertEquals($source, $requestedRightFacade->getSource());
         $this->assertEquals($reciever, $requestedRightFacade->getReciever());
         $this->assertEquals($requestedEntity, $requestedRightFacade->getRequestedEntity());
@@ -70,11 +70,11 @@ class AbstractRequestedRightFacadeTest extends TestCase
         $requestedRight = new RequestedRight();
         $requestedRightFacade = $this->getRequestedRightFacade($requestedRight);
         $this->assertNull($requestedRightFacade->setLayer($layer));
-        $this->assertNull($requestedRightFacade->setCrud($type));
+        $this->assertNull($requestedRightFacade->setActionType($type));
         $this->assertNull($requestedRightFacade->setRequestedEntity($requestedEntity));
         $this->assertNull($requestedRightFacade->setReciever($reciever));
         $this->assertEquals($layer, $requestedRight->getLayer());
-        $this->assertEquals($type, $requestedRight->getCrud());
+        $this->assertEquals($type, $requestedRight->getActionType());
         $this->assertEquals($requestedEntity, $requestedRight->getRequestedEntity());
         $this->assertEquals($reciever, $requestedRight->getReciever());
         $this->assertTrue($requestedRight->hasReciever());

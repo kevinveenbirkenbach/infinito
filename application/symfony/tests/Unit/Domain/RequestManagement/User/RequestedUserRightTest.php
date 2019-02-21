@@ -44,11 +44,11 @@ class RequestedUserTest extends TestCase
         $userSourceDirector->method('getUser')->willReturn($user);
         $requestedRight = $this->createMock(RequestedRightInterface::class);
         $requestedRight->method('getLayer')->willReturn($layer);
-        $requestedRight->method('getCrud')->willReturn($type);
+        $requestedRight->method('getActionType')->willReturn($type);
         $requestedRight->method('getSource')->willReturn($source);
         $requestedUserRightFacade = new RequestedUser($userSourceDirector, $requestedRight);
         $this->assertEquals($layer, $requestedUserRightFacade->getLayer());
-        $this->assertEquals($type, $requestedUserRightFacade->getCrud());
+        $this->assertEquals($type, $requestedUserRightFacade->getActionType());
         $this->assertEquals($source, $requestedUserRightFacade->getSource());
         $this->assertEquals($reciever, $requestedUserRightFacade->getReciever());
     }
@@ -66,10 +66,10 @@ class RequestedUserTest extends TestCase
         $userSourceDirector = new UserSourceDirector($sourceRepository, $user);
         $requestedUserRightFacade = new RequestedUser($userSourceDirector, $requestedRight);
         $this->assertNull($requestedUserRightFacade->setLayer($layer));
-        $this->assertNull($requestedUserRightFacade->setCrud($type));
+        $this->assertNull($requestedUserRightFacade->setActionType($type));
         $this->assertNull($requestedUserRightFacade->setRequestedEntity($requestedSource));
         $this->assertEquals($layer, $requestedRight->getLayer());
-        $this->assertEquals($type, $requestedRight->getCrud());
+        $this->assertEquals($type, $requestedRight->getActionType());
         $this->expectException(NotCorrectInstanceException::class);
         $this->assertNotInstanceOf(RequestedEntityInterface::class, $requestedRight->getSource());
     }

@@ -49,9 +49,9 @@ final class LawPermissionChecker implements LawPermissionCheckerInterface
      *
      * @return Collection|RightInterface[]
      */
-    private function getRightsByCrud(Collection $rights, string $type): Collection
+    private function getRightsByActionType(Collection $rights, string $type): Collection
     {
-        return $this->getFilteredRights($rights, $type, 'Crud');
+        return $this->getFilteredRights($rights, $type, 'ActionType');
     }
 
     /**
@@ -149,7 +149,7 @@ final class LawPermissionChecker implements LawPermissionCheckerInterface
         $right = $rights[0];
         $rightChecker = new RightChecker($right);
 
-        return $rightChecker->isGranted($client->getLayer(), $client->getCrud(), $client->getReciever());
+        return $rightChecker->isGranted($client->getLayer(), $client->getActionType(), $client->getReciever());
     }
 
     /**
@@ -168,7 +168,7 @@ final class LawPermissionChecker implements LawPermissionCheckerInterface
     public function hasPermission(RightInterface $clientRight): bool
     {
         $rights = clone $this->law->getRights();
-        $rights = $this->getRightsByCrud($rights, $clientRight->getCrud());
+        $rights = $this->getRightsByActionType($rights, $clientRight->getActionType());
         $rights = $this->getRightsByLayer($rights, $clientRight->getLayer());
         $rights = $this->getRightsByReciever($rights, $clientRight);
         $rights = $this->sortByPriority($rights);

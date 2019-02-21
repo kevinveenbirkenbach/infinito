@@ -38,11 +38,11 @@ class SecureRequestedRightCheckerServiceIntegrationTest extends KernelTestCase
         $right = new Right();
         $right->setSource($source);
         $right->setLayer($layer);
-        $right->setCrud($crud);
+        $right->setActionType($crud);
         $right->setReciever($reciever);
         $source->getLaw()->getRights()->add($right);
         $requestedRight = new RequestedRight();
-        $requestedRight->setCrud($crud);
+        $requestedRight->setActionType($crud);
         $requestedRight->setLayer($layer);
         $requestedRight->setReciever($reciever);
         $requestedEntity = $this->createMock(RequestedEntityInterface::class);
@@ -64,11 +64,11 @@ class SecureRequestedRightCheckerServiceIntegrationTest extends KernelTestCase
         $right = new Right();
         $right->setSource($source);
         $right->setLayer($layer);
-        $right->setCrud(CRUDType::CREATE);
+        $right->setActionType(CRUDType::CREATE);
         $right->setReciever($reciever);
         $source->getLaw()->getRights()->add($right);
         $requestedRight = new RequestedRight();
-        $requestedRight->setCrud($crud);
+        $requestedRight->setActionType($crud);
         $requestedRight->setLayer($layer);
         $requestedRight->setReciever($reciever);
         $requestedEntity = $this->createMock(RequestedEntityInterface::class);

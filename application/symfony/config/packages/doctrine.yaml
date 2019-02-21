@@ -16,7 +16,7 @@ doctrine:
             collate: utf8mb4_unicode_ci
         url: '%env(resolve:DATABASE_URL)%'
         types:
-            CRUDType: Infinito\DBAL\Types\Meta\Right\CRUDType
+            ActionType: Infinito\DBAL\Types\ActionType
             LayerType: Infinito\DBAL\Types\Meta\Right\LayerType
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'

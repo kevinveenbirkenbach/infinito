@@ -87,7 +87,7 @@ class LawPermissionCheckerTest extends TestCase
     {
         $this->clientRight = new Right();
         $this->clientRight->setLayer(LayerType::SOURCE);
-        $this->clientRight->setCrud(CRUDType::READ);
+        $this->clientRight->setActionType(CRUDType::READ);
         $this->clientRight->setReciever($this->clientSource);
         $this->clientRight->setSource($this->source);
     }
@@ -107,7 +107,7 @@ class LawPermissionCheckerTest extends TestCase
     {
         $this->law->getRights()->add($this->getClonedClientRight());
         $this->assertTrue($this->checkClientPermission());
-        $this->clientRight->setCrud(CRUDType::UPDATE);
+        $this->clientRight->setActionType(CRUDType::UPDATE);
         $this->assertFalse($this->checkClientPermission());
     }
 
@@ -142,10 +142,10 @@ class LawPermissionCheckerTest extends TestCase
     public function testGetRightsByType(): void
     {
         $right = $this->getClonedClientRight();
-        $right->setCrud(CRUDType::UPDATE);
+        $right->setActionType(CRUDType::UPDATE);
         $this->law->getRights()->add($right);
         $this->assertFalse($this->checkClientPermission());
-        $right->setCrud(CRUDType::READ);
+        $right->setActionType(CRUDType::READ);
         $this->assertTrue($this->checkClientPermission());
     }
 
@@ -209,13 +209,13 @@ class LawPermissionCheckerTest extends TestCase
         $clientSource = new PureSource();
         $clientRight = new Right();
         $clientRight->setLayer(LayerType::SOURCE);
-        $clientRight->setCrud(CRUDType::READ);
+        $clientRight->setActionType(CRUDType::READ);
         $clientRight->setSource($this->source);
         $clientRight->setReciever($clientSource);
         $this->assertFalse($this->lawPermissionChecker->hasPermission($clientRight));
         $right = new Right();
         $right->setLayer(LayerType::SOURCE);
-        $right->setCrud(CRUDType::READ);
+        $right->setActionType(CRUDType::READ);
         $right->setSource($this->source);
         $this->law->getRights()->add($right);
         $this->assertTrue($this->lawPermissionChecker->hasPermission($clientRight));

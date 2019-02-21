@@ -60,7 +60,7 @@ final class RightChecker implements RightCheckerInterface
      */
     private function isTypeEqual(string $type): bool
     {
-        return $this->right->getCrud() === $type;
+        return $this->right->getActionType() === $type;
     }
 
     /**

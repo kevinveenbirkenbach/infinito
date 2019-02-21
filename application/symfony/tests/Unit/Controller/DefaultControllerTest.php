@@ -4,6 +4,7 @@ namespace Infinito\Tests\Unit\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Infinito\Controller\DefaultController;
+use Infinito\DBAL\Types\RESTResponseType;
 
 /**
  * @author kevinfrantz
@@ -30,7 +31,11 @@ class DefaultControllerTest extends WebTestCase
     public function testImprint(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/imprint');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+//          foreach(RESTResponseType::getChoices() as $format){
+        $format = 'html';
+        $url = 'api/rest/source/imprint.'.$format;
+        $client->request('GET', $url);
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Route $url is not reachable.");
+//        }
     }
 }

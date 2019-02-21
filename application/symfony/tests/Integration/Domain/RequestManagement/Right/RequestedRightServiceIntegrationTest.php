@@ -30,7 +30,7 @@ class RequestedRightServiceIntegrationTest extends KernelTestCase
     public function testClassAccessors(): void
     {
         $crud = CRUDType::READ;
-        $this->assertNull($this->requestedRightService->setCrud($crud));
-        $this->assertEquals($crud, $this->requestedRightService->getCrud());
+        $this->assertNull($this->requestedRightService->setActionType($crud));
+        $this->assertEquals($crud, $this->requestedRightService->getActionType());
     }
 }

@@ -51,7 +51,7 @@ class RequestedAction extends RequestedUser implements RequestedActionInterface
     private function setRequestedRightCrudType(string $actionType): void
     {
         $crudType = $this->getCrudType($actionType);
-        $this->requestedRight->setCrud($crudType);
+        $this->requestedRight->setActionType($crudType);
     }
 
     /**
