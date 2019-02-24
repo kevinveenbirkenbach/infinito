@@ -50,7 +50,6 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     {
         $view = View::create();
         $view->setTemplate($this->templateNameService->getMoleculeTemplateName());
-        $view->setData($this->actionTemplateDataStore->getAllStoredData());
 
         return $view;
     }
