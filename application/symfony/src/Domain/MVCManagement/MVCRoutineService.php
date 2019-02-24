@@ -19,6 +19,11 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     use ActionTypeAttribut;
 
     /**
+     * @var string The path to the general entity template
+     */
+    const TWIG_ENTITY_TEMPLATE_PATH = 'entity/entity.html.twig';
+    
+    /**
      * @var ActionHandlerServiceInterface
      */
     private $actionHandlerService;
@@ -49,8 +54,7 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     private function getView(): View
     {
         $view = View::create();
-        $view->setTemplate($this->templateNameService->getMoleculeTemplateName());
-
+        $view->setTemplate(self::TWIG_ENTITY_TEMPLATE_PATH);
         return $view;
     }
 
