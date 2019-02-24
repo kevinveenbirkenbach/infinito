@@ -1,14 +1,20 @@
 {% extends "frames/default.html.twig" %}
+{% set layer = requested_action_service.getLayer()%}
 {% set entity = action_template_data_store_service.getData('read') %}
+{% set headline = (layer|trans|capitalize)~':' %}
+{% if entity.hasSlug %}
+    {% set headline = headline~entity.slug %}
+{% endif %}
+{% set headline = headline~'#'~entity.id %}
 {% block title %}
-	{{ 'Source'|trans }}: {% if entity.hasSlug %}{{ entity.slug }}{% endif %}#{{ entity.id }}
+	{{ headline }}: 
 {% endblock %}
 {% block content %}
 <h1>
-	{{ 'Source'|trans }}: {% if entity.hasSlug %}{{ entity.slug }}{% endif %}#{{ entity.id }}
+	{{ headline }}
 </h1>
 <div id="accordion">
-{% for action in layer_action_map.getActions('source') %}
+{% for action in layer_action_map.getActions(layer) %}
 	{{ action_template_name_service.setActionType(action) }}
 	{%  if action_template_name_service.doesAtomTemplateExist() %}
     	<div class="card">
