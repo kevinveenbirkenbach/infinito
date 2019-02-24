@@ -12,10 +12,11 @@ use Infinito\DBAL\Types\Meta\Right\CRUDType;
 final class ActionType extends CRUDType
 {
     /**
-     * @var string this action executes an entity
+     * @var string this action executes a source
      */
     const EXECUTE = 'execute';
 
+    
     /**
      * @var array
      */
