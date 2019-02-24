@@ -9,7 +9,6 @@ use Infinito\Controller\API\AbstractAPIController;
 use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 use Infinito\Domain\MVCManagement\MVCRoutineServiceInterface;
 use Infinito\DBAL\Types\ActionType;
-use Infinito\DBAL\Types\Meta\Right\LayerType;
 
 /**
  * @author kevinfrantz
@@ -18,11 +17,7 @@ use Infinito\DBAL\Types\Meta\Right\LayerType;
  * @see https://symfony.com/blog/new-in-symfony-4-1-internationalized-routing
  * @Route(
  *  {
- *      "en":"/api/rest/source/{identity}.{_format}",
- *      "de":"/api/rest/quelle/{identity}.{_format}",
- *      "eo":"/api/rest/fonto/{identity}.{_format}",
- *      "es":"/api/rest/fontanar/{identity}.{_format}",
- *      "nl":"/api/rest/bron/{identity}.{_format}"
+ *      "en":"/api/rest/{layer}/{identity}.{_format}",
  *  },
  *  defaults={
  *      "identity"="",
@@ -30,7 +25,7 @@ use Infinito\DBAL\Types\Meta\Right\LayerType;
  *  }
  * )
  */
-final class SourceController extends AbstractAPIController
+final class LayerController extends AbstractAPIController
 {
     /**
      * @Route(
@@ -40,10 +35,10 @@ final class SourceController extends AbstractAPIController
      *
      * @see \Infinito\Controller\API\AbstractAPIController::read()
      */
-    public function read(MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, $identity): Response
+    public function read(MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, $layer, $identity): Response
     {
         $requestedActionService->setActionType(ActionType::READ);
-        $requestedActionService->setLayer(LayerType::SOURCE);
+        $requestedActionService->setLayer($layer);
         $requestedActionService->getRequestedEntity()->setIdentity($identity);
         $view = $mvcRoutineService->process();
 

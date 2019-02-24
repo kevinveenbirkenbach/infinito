@@ -133,7 +133,7 @@ final class EntityDomService implements EntityDomServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\HtmlManagement\EntityDomServiceInterface::getDomDocument()
+     * @see \Infinito\Domain\DomManagement\EntityDomServiceInterface::getDomDocument()
      */
     public function getDomDocument(EntityInterface $entity): \DOMDocument
     {
@@ -147,7 +147,7 @@ final class EntityDomService implements EntityDomServiceInterface
                 if ($value instanceof Collection) {
                     foreach ($value as $valueElement) {
                         $domSubElement = $domElement->createElement('list-element');
-                        $this->mappValue($value, $domSubElement);
+                        $this->mappValue($valueElement, $domSubElement);
                     }
                 } else {
                     $this->mappValue($value, $domElement);
