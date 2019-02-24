@@ -35,7 +35,7 @@ final class LayerController extends AbstractAPIController
      *
      * @see \Infinito\Controller\API\AbstractAPIController::read()
      */
-    public function read(MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, $layer, $identity): Response
+    public function read(MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, string $layer, $identity): Response
     {
         $requestedActionService->setActionType(ActionType::READ);
         $requestedActionService->setLayer($layer);
