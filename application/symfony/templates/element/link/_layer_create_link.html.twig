@@ -1,0 +1,6 @@
+{% set icon_class = layer_icon_class_map.getIconClass(layer) %}
+<i class="{{ icon_class }}"></i>
+<a href="{{
+path('infinito_api_rest_layer_create',{'layer':layer,'_format':'html'})}}">
+{{ layer|trans|capitalize }}
+</a>

@@ -11,6 +11,7 @@ use Infinito\DBAL\Types\ActionType;
 use Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
 use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
+use Infinito\Entity\Source\Primitive\Text\TextSource;
 
 /**
  * @author kevinfrantz
@@ -90,7 +91,7 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     public function process(): View
     {
         if (!$this->actionType) {
-            if ($this->requestedActionService->hasRequestedEntity()) {
+            if ($this->requestedActionService->hasRequestedEntity() && $this->requestedActionService->getRequestedEntity()->hasIdentity()) {
                 //READ
                 $this->requestedActionService->setActionType(ActionType::READ);
                 if ($this->secureRequestedRightCheckerService->check($this->requestedActionService)) {
@@ -108,6 +109,7 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
             } else {
                 //CREATE
                 $this->requestedActionService->setActionType(ActionType::CREATE);
+                $this->requestedActionService->getRequestedEntity()->setClass(TextSource::class);
                 $updateForm = $this->requestedActionFormBuilderService->createByService()->getForm()->createView();
                 $this->actionTemplateDataStore->setData(ActionType::CREATE, $updateForm);
             }

@@ -1,9 +1,3 @@
-{% set icon_class = layer_icon_class_map.getIconClass(layer) %}
-<i class="{{ icon_class }}"></i>
-{# <a href="{{
-path('infinito_api_rest_layer_read',{'layer':layer,'_format':'html'})}}">
-#}
-{{ layer|trans|capitalize }}: {# </a>#}
 {% if slug is defined and slug%}
 <a
 	href="{{ path('infinito_api_rest_layer_read',{'identity':slug,'layer':layer,'_format':'html'}) }}">

@@ -2,7 +2,7 @@
 {% extends "frames/default.html.twig" %}
 {% set layer = requested_action_service.getLayer()%}
 {% set headline = (layer|trans|capitalize)~': ' %}
-{% if requested_action_service.hasRequestedEntity()%}
+{% if requested_action_service.hasRequestedEntity() and requested_action_service.getRequestedEntity().hasIdentity() %}
 	{% set entity = requested_action_service.getRequestedEntity().getEntity() %}
 	{% if  entity.hasSlug is defined and entity.hasSlug %}
         {% set headline = headline~entity.slug %}
@@ -14,7 +14,10 @@
 {% endblock %}
 {% block content %}
     <h1>
-    	{% include "element/link/_layer_link.html.twig" with {'id':entity.getId(),'layer':layer,'slug':((entity.hasSlug() is defined and entity.hasSlug())?entity.getSlug():null)} %}
+    {% include "element/link/_layer_create_link.html.twig" with {'layer':layer} %}
+    {% if entity is defined%}
+	    :{% include "element/link/_layer_read_link.html.twig" with {'id':entity.getId(),'layer':layer,'slug':((entity.hasSlug() is defined and entity.hasSlug())?entity.getSlug():null)} %}
+	{% endif %}
     </h1>
     {% if action_template_data_store_service.getAllStoredData().count() > 0 %}
         <div id="accordion">

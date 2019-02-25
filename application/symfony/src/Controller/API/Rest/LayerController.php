@@ -16,9 +16,7 @@ use Infinito\DBAL\Types\ActionType;
  * @see https://symfony.com/blog/new-in-symfony-4-1-prefix-imported-route-names
  * @see https://symfony.com/blog/new-in-symfony-4-1-internationalized-routing
  * @Route(
- *  {
- *      "en":"/api/rest/{layer}/{identity}.{_format}",
- *  },
+ * "/api/rest/{layer}",
  *  defaults={
  *      "identity"="",
  *      "_format"="json"
@@ -29,6 +27,25 @@ final class LayerController extends AbstractAPIController
 {
     /**
      * @Route(
+     * ".{_format}",
+     * methods={"GET","POST"}
+     * )
+     * {@inheritdoc}
+     *
+     * @see \Infinito\Controller\API\AbstractAPIController::read()
+     */
+    public function create(MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, string $layer, $identity): Response
+    {
+        $requestedActionService->setActionType(ActionType::CREATE);
+        $requestedActionService->setLayer($layer);
+        $view = $mvcRoutineService->process();
+
+        return $this->handleView($view);
+    }
+
+    /**
+     * @Route(
+     * "/{identity}.{_format}",
      * methods={"GET"}
      * )
      * {@inheritdoc}

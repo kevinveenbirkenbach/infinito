@@ -8,7 +8,6 @@ use Infinito\Exception\NotSetException;
 use Infinito\DBAL\Types\ActionType;
 use Infinito\Exception\NotDefinedException;
 use Infinito\Exception\NoValidChoiceException;
-use Infinito\Form\AbstractType;
 use Infinito\Entity\EntityInterface;
 use Infinito\Exception\NotCorrectInstanceException;
 use Doctrine\Common\Collections\Collection;
@@ -23,7 +22,7 @@ final class ActionTemplateDataStoreService implements ActionTemplateDataStoreSer
      * @var array|string[] Maps the action to an return type
      */
     const ACTION_DATA_MAPPING = [
-        ActionType::CREATE => AbstractType::class,
+        ActionType::CREATE => FormView::class,
         ActionType::READ => EntityInterface::class, // Mayber change this to refection later!
         ActionType::UPDATE => FormView::class,
         ActionType::DELETE => EntityInterface::class,
