@@ -3,7 +3,7 @@
 {# <a href="{{
 path('infinito_api_rest_layer_read',{'layer':layer,'_format':'html'})}}">
 #}
-{{ layer|capitalize }}: {# </a>#}
+{{ layer|trans|capitalize }}: {# </a>#}
 {% if slug is defined and slug%}
 <a
 	href="{{ path('infinito_api_rest_layer_read',{'identity':slug,'layer':layer,'_format':'html'}) }}">
