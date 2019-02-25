@@ -1,0 +1,5 @@
+{% set form = action_template_data_store_service.getData(action) %}
+{{ form_start(form,{'method':'POST'})}}
+{{ form_widget(form) }}
+<input type="submit" value="{{ action|trans|capitalize }}" class="btn btn-primary"/>
+{{ form_end(form) }}

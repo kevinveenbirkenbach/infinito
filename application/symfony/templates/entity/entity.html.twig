@@ -1,8 +1,9 @@
 {# @todo Refactor this template #}
 {% extends "frames/default.html.twig" %}
 {% set layer = requested_action_service.getLayer()%}
-{% set headline = (layer|trans|capitalize)~': ' %}
+{% set headline = (layer|trans|capitalize) %}
 {% if requested_action_service.hasRequestedEntity() and requested_action_service.getRequestedEntity().hasIdentity() %}
+	{% set headline = headline~': ' %}
 	{% set entity = requested_action_service.getRequestedEntity().getEntity() %}
 	{% if  entity.hasSlug is defined and entity.hasSlug %}
         {% set headline = headline~entity.slug %}
@@ -31,7 +32,7 @@
                 				<button class="btn btn-link collapsed" data-toggle="collapse"
                 					data-target="#collapse_{{ action }}" aria-expanded="{{ aria_expanded }}"
                 					aria-controls="collapse_{{ action }}">
-                					<i class="{{ action_icon_class_map.getIconClass(action) }}"></i> {{ action|trans }}
+                					<i class="{{ action_icon_class_map.getIconClass(action) }}"></i> {{ action|trans|capitalize }}
                 				</button>
                 			</h5>
                 		</div>
@@ -42,8 +43,8 @@
                 			</div>
                 		</div>
                 	</div>
+                	{% set aria_expanded = 'false' %}
             	{% endif %}
-            	{% set aria_expanded = 'false' %}
             {% endfor %}
         </div>
         {% else %}
