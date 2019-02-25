@@ -13,6 +13,11 @@ namespace Infinito\Attribut;
 interface VersionAttributInterface
 {
     /**
+     * @var string
+     */
+    const VERSION_ATTRIBUT_NAME = 'version';
+
+    /**
      * Returns the revision version of the entity.
      *
      * @return int

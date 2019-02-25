@@ -7,6 +7,8 @@ namespace Infinito\Attribut;
  */
 interface IdAttributInterface
 {
+    const ID_ATTRIBUT_NAME = 'id';
+
     /**
      * @param int $id
      */

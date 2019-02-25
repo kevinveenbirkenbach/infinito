@@ -121,8 +121,8 @@ final class EntityDomService implements EntityDomServiceInterface
             if ($value instanceof $class) {
                 $domElement->setAttribute('layer', $layer);
                 $domElement->setAttribute('id', $value->getId());
-                $domElement->setAttribute('value', $value->getId());
                 $domElement->setAttribute('name', LayerType::getReadableValue($layer));
+
                 return;
             }
         }

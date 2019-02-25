@@ -4,6 +4,8 @@ namespace Infinito\Attribut;
 
 /**
  * @author kevinfrantz
+ *
+ * @see VersionAttributInterface
  */
 trait VersionAttribut
 {
@@ -12,11 +14,17 @@ trait VersionAttribut
      */
     protected $version;
 
+    /**
+     * @param int $version
+     */
     public function setVersion(int $version): void
     {
         $this->version = $version;
     }
 
+    /**
+     * @return int
+     */
     public function getVersion(): int
     {
         return $this->version;
