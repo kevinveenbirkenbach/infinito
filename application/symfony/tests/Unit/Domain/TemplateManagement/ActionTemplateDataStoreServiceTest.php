@@ -59,7 +59,7 @@ class ActionTemplateDataStoreServiceTest extends TestCase
 
     public function testAccessors(): void
     {
-        foreach (ActionType::getChoices() as $actionType) {
+        foreach (ActionType::getValues() as $actionType) {
             $instance = ActionTemplateDataStoreService::ACTION_DATA_MAPPING[$actionType];
             $data = $this->createMock($instance);
             $this->assertFalse($this->actionTemplateDataStoreService->isDataStored($actionType));

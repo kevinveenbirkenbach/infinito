@@ -22,7 +22,7 @@ trait CrudAttribut
      */
     public function setCrud(string $crud): void
     {
-        if (!array_key_exists($crud, CRUDType::getChoices())) {
+        if (!in_array($crud, CRUDType::getValues())) {
             throw new NoValidChoiceException();
         }
         $this->crud = $crud;

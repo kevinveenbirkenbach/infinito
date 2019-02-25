@@ -34,8 +34,8 @@ class RestRoutesReachableIntegrationTest extends KernelTestCase
             '12314123',
             'testslug',
         ] as $uri) {
-            foreach (RESTResponseType::getChoices() as $format) {
-                foreach (LayerType::getChoices() as $layer) {
+            foreach (RESTResponseType::getValues() as $format) {
+                foreach (LayerType::getValues() as $layer) {
                     $actions = LayerActionMap::getActions($layer);
                     foreach ($actions as $action) {
                         foreach (ActionHttpMethodMap::getHttpMethods($action) as $method) {

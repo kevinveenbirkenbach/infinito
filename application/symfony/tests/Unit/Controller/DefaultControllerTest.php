@@ -32,7 +32,7 @@ class DefaultControllerTest extends WebTestCase
     public function testImprint(): void
     {
         $client = static::createClient();
-        foreach (RESTResponseType::getChoices() as $format) {
+        foreach (RESTResponseType::getValues() as $format) {
             $format = 'html';
             $url = '/api/rest/source/imprint.'.$format;
             $client->request('GET', $url);

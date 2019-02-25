@@ -33,7 +33,7 @@ class ActionTypeAttributTest extends TestCase
 
     public function testAccessors(): void
     {
-        foreach (ActionType::getChoices() as $enum) {
+        foreach (ActionType::getValues() as $enum) {
             $this->assertNull($this->actionTypeAttribut->setActionType($enum));
             $this->assertEquals($enum, $this->actionTypeAttribut->getActionType());
         }

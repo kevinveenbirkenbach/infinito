@@ -33,7 +33,7 @@ class LayerAttributTest extends TestCase
 
     public function testAccessors(): void
     {
-        foreach (LayerType::getChoices() as $enum) {
+        foreach (LayerType::getValues() as $enum) {
             $this->assertNull($this->layerAttribut->setLayer($enum));
             $this->assertEquals($enum, $this->layerAttribut->getLayer());
         }

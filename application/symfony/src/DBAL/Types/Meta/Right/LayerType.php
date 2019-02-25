@@ -30,8 +30,8 @@ final class LayerType extends AbstractEnumType
         self::SOURCE => 'source',
         self::LAW => 'law',
         self::RIGHT => 'right',
-        self::MEMBER => 'member',
-        self::HEREDITY => 'heredity',
-        self::CREATOR => 'creator',
+        self::MEMBER => 'member relation',
+        self::HEREDITY => 'heredity relation',
+        self::CREATOR => 'creator relation',
     ];
 }

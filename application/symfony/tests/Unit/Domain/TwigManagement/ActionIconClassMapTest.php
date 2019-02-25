@@ -36,7 +36,7 @@ class ActionIconClassMapTest extends TestCase
 
     public function testAllActionsSet(): void
     {
-        foreach (ActionType::getChoices() as $action) {
+        foreach (ActionType::getValues() as $action) {
             $this->assertIsString($this->actionIconClassMap->getIconClass($action));
         }
     }

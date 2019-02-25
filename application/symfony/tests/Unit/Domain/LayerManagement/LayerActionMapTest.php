@@ -14,7 +14,7 @@ class LayerActionMapTest extends TestCase
 {
     public function testGetLayersBySource(): void
     {
-        foreach (ActionType::getChoices() as $action) {
+        foreach (ActionType::getValues() as $action) {
             $layers = LayerActionMap::getLayers($action);
             $this->assertArraySubset([LayerType::SOURCE], $layers);
         }
@@ -23,7 +23,7 @@ class LayerActionMapTest extends TestCase
     public function testGetActionsBySource(): void
     {
         $actions = LayerActionMap::getActions(LayerType::SOURCE);
-        foreach (ActionType::getChoices() as $action) {
+        foreach (ActionType::getValues() as $action) {
             $this->assertTrue(in_array($action, $actions));
         }
     }

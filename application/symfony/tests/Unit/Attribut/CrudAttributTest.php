@@ -33,7 +33,7 @@ class CrudAttributTest extends TestCase
 
     public function testAccessors(): void
     {
-        foreach (CRUDType::getChoices() as $enum) {
+        foreach (CRUDType::getValues() as $enum) {
             $this->assertNull($this->crudAttribut->setCrud($enum));
             $this->assertEquals($enum, $this->crudAttribut->getCrud());
         }

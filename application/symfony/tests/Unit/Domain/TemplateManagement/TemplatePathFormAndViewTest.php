@@ -29,7 +29,7 @@ class TemplatePathFormAndViewTest extends TestCase
 
     public function testTypeReload(): void
     {
-        foreach (RESTResponseType::getChoices() as $type) {
+        foreach (RESTResponseType::getValues() as $type) {
             $this->templatePathFormAndView->reloadType($type);
             $this->assertEquals(self::BASE_PATH.$type.'.twig', $this->templatePathFormAndView->getView()->getAtomTemplatePath());
         }

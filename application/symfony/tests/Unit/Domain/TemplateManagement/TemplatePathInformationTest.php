@@ -52,7 +52,7 @@ class TemplatePathInformationTest extends TestCase
 
     public function testSetType(): void
     {
-        foreach (RESTResponseType::getChoices() as $type) {
+        foreach (RESTResponseType::getValues() as $type) {
             $this->templateMeta->reloadType($type);
             $this->assertEquals($this->getExpectedPath($type, 'atom'), $this->templateMeta->getAtomTemplatePath());
             $this->assertEquals($this->getExpectedPath($type, 'molecule'), $this->templateMeta->getMoleculeTemplatePath());

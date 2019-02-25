@@ -15,7 +15,7 @@ interface RightLayerCombinationServiceInterface
     /**
      * For layer parameter see:.
      *
-     * @see LayerType::getChoices()
+     * @see LayerType::getValues()
      *
      * @param string $layer
      *
@@ -26,7 +26,7 @@ interface RightLayerCombinationServiceInterface
     /**
      * For layer parameter see:.
      *
-     * @see CRUDType::getChoices()
+     * @see CRUDType::getValues()
      *
      * @param string $crud
      *

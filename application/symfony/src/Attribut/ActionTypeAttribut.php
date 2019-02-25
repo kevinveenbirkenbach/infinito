@@ -22,7 +22,7 @@ trait ActionTypeAttribut
      */
     public function setActionType(string $actionType): void
     {
-        if (!array_key_exists($actionType, ActionType::getChoices())) {
+        if (!in_array($actionType, ActionType::getValues())) {
             throw new NoValidChoiceException('The type is not a valid action type.');
         }
         $this->actionType = $actionType;

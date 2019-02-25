@@ -73,7 +73,7 @@ class RightTest extends TestCase
 
     public function testRight(): void
     {
-        foreach (CRUDType::getChoices() as $enum) {
+        foreach (CRUDType::getValues() as $enum) {
             $this->assertNull($this->right->setActionType($enum));
             $this->assertEquals($enum, $this->right->getActionType());
         }
@@ -83,7 +83,7 @@ class RightTest extends TestCase
 
     public function testLayer(): void
     {
-        foreach (LayerType::getChoices() as $choice) {
+        foreach (LayerType::getValues() as $choice) {
             $this->assertNull($this->right->setLayer($choice));
             $this->assertEquals($choice, $this->right->getLayer());
         }

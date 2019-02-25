@@ -30,7 +30,7 @@ class RightLayerCombinationServiceTest extends TestCase
 
     public function testBySource(): void
     {
-        foreach (CRUDType::getChoices() as $crudType) {
+        foreach (CRUDType::getValues() as $crudType) {
             $layers = $this->rightLayerCombinationService->getPossibleLayers($crudType);
             $this->assertContains(LayerType::SOURCE, $layers);
             $sourceCruds = $this->rightLayerCombinationService->getPossibleCruds(LayerType::SOURCE);

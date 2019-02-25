@@ -44,7 +44,7 @@ final class ActionTemplateDataStoreService implements ActionTemplateDataStoreSer
      */
     private function isValidActionType(string $actionType): bool
     {
-        if (in_array($actionType, ActionType::getChoices())) {
+        if (in_array($actionType, ActionType::getValues())) {
             return true;
         }
         throw new NoValidChoiceException("The action type <<$actionType>> is not defined and not valid!");

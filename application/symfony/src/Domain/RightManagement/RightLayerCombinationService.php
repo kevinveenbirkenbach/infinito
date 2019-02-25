@@ -47,8 +47,8 @@ final class RightLayerCombinationService implements RightLayerCombinationService
 
     private function setCombination(): void
     {
-        foreach (LayerType::getChoices() as $layer) {
-            foreach (CRUDType::getChoices() as $crud) {
+        foreach (LayerType::getValues() as $layer) {
+            foreach (CRUDType::getValues() as $crud) {
                 if (!array_key_exists($layer, $this->possibleCombinations)) {
                     $this->possibleCombinations[$layer] = [];
                 }

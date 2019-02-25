@@ -12,6 +12,6 @@ class ActionTypeTest extends TestCase
 {
     public function testAmountOfActions(): void
     {
-        $this->assertEquals(5, count(ActionType::getChoices()));
+        $this->assertEquals(5, count(ActionType::getValues()));
     }
 }

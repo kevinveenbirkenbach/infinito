@@ -57,7 +57,7 @@ class RequestedActionTest extends TestCase
 
     public function testCrud(): void
     {
-        foreach (CRUDType::getChoices() as $crud) {
+        foreach (CRUDType::getValues() as $crud) {
             $this->action->setActionType($crud);
             $this->assertEquals($crud, $this->action->getActionType());
             $this->assertEquals($crud, $this->requestedRight->getActionType());
@@ -66,7 +66,7 @@ class RequestedActionTest extends TestCase
 
     public function testLayer(): void
     {
-        foreach (LayerType::getChoices() as $LayerType) {
+        foreach (LayerType::getValues() as $LayerType) {
             $this->action->setLayer($LayerType);
             $this->assertEquals($LayerType, $this->action->getLayer());
             $this->assertEquals($LayerType, $this->requestedRight->getLayer());
