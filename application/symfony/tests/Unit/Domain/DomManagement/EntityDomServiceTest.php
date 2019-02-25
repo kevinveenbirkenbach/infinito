@@ -11,6 +11,16 @@ use Infinito\Attribut\SlugAttributInterface;
 use Infinito\Attribut\IdAttributInterface;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Attribut\VersionAttributInterface;
+use Infinito\Entity\Meta\Law;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Entity\Meta\RightInterface;
+use Infinito\Attribut\SourceAttributInterface;
+use Infinito\Attribut\GrantAttributInterface;
+use Infinito\Attribut\RightsAttributInterface;
+use Infinito\Entity\EntityInterface;
+use Infinito\Attribut\VersionAttribut;
+use Infinito\Attribut\IdAttribut;
+use Infinito\Exception\NotCorrectInstanceException;
 
 /**
  * @author kevinfrantz
@@ -31,6 +41,29 @@ class EntityDomServiceTest extends TestCase
     {
         $this->requestedEntityService = $this->createMock(RequestedEntityServiceInterface::class);
         $this->entityDomService = new EntityDomService($this->requestedEntityService);
+    }
+
+    public function testNotCorrectInstanceException(): void
+    {
+        $entity = new class() implements EntityInterface {
+            use VersionAttribut,IdAttribut;
+            private $test;
+
+            public function setTest($test): void
+            {
+                $this->test = $test;
+            }
+
+            public function getTest()
+            {
+                return $this->test;
+            }
+        };
+        $entity->setTest(new class() {
+        });
+        $this->requestedEntityService->method('getEntity')->willReturn($entity);
+        $this->expectException(NotCorrectInstanceException::class);
+        $this->entityDomService->getDomDocument();
     }
 
     public function testAbstractSource(): void
@@ -63,6 +96,58 @@ class EntityDomServiceTest extends TestCase
             $this->assertTrue(in_array($name, $expectedAttributNames), "The attribut name <<$name>> is not defined in the expected values!");
             if (in_array($layer, LayerType::getValues())) {
                 $this->assertGreaterThan(0, $id);
+            }
+        }
+    }
+
+    public function testLaw(): void
+    {
+        $source = $this->createMock(SourceInterface::class);
+        $source->method('getId')->willReturn(123);
+        $source->method('hasId')->willReturn(true);
+        $right = $this->createMock(RightInterface::class);
+        $right->method('getId')->willReturn(124);
+        $right->method('hasId')->willReturn(true);
+        $id = 12345;
+        $law = new Law();
+        $law->setId($id);
+        $law->setSource($source);
+        $law->getRights()->add($right);
+        $law->getRights()->add(clone $right);
+        $law->getRights()->add(clone $right);
+        $this->requestedEntityService->method('getEntity')->willReturn($law);
+        $result = $this->entityDomService->getDomDocument();
+        foreach ($result->childNodes as $attribut) {
+            $name = $attribut->getAttribute('name');
+            $value = $attribut->getAttribute('value');
+            $id = $attribut->getAttribute('id');
+            $layer = $attribut->getAttribute('layer');
+            $type = $attribut->getAttribute('type');
+            switch ($name) {
+                case IdAttributInterface::ID_ATTRIBUT_NAME:
+                    $this->assertGreaterThan(0, $value);
+                    break;
+                case VersionAttributInterface::VERSION_ATTRIBUT_NAME:
+                    $this->assertGreaterThan(-1, $value);
+                    break;
+                case SourceAttributInterface::SOURCE_ATTRIBUT_NAME:
+                    $this->assertGreaterThan(0, $id);
+                    $this->assertEquals(LayerType::SOURCE, $layer);
+                    break;
+                case GrantAttributInterface::GRANT_ATTRIBUT_NAME:
+                    $this->assertEquals('', $value);
+                    $this->assertEquals('boolean', $type);
+                    break;
+                case RightsAttributInterface::RIGHTS_ATTRIBUT_NAME:
+                    $rights = $attribut->childNodes;
+                    $this->assertCount(3, $rights);
+                    foreach ($rights as $rightAttribut) {
+                        $this->assertEquals(LayerType::RIGHT, $rightAttribut->getAttribute('layer'));
+                        $this->assertGreaterThan(0, $rightAttribut->getAttribute('id'));
+                    }
+                    break;
+                default:
+                    throw new \Exception("No assert was defined for attribut with name <<$name>>!");
             }
         }
     }

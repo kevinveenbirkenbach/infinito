@@ -5,7 +5,6 @@ namespace Infinito\Entity\Meta;
 use Doctrine\ORM\Mapping as ORM;
 use Infinito\Attribut\RightsAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
-use Infinito\Attribut\RelationAttribut;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Attribut\GrantAttribut;
 
@@ -16,7 +15,7 @@ use Infinito\Attribut\GrantAttribut;
  */
 class Law extends AbstractMeta implements LawInterface
 {
-    use RightsAttribut, RelationAttribut, GrantAttribut;
+    use RightsAttribut, GrantAttribut;
 
     /**
      * @ORM\Column(type="boolean",name="`grant`")

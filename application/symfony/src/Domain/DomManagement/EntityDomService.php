@@ -3,12 +3,12 @@
 namespace Infinito\Domain\DomManagement;
 
 use Infinito\Entity\EntityInterface;
-use Infinito\Domain\LayerManagement\LayerClassMap;
 use Infinito\Domain\RightManagement\RightTransformerService;
 use Doctrine\Common\Collections\Collection;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
 use Infinito\Exception\NotCorrectInstanceException;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Domain\LayerManagement\LayerInterfaceMap;
 
 /**
  * This class is not ready and not tested!
@@ -112,13 +112,13 @@ final class EntityDomService implements EntityDomServiceInterface
     }
 
     /**
-     * @param mixed       $value
-     * @param \DOMElement $domElement
+     * @param mixed|EntityInterface $value
+     * @param \DOMElement           $domElement
      */
     private function mappValue($value, \DOMElement $domElement): void
     {
-        foreach (LayerClassMap::LAYER_CLASS_MAP as $layer => $class) {
-            if ($value instanceof $class) {
+        foreach (LayerInterfaceMap::getAllInterfaces() as $layer => $interface) {
+            if ($value instanceof $interface) {
                 $domElement->setAttribute('layer', $layer);
                 $domElement->setAttribute('id', $value->getId());
                 $domElement->setAttribute('name', LayerType::getReadableValue($layer));
@@ -129,6 +129,7 @@ final class EntityDomService implements EntityDomServiceInterface
         if (is_object($value)) {
             throw new NotCorrectInstanceException('The instance '.get_class($value).' is not supported!');
         }
+        $domElement->setAttribute('type', gettype($value));
         $domElement->setAttribute('value', $value);
 
         return;
@@ -176,7 +177,7 @@ final class EntityDomService implements EntityDomServiceInterface
                 $value = $this->getPropertyValue($propertyName);
                 if ($value instanceof Collection) {
                     foreach ($value as $valueElement) {
-                        $domSubElement = $domElement->createElement('list-element');
+                        $domSubElement = $this->domDocument->createElement('list-element');
                         $domElement->setAttribute('name', $propertyName);
                         $this->mappValue($valueElement, $domSubElement);
                         $domElement->appendChild($domSubElement);

@@ -10,6 +10,9 @@ use Infinito\Entity\Meta\RightInterface;
  */
 interface RightsAttributInterface
 {
+    /**
+     * @var string
+     */
     const RIGHTS_ATTRIBUT_NAME = 'rights';
 
     /**
