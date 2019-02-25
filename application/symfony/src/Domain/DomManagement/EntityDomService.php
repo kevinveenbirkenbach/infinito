@@ -10,6 +10,12 @@ use Infinito\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
 use Infinito\Exception\NotCorrectInstanceException;
 
 /**
+ * This class is not ready and not tested!
+ *
+ * @todo Implement tests!
+ * @todo finish class!
+ * @todo refactor class!
+ *
  * @author kevinfrantz
  */
 final class EntityDomService implements EntityDomServiceInterface

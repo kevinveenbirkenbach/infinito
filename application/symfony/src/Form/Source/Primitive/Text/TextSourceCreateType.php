@@ -11,7 +11,7 @@ use Infinito\Entity\Source\Primitive\Text\TextSource;
 /**
  * @author kevinfrantz
  */
-final class TextSourceCreateType extends SourceType
+class TextSourceCreateType extends SourceType
 {
     /**
      * {@inheritdoc}

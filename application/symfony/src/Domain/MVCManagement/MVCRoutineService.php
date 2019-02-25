@@ -10,9 +10,13 @@ use Infinito\Attribut\ActionTypeAttribut;
 use Infinito\DBAL\Types\ActionType;
 use Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
 use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
 
 /**
  * @author kevinfrantz
+ *
+ * @todo Refactor this class
+ * @todo Test this class
  */
 final class MVCRoutineService implements MVCRoutineServiceInterface
 {
@@ -49,6 +53,11 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     private $requestedActionService;
 
     /**
+     * @var SecureRequestedRightCheckerServiceInterface
+     */
+    private $secureRequestedRightCheckerService;
+
+    /**
      * @return View
      */
     private function getView(): View
@@ -62,13 +71,14 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     /**
      * @param ActionHandlerServiceInterface $actionHandlerService
      */
-    public function __construct(ActionHandlerServiceInterface $actionHandlerService, TemplateNameServiceInterface $templateNameService, ActionTemplateDataStoreServiceInterface $actionTemplateDataStore, RequestedActionFormBuilderServiceInterface $requestedActionFormBuilderService, RequestedActionServiceInterface $requestedActionService)
+    public function __construct(ActionHandlerServiceInterface $actionHandlerService, TemplateNameServiceInterface $templateNameService, ActionTemplateDataStoreServiceInterface $actionTemplateDataStore, RequestedActionFormBuilderServiceInterface $requestedActionFormBuilderService, RequestedActionServiceInterface $requestedActionService, SecureRequestedRightCheckerServiceInterface $secureRequestedRightCheckerService)
     {
         $this->actionHandlerService = $actionHandlerService;
         $this->templateNameService = $templateNameService;
         $this->actionTemplateDataStore = $actionTemplateDataStore;
         $this->requestedActionFormBuilderService = $requestedActionFormBuilderService;
         $this->requestedActionService = $requestedActionService;
+        $this->secureRequestedRightCheckerService = $secureRequestedRightCheckerService;
     }
 
     /**
@@ -80,17 +90,29 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     public function process(): View
     {
         if (!$this->actionType) {
-            //UPDATE
-            $this->requestedActionService->setActionType(ActionType::CREATE);
-            $updateForm = $this->requestedActionFormBuilderService->createByService()->getForm()->createView();
-            $this->actionTemplateDataStore->setData(ActionType::UPDATE, $updateForm);
-            //READ
-            $this->requestedActionService->setActionType(ActionType::READ);
-            $read = $this->actionHandlerService->handle();
-            $this->actionTemplateDataStore->setData(ActionType::READ, $read);
-            $view = $this->getView();
+            if ($this->requestedActionService->hasRequestedEntity()) {
+                //READ
+                $this->requestedActionService->setActionType(ActionType::READ);
+                if ($this->secureRequestedRightCheckerService->check($this->requestedActionService)) {
+                    $read = $this->actionHandlerService->handle();
+                    $this->actionTemplateDataStore->setData(ActionType::READ, $read);
+                }
+                $this->requestedActionService->setActionType(ActionType::UPDATE);
+                //UPDATE
+                if ($this->secureRequestedRightCheckerService->check($this->requestedActionService)) {
+                    $updateForm = $this->requestedActionFormBuilderService->createByService()->getForm()->createView();
+                    $this->actionTemplateDataStore->setData(ActionType::UPDATE, $updateForm);
+                }
+                //DELETE
+                //EXECUTE
+            } else {
+                //CREATE
+                $this->requestedActionService->setActionType(ActionType::CREATE);
+                $updateForm = $this->requestedActionFormBuilderService->createByService()->getForm()->createView();
+                $this->actionTemplateDataStore->setData(ActionType::CREATE, $updateForm);
+            }
 
-            return $view;
+            return $this->getView();
         }
         throw new \Exception('Not implemented yet!');
     }

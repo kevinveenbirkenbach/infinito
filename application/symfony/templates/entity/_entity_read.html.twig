@@ -12,7 +12,10 @@
 		<td>{{ name|trans }}</td>
 		<td>
 		{% if id and layer %}
-			<a href="{{ path('infinito_api_rest_layer_read',{'identity':id,'layer':layer,'_format':'html'}) }}">{{ content }}</a>
+			<a href="{{ path('infinito_api_rest_layer_read',{'identity':id,'layer':layer,'_format':'html'}) }}">
+			<i class="fas fa-link"></i> 
+			{% if id == content %}#{% endif %}{{ content }}
+			</a>
 		{% else %}
 		{{ content }}
 		{% endif %}

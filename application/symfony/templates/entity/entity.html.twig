@@ -1,115 +1,51 @@
+{# @todo Refactor this template #}
 {% extends "frames/default.html.twig" %}
 {% set layer = requested_action_service.getLayer()%}
-{% set entity = action_template_data_store_service.getData('read') %}
-{% set headline = (layer|trans|capitalize)~':' %}
-{% if entity.hasSlug %}
-    {% set headline = headline~entity.slug %}
+{% set headline = (layer|trans|capitalize)~': ' %}
+{% if requested_action_service.hasRequestedEntity()%}
+	{% set entity = requested_action_service.getRequestedEntity().getEntity() %}
+	{% if  entity.hasSlug is defined and entity.hasSlug %}
+        {% set headline = headline~entity.slug %}
+    {% endif %}
+    {% set headline = headline~'#'~entity.id %}
 {% endif %}
-{% set headline = headline~'#'~entity.id %}
 {% block title %}
-	{{ headline }}: 
+	{{ headline }} 
 {% endblock %}
 {% block content %}
-<h1>
-	{{ headline }}
-</h1>
-<div id="accordion">
-{% for action in layer_action_map.getActions(layer) %}
-	{% if action_template_data_store_service.isDataStored(action) %}
-	    {{ action_template_name_service.setActionType(action) }}
-    	<div class="card">
-    		<div class="card-header" id="heading_{{ action }}">
-    			<h5 class="mb-0">
-    				<button class="btn btn-link collapsed" data-toggle="collapse"
-    					data-target="#collapse_{{ action }}" aria-expanded="false"
-    					aria-controls="collapse_{{ action }}">
-    					<i class="{{ action_icon_class_map.getIconClass(action) }}"></i> {{ action|trans }}
-    				</button>
-    			</h5>
-    		</div>
-    		<div id="collapse_{{ action }}" class="collapse"
-    			aria-labelledby="heading_{{ action }}" data-parent="#accordion">
-    			<div class="card-body">
-    				{% include [action_template_name_service.getAtomTemplateName(),'entity/_entity_'~action~'.html.twig'] %}
-    			</div>
-    		</div>
-    	</div>
-	{% endif %}
-{% endfor %}
-</div>
-<hr />
-<div id="accordion">
-	<div class="card">
-		<div class="card-header" id="headingThree">
-			<h5 class="mb-0">
-				<button class="btn btn-link collapsed" data-toggle="collapse"
-					data-target="#collapseThree" aria-expanded="false"
-					aria-controls="collapseThree">
-					<i class="fas fa-wrench"></i> Manage
-				</button>
-			</h5>
-		</div>
-		<div id="collapseThree" class="collapse"
-			aria-labelledby="headingThree" data-parent="#accordion">
-			<div class="card-body">Anim pariatur cliche reprehenderit, enim
-				eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-				officia aute, non cupidatat skateboard dolor brunch. Food truck
-				quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-				aliqua put a bird on it squid single-origin coffee nulla assumenda
-				shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
-				anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-				butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw
-				denim aesthetic synth nesciunt you probably haven't heard of them
-				accusamus labore sustainable VHS.</div>
-		</div>
-	</div>
-	<div class="card">
-		<div class="card-header" id="headingHistory">
-			<h5 class="mb-0">
-				<button class="btn btn-link collapsed" data-toggle="collapse"
-					data-target="#collapseHistory" aria-expanded="false"
-					aria-controls="collapseHistory">
-					<i class="fas fa-history"></i> History
-				</button>
-			</h5>
-		</div>
-		<div id="collapseHistory" class="collapse"
-			aria-labelledby="headingHistory" data-parent="#accordion">
-			<div class="card-body">Anim pariatur cliche reprehenderit, enim
-				eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-				officia aute, non cupidatat skateboard dolor brunch. Food truck
-				quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-				aliqua put a bird on it squid single-origin coffee nulla assumenda
-				shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
-				anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-				butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw
-				denim aesthetic synth nesciunt you probably haven't heard of them
-				accusamus labore sustainable VHS.</div>
-		</div>
-	</div>
-	<div class="card">
-		<div class="card-header" id="headingRelation">
-			<h5 class="mb-0">
-				<button class="btn btn-link collapsed" data-toggle="collapse"
-					data-target="#collapseHistory" aria-expanded="false"
-					aria-controls="collapseRelation">
-					<i class="fas fa-map-marked-alt"></i> Map
-				</button>
-			</h5>
-		</div>
-		<div id="collapseRelation" class="collapse"
-			aria-labelledby="headingRelation" data-parent="#accordion">
-			<div class="card-body">Anim pariatur cliche reprehenderit, enim
-				eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-				officia aute, non cupidatat skateboard dolor brunch. Food truck
-				quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-				aliqua put a bird on it squid single-origin coffee nulla assumenda
-				shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
-				anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-				butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw
-				denim aesthetic synth nesciunt you probably haven't heard of them
-				accusamus labore sustainable VHS.</div>
-		</div>
-	</div>
-</div>
+    <h1>
+    	{% include "element/link/_layer_link.html.twig" with {'id':entity.getId(),'layer':layer,'slug':((entity.hasSlug() is defined and entity.hasSlug())?entity.getSlug():null)} %}
+    </h1>
+    {% if action_template_data_store_service.getAllStoredData().count() > 0 %}
+        <div id="accordion">
+            {% set aria_expanded = 'true' %}
+            {% for action in layer_action_map.getActions(layer) %}
+            	{% if action_template_data_store_service.isDataStored(action) %}
+            	    {{ action_template_name_service.setActionType(action) }}
+                	<div class="card">
+                		<div class="card-header" id="heading_{{ action }}">
+                			<h5 class="mb-0">
+                				<button class="btn btn-link collapsed" data-toggle="collapse"
+                					data-target="#collapse_{{ action }}" aria-expanded="{{ aria_expanded }}"
+                					aria-controls="collapse_{{ action }}">
+                					<i class="{{ action_icon_class_map.getIconClass(action) }}"></i> {{ action|trans }}
+                				</button>
+                			</h5>
+                		</div>
+                		<div id="collapse_{{ action }}" class="collapse {{ (aria_expanded == 'true')?'show':'' }}"
+                			aria-labelledby="heading_{{ action }}" data-parent="#accordion">
+                			<div class="card-body">
+                				{% include [action_template_name_service.getAtomTemplateName(),'entity/_entity_'~action~'.html.twig'] %}
+                			</div>
+                		</div>
+                	</div>
+            	{% endif %}
+            	{% set aria_expanded = 'false' %}
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="alert alert-warning" role="alert">
+      		<i class="fas fa-exclamation-triangle"></i> {{ 'This entity doesn\'t offer you any options. It seems like you don\'t have any right to perform actions on this entity.'|trans }}
+    	</div>	
+    {% endif %}
 {% endblock %}

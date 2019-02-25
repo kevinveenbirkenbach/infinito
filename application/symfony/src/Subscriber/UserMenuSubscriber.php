@@ -10,6 +10,9 @@ use Infinito\Event\Menu\MenuEvent;
 use Infinito\DBAL\Types\MenuEventType;
 use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
 
+/**
+ * @author kevinfrantz
+ */
 class UserMenuSubscriber implements EventSubscriberInterface
 {
     /**
@@ -22,6 +25,10 @@ class UserMenuSubscriber implements EventSubscriberInterface
      */
     private $translator;
 
+    /**
+     * @param TokenStorageInterface $tokenStorage
+     * @param TranslatorInterface   $translator
+     */
     public function __construct(TokenStorageInterface $tokenStorage, TranslatorInterface $translator)
     {
         $this->tokenStorage = $tokenStorage;
@@ -42,7 +49,7 @@ class UserMenuSubscriber implements EventSubscriberInterface
         ]);
 
         $menu->addChild($this->translator->trans('imprint'), [
-            'uri' => 'rest/api/source/'.strtolower(ImpressumFixtureSource::SLUG).'.html',
+            'uri' => '/api/rest/source/'.strtolower(ImpressumFixtureSource::SLUG).'.html',
             'attributes' => [
                 'icon' => 'fas fa-address-card',
             ],
@@ -50,6 +57,9 @@ class UserMenuSubscriber implements EventSubscriberInterface
         $this->generateUserDropdown($menu);
     }
 
+    /**
+     * @param ItemInterface $menu
+     */
     private function generateUserDropdown(ItemInterface $menu): void
     {
         $dropdown = $menu->addChild($this->tokenStorage->getToken()
@@ -91,6 +101,9 @@ class UserMenuSubscriber implements EventSubscriberInterface
         ]);
     }
 
+    /**
+     * @return array
+     */
     public static function getSubscribedEvents(): array
     {
         return [
