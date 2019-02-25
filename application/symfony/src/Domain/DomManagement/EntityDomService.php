@@ -8,6 +8,7 @@ use Infinito\Domain\RightManagement\RightTransformerService;
 use Doctrine\Common\Collections\Collection;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
 use Infinito\Exception\NotCorrectInstanceException;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
 
 /**
  * This class is not ready and not tested!
@@ -121,7 +122,7 @@ final class EntityDomService implements EntityDomServiceInterface
                 $domElement->setAttribute('layer', $layer);
                 $domElement->setAttribute('id', $value->getId());
                 $domElement->setAttribute('value', $value->getId());
-
+                $domElement->setAttribute('name', LayerType::getReadableValue($layer));
                 return;
             }
         }
