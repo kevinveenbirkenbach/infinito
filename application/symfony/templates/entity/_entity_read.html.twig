@@ -1,0 +1,23 @@
+<table class="Table">
+	<tr>
+		<th>{{'Attribut'|trans}}</th>
+		<th>{{'Value'|trans}}</th>
+	</tr>
+	{% for node in entity_dom_service.getDomDocument().childNodes %}
+	{% set id = node.getAttribute('id') %}
+		{% set layer = node.getAttribute('layer') %}
+		{% set content = node.getAttribute('value') %}
+		{% set name = node.getAttribute('name') %}
+	<tr>
+		<td>{{ name|trans }}</td>
+		<td>
+		{% if id and layer %}
+			<a href="{{ path('infinito_api_rest_layer_read',{'identity':id,'layer':layer,'_format':'html'}) }}">{{ content }}</a>
+		{% else %}
+		{{ content }}
+		{% endif %}
+		</td>
+	</tr>
+	{% endfor %}
+</table>
+

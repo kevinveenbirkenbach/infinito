@@ -6,6 +6,8 @@ use Infinito\Entity\EntityInterface;
 use Infinito\Domain\LayerManagement\LayerClassMap;
 use Infinito\Domain\RightManagement\RightTransformerService;
 use Doctrine\Common\Collections\Collection;
+use Infinito\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
+use Infinito\Exception\NotCorrectInstanceException;
 
 /**
  * @author kevinfrantz
@@ -21,6 +23,11 @@ final class EntityDomService implements EntityDomServiceInterface
      * @var string
      */
     const HAS_METHOD = RightTransformerService::HAS_PREFIX;
+
+    /**
+     * @var RequestedEntityServiceInterface
+     */
+    private $requestedEntity;
 
     /**
      * @var EntityInterface
@@ -41,6 +48,14 @@ final class EntityDomService implements EntityDomServiceInterface
      * @var \DOMDocument
      */
     private $domDocument;
+
+    /**
+     * @param RequestedEntityServiceInterface $requestedEntity
+     */
+    public function __construct(RequestedEntityServiceInterface $requestedEntity)
+    {
+        $this->requestedEntity = $requestedEntity;
+    }
 
     private function createProperties(): void
     {
@@ -84,8 +99,9 @@ final class EntityDomService implements EntityDomServiceInterface
             return null;
         }
         $getMethod = $this->getMethodName(self::GET_METHOD, $propertyName);
+        $result = $this->getMethodResult($getMethod);
 
-        return $this->getMethodResult($getMethod);
+        return $result;
     }
 
     /**
@@ -97,10 +113,14 @@ final class EntityDomService implements EntityDomServiceInterface
         foreach (LayerClassMap::LAYER_CLASS_MAP as $layer => $class) {
             if ($value instanceof $class) {
                 $domElement->setAttribute('layer', $layer);
+                $domElement->setAttribute('id', $value->getId());
                 $domElement->setAttribute('value', $value->getId());
 
                 return;
             }
+        }
+        if (is_object($value)) {
+            throw new NotCorrectInstanceException('The instance '.get_class($value).' is not supported!');
         }
         $domElement->setAttribute('value', $value);
 
@@ -135,25 +155,32 @@ final class EntityDomService implements EntityDomServiceInterface
      *
      * @see \Infinito\Domain\DomManagement\EntityDomServiceInterface::getDomDocument()
      */
-    public function getDomDocument(EntityInterface $entity): \DOMDocument
+    public function getDomDocument(): \DOMDocument
     {
+        $this->entity = $this->requestedEntity->getEntity();
+        $this->entityReflectionClass = new \ReflectionClass($this->entity);
         $this->createProperties();
         $this->createDomDocument();
         foreach ($this->properties as $property) {
             $propertyName = $property->getName();
             if ($this->isPropertyAccessible($propertyName)) {
-                $domElement = $this->domDocument->createElement($propertyName);
+                $domElement = $this->domDocument->createElement('attribut');
+                $domElement->setAttribute('name', $propertyName);
                 $value = $this->getPropertyValue($propertyName);
                 if ($value instanceof Collection) {
                     foreach ($value as $valueElement) {
                         $domSubElement = $domElement->createElement('list-element');
+                        $domElement->setAttribute('name', $propertyName);
                         $this->mappValue($valueElement, $domSubElement);
+                        $domElement->appendChild($domSubElement);
                     }
                 } else {
                     $this->mappValue($value, $domElement);
                 }
+                $this->domDocument->appendChild($domElement);
             }
         }
+        $this->domDocument->saveXML();
 
         return $this->domDocument;
     }

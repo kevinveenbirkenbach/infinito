@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\Collection;
 
 /**
  * @author kevinfrantz
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Infinito\Repository\Meta\Relation\Parent\CreatorRepository")
  */
 class CreatorRelation extends AbstractParentRelation implements CreatorRelationInterface
 {

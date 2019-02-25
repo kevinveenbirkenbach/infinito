@@ -21,6 +21,8 @@ final class LayerType extends AbstractEnumType
 
     public const MEMBER = 'member';
 
+    const CREATOR = 'creator';
+
     /**
      * @var array Ordered by the importants of implementation
      */
@@ -30,5 +32,6 @@ final class LayerType extends AbstractEnumType
         self::RIGHT => 'right',
         self::MEMBER => 'member',
         self::HEREDITY => 'heredity',
+        self::CREATOR => 'creator',
     ];
 }

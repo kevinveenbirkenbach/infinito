@@ -11,7 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @author kevinfrantz
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Infinito\Repository\Meta\Relation\Member\MemberRepository")
  */
 class MemberRelation extends AbstractRelation implements MemberRelationInterface
 {

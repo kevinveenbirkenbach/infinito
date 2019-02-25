@@ -2,8 +2,6 @@
 
 namespace Infinito\Domain\DomManagement;
 
-use Infinito\Entity\EntityInterface;
-
 /**
  * Allows to build a DOM for an entity.
  *
@@ -14,9 +12,7 @@ use Infinito\Entity\EntityInterface;
 interface EntityDomServiceInterface
 {
     /**
-     * @param EntityInterface $entity
-     *
      * @return \DOMDocument
      */
-    public function getDomDocument(EntityInterface $entity): \DOMDocument;
+    public function getDomDocument(): \DOMDocument;
 }

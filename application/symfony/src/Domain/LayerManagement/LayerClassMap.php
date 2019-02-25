@@ -7,6 +7,9 @@ use Infinito\Entity\Source\AbstractSource;
 use Infinito\Exception\NotSetException;
 use Infinito\Entity\Meta\Law;
 use Infinito\Entity\Meta\Right;
+use Infinito\Entity\Meta\Relation\Parent\HeredityRelation;
+use Infinito\Entity\Meta\Relation\Member\MemberRelation;
+use Infinito\Entity\Meta\Relation\Parent\CreatorRelation;
 
 /**
  * @author kevinfrantz
@@ -20,6 +23,9 @@ final class LayerClassMap implements LayerClassMapInterface
         LayerType::SOURCE => AbstractSource::class,
         LayerType::LAW => Law::class,
         LayerType::RIGHT => Right::class,
+        LayerType::HEREDITY => HeredityRelation::class,
+        LayerType::MEMBER => MemberRelation::class,
+        LayerType::CREATOR => CreatorRelation::class,
     ];
 
     /**

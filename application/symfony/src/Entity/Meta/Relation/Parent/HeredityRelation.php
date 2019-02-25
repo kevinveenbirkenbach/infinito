@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @author kevinfrantz
- * @ORM\Entity()
+ * * @ORM\Entity(repositoryClass="Infinito\Repository\Meta\Relation\Parent\HeredityRepository")
  */
 class HeredityRelation extends AbstractParentRelation implements HeredityRelationInterface
 {

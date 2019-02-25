@@ -22,7 +22,7 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
      * @var string The path to the general entity template
      */
     const TWIG_ENTITY_TEMPLATE_PATH = 'entity/entity.html.twig';
-    
+
     /**
      * @var ActionHandlerServiceInterface
      */
@@ -55,6 +55,7 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     {
         $view = View::create();
         $view->setTemplate(self::TWIG_ENTITY_TEMPLATE_PATH);
+
         return $view;
     }
 

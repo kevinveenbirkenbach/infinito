@@ -16,7 +16,6 @@ final class ActionType extends CRUDType
      */
     const EXECUTE = 'execute';
 
-    
     /**
      * @var array
      */

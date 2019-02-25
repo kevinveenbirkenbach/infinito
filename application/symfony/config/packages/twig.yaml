@@ -9,3 +9,4 @@ twig:
         action_icon_class_map: "@Infinito\\Domain\\TwigManagement\\ActionIconClassMap"
         action_template_name_service: "@Infinito\\Domain\\TemplateManagement\\ActionTemplateNameServiceInterface"
         action_template_data_store_service: "@Infinito\\Domain\\TemplateManagement\\ActionTemplateDataStoreServiceInterface"
+        entity_dom_service: "@Infinito\\Domain\\DomManagement\\EntityDomServiceInterface"

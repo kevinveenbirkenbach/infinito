@@ -15,8 +15,8 @@
 </h1>
 <div id="accordion">
 {% for action in layer_action_map.getActions(layer) %}
-	{{ action_template_name_service.setActionType(action) }}
-	{%  if action_template_name_service.doesAtomTemplateExist() %}
+	{% if action_template_data_store_service.isDataStored(action) %}
+	    {{ action_template_name_service.setActionType(action) }}
     	<div class="card">
     		<div class="card-header" id="heading_{{ action }}">
     			<h5 class="mb-0">
@@ -30,7 +30,7 @@
     		<div id="collapse_{{ action }}" class="collapse"
     			aria-labelledby="heading_{{ action }}" data-parent="#accordion">
     			<div class="card-body">
-    				{% include action_template_name_service.getAtomTemplateName() %}
+    				{% include [action_template_name_service.getAtomTemplateName(),'entity/_entity_'~action~'.html.twig'] %}
     			</div>
     		</div>
     	</div>
