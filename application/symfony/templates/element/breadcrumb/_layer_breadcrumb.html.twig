@@ -1,0 +1,14 @@
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="{{ path('homepage') }}">infinito</a>
+		</li>
+		<li class="breadcrumb-item active" >api</li>
+		<li class="breadcrumb-item active" >rest</li>
+		<li class="breadcrumb-item active" >{{ layer|trans }}</li>
+		{%  if entity is defined %}
+			<li class="breadcrumb-item active" aria-current="page">#{{ entity.id }}</li>
+		{%  endif %}
+		<li class="breadcrumb-item active" >{{ app.request.getRequestFormat() }}</li>
+	</ol>
+</nav>

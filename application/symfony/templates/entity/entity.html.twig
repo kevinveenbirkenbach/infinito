@@ -20,6 +20,7 @@
 	    :{% include "element/link/_layer_read_link.html.twig" with {'id':entity.getId(),'layer':layer,'slug':((entity.hasSlug() is defined and entity.hasSlug())?entity.getSlug():null)} %}
 	{% endif %}
     </h1>
+    {% include "element/breadcrumb/_layer_breadcrumb.html.twig" %}
     {% if action_template_data_store_service.getAllStoredData().count() > 0 %}
         <div id="accordion">
             {% set aria_expanded = 'true' %}
