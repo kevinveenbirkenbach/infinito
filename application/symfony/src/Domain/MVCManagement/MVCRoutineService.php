@@ -92,23 +92,22 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     {
         if (!$this->actionType) {
             if ($this->requestedActionService->hasRequestedEntity() && $this->requestedActionService->getRequestedEntity()->hasIdentity()) {
-                //READ
+                //READ VIEW
                 $this->requestedActionService->setActionType(ActionType::READ);
                 if ($this->secureRequestedRightCheckerService->check($this->requestedActionService)) {
                     $read = $this->actionHandlerService->handle();
                     $this->actionTemplateDataStore->setData(ActionType::READ, $read);
                 }
                 $this->requestedActionService->setActionType(ActionType::UPDATE);
-                //UPDATE
+                //UPDATE VIEW
                 if ($this->secureRequestedRightCheckerService->check($this->requestedActionService)) {
                     $updateForm = $this->requestedActionFormBuilderService->createByService()->getForm()->createView();
                     $this->actionTemplateDataStore->setData(ActionType::UPDATE, $updateForm);
                 }
-                //DELETE
-                //EXECUTE
+                //DELETE VIEW
+                //EXECUTE VIEW
             } else {
                 //CREATE
-                $this->requestedActionService->setActionType(ActionType::CREATE);
                 $this->requestedActionService->getRequestedEntity()->setClass(TextSource::class);
                 $updateForm = $this->requestedActionFormBuilderService->createByService()->getForm()->createView();
                 $this->actionTemplateDataStore->setData(ActionType::CREATE, $updateForm);
