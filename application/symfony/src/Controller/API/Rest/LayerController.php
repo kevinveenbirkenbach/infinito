@@ -31,12 +31,13 @@ final class LayerController extends AbstractAPIController
      * ".{_format}",
      * methods={"GET","POST"}
      * )
+     *
      * @todo Mayber create an own controller for sources, because they have some special logic!
      */
-    public function create(Request $request,MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, string $layer): Response
+    public function create(Request $request, MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, string $layer): Response
     {
         //Not implemented yet in MVC routine. This is just a draft!
-        if($request->query->has(ClassAttributInterface::CLASS_ATTRIBUT_NAME)){
+        if ($request->query->has(ClassAttributInterface::CLASS_ATTRIBUT_NAME)) {
             $class = $request->query->get(ClassAttributInterface::CLASS_ATTRIBUT_NAME);
             $requestedActionService->getRequestedEntity()->setClass($class);
         }

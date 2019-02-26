@@ -16,6 +16,8 @@ use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryService;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Infinito\Entity\Meta\Law;
 use Infinito\Entity\Source\SourceInterface;
+use Infinito\DBAL\Types\ActionType;
+use Infinito\Exception\AllreadySetException;
 
 /**
  * @author kevinfrantz
@@ -104,5 +106,14 @@ class RequestedRightTest extends KernelTestCase
         $this->requestedRight->setLayer(LayerType::LAW);
         $responseSource1 = $this->requestedRight->getSource();
         $this->assertEquals($responseSource1, $source);
+    }
+
+    public function testSetActionType(): void
+    {
+        $attributType = ActionType::CREATE;
+        $this->requestedRight->setActionType($attributType);
+        $this->assertEquals($attributType, $this->requestedRight->getActionType());
+        $this->expectException(AllreadySetException::class);
+        $this->requestedRight->setActionType($attributType);
     }
 }

@@ -12,6 +12,7 @@ use Infinito\Entity\Meta\MetaInterface;
 use Infinito\Exception\NotCorrectInstanceException;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntity;
 use Infinito\Attribut\ActionTypeAttribut;
+use Infinito\Exception\AllreadySetException;
 
 /**
  * @author kevinfrantz
@@ -20,7 +21,9 @@ use Infinito\Attribut\ActionTypeAttribut;
  */
 class RequestedRight implements RequestedRightInterface
 {
-    use ActionTypeAttribut, LayerAttribut, RecieverAttribut, RequestedEntityAttribut;
+    use LayerAttribut, RecieverAttribut, RequestedEntityAttribut, ActionTypeAttribut{
+        setActionType as private setActionTypeTrait;
+    }
 
     /**
      * @var SourceInterface
@@ -65,6 +68,20 @@ class RequestedRight implements RequestedRightInterface
         if ($requestedEntity) {
             $this->setRequestedEntity($requestedEntity);
         }
+    }
+
+    /**
+     * This function declares the attribute actionType as inmutable
+     * {@inheritdoc}
+     *
+     * @see \Infinito\Attribut\ActionTypeAttributInterface::setActionType()
+     */
+    public function setActionType(string $actionType): void
+    {
+        if (isset($this->actionType)) {
+            throw new AllreadySetException("The action type is allready set! Origine: $this->actionType New: $actionType");
+        }
+        $this->setActionTypeTrait($actionType);
     }
 
     /**
