@@ -9,6 +9,7 @@ use Infinito\Controller\API\AbstractAPIController;
 use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 use Infinito\Domain\MVCManagement\MVCRoutineServiceInterface;
 use Infinito\DBAL\Types\ActionType;
+use Infinito\Attribut\ClassAttributInterface;
 
 /**
  * @author kevinfrantz
@@ -30,12 +31,15 @@ final class LayerController extends AbstractAPIController
      * ".{_format}",
      * methods={"GET","POST"}
      * )
-     * {@inheritdoc}
-     *
-     * @see \Infinito\Controller\API\AbstractAPIController::read()
+     * @todo Mayber create an own controller for sources, because they have some special logic!
      */
-    public function create(MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, string $layer, $identity): Response
+    public function create(Request $request,MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, string $layer): Response
     {
+        //Not implemented yet in MVC routine. This is just a draft!
+        if($request->query->has(ClassAttributInterface::CLASS_ATTRIBUT_NAME)){
+            $class = $request->query->get(ClassAttributInterface::CLASS_ATTRIBUT_NAME);
+            $requestedActionService->getRequestedEntity()->setClass($class);
+        }
         $requestedActionService->setActionType(ActionType::CREATE);
         $requestedActionService->setLayer($layer);
         $view = $mvcRoutineService->process();
@@ -48,9 +52,6 @@ final class LayerController extends AbstractAPIController
      * "/{identity}.{_format}",
      * methods={"GET"}
      * )
-     * {@inheritdoc}
-     *
-     * @see \Infinito\Controller\API\AbstractAPIController::read()
      */
     public function read(MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, string $layer, $identity): Response
     {
