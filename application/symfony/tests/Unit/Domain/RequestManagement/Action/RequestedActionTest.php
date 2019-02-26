@@ -8,7 +8,6 @@ use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
 use Infinito\Domain\RequestManagement\Right\RequestedRight;
 use Infinito\Domain\RequestManagement\Action\RequestedAction;
 use Infinito\DBAL\Types\ActionType;
-use Infinito\DBAL\Types\Meta\Right\CRUDType;
 use Infinito\Repository\Source\SourceRepositoryInterface;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Domain\UserManagement\UserSourceDirector;
@@ -52,12 +51,20 @@ class RequestedActionTest extends TestCase
         $list = ActionType::EXECUTE;
         $this->action->setActionType($list);
         $this->assertEquals($list, $this->action->getActionType());
-        $this->assertEquals(CRUDType::READ, $this->requestedRight->getActionType());
+        $this->assertEquals(ActionType::EXECUTE, $this->requestedRight->getActionType());
     }
 
     public function testCrud(): void
     {
-        foreach (CRUDType::getValues() as $crud) {
+        foreach (ActionType::getValues() as $crud) {
+            $userSource = $this->createMock(UserSourceInterface::class);
+            $sourceRepository = $this->createMock(SourceRepositoryInterface::class);
+            $sourceRepository->method('findOneBySlug')->willReturn($userSource);
+            $user = null;
+            $userSourceDirector = new UserSourceDirector($sourceRepository, $user);
+            $requestedRight = new RequestedRight();
+            $this->requestedRight = new RequestedUser($userSourceDirector, $requestedRight);
+            $this->action = new RequestedAction($this->requestedRight);
             $this->action->setActionType($crud);
             $this->assertEquals($crud, $this->action->getActionType());
             $this->assertEquals($crud, $this->requestedRight->getActionType());
