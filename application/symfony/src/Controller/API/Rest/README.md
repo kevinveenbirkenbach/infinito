@@ -13,12 +13,14 @@ The scheme for the rest api is the following:
 
 If an layer of an entity doesn't implement an method it should redirect to the connected (source) entity which is responsible for this method.
 ### Optional GET Parameters
-| Parameter | Type | Layer | Description | Standart |
-|-----------|---------|--------|-----------------------------------------------------------|----------------------------|
-| version | integer | All | Which version of an entity should be used to be processed | The newest version |
-| class | string | Source | Which class should be used for creation of an entity | The class of the entity |
-| action | string | All | Which action should be used for an layer. | All possible actions |
-| schema | boolean | All | Shows the schema of an entity.  | No Schema will be returned |
+| Parameter | Type | Format | CRUD | Layer | Description | Standard |
+|-----------|---------|--------|--------------|--------|-----------------------------------------------------------|----------------------------|
+| version | integer | all | read, update | all | Which version of an entity should be used to be processed | Process newest version |
+| class | string | all | create | source | Which class should be used for creation of an source | No class |
+| view | string | html | read | all | Which view (action type) should be used for an layer. | All views will be loaded |
+| frame | boolean | html | all | all | Shows the full html frame and not just the content part | Frame will be loaded |
+| schema | boolean | json | all | all | Shows the schema of an entity.  | No schema will be returned |
+| execute | boolean | all | read | source | Executes an entity | No execution will be done |
 
 ### Methods
 In the future it would make sense to implement [more methods](https://de.wikipedia.org/wiki/Representational_State_Transfer#Umsetzung).
