@@ -27,7 +27,7 @@ final class LayerIconClassMap implements LayerIconClassMapInterface
      *
      * @see \Infinito\Domain\TwigManagement\LayerIconClassMapInterface::getIconClass()
      */
-    public function getIconClass(string $layer): string
+    public static function getIconClass(string $layer): string
     {
         if (key_exists($layer, self::LAYER_ICON_CLASS_MAP)) {
             return self::LAYER_ICON_CLASS_MAP[$layer];

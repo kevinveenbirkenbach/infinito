@@ -14,5 +14,5 @@ interface LayerIconClassMapInterface
      *
      * @return string
      */
-    public function getIconClass(string $layer): string;
+    public static function getIconClass(string $layer): string;
 }
