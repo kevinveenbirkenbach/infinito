@@ -12,6 +12,7 @@ use Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
 use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
 use Infinito\Entity\Source\Primitive\Text\TextSource;
+use Infinito\Domain\ViewManagement\ViewBuilderInterface;
 
 /**
  * @author kevinfrantz
@@ -22,11 +23,6 @@ use Infinito\Entity\Source\Primitive\Text\TextSource;
 final class MVCRoutineService implements MVCRoutineServiceInterface
 {
     use ActionTypeAttribut;
-
-    /**
-     * @var string The path to the general entity template
-     */
-    const TWIG_ENTITY_TEMPLATE_PATH = 'entity/entity.html.twig';
 
     /**
      * @var ActionHandlerServiceInterface
@@ -59,20 +55,20 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     private $secureRequestedRightCheckerService;
 
     /**
-     * @return View
+     * @var ViewBuilderInterface
      */
-    private function getView(): View
-    {
-        $view = View::create();
-        $view->setTemplate(self::TWIG_ENTITY_TEMPLATE_PATH);
-
-        return $view;
-    }
+    private $viewBuilder;
 
     /**
-     * @param ActionHandlerServiceInterface $actionHandlerService
+     * @param ActionHandlerServiceInterface               $actionHandlerService
+     * @param TemplateNameServiceInterface                $templateNameService
+     * @param ActionTemplateDataStoreServiceInterface     $actionTemplateDataStore
+     * @param RequestedActionFormBuilderServiceInterface  $requestedActionFormBuilderService
+     * @param RequestedActionServiceInterface             $requestedActionService
+     * @param SecureRequestedRightCheckerServiceInterface $secureRequestedRightCheckerService
+     * @param ViewBuilderInterface                        $viewBuilder
      */
-    public function __construct(ActionHandlerServiceInterface $actionHandlerService, TemplateNameServiceInterface $templateNameService, ActionTemplateDataStoreServiceInterface $actionTemplateDataStore, RequestedActionFormBuilderServiceInterface $requestedActionFormBuilderService, RequestedActionServiceInterface $requestedActionService, SecureRequestedRightCheckerServiceInterface $secureRequestedRightCheckerService)
+    public function __construct(ActionHandlerServiceInterface $actionHandlerService, TemplateNameServiceInterface $templateNameService, ActionTemplateDataStoreServiceInterface $actionTemplateDataStore, RequestedActionFormBuilderServiceInterface $requestedActionFormBuilderService, RequestedActionServiceInterface $requestedActionService, SecureRequestedRightCheckerServiceInterface $secureRequestedRightCheckerService, ViewBuilderInterface $viewBuilder)
     {
         $this->actionHandlerService = $actionHandlerService;
         $this->templateNameService = $templateNameService;
@@ -80,6 +76,7 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
         $this->requestedActionFormBuilderService = $requestedActionFormBuilderService;
         $this->requestedActionService = $requestedActionService;
         $this->secureRequestedRightCheckerService = $secureRequestedRightCheckerService;
+        $this->viewBuilder = $viewBuilder;
     }
 
     /**
@@ -113,7 +110,7 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
                 $this->actionTemplateDataStore->setData(ActionType::CREATE, $updateForm);
             }
 
-            return $this->getView();
+            return $this->viewBuilder->getView();
         }
         throw new \Exception('Not implemented yet!');
     }

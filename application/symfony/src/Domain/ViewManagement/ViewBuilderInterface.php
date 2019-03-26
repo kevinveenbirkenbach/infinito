@@ -11,6 +11,11 @@ use Infinito\Domain\ActionManagement\ActionServiceInterface;
 interface ViewBuilderInterface
 {
     /**
+     * @var string The path to the general entity template
+     */
+    const TWIG_ENTITY_TEMPLATE_PATH = 'entity/entity.html.twig';
+
+    /**
      * @return View
      */
     public function getView(): View;

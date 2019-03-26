@@ -6,27 +6,26 @@ use FOS\RestBundle\View\View;
 use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
 use Infinito\Domain\ActionManagement\ActionServiceInterface;
 use Infinito\Domain\ActionManagement\ActionFactoryServiceInterface;
-use Infinito\Domain\ActionManagement\ActionFactoryService;
 
 /**
  * @author kevinfrantz
  */
-class ViewBuilder implements ViewBuilderInterface
+final class ViewBuilder implements ViewBuilderInterface
 {
     /**
      * @var View
      */
-    protected $view;
+    private $view;
 
     /**
      * @var RequestedActionInterface
      */
-    protected $actionService;
+    private $actionService;
 
     /**
      * @var ActionFactoryServiceInterface
      */
-    protected $actionFactoryService;
+    private $actionFactoryService;
 
     /**
      * @param ActionServiceInterface        $actionService
@@ -43,6 +42,10 @@ class ViewBuilder implements ViewBuilderInterface
      */
     public function getView(): View
     {
+        $view = View::create();
+        $view->setTemplate(self::TWIG_ENTITY_TEMPLATE_PATH);
+
+        return $view;
     }
 
     /**
