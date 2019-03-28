@@ -7,7 +7,7 @@ use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
 use Infinito\Domain\ActionManagement\ActionServiceInterface;
 use Infinito\Domain\ActionManagement\ActionFactoryServiceInterface;
 use Infinito\Domain\TemplateManagement\TemplateNameServiceInterface;
-use Infinito\Domain\ParameterManagement\OptionalGetParameterServiceInterface;
+use Infinito\Domain\ParameterManagement\ValidGetParameterServiceInterface;
 
 /**
  * @author kevinfrantz
@@ -45,7 +45,7 @@ final class ViewBuilder implements ViewBuilderInterface
     private $templateNameService;
 
     /**
-     * @var OptionalGetParameterServiceInterface
+     * @var ValidGetParameterServiceInterface
      */
     private $optionalGetParameterService;
 
@@ -56,8 +56,8 @@ final class ViewBuilder implements ViewBuilderInterface
      */
     private function checkLoadWithFrame(): bool
     {
-        if ($this->optionalGetParameterService->hasParameter(OptionalGetParameterServiceInterface::FRAME_PARAMETER)) {
-            return $this->optionalGetParameterService->getParameter(OptionalGetParameterServiceInterface::FRAME_PARAMETER);
+        if ($this->optionalGetParameterService->hasParameter(ValidGetParameterServiceInterface::FRAME_PARAMETER)) {
+            return $this->optionalGetParameterService->getParameter(ValidGetParameterServiceInterface::FRAME_PARAMETER);
         }
 
         return true;
@@ -91,7 +91,7 @@ final class ViewBuilder implements ViewBuilderInterface
      * @param ActionServiceInterface        $actionService
      * @param ActionFactoryServiceInterface $actionFactoryService
      */
-    public function __construct(ActionServiceInterface $actionService, ActionFactoryServiceInterface $actionFactoryService, TemplateNameServiceInterface $templateNameService, OptionalGetParameterServiceInterface $optionalGetParameterService)
+    public function __construct(ActionServiceInterface $actionService, ActionFactoryServiceInterface $actionFactoryService, TemplateNameServiceInterface $templateNameService, ValidGetParameterServiceInterface $optionalGetParameterService)
     {
         $this->view = View::create();
         $this->actionService = $actionService;

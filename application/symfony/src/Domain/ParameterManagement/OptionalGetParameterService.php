@@ -8,9 +8,11 @@ use Infinito\Exception\UnvalidParameterException;
 use Infinito\Exception\NotDefinedException;
 
 /**
+ * @todo Rename class!
+ *
  * @author kevinfrantz
  */
-final class OptionalGetParameterService implements OptionalGetParameterServiceInterface
+class OptionalGetParameterService implements OptionalGetParameterServiceInterface
 {
     /**
      * @var Request
