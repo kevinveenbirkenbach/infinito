@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use HaydenPierce\ClassFinder\ClassFinder;
 use Infinito\Domain\ParameterManagement\Parameter\ParameterInterface;
+use Infinito\Exception\NoValidChoiceException;
 
 /**
  * @author kevinfrantz
@@ -62,7 +63,11 @@ final class ParameterFactory implements ParameterFactoryInterface
      */
     public function getParameter(string $key): ParameterInterface
     {
-        return $this->parameters->get($key);
+        $parameter = $this->parameters->get($key);
+        if($parameter){
+            return $parameter;
+        }
+        throw new NoValidChoiceException("The parameter for key <<$key>> doesn't exist!");
     }
 
     /**
