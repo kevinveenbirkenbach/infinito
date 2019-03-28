@@ -15,7 +15,6 @@ class ParameterFactoryTest extends TestCase
     {
         $parameterFactory = new ParameterFactory();
         $allParameters = $parameterFactory->getAllParameters();
-        var_dump($allParameters);
         $versionParameter = $allParameters->get('version');
         $this->assertInstanceOf(VersionParameter::class, $versionParameter);
         $this->assertEquals($versionParameter, $parameterFactory->getParameter('version'));
