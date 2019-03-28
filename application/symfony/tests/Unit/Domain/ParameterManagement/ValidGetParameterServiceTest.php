@@ -4,13 +4,15 @@ namespace tests\Unit\Domain\ParameterManagement;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Infinito\Domain\ParameterManagement\OptionalGetParameterServiceInterface;
 use Infinito\Exception\NotDefinedException;
 use Infinito\Domain\ParameterManagement\Parameter\VersionParameter;
 use Infinito\Domain\ParameterManagement\ParameterFactory;
 use Infinito\Domain\ParameterManagement\ValidGetParametersService;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Infinito\Domain\ParameterManagement\ValidGetParameterServiceInterface;
+use Infinito\Domain\ParameterManagement\Parameter\ViewParameter;
+use Infinito\DBAL\Types\ActionType;
 
 /**
  * This class is a bit messed up because it is an recycled class of an other unit.
@@ -30,7 +32,7 @@ class ValidGetParameterServiceTest extends KernelTestCase
     private $requestStack;
 
     /**
-     * @var OptionalGetParameterServiceInterface
+     * @var ValidGetParameterServiceInterface
      */
     private $validGetParameterService;
 
@@ -45,6 +47,9 @@ class ValidGetParameterServiceTest extends KernelTestCase
         $this->validGetParameterService = new ValidGetParametersService($this->requestStack, $parameterFactory, $validator);
     }
 
+    /**
+     * @todo Move this tests to the functional test section
+     */
     public function testHasAndGetParameter(): void
     {
         $parameterFactory = new ParameterFactory();
@@ -53,6 +58,9 @@ class ValidGetParameterServiceTest extends KernelTestCase
             switch ($key) {
                 case VersionParameter::getKey():
                     $value = 1;
+                    break;
+                case ViewParameter::getKey():
+                    $value = ActionType::EXECUTE;
                     break;
                 default:
                     $value = true;
