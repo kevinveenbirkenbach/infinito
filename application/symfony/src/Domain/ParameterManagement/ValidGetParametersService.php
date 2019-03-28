@@ -44,8 +44,8 @@ final class ValidGetParametersService extends OptionalGetParameterService implem
         $parameter = $this->parameterFactory->getParameter($key);
         $parameter->setValue($this->currentRequest->get($key));
         $errors = $this->validator->validate($parameter);
-        if (count($errors) > 0) {
-            throw new UnvalidParameterException("Parameter <<$key>> didn't pass the validation");
+        foreach ($errors as $error) {
+            throw new UnvalidParameterException("Parameter <<$key>> didn't pass the validation; Message: <<".$error->getMessage().'>> ,Value: <<'.$parameter->getValue().'>> .');
         }
     }
 }

@@ -47,7 +47,7 @@ final class ViewBuilder implements ViewBuilderInterface
     /**
      * @var ValidGetParameterServiceInterface
      */
-    private $optionalGetParameterService;
+    private $validGetParameterService;
 
     /**
      * Containes the routine to decide if the template should be loaded with or without frame.
@@ -56,8 +56,8 @@ final class ViewBuilder implements ViewBuilderInterface
      */
     private function checkLoadWithFrame(): bool
     {
-        if ($this->optionalGetParameterService->hasParameter(ValidGetParameterServiceInterface::FRAME_PARAMETER)) {
-            return $this->optionalGetParameterService->getParameter(ValidGetParameterServiceInterface::FRAME_PARAMETER);
+        if ($this->validGetParameterService->hasParameter(ValidGetParameterServiceInterface::FRAME_PARAMETER)) {
+            return $this->validGetParameterService->getParameter(ValidGetParameterServiceInterface::FRAME_PARAMETER);
         }
 
         return true;
@@ -91,12 +91,12 @@ final class ViewBuilder implements ViewBuilderInterface
      * @param ActionServiceInterface        $actionService
      * @param ActionFactoryServiceInterface $actionFactoryService
      */
-    public function __construct(ActionServiceInterface $actionService, ActionFactoryServiceInterface $actionFactoryService, TemplateNameServiceInterface $templateNameService, ValidGetParameterServiceInterface $optionalGetParameterService)
+    public function __construct(ActionServiceInterface $actionService, ActionFactoryServiceInterface $actionFactoryService, TemplateNameServiceInterface $templateNameService, ValidGetParameterServiceInterface $validGetParameterService)
     {
         $this->view = View::create();
         $this->actionService = $actionService;
         $this->templateNameService = $templateNameService;
-        $this->optionalGetParameterService = $optionalGetParameterService;
+        $this->validGetParameterService = $validGetParameterService;
     }
 
     /**

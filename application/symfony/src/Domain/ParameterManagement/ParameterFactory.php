@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use HaydenPierce\ClassFinder\ClassFinder;
 use Infinito\Domain\ParameterManagement\Parameter\ParameterInterface;
-use Infinito\Exception\NoValidChoiceException;
+use Infinito\Exception\NotDefinedException;
 
 /**
  * @author kevinfrantz
@@ -67,7 +67,7 @@ final class ParameterFactory implements ParameterFactoryInterface
         if ($parameter) {
             return $parameter;
         }
-        throw new NoValidChoiceException("The parameter for key <<$key>> doesn't exist!");
+        throw new NotDefinedException("The parameter for key <<$key>> doesn't exist! Generate a parameter class in the parameter folder!");
     }
 
     /**

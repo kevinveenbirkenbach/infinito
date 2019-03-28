@@ -5,6 +5,7 @@ namespace tests\Unit\Domain\ParameterManagement;
 use PHPUnit\Framework\TestCase;
 use Infinito\Domain\ParameterManagement\ParameterFactory;
 use Infinito\Domain\ParameterManagement\Parameter\VersionParameter;
+use Infinito\Exception\NotDefinedException;
 
 /**
  * @author kevinfrantz
@@ -18,5 +19,15 @@ class ParameterFactoryTest extends TestCase
         $versionParameter = $allParameters->get('version');
         $this->assertInstanceOf(VersionParameter::class, $versionParameter);
         $this->assertEquals($versionParameter, $parameterFactory->getParameter('version'));
+    }
+
+    public function testGetParameter(): void
+    {
+        $parameterFactory = new ParameterFactory();
+        $versionParameter = $parameterFactory->getParameter('version');
+        $this->assertInstanceOf(VersionParameter::class, $versionParameter);
+        $this->assertEquals($versionParameter, $parameterFactory->getParameter('version'));
+        $this->expectException(NotDefinedException::class);
+        $versionParameter = $parameterFactory->getParameter('blabalbal');
     }
 }

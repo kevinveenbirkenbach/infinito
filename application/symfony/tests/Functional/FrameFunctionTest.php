@@ -40,6 +40,6 @@ class FrameFunctionTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request(Request::METHOD_GET, 'api/rest/source/HOMEPAGE.html?frame=true');
-        $this->assertEquals(406, $client->getResponse()->getStatusCode());
+        $this->assertEquals(500, $client->getResponse()->getStatusCode());
     }
 }

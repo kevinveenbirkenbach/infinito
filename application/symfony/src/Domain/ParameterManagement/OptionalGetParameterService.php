@@ -9,7 +9,6 @@ use Infinito\Exception\NotDefinedException;
 
 /**
  * @todo Rename class!
- * deprecated use ValidGetParameterService instead
  *
  * @author kevinfrantz
  */
