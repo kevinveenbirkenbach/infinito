@@ -4,15 +4,15 @@ namespace Infinito\Domain\ParameterManagement;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Request;
-use Infinito\Exception\UnvalidParameterException;
 use Infinito\Exception\NotDefinedException;
 
 /**
- * @todo Rename class!
+ * This class exists out of refactoring reasons.
+ * Feel free to merge it with ValidGetParametersServices.
  *
  * @author kevinfrantz
  */
-class OptionalGetParameterService implements OptionalGetParameterServiceInterface
+abstract class AbstractGetParameterService implements GetParameterServiceInterface
 {
     /**
      * @var Request
@@ -21,14 +21,8 @@ class OptionalGetParameterService implements OptionalGetParameterServiceInterfac
 
     /**
      * @param string $key
-     *
-     * @deprecated
-     *
-     * @throws UnvalidParameterException If the parameter is not valid
      */
-    protected function validateParameter(string $key): void
-    {
-    }
+    abstract protected function validateParameter(string $key): void;
 
     /**
      * @param RequestStack $requestStack
@@ -57,7 +51,7 @@ class OptionalGetParameterService implements OptionalGetParameterServiceInterfac
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ParameterManagement\OptionalGetParameterServiceInterface::hasParameter()
+     * @see \Infinito\Domain\ParameterManagement\GetParameterServiceInterface::hasParameter()
      */
     public function hasParameter(string $key): bool
     {
@@ -69,7 +63,7 @@ class OptionalGetParameterService implements OptionalGetParameterServiceInterfac
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ParameterManagement\OptionalGetParameterServiceInterface::getParameter()
+     * @see \Infinito\Domain\ParameterManagement\GetParameterServiceInterface::getParameter()
      */
     public function getParameter(string $key)
     {

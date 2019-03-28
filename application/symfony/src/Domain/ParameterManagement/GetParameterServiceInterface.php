@@ -7,7 +7,7 @@ namespace Infinito\Domain\ParameterManagement;
  *
  * @author kevinfrantz
  */
-interface OptionalGetParameterServiceInterface
+interface GetParameterServiceInterface
 {
     /**
      * @param string $key

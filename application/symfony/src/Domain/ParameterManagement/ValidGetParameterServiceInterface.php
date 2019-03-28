@@ -5,6 +5,6 @@ namespace Infinito\Domain\ParameterManagement;
 /**
  * @author kevinfrantz
  */
-interface ValidGetParameterServiceInterface extends OptionalGetParameterServiceInterface
+interface ValidGetParameterServiceInterface extends GetParameterServiceInterface
 {
 }

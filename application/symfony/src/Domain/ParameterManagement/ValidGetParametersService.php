@@ -9,7 +9,7 @@ use Infinito\Exception\UnvalidGetParameterException;
 /**
  * @author kevinfrantz
  */
-final class ValidGetParametersService extends OptionalGetParameterService implements ValidGetParameterServiceInterface
+final class ValidGetParametersService extends AbstractGetParameterService implements ValidGetParameterServiceInterface
 {
     /**
      * @var ParameterFactoryInterface
@@ -34,9 +34,9 @@ final class ValidGetParametersService extends OptionalGetParameterService implem
     }
 
     /**
-     * {@inheritdoc}
+     * @param string $key
      *
-     * @see \Infinito\Domain\ParameterManagement\OptionalGetParameterService::validateParameter()
+     * @throws UnvalidGetParameterException
      */
     protected function validateParameter(string $key): void
     {
