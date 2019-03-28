@@ -14,5 +14,7 @@ class VersionParameterTest extends TestCase
     {
         $key = VersionParameter::getKey();
         $this->assertEquals('version', $key);
+        $versionParameter = new VersionParameter();
+        $this->assertEquals($key, $versionParameter::getKey());
     }
 }
