@@ -2,9 +2,9 @@
 
 namespace Infinito\Domain\ParameterManagement;
 
-use Infinito\Exception\UnvalidParameterException;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Infinito\Exception\UnvalidGetParameterException;
 
 /**
  * @author kevinfrantz
@@ -40,12 +40,11 @@ final class ValidGetParametersService extends OptionalGetParameterService implem
      */
     protected function validateParameter(string $key): void
     {
-        parent::validateParameter($key);
         $parameter = $this->parameterFactory->getParameter($key);
         $parameter->setValue($this->currentRequest->get($key));
         $errors = $this->validator->validate($parameter);
         foreach ($errors as $error) {
-            throw new UnvalidParameterException("Parameter <<$key>> didn't pass the validation; Message: <<".$error->getMessage().'>> ,Value: <<'.$parameter->getValue().'>> .');
+            throw new UnvalidGetParameterException("Parameter <<$key>> didn't pass the validation; Message: <<".$error->getMessage().'>> ,Value: <<'.$parameter->getValue().'>> .');
         }
     }
 }

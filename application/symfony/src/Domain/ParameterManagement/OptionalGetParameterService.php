@@ -22,14 +22,12 @@ class OptionalGetParameterService implements OptionalGetParameterServiceInterfac
     /**
      * @param string $key
      *
+     * @deprecated
+     *
      * @throws UnvalidParameterException If the parameter is not valid
      */
     protected function validateParameter(string $key): void
     {
-        if (in_array($key, self::OPTIONAL_PARAMETERS)) {
-            return;
-        }
-        throw new UnvalidParameterException("Parameter <<$key>> isn't valid.");
     }
 
     /**

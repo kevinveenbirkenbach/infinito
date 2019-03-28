@@ -8,6 +8,7 @@ use Infinito\Domain\ActionManagement\ActionServiceInterface;
 use Infinito\Domain\ActionManagement\ActionFactoryServiceInterface;
 use Infinito\Domain\TemplateManagement\TemplateNameServiceInterface;
 use Infinito\Domain\ParameterManagement\ValidGetParameterServiceInterface;
+use Infinito\Domain\ParameterManagement\Parameter\FrameParameter;
 
 /**
  * @author kevinfrantz
@@ -56,8 +57,8 @@ final class ViewBuilder implements ViewBuilderInterface
      */
     private function checkLoadWithFrame(): bool
     {
-        if ($this->validGetParameterService->hasParameter(ValidGetParameterServiceInterface::FRAME_PARAMETER)) {
-            return $this->validGetParameterService->getParameter(ValidGetParameterServiceInterface::FRAME_PARAMETER);
+        if ($this->validGetParameterService->hasParameter(FrameParameter::getKey())) {
+            return $this->validGetParameterService->getParameter(FrameParameter::getKey());
         }
 
         return true;

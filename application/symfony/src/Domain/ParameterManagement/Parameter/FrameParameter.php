@@ -3,7 +3,7 @@
 namespace Infinito\Domain\ParameterManagement\Parameter;
 
 use Symfony\Component\Validator\Constraints as Assert;
-use Infinito\Exception\SetNotPossibleException;
+use Infinito\Exception\UnvalidGetParameterException;
 
 /**
  * @author kevinfrantz
@@ -16,7 +16,7 @@ final class FrameParameter extends AbstractParameter
     const STANDART_VALUE = true;
 
     /**
-     * @var int|null
+     * @var bool
      * @Assert\Type("bool")
      */
     protected $value;
@@ -28,20 +28,26 @@ final class FrameParameter extends AbstractParameter
      */
     public function setValue($value): void
     {
-        if (is_null($value)) {
-            //Use standart value
-            $this->value = self::STANDART_VALUE;
+        $type = gettype($value);
+        switch ($type) {
+            case 'NULL':
+                // Use standart value
+                $this->value = self::STANDART_VALUE;
 
-            return;
+                return;
+            case 'boolean':
+                $this->value = $value;
+
+                return;
         }
         if (is_numeric($value)) {
-            $number = (int) $value;
-            if ($number >= 0 && $number <= 1) {
+            $value = (int) $value;
+            if ($value >= 0 && $value <= 1) {
                 $this->value = (bool) $value;
 
                 return;
             }
         }
-        throw new SetNotPossibleException("It\'s not possible to set <<$value>> of type <<".gettype($value).'>> for class <<'.get_class().'>>. Just 0 and 1 are allowed!');
+        throw new UnvalidGetParameterException("It\'s not possible to set <<$value>> of type <<".$type.'>> for class <<'.get_class().'>>. Just 0 and 1 are allowed!');
     }
 }

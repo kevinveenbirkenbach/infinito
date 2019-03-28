@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\Unit\Domain\ParameterManagement;
+namespace tests\Integration\Domain\ParameterManagement;
 
 use Infinito\Domain\ParameterManagement\ParameterFactory;
 use Infinito\Domain\ParameterManagement\ValidGetParametersService;
@@ -74,7 +74,7 @@ class ValidGetParameterServiceTest extends KernelTestCase
 
     public function testConstructor(): void
     {
-        $this->expectException(UnvalidParameterException::class);
+        $this->expectException(NotDefinedException::class);
         $this->currentRequest->query->set('asdwgwe', 'adasa');
         new ValidGetParametersService($this->requestStack, $this->parameterFactory, $this->validator);
     }

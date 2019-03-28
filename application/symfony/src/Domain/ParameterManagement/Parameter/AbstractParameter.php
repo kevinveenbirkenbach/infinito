@@ -3,6 +3,8 @@
 namespace Infinito\Domain\ParameterManagement\Parameter;
 
 /**
+ * Parameter classes shouldn't throw exceptions!
+ *
  * @author kevinfrantz
  */
 abstract class AbstractParameter implements ParameterInterface

@@ -14,13 +14,6 @@ interface OptionalGetParameterServiceInterface
      *
      * @var string
      */
-    const VERSION_PARAMETER = 'version';
-
-    /**
-     * @deprecated
-     *
-     * @var string
-     */
     const EXECUTE_PARAMETER = 'execute';
 
     /**
@@ -57,7 +50,6 @@ interface OptionalGetParameterServiceInterface
      * @var array|string[]
      */
     const OPTIONAL_PARAMETERS = [
-        self::VERSION_PARAMETER,
         self::VIEW_PARAMETER,
         self::CLASS_PARAMETER,
         self::FRAME_PARAMETER,
