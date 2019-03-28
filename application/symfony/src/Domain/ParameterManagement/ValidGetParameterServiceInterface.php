@@ -7,10 +7,4 @@ namespace Infinito\Domain\ParameterManagement;
  */
 interface ValidGetParameterServiceInterface extends OptionalGetParameterServiceInterface
 {
-    /**
-     * @param string $key
-     *
-     * @return bool checks if the parameter is valid
-     */
-    public function isValid(string $key): bool;
 }

@@ -24,7 +24,7 @@ class OptionalGetParameterService implements OptionalGetParameterServiceInterfac
      *
      * @throws UnvalidParameterException If the parameter is not valid
      */
-    private function validateParameter(string $key): void
+    protected function validateParameter(string $key): void
     {
         if (in_array($key, self::OPTIONAL_PARAMETERS)) {
             return;

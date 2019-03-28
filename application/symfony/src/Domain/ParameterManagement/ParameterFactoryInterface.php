@@ -5,6 +5,9 @@ namespace Infinito\Domain\ParameterManagement;
 use Infinito\Domain\ParameterManagement\Parameter\ParameterInterface;
 use Doctrine\Common\Collections\Collection;
 
+/**
+ * @author kevinfrantz
+ */
 interface ParameterFactoryInterface
 {
     /**
