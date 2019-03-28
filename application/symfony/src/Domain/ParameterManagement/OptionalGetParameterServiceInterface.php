@@ -10,54 +10,6 @@ namespace Infinito\Domain\ParameterManagement;
 interface OptionalGetParameterServiceInterface
 {
     /**
-     * @deprecated
-     *
-     * @var string
-     */
-    const EXECUTE_PARAMETER = 'execute';
-
-    /**
-     * @deprecated
-     *
-     * @var string
-     */
-    const VIEW_PARAMETER = 'view';
-
-    /**
-     * @deprecated
-     *
-     * @var string
-     */
-    const CLASS_PARAMETER = 'class';
-
-    /**
-     * @deprecated
-     *
-     * @var string
-     */
-    const FRAME_PARAMETER = 'frame';
-
-    /**
-     * @deprecated
-     *
-     * @var string
-     */
-    const SCHEMA_PARAMETER = 'schema';
-
-    /**
-     * @deprecated
-     *
-     * @var array|string[]
-     */
-    const OPTIONAL_PARAMETERS = [
-        self::VIEW_PARAMETER,
-        self::CLASS_PARAMETER,
-        self::FRAME_PARAMETER,
-        self::SCHEMA_PARAMETER,
-        self::EXECUTE_PARAMETER,
-    ];
-
-    /**
      * @param string $key
      *
      * @return bool True if the version parameter in the request is set
