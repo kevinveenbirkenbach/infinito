@@ -1,19 +1,18 @@
 <?php
-namespace tests\Unit\Domain\ParameterManagement;
 
+namespace tests\Unit\Domain\ParameterManagement;
 
 use PHPUnit\Framework\TestCase;
 use Infinito\Domain\ParameterManagement\ParameterFactory;
 use Infinito\Domain\ParameterManagement\Parameter\VersionParameter;
 
 /**
- * 
  * @author kevinfrantz
- *
  */
 class ParameterFactoryTest extends TestCase
 {
-    public function testAllParameters():void{
+    public function testAllParameters(): void
+    {
         $parameterFactory = new ParameterFactory();
         $allParameters = $parameterFactory->getAllParameters();
         var_dump($allParameters);
@@ -22,4 +21,3 @@ class ParameterFactoryTest extends TestCase
         $this->assertEquals($versionParameter, $parameterFactory->getParameter('version'));
     }
 }
-
