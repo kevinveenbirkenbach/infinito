@@ -1,0 +1,40 @@
+{% set layer = requested_action_service.getLayer()%}
+<h1>
+{% include "element/link/_layer_create_link.html.twig" with {'layer':layer} %}
+{% if entity is defined%}
+    :{% include "element/link/_layer_read_link.html.twig" with {'id':entity.getId(),'layer':layer,'slug':((entity.hasSlug() is defined and entity.hasSlug())?entity.getSlug():null)} %}
+{% endif %}
+</h1>
+{% include "element/breadcrumb/_layer_breadcrumb.html.twig" %}
+{% if action_template_data_store_service.getAllStoredData().count() > 0 %}
+    <div id="accordion">
+        {% set aria_expanded = 'true' %}
+        {% for action in layer_action_map.getActions(layer) %}
+        	{% if action_template_data_store_service.isDataStored(action) %}
+        	    {{ action_template_name_service.setActionType(action) }}
+            	<div class="card">
+            		<div class="card-header" id="heading_{{ action }}">
+            			<h5 class="mb-0">
+            				<button class="btn btn-link collapsed" data-toggle="collapse"
+            					data-target="#collapse_{{ action }}" aria-expanded="{{ aria_expanded }}"
+            					aria-controls="collapse_{{ action }}">
+            					<i class="{{ action_icon_class_map.getIconClass(action) }}"></i> {{ action|trans|capitalize }}
+            				</button>
+            			</h5>
+            		</div>
+            		<div id="collapse_{{ action }}" class="collapse {{ (aria_expanded == 'true')?'show':'' }}"
+            			aria-labelledby="heading_{{ action }}" data-parent="#accordion">
+            			<div class="card-body">
+            				{% include [action_template_name_service.getAtomTemplateName(),'entity/_entity_'~action~'.html.twig'] %}
+            			</div>
+            		</div>
+            	</div>
+            	{% set aria_expanded = 'false' %}
+        	{% endif %}
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="alert alert-warning" role="alert">
+  		<i class="fas fa-exclamation-triangle"></i> {{ 'This entity doesn\'t offer you any options. It seems like you don\'t have any right to perform actions on this entity.'|trans }}
+	</div>	
+{% endif %}
