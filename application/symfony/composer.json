@@ -33,19 +33,19 @@
 		"symfony/yaml" : "*"
 	},
 	"require-dev" : {
-		"doctrine/doctrine-fixtures-bundle" : "^3.0",
-		"friendsofphp/php-cs-fixer" : "^2.13",
-		"phpunit/phpunit" : "^7",
-		"symfony/browser-kit" : "*",
-		"symfony/css-selector" : "*",
-		"symfony/debug-pack" : "*",
-		"symfony/dotenv" : "*",
-		"symfony/maker-bundle" : "^1.0",
-		"symfony/phpunit-bridge" : "*",
-		"symfony/profiler-pack" : "*",
-		"symfony/test-pack" : "*",
-		"symfony/var-dumper" : "*",
-		"symfony/web-server-bundle" : "*"
+		"doctrine/doctrine-fixtures-bundle": "^3.0",
+		"friendsofphp/php-cs-fixer": "^2.13",
+		"phpunit/phpunit": "^7",
+		"symfony/browser-kit": "*",
+		"symfony/css-selector": "4.1.*",
+		"symfony/debug-pack": "*",
+		"symfony/dotenv": "*",
+		"symfony/maker-bundle": "^1.0",
+		"symfony/phpunit-bridge": "*",
+		"symfony/profiler-pack": "*",
+		"symfony/test-pack": "*",
+		"symfony/var-dumper": "*",
+		"symfony/web-server-bundle": "*"
 	},
 	"config" : {
 		"preferred-install" : {
