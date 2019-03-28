@@ -18,11 +18,20 @@ final class MemberManager implements MemberManagerInterface
      */
     private $memberRelation;
 
+    /**
+     * 
+     * @param MemberRelationInterface $memberRelation
+     */
     public function __construct(MemberRelationInterface $memberRelation)
     {
         $this->memberRelation = $memberRelation;
     }
 
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \Infinito\Domain\MemberManagement\MemberManagerInterface::addMember()
+     */
     public function addMember(MemberRelationInterface $member): void
     {
         if (!$this->memberRelation->getMembers()->contains($member)) {
@@ -31,6 +40,11 @@ final class MemberManager implements MemberManagerInterface
         }
     }
 
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \Infinito\Domain\MemberManagement\MemberManagerInterface::removeMember()
+     */
     public function removeMember(MemberRelationInterface $member): void
     {
         if ($this->memberRelation->getMembers()->contains($member)) {
@@ -39,6 +53,11 @@ final class MemberManager implements MemberManagerInterface
         }
     }
 
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \Infinito\Domain\MemberManagement\MemberManagerInterface::addMembership()
+     */
     public function addMembership(MemberRelationInterface $membership): void
     {
         if (!$this->memberRelation->getMemberships()->contains($membership)) {
@@ -47,6 +66,11 @@ final class MemberManager implements MemberManagerInterface
         }
     }
 
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \Infinito\Domain\MemberManagement\MemberManagerInterface::removeMembership()
+     */
     public function removeMembership(MemberRelationInterface $membership): void
     {
         if ($this->memberRelation->getMemberships()->contains($membership)) {
