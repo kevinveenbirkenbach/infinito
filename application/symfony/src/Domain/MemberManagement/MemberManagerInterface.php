@@ -5,9 +5,7 @@ namespace Infinito\Domain\MemberManagement;
 use Infinito\Entity\Meta\Relation\Member\MemberRelationInterface;
 
 /**
- * 
  * @author kevinfrantz
- *
  */
 interface MemberManagerInterface
 {

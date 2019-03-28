@@ -10,7 +10,7 @@ use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 class TemplateNameService implements TemplateNameServiceInterface
 {
     /**
-     * @var unknown
+     * @var string
      */
     const BASE_TEMPLATE_DIR = __DIR__.'/../../../templates/';
 
@@ -136,6 +136,11 @@ class TemplateNameService implements TemplateNameServiceInterface
         return $this->getTemplatePath(self::MOLECULE_PRAEFFIX);
     }
 
+    /**
+     * @param string $template
+     *
+     * @return bool
+     */
     private function templateExists(string $template): bool
     {
         return file_exists(self::BASE_TEMPLATE_DIR.$template);

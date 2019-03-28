@@ -19,7 +19,6 @@ final class MemberManager implements MemberManagerInterface
     private $memberRelation;
 
     /**
-     * 
      * @param MemberRelationInterface $memberRelation
      */
     public function __construct(MemberRelationInterface $memberRelation)
@@ -28,8 +27,8 @@ final class MemberManager implements MemberManagerInterface
     }
 
     /**
-     * 
-     * {@inheritDoc}
+     * {@inheritdoc}
+     *
      * @see \Infinito\Domain\MemberManagement\MemberManagerInterface::addMember()
      */
     public function addMember(MemberRelationInterface $member): void
@@ -41,8 +40,8 @@ final class MemberManager implements MemberManagerInterface
     }
 
     /**
-     * 
-     * {@inheritDoc}
+     * {@inheritdoc}
+     *
      * @see \Infinito\Domain\MemberManagement\MemberManagerInterface::removeMember()
      */
     public function removeMember(MemberRelationInterface $member): void
@@ -54,8 +53,8 @@ final class MemberManager implements MemberManagerInterface
     }
 
     /**
-     * 
-     * {@inheritDoc}
+     * {@inheritdoc}
+     *
      * @see \Infinito\Domain\MemberManagement\MemberManagerInterface::addMembership()
      */
     public function addMembership(MemberRelationInterface $membership): void
@@ -67,8 +66,8 @@ final class MemberManager implements MemberManagerInterface
     }
 
     /**
-     * 
-     * {@inheritDoc}
+     * {@inheritdoc}
+     *
      * @see \Infinito\Domain\MemberManagement\MemberManagerInterface::removeMembership()
      */
     public function removeMembership(MemberRelationInterface $membership): void
