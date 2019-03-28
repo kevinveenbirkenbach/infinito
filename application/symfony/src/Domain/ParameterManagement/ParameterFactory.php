@@ -2,12 +2,10 @@
 
 namespace Infinito\Domain\ParameterManagement;
 
-use Infinito\Domain\ParameterManagement\Parameter\ParameterInterface;
-use HaydenPierce\ClassFinder\ClassFinder;
 use Doctrine\Common\Collections\ArrayCollection;
-use PhpCollection\CollectionInterface;
 use Doctrine\Common\Collections\Collection;
-use Infinito\Domain\ParameterManagement\Parameter\AbstractParameter;
+use HaydenPierce\ClassFinder\ClassFinder;
+use Infinito\Domain\ParameterManagement\Parameter\ParameterInterface;
 
 /**
  * @author kevinfrantz
@@ -20,17 +18,19 @@ final class ParameterFactory implements ParameterFactoryInterface
     const PARAMETER_NAMESPACE = 'Infinito\Domain\ParameterManagement\Parameter';
 
     /**
-     * @var ArrayCollection|CollectionInterface|ParameterInterface[]
+     * @var ArrayCollection|Collection|ParameterInterface[]
      */
     private $parameters;
 
-    private function initPossible(string $class)
+    /**
+     * @param string $class
+     *
+     * @return bool True if an initialisation of the class is possible
+     */
+    private function initPossible(string $class): bool
     {
-        if (AbstractParameter::class === $class) {
-            return false;
-        }
         $reflectionClass = new \ReflectionClass($class);
-        if ($reflectionClass->isInterface()) {
+        if ($reflectionClass->isAbstract() || $reflectionClass->isInterface()) {
             return false;
         }
 
