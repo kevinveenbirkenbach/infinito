@@ -9,6 +9,7 @@ use Infinito\Exception\NotDefinedException;
 
 /**
  * @todo Rename class!
+ * deprecated use ValidGetParameterService instead
  *
  * @author kevinfrantz
  */
@@ -17,7 +18,7 @@ class OptionalGetParameterService implements OptionalGetParameterServiceInterfac
     /**
      * @var Request
      */
-    private $currentRequest;
+    protected $currentRequest;
 
     /**
      * @param string $key

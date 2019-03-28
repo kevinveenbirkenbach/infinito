@@ -2,8 +2,6 @@
 
 namespace tests\Unit\Domain\ParameterManagement;
 
-use Infinito\Domain\ParameterManagement\OptionalGetParameterService;
-use Infinito\Domain\ParameterManagement\OptionalGetParameterServiceInterface;
 use Infinito\Domain\ParameterManagement\ParameterFactory;
 use Infinito\Domain\ParameterManagement\ValidGetParametersService;
 use Infinito\Exception\NotDefinedException;
@@ -37,16 +35,15 @@ class ValidGetParameterServiceTest extends KernelTestCase
     private $validGetParameterService;
 
     /**
-     * 
      * @var ParameterFactoryInterface
      */
     private $parameterFactory;
-    
+
     /**
      * @var ValidatorInterface
      */
     private $validator;
-    
+
     public function setUp(): void
     {
         self::bootKernel();
@@ -56,6 +53,23 @@ class ValidGetParameterServiceTest extends KernelTestCase
         $this->parameterFactory = new ParameterFactory();
         $this->validator = self::$container->get(ValidatorInterface::class);
         $this->validGetParameterService = new ValidGetParametersService($this->requestStack, $this->parameterFactory, $this->validator);
+    }
+
+    public function testVersionCorrectType(): void
+    {
+        $key = VersionParameter::getKey();
+        $value = 123;
+        $this->currentRequest->query->set($key, $value);
+        $result = $this->validGetParameterService->getParameter($key);
+        $this->assertEquals($value, $result);
+    }
+
+    public function testVersionWrongType(): void
+    {
+        $key = VersionParameter::getKey();
+        $this->currentRequest->query->set($key, 'adasdas');
+        $this->expectException(UnvalidParameterException::class);
+        $this->validGetParameterService->getParameter($key);
     }
 
     public function testConstructor(): void

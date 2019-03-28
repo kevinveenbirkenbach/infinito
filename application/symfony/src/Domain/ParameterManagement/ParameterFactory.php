@@ -64,7 +64,7 @@ final class ParameterFactory implements ParameterFactoryInterface
     public function getParameter(string $key): ParameterInterface
     {
         $parameter = $this->parameters->get($key);
-        if($parameter){
+        if ($parameter) {
             return $parameter;
         }
         throw new NoValidChoiceException("The parameter for key <<$key>> doesn't exist!");
