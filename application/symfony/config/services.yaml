@@ -20,16 +20,6 @@ services:
         factory: ['@app.menu_builder', 'userTopbar']
         tags:
             - { name: knp_menu.menu, alias: userTopbar }
-    app.menu.source:
-        class: Knp\Menu\MenuItem
-        factory: ['@app.menu_builder', 'sourceNavbar']
-        tags:
-            - { name: knp_menu.menu, alias: sourceNavbar }
-    app.menu.node:
-        class: Knp\Menu\MenuItem
-        factory: ['@app.menu_builder', 'nodeSubbar']
-        tags:
-            - { name: knp_menu.menu, alias: nodeSubbar }
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     Infinito\:

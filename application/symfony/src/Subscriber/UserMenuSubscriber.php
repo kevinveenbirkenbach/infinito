@@ -9,21 +9,22 @@ use Knp\Menu\ItemInterface;
 use Infinito\Event\Menu\MenuEvent;
 use Infinito\DBAL\Types\MenuEventType;
 use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
 /**
  * @author kevinfrantz
  */
-class UserMenuSubscriber implements EventSubscriberInterface
+class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSubscriberInterface
 {
+    /**
+     * @var string
+     */
+    const LAYER_GET_ROUTE = 'infinito_api_rest_layer_read';
+
     /**
      * @var TokenStorageInterface
      */
     private $tokenStorage;
-
-    /**
-     * @var TranslatorInterface
-     */
-    private $translator;
 
     /**
      * @param TokenStorageInterface $tokenStorage
@@ -32,7 +33,7 @@ class UserMenuSubscriber implements EventSubscriberInterface
     public function __construct(TokenStorageInterface $tokenStorage, TranslatorInterface $translator)
     {
         $this->tokenStorage = $tokenStorage;
-        $this->translator = $translator;
+        parent::__construct($translator);
     }
 
     /**
@@ -54,7 +55,38 @@ class UserMenuSubscriber implements EventSubscriberInterface
                 'icon' => 'fas fa-address-card',
             ],
         ]);
+        if ($this->shouldShowFormatSelection($event)) {
+            $this->generateShowDropdown($menu, $event, self::LAYER_GET_ROUTE);
+        }
         $this->generateUserDropdown($menu);
+    }
+
+    /**
+     * @return TokenInterface|null
+     */
+    private function getToken(): ?TokenInterface
+    {
+        return $this->tokenStorage->getToken();
+    }
+
+    /**
+     * @return string
+     */
+    private function getUsername(): string
+    {
+        $token = $this->getToken();
+
+        return ($token) ? $token->getUsername() : 'user';
+    }
+
+    /**
+     * @return array|null
+     */
+    private function getRoles(): ?array
+    {
+        $token = $this->getToken();
+
+        return ($token) ? $token->getRoles() : null;
     }
 
     /**
@@ -62,14 +94,13 @@ class UserMenuSubscriber implements EventSubscriberInterface
      */
     private function generateUserDropdown(ItemInterface $menu): void
     {
-        $dropdown = $menu->addChild($this->tokenStorage->getToken()
-            ->getUsername() ?? 'user', [
+        $dropdown = $menu->addChild($this->getUsername(), [
             'attributes' => [
                 'dropdown' => true,
                 'icon' => 'fas fa-user',
             ],
         ]);
-        if ($this->tokenStorage->getToken()->getRoles()) {
+        if ($this->getRoles()) {
             $dropdown->addChild($this->translator->trans('logout'), [
                 'route' => 'logout',
                 'attributes' => [

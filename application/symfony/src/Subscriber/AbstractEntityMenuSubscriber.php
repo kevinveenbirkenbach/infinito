@@ -6,6 +6,9 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Knp\Menu\ItemInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\Translation\TranslatorInterface;
+use Infinito\DBAL\Types\RESTResponseType;
+use Symfony\Component\HttpFoundation\Request;
+use FOS\RestBundle\Request\ParameterBag;
 
 /**
  * @author kevinfrantz
@@ -15,19 +18,21 @@ abstract class AbstractEntityMenuSubscriber implements EventSubscriberInterface
     /**
      * @var TranslatorInterface
      */
-    private $translator;
+    protected $translator;
 
-    const FORMAT_TYPES = [
-        'html',
-        'json',
-        'xml',
-    ];
-
+    /**
+     * @param TranslatorInterface $translator
+     */
     public function __construct(TranslatorInterface $translator)
     {
         $this->translator = $translator;
     }
 
+    /**
+     * @param ItemInterface $menu
+     * @param Event         $event
+     * @param string        $route
+     */
     protected function generateShowDropdown(ItemInterface $menu, Event $event, string $route): void
     {
         $dropdown = $menu->addChild($this->trans('show'), [
@@ -36,13 +41,10 @@ abstract class AbstractEntityMenuSubscriber implements EventSubscriberInterface
                 'dropdown' => 'true',
             ],
         ]);
-        foreach (self::FORMAT_TYPES as $format) {
+        foreach (RESTResponseType::getValues() as $format) {
             $dropdown->addChild($format, [
                 'route' => $route,
-                'routeParameters' => [
-                    'id' => $this->getRequestId($event),
-                    '_format' => $format,
-                ],
+                'routeParameters' => $this->getRequestAttributsSubstitutedFormat($event, $format),
                 'attributes' => [
                     'icon' => 'fas fa-sign-out-alt',
                     'divider_append' => true,
@@ -51,22 +53,81 @@ abstract class AbstractEntityMenuSubscriber implements EventSubscriberInterface
         }
         $dropdown->addChild($this->trans('standard'), [
             'route' => $route,
-            'routeParameters' => [
-                'id' => $this->getRequestId($event),
-            ],
+            'routeParameters' => $this->getRequestAttributs($event),
             'attributes' => [
                 'icon' => 'fas fa-sign-out-alt',
             ],
         ]);
     }
 
+    /**
+     * @param string $id
+     * @param array  $parameter
+     *
+     * @return string
+     */
     protected function trans(string $id, array $parameter = []): string
     {
         return $this->translator->trans($id, $parameter);
     }
 
-    protected function getRequestId(Event $event): int
+    /**
+     * @param Event $event
+     *
+     * @return int|string
+     */
+    protected function getRequestIdentity(Event $event)
     {
-        return $event->getRequest()->getCurrentRequest()->attributes->get('id');
+        return $this->getRequestAttributs($event)->get('identity');
+    }
+
+    /**
+     * @param Event $event
+     *
+     * @return Request
+     */
+    private function getCurrentRequest(Event $event): Request
+    {
+        return $event->getRequest()->getCurrentRequest();
+    }
+
+    /**
+     * @param Event $event
+     *
+     * @return ParameterBag
+     */
+    private function getRequestAttributs(Event $event): array
+    {
+        return $this->getCurrentRequest($event)->attributes->get('_route_params') ?? [];
+    }
+
+    /**
+     * @param Event  $event
+     * @param string $format
+     *
+     * @return number|string
+     */
+    private function getRequestAttributsSubstitutedFormat(Event $event, string $format): array
+    {
+        $attributs = $this->getRequestAttributs($event);
+        $attributs['_format'] = $format;
+
+        return $attributs;
+    }
+
+    /**
+     * @param Event $event
+     *
+     * @return bool
+     */
+    protected function shouldShowFormatSelection(Event $event): bool
+    {
+        foreach (['identity', 'layer'] as $attribut) {
+            if (!key_exists($attribut, $this->getRequestAttributs($event))) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

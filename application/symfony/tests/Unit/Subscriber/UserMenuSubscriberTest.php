@@ -2,29 +2,35 @@
 
 namespace Tests\Unit\Entity\Subscriber;
 
-use Infinito\Subscriber\SourceMenuSubscriber;
 use Symfony\Component\Translation\Translator;
 use Infinito\Event\Menu\MenuEvent;
-use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Request;
 use Knp\Menu\MenuItem;
 use Knp\Menu\MenuFactory;
+use Infinito\Subscriber\UserMenuSubscriber;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
-class SourceMenuSubscriberTest extends TestCase
+/**
+ * @author kevinfrantz
+ */
+class UserMenuSubscriberTest extends KernelTestCase
 {
     /**
-     * @var SourceMenuSubscriber
+     * @var UserMenuSubscriber
      */
     public $subscriber;
 
     public function setUp(): void
     {
+        self::bootKernel();
         $translator = new Translator('en');
-        $this->subscriber = new SourceMenuSubscriber($translator);
+        $tokenStorage = self::$container->get(TokenStorageInterface::class);
+        $this->subscriber = new UserMenuSubscriber($tokenStorage, $translator);
     }
 
-    public function testOnSourceMenuConfig(): void
+    public function testOnUserMenuConfigure(): void
     {
         $factory = new MenuFactory();
         $item = new MenuItem('test', $factory);
@@ -33,6 +39,6 @@ class SourceMenuSubscriberTest extends TestCase
         $requests = new RequestStack();
         $requests->push($request);
         $event = new MenuEvent($factory, $item, $requests);
-        $this->assertNull($this->subscriber->onSourceMenuConfigure($event));
+        $this->assertNull($this->subscriber->onUserMenuConfigure($event));
     }
 }

@@ -11,12 +11,24 @@ use Fresh\DoctrineEnumBundle\DBAL\Types\AbstractEnumType;
  */
 final class RESTResponseType extends AbstractEnumType
 {
+    /**
+     * @var string
+     */
     public const JSON = 'json';
 
+    /**
+     * @var string
+     */
     public const HTML = 'html';
 
+    /**
+     * @var string
+     */
     public const XML = 'xml';
 
+    /**
+     * @var array
+     */
     protected static $choices = [
         self::JSON => 'json',
         self::HTML => 'html',

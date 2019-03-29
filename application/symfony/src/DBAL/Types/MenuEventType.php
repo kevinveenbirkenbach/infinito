@@ -16,10 +16,6 @@ final class MenuEventType extends AbstractEnumType
 {
     public const USER = 'app.menu.topbar.user';
 
-    public const SOURCE = 'app.menu.subbar.source';
-
-    public const NODE = 'app.menu.subbar.node';
-
     /**
      * May this will be used in the future.
      *

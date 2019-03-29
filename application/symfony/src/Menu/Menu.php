@@ -36,26 +36,6 @@ class Menu
      *
      * @return ItemInterface
      */
-    public function sourceNavbar(RequestStack $request): ItemInterface
-    {
-        return $this->createMenu(MenuEventType::SOURCE, $request);
-    }
-
-    /**
-     * @param RequestStack $request
-     *
-     * @return ItemInterface
-     */
-    public function nodeSubbar(RequestStack $request): ItemInterface
-    {
-        return $this->createMenu(MenuEventType::NODE, $request);
-    }
-
-    /**
-     * @param RequestStack $request
-     *
-     * @return ItemInterface
-     */
     public function userTopbar(RequestStack $request): ItemInterface
     {
         return $this->createMenu(MenuEventType::USER, $request);
