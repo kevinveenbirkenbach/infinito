@@ -8,13 +8,12 @@ use Symfony\Component\Translation\TranslatorInterface;
 use Knp\Menu\ItemInterface;
 use Infinito\Event\Menu\MenuEvent;
 use Infinito\DBAL\Types\MenuEventType;
-use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Infinito\DBAL\Types\RESTResponseType;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Controller\API\Rest\LayerController;
-use Infinito\Domain\FixtureManagement\FixtureSource\HomepageFixtureSource;
+use Infinito\Domain\FixtureManagement\FixtureSourceFactory;
 
 /**
  * @author kevinfrantz
@@ -52,29 +51,22 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
     public function onUserMenuConfigure(MenuEvent $event): void
     {
         $menu = $event->getItem();
-        $menu->addChild($this->trans('home'), [
-            'route' => self::LAYER_GET_ROUTE,
-            'routeParameters' => [
-                'identity' => HomepageFixtureSource::getSlug(),
-                '_format' => RESTResponseType::HTML,
-                'layer' => LayerType::SOURCE,
-            ],
-            'attributes' => [
-                'icon' => 'fas fa-home',
-            ],
-        ]);
-
-        $menu->addChild($this->trans('imprint'), [
-            'route' => self::LAYER_GET_ROUTE,
-            'routeParameters' => [
-                'identity' => ImpressumFixtureSource::getSlug(),
-                '_format' => RESTResponseType::HTML,
-                'layer' => LayerType::SOURCE,
-            ],
-            'attributes' => [
-                'icon' => 'fas fa-address-card',
-            ],
-        ]);
+        $fixtureSources = FixtureSourceFactory::getAllFixtureSources();
+        foreach ($fixtureSources as $fixtureSource) {
+            $slug = $fixtureSource::getSlug();
+            $icon = $fixtureSource::getIcon();
+            $menu->addChild($this->trans($slug), [
+                'route' => self::LAYER_GET_ROUTE,
+                'routeParameters' => [
+                    'identity' => $slug,
+                    '_format' => RESTResponseType::HTML,
+                    'layer' => LayerType::SOURCE,
+                ],
+                'attributes' => [
+                    'icon' => $icon,
+                ],
+            ]);
+        }
         if ($this->shouldShowFormatSelection($event)) {
             $this->generateShowDropdown($menu, $event, self::LAYER_GET_ROUTE);
         }
@@ -169,7 +161,10 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
      */
     private function shouldShowFormatSelection(Event $event): bool
     {
-        foreach ([LayerController::IDENTITY_PARAMETER_KEY, LayerController::LAYER_PARAMETER_KEY] as $key) {
+        foreach ([
+            LayerController::IDENTITY_PARAMETER_KEY,
+            LayerController::LAYER_PARAMETER_KEY,
+        ] as $key) {
             $attributs = $this->getRequestAttributs($event);
             if (!key_exists($key, $attributs) || '' === $attributs[$key]) {
                 return false;

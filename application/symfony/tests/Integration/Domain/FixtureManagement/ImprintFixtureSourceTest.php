@@ -4,6 +4,7 @@ namespace tests\Integration\Domain\FixtureManagement;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\Request;
+use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
 
 /**
  * @author kevinfrantz
@@ -23,7 +24,7 @@ class ImprintFixtureSourceTest extends KernelTestCase
     public function testImprintSourceReachable(): void
     {
         $request = new Request([], [], [], [], [], [
-            'REQUEST_URI' => 'api/rest/source/imprint.html',
+            'REQUEST_URI' => 'api/rest/source/'.ImpressumFixtureSource::getSlug().'.html',
         ]);
         $request->setMethod(Request::METHOD_GET);
         $response = static::$kernel->handle($request);

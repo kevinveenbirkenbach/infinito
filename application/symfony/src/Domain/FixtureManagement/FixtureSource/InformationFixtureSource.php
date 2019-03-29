@@ -9,7 +9,7 @@ use Infinito\Domain\FixtureManagement\EntityTemplateFactory;
 /**
  * @author kevinfrantz
  */
-final class ImpressumFixtureSource extends AbstractFixtureSource
+final class InformationFixtureSource extends AbstractFixtureSource
 {
     /**
      * {@inheritdoc}
@@ -18,12 +18,12 @@ final class ImpressumFixtureSource extends AbstractFixtureSource
      */
     public function getORMReadyObject(): SourceInterface
     {
-        $impressumSource = new TextSource();
-        $impressumSource->setText('Example Impressum');
-        $impressumSource->setSlug(self::getSlug());
-        EntityTemplateFactory::createStandartPublicRight($impressumSource);
+        $informationSource = new TextSource();
+        $informationSource->setText('See https://github.com/KevinFrantz/infinito/issues.');
+        $informationSource->setSlug(self::getSlug());
+        EntityTemplateFactory::createStandartPublicRight($informationSource);
 
-        return $impressumSource;
+        return $informationSource;
     }
 
     /**
@@ -31,6 +31,6 @@ final class ImpressumFixtureSource extends AbstractFixtureSource
      */
     public static function getIcon(): string
     {
-        return 'fas fa-address-card';
+        return 'fas fa-info';
     }
 }

@@ -21,7 +21,7 @@ final class DefaultController extends AbstractController
     public function homepage(): Response
     {
         return $this->redirectToRoute('infinito_api_rest_layer_read', [
-            'identity' => HomepageFixtureSource::SLUG,
+            'identity' => HomepageFixtureSource::getSlug(),
             'layer' => LayerType::SOURCE,
             '_format' => RESTResponseType::HTML,
         ]);

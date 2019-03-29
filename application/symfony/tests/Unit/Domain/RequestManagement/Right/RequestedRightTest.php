@@ -1,13 +1,12 @@
 <?php
 
-namespace tests\Unit\Domain\RequestManagement\Entity;
+namespace tests\Unit\Domain\RequestManagement\Right;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
 use Infinito\Domain\RequestManagement\Right\RequestedRight;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntity;
-use Infinito\DBAL\Types\SystemSlugType;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use Infinito\Exception\PreconditionFailedException;
 use Infinito\Entity\Source\PureSource;
@@ -18,6 +17,7 @@ use Infinito\Entity\Meta\Law;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\DBAL\Types\ActionType;
 use Infinito\Exception\AllreadySetException;
+use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
 
 /**
  * @author kevinfrantz
@@ -66,7 +66,7 @@ class RequestedRightTest extends KernelTestCase
     public function testKnownSource(): void
     {
         $requestedEntity = new RequestedEntity($this->layerRepositoryFactoryService);
-        $requestedEntity->setSlug(SystemSlugType::IMPRINT);
+        $requestedEntity->setSlug(ImpressumFixtureSource::getSlug());
         $this->requestedRight->setRequestedEntity($requestedEntity);
         $this->requestedRight->setLayer(LayerType::SOURCE);
         $sourceResponse1 = $this->requestedRight->getSource();
@@ -78,7 +78,7 @@ class RequestedRightTest extends KernelTestCase
 
     public function testEqualsSlug(): void
     {
-        $slug = SystemSlugType::IMPRINT;
+        $slug = ImpressumFixtureSource::getSlug();
         $requestedEntityEntity = new PureSource();
         $requestedEntity = $this->createMock(RequestedEntityInterface::class);
         $requestedEntity->method('getSlug')->willReturn($slug);

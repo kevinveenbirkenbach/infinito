@@ -5,6 +5,7 @@ namespace Infinito\Tests\Unit\Controller;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Infinito\Controller\DefaultController;
 use Infinito\DBAL\Types\RESTResponseType;
+use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
 
 /**
  * @author kevinfrantz
@@ -34,7 +35,7 @@ class DefaultControllerTest extends WebTestCase
         $client = static::createClient();
         foreach (RESTResponseType::getValues() as $format) {
             $format = 'html';
-            $url = '/api/rest/source/imprint.'.$format;
+            $url = '/api/rest/source/'.ImpressumFixtureSource::getSlug().'.'.$format;
             $client->request('GET', $url);
             $this->assertEquals(200, $client->getResponse()
                 ->getStatusCode(), "Route $url is not reachable.");

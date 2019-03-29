@@ -5,6 +5,7 @@ namespace Tests\Functional;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Bundle\FrameworkBundle\Client;
+use Infinito\Domain\FixtureManagement\FixtureSource\HomepageFixtureSource;
 
 /**
  * @author kevinfrantz
@@ -16,14 +17,25 @@ class FormatFunctionTest extends WebTestCase
      */
     private $client;
 
+    /**
+     * @var string
+     */
+    private $identity;
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \PHPUnit\Framework\TestCase::setUp()
+     */
     public function setUp(): void
     {
         $this->client = static::createClient();
+        $this->identity = HomepageFixtureSource::getSlug();
     }
 
     public function testHomepage(): void
     {
-        $this->client->request(Request::METHOD_GET, 'api/rest/source/HOMEPAGE');
+        $this->client->request(Request::METHOD_GET, 'api/rest/source/'.$this->identity);
         $this->assertEquals(200, $this->client->getResponse()
             ->getStatusCode());
         $this->assertJson($this->client->getResponse()
@@ -32,7 +44,7 @@ class FormatFunctionTest extends WebTestCase
 
     public function testHomepageWithHTML(): void
     {
-        $this->client->request(Request::METHOD_GET, 'api/rest/source/HOMEPAGE.html');
+        $this->client->request(Request::METHOD_GET, 'api/rest/source/'.$this->identity.'.html');
         $this->assertEquals(200, $this->client->getResponse()
             ->getStatusCode());
         $this->assertContains('<html', $this->client->getResponse()
@@ -41,7 +53,7 @@ class FormatFunctionTest extends WebTestCase
 
     public function testHomepageWithJSON(): void
     {
-        $this->client->request(Request::METHOD_GET, 'api/rest/source/HOMEPAGE.json');
+        $this->client->request(Request::METHOD_GET, 'api/rest/source/'.$this->identity.'.json');
         $this->assertEquals(200, $this->client->getResponse()
             ->getStatusCode());
         $this->assertJson($this->client->getResponse()
@@ -50,7 +62,7 @@ class FormatFunctionTest extends WebTestCase
 
     public function testHomepageWithXML(): void
     {
-        $this->client->request(Request::METHOD_GET, 'api/rest/source/HOMEPAGE.xml');
+        $this->client->request(Request::METHOD_GET, 'api/rest/source/'.$this->identity.'.xml');
         $this->assertEquals(200, $this->client->getResponse()
             ->getStatusCode());
         $content = $this->client->getResponse()->getContent();

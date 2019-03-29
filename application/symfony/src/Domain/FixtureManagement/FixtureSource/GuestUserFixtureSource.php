@@ -4,6 +4,7 @@ namespace Infinito\Domain\FixtureManagement\FixtureSource;
 
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Entity\Source\Complex\UserSource;
+use Infinito\Domain\FixtureManagement\EntityTemplateFactory;
 
 /**
  * This class containes the guest user.
@@ -12,8 +13,6 @@ use Infinito\Entity\Source\Complex\UserSource;
  */
 final class GuestUserFixtureSource extends AbstractFixtureSource
 {
-    const SLUG = 'GUEST_USER';
-
     /**
      * {@inheritdoc}
      *
@@ -22,7 +21,8 @@ final class GuestUserFixtureSource extends AbstractFixtureSource
     public function getORMReadyObject(): SourceInterface
     {
         $userSource = new UserSource();
-        $userSource->setSlug(self::SLUG);
+        $userSource->setSlug(self::getSlug());
+        EntityTemplateFactory::createStandartPublicRight($userSource);
 
         return $userSource;
     }
@@ -30,8 +30,8 @@ final class GuestUserFixtureSource extends AbstractFixtureSource
     /**
      * @return string
      */
-    public static function getSlug(): string
+    public static function getIcon(): string
     {
-        return self::SLUG;
+        return 'fas fa-user';
     }
 }

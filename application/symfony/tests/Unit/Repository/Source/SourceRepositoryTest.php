@@ -6,8 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Infinito\Repository\Source\SourceRepositoryInterface;
 use Infinito\Entity\Source\AbstractSource;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use Infinito\DBAL\Types\SystemSlugType;
 use Infinito\Entity\Source\SourceInterface;
+use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
 
 /**
  * @author kevinfrantz
@@ -32,7 +32,7 @@ class SourceRepositoryTest extends KernelTestCase
     {
         $requestedSource = $this->createMock(RequestedEntityInterface::class);
         $requestedSource->method('hasSlug')->willReturn(true);
-        $requestedSource->method('getSlug')->willReturn(SystemSlugType::IMPRINT);
+        $requestedSource->method('getSlug')->willReturn(ImpressumFixtureSource::getSlug());
         $imprint = $this->sourceRepository->findOneByIdOrSlug($requestedSource);
         $this->assertInstanceOf(SourceInterface::class, $imprint);
         $requestedSource2 = $this->createMock(RequestedEntityInterface::class);
@@ -44,7 +44,7 @@ class SourceRepositoryTest extends KernelTestCase
 
     public function testLoadBySlug(): void
     {
-        $imprint = $this->sourceRepository->findOneBySlug(SystemSlugType::IMPRINT);
+        $imprint = $this->sourceRepository->findOneBySlug(ImpressumFixtureSource::getSlug());
         $this->assertInstanceOf(SourceInterface::class, $imprint);
     }
 }

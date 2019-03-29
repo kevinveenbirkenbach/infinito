@@ -4,9 +4,7 @@ namespace Infinito\Domain\FixtureManagement\FixtureSource;
 
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Entity\Source\Primitive\Text\TextSource;
-use Infinito\Entity\Meta\Right;
-use Infinito\DBAL\Types\Meta\Right\LayerType;
-use Infinito\DBAL\Types\ActionType;
+use Infinito\Domain\FixtureManagement\EntityTemplateFactory;
 
 /**
  * @author kevinfrantz
@@ -14,35 +12,22 @@ use Infinito\DBAL\Types\ActionType;
 final class HomepageFixtureSource extends AbstractFixtureSource
 {
     /**
-     * @var string
-     */
-    const SLUG = 'HOMEPAGE';
-
-    /**
      * {@inheritdoc}
      *
      * @see \Infinito\Domain\FixtureManagement\FixtureSource\FixtureSourceInterface::getORMReadyObject()
      */
     public function getORMReadyObject(): SourceInterface
     {
-        $impressumSource = new TextSource();
-        $impressumSource->setText('Welcome to infinito!');
-        $impressumSource->setSlug(self::SLUG);
-        $right = new Right();
-        $right->setSource($impressumSource);
-        $right->setLayer(LayerType::SOURCE);
-        $right->setActionType(ActionType::READ);
-        $right->setLaw($impressumSource->getLaw());
-        $impressumSource->getLaw()->getRights()->add($right);
+        $homepage = new TextSource();
+        $homepage->setText('Welcome to infinito!');
+        $homepage->setSlug(self::getSlug());
+        EntityTemplateFactory::createStandartPublicRight($homepage);
 
-        return $impressumSource;
+        return $homepage;
     }
 
-    /**
-     * @return string
-     */
-    public static function getSlug(): string
+    public static function getIcon(): string
     {
-        return self::SLUG;
+        return 'fas fa-home';
     }
 }

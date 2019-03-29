@@ -37,9 +37,9 @@ class ActionHandlerServiceIntegrationTest extends KernelTestCase
         $this->requestedActionService = self::$container->get(RequestedActionServiceInterface::class);
     }
 
-    public function testEnityManager(): void
+    public function testEntityManager(): void
     {
-        $this->requestedActionService->getRequestedEntity()->setSlug(ImpressumFixtureSource::SLUG);
+        $this->requestedActionService->getRequestedEntity()->setSlug(ImpressumFixtureSource::getSlug());
         $this->requestedActionService->setActionType(ActionType::READ);
         $this->requestedActionService->setLayer(LayerType::SOURCE);
         $this->assertInstanceOf(SourceInterface::class, $this->actionHandlerService->handle());

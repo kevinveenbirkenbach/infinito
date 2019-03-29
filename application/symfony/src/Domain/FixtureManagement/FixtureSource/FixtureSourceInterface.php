@@ -23,4 +23,11 @@ interface FixtureSourceInterface
      * @return SlugAttributInterface
      */
     public static function getSlug(): string;
+
+    /**
+     * @see https://fontawesome.com
+     *
+     * @return string|null a fontawesome css class
+     */
+    public static function getIcon(): string;
 }
