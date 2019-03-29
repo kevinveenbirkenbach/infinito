@@ -58,9 +58,9 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
             $menu->addChild($this->trans($slug), [
                 'route' => self::LAYER_GET_ROUTE,
                 'routeParameters' => [
-                    'identity' => $slug,
-                    '_format' => RESTResponseType::HTML,
-                    'layer' => LayerType::SOURCE,
+                    LayerController::IDENTITY_PARAMETER_KEY => $slug,
+                    LayerController::FORMAT_PARAMETER_KEY => RESTResponseType::HTML,
+                    LayerController::LAYER_PARAMETER_KEY => LayerType::SOURCE,
                 ],
                 'attributes' => [
                     'icon' => $icon,

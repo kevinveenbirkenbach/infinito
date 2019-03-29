@@ -12,22 +12,24 @@ use Infinito\Domain\UserManagement\UserSourceDirectorInterface;
 use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
 use Infinito\Domain\RequestManagement\Right\RequestedRight;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use Infinito\DBAL\Types\SystemSlugType;
 use Infinito\Exception\SetNotPossibleException;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Domain\RequestManagement\Right\AbstractRequestedRightFacade;
+use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
 
 /**
  * @author kevinfrantz
  */
 class AbstractRequestedRightFacadeTest extends TestCase
 {
+    /**
+     * @param RequestedRightInterface $requestedRight
+     *
+     * @return AbstractRequestedRightFacade
+     */
     private function getRequestedRightFacade(RequestedRightInterface $requestedRight): AbstractRequestedRightFacade
     {
         return new class($requestedRight) extends AbstractRequestedRightFacade {
-//             public function __construct(RequestedRightInterface $requestedRight){
-//                 $this->requestedRight = $requestedRight;
-//             }
         };
     }
 
@@ -65,7 +67,7 @@ class AbstractRequestedRightFacadeTest extends TestCase
         $type = CRUDType::READ;
         $reciever = $this->createMock(SourceInterface::class);
         $requestedEntity = $this->createMock(RequestedEntityInterface::class);
-        $requestedEntity->method('getSlug')->willReturn(SystemSlugType::IMPRINT);
+        $requestedEntity->method('getSlug')->willReturn(ImpressumFixtureSource::getSlug());
         $requestedEntity->method('hasSlug')->willReturn(true);
         $requestedRight = new RequestedRight();
         $requestedRightFacade = $this->getRequestedRightFacade($requestedRight);

@@ -14,9 +14,9 @@ use Infinito\Domain\RequestManagement\Right\RequestedRight;
 use Infinito\Domain\UserManagement\UserSourceDirector;
 use Infinito\Repository\Source\SourceRepositoryInterface;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use Infinito\DBAL\Types\SystemSlugType;
 use Infinito\Exception\SetNotPossibleException;
 use Infinito\Exception\NotCorrectInstanceException;
+use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
 
 /**
  * @author kevinfrantz
@@ -58,7 +58,7 @@ class RequestedUserTest extends TestCase
         $layer = LayerType::SOURCE;
         $type = CRUDType::READ;
         $requestedSource = $this->createMock(RequestedEntityInterface::class);
-        $requestedSource->method('getSlug')->willReturn(SystemSlugType::IMPRINT);
+        $requestedSource->method('getSlug')->willReturn(ImpressumFixtureSource::getSlug());
         $requestedSource->method('hasSlug')->willReturn(true);
         $sourceRepository = $this->createMock(SourceRepositoryInterface::class);
         $requestedRight = new RequestedRight();
