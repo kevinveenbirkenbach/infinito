@@ -110,24 +110,4 @@ final class ViewBuilder implements ViewBuilderInterface
 
         return $this->view;
     }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @see \Infinito\Domain\ViewManagement\ViewBuilderInterface::getActionService()
-     */
-    public function getActionService(): ActionServiceInterface
-    {
-        return $this->actionService;
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @see \Infinito\Domain\ViewManagement\ViewBuilderInterface::build()
-     */
-    public function build(): void
-    {
-        $this->view->create();
-    }
 }
