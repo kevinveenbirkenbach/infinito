@@ -34,4 +34,15 @@ class LawTest extends TestCase
         $this->assertNull($this->law->setRights($rights));
         $this->assertEquals($right, $this->law->getRights()->get(0));
     }
+
+    /**
+     * Implemented to debug where ReflectionException "Property Infinito\\Entity\\Meta\\Law::$relation does not exist" is coming from.
+     */
+    public function testRelationNotSet(): void
+    {
+        $reflectionClass = new \ReflectionClass($this->law);
+        $this->assertFalse($reflectionClass->hasMethod('getRelation'));
+        $this->assertFalse($reflectionClass->hasMethod('setRelation'));
+        $this->assertFalse($reflectionClass->hasProperty('relation'));
+    }
 }
