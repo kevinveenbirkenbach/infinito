@@ -27,6 +27,16 @@ use Infinito\Attribut\ClassAttributInterface;
 final class LayerController extends AbstractAPIController
 {
     /**
+     * @var string
+     */
+    const IDENTITY_PARAMETER_KEY = 'identity';
+
+    /**
+     * @var string
+     */
+    const LAYER_PARAMETER_KEY = 'layer';
+
+    /**
      * @Route(
      * ".{_format}",
      * methods={"GET","POST"}

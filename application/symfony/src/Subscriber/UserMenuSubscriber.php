@@ -10,6 +10,10 @@ use Infinito\Event\Menu\MenuEvent;
 use Infinito\DBAL\Types\MenuEventType;
 use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\EventDispatcher\Event;
+use Infinito\DBAL\Types\RESTResponseType;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Controller\API\Rest\LayerController;
 
 /**
  * @author kevinfrantz
@@ -20,6 +24,11 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
      * @var string
      */
     const LAYER_GET_ROUTE = 'infinito_api_rest_layer_read';
+
+    /**
+     * @var string
+     */
+    const LAYER_CREATE_ROUTE = 'infinito_api_rest_layer_create';
 
     /**
      * @var TokenStorageInterface
@@ -50,7 +59,12 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
         ]);
 
         $menu->addChild($this->trans('imprint'), [
-            'uri' => '/api/rest/source/'.strtolower(ImpressumFixtureSource::SLUG).'.html',
+            'route' => self::LAYER_GET_ROUTE,
+            'routeParameters' => [
+                'identity' => ImpressumFixtureSource::SLUG,
+                '_format' => RESTResponseType::HTML,
+                'layer' => LayerType::SOURCE,
+            ],
             'attributes' => [
                 'icon' => 'fas fa-address-card',
             ],
@@ -140,5 +154,22 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
         return [
             MenuEventType::USER => 'onUserMenuConfigure',
         ];
+    }
+
+    /**
+     * @param Event $event
+     *
+     * @return bool
+     */
+    private function shouldShowFormatSelection(Event $event): bool
+    {
+        foreach ([LayerController::IDENTITY_PARAMETER_KEY, LayerController::LAYER_PARAMETER_KEY] as $key) {
+            $attributs = $this->getRequestAttributs($event);
+            if (!key_exists($key, $attributs) || '' === $attributs[$key]) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

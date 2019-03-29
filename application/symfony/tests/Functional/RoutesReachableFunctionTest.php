@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Integration\Controller;
+namespace Tests\Functional;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\Request;
@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * @author kevinfrantz
  */
-class RoutesGetStatusIntegrationTest extends KernelTestCase
+class RoutesReachableFunctionTest extends KernelTestCase
 {
     const GET_URLS_STATUS = [
         'login' => 200,
@@ -16,6 +16,7 @@ class RoutesGetStatusIntegrationTest extends KernelTestCase
         'logout' => 302,
         'profile/edit' => 302,
         'spa' => 302,
+        'api/rest/source.html' => 200,
     ];
 
     /**

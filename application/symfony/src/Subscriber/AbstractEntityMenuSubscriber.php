@@ -9,6 +9,7 @@ use Symfony\Component\Translation\TranslatorInterface;
 use Infinito\DBAL\Types\RESTResponseType;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Request\ParameterBag;
+use Infinito\Controller\AbstractController;
 
 /**
  * This class is just a result of refactoring. Feel free to replace it.
@@ -88,7 +89,7 @@ abstract class AbstractEntityMenuSubscriber implements EventSubscriberInterface
      *
      * @return ParameterBag
      */
-    private function getRequestAttributs(Event $event): array
+    protected function getRequestAttributs(Event $event): array
     {
         return $this->getCurrentRequest($event)->attributes->get('_route_params') ?? [];
     }
@@ -102,24 +103,8 @@ abstract class AbstractEntityMenuSubscriber implements EventSubscriberInterface
     private function getRequestAttributsSubstitutedFormat(Event $event, string $format): array
     {
         $attributs = $this->getRequestAttributs($event);
-        $attributs['_format'] = $format;
+        $attributs[AbstractController::FORMAT_PARAMETER_KEY] = $format;
 
         return $attributs;
-    }
-
-    /**
-     * @param Event $event
-     *
-     * @return bool
-     */
-    protected function shouldShowFormatSelection(Event $event): bool
-    {
-        foreach (['identity', 'layer'] as $attribut) {
-            if (!key_exists($attribut, $this->getRequestAttributs($event))) {
-                return false;
-            }
-        }
-
-        return true;
     }
 }
