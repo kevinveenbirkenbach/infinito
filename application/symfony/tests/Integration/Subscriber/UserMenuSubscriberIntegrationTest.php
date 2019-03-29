@@ -85,4 +85,13 @@ class UserMenuSubscriberIntegrationTest extends KernelTestCase
         }
         $this->assertEquals(count($children), count($unauthentificatedItems));
     }
+
+    public function testGetSubscribedEvents(): void
+    {
+        $subscribedEvents = $this->subscriber->getSubscribedEvents();
+        $reflectionClass = new \ReflectionClass($this->subscriber);
+        foreach ($subscribedEvents as $method) {
+            $this->assertTrue($reflectionClass->hasMethod($method));
+        }
+    }
 }
