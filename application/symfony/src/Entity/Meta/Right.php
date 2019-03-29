@@ -10,21 +10,18 @@ use Infinito\Logic\Operation\OperationInterface;
 use Infinito\Attribut\ConditionAttribut;
 use Infinito\Attribut\RecieverAttribut;
 use Infinito\Attribut\LayerAttribut;
-use Infinito\Attribut\RelationAttribut;
 use Infinito\Attribut\PriorityAttribut;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Attribut\ActionTypeAttribut;
 
 /**
- * @todo Remove relation attribut!
- *
  * @author kevinfrantz
  * @ORM\Table(name="meta_right")
  * @ORM\Entity(repositoryClass="Infinito\Repository\Meta\RightRepository")
  */
 class Right extends AbstractMeta implements RightInterface
 {
-    use ActionTypeAttribut,LawAttribut, RelationAttribut, GrantAttribut,ConditionAttribut,RecieverAttribut,LayerAttribut,PriorityAttribut;
+    use ActionTypeAttribut,LawAttribut, GrantAttribut,ConditionAttribut,RecieverAttribut,LayerAttribut,PriorityAttribut;
 
     /**
      * @ORM\OneToOne(targetEntity="Infinito\Entity\Source\AbstractSource",cascade={"persist", "remove"})

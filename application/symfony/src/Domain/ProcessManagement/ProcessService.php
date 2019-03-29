@@ -70,7 +70,7 @@ final class ProcessService implements ProcessServiceInterface
      *
      * @see \Infinito\Domain\ProcessManagement\ProcessServiceInterface::process()
      */
-    public function process(): void
+    public function process()
     {
         if ($this->requestedActionService->hasRequestedEntity() && $this->requestedActionService->getRequestedEntity()->hasIdentity()) {
             // READ VIEW
@@ -95,5 +95,7 @@ final class ProcessService implements ProcessServiceInterface
                 ->createView();
             $this->actionTemplateDataStore->setData(ActionType::CREATE, $updateForm);
         }
+
+        return $this->actionTemplateDataStore;
     }
 }

@@ -7,5 +7,8 @@ namespace Infinito\Domain\ProcessManagement;
  */
 interface ProcessServiceInterface
 {
-    public function process(): void;
+    /**
+     * @todo specify return type
+     */
+    public function process();
 }

@@ -44,8 +44,10 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
      */
     public function process(): View
     {
-        $this->processService->process();
+        $data = $this->processService->process();
+        $view = $this->viewBuilder->getView();
+        $view->setData($data);
 
-        return $this->viewBuilder->getView();
+        return $view;
     }
 }

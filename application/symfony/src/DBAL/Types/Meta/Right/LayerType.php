@@ -11,14 +11,29 @@ use Fresh\DoctrineEnumBundle\DBAL\Types\AbstractEnumType;
  */
 final class LayerType extends AbstractEnumType
 {
+    /**
+     * @var string
+     */
     public const HEREDITY = 'heredity';
 
+    /**
+     * @var string
+     */
     public const RIGHT = 'right';
 
+    /**
+     * @var string
+     */
     public const SOURCE = 'source';
 
+    /**
+     * @var string
+     */
     public const LAW = 'law';
 
+    /**
+     * @var string
+     */
     public const MEMBER = 'member';
 
     const CREATOR = 'creator';
