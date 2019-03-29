@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Request\ParameterBag;
 
 /**
+ * This class is just a result of refactoring. Feel free to replace it.
+ *
  * @author kevinfrantz
  */
 abstract class AbstractEntityMenuSubscriber implements EventSubscriberInterface
@@ -35,9 +37,9 @@ abstract class AbstractEntityMenuSubscriber implements EventSubscriberInterface
      */
     protected function generateShowDropdown(ItemInterface $menu, Event $event, string $route): void
     {
-        $dropdown = $menu->addChild($this->trans('show'), [
+        $dropdown = $menu->addChild($this->trans('format'), [
             'attributes' => [
-                'icon' => 'fas fa-eye',
+                'icon' => 'fas fa-file',
                 'dropdown' => 'true',
             ],
         ]);
@@ -69,16 +71,6 @@ abstract class AbstractEntityMenuSubscriber implements EventSubscriberInterface
     protected function trans(string $id, array $parameter = []): string
     {
         return $this->translator->trans($id, $parameter);
-    }
-
-    /**
-     * @param Event $event
-     *
-     * @return int|string
-     */
-    protected function getRequestIdentity(Event $event)
-    {
-        return $this->getRequestAttributs($event)->get('identity');
     }
 
     /**

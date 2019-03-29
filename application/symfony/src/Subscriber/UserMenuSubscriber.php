@@ -42,14 +42,14 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
     public function onUserMenuConfigure(MenuEvent $event): void
     {
         $menu = $event->getItem();
-        $menu->addChild($this->translator->trans('start'), [
+        $menu->addChild($this->trans('start'), [
             'route' => 'homepage',
             'attributes' => [
                 'icon' => 'fab fa-font-awesome-flag',
             ],
         ]);
 
-        $menu->addChild($this->translator->trans('imprint'), [
+        $menu->addChild($this->trans('imprint'), [
             'uri' => '/api/rest/source/'.strtolower(ImpressumFixtureSource::SLUG).'.html',
             'attributes' => [
                 'icon' => 'fas fa-address-card',
@@ -76,7 +76,7 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
     {
         $token = $this->getToken();
 
-        return ($token) ? $token->getUsername() : 'user';
+        return ($token) ? $token->getUsername() : $this->trans('user');
     }
 
     /**
@@ -101,14 +101,14 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
             ],
         ]);
         if ($this->getRoles()) {
-            $dropdown->addChild($this->translator->trans('logout'), [
+            $dropdown->addChild($this->trans('logout'), [
                 'route' => 'logout',
                 'attributes' => [
                     'icon' => 'fas fa-sign-out-alt',
                     'divider_append' => true,
                 ],
             ]);
-            $dropdown->addChild($this->translator->trans('edit profile'), [
+            $dropdown->addChild($this->trans('edit profile'), [
                 'route' => 'fos_user_profile_edit',
                 'attributes' => [
                     'icon' => 'fas fa-user-edit',
@@ -116,20 +116,20 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
                 ],
             ]);
         } else {
-            $dropdown->addChild($this->translator->trans('login'), [
+            $dropdown->addChild($this->trans('login'), [
                 'route' => 'fos_user_security_login',
                 'attributes' => [
                     'divider_append' => true,
                     'icon' => 'fas fa-sign-in-alt',
                 ],
             ]);
+            $dropdown->addChild('register', [
+                'route' => 'fos_user_registration_register',
+                'attributes' => [
+                    'icon' => 'fas fa-file-signature',
+                ],
+            ]);
         }
-        $dropdown->addChild('register', [
-            'route' => 'fos_user_registration_register',
-            'attributes' => [
-                'icon' => 'fas fa-file-signature',
-            ],
-        ]);
     }
 
     /**
