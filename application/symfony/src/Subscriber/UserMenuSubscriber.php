@@ -14,6 +14,7 @@ use Symfony\Component\EventDispatcher\Event;
 use Infinito\DBAL\Types\RESTResponseType;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Controller\API\Rest\LayerController;
+use Infinito\Domain\FixtureManagement\FixtureSource\HomepageFixtureSource;
 
 /**
  * @author kevinfrantz
@@ -51,17 +52,22 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
     public function onUserMenuConfigure(MenuEvent $event): void
     {
         $menu = $event->getItem();
-        $menu->addChild($this->trans('start'), [
-            'route' => 'homepage',
+        $menu->addChild($this->trans('home'), [
+            'route' => self::LAYER_GET_ROUTE,
+            'routeParameters' => [
+                'identity' => HomepageFixtureSource::getSlug(),
+                '_format' => RESTResponseType::HTML,
+                'layer' => LayerType::SOURCE,
+            ],
             'attributes' => [
-                'icon' => 'fab fa-font-awesome-flag',
+                'icon' => 'fas fa-home',
             ],
         ]);
 
         $menu->addChild($this->trans('imprint'), [
             'route' => self::LAYER_GET_ROUTE,
             'routeParameters' => [
-                'identity' => ImpressumFixtureSource::SLUG,
+                'identity' => ImpressumFixtureSource::getSlug(),
                 '_format' => RESTResponseType::HTML,
                 'layer' => LayerType::SOURCE,
             ],
