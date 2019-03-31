@@ -10,7 +10,7 @@ use Infinito\Entity\Source\SourceInterface;
 /**
  * @author kevinfrantz
  */
-class FixtureSourceFactoryTest extends TestCase
+class FixtureSourceFactoryIntegrationTest extends TestCase
 {
     /**
      * @var array|FixtureSourceInterface[]
@@ -39,12 +39,27 @@ class FixtureSourceFactoryTest extends TestCase
         }
     }
 
+    public function testFixtureSourcesIcons(): void
+    {
+        $icons = [];
+        foreach ($this->fixtureSources as $fixtureSource) {
+            $this->assertInstanceOf(FixtureSourceInterface::class, $fixtureSource);
+            $icon = $fixtureSource->getIcon();
+            $this->assertIsString($icon);
+            $this->assertFalse(in_array($icon, $icons), 'An icon has to be unique');
+            $icons[] = $icon;
+        }
+    }
+
+    /**
+     * The following test is redundant.
+     */
     public function testFixtureSourcesObjects(): void
     {
         $objects = [];
         foreach ($this->fixtureSources as $fixtureSource) {
             $this->assertInstanceOf(SourceInterface::class, $fixtureSource->getORMReadyObject());
-            $this->assertFalse(in_array($fixtureSource, $objects), 'A slug has to be unique');
+            $this->assertFalse(in_array($fixtureSource, $objects), 'A object has to be unique');
             $objects[] = $fixtureSource;
         }
     }

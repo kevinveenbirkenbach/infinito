@@ -21,7 +21,7 @@ final class HelpFixtureSource extends AbstractFixtureSource
         $helpSource = new TextSource();
         $helpSource->setText('See https://github.com/KevinFrantz/infinito/issues.');
         $helpSource->setSlug(self::getSlug());
-        EntityTemplateFactory::createStandartPublicRight($helpSource);
+        EntityTemplateFactory::createStandartPublicRights($helpSource);
 
         return $helpSource;
     }

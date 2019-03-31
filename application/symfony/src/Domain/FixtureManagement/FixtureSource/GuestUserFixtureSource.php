@@ -22,7 +22,7 @@ final class GuestUserFixtureSource extends AbstractFixtureSource
     {
         $userSource = new UserSource();
         $userSource->setSlug(self::getSlug());
-        EntityTemplateFactory::createStandartPublicRight($userSource);
+        EntityTemplateFactory::createStandartPublicRights($userSource);
 
         return $userSource;
     }

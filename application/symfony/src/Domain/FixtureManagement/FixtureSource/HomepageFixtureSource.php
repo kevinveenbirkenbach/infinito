@@ -21,7 +21,7 @@ final class HomepageFixtureSource extends AbstractFixtureSource
         $homepage = new TextSource();
         $homepage->setText('Welcome to infinito!');
         $homepage->setSlug(self::getSlug());
-        EntityTemplateFactory::createStandartPublicRight($homepage);
+        EntityTemplateFactory::createStandartPublicRights($homepage);
 
         return $homepage;
     }

@@ -21,7 +21,7 @@ final class InformationFixtureSource extends AbstractFixtureSource
         $informationSource = new TextSource();
         $informationSource->setText('See https://github.com/KevinFrantz/infinito/issues.');
         $informationSource->setSlug(self::getSlug());
-        EntityTemplateFactory::createStandartPublicRight($informationSource);
+        EntityTemplateFactory::createStandartPublicRights($informationSource);
 
         return $informationSource;
     }

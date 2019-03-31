@@ -21,7 +21,7 @@ final class ImpressumFixtureSource extends AbstractFixtureSource
         $impressumSource = new TextSource();
         $impressumSource->setText('Example Impressum');
         $impressumSource->setSlug(self::getSlug());
-        EntityTemplateFactory::createStandartPublicRight($impressumSource);
+        EntityTemplateFactory::createStandartPublicRights($impressumSource);
 
         return $impressumSource;
     }

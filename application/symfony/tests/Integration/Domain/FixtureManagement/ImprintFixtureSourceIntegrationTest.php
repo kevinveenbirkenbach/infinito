@@ -9,7 +9,7 @@ use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
 /**
  * @author kevinfrantz
  */
-class ImprintFixtureSourceTest extends KernelTestCase
+class ImprintFixtureSourceIntegrationTest extends KernelTestCase
 {
     /**
      * {@inheritdoc}
