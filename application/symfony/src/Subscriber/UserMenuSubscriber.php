@@ -109,17 +109,28 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
         $slug = $fixtureSource::getSlug();
         $name = $fixtureSource->getName();
         $icon = $fixtureSource::getIcon();
-        $item->addChild($this->trans($name), [
+        $item->addChild($this->trans($name), $this->getSourceItemConfigurationArray($slug, $icon));
+    }
+
+    /**
+     * @param string $identity
+     * @param string $icon
+     *
+     * @return []
+     */
+    private function getSourceItemConfigurationArray(string $identity, string $icon)
+    {
+        return [
             'route' => self::LAYER_GET_ROUTE,
             'routeParameters' => [
-                LayerController::IDENTITY_PARAMETER_KEY => $slug,
+                LayerController::IDENTITY_PARAMETER_KEY => $identity,
                 LayerController::FORMAT_PARAMETER_KEY => RESTResponseType::HTML,
                 LayerController::LAYER_PARAMETER_KEY => LayerType::SOURCE,
             ],
             'attributes' => [
                 'icon' => $icon,
             ],
-        ]);
+        ];
     }
 
     /**
@@ -177,6 +188,10 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
                     'divider_append' => true,
                 ],
             ]);
+            $userSource = $this->getToken()->getUser()->getSource();
+            $identity = $userSource->getId();
+            $icon = 'fas fa-user';
+            $dropdown->addChild($this->trans('user source'), $this->getSourceItemConfigurationArray($identity, $icon));
         } else {
             $dropdown->addChild($this->trans('login'), [
                 'route' => 'fos_user_security_login',

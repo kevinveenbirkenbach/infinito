@@ -14,6 +14,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Role\Role;
 use Infinito\Domain\FixtureManagement\FixtureSource\GuestUserFixtureSource;
+use Infinito\Entity\User;
 
 /**
  * @author kevinfrantz
@@ -54,6 +55,9 @@ class UserMenuSubscriberIntegrationTest extends KernelTestCase
         $token = $this->createMock(TokenInterface::class);
         $token->method('getRoles')->willReturn([new Role('test_role')]);
         $token->method('getUsername')->willReturn('test_user');
+        $user = new User();
+        $user->getSource()->setId(123);
+        $token->method('getUser')->willReturn($user);
         $this->tokenStorage->setToken($token);
         $factory = new MenuFactory();
         $item = new MenuItem('test', $factory);
@@ -63,7 +67,7 @@ class UserMenuSubscriberIntegrationTest extends KernelTestCase
         $menuEvent = new MenuEvent($factory, $item, $requests);
         $this->subscriber->onUserMenuConfigure($menuEvent);
         $children = $menuEvent->getItem()->getChildren()['test_user']->getChildren();
-        $authentificatedItems = ['logout', 'edit profile'];
+        $authentificatedItems = ['logout', 'edit profile', 'user source'];
         foreach ($authentificatedItems as $key) {
             $this->assertInstanceOf(MenuItem::class, $children[$key]);
         }
