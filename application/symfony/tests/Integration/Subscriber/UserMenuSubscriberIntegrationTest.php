@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Role\Role;
+use Infinito\Domain\FixtureManagement\FixtureSource\GuestUserFixtureSource;
 
 /**
  * @author kevinfrantz
@@ -79,7 +80,8 @@ class UserMenuSubscriberIntegrationTest extends KernelTestCase
         $menuEvent = new MenuEvent($factory, $item, $requests);
         $this->subscriber->onUserMenuConfigure($menuEvent);
         $children = $menuEvent->getItem()->getChildren()['user']->getChildren();
-        $unauthentificatedItems = ['login', 'register'];
+        $guestUserName = (new GuestUserFixtureSource())->getName();
+        $unauthentificatedItems = ['login', 'register', $guestUserName];
         foreach ($unauthentificatedItems as $key) {
             $this->assertInstanceOf(MenuItem::class, $children[$key]);
         }

@@ -14,6 +14,11 @@ use Infinito\Domain\FixtureManagement\EntityTemplateFactory;
 final class GuestUserFixtureSource extends AbstractFixtureSource
 {
     /**
+     * @var string
+     */
+    protected $name = 'guest user';
+
+    /**
      * {@inheritdoc}
      *
      * @see \Infinito\Domain\FixtureManagement\FixtureSource\FixtureSourceInterface::getORMReadyObject()

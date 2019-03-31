@@ -10,6 +10,21 @@ namespace Infinito\Domain\FixtureManagement\FixtureSource;
 abstract class AbstractFixtureSource implements FixtureSourceInterface
 {
     /**
+     * @var string a human readable name
+     */
+    protected $name = null;
+
+    /**
+     * {@inheritdoc}
+     *
+     * @see \Infinito\Domain\FixtureManagement\FixtureSource\FixtureSourceInterface::getName()
+     */
+    public function getName(): string
+    {
+        return $this->name ?? self::getSlug();
+    }
+
+    /**
      * @return string
      */
     public static function getSlug(): string

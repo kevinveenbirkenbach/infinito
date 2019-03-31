@@ -30,4 +30,9 @@ interface FixtureSourceInterface
      * @return string|null a fontawesome css class
      */
     public static function getIcon(): string;
+
+    /**
+     * @return string A human readable name, if defined, otherwise a slug
+     */
+    public function getName(): string;
 }

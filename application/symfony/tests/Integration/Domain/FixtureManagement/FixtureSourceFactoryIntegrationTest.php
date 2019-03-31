@@ -51,6 +51,18 @@ class FixtureSourceFactoryIntegrationTest extends TestCase
         }
     }
 
+    public function testFixtureSourceNames(): void
+    {
+        $names = [];
+        foreach ($this->fixtureSources as $fixtureSource) {
+            $this->assertInstanceOf(FixtureSourceInterface::class, $fixtureSource);
+            $name = $fixtureSource->getName();
+            $this->assertIsString($name);
+            $this->assertFalse(in_array($name, $names), 'An name has to be unique');
+            $names[] = $name;
+        }
+    }
+
     /**
      * The following test is redundant.
      */

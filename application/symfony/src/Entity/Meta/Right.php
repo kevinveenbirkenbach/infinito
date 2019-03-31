@@ -42,6 +42,8 @@ class Right extends AbstractMeta implements RightInterface
      * @ORM\ManyToOne(targetEntity="Law", inversedBy="rights")
      * @ORM\JoinColumn(name="law_id", referencedColumnName="id",nullable=false)
      *
+     * @deprecated it doesn't make sense to reference to the law, because the routing is allready possible over the source
+     *
      * @var LawInterface
      */
     protected $law;

@@ -50,7 +50,8 @@ final class FixtureSourceFactory implements FixtureSourceFactoryInterface
     {
         $objects = [];
         foreach ($classes as $class) {
-            $objects[] = new $class();
+            $object = new $class();
+            $objects[$object->getSlug()] = $object;
         }
 
         return $objects;

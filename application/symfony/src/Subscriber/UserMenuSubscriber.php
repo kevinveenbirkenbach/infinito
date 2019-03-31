@@ -14,9 +14,17 @@ use Infinito\DBAL\Types\RESTResponseType;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Controller\API\Rest\LayerController;
 use Infinito\Domain\FixtureManagement\FixtureSourceFactory;
+use Infinito\Domain\FixtureManagement\FixtureSource\FixtureSourceInterface;
+use Infinito\Domain\FixtureManagement\FixtureSource\GuestUserFixtureSource;
+use Infinito\Domain\FixtureManagement\FixtureSource\HomepageFixtureSource;
+use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
+use Infinito\Domain\FixtureManagement\FixtureSource\InformationFixtureSource;
+use Infinito\Domain\FixtureManagement\FixtureSource\HelpFixtureSource;
 
 /**
  * @author kevinfrantz
+ *
+ * @todo Refactor this class!
  */
 class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSubscriberInterface
 {
@@ -36,13 +44,42 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
     private $tokenStorage;
 
     /**
+     * @var FixtureSourceInterface[]
+     */
+    private $fixtureSources;
+
+    /**
      * @param TokenStorageInterface $tokenStorage
      * @param TranslatorInterface   $translator
      */
     public function __construct(TokenStorageInterface $tokenStorage, TranslatorInterface $translator)
     {
+        $this->fixtureSources = FixtureSourceFactory::getAllFixtureSources();
         $this->tokenStorage = $tokenStorage;
         parent::__construct($translator);
+    }
+
+    /**
+     * @param ItemInterface $item
+     * @param string        $slug
+     */
+    private function deleteAndAddToItem(ItemInterface $item, string $slug): void
+    {
+        $fixtureSource = $this->getAndDeleteFixtureSource($slug);
+        $this->addFixtureSourceToItem($item, $fixtureSource);
+    }
+
+    /**
+     * @param string $slug
+     *
+     * @return FixtureSourceInterface
+     */
+    private function getAndDeleteFixtureSource(string $slug): FixtureSourceInterface
+    {
+        $result = clone $this->fixtureSources[$slug];
+        unset($this->fixtureSources[$slug]);
+
+        return $result;
     }
 
     /**
@@ -51,26 +88,38 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
     public function onUserMenuConfigure(MenuEvent $event): void
     {
         $menu = $event->getItem();
-        $fixtureSources = FixtureSourceFactory::getAllFixtureSources();
-        foreach ($fixtureSources as $fixtureSource) {
-            $slug = $fixtureSource::getSlug();
-            $icon = $fixtureSource::getIcon();
-            $menu->addChild($this->trans($slug), [
-                'route' => self::LAYER_GET_ROUTE,
-                'routeParameters' => [
-                    LayerController::IDENTITY_PARAMETER_KEY => $slug,
-                    LayerController::FORMAT_PARAMETER_KEY => RESTResponseType::HTML,
-                    LayerController::LAYER_PARAMETER_KEY => LayerType::SOURCE,
-                ],
-                'attributes' => [
-                    'icon' => $icon,
-                ],
-            ]);
+        foreach ([HomepageFixtureSource::getSlug(), ImpressumFixtureSource::getSlug(), InformationFixtureSource::getSlug(), HelpFixtureSource::getSlug()] as $slug) {
+            $this->deleteAndAddToItem($menu, $slug);
         }
         if ($this->shouldShowFormatSelection($event)) {
             $this->generateShowDropdown($menu, $event, self::LAYER_GET_ROUTE);
         }
         $this->generateUserDropdown($menu);
+        foreach ($this->fixtureSources as $fixtureSource) {
+            $this->addFixtureSourceToItem($menu, $fixtureSource);
+        }
+    }
+
+    /**
+     * @param ItemInterface          $item
+     * @param FixtureSourceInterface $fixtureSource
+     */
+    private function addFixtureSourceToItem(ItemInterface $item, FixtureSourceInterface $fixtureSource): void
+    {
+        $slug = $fixtureSource::getSlug();
+        $name = $fixtureSource->getName();
+        $icon = $fixtureSource::getIcon();
+        $item->addChild($this->trans($name), [
+            'route' => self::LAYER_GET_ROUTE,
+            'routeParameters' => [
+                LayerController::IDENTITY_PARAMETER_KEY => $slug,
+                LayerController::FORMAT_PARAMETER_KEY => RESTResponseType::HTML,
+                LayerController::LAYER_PARAMETER_KEY => LayerType::SOURCE,
+            ],
+            'attributes' => [
+                'icon' => $icon,
+            ],
+        ]);
     }
 
     /**
@@ -112,6 +161,7 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
                 'icon' => 'fas fa-user',
             ],
         ]);
+        $guestUser = $this->getAndDeleteFixtureSource(GuestUserFixtureSource::getSlug());
         if ($this->getRoles()) {
             $dropdown->addChild($this->trans('logout'), [
                 'route' => 'logout',
@@ -139,8 +189,10 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
                 'route' => 'fos_user_registration_register',
                 'attributes' => [
                     'icon' => 'fas fa-file-signature',
+                    'divider_append' => true,
                 ],
             ]);
+            $this->addFixtureSourceToItem($dropdown, $guestUser);
         }
     }
 
