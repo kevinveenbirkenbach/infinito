@@ -24,7 +24,8 @@ class Right extends AbstractMeta implements RightInterface
     use ActionTypeAttribut,LawAttribut, GrantAttribut,ConditionAttribut,RecieverAttribut,LayerAttribut,PriorityAttribut;
 
     /**
-     * @ORM\OneToOne(targetEntity="Infinito\Entity\Source\AbstractSource",cascade={"persist", "remove"})
+     * @todo Implement Integrationtests
+     * @ORM\ManyToOne(targetEntity="Infinito\Entity\Source\AbstractSource",cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="source_id", referencedColumnName="id",onDelete="CASCADE")
      *
      * @var SourceInterface The requested source to which the law applies
@@ -57,8 +58,9 @@ class Right extends AbstractMeta implements RightInterface
     protected $layer;
 
     /**
-     * @todo Test and implement it on an correct way!
-     * @ORM\OneToOne(targetEntity="Infinito\Entity\Source\AbstractSource",cascade={"persist"})
+     * @todo Implement Integrationtests
+     * @todo implement it on an correct way!
+     * @ORM\ManyToOne(targetEntity="Infinito\Entity\Source\AbstractSource",cascade={"persist"})
      * @ORM\JoinColumn(name="reciever_id", referencedColumnName="id",onDelete="CASCADE",nullable=true)
      *
      * @var SourceInterface|null if null then the right should apply to all sources

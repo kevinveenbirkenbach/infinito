@@ -9,6 +9,7 @@ use Infinito\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
 use Infinito\Exception\NotCorrectInstanceException;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Domain\LayerManagement\LayerInterfaceMap;
+use FOS\UserBundle\Model\UserInterface;
 
 /**
  * This class is not ready and not tested!
@@ -122,6 +123,12 @@ final class EntityDomService implements EntityDomServiceInterface
                 $domElement->setAttribute('layer', $layer);
                 $domElement->setAttribute('id', $value->getId());
                 $domElement->setAttribute('name', LayerType::getReadableValue($layer));
+
+                return;
+            }
+            if ($value instanceof UserInterface) {
+                $domElement->setAttribute('value', $value->getId());
+                $domElement->setAttribute('name', 'user');
 
                 return;
             }
