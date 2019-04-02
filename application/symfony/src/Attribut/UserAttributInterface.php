@@ -10,6 +10,11 @@ use Infinito\Entity\UserInterface;
 interface UserAttributInterface
 {
     /**
+     * @var string
+     */
+    public const USER_ATTRIBUT_NAME = 'user';
+
+    /**
      * @param UserInterface $user
      */
     public function setUser(UserInterface $user): void;

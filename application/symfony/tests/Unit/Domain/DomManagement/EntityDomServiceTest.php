@@ -21,6 +21,9 @@ use Infinito\Entity\EntityInterface;
 use Infinito\Attribut\VersionAttribut;
 use Infinito\Attribut\IdAttribut;
 use Infinito\Exception\NotCorrectInstanceException;
+use Infinito\Entity\Source\Complex\UserSource;
+use Infinito\Entity\User;
+use Infinito\Attribut\UserAttributInterface;
 
 /**
  * @author kevinfrantz
@@ -64,6 +67,27 @@ class EntityDomServiceTest extends TestCase
         $this->requestedEntityService->method('getEntity')->willReturn($entity);
         $this->expectException(NotCorrectInstanceException::class);
         $this->entityDomService->getDomDocument();
+    }
+
+    public function testUserSource(): void
+    {
+        $userSource = new UserSource();
+        $userId = 1234;
+        $user = new User();
+        $user->setId($userId);
+        $userSource->setUser($user);
+        $this->requestedEntityService->method('getEntity')->willReturn($userSource);
+        $result = $this->entityDomService->getDomDocument();
+        foreach ($result->childNodes as $attribut) {
+            $name = $attribut->getAttribute('name');
+            $value = $attribut->getAttribute('value');
+            if (UserAttributInterface::USER_ATTRIBUT_NAME === $name) {
+                $this->assertEquals($userId, $value);
+
+                return;
+            }
+        }
+        $this->assertTrue(false, 'The user attribut was not defined!');
     }
 
     public function testAbstractSource(): void

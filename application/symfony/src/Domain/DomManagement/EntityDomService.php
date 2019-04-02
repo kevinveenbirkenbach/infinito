@@ -120,15 +120,12 @@ final class EntityDomService implements EntityDomServiceInterface
     {
         foreach (LayerInterfaceMap::getAllInterfaces() as $layer => $interface) {
             if ($value instanceof $interface) {
-                $domElement->setAttribute('layer', $layer);
-                $domElement->setAttribute('id', $value->getId());
-                $domElement->setAttribute('name', LayerType::getReadableValue($layer));
+                $this->setLayerDomElement($domElement, $layer, $value);
 
                 return;
             }
             if ($value instanceof UserInterface) {
-                $domElement->setAttribute('value', $value->getId());
-                $domElement->setAttribute('name', 'user');
+                $this->setUserDomElement($domElement, $value);
 
                 return;
             }
@@ -140,6 +137,27 @@ final class EntityDomService implements EntityDomServiceInterface
         $domElement->setAttribute('value', $value);
 
         return;
+    }
+
+    /**
+     * @param \DOMElement     $domElement
+     * @param string          $layer
+     * @param EntityInterface $entity
+     */
+    private function setLayerDomElement(\DOMElement $domElement, string $layer, EntityInterface $entity): void
+    {
+        $domElement->setAttribute('layer', $layer);
+        $domElement->setAttribute('id', $entity->getId());
+        $domElement->setAttribute('name', LayerType::getReadableValue($layer));
+    }
+
+    /**
+     * @param \DomElement $domElement
+     */
+    private function setUserDomElement(\DomElement $domElement, \Infinito\Entity\UserInterface $user): void
+    {
+        $domElement->setAttribute('value', $user->getId());
+        $domElement->setAttribute('name', 'user');
     }
 
     /**
