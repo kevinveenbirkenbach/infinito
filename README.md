@@ -1,8 +1,12 @@
 # ∞infinito
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2448/badge)](https://bestpractices.coreinfrastructure.org/projects/2448)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2754e42b5db4404798c13d1cf871dac3)](https://app.codacy.com/app/KevinFrantz/infinito?utm_source=github.com&utm_medium=referral&utm_content=KevinFrantz/infinito&utm_campaign=Badge_Grade_Dashboard)
-[![Build Status](https://travis-ci.org/KevinFrantz/infinito.svg?branch=master)](https://travis-ci.org/KevinFrantz/infinito) [![codecov](https://codecov.io/gh/KevinFrantz/infinito/branch/master/graph/badge.svg)](https://codecov.io/gh/KevinFrantz/infinito) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0) [![Code of Conduct](https://img.shields.io/badge/%E2%9D%A4-code%20of%20conduct-blue.svg?style=flat)](https://github.com/KevinFrantz/infinito/blob/master/CODE_OF_CONDUCT.md) [![Release](https://img.shields.io/badge/Release-Pre--Alpha--Release-red.svg)](https://en.wikipedia.org/wiki/Software_release_life_cycle) [![gitpod.io](https://img.shields.io/badge/gitpod.io-%E2%9C%93-blue.svg)](https://en.wikipedia.org/wiki/Software_release_life_cycle)
-
+[![Build Status](https://travis-ci.org/KevinFrantz/infinito.svg?branch=master)](https://travis-ci.org/KevinFrantz/infinito)
+[![codecov](https://codecov.io/gh/KevinFrantz/infinito/branch/master/graph/badge.svg)](https://codecov.io/gh/KevinFrantz/infinito)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![Code of Conduct](https://img.shields.io/badge/%E2%9D%A4-code%20of%20conduct-blue.svg?style=flat)](https://github.com/KevinFrantz/infinito/blob/master/CODE_OF_CONDUCT.md)
+[![Release](https://img.shields.io/badge/Release-Pre--Alpha--Release-red.svg)](https://en.wikipedia.org/wiki/Software_release_life_cycle)
+[![gitpod.io](https://img.shields.io/badge/gitpod.io-%E2%9C%93-blue.svg)](https://gitpod.io/#https://github.com/KevinFrantz/infinito)
 
 ## Idea
 
