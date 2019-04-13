@@ -4,6 +4,10 @@ namespace Infinito\Logic\Result;
 
 /**
  * @author kevinfrantz
+ *
+ * @deprecated
+ *
+ * @todo Rethink and move it to the correct place ;)
  */
 interface ResultInterface
 {

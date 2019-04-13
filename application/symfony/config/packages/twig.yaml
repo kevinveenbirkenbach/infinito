@@ -10,4 +10,5 @@ twig:
         layer_icon_class_map: "@Infinito\\Domain\\TwigManagement\\LayerIconClassMap"
         action_template_name_service: "@Infinito\\Domain\\TemplateManagement\\ActionTemplateNameServiceInterface"
         action_template_data_store_service: "@Infinito\\Domain\\TemplateManagement\\ActionTemplateDataStoreServiceInterface"
+        # @todo Remove dom service
         entity_dom_service: "@Infinito\\Domain\\DomManagement\\EntityDomServiceInterface"
