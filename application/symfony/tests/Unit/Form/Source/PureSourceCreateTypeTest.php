@@ -4,7 +4,7 @@ namespace tests\Unit\Form\Source;
 
 use Symfony\Component\Form\Test\TypeTestCase;
 use Infinito\Entity\Source\PureSource;
-use Infinito\Form\Source\PureSourceCreateType;
+use Infinito\Form\Entity\Source\PureSourceCreateType;
 
 /**
  * @author kevinfrantz

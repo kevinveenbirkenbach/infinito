@@ -17,7 +17,7 @@ class FormClassNameServiceTest extends TestCase
         $entityClass = PureSource::class;
         $formNameService = new FormClassNameService();
         $entityForm = $formNameService->getClass($entityClass);
-        $this->assertEquals('Infinito\\Form\\Source\\PureSourceType', $entityForm);
+        $this->assertEquals('Infinito\\Form\\Entity\\Source\\PureSourceType', $entityForm);
     }
 
     public function testWithType(): void
@@ -25,6 +25,6 @@ class FormClassNameServiceTest extends TestCase
         $entityClass = PureSource::class;
         $formNameService = new FormClassNameService();
         $entityForm = $formNameService->getClass($entityClass, ActionType::CREATE);
-        $this->assertEquals('Infinito\\Form\\Source\\PureSourceCreateType', $entityForm);
+        $this->assertEquals('Infinito\\Form\\Entity\\Source\\PureSourceCreateType', $entityForm);
     }
 }

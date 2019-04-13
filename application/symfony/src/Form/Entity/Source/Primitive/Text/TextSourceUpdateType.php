@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Form\Source\Primitive\Text;
+namespace Infinito\Form\Entity\Source\Primitive\Text;
 
 /**
  * @author kevinfrantz

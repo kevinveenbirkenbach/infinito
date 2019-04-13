@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Form\Source;
+namespace Infinito\Form\Entity\Source;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -11,7 +11,7 @@ use Infinito\Attribut\ClassAttributInterface;
 /**
  * @author kevinfrantz
  */
-final class PureSourceCreateType extends SourceType
+final class PureSourceCreateType extends SourceFormType
 {
     /**
      * {@inheritdoc}
@@ -22,7 +22,7 @@ final class PureSourceCreateType extends SourceType
     {
         $builder
         ->add(SlugAttributInterface::SLUG_ATTRIBUT_NAME)
-        ->add(ClassAttributInterface::CLASS_ATTRIBUT_NAME, SourceType::class, [
+        ->add(ClassAttributInterface::CLASS_ATTRIBUT_NAME, SourceFormType::class, [
             'mapped' => false,
         ]);
     }

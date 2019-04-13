@@ -3,9 +3,9 @@
 namespace Infinito\Domain\ActionManagement\Create;
 
 use Infinito\Domain\SourceManagement\SourceClassInformationService;
-use Infinito\Form\Source\SourceType;
 use Infinito\Entity\Source\AbstractSource;
 use Symfony\Component\Form\Form;
+use Infinito\Domain\ParameterManagement\Parameter\ClassParameter;
 
 /**
  * @author kevinfrantz
@@ -32,7 +32,7 @@ final class CreateSourceAction extends AbstractCreateAction
     private function setSourceClass(): void
     {
         $request = $this->actionService->getRequest();
-        $this->sourceClass = $request->get(SourceType::CLASS_PARAMETER_NAME, self::DEFAULT_CLASS);
+        $this->sourceClass = $request->get(ClassParameter::getKey(), self::DEFAULT_CLASS);
     }
 
     private function setForm(): void

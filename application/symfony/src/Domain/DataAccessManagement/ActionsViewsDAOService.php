@@ -46,9 +46,18 @@ final class ActionsViewsDAOService extends AbstractActionsDAO implements Actions
             $viewData = $this->getData($key);
             $storedData->set($key, $viewData);
         }
+
+        return $storedData;
     }
 
+    /**
+     * @todo Implement the mapping
+     * {@inheritdoc}
+     *
+     * @see \Infinito\Domain\DataAccessManagement\ActionsDAOInterface::getData()
+     */
     public function getData(string $actionType)
     {
+        return $this->actionsResultsDAO->getData($actionType);
     }
 }

@@ -8,8 +8,8 @@ use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface
 use Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
 use Infinito\Domain\ActionManagement\ActionHandlerServiceInterface;
 use Infinito\Domain\TemplateManagement\TemplateNameServiceInterface;
-use Infinito\Domain\TemplateManagement\ActionTemplateDataStoreServiceInterface;
 use Infinito\Entity\Source\Primitive\Text\TextSource;
+use Infinito\Domain\DataAccessManagement\ActionsResultsDAOServiceInterface;
 
 /**
  * @author kevinfrantz
@@ -37,9 +37,9 @@ final class ProcessService implements ProcessServiceInterface
     private $templateNameService;
 
     /**
-     * @var ActionTemplateDataStoreServiceInterface
+     * @var ActionsResultsDAOServiceInterface
      */
-    private $actionTemplateDataStore;
+    private $actionsResultsDAOService;
 
     /**
      * @var RequestedActionFormBuilderServiceInterface
@@ -49,16 +49,16 @@ final class ProcessService implements ProcessServiceInterface
     /**
      * @param ActionHandlerServiceInterface               $actionHandlerService
      * @param TemplateNameServiceInterface                $templateNameService
-     * @param ActionTemplateDataStoreServiceInterface     $actionTemplateDataStore
+     * @param ActionsResultsDAOServiceInterface           $actionTemplateDataStore
      * @param RequestedActionFormBuilderServiceInterface  $requestedActionFormBuilderService
      * @param RequestedActionServiceInterface             $requestedActionService
      * @param SecureRequestedRightCheckerServiceInterface $secureRequestedRightCheckerService
      */
-    public function __construct(ActionHandlerServiceInterface $actionHandlerService, TemplateNameServiceInterface $templateNameService, ActionTemplateDataStoreServiceInterface $actionTemplateDataStore, RequestedActionFormBuilderServiceInterface $requestedActionFormBuilderService, RequestedActionServiceInterface $requestedActionService, SecureRequestedRightCheckerServiceInterface $secureRequestedRightCheckerService)
+    public function __construct(ActionHandlerServiceInterface $actionHandlerService, TemplateNameServiceInterface $templateNameService, ActionsResultsDAOServiceInterface $actionTemplateDataStore, RequestedActionFormBuilderServiceInterface $requestedActionFormBuilderService, RequestedActionServiceInterface $requestedActionService, SecureRequestedRightCheckerServiceInterface $secureRequestedRightCheckerService)
     {
         $this->actionHandlerService = $actionHandlerService;
         $this->templateNameService = $templateNameService;
-        $this->actionTemplateDataStore = $actionTemplateDataStore;
+        $this->actionsResultsDAOService = $actionTemplateDataStore;
         $this->requestedActionFormBuilderService = $requestedActionFormBuilderService;
         $this->requestedActionService = $requestedActionService;
         $this->secureRequestedRightCheckerService = $secureRequestedRightCheckerService;
@@ -77,7 +77,7 @@ final class ProcessService implements ProcessServiceInterface
             // $this->requestedActionService->setActionType(ActionType::READ);
             if ($this->secureRequestedRightCheckerService->check($this->requestedActionService)) {
                 $read = $this->actionHandlerService->handle();
-                $this->actionTemplateDataStore->setData(ActionType::READ, $read);
+                $this->actionsResultsDAOService->setData(ActionType::READ, $read);
             }
             // $this->requestedActionService->setActionType(ActionType::UPDATE);
             // UPDATE VIEW
@@ -88,14 +88,15 @@ final class ProcessService implements ProcessServiceInterface
             // DELETE VIEW
             // EXECUTE VIEW
         } else {
+            // @todo move to view
             // CREATE
-            $this->requestedActionService->getRequestedEntity()->setClass(TextSource::class);
-            $updateForm = $this->requestedActionFormBuilderService->createByService()
-                ->getForm()
-                ->createView();
-            $this->actionTemplateDataStore->setData(ActionType::CREATE, $updateForm);
+            //$this->requestedActionService->getRequestedEntity()->setClass(TextSource::class);
+//             $updateForm = $this->requestedActionFormBuilderService->createByService()
+//                 ->getForm()
+//                 ->createView();
+            //$this->actionsResultsDAOService->setData(ActionType::CREATE, $updateForm);
         }
 
-        return $this->actionTemplateDataStore;
+        return $this->actionsResultsDAOService;
     }
 }

@@ -8,9 +8,14 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UserSourceType extends AbstractType
 {
+    /**
+     * @todo implement
+     * {@inheritdoc}
+     *
+     * @see \Symfony\Component\Form\AbstractType::buildForm()
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('namesource', NameSourceType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)
