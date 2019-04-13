@@ -90,11 +90,8 @@ final class ProcessService implements ProcessServiceInterface
         } else {
             // @todo move to view
             // CREATE
-            //$this->requestedActionService->getRequestedEntity()->setClass(TextSource::class);
-//             $updateForm = $this->requestedActionFormBuilderService->createByService()
-//                 ->getForm()
-//                 ->createView();
-            //$this->actionsResultsDAOService->setData(ActionType::CREATE, $updateForm);
+            $this->requestedActionService->getRequestedEntity()->setClass(TextSource::class);
+            $this->actionsResultsDAOService->setData(ActionType::CREATE, null);
         }
 
         return $this->actionsResultsDAOService;

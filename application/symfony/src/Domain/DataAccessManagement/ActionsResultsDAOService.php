@@ -33,8 +33,9 @@ final class ActionsResultsDAOService extends AbstractActionsDAO implements Actio
     private function isValidActionData(string $actionType, $data): bool
     {
         switch ($actionType) {
-            case ActionType::READ:
             case ActionType::CREATE:
+                return $data instanceof EntityInterface | null === $data;
+            case ActionType::READ:
             case ActionType::UPDATE:
                 return $data instanceof EntityInterface;
             case ActionType::DELETE:

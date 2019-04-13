@@ -13,6 +13,7 @@ use Infinito\Domain\DataAccessManagement\ActionsResultsDAOService;
 use Infinito\Domain\DataAccessManagement\ActionsViewsDAOService;
 use Infinito\Entity\EntityInterface;
 use Infinito\Logic\Result\ResultInterface;
+use Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
 
 /**
  * @author kevinfrantz
@@ -30,14 +31,20 @@ class ActionViewsDAOServiceIntegrationTest extends TestCase
     private $actionsResultsDAO;
 
     /**
+     * @var RequestedActionFormBuilderServiceInterface
+     */
+    private $requestedActionFormBuilderService;
+
+    /**
      * {@inheritdoc}
      *
      * @see \PHPUnit\Framework\TestCase::setUp()
      */
     public function setUp(): void
     {
+        $this->requestedActionFormBuilderService = $this->createMock(RequestedActionFormBuilderServiceInterface::class);
         $this->actionsResultsDAO = new ActionsResultsDAOService();
-        $this->actionsViewsDAO = new ActionsViewsDAOService($this->actionsResultsDAO);
+        $this->actionsViewsDAO = new ActionsViewsDAOService($this->actionsResultsDAO, $this->requestedActionFormBuilderService);
     }
 
     public function testNotValidChoiceSetException(): void

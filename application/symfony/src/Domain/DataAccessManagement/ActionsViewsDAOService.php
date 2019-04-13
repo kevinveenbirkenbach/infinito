@@ -4,6 +4,8 @@ namespace Infinito\Domain\DataAccessManagement;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
+use Infinito\DBAL\Types\ActionType;
 
 /**
  * @author kevinfrantz
@@ -16,11 +18,17 @@ final class ActionsViewsDAOService extends AbstractActionsDAO implements Actions
     private $actionsResultsDAO;
 
     /**
+     * @var RequestedActionFormBuilderServiceInterface
+     */
+    private $requestedActionFormBuilderService;
+
+    /**
      * @param ActionsResultsDAOServiceInterface $actionsResultsDAO
      */
-    public function __construct(ActionsResultsDAOServiceInterface $actionsResultsDAO)
+    public function __construct(ActionsResultsDAOServiceInterface $actionsResultsDAO, RequestedActionFormBuilderServiceInterface $requestedActionFormBuilderService)
     {
         $this->actionsResultsDAO = $actionsResultsDAO;
+        $this->requestedActionFormBuilderService = $requestedActionFormBuilderService;
     }
 
     /**
@@ -50,6 +58,13 @@ final class ActionsViewsDAOService extends AbstractActionsDAO implements Actions
         return $storedData;
     }
 
+    private function getCreateForm()
+    {
+        return $this->requestedActionFormBuilderService->createByService()
+        ->getForm()
+        ->createView();
+    }
+
     /**
      * @todo Implement the mapping
      * {@inheritdoc}
@@ -58,6 +73,11 @@ final class ActionsViewsDAOService extends AbstractActionsDAO implements Actions
      */
     public function getData(string $actionType)
     {
+        switch ($actionType) {
+            case ActionType::CREATE:
+                return $this->getCreateForm();
+        }
+
         return $this->actionsResultsDAO->getData($actionType);
     }
 }

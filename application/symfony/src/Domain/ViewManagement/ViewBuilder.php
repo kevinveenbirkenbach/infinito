@@ -3,7 +3,6 @@
 namespace Infinito\Domain\ViewManagement;
 
 use FOS\RestBundle\View\View;
-use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
 use Infinito\Domain\ActionManagement\ActionServiceInterface;
 use Infinito\Domain\ActionManagement\ActionFactoryServiceInterface;
 use Infinito\Domain\TemplateManagement\TemplateNameServiceInterface;
@@ -33,7 +32,7 @@ final class ViewBuilder implements ViewBuilderInterface
     private $view;
 
     /**
-     * @var RequestedActionInterface
+     * @var ActionServiceInterface
      */
     private $actionService;
 
@@ -91,8 +90,10 @@ final class ViewBuilder implements ViewBuilderInterface
     }
 
     /**
-     * @param ActionServiceInterface        $actionService
-     * @param ActionFactoryServiceInterface $actionFactoryService
+     * @param ActionServiceInterface            $actionService
+     * @param ActionFactoryServiceInterface     $actionFactoryService
+     * @param TemplateNameServiceInterface      $templateNameService
+     * @param ValidGetParameterServiceInterface $validGetParameterService
      */
     public function __construct(ActionServiceInterface $actionService, ActionFactoryServiceInterface $actionFactoryService, TemplateNameServiceInterface $templateNameService, ValidGetParameterServiceInterface $validGetParameterService)
     {
@@ -108,6 +109,7 @@ final class ViewBuilder implements ViewBuilderInterface
     public function getView(): View
     {
         $template = $this->getTemplate();
+
         $this->view->setTemplate($template);
 
         return $this->view;
