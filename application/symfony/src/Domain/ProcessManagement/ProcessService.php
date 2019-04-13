@@ -8,6 +8,7 @@ use Infinito\Domain\ActionManagement\ActionHandlerServiceInterface;
 use Infinito\Entity\Source\Primitive\Text\TextSource;
 use Infinito\Domain\DataAccessManagement\ActionsResultsDAOServiceInterface;
 use Infinito\Domain\ParameterManagement\ValidGetParameterServiceInterface;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 /**
  * @author kevinfrantz
@@ -55,6 +56,26 @@ final class ProcessService implements ProcessServiceInterface
     }
 
     /**
+     * @return mixed|null
+     *
+     * @throws AccessDeniedException
+     */
+    private function getResult()
+    {
+        if ($this->requestedActionService->hasRequestedEntity() && $this->requestedActionService->getRequestedEntity()->hasIdentity()) {
+            // READ UPDATE DELETE EXECUTE
+            if ($this->secureRequestedRightCheckerService->check($this->requestedActionService)) {
+                return $this->actionHandlerService->handle();
+            }
+            throw new AccessDeniedException("The user doesn't have the permission to access this page!");
+        }
+        // CREATE
+        $this->requestedActionService->getRequestedEntity()->setClass(TextSource::class);
+
+        return;
+    }
+
+    /**
      * @todo Move
      * {@inheritdoc}
      *
@@ -62,17 +83,8 @@ final class ProcessService implements ProcessServiceInterface
      */
     public function process()
     {
-        $result = null;
+        $result = $this->getResult();
         $actionType = $this->requestedActionService->getActionType();
-        if ($this->requestedActionService->hasRequestedEntity() && $this->requestedActionService->getRequestedEntity()->hasIdentity()) {
-            // READ UPDATE DELETE EXECUTE
-            if ($this->secureRequestedRightCheckerService->check($this->requestedActionService)) {
-                $result = $this->actionHandlerService->handle();
-            }
-        } else {
-            // CREATE
-            $this->requestedActionService->getRequestedEntity()->setClass(TextSource::class);
-        }
         $this->actionsResultsDAOService->setData($actionType, $result);
 
         return $this->actionsResultsDAOService;
