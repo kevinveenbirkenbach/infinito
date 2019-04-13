@@ -12,6 +12,7 @@ use Infinito\Domain\ProcessManagement\ProcessServiceInterface;
  *
  * @todo Refactor this class
  * @todo Test this class
+ * @todo Rename this class and domain to something like "CoreManagement"
  */
 final class MVCRoutineService implements MVCRoutineServiceInterface
 {

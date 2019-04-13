@@ -12,6 +12,8 @@ use Infinito\Domain\ParameterManagement\Parameter\FrameParameter;
 
 /**
  * @author kevinfrantz
+ *
+ * @todo Rename to ViewService
  */
 final class ViewBuilder implements ViewBuilderInterface
 {
