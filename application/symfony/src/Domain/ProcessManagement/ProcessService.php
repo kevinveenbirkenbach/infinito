@@ -2,7 +2,6 @@
 
 namespace Infinito\Domain\ProcessManagement;
 
-use Infinito\DBAL\Types\ActionType;
 use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
 use Infinito\Domain\ActionManagement\ActionHandlerServiceInterface;
@@ -63,29 +62,18 @@ final class ProcessService implements ProcessServiceInterface
      */
     public function process()
     {
+        $result = null;
+        $actionType = $this->requestedActionService->getActionType();
         if ($this->requestedActionService->hasRequestedEntity() && $this->requestedActionService->getRequestedEntity()->hasIdentity()) {
-            // READ VIEW
+            // READ UPDATE DELETE EXECUTE
             if ($this->secureRequestedRightCheckerService->check($this->requestedActionService)) {
-                $actionType = $this->requestedActionService->getActionType();
-                switch ($actionType) {
-                    case ActionType::READ:
-                        $read = $this->actionHandlerService->handle();
-                        $this->actionsResultsDAOService->setData($actionType, $read);
-                        break;
-                    case ActionType::UPDATE:
-                        $updateForm = $this->requestedActionFormBuilderService->createByService()->getForm()->createView();
-                        $this->actionTemplateDataStore->setData(ActionType::UPDATE, $updateForm);
-                }
+                $result = $this->actionHandlerService->handle();
             }
-
-            // $this->requestedActionService->setActionType(ActionType::UPDATE);
-            // DELETE VIEW
-            // EXECUTE VIEW
         } else {
             // CREATE
             $this->requestedActionService->getRequestedEntity()->setClass(TextSource::class);
-            $this->actionsResultsDAOService->setData(ActionType::CREATE, null);
         }
+        $this->actionsResultsDAOService->setData($actionType, $result);
 
         return $this->actionsResultsDAOService;
     }
