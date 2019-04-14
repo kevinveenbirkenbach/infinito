@@ -16,7 +16,7 @@ final class ParameterFactory implements ParameterFactoryInterface
     /**
      * @var string Namespace under which the parameters are stored
      */
-    const PARAMETER_NAMESPACE = 'Infinito\Domain\ParameterManagement\Parameter';
+    private const PARAMETER_NAMESPACE = 'Infinito\Domain\ParameterManagement\Parameter';
 
     /**
      * @var ArrayCollection|Collection|ParameterInterface[]

@@ -25,9 +25,9 @@ final class LayerRepositoryFactoryService implements LayerRepositoryFactoryServi
     }
 
     /**
-     * @param string $layer
+     * {@inheritdoc}
      *
-     * @return RepositoryInterface
+     * @see \Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface::getRepository()
      */
     public function getRepository(string $layer): RepositoryInterface
     {

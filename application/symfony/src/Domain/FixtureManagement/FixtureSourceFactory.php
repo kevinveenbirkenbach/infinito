@@ -13,7 +13,7 @@ final class FixtureSourceFactory implements FixtureSourceFactoryInterface
     /**
      * @var string Namespace in which the fixture sources are saved
      */
-    const FIXTURE_SOURCE_NAMESPACE = 'Infinito\Domain\FixtureManagement\FixtureSource';
+    private const FIXTURE_SOURCE_NAMESPACE = 'Infinito\Domain\FixtureManagement\FixtureSource';
 
     /**
      * @return array|FixtureSourceInterface[]

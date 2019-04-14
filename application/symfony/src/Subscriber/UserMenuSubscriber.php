@@ -29,16 +29,6 @@ use Infinito\Domain\FixtureManagement\FixtureSource\HelpFixtureSource;
 class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSubscriberInterface
 {
     /**
-     * @var string
-     */
-    const LAYER_GET_ROUTE = 'infinito_api_rest_layer_read';
-
-    /**
-     * @var string
-     */
-    const LAYER_CREATE_ROUTE = 'infinito_api_rest_layer_create';
-
-    /**
      * @var TokenStorageInterface
      */
     private $tokenStorage;
@@ -92,7 +82,7 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
             $this->deleteAndAddToItem($menu, $slug);
         }
         if ($this->shouldShowFormatSelection($event)) {
-            $this->generateShowDropdown($menu, $event, self::LAYER_GET_ROUTE);
+            $this->generateShowDropdown($menu, $event, LayerController::LAYER_GET_ROUTE);
         }
         $this->generateUserDropdown($menu);
         foreach ($this->fixtureSources as $fixtureSource) {
@@ -121,7 +111,7 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
     private function getSourceItemConfigurationArray(string $identity, string $icon)
     {
         return [
-            'route' => self::LAYER_GET_ROUTE,
+            'route' => LayerController::LAYER_GET_ROUTE,
             'routeParameters' => [
                 LayerController::IDENTITY_PARAMETER_KEY => $identity,
                 LayerController::FORMAT_PARAMETER_KEY => RESTResponseType::HTML,

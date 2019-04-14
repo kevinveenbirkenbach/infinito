@@ -29,12 +29,22 @@ final class LayerController extends AbstractAPIController
     /**
      * @var string
      */
-    const IDENTITY_PARAMETER_KEY = 'identity';
+    public const IDENTITY_PARAMETER_KEY = 'identity';
 
     /**
      * @var string
      */
-    const LAYER_PARAMETER_KEY = 'layer';
+    public const LAYER_PARAMETER_KEY = 'layer';
+
+    /**
+     * @var string
+     */
+    public const LAYER_GET_ROUTE = 'infinito_api_rest_layer_read';
+
+    /**
+     * @var string
+     */
+    public const LAYER_CREATE_ROUTE = 'infinito_api_rest_layer_create';
 
     /**
      * @Route(
