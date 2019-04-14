@@ -11,14 +11,14 @@ namespace Infinito\Domain\ActionManagement;
 abstract class AbstractActionConstructor
 {
     /**
-     * @var ActionDAOServiceInterface
+     * @var ActionDependenciesDAOServiceInterface
      */
     protected $actionService;
 
     /**
-     * @param ActionDAOServiceInterface $actionService
+     * @param ActionDependenciesDAOServiceInterface $actionService
      */
-    final public function __construct(ActionDAOServiceInterface $actionService)
+    final public function __construct(ActionDependenciesDAOServiceInterface $actionService)
     {
         $this->actionService = $actionService;
     }

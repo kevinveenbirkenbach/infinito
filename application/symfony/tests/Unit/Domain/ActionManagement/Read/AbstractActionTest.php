@@ -5,7 +5,7 @@ namespace tests\Unit\Domain\ActionManagement\Read;
 use PHPUnit\Framework\TestCase;
 use Infinito\Domain\ActionManagement\ActionInterface;
 use Infinito\Domain\ActionManagement\AbstractAction;
-use Infinito\Domain\ActionManagement\ActionDAOServiceInterface;
+use Infinito\Domain\ActionManagement\ActionDependenciesDAOServiceInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use Infinito\Exception\NotValidByFormException;
 
@@ -20,13 +20,13 @@ class AbstractActionTest extends TestCase
     private $action;
 
     /**
-     * @var ActionDAOServiceInterface|MockObject
+     * @var ActionDependenciesDAOServiceInterface|MockObject
      */
     private $actionService;
 
     public function setUp(): void
     {
-        $this->actionService = $this->createMock(ActionDAOServiceInterface::class);
+        $this->actionService = $this->createMock(ActionDependenciesDAOServiceInterface::class);
         $this->action = new class($this->actionService) extends AbstractAction {
             public $isSecure;
             public $validByForm;

@@ -3,7 +3,7 @@
 namespace tests\Integration\Domain\ActionManagement;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Infinito\Domain\ActionManagement\ActionDAOServiceInterface;
+use Infinito\Domain\ActionManagement\ActionDependenciesDAOServiceInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
@@ -12,7 +12,7 @@ use Doctrine\ORM\EntityManagerInterface;
 class ActionServiceIntegrationTest extends KernelTestCase
 {
     /**
-     * @var ActionDAOServiceInterface
+     * @var ActionDependenciesDAOServiceInterface
      */
     private $actionService;
 
@@ -24,7 +24,7 @@ class ActionServiceIntegrationTest extends KernelTestCase
     public function setUp(): void
     {
         self::bootKernel();
-        $this->actionService = self::$container->get(ActionDAOServiceInterface::class);
+        $this->actionService = self::$container->get(ActionDependenciesDAOServiceInterface::class);
     }
 
     public function testEntityManager(): void

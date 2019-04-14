@@ -4,7 +4,7 @@ namespace tests\Unit\Domain\ActionManagement;
 
 use PHPUnit\Framework\TestCase;
 use Infinito\Domain\ActionManagement\ActionFactoryService;
-use Infinito\Domain\ActionManagement\ActionDAOServiceInterface;
+use Infinito\Domain\ActionManagement\ActionDependenciesDAOServiceInterface;
 use Infinito\Domain\ActionManagement\ActionInterface;
 use Infinito\Domain\RequestManagement\Action\RequestedAction;
 use Infinito\Domain\RequestManagement\Right\RequestedRight;
@@ -25,7 +25,7 @@ class ActionFactoryServiceTest extends TestCase
                 $userSourceDirector = $this->createMock(UserSourceDirectorInterface::class);
                 $requestedUser = new RequestedUser($userSourceDirector, $requestedRight);
                 $requestedAction = new RequestedAction($requestedUser);
-                $actionService = $this->createMock(ActionDAOServiceInterface::class);
+                $actionService = $this->createMock(ActionDependenciesDAOServiceInterface::class);
                 $actionService->method('getRequestedAction')->willReturn($requestedAction);
                 $actionFactoryService = new ActionFactoryService($actionService);
                 $requestedAction->setLayer($layer);

@@ -16,7 +16,7 @@ use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface
 /**
  * @author kevinfrantz
  */
-final class ActionDAOService implements ActionDAOServiceInterface
+final class ActionDependenciesDAOService implements ActionDependenciesDAOServiceInterface
 {
     /**
      * @var RequestStack
@@ -64,7 +64,7 @@ final class ActionDAOService implements ActionDAOServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ActionManagement\ActionDAOServiceInterface::getRequestedAction()
+     * @see \Infinito\Domain\ActionManagement\ActionDependenciesDAOServiceInterface::getRequestedAction()
      */
     public function getRequestedAction(): RequestedActionInterface
     {
@@ -74,7 +74,7 @@ final class ActionDAOService implements ActionDAOServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ActionManagement\ActionDAOServiceInterface::isRequestedActionSecure()
+     * @see \Infinito\Domain\ActionManagement\ActionDependenciesDAOServiceInterface::isRequestedActionSecure()
      */
     public function isRequestedActionSecure(): bool
     {
@@ -92,7 +92,7 @@ final class ActionDAOService implements ActionDAOServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ActionManagement\ActionDAOServiceInterface::getRequest()
+     * @see \Infinito\Domain\ActionManagement\ActionDependenciesDAOServiceInterface::getRequest()
      */
     public function getRequest(): Request
     {
@@ -102,7 +102,7 @@ final class ActionDAOService implements ActionDAOServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ActionManagement\ActionDAOServiceInterface::getRepository()
+     * @see \Infinito\Domain\ActionManagement\ActionDependenciesDAOServiceInterface::getRepository()
      */
     public function getRepository(): RepositoryInterface
     {
@@ -114,7 +114,7 @@ final class ActionDAOService implements ActionDAOServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ActionManagement\ActionDAOServiceInterface::getEntityManager()
+     * @see \Infinito\Domain\ActionManagement\ActionDependenciesDAOServiceInterface::getEntityManager()
      */
     public function getEntityManager(): EntityManagerInterface
     {

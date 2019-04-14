@@ -3,9 +3,9 @@
 namespace Tests\Integration\Domain\ActionManagement\Create;
 
 use Infinito\Domain\ActionManagement\Create\CreateSourceAction;
-use Infinito\Domain\ActionManagement\ActionDAOService;
+use Infinito\Domain\ActionManagement\ActionDependenciesDAOService;
 use Infinito\Domain\ActionManagement\Create\CreateActionInterface;
-use Infinito\Domain\ActionManagement\ActionDAOServiceInterface;
+use Infinito\Domain\ActionManagement\ActionDependenciesDAOServiceInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Infinito\Entity\Source\PureSourceInterface;
 use Infinito\Domain\RequestManagement\Action\RequestedActionService;
@@ -39,7 +39,7 @@ class CreateSourceActionIntegrationTest extends KernelTestCase
     private $createSourceAction;
 
     /**
-     * @var ActionDAOServiceInterface
+     * @var ActionDependenciesDAOServiceInterface
      */
     private $actionService;
 
@@ -80,7 +80,7 @@ class CreateSourceActionIntegrationTest extends KernelTestCase
         $layerRepositoryFactoryService = new LayerRepositoryFactoryService($entityManager);
         $rightTransformerService = new RightTransformerService();
         $secureRequestedRightChecker = new SecureRequestedRightCheckerService($rightTransformerService);
-        $this->actionService = new ActionDAOService($this->requestedActionService, $secureRequestedRightChecker, $this->requestStack, $layerRepositoryFactoryService, $entityFormBuilderService, $entityManager);
+        $this->actionService = new ActionDependenciesDAOService($this->requestedActionService, $secureRequestedRightChecker, $this->requestStack, $layerRepositoryFactoryService, $entityFormBuilderService, $entityManager);
         $this->createSourceAction = new CreateSourceAction($this->actionService);
     }
 
