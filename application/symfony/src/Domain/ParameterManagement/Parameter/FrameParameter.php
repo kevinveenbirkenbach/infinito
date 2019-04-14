@@ -3,7 +3,7 @@
 namespace Infinito\Domain\ParameterManagement\Parameter;
 
 use Symfony\Component\Validator\Constraints as Assert;
-use Infinito\Exception\UnvalidGetParameterException;
+use Infinito\Exception\Validation\InvalidGetParameterException;
 
 /**
  * @author kevinfrantz
@@ -13,7 +13,7 @@ final class FrameParameter extends AbstractParameter
     /**
      * @var bool The standart value which will be used
      */
-    const STANDART_VALUE = true;
+    private const STANDART_VALUE = true;
 
     /**
      * @var bool
@@ -48,6 +48,6 @@ final class FrameParameter extends AbstractParameter
                 return;
             }
         }
-        throw new UnvalidGetParameterException("It\'s not possible to set <<$value>> of type <<".$type.'>> for class <<'.get_class().'>>. Just 0 and 1 are allowed!');
+        throw new InvalidGetParameterException("It\'s not possible to set <<$value>> of type <<".$type.'>> for class <<'.get_class().'>>. Just 0 and 1 are allowed!');
     }
 }
