@@ -5,6 +5,6 @@ namespace Infinito\Exception;
 /**
  * @author kevinfrantz
  */
-class UnvalidValueException extends \Exception
+final class NoIdentityException extends \Exception
 {
 }

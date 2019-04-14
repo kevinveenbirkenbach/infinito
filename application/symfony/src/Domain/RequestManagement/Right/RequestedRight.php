@@ -54,7 +54,7 @@ class RequestedRight implements RequestedRightInterface
      */
     private function validateRequestedEntity(): void
     {
-        if ($this->requestedEntity->hasSlug() || $this->requestedEntity->hasId()) {
+        if ($this->requestedEntity->hasIdentity()) {
             return;
         }
         throw new PreconditionFailedException(get_class($this->requestedEntity).' needs to have a defined attribut id or slug!');

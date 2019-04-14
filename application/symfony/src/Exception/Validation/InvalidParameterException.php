@@ -5,6 +5,6 @@ namespace Infinito\Exception;
 /**
  * @author kevinfrantz
  */
-class UnvalidParameterException extends \Exception
+class InvalidParameterException extends \Exception
 {
 }

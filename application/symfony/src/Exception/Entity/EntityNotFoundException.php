@@ -7,6 +7,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 /**
  * @author kevinfrantz
  */
-final class EntityNotFoundHttpException extends NotFoundHttpException
+final class EntityNotFoundException extends NotFoundHttpException
 {
 }
