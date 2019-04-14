@@ -4,7 +4,7 @@ namespace Infinito\Domain\MVCManagement;
 
 use FOS\RestBundle\View\View;
 use Infinito\Attribut\ActionTypeAttribut;
-use Infinito\Domain\ViewManagement\ViewBuilderInterface;
+use Infinito\Domain\ViewManagement\ViewServiceInterface;
 use Infinito\Domain\ProcessManagement\ProcessServiceInterface;
 
 /**
@@ -18,9 +18,9 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
 {
     use ActionTypeAttribut;
     /**
-     * @var ViewBuilderInterface
+     * @var ViewServiceInterface
      */
-    private $viewBuilder;
+    private $viewService;
 
     /**
      * @var ProcessServiceInterface
@@ -28,12 +28,12 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     private $processService;
 
     /**
-     * @param ViewBuilderInterface    $viewBuilder
+     * @param ViewServiceInterface    $viewBuilder
      * @param ProcessServiceInterface $processService
      */
-    public function __construct(ViewBuilderInterface $viewBuilder, ProcessServiceInterface $processService)
+    public function __construct(ViewServiceInterface $viewBuilder, ProcessServiceInterface $processService)
     {
-        $this->viewBuilder = $viewBuilder;
+        $this->viewService = $viewBuilder;
         $this->processService = $processService;
     }
 
@@ -46,7 +46,7 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
     public function process(): View
     {
         $data = $this->processService->process();
-        $view = $this->viewBuilder->getView();
+        $view = $this->viewService->getView();
         $view->setData($data);
 
         return $view;

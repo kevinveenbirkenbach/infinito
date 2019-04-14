@@ -7,7 +7,7 @@ use FOS\RestBundle\View\View;
 /**
  * @author kevinfrantz
  */
-interface ViewBuilderInterface
+interface ViewServiceInterface
 {
     /**
      * @return View

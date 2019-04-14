@@ -10,10 +10,8 @@ use Infinito\Domain\ParameterManagement\Parameter\FrameParameter;
 
 /**
  * @author kevinfrantz
- *
- * @todo Rename to ViewService
  */
-final class ViewBuilder implements ViewBuilderInterface
+final class ViewBuilder implements ViewServiceInterface
 {
     /**
      * @var string The path to the atom entity template
