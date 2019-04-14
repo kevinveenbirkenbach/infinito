@@ -9,9 +9,15 @@ use Infinito\Exception\NoDefaultClassException;
  */
 final class ActionFactoryService extends AbstractActionConstructor implements ActionFactoryServiceInterface
 {
-    const BASE_NAMESPACE = 'Infinito\\Domain\\ActionManagement\\';
+    /**
+     * @var string Namespace in which the actions will be found
+     */
+    private const BASE_NAMESPACE = 'Infinito\\Domain\\ActionManagement\\';
 
-    const CLASS_SUFFIX = 'Action';
+    /**
+     * @var string Suffix for action classes
+     */
+    private const CLASS_SUFFIX = 'Action';
 
     /**
      * @param string $name
