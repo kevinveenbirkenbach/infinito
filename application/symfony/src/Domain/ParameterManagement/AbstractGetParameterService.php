@@ -4,7 +4,7 @@ namespace Infinito\Domain\ParameterManagement;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Request;
-use Infinito\Exception\NotDefinedException;
+use Infinito\Exception\Attribut\UndefinedAttributException;
 
 /**
  * This class exists out of refactoring reasons.
@@ -71,6 +71,6 @@ abstract class AbstractGetParameterService implements GetParameterServiceInterfa
         if ($this->hasParameter($key)) {
             return $this->currentRequest->get($key);
         }
-        throw new NotDefinedException("The parameter <<$key>> is not defined!");
+        throw new UndefinedAttributException("The parameter <<$key>> is not defined!");
     }
 }

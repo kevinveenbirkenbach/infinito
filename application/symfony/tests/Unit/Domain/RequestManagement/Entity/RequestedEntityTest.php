@@ -5,14 +5,14 @@ namespace tests\Unit\Domain\RequestManagement\Entity;
 use PHPUnit\Framework\TestCase;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntity;
 use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
-use Infinito\Exception\NotSetException;
-use Infinito\Exception\NotCorrectInstanceException;
 use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Repository\RepositoryInterface;
 use Infinito\Entity\EntityInterface;
 use Infinito\Entity\Source\AbstractSource;
-use Infinito\Exception\AllreadyDefinedException;
+use Infinito\Exception\Attribut\UndefinedAttributException;
+use Infinito\Exception\NoIdentityCoreException;
+use Infinito\Exception\Attribut\AllreadyDefinedAttributException;
 
 /**
  * @author kevinfrantz
@@ -37,7 +37,7 @@ class RequestedEntityTest extends TestCase
     {
         $layerRepositoryFactoryService = $this->createMock(LayerRepositoryFactoryServiceInterface::class);
         $requestedEntity = new RequestedEntity($layerRepositoryFactoryService);
-        $this->expectException(NotSetException::class);
+        $this->expectException(UndefinedAttributException::class);
         $requestedEntity->getEntity();
     }
 
@@ -50,7 +50,7 @@ class RequestedEntityTest extends TestCase
         $requestedEntity = new RequestedEntity($layerRepositoryFactoryService);
         $requestedEntity->setSlug('abcd');
         $requestedEntity->setRequestedRight($requestedRight);
-        $this->expectException(NotCorrectInstanceException::class);
+        $this->expectException(NoIdentityCoreException::class);
         $requestedEntity->getEntity();
     }
 
@@ -69,7 +69,7 @@ class RequestedEntityTest extends TestCase
         $entityResult = $requestedEntity->getEntity();
         $this->assertEquals($entityMock, $entityResult);
         $this->assertEquals(get_class($entityMock), $requestedEntity->getClass());
-        $this->expectException(AllreadyDefinedException::class);
+        $this->expectException(AllreadyDefinedAttributException::class);
         $requestedEntity->setClass(AbstractSource::class);
     }
 
@@ -86,7 +86,7 @@ class RequestedEntityTest extends TestCase
         $this->assertNull($requestedEntity->setClass($class));
         $this->assertTrue($requestedEntity->hasClass());
         $this->assertEquals($class, $requestedEntity->getClass());
-        $this->expectException(AllreadyDefinedException::class);
+        $this->expectException(AllreadyDefinedAttributException::class);
         $requestedEntity->setIdentity('123343');
     }
 
@@ -94,7 +94,7 @@ class RequestedEntityTest extends TestCase
     {
         $requestedEntity = new RequestedEntity();
         $requestedEntity->setSlug('ABABEBA');
-        $this->expectException(NotSetException::class);
+        $this->expectException(UndefinedAttributException::class);
         $requestedEntity->getEntity();
     }
 }

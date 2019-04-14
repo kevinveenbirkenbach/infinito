@@ -5,7 +5,7 @@ namespace Infinito\Domain\SourceManagement;
 use Infinito\Entity\Meta\RightInterface;
 use Infinito\Exception\AllreadySetException;
 use Infinito\Exception\AllreadyDefinedException;
-use Infinito\Exception\NotSetException;
+use Infinito\Exception\Collection\NotSetException;
 
 /**
  * Allows to add and remove rights of a source.

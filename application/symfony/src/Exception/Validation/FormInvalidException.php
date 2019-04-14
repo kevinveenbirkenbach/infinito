@@ -5,6 +5,6 @@ namespace Infinito\Exception\Validation;
 /**
  * @author kevinfrantz
  */
-class InvalidByFormException extends \Exception
+final class FormInvalidException extends \Exception
 {
 }

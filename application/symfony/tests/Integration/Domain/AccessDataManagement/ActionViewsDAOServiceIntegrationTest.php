@@ -1,19 +1,19 @@
 <?php
 
-namespace tests\Unit\Domain\TemplateManagement;
+namespace tests\Unit\Domain\AccessDataManagement;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Exception\NoValidChoiceException;
-use Infinito\Exception\NotSetException;
 use Infinito\DBAL\Types\ActionType;
-use Infinito\Exception\AllreadySetException;
-use Infinito\Exception\NotCorrectInstanceException;
 use Infinito\Domain\DataAccessManagement\ActionsViewsDAOServiceInterface;
 use Infinito\Domain\DataAccessManagement\ActionsResultsDAOService;
 use Infinito\Domain\DataAccessManagement\ActionsViewsDAOService;
 use Infinito\Entity\EntityInterface;
 use Infinito\Logic\Result\ResultInterface;
 use Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
+use Infinito\Exception\Type\InvalidChoiceTypeException;
+use Infinito\Exception\Core\NotCorrectInstanceCoreException;
+use Infinito\Exception\Collection\NotSetElementException;
+use Infinito\Exception\Collection\ContainsElementException;
 
 /**
  * @author kevinfrantz
@@ -49,13 +49,13 @@ class ActionViewsDAOServiceIntegrationTest extends TestCase
 
     public function testNotValidChoiceSetException(): void
     {
-        $this->expectException(NoValidChoiceException::class);
+        $this->expectException(InvalidChoiceTypeException::class);
         $this->actionsResultsDAO->setData('1231232N', ' ');
     }
 
     public function testNotCorrectInstanceSetException(): void
     {
-        $this->expectException(NotCorrectInstanceException::class);
+        $this->expectException(NotCorrectInstanceCoreException::class);
         $data = new class() {
         };
         $this->actionsResultsDAO->setData(ActionType::READ, $data);
@@ -63,13 +63,13 @@ class ActionViewsDAOServiceIntegrationTest extends TestCase
 
     public function testNotValidChoiceGetException(): void
     {
-        $this->expectException(NoValidChoiceException::class);
+        $this->expectException(InvalidChoiceTypeException::class);
         $this->actionsViewsDAO->getData('1231232N');
     }
 
     public function testNotSetGetException(): void
     {
-        $this->expectException(NotSetException::class);
+        $this->expectException(NotSetElementException::class);
         $this->actionsViewsDAO->getData(ActionType::READ);
     }
 
@@ -115,7 +115,7 @@ class ActionViewsDAOServiceIntegrationTest extends TestCase
 //             $viewDataInterface = $this->getActionTypeViewDataMock($actionType);
 //             $this->assertInstanceOf($viewDataInterface, $this->actionsViewsDAO->getData($actionType));
         }
-        $this->expectException(AllreadySetException::class);
+        $this->expectException(ContainsElementException::class);
         $this->assertNull($this->actionsResultsDAO->setData($actionType, $resultData));
     }
 }

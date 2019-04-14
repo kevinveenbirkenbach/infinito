@@ -10,7 +10,7 @@ use Infinito\Entity\Meta\RightInterface;
 use Infinito\Entity\Meta\Right;
 use Infinito\Entity\Meta\Law;
 use Infinito\Exception\AllreadySetException;
-use Infinito\Exception\NotSetException;
+use Infinito\Exception\Collection\NotSetException;
 use Infinito\Exception\AllreadyDefinedException;
 use Infinito\Entity\Source\PureSource;
 

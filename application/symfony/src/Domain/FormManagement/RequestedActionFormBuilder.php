@@ -5,7 +5,7 @@ namespace Infinito\Domain\FormManagement;
 use Symfony\Component\Form\FormBuilderInterface;
 use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
 use Symfony\Component\Form\FormFactoryInterface;
-use Infinito\Exception\NotSetException;
+use Infinito\Exception\Collection\NotSetException;
 
 /**
  * @author kevinfrantz

@@ -3,7 +3,7 @@
 namespace tests\Unit\Domain\TwigManagement;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Exception\NotSetException;
+use Infinito\Exception\Collection\NotSetException;
 use Infinito\Domain\TwigManagement\LayerIconClassMap;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 

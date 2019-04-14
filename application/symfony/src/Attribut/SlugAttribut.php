@@ -2,7 +2,7 @@
 
 namespace Infinito\Attribut;
 
-use Infinito\Exception\UnvalidValueException;
+use Infinito\Exception\Validation\ValueInvalidException;
 
 /**
  * @author kevinfrantz
@@ -17,14 +17,15 @@ trait SlugAttribut
     protected $slug;
 
     /**
+     * @todo Maybe throw an other Exception here?
      * @param string $slug
-     *
-     * @throws UnvalidValueException
+     * 
+     * @throws ValueInvalidException
      */
     public function setSlug(string $slug): void
     {
         if (is_numeric($slug)) {
-            throw new UnvalidValueException('A slug must not be numeric!');
+            throw new ValueInvalidException('A slug must not be numeric!');
         }
         $this->slug = $slug;
     }

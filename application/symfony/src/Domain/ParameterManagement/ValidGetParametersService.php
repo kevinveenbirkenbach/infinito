@@ -4,7 +4,6 @@ namespace Infinito\Domain\ParameterManagement;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Infinito\Exception\Validation\InvalidGetParameterException;
 
 /**
  * @author kevinfrantz

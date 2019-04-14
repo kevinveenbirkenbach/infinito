@@ -3,7 +3,7 @@
 namespace Infinito\Domain\TwigManagement;
 
 use Infinito\DBAL\Types\ActionType;
-use Infinito\Exception\NotSetException;
+use Infinito\Exception\Collection\NotSetException;
 
 /**
  * @author kevinfrantz

@@ -1,22 +1,25 @@
 <?php
-
 namespace Infinito\Attribut;
 
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
+ *
  * @see ClassAttributInterface
  *
  * @author kevinfrantz
  */
 trait ClassAttribut
 {
+
     /**
+     *
      * @var string
      */
     private $class;
 
     /**
+     *
      * @param string $class
      */
     public function setClass(string $class): void
@@ -26,10 +29,11 @@ trait ClassAttribut
 
             return;
         }
-        throw new NotFoundHttpException('Class '.$class.' couldn\'t be found!');
+        throw new NotFoundHttpException('Class ' . $class . ' couldn\'t be found!');
     }
 
     /**
+     *
      * @return string
      */
     public function getClass(): string
@@ -38,6 +42,7 @@ trait ClassAttribut
     }
 
     /**
+     *
      * @return bool
      */
     public function hasClass(): bool

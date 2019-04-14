@@ -14,17 +14,17 @@ final class RightTransformerService implements RightTransformerServiceInterface
     /**
      * @var string Prefix for setter functions
      */
-    const SET_PREFIX = 'set';
+    public const SET_PREFIX = 'set';
 
     /**
      * @var string Prefix for getter functions
      */
-    const GET_PREFIX = 'get';
+    public const GET_PREFIX = 'get';
 
     /**
      * @var string Prefix for has functions
      */
-    const HAS_PREFIX = 'has';
+    public const HAS_PREFIX = 'has';
 
     /**
      * @param string $method

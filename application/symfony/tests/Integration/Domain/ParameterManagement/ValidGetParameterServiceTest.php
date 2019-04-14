@@ -4,8 +4,6 @@ namespace tests\Integration\Domain\ParameterManagement;
 
 use Infinito\Domain\ParameterManagement\ParameterFactory;
 use Infinito\Domain\ParameterManagement\ValidGetParametersService;
-use Infinito\Exception\NotDefinedException;
-use Infinito\Exception\UnvalidParameterException;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -13,6 +11,8 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Infinito\Domain\ParameterManagement\ValidGetParameterServiceInterface;
 use Infinito\Domain\ParameterManagement\Parameter\VersionParameter;
 use Infinito\Domain\ParameterManagement\ParameterFactoryInterface;
+use Infinito\Exception\Validation\GetParameterInvalidException;
+use Infinito\Exception\Collection\NotSetElementException;
 
 /**
  * @author kevinfrantz
@@ -66,22 +66,22 @@ class ValidGetParameterServiceTest extends KernelTestCase
 
     public function testVersionWrongType(): void
     {
-        $key = VersionParameter::getKey();
-        $this->currentRequest->query->set($key, 'adasdas');
-        $this->expectException(UnvalidParameterException::class);
-        $this->validGetParameterService->getParameter($key);
+        $versionKey = VersionParameter::getKey();
+        $this->currentRequest->query->set($versionKey, 'adasdas');
+        $this->expectException(GetParameterInvalidException::class);
+        $this->validGetParameterService->getParameter($versionKey);
     }
 
     public function testConstructor(): void
     {
-        $this->expectException(NotDefinedException::class);
         $this->currentRequest->query->set('asdwgwe', 'adasa');
+        $this->expectException(GetParameterInvalidException::class);
         new ValidGetParametersService($this->requestStack, $this->parameterFactory, $this->validator);
     }
 
     public function testSetParameterException(): void
     {
-        $this->expectException(NotDefinedException::class);
+        $this->expectException(NotSetElementException::class);
         $this->validGetParameterService->getParameter(VersionParameter::getKey());
     }
 }

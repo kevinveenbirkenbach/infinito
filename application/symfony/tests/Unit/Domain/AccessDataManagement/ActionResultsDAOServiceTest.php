@@ -2,15 +2,15 @@
 
 namespace tests\Integration\Domain\AccessManagement;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Exception\NoValidChoiceException;
-use Infinito\Exception\NotSetException;
 use Infinito\DBAL\Types\ActionType;
-use Infinito\Exception\AllreadySetException;
-use Infinito\Exception\NotCorrectInstanceException;
 use Infinito\Domain\DataAccessManagement\ActionsResultsDAOService;
 use Infinito\Entity\EntityInterface;
 use Infinito\Logic\Result\ResultInterface;
+use PHPUnit\Framework\TestCase;
+use Infinito\Exception\Collection\ContainsElementException;
+use Infinito\Exception\Collection\NotSetElementException;
+use Infinito\Exception\Type\InvalidChoiceTypeException;
+use Infinito\Exception\Core\NotCorrectInstanceCoreException;
 use Infinito\Domain\DataAccessManagement\ActionsResultsDAOServiceInterface;
 
 /**
@@ -35,13 +35,13 @@ class ActionResultsDAOServiceTest extends TestCase
 
     public function testNotValidChoiceSetException(): void
     {
-        $this->expectException(NoValidChoiceException::class);
+        $this->expectException(InvalidChoiceTypeException::class);
         $this->actionsResultsDAO->setData('1231232N', ' ');
     }
 
     public function testNotCorrectInstanceSetException(): void
     {
-        $this->expectException(NotCorrectInstanceException::class);
+        $this->expectException(NotCorrectInstanceCoreException::class);
         $data = new class() {
         };
         $this->actionsResultsDAO->setData(ActionType::READ, $data);
@@ -49,13 +49,13 @@ class ActionResultsDAOServiceTest extends TestCase
 
     public function testNotValidChoiceGetException(): void
     {
-        $this->expectException(NoValidChoiceException::class);
+        $this->expectException(InvalidChoiceTypeException::class);
         $this->actionsResultsDAO->getData('1231232N');
     }
 
     public function testNotSetGetException(): void
     {
-        $this->expectException(NotSetException::class);
+        $this->expectException(NotSetElementException::class);
         $this->actionsResultsDAO->getData(ActionType::READ);
     }
 
@@ -82,7 +82,7 @@ class ActionResultsDAOServiceTest extends TestCase
             $this->assertTrue($this->actionsResultsDAO->isDataStored($actionType));
             $this->assertEquals($resultData, $this->actionsResultsDAO->getData($actionType));
         }
-        $this->expectException(AllreadySetException::class);
+        $this->expectException(ContainsElementException::class);
         $this->assertNull($this->actionsResultsDAO->setData($actionType, $resultData));
     }
 }

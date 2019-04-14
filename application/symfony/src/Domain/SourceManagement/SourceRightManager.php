@@ -8,7 +8,7 @@ use Infinito\Exception\AllreadySetException;
 use Infinito\Entity\Source\AbstractSource;
 use Infinito\Entity\Meta\Law;
 use Infinito\Exception\AllreadyDefinedException;
-use Infinito\Exception\NotSetException;
+use Infinito\Exception\Collection\NotSetException;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**

@@ -8,16 +8,17 @@ use Infinito\Attribut\SlugAttribut;
 use Infinito\Attribut\RequestedRightAttribut;
 use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 use Infinito\Repository\Source\SourceRepositoryInterface;
-use Infinito\Exception\NotCorrectInstanceException;
 use Infinito\Entity\Source\AbstractSource;
-use Infinito\Exception\NotSetException;
 use Infinito\Repository\RepositoryInterface;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Attribut\ClassAttribut;
-use Infinito\Exception\AllreadyDefinedException;
 use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
 use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryService;
-use Infinito\Exception\EntityNotFoundHttpException;
+use Infinito\Exception\Attribut\UndefinedAttributException;
+use Infinito\Exception\Core\NotCorrectInstanceCoreException;
+use Infinito\Exception\Attribut\AllreadyDefinedAttributException;
+use Infinito\Exception\Core\NoIdentityCoreException;
+use Infinito\Exception\NotFound\EntityNotFoundException;
 
 /**
  * @author kevinfrantz
@@ -39,24 +40,24 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     private $layerRepositoryFactoryService;
 
     /**
-     * @throws NotSetException
+     * @throws UndefinedAttributException
      */
     private function validateHasIdentity(): void
     {
         if (!($this->hasId() || $this->hasSlug())) {
-            throw new NotSetException('No identity attribut like id or slug was set!');
+            throw new NoIdentityCoreException('No identity attribut like id or slug was set!');
         }
     }
 
     /**
-     * @param EntityInterface|null $entity
+     * @param EntityInterface $entity
      *
-     * @throws EntityNotFoundHttpException
+     * @throws EntityNotFoundException
      */
     private function validateLoadedEntity(?EntityInterface $entity): void
     {
         if (!$entity) {
-            throw new EntityNotFoundHttpException('Entity with {id:"'.$this->id.'",slug:"'.$this->slug.'"} not found');
+            throw new EntityNotFoundException('Entity with {id:"'.$this->id.'",slug:"'.$this->slug.'"} not found');
         }
     }
 
@@ -72,18 +73,13 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
         return $this->loadById();
     }
 
-    /**
-     * @throws NotCorrectInstanceException
-     *
-     * @return SourceInterface|null
-     */
     private function loadBySlug(): ?SourceInterface
     {
         $repository = $this->getEntityRepository();
         if ($repository instanceof SourceRepositoryInterface) {
             return $repository->findOneBySlug($this->slug);
         }
-        throw new NotCorrectInstanceException('To read an entity by slug is just allowed for entitys of type '.AbstractSource::class);
+        throw new NotCorrectInstanceCoreException('To read an entity by slug is just allowed for entitys of type '.AbstractSource::class);
     }
 
     /**
@@ -97,12 +93,12 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     }
 
     /**
-     * @throws NotSetException
+     * @throws UndefinedAttributException
      */
     private function validateLayerRepositoryFactoryService(): void
     {
         if (!$this->layerRepositoryFactoryService) {
-            throw new NotSetException('The operation is not possible, because the class '.LayerRepositoryFactoryService::class.' is not injected!');
+            throw new UndefinedAttributException('The operation is not possible, because the class '.LayerRepositoryFactoryService::class.' is not injected!');
         }
     }
 
@@ -152,7 +148,7 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     public function setIdentity($identity): void
     {
         if ($this->hasClass()) {
-            throw new AllreadyDefinedException('A identity can\'t be set if a class is allready defined!');
+            throw new AllreadyDefinedAttributException('A identity can\'t be set if a class is allready defined!');
         }
         if (is_numeric($identity)) {
             $this->setId($identity);
@@ -172,7 +168,7 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
     public function setClass(string $class): void
     {
         if ($this->hasIdentity()) {
-            throw new AllreadyDefinedException('A class can\'t be manual defined, if an identity is allready set!');
+            throw new AllreadyDefinedAttributException('A class can\'t be manual defined, if an identity is allready set!');
         }
         $this->setClassTrait($class);
     }

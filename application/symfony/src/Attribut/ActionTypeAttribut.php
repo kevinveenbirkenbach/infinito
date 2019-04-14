@@ -2,8 +2,8 @@
 
 namespace Infinito\Attribut;
 
-use Infinito\Exception\NoValidChoiceException;
 use Infinito\DBAL\Types\ActionType;
+use Infinito\Exception\Type\InvalidChoiceTypeException;
 
 /**
  * @author kevinfrantz
@@ -19,11 +19,12 @@ trait ActionTypeAttribut
 
     /**
      * @param string $actionType
+     * @throws InvalidChoiceTypeException
      */
     public function setActionType(string $actionType): void
     {
         if (!in_array($actionType, ActionType::getValues())) {
-            throw new NoValidChoiceException('The type is not a valid action type.');
+            throw new InvalidChoiceTypeException('The type is not a valid action type.');
         }
         $this->actionType = $actionType;
     }

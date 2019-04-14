@@ -2,7 +2,7 @@
 
 namespace Infinito\Domain\TwigManagement;
 
-use Infinito\Exception\NotSetException;
+use Infinito\Exception\Collection\NotSetException;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 
 /**

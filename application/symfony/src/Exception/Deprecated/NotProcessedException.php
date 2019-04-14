@@ -1,10 +1,10 @@
 <?php
 
-namespace Infinito\Exception;
+namespace Infinito\Exception\Deprecated;
 
 /**
- * 
  * @author kevinfrantz
+ *
  * @deprecated
  */
 final class NotProcessedException extends \Exception

@@ -8,8 +8,8 @@ use Infinito\Entity\Meta\RightInterface;
 use Infinito\Entity\Meta\Right;
 use Infinito\Entity\Meta\Law;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
-use Infinito\Exception\NoValidChoiceException;
 use Infinito\Entity\Source\AbstractSource;
+use Infinito\Exception\Type\InvalidChoiceTypeException;
 
 /**
  * @todo Implement reciever test
@@ -77,7 +77,7 @@ class RightTest extends TestCase
             $this->assertNull($this->right->setActionType($enum));
             $this->assertEquals($enum, $this->right->getActionType());
         }
-        $this->expectException(NoValidChoiceException::class);
+        $this->expectException(InvalidChoiceTypeException::class);
         $this->right->setActionType('NoneValidType');
     }
 
@@ -87,7 +87,7 @@ class RightTest extends TestCase
             $this->assertNull($this->right->setLayer($choice));
             $this->assertEquals($choice, $this->right->getLayer());
         }
-        $this->expectException(NoValidChoiceException::class);
+        $this->expectException(InvalidChoiceTypeException::class);
         $this->right->setLayer('NoneValidLayer');
     }
 

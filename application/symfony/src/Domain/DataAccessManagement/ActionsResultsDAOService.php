@@ -2,14 +2,14 @@
 
 namespace Infinito\Domain\DataAccessManagement;
 
-use Doctrine\Common\Collections\Collection;
-use Infinito\Exception\AllreadySetException;
 use Doctrine\Common\Collections\ArrayCollection;
-use Infinito\Exception\NotSetException;
-use Infinito\Exception\NoValidChoiceException;
+use Doctrine\Common\Collections\Collection;
 use Infinito\DBAL\Types\ActionType;
-use Infinito\Exception\NotCorrectInstanceException;
 use Infinito\Entity\EntityInterface;
+use Infinito\Exception\Collection\ContainsElementException;
+use Infinito\Exception\Collection\NotSetElementException;
+use Infinito\Exception\Type\InvalidChoiceTypeException;
+use Infinito\Exception\Validation\ValueInvalidException;
 use Infinito\Logic\Result\ResultInterface;
 use Symfony\Component\Intl\Exception\NotImplementedException;
 
@@ -48,12 +48,11 @@ final class ActionsResultsDAOService extends AbstractActionsDAO implements Actio
 
     /**
      * @param string $actionType
-     *
-     * @throws NoValidChoiceException
+     * @throws InvalidChoiceTypeException
      */
     private function throwNoValidActionTypeException(string $actionType): void
     {
-        throw new NoValidChoiceException("The action type <<$actionType>> is not defined and not valid!");
+        throw new InvalidChoiceTypeException("The action type <<$actionType>> is not defined and not valid!");
     }
 
     /**
@@ -82,36 +81,36 @@ final class ActionsResultsDAOService extends AbstractActionsDAO implements Actio
      * @param string $actionType
      * @param mixed  $data
      *
-     * @throws NotCorrectInstanceException For false a exception is thrown
+     * @throws ValueInvalidException For false a exception is thrown
      */
     private function validateActionData(string $actionType, $data): void
     {
         if (!$this->isValidActionData($actionType, $data)) {
-            throw new NotCorrectInstanceException('Data <<'.gettype($data).(is_object($data) ? ':'.get_class($data) : '').">> is not valid for action type <<$actionType>>!");
+            throw new ValueInvalidException('Data <<'.gettype($data).(is_object($data) ? ':'.get_class($data) : '').">> is not valid for action type <<$actionType>>!");
         }
     }
 
     /**
      * @param string $actionType
      *
-     * @throws NotSetException
+     * @throws ContainsElementException
      */
     private function validateNotSet(string $actionType): void
     {
         if ($this->isDataStored($actionType)) {
-            throw new AllreadySetException("Data for <<$actionType>> is allready stored.");
+            throw new ContainsElementException("Data for <<$actionType>> is allready stored.");
         }
     }
 
     /**
      * @param string $actionType
      *
-     * @throws NotSetException
+     * @throws NotSetElementException
      */
     private function validateSet(string $actionType): void
     {
         if (!$this->isDataStored($actionType)) {
-            throw new NotSetException("No data for <<$actionType>> is stored.");
+            throw new NotSetElementException("No data for <<$actionType>> is stored.");
         }
     }
 

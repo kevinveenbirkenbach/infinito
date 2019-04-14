@@ -5,14 +5,14 @@ namespace Infinito\Domain\RequestManagement\Right;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Attribut\LayerAttribut;
 use Infinito\Attribut\RecieverAttribut;
-use Infinito\Exception\PreconditionFailedException;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use Infinito\Attribut\RequestedEntityAttribut;
 use Infinito\Entity\Meta\MetaInterface;
-use Infinito\Exception\NotCorrectInstanceException;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntity;
 use Infinito\Attribut\ActionTypeAttribut;
-use Infinito\Exception\AllreadySetException;
+use Infinito\Exception\Core\NotCorrectInstanceCoreException;
+use Infinito\Exception\NoIdentityCoreException;
+use Infinito\Exception\Attribut\AllreadyDefinedAttributException;
 
 /**
  * @author kevinfrantz
@@ -31,7 +31,7 @@ class RequestedRight implements RequestedRightInterface
     private $source;
 
     /**
-     * @throws NotCorrectInstanceException
+     * @throws NotCorrectInstanceCoreException
      */
     private function loadSource(): void
     {
@@ -46,18 +46,18 @@ class RequestedRight implements RequestedRightInterface
 
             return;
         }
-        throw new NotCorrectInstanceException('The entity instance '.get_class($entity).' can\'t be processed');
+        throw new NotCorrectInstanceCoreException('The entity instance '.get_class($entity).' can\'t be processed');
     }
 
     /**
-     * @throws PreconditionFailedException If the source has no id or slug
+     * @throws NoIdentityCoreException If the source has no id or slug
      */
     private function validateRequestedEntity(): void
     {
         if ($this->requestedEntity->hasIdentity()) {
             return;
         }
-        throw new PreconditionFailedException(get_class($this->requestedEntity).' needs to have a defined attribut id or slug!');
+        throw new NoIdentityCoreException(get_class($this->requestedEntity).' needs to have a defined attribut id or slug!');
     }
 
     /**
@@ -79,7 +79,7 @@ class RequestedRight implements RequestedRightInterface
     public function setActionType(string $actionType): void
     {
         if (isset($this->actionType)) {
-            throw new AllreadySetException("The action type is allready set! Origine: $this->actionType New: $actionType");
+            throw new AllreadyDefinedAttributException("The action type is allready set! Origine: $this->actionType New: $actionType");
         }
         $this->setActionTypeTrait($actionType);
     }

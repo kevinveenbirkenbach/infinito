@@ -3,7 +3,7 @@
 namespace Infinito\Attribut;
 
 use Infinito\DBAL\Types\Meta\Right\LayerType;
-use Infinito\Exception\NoValidChoiceException;
+use Infinito\Exception\Type\InvalidChoiceTypeException;
 
 /**
  * @author kevinfrantz
@@ -20,14 +20,14 @@ trait LayerAttribut
     protected $layer;
 
     /**
+     * 
      * @param string $layer
-     *
-     * @throws NoValidChoiceException
+     * @throws InvalidChoiceTypeException
      */
     public function setLayer(string $layer): void
     {
         if (!in_array($layer, LayerType::getValues())) {
-            throw new NoValidChoiceException("'$layer' is not a correct layer type.");
+            throw new InvalidChoiceTypeException("'$layer' is not a correct layer type.");
         }
         $this->layer = $layer;
     }

@@ -6,10 +6,10 @@ use Infinito\Entity\EntityInterface;
 use Infinito\Domain\RightManagement\RightTransformerService;
 use Doctrine\Common\Collections\Collection;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
-use Infinito\Exception\NotCorrectInstanceException;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Domain\LayerManagement\LayerInterfaceMap;
 use FOS\UserBundle\Model\UserInterface;
+use Infinito\Exception\Core\NotCorrectInstanceCoreException;
 
 /**
  * This class is not ready and not tested!
@@ -25,12 +25,12 @@ final class EntityDomService implements EntityDomServiceInterface
     /**
      * @var string
      */
-    const GET_METHOD = RightTransformerService::GET_PREFIX;
+    private const GET_METHOD = RightTransformerService::GET_PREFIX;
 
     /**
      * @var string
      */
-    const HAS_METHOD = RightTransformerService::HAS_PREFIX;
+    private const HAS_METHOD = RightTransformerService::HAS_PREFIX;
 
     /**
      * @var RequestedEntityServiceInterface
@@ -131,7 +131,7 @@ final class EntityDomService implements EntityDomServiceInterface
             }
         }
         if (is_object($value)) {
-            throw new NotCorrectInstanceException('The instance '.get_class($value).' is not supported!');
+            throw new NotCorrectInstanceCoreException('The instance '.get_class($value).' is not supported!');
         }
         $domElement->setAttribute('type', gettype($value));
         $domElement->setAttribute('value', $value);

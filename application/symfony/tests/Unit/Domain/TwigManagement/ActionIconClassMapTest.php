@@ -5,7 +5,7 @@ namespace tests\Unit\Domain\TwigManagement;
 use PHPUnit\Framework\TestCase;
 use Infinito\Domain\TwigManagement\ActionIconClassMapInterface;
 use Infinito\Domain\TwigManagement\ActionIconClassMap;
-use Infinito\Exception\NotSetException;
+use Infinito\Exception\Collection\NotSetException;
 use Infinito\DBAL\Types\ActionType;
 
 /**

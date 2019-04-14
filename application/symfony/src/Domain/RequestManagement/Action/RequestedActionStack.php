@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\Collection;
 use Infinito\Domain\ReInfinito\Management\RequestedActionStackInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Infinito\Exception\AllreadySetException;
-use Infinito\Exception\NotSetException;
+use Infinito\Exception\Collection\NotSetException;
 
 /**
  * @author kevinfrantz

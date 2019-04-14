@@ -7,6 +7,6 @@ namespace Infinito\Exception\Validation;
  *
  * @author kevinfrantz
  */
-class InvalidGetParameterException extends InvalidParameterException
+final class GetParameterInvalidException extends ParameterInvalidException
 {
 }

@@ -4,7 +4,7 @@ namespace Infinito\Domain\LayerManagement;
 
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Entity\Source\AbstractSource;
-use Infinito\Exception\NotSetException;
+use Infinito\Exception\Collection\NotSetException;
 use Infinito\Entity\Meta\Law;
 use Infinito\Entity\Meta\Right;
 use Infinito\Entity\Meta\Relation\Parent\HeredityRelation;

@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Infinito\Attribut\CrudAttributInterface;
 use Infinito\Attribut\CrudAttribut;
 use Infinito\DBAL\Types\Meta\Right\CRUDType;
-use Infinito\Exception\NoValidChoiceException;
+use Infinito\Exception\Type\InvalidChoiceTypeException;
 
 /**
  * @author kevinfrantz
@@ -37,7 +37,7 @@ class CrudAttributTest extends TestCase
             $this->assertNull($this->crudAttribut->setCrud($enum));
             $this->assertEquals($enum, $this->crudAttribut->getCrud());
         }
-        $this->expectException(NoValidChoiceException::class);
+        $this->expectException(InvalidChoiceTypeException::class);
         $this->crudAttribut->setCrud('NoneValidType');
     }
 }

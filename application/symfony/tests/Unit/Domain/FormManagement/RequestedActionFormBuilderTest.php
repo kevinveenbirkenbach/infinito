@@ -3,7 +3,7 @@
 namespace tests\Unit\Domain\FormManagement;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Exception\NotSetException;
+use Infinito\Exception\Collection\NotSetException;
 use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
 use Infinito\Domain\FormManagement\RequestedActionFormBuilder;
 use Infinito\Domain\FormManagement\FormClassNameServiceInterface;

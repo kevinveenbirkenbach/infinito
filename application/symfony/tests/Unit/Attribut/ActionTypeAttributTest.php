@@ -3,10 +3,10 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Exception\NoValidChoiceException;
 use Infinito\Attribut\ActionTypeAttributInterface;
 use Infinito\Attribut\ActionTypeAttribut;
 use Infinito\DBAL\Types\ActionType;
+use Infinito\Exception\Type\InvalidChoiceTypeException;
 
 /**
  * @author kevinfrantz
@@ -37,7 +37,7 @@ class ActionTypeAttributTest extends TestCase
             $this->assertNull($this->actionTypeAttribut->setActionType($enum));
             $this->assertEquals($enum, $this->actionTypeAttribut->getActionType());
         }
-        $this->expectException(NoValidChoiceException::class);
+        $this->expectException(InvalidChoiceTypeException::class);
         $this->actionTypeAttribut->setActionType('NoneValidType');
     }
 }

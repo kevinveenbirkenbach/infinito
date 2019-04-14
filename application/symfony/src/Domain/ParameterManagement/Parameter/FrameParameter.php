@@ -3,7 +3,7 @@
 namespace Infinito\Domain\ParameterManagement\Parameter;
 
 use Symfony\Component\Validator\Constraints as Assert;
-use Infinito\Exception\Validation\InvalidGetParameterException;
+use Infinito\Exception\Validation\GetParameterInvalidException;
 
 /**
  * @author kevinfrantz
@@ -48,6 +48,6 @@ final class FrameParameter extends AbstractParameter
                 return;
             }
         }
-        throw new InvalidGetParameterException("It\'s not possible to set <<$value>> of type <<".$type.'>> for class <<'.get_class().'>>. Just 0 and 1 are allowed!');
+        throw new GetParameterInvalidException("It\'s not possible to set <<$value>> of type <<".$type.'>> for class <<'.get_class().'>>. Just 0 and 1 are allowed!');
     }
 }

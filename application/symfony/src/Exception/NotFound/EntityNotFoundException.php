@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Exception;
+namespace Infinito\Exception\NotFound;
 
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 

@@ -5,6 +5,6 @@ namespace Infinito\Exception\Validation;
 /**
  * @author kevinfrantz
  */
-class InvalidParameterException extends \Exception
+final class ValueInvalidException extends \Exception
 {
 }

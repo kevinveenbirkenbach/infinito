@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Infinito\Attribut\LayerAttributInterface;
 use Infinito\Attribut\LayerAttribut;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
-use Infinito\Exception\NoValidChoiceException;
+use Infinito\Exception\Type\InvalidChoiceTypeException;
 
 /**
  * @author kevinfrantz
@@ -37,7 +37,7 @@ class LayerAttributTest extends TestCase
             $this->assertNull($this->layerAttribut->setLayer($enum));
             $this->assertEquals($enum, $this->layerAttribut->getLayer());
         }
-        $this->expectException(NoValidChoiceException::class);
+        $this->expectException(InvalidChoiceTypeException::class);
         $this->layerAttribut->setLayer('NoneValidLayer');
     }
 }
