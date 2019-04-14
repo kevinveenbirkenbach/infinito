@@ -3,7 +3,6 @@
 namespace Infinito\Domain\ViewManagement;
 
 use FOS\RestBundle\View\View;
-use Infinito\Domain\ActionManagement\ActionServiceInterface;
 use Infinito\Domain\ActionManagement\ActionFactoryServiceInterface;
 use Infinito\Domain\TemplateManagement\TemplateNameServiceInterface;
 use Infinito\Domain\ParameterManagement\ValidGetParameterServiceInterface;
@@ -19,22 +18,17 @@ final class ViewBuilder implements ViewBuilderInterface
     /**
      * @var string The path to the atom entity template
      */
-    const TWIG_ENTITY_ATOM_TEMPLATE_PATH = 'entity/_entity.html.twig';
+    private const TWIG_ENTITY_ATOM_TEMPLATE_PATH = 'entity/_entity.html.twig';
 
     /**
      * @var string The path to the molecule entity template
      */
-    const TWIG_ENTITY_MOLECULE_TEMPLATE_PATH = 'entity/entity.html.twig';
+    private const TWIG_ENTITY_MOLECULE_TEMPLATE_PATH = 'entity/entity.html.twig';
 
     /**
      * @var View
      */
     private $view;
-
-    /**
-     * @var ActionServiceInterface
-     */
-    private $actionService;
 
     /**
      * @var ActionFactoryServiceInterface
@@ -90,15 +84,13 @@ final class ViewBuilder implements ViewBuilderInterface
     }
 
     /**
-     * @param ActionServiceInterface            $actionService
      * @param ActionFactoryServiceInterface     $actionFactoryService
      * @param TemplateNameServiceInterface      $templateNameService
      * @param ValidGetParameterServiceInterface $validGetParameterService
      */
-    public function __construct(ActionServiceInterface $actionService, ActionFactoryServiceInterface $actionFactoryService, TemplateNameServiceInterface $templateNameService, ValidGetParameterServiceInterface $validGetParameterService)
+    public function __construct(ActionFactoryServiceInterface $actionFactoryService, TemplateNameServiceInterface $templateNameService, ValidGetParameterServiceInterface $validGetParameterService)
     {
         $this->view = View::create();
-        $this->actionService = $actionService;
         $this->templateNameService = $templateNameService;
         $this->validGetParameterService = $validGetParameterService;
     }

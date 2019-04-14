@@ -3,12 +3,12 @@
 namespace tests\Unit\Domain\ActionManagement;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Domain\ActionManagement\ActionService;
+use Infinito\Domain\ActionManagement\ActionDAOService;
 use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
-use Infinito\Domain\ActionManagement\ActionServiceInterface;
+use Infinito\Domain\ActionManagement\ActionDAOServiceInterface;
 use Infinito\Repository\RepositoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
@@ -50,7 +50,7 @@ class ActionServiceTest extends TestCase
     private $layerRepositoryFactoryService;
 
     /**
-     * @var ActionServiceInterface
+     * @var ActionDAOServiceInterface
      */
     private $actionService;
 
@@ -84,7 +84,7 @@ class ActionServiceTest extends TestCase
         $this->requestStack = $this->createMock(RequestStack::class);
         $this->layerRepositoryFactoryService = $this->createMock(LayerRepositoryFactoryServiceInterface::class);
         $this->entityManager = $this->createMock(EntityManagerInterface::class);
-        $this->actionService = new ActionService($this->requestedActionService, $this->secureRequestedRightCheckerService, $this->requestStack, $this->layerRepositoryFactoryService, $this->requestedActionFormBuilderService, $this->entityManager);
+        $this->actionService = new ActionDAOService($this->requestedActionService, $this->secureRequestedRightCheckerService, $this->requestStack, $this->layerRepositoryFactoryService, $this->requestedActionFormBuilderService, $this->entityManager);
     }
 
     public function testIsRequestedActionSecure(): void

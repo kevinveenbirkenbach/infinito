@@ -5,7 +5,7 @@ namespace tests\Unit\Domain\SecureCRUDManagement\CRUD\Read;
 use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Framework\TestCase;
 use Infinito\Domain\ActionManagement\Read\ReadAction;
-use Infinito\Domain\ActionManagement\ActionServiceInterface;
+use Infinito\Domain\ActionManagement\ActionDAOServiceInterface;
 use Infinito\Domain\ActionManagement\Read\ReadActionInterface;
 use Infinito\Exception\NotSecureException;
 use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
@@ -23,7 +23,7 @@ class ReadSourceActionTest extends TestCase
     private $entityManager;
 
     /**
-     * @var ActionServiceInterface
+     * @var ActionDAOServiceInterface
      */
     private $actionService;
 
@@ -50,7 +50,7 @@ class ReadSourceActionTest extends TestCase
         $this->entityManager = $this->createMock(EntityManagerInterface::class);
         $this->requestedAction = $this->createMock(RequestedActionInterface::class);
         $this->requestedAction->method('getRequestedEntity')->willReturn($this->requestedEntity);
-        $this->actionService = $this->createMock(ActionServiceInterface::class);
+        $this->actionService = $this->createMock(ActionDAOServiceInterface::class);
         $this->actionService->method('getEntityManager')->willReturn($this->entityManager);
         $this->actionService->method('getRequestedAction')->willReturn($this->requestedAction);
         $this->sourceReadAction = new ReadAction($this->actionService);

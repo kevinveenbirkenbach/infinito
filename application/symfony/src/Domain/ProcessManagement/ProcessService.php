@@ -43,10 +43,13 @@ final class ProcessService implements ProcessServiceInterface
     /**
      * @return bool True if the the entity exist
      */
-    private function doesEntityExist():bool{
+    private function doesEntityExist(): bool
+    {
         $requestedAction = $this->requestedActionService;
+
         return $requestedAction->hasRequestedEntity() && $requestedAction->getRequestedEntity()->hasIdentity();
     }
+
     /**
      * @return mixed|null
      *
@@ -63,10 +66,10 @@ final class ProcessService implements ProcessServiceInterface
         }
         // CREATE
         $this->requestedActionService->getRequestedEntity()->setClass(TextSource::class);
-        
+
         return;
     }
-    
+
     /**
      * @param ActionHandlerServiceInterface               $actionHandlerService
      * @param ActionsResultsDAOServiceInterface           $actionTemplateDataStore

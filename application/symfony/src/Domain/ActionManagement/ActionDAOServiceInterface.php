@@ -13,7 +13,7 @@ use Doctrine\ORM\EntityManagerInterface;
  *
  * @author kevinfrantz
  */
-interface ActionServiceInterface
+interface ActionDAOServiceInterface
 {
     /**
      * @return RequestedActionInterface Returns the requested action

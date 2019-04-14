@@ -16,10 +16,10 @@ use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface
 /**
  * @author kevinfrantz
  */
-final class ActionService implements ActionServiceInterface
+final class ActionDAOService implements ActionDAOServiceInterface
 {
     /**
-     * @var Request
+     * @var RequestStack
      */
     private $requestStack;
 
@@ -64,7 +64,7 @@ final class ActionService implements ActionServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ActionManagement\ActionServiceInterface::getRequestedAction()
+     * @see \Infinito\Domain\ActionManagement\ActionDAOServiceInterface::getRequestedAction()
      */
     public function getRequestedAction(): RequestedActionInterface
     {
@@ -74,7 +74,7 @@ final class ActionService implements ActionServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ActionManagement\ActionServiceInterface::isRequestedActionSecure()
+     * @see \Infinito\Domain\ActionManagement\ActionDAOServiceInterface::isRequestedActionSecure()
      */
     public function isRequestedActionSecure(): bool
     {
@@ -92,7 +92,7 @@ final class ActionService implements ActionServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ActionManagement\ActionServiceInterface::getRequest()
+     * @see \Infinito\Domain\ActionManagement\ActionDAOServiceInterface::getRequest()
      */
     public function getRequest(): Request
     {
@@ -100,9 +100,9 @@ final class ActionService implements ActionServiceInterface
     }
 
     /**
-     * {@use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;inheritDoc}.
+     * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ActionManagement\ActionServiceInterface::getRepository()
+     * @see \Infinito\Domain\ActionManagement\ActionDAOServiceInterface::getRepository()
      */
     public function getRepository(): RepositoryInterface
     {
@@ -114,7 +114,7 @@ final class ActionService implements ActionServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ActionManagement\ActionServiceInterface::getEntityManager()
+     * @see \Infinito\Domain\ActionManagement\ActionDAOServiceInterface::getEntityManager()
      */
     public function getEntityManager(): EntityManagerInterface
     {
