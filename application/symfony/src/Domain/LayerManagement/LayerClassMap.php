@@ -4,7 +4,7 @@ namespace Infinito\Domain\LayerManagement;
 
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Entity\Source\AbstractSource;
-use Infinito\Exception\Collection\NotSetException;
+use Infinito\Exception\Collection\NotSetElementException;
 use Infinito\Entity\Meta\Law;
 use Infinito\Entity\Meta\Right;
 use Infinito\Entity\Meta\Relation\Parent\HeredityRelation;
@@ -31,7 +31,7 @@ final class LayerClassMap implements LayerClassMapInterface
     /**
      * @param string $layer
      *
-     * @throws NotSetException
+     * @throws NotSetElementException
      *
      * @return string
      */
@@ -40,6 +40,6 @@ final class LayerClassMap implements LayerClassMapInterface
         if (array_key_exists($layer, self::LAYER_CLASS_MAP)) {
             return self::LAYER_CLASS_MAP[$layer];
         }
-        throw new NotSetException('The requested layer is not mapped!');
+        throw new NotSetElementException('The requested layer is not mapped!');
     }
 }

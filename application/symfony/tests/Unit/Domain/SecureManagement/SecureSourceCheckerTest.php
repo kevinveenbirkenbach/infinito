@@ -12,7 +12,7 @@ use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\Meta\Right\CRUDType;
 use Infinito\Attribut\SourceAttribut;
 use Infinito\Attribut\SourceAttributInterface;
-use Infinito\Exception\SourceAccessDenied;
+use Infinito\Exception\Permission\NoSourcePermissionException;
 
 /**
  * @author kevinfrantz
@@ -80,7 +80,7 @@ class SecureSourceCheckerTest extends TestCase
         $requestedRight = clone $right;
         $this->assertTrue($this->securerSourceChecker->hasPermission($requestedRight));
         $childRight->setActionType(CRUDType::READ);
-        $this->expectException(SourceAccessDenied::class);
+        $this->expectException(NoSourcePermissionException::class);
         $this->securerSourceChecker->hasPermission($requestedRight);
     }
 
@@ -102,7 +102,7 @@ class SecureSourceCheckerTest extends TestCase
         $requestedRight = clone $right;
         $this->assertTrue($this->securerSourceChecker->hasPermission($requestedRight));
         $childRight->setActionType(CRUDType::READ);
-        $this->expectException(SourceAccessDenied::class);
+        $this->expectException(NoSourcePermissionException::class);
         $this->securerSourceChecker->hasPermission($requestedRight);
     }
 

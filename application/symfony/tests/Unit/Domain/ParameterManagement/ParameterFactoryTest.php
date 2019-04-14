@@ -5,7 +5,7 @@ namespace tests\Unit\Domain\ParameterManagement;
 use PHPUnit\Framework\TestCase;
 use Infinito\Domain\ParameterManagement\ParameterFactory;
 use Infinito\Domain\ParameterManagement\Parameter\VersionParameter;
-use Infinito\Exception\Collection\NotSetElementException;
+use Infinito\Exception\Core\NotImplementedCoreException;
 
 /**
  * @author kevinfrantz
@@ -27,7 +27,7 @@ class ParameterFactoryTest extends TestCase
         $versionParameter = $parameterFactory->getParameter('version');
         $this->assertInstanceOf(VersionParameter::class, $versionParameter);
         $this->assertEquals($versionParameter, $parameterFactory->getParameter('version'));
-        $this->expectException(NotSetElementException::class);
+        $this->expectException(NotImplementedCoreException::class);
         $versionParameter = $parameterFactory->getParameter('blabalbal');
     }
 }

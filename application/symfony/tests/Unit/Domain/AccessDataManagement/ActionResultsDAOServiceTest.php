@@ -10,8 +10,8 @@ use PHPUnit\Framework\TestCase;
 use Infinito\Exception\Collection\ContainsElementException;
 use Infinito\Exception\Collection\NotSetElementException;
 use Infinito\Exception\Type\InvalidChoiceTypeException;
-use Infinito\Exception\Core\NotCorrectInstanceCoreException;
 use Infinito\Domain\DataAccessManagement\ActionsResultsDAOServiceInterface;
+use Infinito\Exception\Validation\ValueInvalidException;
 
 /**
  * @author kevinfrantz
@@ -41,7 +41,7 @@ class ActionResultsDAOServiceTest extends TestCase
 
     public function testNotCorrectInstanceSetException(): void
     {
-        $this->expectException(NotCorrectInstanceCoreException::class);
+        $this->expectException(ValueInvalidException::class);
         $data = new class() {
         };
         $this->actionsResultsDAO->setData(ActionType::READ, $data);

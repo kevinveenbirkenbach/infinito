@@ -20,10 +20,10 @@ use Infinito\Attribut\RightsAttributInterface;
 use Infinito\Entity\EntityInterface;
 use Infinito\Attribut\VersionAttribut;
 use Infinito\Attribut\IdAttribut;
-use Infinito\Exception\NotCorrectInstanceException;
 use Infinito\Entity\Source\Complex\UserSource;
 use Infinito\Entity\User;
 use Infinito\Attribut\UserAttributInterface;
+use Infinito\Exception\Core\NotCorrectInstanceCoreException;
 
 /**
  * @author kevinfrantz
@@ -65,7 +65,7 @@ class EntityDomServiceTest extends TestCase
         $entity->setTest(new class() {
         });
         $this->requestedEntityService->method('getEntity')->willReturn($entity);
-        $this->expectException(NotCorrectInstanceException::class);
+        $this->expectException(NotCorrectInstanceCoreException::class);
         $this->entityDomService->getDomDocument();
     }
 

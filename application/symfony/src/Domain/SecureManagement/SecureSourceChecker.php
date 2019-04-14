@@ -5,7 +5,7 @@ namespace Infinito\Domain\SecureManagement;
 use Infinito\Entity\Meta\RightInterface;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Domain\LawManagement\LawPermissionChecker;
-use Infinito\Exception\SourceAccessDenied;
+use Infinito\Exception\Permission\NoSourcePermissionException;
 
 /**
  * @author kevinfrantz
@@ -62,7 +62,7 @@ final class SecureSourceChecker implements SecureSourceCheckerInterface
     /**
      * @param RightInterface $requestedRight
      *
-     * @throws SourceAccessDenied It's important to fire this exception to reduce complexity in debuging
+     * @throws NoSourcePermissionException It's important to fire this exception to reduce complexity in debuging
      *
      * @return bool
      */
@@ -77,7 +77,7 @@ final class SecureSourceChecker implements SecureSourceCheckerInterface
                     if ($this->isSource($attributExpectedSource)) {
                         $methodSecureSourceChecker = new self($attributExpectedSource);
                         if (!$methodSecureSourceChecker->hasPermission($requestedSubSourceRight)) {
-                            throw new SourceAccessDenied('Access denied for subsource!');
+                            throw new NoSourcePermissionException('Access denied for subsource!');
                         }
                     }
                 }

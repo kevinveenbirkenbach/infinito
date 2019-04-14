@@ -7,7 +7,7 @@ use Infinito\Domain\ActionManagement\ActionInterface;
 use Infinito\Domain\ActionManagement\AbstractAction;
 use Infinito\Domain\ActionManagement\ActionDependenciesDAOServiceInterface;
 use PHPUnit\Framework\MockObject\MockObject;
-use Infinito\Exception\NotValidByFormException;
+use Infinito\Exception\Validation\FormInvalidException;
 
 /**
  * @author kevinfrantz
@@ -51,7 +51,7 @@ class AbstractActionTest extends TestCase
     {
         $this->action->isSecure = true;
         $this->action->validByForm = false;
-        $this->expectException(NotValidByFormException::class);
+        $this->expectException(FormInvalidException::class);
         $this->action->execute();
     }
 }

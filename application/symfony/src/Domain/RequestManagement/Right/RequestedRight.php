@@ -11,8 +11,8 @@ use Infinito\Entity\Meta\MetaInterface;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntity;
 use Infinito\Attribut\ActionTypeAttribut;
 use Infinito\Exception\Core\NotCorrectInstanceCoreException;
-use Infinito\Exception\NoIdentityCoreException;
-use Infinito\Exception\Attribut\AllreadyDefinedAttributException;
+use Infinito\Exception\Core\NoIdentityCoreException;
+use Infinito\Exception\Collection\ContainsElementException;
 
 /**
  * @author kevinfrantz
@@ -57,7 +57,7 @@ class RequestedRight implements RequestedRightInterface
         if ($this->requestedEntity->hasIdentity()) {
             return;
         }
-        throw new NoIdentityCoreException(get_class($this->requestedEntity).' needs to have a defined attribut id or slug!');
+        throw new NoIdentityCoreException(get_class($this->requestedEntity).' needs to have a defined id or slug attribut!');
     }
 
     /**
@@ -79,7 +79,7 @@ class RequestedRight implements RequestedRightInterface
     public function setActionType(string $actionType): void
     {
         if (isset($this->actionType)) {
-            throw new AllreadyDefinedAttributException("The action type is allready set! Origine: $this->actionType New: $actionType");
+            throw new ContainsElementException("The action type is allready set! Origine: $this->actionType New: $actionType");
         }
         $this->setActionTypeTrait($actionType);
     }

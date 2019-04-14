@@ -11,8 +11,9 @@ use Infinito\Repository\RepositoryInterface;
 use Infinito\Entity\EntityInterface;
 use Infinito\Entity\Source\AbstractSource;
 use Infinito\Exception\Attribut\UndefinedAttributException;
-use Infinito\Exception\NoIdentityCoreException;
+use Infinito\Exception\Core\NoIdentityCoreException;
 use Infinito\Exception\Attribut\AllreadyDefinedAttributException;
+use Infinito\Exception\Core\NotCorrectInstanceCoreException;
 
 /**
  * @author kevinfrantz
@@ -37,7 +38,7 @@ class RequestedEntityTest extends TestCase
     {
         $layerRepositoryFactoryService = $this->createMock(LayerRepositoryFactoryServiceInterface::class);
         $requestedEntity = new RequestedEntity($layerRepositoryFactoryService);
-        $this->expectException(UndefinedAttributException::class);
+        $this->expectException(NoIdentityCoreException::class);
         $requestedEntity->getEntity();
     }
 
@@ -50,7 +51,7 @@ class RequestedEntityTest extends TestCase
         $requestedEntity = new RequestedEntity($layerRepositoryFactoryService);
         $requestedEntity->setSlug('abcd');
         $requestedEntity->setRequestedRight($requestedRight);
-        $this->expectException(NoIdentityCoreException::class);
+        $this->expectException(NotCorrectInstanceCoreException::class);
         $requestedEntity->getEntity();
     }
 

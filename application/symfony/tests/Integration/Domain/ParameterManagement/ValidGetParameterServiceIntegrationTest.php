@@ -13,11 +13,12 @@ use Infinito\Domain\ParameterManagement\Parameter\VersionParameter;
 use Infinito\Domain\ParameterManagement\ParameterFactoryInterface;
 use Infinito\Exception\Validation\GetParameterInvalidException;
 use Infinito\Exception\Collection\NotSetElementException;
+use Infinito\Exception\Core\NotImplementedCoreException;
 
 /**
  * @author kevinfrantz
  */
-class ValidGetParameterServiceTest extends KernelTestCase
+class ValidGetParameterServiceIntegrationTest extends KernelTestCase
 {
     /**
      * @var Request
@@ -72,10 +73,17 @@ class ValidGetParameterServiceTest extends KernelTestCase
         $this->validGetParameterService->getParameter($versionKey);
     }
 
-    public function testConstructor(): void
+    public function testConstructorInvalid(): void
+    {
+        $this->currentRequest->query->set(VersionParameter::getKey(), 'adasa');
+        $this->expectException(GetParameterInvalidException::class);
+        new ValidGetParametersService($this->requestStack, $this->parameterFactory, $this->validator);
+    }
+
+    public function testConstructorNotImplemented(): void
     {
         $this->currentRequest->query->set('asdwgwe', 'adasa');
-        $this->expectException(GetParameterInvalidException::class);
+        $this->expectException(NotImplementedCoreException::class);
         new ValidGetParametersService($this->requestStack, $this->parameterFactory, $this->validator);
     }
 

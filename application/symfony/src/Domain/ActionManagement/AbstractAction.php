@@ -3,8 +3,8 @@
 namespace Infinito\Domain\ActionManagement;
 
 use Infinito\Entity\EntityInterface;
-use Infinito\Exception\NotSecureException;
-use Infinito\Exception\NotValidByFormException;
+use Infinito\Exception\Validation\FormInvalidException;
+use Infinito\Exception\Permission\NoPermissionException;
 
 /**
  * @author kevinfrantz
@@ -50,8 +50,8 @@ abstract class AbstractAction extends AbstractActionConstructor implements Actio
             if ($this->isValid()) {
                 return $this->proccess();
             }
-            throw new NotValidByFormException('The requested Entity is not valid!');
+            throw new FormInvalidException('The requested Entity is not valid!');
         }
-        throw new NotSecureException("You don't have the permission to execute this action!");
+        throw new NoPermissionException("You don't have the permission to execute this action!");
     }
 }

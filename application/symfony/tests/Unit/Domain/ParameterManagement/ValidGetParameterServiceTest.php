@@ -4,7 +4,6 @@ namespace tests\Unit\Domain\ParameterManagement;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Infinito\Exception\NotDefinedException;
 use Infinito\Domain\ParameterManagement\Parameter\VersionParameter;
 use Infinito\Domain\ParameterManagement\ParameterFactory;
 use Infinito\Domain\ParameterManagement\ValidGetParametersService;
@@ -13,6 +12,8 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Infinito\Domain\ParameterManagement\ValidGetParameterServiceInterface;
 use Infinito\Domain\ParameterManagement\Parameter\ViewParameter;
 use Infinito\DBAL\Types\ActionType;
+use Infinito\Exception\Collection\NotSetElementException;
+use Infinito\Exception\Core\NotImplementedCoreException;
 
 /**
  * This class is a bit messed up because it is an recycled class of an other unit.
@@ -69,13 +70,17 @@ class ValidGetParameterServiceTest extends KernelTestCase
             $this->assertTrue($this->validGetParameterService->hasParameter($key));
             $this->assertEquals($value, $this->validGetParameterService->getParameter($key));
         }
-        $this->expectException(NotDefinedException::class);
+    }
+
+    public function testNotImplementedException(): void
+    {
+        $this->expectException(NotImplementedCoreException::class);
         $this->validGetParameterService->getParameter('12312312asdas');
     }
 
-    public function testSetParameterException(): void
+    public function testNotSetParameterException(): void
     {
-        $this->expectException(NotDefinedException::class);
+        $this->expectException(NotSetElementException::class);
         $this->validGetParameterService->getParameter(VersionParameter::getKey());
     }
 }

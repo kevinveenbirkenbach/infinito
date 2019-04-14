@@ -19,6 +19,7 @@ trait ActionTypeAttribut
 
     /**
      * @param string $actionType
+     *
      * @throws InvalidChoiceTypeException
      */
     public function setActionType(string $actionType): void

@@ -48,6 +48,7 @@ final class ActionsResultsDAOService extends AbstractActionsDAO implements Actio
 
     /**
      * @param string $actionType
+     *
      * @throws InvalidChoiceTypeException
      */
     private function throwNoValidActionTypeException(string $actionType): void

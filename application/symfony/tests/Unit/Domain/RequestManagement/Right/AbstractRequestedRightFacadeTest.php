@@ -12,10 +12,10 @@ use Infinito\Domain\UserManagement\UserSourceDirectorInterface;
 use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
 use Infinito\Domain\RequestManagement\Right\RequestedRight;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use Infinito\Exception\SetNotPossibleException;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Domain\RequestManagement\Right\AbstractRequestedRightFacade;
 use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
+use Infinito\Exception\Collection\NotPossibleSetElementException;
 
 /**
  * @author kevinfrantz
@@ -88,7 +88,7 @@ class AbstractRequestedRightFacadeTest extends TestCase
         $userSourceDirector = $this->createMock(UserSourceDirectorInterface::class);
         $requestedRight = $this->createMock(RequestedRightInterface::class);
         $requestedUserRightFacade = new RequestedUser($userSourceDirector, $requestedRight);
-        $this->expectException(SetNotPossibleException::class);
+        $this->expectException(NotPossibleSetElementException::class);
         $requestedUserRightFacade->setReciever($reciever);
     }
 }

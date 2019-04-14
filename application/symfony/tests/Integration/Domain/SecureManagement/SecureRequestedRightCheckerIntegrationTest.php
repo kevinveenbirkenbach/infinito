@@ -46,7 +46,7 @@ class SecureRequestedRightCheckerServiceIntegrationTest extends KernelTestCase
         $requestedRight->setLayer($layer);
         $requestedRight->setReciever($reciever);
         $requestedEntity = $this->createMock(RequestedEntityInterface::class);
-        $requestedEntity->method('hasId')->willReturn(true);
+        $requestedEntity->method('hasIdentity')->willReturn(true);
         $requestedEntity->method('getEntity')->willReturn($source);
         $requestedRight->setRequestedEntity($requestedEntity);
         $result = $this->secureRequestedRightCheckerService->check($requestedRight);
@@ -72,7 +72,7 @@ class SecureRequestedRightCheckerServiceIntegrationTest extends KernelTestCase
         $requestedRight->setLayer($layer);
         $requestedRight->setReciever($reciever);
         $requestedEntity = $this->createMock(RequestedEntityInterface::class);
-        $requestedEntity->method('hasId')->willReturn(true);
+        $requestedEntity->method('hasIdentity')->willReturn(true);
         $requestedEntity->method('getEntity')->willReturn($source);
         $requestedRight->setRequestedEntity($requestedEntity);
         $result = $this->secureRequestedRightCheckerService->check($requestedRight);

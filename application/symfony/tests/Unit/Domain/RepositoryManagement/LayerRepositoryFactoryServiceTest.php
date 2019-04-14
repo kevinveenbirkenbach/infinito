@@ -6,8 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryService;
 use Infinito\Repository\RepositoryInterface;
-use Infinito\Exception\Collection\NotSetException;
 use Infinito\Domain\LayerManagement\LayerClassMap;
+use Infinito\Exception\Collection\NotSetElementException;
 
 /**
  * @author kevinfrantz
@@ -32,7 +32,7 @@ class LayerRepositoryFactoryServiceTest extends KernelTestCase
             $repositoy = $this->layerRepositoryFactoryService->getRepository($layer);
             $this->assertInstanceOf(RepositoryInterface::class, $repositoy);
         }
-        $this->expectException(NotSetException::class);
+        $this->expectException(NotSetElementException::class);
         $repositoy = $this->layerRepositoryFactoryService->getRepository('UnknownLayer');
     }
 }

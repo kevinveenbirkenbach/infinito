@@ -8,7 +8,6 @@ use Infinito\Domain\RequestManagement\Right\RequestedRight;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntity;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use Infinito\Exception\PreconditionFailedException;
 use Infinito\Entity\Source\PureSource;
 use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryService;
@@ -16,8 +15,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Infinito\Entity\Meta\Law;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\DBAL\Types\ActionType;
-use Infinito\Exception\AllreadySetException;
 use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
+use Infinito\Exception\Core\NoIdentityCoreException;
+use Infinito\Exception\Collection\ContainsElementException;
 
 /**
  * @author kevinfrantz
@@ -59,7 +59,7 @@ class RequestedRightTest extends KernelTestCase
     {
         $requestedSource = $this->createMock(RequestedEntity::class);
         $this->requestedRight->setRequestedEntity($requestedSource);
-        $this->expectException(PreconditionFailedException::class);
+        $this->expectException(NoIdentityCoreException::class);
         $this->requestedRight->getSource();
     }
 
@@ -83,6 +83,7 @@ class RequestedRightTest extends KernelTestCase
         $requestedEntity = $this->createMock(RequestedEntityInterface::class);
         $requestedEntity->method('getSlug')->willReturn($slug);
         $requestedEntity->method('hasSlug')->willReturn(true);
+        $requestedEntity->method('hasIdentity')->willReturn(true);
         $requestedEntity->method('getEntity')->willReturn($requestedEntityEntity);
         $this->assertEquals($slug, $requestedEntity->getSlug());
         $this->requestedRight->setRequestedEntity($requestedEntity);
@@ -101,6 +102,7 @@ class RequestedRightTest extends KernelTestCase
         $requestedEntity->method('getSlug')->willReturn($slug);
         $requestedEntity->method('hasSlug')->willReturn(true);
         $requestedEntity->method('getEntity')->willReturn($entity);
+        $requestedEntity->method('hasIdentity')->willReturn(true);
         $this->assertEquals($slug, $requestedEntity->getSlug());
         $this->requestedRight->setRequestedEntity($requestedEntity);
         $this->requestedRight->setLayer(LayerType::LAW);
@@ -113,7 +115,7 @@ class RequestedRightTest extends KernelTestCase
         $attributType = ActionType::CREATE;
         $this->requestedRight->setActionType($attributType);
         $this->assertEquals($attributType, $this->requestedRight->getActionType());
-        $this->expectException(AllreadySetException::class);
+        $this->expectException(ContainsElementException::class);
         $this->requestedRight->setActionType($attributType);
     }
 }

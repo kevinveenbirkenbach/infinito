@@ -3,10 +3,9 @@
 namespace Infinito\Domain\RequestManagement\Action;
 
 use Doctrine\Common\Collections\Collection;
-use Infinito\Domain\ReInfinito\Management\RequestedActionStackInterface;
 use Doctrine\Common\Collections\ArrayCollection;
-use Infinito\Exception\AllreadySetException;
-use Infinito\Exception\Collection\NotSetException;
+use Infinito\Exception\Collection\ContainsElementException;
+use Infinito\Exception\Collection\NotSetElementException;
 
 /**
  * @author kevinfrantz
@@ -26,7 +25,7 @@ class RequestedActionStack implements RequestedActionStackInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ReInfinito\Management\RequestedActionStackInterface::containesRequestedAction()
+     * @see \Infinito\Domain\RequestManagement\Action\RequestedActionStackInterface::containesRequestedAction()
      */
     public function containesRequestedAction(string $actionType): bool
     {
@@ -36,13 +35,13 @@ class RequestedActionStack implements RequestedActionStackInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ReInfinito\Management\RequestedActionStackInterface::addRequestedAction()
+     * @see \Infinito\Domain\RequestManagement\Action\RequestedActionStackInterface::addRequestedAction()
      */
     public function addRequestedAction(RequestedActionInterface $requestedAction): void
     {
         $key = $requestedAction->getActionType();
         if ($this->containesRequestedAction($key)) {
-            throw new AllreadySetException("The key is allready set <<$key>>!");
+            throw new ContainsElementException("The key is allready set <<$key>>!");
         }
         $this->requestedActions->set($key, $requestedAction);
     }
@@ -50,7 +49,7 @@ class RequestedActionStack implements RequestedActionStackInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ReInfinito\Management\RequestedActionStackInterface::getAllRequestedActions()
+     * @see \Infinito\Domain\RequestManagement\Action\RequestedActionStackInterface::getAllRequestedActions()
      */
     public function getAllRequestedActions(): Collection
     {
@@ -60,13 +59,13 @@ class RequestedActionStack implements RequestedActionStackInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ReInfinito\Management\RequestedActionStackInterface::getRequestedAction()
+     * @see \Infinito\Domain\RequestManagement\Action\RequestedActionStackInterface::getRequestedAction()
      */
     public function getRequestedAction(string $actionType): RequestedActionInterface
     {
         if ($this->requestedActions->containsKey($actionType)) {
             return $this->requestedActions->get($actionType);
         }
-        throw new NotSetException(RequestedActionInterface::class." object for action type <<$actionType>> was not set!");
+        throw new NotSetElementException(RequestedActionInterface::class." object for action type <<$actionType>> was not set!");
     }
 }

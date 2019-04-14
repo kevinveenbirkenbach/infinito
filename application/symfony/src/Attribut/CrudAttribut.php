@@ -7,6 +7,7 @@ use Infinito\Exception\Type\InvalidChoiceTypeException;
 
 /**
  * @author kevinfrantz
+ *
  * @see CrudAttributInterface
  */
 trait CrudAttribut

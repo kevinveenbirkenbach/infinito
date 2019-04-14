@@ -11,9 +11,9 @@ use Infinito\Entity\EntityInterface;
 use Infinito\Logic\Result\ResultInterface;
 use Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
 use Infinito\Exception\Type\InvalidChoiceTypeException;
-use Infinito\Exception\Core\NotCorrectInstanceCoreException;
 use Infinito\Exception\Collection\NotSetElementException;
 use Infinito\Exception\Collection\ContainsElementException;
+use Infinito\Exception\Validation\ValueInvalidException;
 
 /**
  * @author kevinfrantz
@@ -55,7 +55,7 @@ class ActionViewsDAOServiceIntegrationTest extends TestCase
 
     public function testNotCorrectInstanceSetException(): void
     {
-        $this->expectException(NotCorrectInstanceCoreException::class);
+        $this->expectException(ValueInvalidException::class);
         $data = new class() {
         };
         $this->actionsResultsDAO->setData(ActionType::READ, $data);

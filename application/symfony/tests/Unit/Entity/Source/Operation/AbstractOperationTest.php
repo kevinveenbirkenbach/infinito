@@ -10,8 +10,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Infinito\Logic\Operation\OperandInterface;
 use Infinito\Logic\Result\ResultInterface;
 use Infinito\Logic\Result\Result;
-use Infinito\Exception\NotProcessedException;
+use Infinito\Exception\Deprecated\NotProcessedException;
 
+/**
+ * @author kevinfrantz
+ */
 class AbstractOperationTest extends TestCase
 {
     /**

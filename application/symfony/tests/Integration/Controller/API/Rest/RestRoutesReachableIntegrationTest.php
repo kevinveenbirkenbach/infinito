@@ -71,7 +71,7 @@ class RestRoutesReachableIntegrationTest extends KernelTestCase
         ]);
         $request->setMethod($method);
         $response = static::$kernel->handle($request);
-        $this->assertTrue($this->isResponseValid($response), "Route $url with Method $method sends an 404 response and doesn't throw an EntityNotFoundHttpException!");
+        $this->assertTrue($this->isResponseValid($response), "Route $url with Method $method sends an 404 response and doesn't throw an EntityNotFoundException!");
     }
 
     /**
@@ -82,7 +82,7 @@ class RestRoutesReachableIntegrationTest extends KernelTestCase
     private function isResponseValid(Response $response): bool
     {
         $is404 = 404 === $response->getStatusCode();
-        $isEntityNotFoundHttpException = strpos($response->getContent(), 'EntityNotFoundHttpException');
+        $isEntityNotFoundHttpException = strpos($response->getContent(), 'EntityNotFoundException');
 
         return !$is404 || $isEntityNotFoundHttpException;
     }

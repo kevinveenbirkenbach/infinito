@@ -5,7 +5,7 @@ namespace Infinito\Domain\FormManagement;
 use Symfony\Component\Form\FormBuilderInterface;
 use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
 use Symfony\Component\Form\FormFactoryInterface;
-use Infinito\Exception\Collection\NotSetException;
+use Infinito\Exception\Attribut\UndefinedAttributException;
 
 /**
  * @author kevinfrantz
@@ -25,12 +25,12 @@ class RequestedActionFormBuilder implements RequestedActionFormBuilderInterface
     /**
      * @param RequestedActionInterface $requestedAction
      *
-     * @throws NotSetException If the requested action can't be processed
+     * @throws UndefinedAttributException If the requested action can't be processed
      */
     private function validateRequestedAction(RequestedActionInterface $requestedAction): void
     {
         if (!$requestedAction->hasRequestedEntity()) {
-            throw new NotSetException('The <<requested entity>> attribut of a <<requested action>> must be set, to be processed by '.__CLASS__.'!');
+            throw new UndefinedAttributException('The <<requested entity>> attribut of a <<requested action>> must be set, to be processed by '.__CLASS__.'!');
         }
     }
 

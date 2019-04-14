@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Infinito\Entity\Source\AbstractSource;
 use Infinito\Entity\Source\Operation\Attribut\OperandsAttribut;
-use Infinito\Exception\NotProcessedException;
+use Infinito\Exception\Deprecated\NotProcessedException;
 
 /**
  * @author kevinfrantz

@@ -18,8 +18,9 @@ trait SlugAttribut
 
     /**
      * @todo Maybe throw an other Exception here?
+     *
      * @param string $slug
-     * 
+     *
      * @throws ValueInvalidException
      */
     public function setSlug(string $slug): void

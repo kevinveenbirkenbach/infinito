@@ -5,7 +5,7 @@ namespace Tests\Attribut;
 use PHPUnit\Framework\TestCase;
 use Infinito\Attribut\SlugAttributInterface;
 use Infinito\Attribut\SlugAttribut;
-use Infinito\Exception\UnvalidValueException;
+use Infinito\Exception\Validation\ValueInvalidException;
 
 /**
  * @author kevinfrantz
@@ -42,7 +42,7 @@ class SlugAttributTest extends TestCase
 
     public function testNumericSetException(): void
     {
-        $this->expectException(UnvalidValueException::class);
+        $this->expectException(ValueInvalidException::class);
         $this->slugAttribut->setSlug('1234');
     }
 }

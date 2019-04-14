@@ -5,8 +5,8 @@ namespace tests\Unit\Domain\TwigManagement;
 use PHPUnit\Framework\TestCase;
 use Infinito\Domain\TwigManagement\ActionIconClassMapInterface;
 use Infinito\Domain\TwigManagement\ActionIconClassMap;
-use Infinito\Exception\Collection\NotSetException;
 use Infinito\DBAL\Types\ActionType;
+use Infinito\Exception\Collection\NotSetElementException;
 
 /**
  * @author kevinfrantz
@@ -30,7 +30,7 @@ class ActionIconClassMapTest extends TestCase
 
     public function testException(): void
     {
-        $this->expectException(NotSetException::class);
+        $this->expectException(NotSetElementException::class);
         $this->actionIconClassMap->getIconClass('wejfhwhke12');
     }
 

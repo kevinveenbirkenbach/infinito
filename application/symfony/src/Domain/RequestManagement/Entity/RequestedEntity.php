@@ -44,9 +44,10 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
      */
     private function validateHasIdentity(): void
     {
-        if (!($this->hasId() || $this->hasSlug())) {
-            throw new NoIdentityCoreException('No identity attribut like id or slug was set!');
+        if ($this->hasId() || $this->hasSlug()) {
+            return;
         }
+        throw new NoIdentityCoreException('No identity attribut like id or slug was set!');
     }
 
     /**
@@ -56,9 +57,10 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
      */
     private function validateLoadedEntity(?EntityInterface $entity): void
     {
-        if (!$entity) {
-            throw new EntityNotFoundException('Entity with {id:"'.$this->id.'",slug:"'.$this->slug.'"} not found');
+        if ($entity) {
+            return;
         }
+        throw new EntityNotFoundException('Entity with {id:"'.$this->id.'",slug:"'.$this->slug.'"} not found');
     }
 
     /**

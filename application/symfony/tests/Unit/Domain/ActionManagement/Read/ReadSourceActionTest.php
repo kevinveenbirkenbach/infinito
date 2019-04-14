@@ -7,10 +7,10 @@ use PHPUnit\Framework\TestCase;
 use Infinito\Domain\ActionManagement\Read\ReadAction;
 use Infinito\Domain\ActionManagement\ActionDependenciesDAOServiceInterface;
 use Infinito\Domain\ActionManagement\Read\ReadActionInterface;
-use Infinito\Exception\NotSecureException;
 use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use Infinito\Entity\Source\SourceInterface;
+use Infinito\Exception\Permission\NoPermissionException;
 
 /**
  * @author kevinfrantz
@@ -59,7 +59,7 @@ class ReadSourceActionTest extends TestCase
     public function testNotSecureException(): void
     {
         $this->actionService->method('isRequestedActionSecure')->willReturn(false);
-        $this->expectException(NotSecureException::class);
+        $this->expectException(NoPermissionException::class);
         $this->sourceReadAction->execute();
     }
 

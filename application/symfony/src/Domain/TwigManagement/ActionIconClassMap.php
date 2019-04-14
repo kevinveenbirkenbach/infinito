@@ -3,7 +3,7 @@
 namespace Infinito\Domain\TwigManagement;
 
 use Infinito\DBAL\Types\ActionType;
-use Infinito\Exception\Collection\NotSetException;
+use Infinito\Exception\Collection\NotSetElementException;
 
 /**
  * @author kevinfrantz
@@ -31,6 +31,6 @@ final class ActionIconClassMap implements ActionIconClassMapInterface
         if (key_exists($action, self::ACTION_ICON_CLASS_MAP)) {
             return self::ACTION_ICON_CLASS_MAP[$action];
         }
-        throw new NotSetException("The key <<$action>> is not defined in the map!");
+        throw new NotSetElementException("The key <<$action>> is not defined in the map!");
     }
 }

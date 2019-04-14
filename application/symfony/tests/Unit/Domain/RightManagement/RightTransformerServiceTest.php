@@ -24,6 +24,7 @@ class RightTransformerServiceTest extends TestCase
         $requestedEntity = $this->createMock(RequestedEntityInterface::class);
         $requestedEntity->method('hasId')->willReturn(123);
         $requestedEntity->method('getEntity')->willReturn($source);
+        $requestedEntity->method('hasIdentity')->willReturn(true);
         $requestedEntity->method('hasRequestedRight')->willReturn(true);
         $requestedRight = new RequestedRight();
         $requestedRight->setActionType($crud);

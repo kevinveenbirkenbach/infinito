@@ -39,6 +39,7 @@ class SecureRequestedRightCheckerServiceTest extends TestCase
         $requestedEntity = $this->createMock(RequestedEntityInterface::class);
         $requestedEntity->method('hasId')->willReturn(true);
         $requestedEntity->method('getEntity')->willReturn($source);
+        $requestedEntity->method('hasIdentity')->willReturn(true);
         $requestedRight->setRequestedEntity($requestedEntity);
         $rightTransformerService = new RightTransformerService();
         $secureEntityChecker = new SecureRequestedRightCheckerService($rightTransformerService);
@@ -67,6 +68,7 @@ class SecureRequestedRightCheckerServiceTest extends TestCase
         $requestedEntity = $this->createMock(RequestedEntityInterface::class);
         $requestedEntity->method('hasId')->willReturn(true);
         $requestedEntity->method('getEntity')->willReturn($source);
+        $requestedEntity->method('hasIdentity')->willReturn(true);
         $requestedRight->setRequestedEntity($requestedEntity);
         $rightTransformerService = new RightTransformerService();
         $secureEntityChecker = new SecureRequestedRightCheckerService($rightTransformerService);

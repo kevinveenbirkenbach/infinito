@@ -20,8 +20,8 @@ trait LayerAttribut
     protected $layer;
 
     /**
-     * 
      * @param string $layer
+     *
      * @throws InvalidChoiceTypeException
      */
     public function setLayer(string $layer): void

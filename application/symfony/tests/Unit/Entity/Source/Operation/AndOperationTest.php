@@ -3,13 +3,13 @@
 namespace tests\unit\Entity\Source\Operation;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Exception\NotDefinedException;
 use Infinito\Logic\Result\Result;
 use Infinito\Logic\Operation\OperandInterface;
 use Infinito\Logic\Result\ResultInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Infinito\Entity\Source\Operation\OperationInterface;
 use Infinito\Entity\Source\Operation\AndOperation;
+use Infinito\Exception\Attribut\UndefinedAttributException;
 
 class AndOperationTest extends TestCase
 {
@@ -25,7 +25,7 @@ class AndOperationTest extends TestCase
 
     public function testConstructor(): void
     {
-        $this->expectException(NotDefinedException::class);
+        $this->expectException(UndefinedAttributException::class);
         $this->operation->process();
     }
 

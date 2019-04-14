@@ -14,9 +14,9 @@ use Infinito\Domain\RequestManagement\Right\RequestedRight;
 use Infinito\Domain\UserManagement\UserSourceDirector;
 use Infinito\Repository\Source\SourceRepositoryInterface;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
-use Infinito\Exception\SetNotPossibleException;
-use Infinito\Exception\NotCorrectInstanceException;
 use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
+use Infinito\Exception\Core\NotCorrectInstanceCoreException;
+use Infinito\Exception\Collection\NotPossibleSetElementException;
 
 /**
  * @author kevinfrantz
@@ -57,9 +57,10 @@ class RequestedUserTest extends TestCase
     {
         $layer = LayerType::SOURCE;
         $type = CRUDType::READ;
-        $requestedSource = $this->createMock(RequestedEntityInterface::class);
-        $requestedSource->method('getSlug')->willReturn(ImpressumFixtureSource::getSlug());
-        $requestedSource->method('hasSlug')->willReturn(true);
+        $requestedEntitySource = $this->createMock(RequestedEntityInterface::class);
+        $requestedEntitySource->method('getSlug')->willReturn(ImpressumFixtureSource::getSlug());
+        $requestedEntitySource->method('hasSlug')->willReturn(true);
+        $requestedEntitySource->method('hasIdentity')->willReturn(true);
         $sourceRepository = $this->createMock(SourceRepositoryInterface::class);
         $requestedRight = new RequestedRight();
         $user = $this->createMock(User::class);
@@ -67,10 +68,10 @@ class RequestedUserTest extends TestCase
         $requestedUserRightFacade = new RequestedUser($userSourceDirector, $requestedRight);
         $this->assertNull($requestedUserRightFacade->setLayer($layer));
         $this->assertNull($requestedUserRightFacade->setActionType($type));
-        $this->assertNull($requestedUserRightFacade->setRequestedEntity($requestedSource));
+        $this->assertNull($requestedUserRightFacade->setRequestedEntity($requestedEntitySource));
         $this->assertEquals($layer, $requestedRight->getLayer());
         $this->assertEquals($type, $requestedRight->getActionType());
-        $this->expectException(NotCorrectInstanceException::class);
+        $this->expectException(NotCorrectInstanceCoreException::class);
         $this->assertNotInstanceOf(RequestedEntityInterface::class, $requestedRight->getSource());
     }
 
@@ -80,7 +81,7 @@ class RequestedUserTest extends TestCase
         $userSourceDirector = $this->createMock(UserSourceDirectorInterface::class);
         $requestedRight = $this->createMock(RequestedRightInterface::class);
         $requestedUserRightFacade = new RequestedUser($userSourceDirector, $requestedRight);
-        $this->expectException(SetNotPossibleException::class);
+        $this->expectException(NotPossibleSetElementException::class);
         $requestedUserRightFacade->setReciever($reciever);
     }
 

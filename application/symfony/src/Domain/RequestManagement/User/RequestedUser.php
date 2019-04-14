@@ -4,9 +4,9 @@ namespace Infinito\Domain\RequestManagement\User;
 
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Domain\UserManagement\UserSourceDirectorInterface;
-use Infinito\Exception\SetNotPossibleException;
 use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
 use Infinito\Domain\RequestManagement\Right\AbstractRequestedRightFacade;
+use Infinito\Exception\Collection\NotPossibleSetElementException;
 
 /**
  * @author kevinfrantz
@@ -37,7 +37,7 @@ class RequestedUser extends AbstractRequestedRightFacade implements RequestedUse
      */
     public function setReciever(?SourceInterface $reciever): void
     {
-        throw new SetNotPossibleException('It\'s not possible to set the reciever! Set it via '.UserSourceDirectorInterface::class.'!');
+        throw new NotPossibleSetElementException('It\'s not possible to set the reciever! Set it via '.UserSourceDirectorInterface::class.'!');
     }
 
     /**

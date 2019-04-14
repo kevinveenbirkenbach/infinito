@@ -3,7 +3,6 @@
 namespace Infinito\Domain\SecureManagement;
 
 use Infinito\Entity\Meta\RightInterface;
-use Infinito\Exception\SourceAccessDenied;
 
 /**
  * @author kevinfrantz
@@ -11,8 +10,6 @@ use Infinito\Exception\SourceAccessDenied;
 interface SecureSourceCheckerInterface
 {
     /**
-     * @throws SourceAccessDenied
-     *
      * @param RightInterface $right
      *
      * @return bool

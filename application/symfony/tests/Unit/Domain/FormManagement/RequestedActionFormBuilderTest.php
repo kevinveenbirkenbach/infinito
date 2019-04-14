@@ -3,11 +3,11 @@
 namespace tests\Unit\Domain\FormManagement;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Exception\Collection\NotSetException;
 use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
 use Infinito\Domain\FormManagement\RequestedActionFormBuilder;
 use Infinito\Domain\FormManagement\FormClassNameServiceInterface;
 use Symfony\Component\Form\FormFactoryInterface;
+use Infinito\Exception\Attribut\UndefinedAttributException;
 
 /**
  * @author kevinfrantz
@@ -21,7 +21,7 @@ class RequestedActionFormBuilderTest extends TestCase
         $formFactory = $this->createMock(FormFactoryInterface::class);
         $formClassNameService = $this->createMock(FormClassNameServiceInterface::class);
         $requestedActionFormBuilder = new RequestedActionFormBuilder($formFactory, $formClassNameService);
-        $this->expectException(NotSetException::class);
+        $this->expectException(UndefinedAttributException::class);
         $requestedActionFormBuilder->create($requestedAction);
     }
 }

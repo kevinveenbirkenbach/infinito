@@ -2,8 +2,8 @@
 
 namespace Infinito\Domain\TwigManagement;
 
-use Infinito\Exception\Collection\NotSetException;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Exception\Collection\NotSetElementException;
 
 /**
  * @author kevinfrantz
@@ -32,6 +32,6 @@ final class LayerIconClassMap implements LayerIconClassMapInterface
         if (key_exists($layer, self::LAYER_ICON_CLASS_MAP)) {
             return self::LAYER_ICON_CLASS_MAP[$layer];
         }
-        throw new NotSetException("The key <<$layer>> is not defined in the map!");
+        throw new NotSetElementException("The key <<$layer>> is not defined in the map!");
     }
 }
