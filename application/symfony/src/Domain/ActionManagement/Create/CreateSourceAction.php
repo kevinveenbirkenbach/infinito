@@ -15,7 +15,7 @@ final class CreateSourceAction extends AbstractCreateAction
     /**
      * @var string default class name, when no parameter is defined
      */
-    const DEFAULT_CLASS = AbstractSource::class;
+    private const DEFAULT_CLASS = AbstractSource::class;
 
     /**
      * @see SourceClassInformationService

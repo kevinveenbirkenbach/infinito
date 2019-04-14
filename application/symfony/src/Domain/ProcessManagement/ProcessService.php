@@ -41,6 +41,33 @@ final class ProcessService implements ProcessServiceInterface
     private $validGetParameterService;
 
     /**
+     * @return bool True if the the entity exist
+     */
+    private function doesEntityExist():bool{
+        $requestedAction = $this->requestedActionService;
+        return $requestedAction->hasRequestedEntity() && $requestedAction->getRequestedEntity()->hasIdentity();
+    }
+    /**
+     * @return mixed|null
+     *
+     * @throws AccessDeniedException
+     */
+    private function getResult()
+    {
+        if ($this->doesEntityExist()) {
+            // READ UPDATE DELETE EXECUTE
+            if ($this->secureRequestedRightCheckerService->check($this->requestedActionService)) {
+                return $this->actionHandlerService->handle();
+            }
+            throw new AccessDeniedException("The user doesn't have the permission to access this page!");
+        }
+        // CREATE
+        $this->requestedActionService->getRequestedEntity()->setClass(TextSource::class);
+        
+        return;
+    }
+    
+    /**
      * @param ActionHandlerServiceInterface               $actionHandlerService
      * @param ActionsResultsDAOServiceInterface           $actionTemplateDataStore
      * @param RequestedActionServiceInterface             $requestedActionService
@@ -53,26 +80,6 @@ final class ProcessService implements ProcessServiceInterface
         $this->requestedActionService = $requestedActionService;
         $this->secureRequestedRightCheckerService = $secureRequestedRightCheckerService;
         $this->validGetParameterService = $validGetParameterService;
-    }
-
-    /**
-     * @return mixed|null
-     *
-     * @throws AccessDeniedException
-     */
-    private function getResult()
-    {
-        if ($this->requestedActionService->hasRequestedEntity() && $this->requestedActionService->getRequestedEntity()->hasIdentity()) {
-            // READ UPDATE DELETE EXECUTE
-            if ($this->secureRequestedRightCheckerService->check($this->requestedActionService)) {
-                return $this->actionHandlerService->handle();
-            }
-            throw new AccessDeniedException("The user doesn't have the permission to access this page!");
-        }
-        // CREATE
-        $this->requestedActionService->getRequestedEntity()->setClass(TextSource::class);
-
-        return;
     }
 
     /**
