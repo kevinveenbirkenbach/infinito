@@ -10,6 +10,7 @@ use Infinito\Entity\Meta\LawInterface;
 use Infinito\Domain\RightManagement\RightChecker;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Domain\SourceManagement\SourceMemberInformation;
+use Infinito\Domain\MethodManagement\MethodPrefixType;
 
 /**
  * @todo Implement checking by operation sources
@@ -35,7 +36,7 @@ final class LawPermissionChecker implements LawPermissionCheckerInterface
     {
         $result = new ArrayCollection();
         foreach ($rights as $right) {
-            if ($right->{'get'.$attribut}() === $value) {
+            if ($right->{MethodPrefixType::GET.$attribut}() === $value) {
                 $result->add($right);
             }
         }

@@ -5,27 +5,13 @@ namespace Infinito\Domain\RightManagement;
 use Infinito\Entity\Meta\RightInterface;
 use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
 use Infinito\Entity\Meta\Right;
+use Infinito\Domain\MethodManagement\MethodPrefixType;
 
 /**
  * @author kevinfrantz
  */
 final class RightTransformerService implements RightTransformerServiceInterface
 {
-    /**
-     * @var string Prefix for setter functions
-     */
-    public const SET_PREFIX = 'set';
-
-    /**
-     * @var string Prefix for getter functions
-     */
-    public const GET_PREFIX = 'get';
-
-    /**
-     * @var string Prefix for has functions
-     */
-    public const HAS_PREFIX = 'has';
-
     /**
      * @param string $method
      *
@@ -43,7 +29,7 @@ final class RightTransformerService implements RightTransformerServiceInterface
      */
     private function isNameSetter(string $name): bool
     {
-        return self::GET_PREFIX === substr($name, 0, 3);
+        return MethodPrefixType::GET === substr($name, 0, 3);
     }
 
     /**
@@ -119,9 +105,9 @@ final class RightTransformerService implements RightTransformerServiceInterface
      */
     private function isAttributeGetPossible(string $attribute, object $object)
     {
-        $has = $this->createMethod(self::HAS_PREFIX, $attribute);
+        $has = $this->createMethod(MethodPrefixType::HAS, $attribute);
         if ($this->hasMethod($has, $object)) {
-            $get = $this->createMethod(self::GET_PREFIX, $attribute);
+            $get = $this->createMethod(MethodPrefixType::GET, $attribute);
 
             return $object->{$get}();
         }
@@ -140,8 +126,8 @@ final class RightTransformerService implements RightTransformerServiceInterface
         $attributes = $this->getAttributesExistInBoth($right, $requestedRight);
         foreach ($attributes as $attribute) {
             if ($this->isAttributeGetPossible($attribute, $requestedRight)) {
-                $get = $this->createMethod(self::GET_PREFIX, $attribute);
-                $set = $this->createMethod(self::SET_PREFIX, $attribute);
+                $get = $this->createMethod(MethodPrefixType::GET, $attribute);
+                $set = $this->createMethod(MethodPrefixType::SET, $attribute);
                 $origine = $requestedRight->{$get}();
                 $right->{$set}($origine);
             }

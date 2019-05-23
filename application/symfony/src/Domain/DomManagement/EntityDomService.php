@@ -3,13 +3,13 @@
 namespace Infinito\Domain\DomManagement;
 
 use Infinito\Entity\EntityInterface;
-use Infinito\Domain\RightManagement\RightTransformerService;
 use Doctrine\Common\Collections\Collection;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Domain\LayerManagement\LayerInterfaceMap;
 use FOS\UserBundle\Model\UserInterface;
 use Infinito\Exception\Core\NotCorrectInstanceCoreException;
+use Infinito\Domain\MethodManagement\MethodPrefixType;
 
 /**
  * This class is not ready and not tested!
@@ -22,16 +22,6 @@ use Infinito\Exception\Core\NotCorrectInstanceCoreException;
  */
 final class EntityDomService implements EntityDomServiceInterface
 {
-    /**
-     * @var string
-     */
-    private const GET_METHOD = RightTransformerService::GET_PREFIX;
-
-    /**
-     * @var string
-     */
-    private const HAS_METHOD = RightTransformerService::HAS_PREFIX;
-
     /**
      * @var RequestedEntityServiceInterface
      */
@@ -102,11 +92,11 @@ final class EntityDomService implements EntityDomServiceInterface
      */
     private function getPropertyValue(string $propertyName)
     {
-        $hasMethod = $this->getMethodName(self::HAS_METHOD, $propertyName);
+        $hasMethod = $this->getMethodName(MethodPrefixType::HAS, $propertyName);
         if ($this->methodExist($hasMethod) && !$this->getMethodResult($hasMethod)) {
             return null;
         }
-        $getMethod = $this->getMethodName(self::GET_METHOD, $propertyName);
+        $getMethod = $this->getMethodName(MethodPrefixType::GET, $propertyName);
         $result = $this->getMethodResult($getMethod);
 
         return $result;
@@ -178,7 +168,7 @@ final class EntityDomService implements EntityDomServiceInterface
      */
     private function isPropertyAccessible(string $propertyName): bool
     {
-        $getMethod = $this->getMethodName(self::GET_METHOD, $propertyName);
+        $getMethod = $this->getMethodName(MethodPrefixType::GET, $propertyName);
 
         return $this->entityReflectionClass->hasMethod($getMethod);
     }

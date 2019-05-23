@@ -10,6 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Infinito\Exception\Attribut\AllreadyDefinedAttributException;
 use Infinito\Exception\Collection\ContainsElementException;
 use Infinito\Exception\Collection\NotSetElementException;
+use Infinito\Domain\MethodManagement\MethodPrefixType;
 
 /**
  * @author kevinfrantz
@@ -37,7 +38,7 @@ final class SourceRightManager implements SourceRightManagerInterface
         $attributes = ['source', 'law'];
         foreach ($attributes as $attribut) {
             try {
-                $right->{'get'.ucfirst($attribut)}();
+                $right->{MethodPrefixType::GET.ucfirst($attribut)}();
                 throw new AllreadyDefinedAttributException("The attribut \"$attribut\" is allready defined!");
             } catch (\Error $error) {
                 //Expected

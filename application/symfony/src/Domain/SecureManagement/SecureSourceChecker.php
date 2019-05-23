@@ -6,6 +6,7 @@ use Infinito\Entity\Meta\RightInterface;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Domain\LawManagement\LawPermissionChecker;
 use Infinito\Exception\Permission\NoSourcePermissionException;
+use Infinito\Domain\MethodManagement\MethodPrefixType;
 
 /**
  * @author kevinfrantz
@@ -32,7 +33,7 @@ final class SecureSourceChecker implements SecureSourceCheckerInterface
      */
     private function isGetter(string $methodName): bool
     {
-        return 'get' === substr($methodName, 0, 3);
+        return MethodPrefixType::GET === substr($methodName, 0, 3);
     }
 
     /**
