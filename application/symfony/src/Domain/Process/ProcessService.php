@@ -6,7 +6,7 @@ use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
 use Infinito\Domain\Secure\SecureRequestedRightCheckerServiceInterface;
 use Infinito\Domain\Action\ActionHandlerServiceInterface;
 use Infinito\Entity\Source\Primitive\Text\TextSource;
-use Infinito\Domain\DataAccessManagement\ActionsResultsDAOServiceInterface;
+use Infinito\Domain\DataAccess\ActionsResultsDAOServiceInterface;
 use Infinito\Domain\Parameter\ValidGetParameterServiceInterface;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 

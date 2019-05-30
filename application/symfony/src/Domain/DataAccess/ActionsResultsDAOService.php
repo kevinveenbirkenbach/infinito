@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\DataAccessManagement;
+namespace Infinito\Domain\DataAccess;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -123,7 +123,7 @@ final class ActionsResultsDAOService extends AbstractActionsDAO implements Actio
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\DataAccessManagement\ActionsDAOInterface::getAllStoredData()
+     * @see \Infinito\Domain\DataAccess\ActionsDAOInterface::getAllStoredData()
      */
     public function getAllStoredData(): Collection
     {
@@ -133,7 +133,7 @@ final class ActionsResultsDAOService extends AbstractActionsDAO implements Actio
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\DataAccessManagement\ActionsResultsDAOServiceInterface::setData()
+     * @see \Infinito\Domain\DataAccess\ActionsResultsDAOServiceInterface::setData()
      */
     public function setData(string $actionType, $data): void
     {
@@ -146,7 +146,7 @@ final class ActionsResultsDAOService extends AbstractActionsDAO implements Actio
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\DataAccessManagement\ActionsDAOInterface::isDataStored()
+     * @see \Infinito\Domain\DataAccess\ActionsDAOInterface::isDataStored()
      */
     public function isDataStored(string $actionType): bool
     {
@@ -156,7 +156,7 @@ final class ActionsResultsDAOService extends AbstractActionsDAO implements Actio
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\DataAccessManagement\ActionsDAOInterface::getData()
+     * @see \Infinito\Domain\DataAccess\ActionsDAOInterface::getData()
      */
     public function getData(string $actionType)
     {

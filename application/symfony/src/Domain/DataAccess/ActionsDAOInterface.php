@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\DataAccessManagement;
+namespace Infinito\Domain\DataAccess;
 
 use Doctrine\Common\Collections\Collection;
 

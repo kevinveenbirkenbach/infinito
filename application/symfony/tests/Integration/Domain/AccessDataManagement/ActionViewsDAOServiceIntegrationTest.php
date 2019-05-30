@@ -4,9 +4,9 @@ namespace tests\Unit\Domain\AccessDataManagement;
 
 use PHPUnit\Framework\TestCase;
 use Infinito\DBAL\Types\ActionType;
-use Infinito\Domain\DataAccessManagement\ActionsViewsDAOServiceInterface;
-use Infinito\Domain\DataAccessManagement\ActionsResultsDAOService;
-use Infinito\Domain\DataAccessManagement\ActionsViewsDAOService;
+use Infinito\Domain\DataAccess\ActionsViewsDAOServiceInterface;
+use Infinito\Domain\DataAccess\ActionsResultsDAOService;
+use Infinito\Domain\DataAccess\ActionsViewsDAOService;
 use Infinito\Entity\EntityInterface;
 use Infinito\Logic\Result\ResultInterface;
 use Infinito\Domain\Form\RequestedActionFormBuilderServiceInterface;
