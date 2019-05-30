@@ -10,7 +10,7 @@ use Infinito\Entity\Meta\LawInterface;
 use Infinito\Domain\RightManagement\RightChecker;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Domain\SourceManagement\SourceMemberInformation;
-use Infinito\Domain\MethodManagement\MethodPrefixType;
+use Infinito\Domain\Method\MethodPrefixType;
 
 /**
  * @todo Implement checking by operation sources

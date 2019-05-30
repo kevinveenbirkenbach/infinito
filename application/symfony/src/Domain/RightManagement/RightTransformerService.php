@@ -5,7 +5,7 @@ namespace Infinito\Domain\RightManagement;
 use Infinito\Entity\Meta\RightInterface;
 use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
 use Infinito\Entity\Meta\Right;
-use Infinito\Domain\MethodManagement\MethodPrefixType;
+use Infinito\Domain\Method\MethodPrefixType;
 
 /**
  * @author kevinfrantz

@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Infinito\Exception\Attribut\AllreadyDefinedAttributException;
 use Infinito\Exception\Collection\ContainsElementException;
 use Infinito\Exception\Collection\NotSetElementException;
-use Infinito\Domain\MethodManagement\MethodPrefixType;
+use Infinito\Domain\Method\MethodPrefixType;
 
 /**
  * @author kevinfrantz

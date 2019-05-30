@@ -9,7 +9,7 @@ use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Domain\Layer\LayerInterfaceMap;
 use FOS\UserBundle\Model\UserInterface;
 use Infinito\Exception\Core\NotCorrectInstanceCoreException;
-use Infinito\Domain\MethodManagement\MethodPrefixType;
+use Infinito\Domain\Method\MethodPrefixType;
 
 /**
  * This class is not ready and not tested!

@@ -6,7 +6,7 @@ use Infinito\Entity\Meta\RightInterface;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Domain\Law\LawPermissionChecker;
 use Infinito\Exception\Permission\NoSourcePermissionException;
-use Infinito\Domain\MethodManagement\MethodPrefixType;
+use Infinito\Domain\Method\MethodPrefixType;
 
 /**
  * @author kevinfrantz
