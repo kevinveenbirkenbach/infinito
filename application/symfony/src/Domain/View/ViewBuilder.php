@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\ViewManagement;
+namespace Infinito\Domain\View;
 
 use FOS\RestBundle\View\View;
 use Infinito\Domain\Action\ActionFactoryServiceInterface;
