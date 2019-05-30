@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\TemplateManagement;
+namespace Infinito\Domain\Template;
 
 /**
  * Allows to manually define the action type.

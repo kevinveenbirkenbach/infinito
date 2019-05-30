@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\TemplateManagement;
+namespace Infinito\Domain\Template;
 
 use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
 
@@ -119,7 +119,7 @@ class TemplateNameService implements TemplateNameServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\TemplateManagement\TemplateNameServiceInterface::getAtomTemplateName()
+     * @see \Infinito\Domain\Template\TemplateNameServiceInterface::getAtomTemplateName()
      */
     public function getAtomTemplateName(): string
     {
@@ -129,7 +129,7 @@ class TemplateNameService implements TemplateNameServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\TemplateManagement\TemplateNameServiceInterface::getMoleculeTemplateName()
+     * @see \Infinito\Domain\Template\TemplateNameServiceInterface::getMoleculeTemplateName()
      */
     public function getMoleculeTemplateName(): string
     {
@@ -149,7 +149,7 @@ class TemplateNameService implements TemplateNameServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\TemplateManagement\TemplateNameServiceInterface::doesAtomTemplateExists()
+     * @see \Infinito\Domain\Template\TemplateNameServiceInterface::doesAtomTemplateExists()
      */
     public function doesAtomTemplateExist(): bool
     {
@@ -159,7 +159,7 @@ class TemplateNameService implements TemplateNameServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\TemplateManagement\TemplateNameServiceInterface::doesMoleculeTemplateExists()
+     * @see \Infinito\Domain\Template\TemplateNameServiceInterface::doesMoleculeTemplateExists()
      */
     public function doesMoleculeTemplateExist(): bool
     {

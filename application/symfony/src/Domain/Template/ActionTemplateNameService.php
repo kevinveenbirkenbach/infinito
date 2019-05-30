@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\TemplateManagement;
+namespace Infinito\Domain\Template;
 
 /**
  * @author kevinfrantz
@@ -27,7 +27,7 @@ final class ActionTemplateNameService extends TemplateNameService implements Act
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\TemplateManagement\ActionTemplateNameServiceInterface::setActionType()
+     * @see \Infinito\Domain\Template\ActionTemplateNameServiceInterface::setActionType()
      */
     public function setActionType(?string $actionType): void
     {
