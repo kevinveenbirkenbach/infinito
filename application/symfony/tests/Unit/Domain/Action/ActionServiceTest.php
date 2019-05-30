@@ -7,7 +7,7 @@ use Infinito\Domain\Action\ActionDependenciesDAOService;
 use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
 use Infinito\Domain\Action\ActionDependenciesDAOServiceInterface;
 use Infinito\Repository\RepositoryInterface;
 use Symfony\Component\HttpFoundation\Request;

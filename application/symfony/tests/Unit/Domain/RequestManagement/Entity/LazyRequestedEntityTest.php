@@ -5,7 +5,7 @@ namespace tests\Unit\Domain\RequestManagement\Entity;
 use PHPUnit\Framework\TestCase;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use Infinito\Domain\RequestManagement\Entity\LazyRequestedEntity;
-use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
 use Infinito\Repository\RepositoryInterface;
 use Infinito\Entity\Source\PureSource;
 use Infinito\Repository\Source\SourceRepositoryInterface;

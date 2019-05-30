@@ -4,7 +4,7 @@ namespace tests\Unit\Domain\RequestManagement\Entity;
 
 use PHPUnit\Framework\TestCase;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntity;
-use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
 use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Repository\RepositoryInterface;

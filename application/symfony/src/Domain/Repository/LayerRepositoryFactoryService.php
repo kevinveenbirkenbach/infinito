@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\RepositoryManagement;
+namespace Infinito\Domain\Repository;
 
 use Infinito\Repository\RepositoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
@@ -27,7 +27,7 @@ final class LayerRepositoryFactoryService implements LayerRepositoryFactoryServi
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface::getRepository()
+     * @see \Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface::getRepository()
      */
     public function getRepository(string $layer): RepositoryInterface
     {

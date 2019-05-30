@@ -1,10 +1,10 @@
 <?php
 
-namespace tests\Unit\Domain\RepositoryManagement;
+namespace tests\Unit\Domain\Repository;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
-use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryService;
+use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\Repository\LayerRepositoryFactoryService;
 use Infinito\Repository\RepositoryInterface;
 use Infinito\Domain\Layer\LayerClassMap;
 use Infinito\Exception\Collection\NotSetElementException;

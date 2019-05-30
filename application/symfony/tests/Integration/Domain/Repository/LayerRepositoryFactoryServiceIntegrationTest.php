@@ -3,7 +3,7 @@
 namespace tests\Integration\Domain\RequestManagement\Right;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Repository\Meta\LawRepository;
 

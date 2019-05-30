@@ -3,7 +3,7 @@
 namespace Infinito\Domain\Action;
 
 use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
-use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Infinito\Repository\RepositoryInterface;

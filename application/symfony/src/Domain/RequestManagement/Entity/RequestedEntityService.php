@@ -2,7 +2,7 @@
 
 namespace Infinito\Domain\RequestManagement\Entity;
 
-use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
 
 /**
  * @author kevinfrantz

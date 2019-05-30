@@ -5,7 +5,7 @@ namespace Tests\Unit\Attribut;
 use PHPUnit\Framework\TestCase;
 use Infinito\Attribut\LayerRepositoryFactoryServiceAttributInterface;
 use Infinito\Attribut\LayerRepositoryFactoryServiceAttribut;
-use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
 
 /**
  * @author kevinfrantz

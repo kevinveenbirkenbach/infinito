@@ -22,7 +22,7 @@ use Infinito\Domain\Form\FormClassNameService;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityService;
 use Infinito\Entity\Source\PureSource;
 use Infinito\Attribut\ClassAttributInterface;
-use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryService;
+use Infinito\Domain\Repository\LayerRepositoryFactoryService;
 use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerService;
 use Infinito\Domain\RightManagement\RightTransformerService;
 

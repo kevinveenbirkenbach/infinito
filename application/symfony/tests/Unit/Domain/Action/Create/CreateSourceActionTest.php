@@ -14,7 +14,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
 use Infinito\Domain\Form\RequestedActionFormBuilderServiceInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 

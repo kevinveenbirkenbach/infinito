@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\RepositoryManagement;
+namespace Infinito\Domain\Repository;
 
 use Infinito\Repository\RepositoryInterface;
 
