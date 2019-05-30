@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\MapManagement;
+namespace Infinito\Domain\Map;
 
 use Infinito\DBAL\Types\ActionType;
 use Symfony\Component\HttpFoundation\Request;

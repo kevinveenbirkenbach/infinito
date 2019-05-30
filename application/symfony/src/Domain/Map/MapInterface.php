@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\MapManagement;
+namespace Infinito\Domain\Map;
 
 /**
  * @author kevinfrantz
