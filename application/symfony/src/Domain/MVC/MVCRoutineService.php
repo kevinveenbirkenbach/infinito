@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\MVCManagement;
+namespace Infinito\Domain\MVC;
 
 use FOS\RestBundle\View\View;
 use Infinito\Attribut\ActionTypeAttribut;
@@ -41,7 +41,7 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
      * @todo Optimize the whole following function. It's just implemented like this for test reasons.
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\MVCManagement\MVCRoutineServiceInterface::process()
+     * @see \Infinito\Domain\MVC\MVCRoutineServiceInterface::process()
      */
     public function process(): View
     {

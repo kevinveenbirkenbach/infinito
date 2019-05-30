@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Infinito\Controller\API\AbstractAPIController;
 use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
-use Infinito\Domain\MVCManagement\MVCRoutineServiceInterface;
+use Infinito\Domain\MVC\MVCRoutineServiceInterface;
 use Infinito\DBAL\Types\ActionType;
 use Infinito\Attribut\ClassAttributInterface;
 

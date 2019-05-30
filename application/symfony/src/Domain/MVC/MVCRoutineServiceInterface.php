@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\MVCManagement;
+namespace Infinito\Domain\MVC;
 
 use FOS\RestBundle\View\View;
 use Infinito\Attribut\ActionTypeAttributInterface;
