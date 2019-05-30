@@ -54,7 +54,7 @@ final class LayerController extends AbstractAPIController
      *
      * @todo Mayber create an own controller for sources, because they have some special logic!
      */
-    public function create(Request $request, CoreServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, string $layer): Response
+    public function create(Request $request, CoreServiceInterface $coreService, RequestedActionServiceInterface $requestedActionService, string $layer): Response
     {
         //Not implemented yet in Core routine. This is just a draft!
         if ($request->query->has(ClassAttributInterface::CLASS_ATTRIBUT_NAME)) {
@@ -63,7 +63,7 @@ final class LayerController extends AbstractAPIController
         }
         $requestedActionService->setActionType(ActionType::CREATE);
         $requestedActionService->setLayer($layer);
-        $view = $mvcRoutineService->process();
+        $view = $coreService->process();
 
         return $this->handleView($view);
     }
@@ -74,12 +74,12 @@ final class LayerController extends AbstractAPIController
      * methods={"GET"}
      * )
      */
-    public function read(CoreServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, string $layer, $identity): Response
+    public function read(CoreServiceInterface $coreService, RequestedActionServiceInterface $requestedActionService, string $layer, $identity): Response
     {
         $requestedActionService->setActionType(ActionType::READ);
         $requestedActionService->setLayer($layer);
         $requestedActionService->getRequestedEntity()->setIdentity($identity);
-        $view = $mvcRoutineService->process();
+        $view = $coreService->process();
 
         return $this->handleView($view);
     }
