@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\LawManagement;
+namespace Infinito\Domain\Law;
 
 use Infinito\Entity\Meta\RightInterface;
 

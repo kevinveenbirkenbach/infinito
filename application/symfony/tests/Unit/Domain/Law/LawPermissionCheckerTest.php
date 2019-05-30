@@ -1,10 +1,10 @@
 <?php
 
-namespace Unit\Domain\LawManagement;
+namespace Unit\Domain\Law;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Domain\LawManagement\LawPermissionChecker;
-use Infinito\Domain\LawManagement\LawPermissionCheckerInterface;
+use Infinito\Domain\Law\LawPermissionChecker;
+use Infinito\Domain\Law\LawPermissionCheckerInterface;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Entity\Meta\Right;
 use Infinito\DBAL\Types\Meta\Right\LayerType;

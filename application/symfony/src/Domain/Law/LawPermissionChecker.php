@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\LawManagement;
+namespace Infinito\Domain\Law;
 
 use PhpCollection\CollectionInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -164,7 +164,7 @@ final class LawPermissionChecker implements LawPermissionCheckerInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\LawManagement\LawPermissionCheckerInterface::hasPermission()
+     * @see \Infinito\Domain\Law\LawPermissionCheckerInterface::hasPermission()
      */
     public function hasPermission(RightInterface $clientRight): bool
     {

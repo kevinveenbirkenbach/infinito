@@ -4,7 +4,7 @@ namespace Infinito\Domain\SecureManagement;
 
 use Infinito\Entity\Meta\RightInterface;
 use Infinito\Entity\Source\SourceInterface;
-use Infinito\Domain\LawManagement\LawPermissionChecker;
+use Infinito\Domain\Law\LawPermissionChecker;
 use Infinito\Exception\Permission\NoSourcePermissionException;
 use Infinito\Domain\MethodManagement\MethodPrefixType;
 

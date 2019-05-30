@@ -9,7 +9,7 @@ use Infinito\Entity\Source\Complex\UserSource;
 use Infinito\Entity\Meta\Right;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\ActionType;
-use Infinito\Domain\LawManagement\LawPermissionChecker;
+use Infinito\Domain\Law\LawPermissionChecker;
 
 /**
  * @author kevinfrantz
