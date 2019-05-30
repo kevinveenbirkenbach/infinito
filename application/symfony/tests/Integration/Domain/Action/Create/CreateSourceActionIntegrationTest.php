@@ -24,7 +24,7 @@ use Infinito\Entity\Source\PureSource;
 use Infinito\Attribut\ClassAttributInterface;
 use Infinito\Domain\Repository\LayerRepositoryFactoryService;
 use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerService;
-use Infinito\Domain\RightManagement\RightTransformerService;
+use Infinito\Domain\Right\RightTransformerService;
 
 /**
  * @todo Implement test and logic!!!!!

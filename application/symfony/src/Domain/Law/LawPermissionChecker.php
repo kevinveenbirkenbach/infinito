@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Infinito\Entity\Meta\RightInterface;
 use Doctrine\Common\Collections\Collection;
 use Infinito\Entity\Meta\LawInterface;
-use Infinito\Domain\RightManagement\RightChecker;
+use Infinito\Domain\Right\RightChecker;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Domain\SourceManagement\SourceMemberInformation;
 use Infinito\Domain\Method\MethodPrefixType;

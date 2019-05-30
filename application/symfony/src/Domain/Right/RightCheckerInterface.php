@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\RightManagement;
+namespace Infinito\Domain\Right;
 
 use Infinito\Entity\Source\SourceInterface;
 

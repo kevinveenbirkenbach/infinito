@@ -10,7 +10,7 @@ use Infinito\Entity\Meta\Right;
 use Infinito\Domain\Request\Right\RequestedRight;
 use Infinito\Domain\Request\Entity\RequestedEntityInterface;
 use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerService;
-use Infinito\Domain\RightManagement\RightTransformerService;
+use Infinito\Domain\Right\RightTransformerService;
 use Infinito\Domain\Request\Right\RequestedRightInterface;
 
 /**

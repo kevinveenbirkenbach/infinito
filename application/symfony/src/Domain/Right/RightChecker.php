@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\RightManagement;
+namespace Infinito\Domain\Right;
 
 use Infinito\Entity\Meta\RightInterface;
 use Doctrine\Common\Collections\Collection;
@@ -100,7 +100,7 @@ final class RightChecker implements RightCheckerInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\RightManagement\RightCheckerInterface::isGranted()
+     * @see \Infinito\Domain\Right\RightCheckerInterface::isGranted()
      */
     public function isGranted(string $layer, string $type, SourceInterface $source): bool
     {

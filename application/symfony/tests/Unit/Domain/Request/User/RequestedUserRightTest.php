@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\Unit\Domain\RightManagement\User;
+namespace tests\Unit\Domain\Right\User;
 
 use PHPUnit\Framework\TestCase;
 use Infinito\Entity\User;

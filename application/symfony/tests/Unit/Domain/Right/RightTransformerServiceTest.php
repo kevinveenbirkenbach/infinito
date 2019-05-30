@@ -1,13 +1,13 @@
 <?php
 
-namespace tests\Unit\Domain\RightManagement;
+namespace tests\Unit\Domain\Right;
 
 use PHPUnit\Framework\TestCase;
 use Infinito\Domain\Request\Right\RequestedRight;
 use Infinito\DBAL\Types\Meta\Right\CRUDType;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Entity\Source\SourceInterface;
-use Infinito\Domain\RightManagement\RightTransformerService;
+use Infinito\Domain\Right\RightTransformerService;
 use Infinito\Domain\Request\Entity\RequestedEntityInterface;
 
 /**
