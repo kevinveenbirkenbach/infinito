@@ -4,7 +4,7 @@ twig:
     strict_variables: '%kernel.debug%'
     form_themes: ['bootstrap_4_layout.html.twig']
     globals:
-        layer_action_map: "@Infinito\\Domain\\LayerManagement\\LayerActionMap"
+        layer_action_map: "@Infinito\\Domain\\Layer\\LayerActionMap"
         requested_action_service: "@Infinito\\Domain\\RequestManagement\\Action\\RequestedActionService"
         action_icon_class_map: "@Infinito\\Domain\\TwigManagement\\ActionIconClassMap"
         layer_icon_class_map: "@Infinito\\Domain\\TwigManagement\\LayerIconClassMap"

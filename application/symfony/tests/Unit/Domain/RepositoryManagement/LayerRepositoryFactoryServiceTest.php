@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryServiceInterface;
 use Infinito\Domain\RepositoryManagement\LayerRepositoryFactoryService;
 use Infinito\Repository\RepositoryInterface;
-use Infinito\Domain\LayerManagement\LayerClassMap;
+use Infinito\Domain\Layer\LayerClassMap;
 use Infinito\Exception\Collection\NotSetElementException;
 
 /**

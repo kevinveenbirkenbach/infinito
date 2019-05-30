@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\LayerManagement;
+namespace Infinito\Domain\Layer;
 
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 

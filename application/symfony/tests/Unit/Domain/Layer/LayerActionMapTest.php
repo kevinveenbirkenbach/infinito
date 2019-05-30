@@ -1,10 +1,10 @@
 <?php
 
-namespace tests\Unit\Domain\LayerManagement;
+namespace tests\Unit\Domain\Layer;
 
 use PHPUnit\Framework\TestCase;
 use Infinito\DBAL\Types\ActionType;
-use Infinito\Domain\LayerManagement\LayerActionMap;
+use Infinito\Domain\Layer\LayerActionMap;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 
 /**

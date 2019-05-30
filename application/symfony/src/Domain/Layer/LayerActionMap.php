@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\LayerManagement;
+namespace Infinito\Domain\Layer;
 
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\ActionType;
@@ -27,7 +27,7 @@ final class LayerActionMap extends AbstractMap implements LayerActionMapInterfac
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\LayerManagement\LayerActionMapInterface::getLayers()
+     * @see \Infinito\Domain\Layer\LayerActionMapInterface::getLayers()
      */
     public static function getLayers(string $action): array
     {
@@ -37,7 +37,7 @@ final class LayerActionMap extends AbstractMap implements LayerActionMapInterfac
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\LayerManagement\LayerActionMapInterface::getActions()
+     * @see \Infinito\Domain\Layer\LayerActionMapInterface::getActions()
      */
     public static function getActions(string $layer): array
     {

@@ -6,7 +6,7 @@ use Infinito\Entity\EntityInterface;
 use Doctrine\Common\Collections\Collection;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
-use Infinito\Domain\LayerManagement\LayerInterfaceMap;
+use Infinito\Domain\Layer\LayerInterfaceMap;
 use FOS\UserBundle\Model\UserInterface;
 use Infinito\Exception\Core\NotCorrectInstanceCoreException;
 use Infinito\Domain\MethodManagement\MethodPrefixType;

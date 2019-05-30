@@ -8,7 +8,7 @@ use Infinito\Domain\Action\ActionDependenciesDAOServiceInterface;
 use Infinito\Domain\Action\ActionInterface;
 use Infinito\Domain\RequestManagement\Action\RequestedAction;
 use Infinito\Domain\RequestManagement\Right\RequestedRight;
-use Infinito\Domain\LayerManagement\LayerActionMap;
+use Infinito\Domain\Layer\LayerActionMap;
 use Infinito\Domain\RequestManagement\User\RequestedUser;
 use Infinito\Domain\UserManagement\UserSourceDirectorInterface;
 

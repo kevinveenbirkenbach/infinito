@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\RESTResponseType;
 use Symfony\Component\HttpFoundation\Request;
-use Infinito\Domain\LayerManagement\LayerActionMap;
+use Infinito\Domain\Layer\LayerActionMap;
 use Infinito\DBAL\Types\ActionType;
 use Infinito\Domain\MapManagement\ActionHttpMethodMap;
 use Symfony\Component\HttpFoundation\Response;

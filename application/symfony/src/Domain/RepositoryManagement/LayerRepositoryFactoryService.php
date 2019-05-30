@@ -4,7 +4,7 @@ namespace Infinito\Domain\RepositoryManagement;
 
 use Infinito\Repository\RepositoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use Infinito\Domain\LayerManagement\LayerClassMap;
+use Infinito\Domain\Layer\LayerClassMap;
 
 /**
  * @author kevinfrantz

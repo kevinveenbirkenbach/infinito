@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\LayerManagement;
+namespace Infinito\Domain\Layer;
 
 /**
  * This LayerActionMap offers the possibility, to see which Action\Layer-Cobinations are possible.
