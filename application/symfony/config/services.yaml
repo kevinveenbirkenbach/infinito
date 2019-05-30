@@ -52,8 +52,8 @@ services:
         public: true
     Infinito\Domain\SecureManagement\SecureRequestedRightCheckerService:
         public: true
-    Infinito\Domain\ActionManagement\ActionService:
+    Infinito\Domain\Action\ActionService:
         public: true
-    Infinito\Domain\ActionManagement\ActionHandlerService:
+    Infinito\Domain\Action\ActionHandlerService:
         public: true
         

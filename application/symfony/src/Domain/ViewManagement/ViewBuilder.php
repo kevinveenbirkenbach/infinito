@@ -3,7 +3,7 @@
 namespace Infinito\Domain\ViewManagement;
 
 use FOS\RestBundle\View\View;
-use Infinito\Domain\ActionManagement\ActionFactoryServiceInterface;
+use Infinito\Domain\Action\ActionFactoryServiceInterface;
 use Infinito\Domain\TemplateManagement\TemplateNameServiceInterface;
 use Infinito\Domain\ParameterManagement\ValidGetParameterServiceInterface;
 use Infinito\Domain\ParameterManagement\Parameter\FrameParameter;
