@@ -5,7 +5,7 @@ namespace Infinito\Form\Type;
 use Infinito\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Infinito\Domain\SourceManagement\SourceClassInformationService;
+use Infinito\Domain\Source\SourceClassInformationService;
 
 /**
  * @author kevinfrantz

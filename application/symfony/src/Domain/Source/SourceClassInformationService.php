@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\SourceManagement;
+namespace Infinito\Domain\Source;
 
 /**
  * @author kevinfrantz
@@ -106,7 +106,7 @@ final class SourceClassInformationService implements SourceClassInformationServi
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\SourceManagement\SourceClassInformationServiceInterface::getAllSourceClasses()
+     * @see \Infinito\Domain\Source\SourceClassInformationServiceInterface::getAllSourceClasses()
      */
     public function getAllSourceClasses(): array
     {
@@ -116,7 +116,7 @@ final class SourceClassInformationService implements SourceClassInformationServi
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\SourceManagement\SourceClassInformationServiceInterface::getAllSubSourceClasses()
+     * @see \Infinito\Domain\Source\SourceClassInformationServiceInterface::getAllSubSourceClasses()
      */
     public function getAllSubSourceClasses(string $subNamespace): array
     {

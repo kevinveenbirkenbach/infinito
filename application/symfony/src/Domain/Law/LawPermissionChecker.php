@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\Collection;
 use Infinito\Entity\Meta\LawInterface;
 use Infinito\Domain\Right\RightChecker;
 use Infinito\Entity\Source\SourceInterface;
-use Infinito\Domain\SourceManagement\SourceMemberInformation;
+use Infinito\Domain\Source\SourceMemberInformation;
 use Infinito\Domain\Method\MethodPrefixType;
 
 /**

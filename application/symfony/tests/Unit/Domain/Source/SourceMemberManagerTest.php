@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Unit\Domain\SourceManagement;
+namespace Tests\Unit\Domain\Source;
 
 use PHPUnit\Framework\TestCase;
 use Infinito\Entity\Source\SourceInterface;
-use Infinito\Domain\SourceManagement\SourceMemberManagerInterface;
-use Infinito\Domain\SourceManagement\SourceMemberManager;
+use Infinito\Domain\Source\SourceMemberManagerInterface;
+use Infinito\Domain\Source\SourceMemberManager;
 use Infinito\Entity\Source\PureSource;
 
 class SourceMemberManagerTest extends TestCase

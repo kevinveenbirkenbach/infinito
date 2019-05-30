@@ -13,7 +13,7 @@ use Infinito\Entity\Meta\Law;
 use Infinito\Entity\Meta\LawInterface;
 use Infinito\Entity\Meta\RightInterface;
 use Doctrine\Common\Collections\ArrayCollection;
-use Infinito\Domain\SourceManagement\SourceMemberManager;
+use Infinito\Domain\Source\SourceMemberManager;
 use Infinito\Entity\Source\PureSource;
 
 /**

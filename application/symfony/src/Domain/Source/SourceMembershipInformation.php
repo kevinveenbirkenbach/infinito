@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\SourceManagement;
+namespace Infinito\Domain\Source;
 
 use Doctrine\Common\Collections\Collection;
 use Infinito\Entity\Source\SourceInterface;
@@ -46,7 +46,7 @@ final class SourceMembershipInformation implements SourceMembershipInformationIn
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\SourceManagement\SourceMembershipInformationInterface::getAllMemberships()
+     * @see \Infinito\Domain\Source\SourceMembershipInformationInterface::getAllMemberships()
      */
     public function getAllMemberships(): Collection
     {

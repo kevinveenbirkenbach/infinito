@@ -1,9 +1,9 @@
 <?php
 
-namespace tests\Unit\Domain\SourceManagement;
+namespace tests\Unit\Domain\Source;
 
-use Infinito\Domain\SourceManagement\SourceClassInformationServiceInterface;
-use Infinito\Domain\SourceManagement\SourceClassInformationService;
+use Infinito\Domain\Source\SourceClassInformationServiceInterface;
+use Infinito\Domain\Source\SourceClassInformationService;
 use PHPUnit\Framework\TestCase;
 use Infinito\Entity\Source\PureSource;
 use Infinito\Entity\Source\Complex\AbstractComplexSource;

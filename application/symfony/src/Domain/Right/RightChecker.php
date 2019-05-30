@@ -5,7 +5,7 @@ namespace Infinito\Domain\Right;
 use Infinito\Entity\Meta\RightInterface;
 use Doctrine\Common\Collections\Collection;
 use Infinito\Entity\Source\SourceInterface;
-use Infinito\Domain\SourceManagement\SourceMemberInformation;
+use Infinito\Domain\Source\SourceMemberInformation;
 
 /**
  * @todo Implement the check of conditions!

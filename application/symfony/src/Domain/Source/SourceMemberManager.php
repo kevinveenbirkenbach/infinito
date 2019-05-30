@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\SourceManagement;
+namespace Infinito\Domain\Source;
 
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Domain\Member\MemberManagerInterface;
@@ -33,7 +33,7 @@ final class SourceMemberManager implements SourceMemberManagerInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\SourceManagement\SourceMemberManagerInterface::addMember()
+     * @see \Infinito\Domain\Source\SourceMemberManagerInterface::addMember()
      */
     public function addMember(SourceInterface $member): void
     {
@@ -43,7 +43,7 @@ final class SourceMemberManager implements SourceMemberManagerInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\SourceManagement\SourceMemberManagerInterface::removeMember()
+     * @see \Infinito\Domain\Source\SourceMemberManagerInterface::removeMember()
      */
     public function removeMember(SourceInterface $member): void
     {
@@ -53,7 +53,7 @@ final class SourceMemberManager implements SourceMemberManagerInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\SourceManagement\SourceMemberManagerInterface::addMembership()
+     * @see \Infinito\Domain\Source\SourceMemberManagerInterface::addMembership()
      */
     public function addMembership(SourceInterface $membership): void
     {
@@ -63,7 +63,7 @@ final class SourceMemberManager implements SourceMemberManagerInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\SourceManagement\SourceMemberManagerInterface::removeMembership()
+     * @see \Infinito\Domain\Source\SourceMemberManagerInterface::removeMembership()
      */
     public function removeMembership(SourceInterface $membership): void
     {

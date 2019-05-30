@@ -1,11 +1,11 @@
 <?php
 
-namespace Unit\Domain\SourceManagement;
+namespace Unit\Domain\Source;
 
 use PHPUnit\Framework\TestCase;
 use Infinito\Entity\Source\SourceInterface;
-use Infinito\Domain\SourceManagement\SourceRightManagerInterface;
-use Infinito\Domain\SourceManagement\SourceRightManager;
+use Infinito\Domain\Source\SourceRightManagerInterface;
+use Infinito\Domain\Source\SourceRightManager;
 use Infinito\Entity\Meta\RightInterface;
 use Infinito\Entity\Meta\Right;
 use Infinito\Entity\Meta\Law;

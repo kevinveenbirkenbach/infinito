@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Domain\SourceManagement;
+namespace Tests\Unit\Domain\Source;
 
 use PHPUnit\Framework\TestCase;
 use Infinito\Entity\Source\SourceInterface;
@@ -9,8 +9,8 @@ use Infinito\Entity\Source\Primitive\Text\TextSource;
 use Infinito\Entity\Source\Primitive\Name\FirstNameSource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Infinito\Entity\Source\Complex\FullPersonNameSource;
-use Infinito\Domain\SourceManagement\SourceMemberInformation;
-use Infinito\Domain\SourceManagement\SourceMemberInformationInterface;
+use Infinito\Domain\Source\SourceMemberInformation;
+use Infinito\Domain\Source\SourceMemberInformationInterface;
 use Infinito\Entity\Source\PureSource;
 
 class SourceMemberInformationTest extends TestCase

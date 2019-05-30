@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\SourceManagement;
+namespace Infinito\Domain\Source;
 
 use Infinito\Entity\Meta\RightInterface;
 use Infinito\Entity\Source\SourceInterface;
@@ -57,7 +57,7 @@ final class SourceRightManager implements SourceRightManagerInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\SourceManagement\SourceRightManagerInterface::addRight()
+     * @see \Infinito\Domain\Source\SourceRightManagerInterface::addRight()
      */
     public function addRight(RightInterface $right): void
     {
@@ -73,7 +73,7 @@ final class SourceRightManager implements SourceRightManagerInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\SourceManagement\SourceRightManagerInterface::removeRight()
+     * @see \Infinito\Domain\Source\SourceRightManagerInterface::removeRight()
      */
     public function removeRight(RightInterface $right): void
     {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Unit\Domain\SourceManagement;
+namespace Tests\Unit\Domain\Source;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Domain\SourceManagement\SourceMembershipInformationInterface;
-use Infinito\Domain\SourceManagement\SourceMembershipInformation;
+use Infinito\Domain\Source\SourceMembershipInformationInterface;
+use Infinito\Domain\Source\SourceMembershipInformation;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Entity\Source\Complex\UserSource;
 use Infinito\Entity\Source\Primitive\Text\TextSource;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\SourceManagement;
+namespace Infinito\Domain\Source;
 
 use Infinito\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
 use Infinito\Entity\Source\Complex\Collection\TreeCollectionSource;
@@ -71,7 +71,7 @@ final class TreeSourceInformation implements TreeSourceInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\SourceManagement\TreeSourceInformationInterface::getBranches()
+     * @see \Infinito\Domain\Source\TreeSourceInformationInterface::getBranches()
      */
     public function getBranches(): Collection
     {
@@ -83,7 +83,7 @@ final class TreeSourceInformation implements TreeSourceInformationInterface
      * @todo Remove the getAllBranches use inside the function.
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\SourceManagement\TreeSourceInformationInterface::getAllBranches()
+     * @see \Infinito\Domain\Source\TreeSourceInformationInterface::getAllBranches()
      */
     public function getAllBranches(): Collection
     {
@@ -114,7 +114,7 @@ final class TreeSourceInformation implements TreeSourceInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\SourceManagement\TreeSourceInformationInterface::getLeaves()
+     * @see \Infinito\Domain\Source\TreeSourceInformationInterface::getLeaves()
      */
     public function getLeaves(): Collection
     {
@@ -124,7 +124,7 @@ final class TreeSourceInformation implements TreeSourceInformationInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\SourceManagement\TreeSourceInformationInterface::getAllLeaves()
+     * @see \Infinito\Domain\Source\TreeSourceInformationInterface::getAllLeaves()
      */
     public function getAllLeaves(): Collection
     {

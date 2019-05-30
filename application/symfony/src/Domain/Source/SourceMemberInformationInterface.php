@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\SourceManagement;
+namespace Infinito\Domain\Source;
 
 use Doctrine\Common\Collections\Collection;
 use Infinito\Entity\Source\SourceInterface;
