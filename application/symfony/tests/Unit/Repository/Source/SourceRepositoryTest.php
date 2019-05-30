@@ -7,7 +7,7 @@ use Infinito\Repository\Source\SourceRepositoryInterface;
 use Infinito\Entity\Source\AbstractSource;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use Infinito\Entity\Source\SourceInterface;
-use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
 
 /**
  * @author kevinfrantz

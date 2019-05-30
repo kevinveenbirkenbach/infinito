@@ -1,10 +1,10 @@
 <?php
 
-namespace tests\Integration\Domain\FixtureManagement;
+namespace tests\Integration\Domain\Fixture;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\Request;
-use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
 
 /**
  * @author kevinfrantz

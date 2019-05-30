@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\FixtureManagement\FixtureSource;
+namespace Infinito\Domain\Fixture\FixtureSource;
 
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Attribut\SlugAttributInterface;

@@ -7,7 +7,7 @@ use Infinito\Entity\User;
 use Infinito\Domain\UserManagement\UserSourceDirector;
 use Infinito\Repository\Source\SourceRepository;
 use Infinito\Entity\Source\AbstractSource;
-use Infinito\Domain\FixtureManagement\FixtureSource\GuestUserFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\GuestUserFixtureSource;
 
 /**
  * @author kevinfrantz

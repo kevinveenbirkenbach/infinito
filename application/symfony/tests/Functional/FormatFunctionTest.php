@@ -5,7 +5,7 @@ namespace Tests\Functional;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Bundle\FrameworkBundle\Client;
-use Infinito\Domain\FixtureManagement\FixtureSource\HomepageFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\HomepageFixtureSource;
 
 /**
  * @author kevinfrantz

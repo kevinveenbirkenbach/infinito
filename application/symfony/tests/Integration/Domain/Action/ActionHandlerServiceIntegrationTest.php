@@ -5,7 +5,7 @@ namespace tests\Integration\Domain\Action;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Infinito\Domain\Action\ActionHandlerServiceInterface;
 use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
-use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\DBAL\Types\ActionType;
 use Infinito\DBAL\Types\Meta\Right\LayerType;

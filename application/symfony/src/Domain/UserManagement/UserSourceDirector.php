@@ -5,7 +5,7 @@ namespace Infinito\Domain\UserManagement;
 use Infinito\Entity\UserInterface;
 use Infinito\Entity\User;
 use Infinito\Repository\Source\SourceRepositoryInterface;
-use Infinito\Domain\FixtureManagement\FixtureSource\GuestUserFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\GuestUserFixtureSource;
 
 /**
  * @author kevinfrantz

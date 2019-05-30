@@ -5,7 +5,7 @@ namespace Infinito\Tests\Unit\Controller;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Infinito\Controller\DefaultController;
 use Infinito\DBAL\Types\RESTResponseType;
-use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
 
 /**
  * @author kevinfrantz

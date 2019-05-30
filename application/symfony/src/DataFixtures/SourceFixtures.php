@@ -4,7 +4,7 @@ namespace Infinito\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use Infinito\Domain\FixtureManagement\FixtureSourceFactory;
+use Infinito\Domain\Fixture\FixtureSourceFactory;
 
 /**
  * @author kevinfrantz

@@ -15,7 +15,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Infinito\Entity\Meta\Law;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\DBAL\Types\ActionType;
-use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
 use Infinito\Exception\Core\NoIdentityCoreException;
 use Infinito\Exception\Collection\ContainsElementException;
 

@@ -13,13 +13,13 @@ use Symfony\Component\EventDispatcher\Event;
 use Infinito\DBAL\Types\RESTResponseType;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Controller\API\Rest\LayerController;
-use Infinito\Domain\FixtureManagement\FixtureSourceFactory;
-use Infinito\Domain\FixtureManagement\FixtureSource\FixtureSourceInterface;
-use Infinito\Domain\FixtureManagement\FixtureSource\GuestUserFixtureSource;
-use Infinito\Domain\FixtureManagement\FixtureSource\HomepageFixtureSource;
-use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
-use Infinito\Domain\FixtureManagement\FixtureSource\InformationFixtureSource;
-use Infinito\Domain\FixtureManagement\FixtureSource\HelpFixtureSource;
+use Infinito\Domain\Fixture\FixtureSourceFactory;
+use Infinito\Domain\Fixture\FixtureSource\FixtureSourceInterface;
+use Infinito\Domain\Fixture\FixtureSource\GuestUserFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\HomepageFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\InformationFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\HelpFixtureSource;
 
 /**
  * @author kevinfrantz

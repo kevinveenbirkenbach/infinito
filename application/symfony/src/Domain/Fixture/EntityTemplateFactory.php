@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\FixtureManagement;
+namespace Infinito\Domain\Fixture;
 
 use Infinito\Entity\Meta\Right;
 use Infinito\DBAL\Types\Meta\Right\LayerType;

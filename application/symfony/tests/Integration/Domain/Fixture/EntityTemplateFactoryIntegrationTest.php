@@ -1,10 +1,10 @@
 <?php
 
-namespace tests\Integration\Domain\FixtureManagement;
+namespace tests\Integration\Domain\Fixture;
 
 use PHPUnit\Framework\TestCase;
 use Infinito\Entity\Source\AbstractSource;
-use Infinito\Domain\FixtureManagement\EntityTemplateFactory;
+use Infinito\Domain\Fixture\EntityTemplateFactory;
 use Infinito\Entity\Source\Complex\UserSource;
 use Infinito\Entity\Meta\Right;
 use Infinito\DBAL\Types\Meta\Right\LayerType;

@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Role\Role;
-use Infinito\Domain\FixtureManagement\FixtureSource\GuestUserFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\GuestUserFixtureSource;
 use Infinito\Entity\User;
 
 /**

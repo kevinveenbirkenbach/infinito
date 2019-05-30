@@ -14,7 +14,7 @@ use Infinito\Domain\RequestManagement\Right\RequestedRight;
 use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Domain\RequestManagement\Right\AbstractRequestedRightFacade;
-use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
 use Infinito\Exception\Collection\NotPossibleSetElementException;
 
 /**

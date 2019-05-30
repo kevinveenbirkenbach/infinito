@@ -1,10 +1,10 @@
 <?php
 
-namespace Infinito\Domain\FixtureManagement\FixtureSource;
+namespace Infinito\Domain\Fixture\FixtureSource;
 
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Entity\Source\Primitive\Text\TextSource;
-use Infinito\Domain\FixtureManagement\EntityTemplateFactory;
+use Infinito\Domain\Fixture\EntityTemplateFactory;
 
 /**
  * @author kevinfrantz
@@ -14,7 +14,7 @@ final class HomepageFixtureSource extends AbstractFixtureSource
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\FixtureManagement\FixtureSource\FixtureSourceInterface::getORMReadyObject()
+     * @see \Infinito\Domain\Fixture\FixtureSource\FixtureSourceInterface::getORMReadyObject()
      */
     public function getORMReadyObject(): SourceInterface
     {

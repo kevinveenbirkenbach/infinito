@@ -4,7 +4,7 @@ namespace Infinito\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
-use Infinito\Domain\FixtureManagement\FixtureSource\HomepageFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\HomepageFixtureSource;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\RESTResponseType;
 

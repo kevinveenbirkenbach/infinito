@@ -6,8 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Doctrine\ORM\EntityManager;
 use Infinito\Entity\Source\AbstractSource;
 use Infinito\Entity\Source\Complex\UserSourceInterface;
-use Infinito\Domain\FixtureManagement\FixtureSource\ImpressumFixtureSource;
-use Infinito\Domain\FixtureManagement\FixtureSource\GuestUserFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\GuestUserFixtureSource;
 
 class SourceFixturesIntegrationTest extends KernelTestCase
 {

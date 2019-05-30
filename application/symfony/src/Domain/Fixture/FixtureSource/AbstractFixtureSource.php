@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\FixtureManagement\FixtureSource;
+namespace Infinito\Domain\Fixture\FixtureSource;
 
 /**
  * Classes which inhiere from this class and should be loaded by SourceFixtures MUST be declared as final.
@@ -17,7 +17,7 @@ abstract class AbstractFixtureSource implements FixtureSourceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\FixtureManagement\FixtureSource\FixtureSourceInterface::getName()
+     * @see \Infinito\Domain\Fixture\FixtureSource\FixtureSourceInterface::getName()
      */
     public function getName(): string
     {
