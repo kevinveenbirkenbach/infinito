@@ -42,7 +42,7 @@ Checks if the crud, layer and source combination is granted by a right.
 Allows to get the possible cruds for a layer, or the possible layers for a crud.
 ## Source Management
 ### Source Class Information Service ###
-Offers to get all source classes, or source classes by a namespace. 
+Offers to get all source classes, or source classes by a namespace.
 ### Source Member Information ###
 Offers to get all source members over all dimensions.
 ### Source Member Manager
@@ -61,3 +61,8 @@ Manages all informations which are needed to process templates.
 Offers based on an user variable a user with a source.
 ### User Source Director Service
 Offers the _user source director_ to be used as a service, based on the _entity manager_ and _security_.
+
+## UML
+This diagram shows the context in which the classes are working and existing:
+
+![Context Class UML Diagram](.meta/context-class-uml.svg)
