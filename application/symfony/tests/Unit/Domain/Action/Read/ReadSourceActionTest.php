@@ -7,8 +7,8 @@ use PHPUnit\Framework\TestCase;
 use Infinito\Domain\Action\Read\ReadAction;
 use Infinito\Domain\Action\ActionDependenciesDAOServiceInterface;
 use Infinito\Domain\Action\Read\ReadActionInterface;
-use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
-use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\Domain\Request\Action\RequestedActionInterface;
+use Infinito\Domain\Request\Entity\RequestedEntityInterface;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Exception\Permission\NoPermissionException;
 

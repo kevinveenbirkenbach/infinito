@@ -2,7 +2,7 @@
 
 namespace Infinito\Domain\SecureManagement;
 
-use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Domain\Request\Right\RequestedRightInterface;
 
 /**
  * Allows to check if a RequestedRight is valid.

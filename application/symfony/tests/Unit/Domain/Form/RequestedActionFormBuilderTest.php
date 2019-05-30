@@ -3,7 +3,7 @@
 namespace tests\Unit\Domain\Form;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
+use Infinito\Domain\Request\Action\RequestedActionInterface;
 use Infinito\Domain\Form\RequestedActionFormBuilder;
 use Infinito\Domain\Form\FormClassNameServiceInterface;
 use Symfony\Component\Form\FormFactoryInterface;

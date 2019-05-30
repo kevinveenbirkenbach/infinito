@@ -2,7 +2,7 @@
 
 namespace Infinito\Attribut;
 
-use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\Domain\Request\Entity\RequestedEntityInterface;
 
 /**
  * @author kevinfrantz

@@ -2,7 +2,7 @@
 
 namespace Infinito\Attribut;
 
-use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Domain\Request\Right\RequestedRightInterface;
 
 /**
  * @author kevinfrantz

@@ -3,7 +3,7 @@
 namespace Infinito\Domain\Form;
 
 use Symfony\Component\Form\FormBuilderInterface;
-use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
+use Infinito\Domain\Request\Action\RequestedActionInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Infinito\Exception\Attribut\UndefinedAttributException;
 

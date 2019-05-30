@@ -34,7 +34,7 @@ Maps a path to a namespace.
 
 ## Request Management
 
-Offers classes to manage requests for rights, users and sources. A [detailed description](./RequestManagement/README.md) is available.
+Offers classes to manage requests for rights, users and sources. A [detailed description](./Request/README.md) is available.
 ## Right Management
 ### Right Checker ###
 Checks if the crud, layer and source combination is granted by a right.

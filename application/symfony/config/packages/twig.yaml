@@ -5,7 +5,7 @@ twig:
     form_themes: ['bootstrap_4_layout.html.twig']
     globals:
         layer_action_map: "@Infinito\\Domain\\Layer\\LayerActionMap"
-        requested_action_service: "@Infinito\\Domain\\RequestManagement\\Action\\RequestedActionService"
+        requested_action_service: "@Infinito\\Domain\\Request\\Action\\RequestedActionService"
         action_icon_class_map: "@Infinito\\Domain\\TwigManagement\\ActionIconClassMap"
         layer_icon_class_map: "@Infinito\\Domain\\TwigManagement\\LayerIconClassMap"
         action_template_name_service: "@Infinito\\Domain\\TemplateManagement\\ActionTemplateNameServiceInterface"

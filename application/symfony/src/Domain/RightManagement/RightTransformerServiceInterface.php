@@ -3,7 +3,7 @@
 namespace Infinito\Domain\RightManagement;
 
 use Infinito\Entity\Meta\RightInterface;
-use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Domain\Request\Right\RequestedRightInterface;
 
 /**
  * Allows to transform an Requested Right to a Entity Right.

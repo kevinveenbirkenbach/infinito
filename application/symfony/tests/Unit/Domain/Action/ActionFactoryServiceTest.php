@@ -6,10 +6,10 @@ use PHPUnit\Framework\TestCase;
 use Infinito\Domain\Action\ActionFactoryService;
 use Infinito\Domain\Action\ActionDependenciesDAOServiceInterface;
 use Infinito\Domain\Action\ActionInterface;
-use Infinito\Domain\RequestManagement\Action\RequestedAction;
-use Infinito\Domain\RequestManagement\Right\RequestedRight;
+use Infinito\Domain\Request\Action\RequestedAction;
+use Infinito\Domain\Request\Right\RequestedRight;
 use Infinito\Domain\Layer\LayerActionMap;
-use Infinito\Domain\RequestManagement\User\RequestedUser;
+use Infinito\Domain\Request\User\RequestedUser;
 use Infinito\Domain\UserManagement\UserSourceDirectorInterface;
 
 /**

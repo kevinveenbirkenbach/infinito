@@ -38,15 +38,15 @@ services:
     Infinito\Domain\TemplateManagement\TemplateNameServiceInterface: "@Infinito\\Domain\\TemplateManagement\\TemplateNameService"
     
     # Needed for integration tests
-    Infinito\Domain\RequestManagement\Entity\RequestedEntityService:
+    Infinito\Domain\Request\Entity\RequestedEntityService:
         public: true
-    Infinito\Domain\RequestManagement\Right\RequestedRightService:
+    Infinito\Domain\Request\Right\RequestedRightService:
         public: true
     Infinito\Domain\UserManagement\UserSourceDirectorService:
         public: true
-    Infinito\Domain\RequestManagement\User\RequestedUserService:
+    Infinito\Domain\Request\User\RequestedUserService:
         public: true
-    Infinito\Domain\RequestManagement\Action\RequestedActionService:
+    Infinito\Domain\Request\Action\RequestedActionService:
         public: true
     Infinito\Domain\Form\RequestedActionFormBuilderService:
         public: true

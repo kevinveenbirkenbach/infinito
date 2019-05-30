@@ -2,7 +2,7 @@
 
 namespace Infinito\Domain\Action;
 
-use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
+use Infinito\Domain\Request\Action\RequestedActionInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Infinito\Repository\RepositoryInterface;
 use Symfony\Component\Form\FormBuilderInterface;

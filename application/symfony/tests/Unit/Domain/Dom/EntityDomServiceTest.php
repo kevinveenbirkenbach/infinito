@@ -4,7 +4,7 @@ namespace tests\Unit\Domain\Dom;
 
 use PHPUnit\Framework\TestCase;
 use Infinito\Domain\Dom\EntityDomServiceInterface;
-use Infinito\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
+use Infinito\Domain\Request\Entity\RequestedEntityServiceInterface;
 use Infinito\Domain\Dom\EntityDomService;
 use Infinito\Entity\Source\AbstractSource;
 use Infinito\Attribut\SlugAttributInterface;

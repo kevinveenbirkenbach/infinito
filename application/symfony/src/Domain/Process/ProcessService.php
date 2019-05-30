@@ -2,7 +2,7 @@
 
 namespace Infinito\Domain\Process;
 
-use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
 use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
 use Infinito\Domain\Action\ActionHandlerServiceInterface;
 use Infinito\Entity\Source\Primitive\Text\TextSource;

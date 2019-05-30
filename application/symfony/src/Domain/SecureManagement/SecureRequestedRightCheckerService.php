@@ -2,7 +2,7 @@
 
 namespace Infinito\Domain\SecureManagement;
 
-use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Domain\Request\Right\RequestedRightInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Infinito\Domain\RightManagement\RightTransformerServiceInterface;
 

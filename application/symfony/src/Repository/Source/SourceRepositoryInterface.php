@@ -3,7 +3,7 @@
 namespace Infinito\Repository\Source;
 
 use Infinito\Entity\Source\SourceInterface;
-use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\Domain\Request\Entity\RequestedEntityInterface;
 use Infinito\Repository\RepositoryInterface;
 
 /**

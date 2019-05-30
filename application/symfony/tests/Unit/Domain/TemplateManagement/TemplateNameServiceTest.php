@@ -5,8 +5,8 @@ namespace tests\Unit\Domain\TemplateManagement;
 use PHPUnit\Framework\TestCase;
 use Infinito\Domain\TemplateManagement\TemplateNameServiceInterface;
 use Infinito\Domain\TemplateManagement\TemplateNameService;
-use Infinito\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
-use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use Infinito\Domain\Request\Entity\RequestedEntityServiceInterface;
+use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
 
 /**
  * @author kevinfrantz

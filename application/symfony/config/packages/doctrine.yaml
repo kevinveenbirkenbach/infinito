@@ -30,4 +30,4 @@ doctrine:
                 prefix: 'Infinito\Entity'
                 alias: App
         #resolve_target_entities:
-        #    Infinito\Domain\RequestManagement\Right\RequestedRightServiceInterface: Infinito\Domain\RequestManagement\Right\RequestedRightService2
+        #    Infinito\Domain\Request\Right\RequestedRightServiceInterface: Infinito\Domain\Request\Right\RequestedRightService2

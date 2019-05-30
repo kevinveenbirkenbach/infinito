@@ -3,7 +3,7 @@
 namespace Infinito\Domain\Form;
 
 use Symfony\Component\Form\FormBuilderInterface;
-use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
+use Infinito\Domain\Request\Action\RequestedActionInterface;
 
 /**
  * Allowes to create an form which fits to an entity.

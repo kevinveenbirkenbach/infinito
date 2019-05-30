@@ -11,7 +11,7 @@ use Infinito\Attribut\SlugAttributInterface;
 use Infinito\Entity\Source\PureSourceInterface;
 use Infinito\Domain\Action\ActionService;
 use Doctrine\ORM\EntityManagerInterface;
-use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
+use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
 use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;

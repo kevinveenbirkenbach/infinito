@@ -4,7 +4,7 @@ namespace Infinito\Domain\Dom;
 
 use Infinito\Entity\EntityInterface;
 use Doctrine\Common\Collections\Collection;
-use Infinito\Domain\RequestManagement\Entity\RequestedEntityServiceInterface;
+use Infinito\Domain\Request\Entity\RequestedEntityServiceInterface;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Domain\Layer\LayerInterfaceMap;
 use FOS\UserBundle\Model\UserInterface;

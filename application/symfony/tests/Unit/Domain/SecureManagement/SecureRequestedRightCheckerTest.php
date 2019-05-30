@@ -7,11 +7,11 @@ use Infinito\Entity\Source\AbstractSource;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\Meta\Right\CRUDType;
 use Infinito\Entity\Meta\Right;
-use Infinito\Domain\RequestManagement\Right\RequestedRight;
-use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\Domain\Request\Right\RequestedRight;
+use Infinito\Domain\Request\Entity\RequestedEntityInterface;
 use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerService;
 use Infinito\Domain\RightManagement\RightTransformerService;
-use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Domain\Request\Right\RequestedRightInterface;
 
 /**
  * @author kevinfrantz

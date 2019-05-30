@@ -3,7 +3,7 @@
 namespace Tests\Unit\Attribut;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Domain\RequestManagement\Right\RequestedRightInterface;
+use Infinito\Domain\Request\Right\RequestedRightInterface;
 use Infinito\Attribut\RequestedRightAttributInterface;
 use Infinito\Attribut\RequestedRightAttribut;
 

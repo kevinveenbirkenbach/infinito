@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\Integration\Domain\RequestManagement\Right;
+namespace tests\Integration\Domain\Request\Right;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;

@@ -5,7 +5,7 @@ namespace Tests\Unit\Attribut;
 use PHPUnit\Framework\TestCase;
 use Infinito\Attribut\RequestedEntityAttribut;
 use Infinito\Attribut\RequestedEntityAttributInterface;
-use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
+use Infinito\Domain\Request\Entity\RequestedEntityInterface;
 
 /**
  * @author kevinfrantz
