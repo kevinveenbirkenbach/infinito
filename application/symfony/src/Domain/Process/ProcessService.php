@@ -3,7 +3,7 @@
 namespace Infinito\Domain\Process;
 
 use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
-use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
+use Infinito\Domain\Secure\SecureRequestedRightCheckerServiceInterface;
 use Infinito\Domain\Action\ActionHandlerServiceInterface;
 use Infinito\Entity\Source\Primitive\Text\TextSource;
 use Infinito\Domain\DataAccessManagement\ActionsResultsDAOServiceInterface;

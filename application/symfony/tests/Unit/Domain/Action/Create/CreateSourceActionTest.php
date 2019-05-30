@@ -12,7 +12,7 @@ use Infinito\Entity\Source\PureSourceInterface;
 use Infinito\Domain\Action\ActionService;
 use Doctrine\ORM\EntityManagerInterface;
 use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
-use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
+use Infinito\Domain\Secure\SecureRequestedRightCheckerServiceInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
 use Infinito\Domain\Form\RequestedActionFormBuilderServiceInterface;

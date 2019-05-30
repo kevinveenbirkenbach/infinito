@@ -23,7 +23,7 @@ use Infinito\Domain\Request\Entity\RequestedEntityService;
 use Infinito\Entity\Source\PureSource;
 use Infinito\Attribut\ClassAttributInterface;
 use Infinito\Domain\Repository\LayerRepositoryFactoryService;
-use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerService;
+use Infinito\Domain\Secure\SecureRequestedRightCheckerService;
 use Infinito\Domain\Right\RightTransformerService;
 
 /**

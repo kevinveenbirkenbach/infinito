@@ -50,7 +50,7 @@ services:
         public: true
     Infinito\Domain\Form\RequestedActionFormBuilderService:
         public: true
-    Infinito\Domain\SecureManagement\SecureRequestedRightCheckerService:
+    Infinito\Domain\Secure\SecureRequestedRightCheckerService:
         public: true
     Infinito\Domain\Action\ActionService:
         public: true

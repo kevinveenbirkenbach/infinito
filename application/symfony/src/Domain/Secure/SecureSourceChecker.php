@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\SecureManagement;
+namespace Infinito\Domain\Secure;
 
 use Infinito\Entity\Meta\RightInterface;
 use Infinito\Entity\Source\SourceInterface;
@@ -91,7 +91,7 @@ final class SecureSourceChecker implements SecureSourceCheckerInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\SecureManagement\SecureSourceCheckerInterface::hasPermission()
+     * @see \Infinito\Domain\Secure\SecureSourceCheckerInterface::hasPermission()
      */
     public function hasPermission(RightInterface $requestedRight): bool
     {

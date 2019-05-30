@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\Unit\Domain\SecureManagement;
+namespace tests\Unit\Domain\Secure;
 
 use PHPUnit\Framework\TestCase;
 use Infinito\Entity\Source\AbstractSource;
@@ -9,7 +9,7 @@ use Infinito\DBAL\Types\Meta\Right\CRUDType;
 use Infinito\Entity\Meta\Right;
 use Infinito\Domain\Request\Right\RequestedRight;
 use Infinito\Domain\Request\Entity\RequestedEntityInterface;
-use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerService;
+use Infinito\Domain\Secure\SecureRequestedRightCheckerService;
 use Infinito\Domain\Right\RightTransformerService;
 use Infinito\Domain\Request\Right\RequestedRightInterface;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\Integration\Domain\SecureManagement;
+namespace tests\Integration\Domain\Secure;
 
 use Infinito\Entity\Source\AbstractSource;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
@@ -9,7 +9,7 @@ use Infinito\Entity\Meta\Right;
 use Infinito\Domain\Request\Right\RequestedRight;
 use Infinito\Domain\Request\Entity\RequestedEntityInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
+use Infinito\Domain\Secure\SecureRequestedRightCheckerServiceInterface;
 
 /**
  * @author kevinfrantz

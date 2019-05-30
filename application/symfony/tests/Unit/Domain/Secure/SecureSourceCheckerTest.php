@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\Unit\Domain\SecureManagement;
+namespace Tests\Unit\Domain\Secure;
 
 use PHPUnit\Framework\TestCase;
 use Infinito\Entity\Source\SourceInterface;
-use Infinito\Domain\SecureManagement\SecureSourceCheckerInterface;
+use Infinito\Domain\Secure\SecureSourceCheckerInterface;
 use Infinito\Entity\Source\AbstractSource;
-use Infinito\Domain\SecureManagement\SecureSourceChecker;
+use Infinito\Domain\Secure\SecureSourceChecker;
 use Infinito\Entity\Meta\Right;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\Meta\Right\CRUDType;

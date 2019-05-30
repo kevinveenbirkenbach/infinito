@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\SecureManagement;
+namespace Infinito\Domain\Secure;
 
 use Infinito\Entity\Meta\RightInterface;
 

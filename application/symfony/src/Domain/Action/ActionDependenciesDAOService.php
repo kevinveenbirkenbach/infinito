@@ -11,7 +11,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Infinito\Domain\Form\RequestedActionFormBuilderServiceInterface;
 use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
-use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
+use Infinito\Domain\Secure\SecureRequestedRightCheckerServiceInterface;
 
 /**
  * @author kevinfrantz
