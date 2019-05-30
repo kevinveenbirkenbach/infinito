@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\ParameterManagement\Parameter;
+namespace Infinito\Domain\Parameter\Parameter;
 
 /**
  * Parameter classes shouldn't throw exceptions!
@@ -21,7 +21,7 @@ abstract class AbstractParameter implements ParameterInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ParameterManagement\Parameter\ParameterInterface::getValue()
+     * @see \Infinito\Domain\Parameter\Parameter\ParameterInterface::getValue()
      */
     public function getValue()
     {
@@ -31,7 +31,7 @@ abstract class AbstractParameter implements ParameterInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ParameterManagement\Parameter\ParameterInterface::setValue()
+     * @see \Infinito\Domain\Parameter\Parameter\ParameterInterface::setValue()
      */
     public function setValue($value): void
     {

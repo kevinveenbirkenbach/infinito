@@ -5,8 +5,8 @@ namespace Infinito\Domain\ViewManagement;
 use FOS\RestBundle\View\View;
 use Infinito\Domain\Action\ActionFactoryServiceInterface;
 use Infinito\Domain\TemplateManagement\TemplateNameServiceInterface;
-use Infinito\Domain\ParameterManagement\ValidGetParameterServiceInterface;
-use Infinito\Domain\ParameterManagement\Parameter\FrameParameter;
+use Infinito\Domain\Parameter\ValidGetParameterServiceInterface;
+use Infinito\Domain\Parameter\Parameter\FrameParameter;
 
 /**
  * @author kevinfrantz

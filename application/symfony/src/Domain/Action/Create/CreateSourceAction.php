@@ -5,7 +5,7 @@ namespace Infinito\Domain\Action\Create;
 use Infinito\Domain\SourceManagement\SourceClassInformationService;
 use Infinito\Entity\Source\AbstractSource;
 use Symfony\Component\Form\Form;
-use Infinito\Domain\ParameterManagement\Parameter\ClassParameter;
+use Infinito\Domain\Parameter\Parameter\ClassParameter;
 
 /**
  * @author kevinfrantz

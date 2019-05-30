@@ -1,11 +1,11 @@
 <?php
 
-namespace Infinito\Domain\ParameterManagement;
+namespace Infinito\Domain\Parameter;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use HaydenPierce\ClassFinder\ClassFinder;
-use Infinito\Domain\ParameterManagement\Parameter\ParameterInterface;
+use Infinito\Domain\Parameter\Parameter\ParameterInterface;
 use Infinito\Exception\Core\NotImplementedCoreException;
 
 /**
@@ -16,7 +16,7 @@ final class ParameterFactory implements ParameterFactoryInterface
     /**
      * @var string Namespace under which the parameters are stored
      */
-    private const PARAMETER_NAMESPACE = 'Infinito\Domain\ParameterManagement\Parameter';
+    private const PARAMETER_NAMESPACE = 'Infinito\Domain\Parameter\Parameter';
 
     /**
      * @var ArrayCollection|Collection|ParameterInterface[]
@@ -59,7 +59,7 @@ final class ParameterFactory implements ParameterFactoryInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ParameterManagement\ParameterFactoryInterface::getParameter()
+     * @see \Infinito\Domain\Parameter\ParameterFactoryInterface::getParameter()
      */
     public function getParameter(string $key): ParameterInterface
     {
@@ -73,7 +73,7 @@ final class ParameterFactory implements ParameterFactoryInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ParameterManagement\ParameterFactoryInterface::getAllParameters()
+     * @see \Infinito\Domain\Parameter\ParameterFactoryInterface::getAllParameters()
      */
     public function getAllParameters(): Collection
     {

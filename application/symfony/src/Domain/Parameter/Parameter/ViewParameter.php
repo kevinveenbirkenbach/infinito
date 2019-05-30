@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\ParameterManagement\Parameter;
+namespace Infinito\Domain\Parameter\Parameter;
 
 use Symfony\Component\Validator\Constraints as Assert;
 

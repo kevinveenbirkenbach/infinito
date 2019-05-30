@@ -1,10 +1,10 @@
 <?php
 
-namespace tests\Unit\Domain\ParameterManagement;
+namespace tests\Unit\Domain\Parameter;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Domain\ParameterManagement\ParameterFactory;
-use Infinito\Domain\ParameterManagement\Parameter\VersionParameter;
+use Infinito\Domain\Parameter\ParameterFactory;
+use Infinito\Domain\Parameter\Parameter\VersionParameter;
 use Infinito\Exception\Core\NotImplementedCoreException;
 
 /**

@@ -1,8 +1,8 @@
 <?php
 
-namespace Infinito\Domain\ParameterManagement;
+namespace Infinito\Domain\Parameter;
 
-use Infinito\Domain\ParameterManagement\Parameter\ParameterInterface;
+use Infinito\Domain\Parameter\Parameter\ParameterInterface;
 use Doctrine\Common\Collections\Collection;
 
 /**

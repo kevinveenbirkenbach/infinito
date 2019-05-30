@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\ParameterManagement\Parameter;
+namespace Infinito\Domain\Parameter\Parameter;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Infinito\Exception\Validation\GetParameterInvalidException;
@@ -24,7 +24,7 @@ final class FrameParameter extends AbstractParameter
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ParameterManagement\Parameter\AbstractParameter::setValue()
+     * @see \Infinito\Domain\Parameter\Parameter\AbstractParameter::setValue()
      */
     public function setValue($value): void
     {

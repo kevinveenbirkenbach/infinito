@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\ParameterManagement;
+namespace Infinito\Domain\Parameter;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Validator\Validator\ValidatorInterface;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\ParameterManagement;
+namespace Infinito\Domain\Parameter;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Request;
@@ -51,7 +51,7 @@ abstract class AbstractGetParameterService implements GetParameterServiceInterfa
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ParameterManagement\GetParameterServiceInterface::hasParameter()
+     * @see \Infinito\Domain\Parameter\GetParameterServiceInterface::hasParameter()
      */
     public function hasParameter(string $key): bool
     {
@@ -63,7 +63,7 @@ abstract class AbstractGetParameterService implements GetParameterServiceInterfa
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ParameterManagement\GetParameterServiceInterface::getParameter()
+     * @see \Infinito\Domain\Parameter\GetParameterServiceInterface::getParameter()
      */
     public function getParameter(string $key)
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\ParameterManagement;
+namespace Infinito\Domain\Parameter;
 
 /**
  * This interface offers a service to manage all optional get parameters.

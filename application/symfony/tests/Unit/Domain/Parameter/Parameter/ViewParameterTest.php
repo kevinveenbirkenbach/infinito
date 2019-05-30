@@ -1,9 +1,9 @@
 <?php
 
-namespace tests\Unit\Domain\ParameterManagement\Parameter;
+namespace tests\Unit\Domain\Parameter\Parameter;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Domain\ParameterManagement\Parameter\ViewParameter;
+use Infinito\Domain\Parameter\Parameter\ViewParameter;
 use Infinito\DBAL\Types\ActionType;
 
 /**

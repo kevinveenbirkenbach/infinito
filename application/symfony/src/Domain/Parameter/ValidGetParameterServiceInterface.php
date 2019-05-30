@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\ParameterManagement;
+namespace Infinito\Domain\Parameter;
 
 /**
  * @author kevinfrantz
