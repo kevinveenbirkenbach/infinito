@@ -5,7 +5,7 @@ namespace Infinito\Domain\MVC;
 use FOS\RestBundle\View\View;
 use Infinito\Attribut\ActionTypeAttribut;
 use Infinito\Domain\ViewManagement\ViewServiceInterface;
-use Infinito\Domain\ProcessManagement\ProcessServiceInterface;
+use Infinito\Domain\Process\ProcessServiceInterface;
 
 /**
  * @author kevinfrantz

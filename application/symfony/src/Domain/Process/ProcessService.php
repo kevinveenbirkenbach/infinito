@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\ProcessManagement;
+namespace Infinito\Domain\Process;
 
 use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
@@ -89,7 +89,7 @@ final class ProcessService implements ProcessServiceInterface
      * @todo Move
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\ProcessManagement\ProcessServiceInterface::process()
+     * @see \Infinito\Domain\Process\ProcessServiceInterface::process()
      */
     public function process()
     {

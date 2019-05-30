@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\ProcessManagement;
+namespace Infinito\Domain\Process;
 
 /**
  * @author kevinfrantz
