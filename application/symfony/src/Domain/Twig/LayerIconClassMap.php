@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\TwigManagement;
+namespace Infinito\Domain\Twig;
 
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Exception\Collection\NotSetElementException;
@@ -25,7 +25,7 @@ final class LayerIconClassMap implements LayerIconClassMapInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\TwigManagement\LayerIconClassMapInterface::getIconClass()
+     * @see \Infinito\Domain\Twig\LayerIconClassMapInterface::getIconClass()
      */
     public static function getIconClass(string $layer): string
     {

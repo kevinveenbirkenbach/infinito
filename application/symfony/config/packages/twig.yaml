@@ -6,8 +6,8 @@ twig:
     globals:
         layer_action_map: "@Infinito\\Domain\\Layer\\LayerActionMap"
         requested_action_service: "@Infinito\\Domain\\Request\\Action\\RequestedActionService"
-        action_icon_class_map: "@Infinito\\Domain\\TwigManagement\\ActionIconClassMap"
-        layer_icon_class_map: "@Infinito\\Domain\\TwigManagement\\LayerIconClassMap"
+        action_icon_class_map: "@Infinito\\Domain\\Twig\\ActionIconClassMap"
+        layer_icon_class_map: "@Infinito\\Domain\\Twig\\LayerIconClassMap"
         action_template_name_service: "@Infinito\\Domain\\Template\\ActionTemplateNameServiceInterface"
         # @todo rename variable
         action_template_data_store_service: "@Infinito\\Domain\\DataAccessManagement\\ActionsViewsDAOService"

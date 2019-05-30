@@ -1,9 +1,9 @@
 <?php
 
-namespace tests\Unit\Domain\TwigManagement;
+namespace tests\Unit\Domain\Twig;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Domain\TwigManagement\LayerIconClassMap;
+use Infinito\Domain\Twig\LayerIconClassMap;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Exception\Collection\NotSetElementException;
 

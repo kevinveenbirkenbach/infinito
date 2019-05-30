@@ -1,10 +1,10 @@
 <?php
 
-namespace tests\Unit\Domain\TwigManagement;
+namespace tests\Unit\Domain\Twig;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Domain\TwigManagement\ActionIconClassMapInterface;
-use Infinito\Domain\TwigManagement\ActionIconClassMap;
+use Infinito\Domain\Twig\ActionIconClassMapInterface;
+use Infinito\Domain\Twig\ActionIconClassMap;
 use Infinito\DBAL\Types\ActionType;
 use Infinito\Exception\Collection\NotSetElementException;
 

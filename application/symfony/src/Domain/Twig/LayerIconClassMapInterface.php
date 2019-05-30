@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\TwigManagement;
+namespace Infinito\Domain\Twig;
 
 /**
  * Maps actions to classes.

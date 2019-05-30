@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\TwigManagement;
+namespace Infinito\Domain\Twig;
 
 use Infinito\DBAL\Types\ActionType;
 use Infinito\Exception\Collection\NotSetElementException;
@@ -24,7 +24,7 @@ final class ActionIconClassMap implements ActionIconClassMapInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\TwigManagement\ActionIconClassMapInterface::getIconClass()
+     * @see \Infinito\Domain\Twig\ActionIconClassMapInterface::getIconClass()
      */
     public function getIconClass(string $action): string
     {
