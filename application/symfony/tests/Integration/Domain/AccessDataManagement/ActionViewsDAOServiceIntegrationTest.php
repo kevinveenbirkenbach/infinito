@@ -9,7 +9,7 @@ use Infinito\Domain\DataAccessManagement\ActionsResultsDAOService;
 use Infinito\Domain\DataAccessManagement\ActionsViewsDAOService;
 use Infinito\Entity\EntityInterface;
 use Infinito\Logic\Result\ResultInterface;
-use Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
+use Infinito\Domain\Form\RequestedActionFormBuilderServiceInterface;
 use Infinito\Exception\Type\InvalidChoiceTypeException;
 use Infinito\Exception\Collection\NotSetElementException;
 use Infinito\Exception\Collection\ContainsElementException;

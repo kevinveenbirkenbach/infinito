@@ -48,7 +48,7 @@ services:
         public: true
     Infinito\Domain\RequestManagement\Action\RequestedActionService:
         public: true
-    Infinito\Domain\FormManagement\RequestedActionFormBuilderService:
+    Infinito\Domain\Form\RequestedActionFormBuilderService:
         public: true
     Infinito\Domain\SecureManagement\SecureRequestedRightCheckerService:
         public: true

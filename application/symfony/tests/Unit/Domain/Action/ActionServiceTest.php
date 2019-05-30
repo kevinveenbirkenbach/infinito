@@ -15,7 +15,7 @@ use Infinito\Domain\RequestManagement\Entity\RequestedEntityInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use Infinito\Entity\EntityInterface;
 use Symfony\Component\Form\FormBuilderInterface;
-use Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
+use Infinito\Domain\Form\RequestedActionFormBuilderServiceInterface;
 use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
 

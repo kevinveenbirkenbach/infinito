@@ -1,9 +1,9 @@
 <?php
 
-namespace tests\Unit\Domain\FormManagement;
+namespace tests\Unit\Domain\Form;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Domain\FormManagement\FormClassNameService;
+use Infinito\Domain\Form\FormClassNameService;
 use Infinito\Entity\Source\PureSource;
 use Infinito\DBAL\Types\ActionType;
 

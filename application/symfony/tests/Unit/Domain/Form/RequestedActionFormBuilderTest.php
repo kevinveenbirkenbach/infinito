@@ -1,11 +1,11 @@
 <?php
 
-namespace tests\Unit\Domain\FormManagement;
+namespace tests\Unit\Domain\Form;
 
 use PHPUnit\Framework\TestCase;
 use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;
-use Infinito\Domain\FormManagement\RequestedActionFormBuilder;
-use Infinito\Domain\FormManagement\FormClassNameServiceInterface;
+use Infinito\Domain\Form\RequestedActionFormBuilder;
+use Infinito\Domain\Form\FormClassNameServiceInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Infinito\Exception\Attribut\UndefinedAttributException;
 

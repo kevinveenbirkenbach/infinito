@@ -4,7 +4,7 @@ namespace Infinito\Domain\DataAccessManagement;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
+use Infinito\Domain\Form\RequestedActionFormBuilderServiceInterface;
 use Infinito\DBAL\Types\ActionType;
 
 /**

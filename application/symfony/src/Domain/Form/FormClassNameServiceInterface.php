@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\FormManagement;
+namespace Infinito\Domain\Form;
 
 use Infinito\Entity\EntityInterface;
 

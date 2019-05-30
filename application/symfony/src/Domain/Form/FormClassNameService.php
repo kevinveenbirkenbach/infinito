@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\FormManagement;
+namespace Infinito\Domain\Form;
 
 /**
  * @author kevinfrantz
@@ -25,7 +25,7 @@ final class FormClassNameService implements FormClassNameServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\FormManagement\FormClassNameServiceInterface::getClass()
+     * @see \Infinito\Domain\Form\FormClassNameServiceInterface::getClass()
      */
     public function getClass(string $origineClass, string $type = ''): string
     {

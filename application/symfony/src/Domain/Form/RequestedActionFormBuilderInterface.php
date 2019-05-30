@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\FormManagement;
+namespace Infinito\Domain\Form;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Infinito\Domain\RequestManagement\Action\RequestedActionInterface;

@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Infinito\Repository\RepositoryInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use Infinito\Domain\FormManagement\RequestedActionFormBuilderServiceInterface;
+use Infinito\Domain\Form\RequestedActionFormBuilderServiceInterface;
 use Infinito\Domain\RequestManagement\Action\RequestedActionServiceInterface;
 use Infinito\Domain\SecureManagement\SecureRequestedRightCheckerServiceInterface;
 
