@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\UserManagement;
+namespace Infinito\Domain\User;
 
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\ActionType;

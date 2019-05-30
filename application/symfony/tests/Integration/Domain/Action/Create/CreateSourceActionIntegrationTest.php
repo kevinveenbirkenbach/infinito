@@ -14,7 +14,7 @@ use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Infinito\DBAL\Types\ActionType;
 use Infinito\Domain\Request\User\RequestedUserService;
-use Infinito\Domain\UserManagement\UserSourceDirectorService;
+use Infinito\Domain\User\UserSourceDirectorService;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Infinito\Domain\Form\RequestedActionFormBuilderService;

@@ -3,7 +3,7 @@
 namespace Infinito\Domain\Request\User;
 
 use Infinito\Entity\Source\SourceInterface;
-use Infinito\Domain\UserManagement\UserSourceDirectorInterface;
+use Infinito\Domain\User\UserSourceDirectorInterface;
 use Infinito\Domain\Request\Right\RequestedRightInterface;
 use Infinito\Domain\Request\Right\AbstractRequestedRightFacade;
 use Infinito\Exception\Collection\NotPossibleSetElementException;

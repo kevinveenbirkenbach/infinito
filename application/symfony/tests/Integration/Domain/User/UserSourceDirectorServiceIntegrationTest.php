@@ -1,9 +1,9 @@
 <?php
 
-namespace tests\Integration\Domain\UserManagement;
+namespace tests\Integration\Domain\User;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Infinito\Domain\UserManagement\UserSourceDirectorServiceInterface;
+use Infinito\Domain\User\UserSourceDirectorServiceInterface;
 use Infinito\Entity\UserInterface;
 
 /**

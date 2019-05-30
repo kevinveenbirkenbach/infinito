@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Infinito\Domain\Request\Action\RequestedActionService;
 use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
 use Infinito\Domain\Request\User\RequestedUserServiceInterface;
-use Infinito\Domain\UserManagement\UserSourceDirectorInterface;
+use Infinito\Domain\User\UserSourceDirectorInterface;
 
 /**
  * @author kevinfrantz

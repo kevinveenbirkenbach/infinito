@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Unit\Domain\UserManagement;
+namespace Tests\Unit\Domain\User;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Infinito\Entity\User;
-use Infinito\Domain\UserManagement\UserSourceDirector;
+use Infinito\Domain\User\UserSourceDirector;
 use Infinito\Repository\Source\SourceRepository;
 use Infinito\Entity\Source\AbstractSource;
 use Infinito\Domain\Fixture\FixtureSource\GuestUserFixtureSource;

@@ -8,7 +8,7 @@ use Infinito\Domain\Request\User\RequestedUser;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\Meta\Right\CRUDType;
 use Infinito\Entity\Source\AbstractSource;
-use Infinito\Domain\UserManagement\UserSourceDirectorInterface;
+use Infinito\Domain\User\UserSourceDirectorInterface;
 use Infinito\Domain\Request\Right\RequestedRightInterface;
 use Infinito\Domain\Request\Right\RequestedRight;
 use Infinito\Domain\Request\Entity\RequestedEntityInterface;

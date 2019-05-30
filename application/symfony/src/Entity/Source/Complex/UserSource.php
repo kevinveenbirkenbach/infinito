@@ -7,7 +7,7 @@ use Infinito\Attribut\UserAttribut;
 use Infinito\Entity\UserInterface;
 use Infinito\Attribut\PersonIdentitySourceAttribut;
 use Infinito\Entity\Meta\Right;
-use Infinito\Domain\UserManagement\UserSourceStandartRightMapInterface;
+use Infinito\Domain\User\UserSourceStandartRightMapInterface;
 
 /**
  * @author kevinfrantz

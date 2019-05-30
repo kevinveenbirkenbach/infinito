@@ -10,7 +10,7 @@ use Infinito\Domain\Request\Action\RequestedAction;
 use Infinito\DBAL\Types\ActionType;
 use Infinito\Repository\Source\SourceRepositoryInterface;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
-use Infinito\Domain\UserManagement\UserSourceDirector;
+use Infinito\Domain\User\UserSourceDirector;
 use Infinito\Domain\Request\User\RequestedUser;
 use Infinito\Entity\Source\Complex\UserSourceInterface;
 

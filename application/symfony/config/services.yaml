@@ -42,7 +42,7 @@ services:
         public: true
     Infinito\Domain\Request\Right\RequestedRightService:
         public: true
-    Infinito\Domain\UserManagement\UserSourceDirectorService:
+    Infinito\Domain\User\UserSourceDirectorService:
         public: true
     Infinito\Domain\Request\User\RequestedUserService:
         public: true

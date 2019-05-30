@@ -10,7 +10,7 @@ use Infinito\Domain\Request\Action\RequestedAction;
 use Infinito\Domain\Request\Right\RequestedRight;
 use Infinito\Domain\Layer\LayerActionMap;
 use Infinito\Domain\Request\User\RequestedUser;
-use Infinito\Domain\UserManagement\UserSourceDirectorInterface;
+use Infinito\Domain\User\UserSourceDirectorInterface;
 
 /**
  * @author kevinfrantz

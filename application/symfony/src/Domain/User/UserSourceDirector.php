@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\UserManagement;
+namespace Infinito\Domain\User;
 
 use Infinito\Entity\UserInterface;
 use Infinito\Entity\User;
@@ -49,7 +49,7 @@ final class UserSourceDirector implements UserSourceDirectorInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\UserManagement\UserSourceDirectorInterface::getUser()
+     * @see \Infinito\Domain\User\UserSourceDirectorInterface::getUser()
      */
     public function getUser(): UserInterface
     {

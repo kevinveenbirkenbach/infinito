@@ -3,7 +3,7 @@
 namespace Infinito\Domain\Request\User;
 
 use Infinito\Domain\Request\Right\RequestedRightInterface;
-use Infinito\Domain\UserManagement\UserSourceDirectorInterface;
+use Infinito\Domain\User\UserSourceDirectorInterface;
 
 /**
  * Offers a Service for managing the rights.

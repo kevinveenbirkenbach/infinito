@@ -2,7 +2,7 @@
 
 namespace Infinito\Domain\Request\User;
 
-use Infinito\Domain\UserManagement\UserSourceDirectorServiceInterface;
+use Infinito\Domain\User\UserSourceDirectorServiceInterface;
 use Infinito\Domain\Request\Right\RequestedRightServiceInterface;
 
 /**
