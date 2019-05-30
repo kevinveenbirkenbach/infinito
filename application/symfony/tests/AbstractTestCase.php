@@ -4,6 +4,11 @@ namespace Tests;
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @author kevinfrantz
+ *
+ * @deprecated Don't test private functions. Just test public functions!
+ */
 abstract class AbstractTestCase extends TestCase
 {
     /**
@@ -39,6 +44,11 @@ abstract class AbstractTestCase extends TestCase
         $reflectionProperty->setValue($object, $value);
     }
 
+    /**
+     * @param object $object
+     *
+     * @return \ReflectionClass
+     */
     private function getReflectionClassByObject(object &$object): \ReflectionClass
     {
         return new \ReflectionClass(get_class($object));
