@@ -12,4 +12,4 @@ twig:
         # @todo rename variable
         action_template_data_store_service: "@Infinito\\Domain\\DataAccessManagement\\ActionsViewsDAOService"
         # @todo Remove dom service
-        entity_dom_service: "@Infinito\\Domain\\DomManagement\\EntityDomServiceInterface"
+        entity_dom_service: "@Infinito\\Domain\\Dom\\EntityDomServiceInterface"

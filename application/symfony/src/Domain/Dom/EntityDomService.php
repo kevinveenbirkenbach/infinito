@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\DomManagement;
+namespace Infinito\Domain\Dom;
 
 use Infinito\Entity\EntityInterface;
 use Doctrine\Common\Collections\Collection;
@@ -176,7 +176,7 @@ final class EntityDomService implements EntityDomServiceInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\DomManagement\EntityDomServiceInterface::getDomDocument()
+     * @see \Infinito\Domain\Dom\EntityDomServiceInterface::getDomDocument()
      */
     public function getDomDocument(): \DOMDocument
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\DomManagement;
+namespace Infinito\Domain\Dom;
 
 /**
  * Allows to build a DOM for an entity.
