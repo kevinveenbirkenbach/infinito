@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Infinito\Controller\API\AbstractAPIController;
 use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
-use Infinito\Domain\MVC\MVCRoutineServiceInterface;
+use Infinito\Domain\Core\CoreServiceInterface;
 use Infinito\DBAL\Types\ActionType;
 use Infinito\Attribut\ClassAttributInterface;
 
@@ -54,9 +54,9 @@ final class LayerController extends AbstractAPIController
      *
      * @todo Mayber create an own controller for sources, because they have some special logic!
      */
-    public function create(Request $request, MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, string $layer): Response
+    public function create(Request $request, CoreServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, string $layer): Response
     {
-        //Not implemented yet in MVC routine. This is just a draft!
+        //Not implemented yet in Core routine. This is just a draft!
         if ($request->query->has(ClassAttributInterface::CLASS_ATTRIBUT_NAME)) {
             $class = $request->query->get(ClassAttributInterface::CLASS_ATTRIBUT_NAME);
             $requestedActionService->getRequestedEntity()->setClass($class);
@@ -74,7 +74,7 @@ final class LayerController extends AbstractAPIController
      * methods={"GET"}
      * )
      */
-    public function read(MVCRoutineServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, string $layer, $identity): Response
+    public function read(CoreServiceInterface $mvcRoutineService, RequestedActionServiceInterface $requestedActionService, string $layer, $identity): Response
     {
         $requestedActionService->setActionType(ActionType::READ);
         $requestedActionService->setLayer($layer);

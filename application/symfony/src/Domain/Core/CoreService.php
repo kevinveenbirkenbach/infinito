@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\MVC;
+namespace Infinito\Domain\Core;
 
 use FOS\RestBundle\View\View;
 use Infinito\Attribut\ActionTypeAttribut;
@@ -14,7 +14,7 @@ use Infinito\Domain\Process\ProcessServiceInterface;
  * @todo Test this class
  * @todo Rename this class and domain to something like "CoreManagement"
  */
-final class MVCRoutineService implements MVCRoutineServiceInterface
+final class CoreService implements CoreServiceInterface
 {
     use ActionTypeAttribut;
     /**
@@ -41,7 +41,7 @@ final class MVCRoutineService implements MVCRoutineServiceInterface
      * @todo Optimize the whole following function. It's just implemented like this for test reasons.
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\MVC\MVCRoutineServiceInterface::process()
+     * @see \Infinito\Domain\Core\CoreServiceInterface::process()
      */
     public function process(): View
     {

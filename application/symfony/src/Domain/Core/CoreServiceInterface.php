@@ -1,16 +1,16 @@
 <?php
 
-namespace Infinito\Domain\MVC;
+namespace Infinito\Domain\Core;
 
 use FOS\RestBundle\View\View;
 use Infinito\Attribut\ActionTypeAttributInterface;
 
 /**
- * This interface offers the options to process an MVC routine.
+ * This interface offers the options to process an Core routine.
  *
  * @author kevinfrantz
  */
-interface MVCRoutineServiceInterface extends ActionTypeAttributInterface
+interface CoreServiceInterface extends ActionTypeAttributInterface
 {
     /**
      * Process through the layers.
