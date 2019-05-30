@@ -1,10 +1,10 @@
 <?php
 
-namespace tests\Unit\Domain\PathManagement;
+namespace tests\Unit\Domain\Path;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Domain\PathManagement\NamespacePathMapInterface;
-use Infinito\Domain\PathManagement\NamespacePathMap;
+use Infinito\Domain\Path\NamespacePathMapInterface;
+use Infinito\Domain\Path\NamespacePathMap;
 
 /**
  * @author kevinfrantz

@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\PathManagement;
+namespace Infinito\Domain\Path;
 
 /**
  * @todo Be carefull with the case sensivity. Solve this!
@@ -27,7 +27,7 @@ final class NamespacePathMap implements NamespacePathMapInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\PathManagement\NamespacePathMapInterface::getNamespace()
+     * @see \Infinito\Domain\Path\NamespacePathMapInterface::getNamespace()
      */
     public function getNamespace(): string
     {
@@ -37,7 +37,7 @@ final class NamespacePathMap implements NamespacePathMapInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\PathManagement\NamespacePathMapInterface::getPath()
+     * @see \Infinito\Domain\Path\NamespacePathMapInterface::getPath()
      */
     public function getPath(): string
     {
@@ -47,7 +47,7 @@ final class NamespacePathMap implements NamespacePathMapInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\PathManagement\NamespacePathMapInterface::setPath()
+     * @see \Infinito\Domain\Path\NamespacePathMapInterface::setPath()
      */
     public function setPath(string $path): void
     {
@@ -57,7 +57,7 @@ final class NamespacePathMap implements NamespacePathMapInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\PathManagement\NamespacePathMapInterface::setNamespace()
+     * @see \Infinito\Domain\Path\NamespacePathMapInterface::setNamespace()
      */
     public function setNamespace(string $namespace): void
     {
@@ -68,7 +68,7 @@ final class NamespacePathMap implements NamespacePathMapInterface
      * The strtolower function could lead to conflicts in other contextes
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\PathManagement\NamespacePathMapInterface::setFolderArray()
+     * @see \Infinito\Domain\Path\NamespacePathMapInterface::setFolderArray()
      */
     public function setFolders(array $folders): void
     {
@@ -83,7 +83,7 @@ final class NamespacePathMap implements NamespacePathMapInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\PathManagement\NamespacePathMapInterface::getFolders()
+     * @see \Infinito\Domain\Path\NamespacePathMapInterface::getFolders()
      */
     public function getFolders(): array
     {
