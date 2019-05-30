@@ -3,8 +3,8 @@
 namespace Infinito\Domain\SourceManagement;
 
 use Infinito\Entity\Source\SourceInterface;
-use Infinito\Domain\MemberManagement\MemberManagerInterface;
-use Infinito\Domain\MemberManagement\MemberManager;
+use Infinito\Domain\Member\MemberManagerInterface;
+use Infinito\Domain\Member\MemberManager;
 
 /**
  * @author kevinfrantz

@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\MemberManagement;
+namespace Infinito\Domain\Member;
 
 use Infinito\Entity\Meta\Relation\Member\MemberRelationInterface;
 
@@ -29,7 +29,7 @@ final class MemberManager implements MemberManagerInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\MemberManagement\MemberManagerInterface::addMember()
+     * @see \Infinito\Domain\Member\MemberManagerInterface::addMember()
      */
     public function addMember(MemberRelationInterface $member): void
     {
@@ -42,7 +42,7 @@ final class MemberManager implements MemberManagerInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\MemberManagement\MemberManagerInterface::removeMember()
+     * @see \Infinito\Domain\Member\MemberManagerInterface::removeMember()
      */
     public function removeMember(MemberRelationInterface $member): void
     {
@@ -55,7 +55,7 @@ final class MemberManager implements MemberManagerInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\MemberManagement\MemberManagerInterface::addMembership()
+     * @see \Infinito\Domain\Member\MemberManagerInterface::addMembership()
      */
     public function addMembership(MemberRelationInterface $membership): void
     {
@@ -68,7 +68,7 @@ final class MemberManager implements MemberManagerInterface
     /**
      * {@inheritdoc}
      *
-     * @see \Infinito\Domain\MemberManagement\MemberManagerInterface::removeMembership()
+     * @see \Infinito\Domain\Member\MemberManagerInterface::removeMembership()
      */
     public function removeMembership(MemberRelationInterface $membership): void
     {

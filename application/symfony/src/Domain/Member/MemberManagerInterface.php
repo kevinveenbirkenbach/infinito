@@ -1,6 +1,6 @@
 <?php
 
-namespace Infinito\Domain\MemberManagement;
+namespace Infinito\Domain\Member;
 
 use Infinito\Entity\Meta\Relation\Member\MemberRelationInterface;
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\Unit\Domain\MemberManagement;
+namespace Tests\Unit\Domain\Member;
 
 use PHPUnit\Framework\TestCase;
-use Infinito\Domain\MemberManagement\MemberManagerInterface;
+use Infinito\Domain\Member\MemberManagerInterface;
 use Infinito\Entity\Meta\Relation\Member\MemberRelationInterface;
 use Infinito\Entity\Meta\Relation\Member\MemberRelation;
-use Infinito\Domain\MemberManagement\MemberManager;
+use Infinito\Domain\Member\MemberManager;
 
 class MemberManagerTest extends TestCase
 {
