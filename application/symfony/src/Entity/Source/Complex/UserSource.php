@@ -15,7 +15,8 @@ use Infinito\Domain\User\UserSourceStandartRightMapInterface;
  */
 class UserSource extends AbstractComplexSource implements UserSourceInterface
 {
-    use UserAttribut,PersonIdentitySourceAttribut;
+    use UserAttribut;
+    use PersonIdentitySourceAttribut;
 
     /**
      * @ORM\OneToOne(targetEntity="Infinito\Entity\User",cascade={"persist", "remove"})

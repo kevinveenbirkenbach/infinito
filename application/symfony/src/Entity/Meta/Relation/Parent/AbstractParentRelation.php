@@ -15,8 +15,10 @@ use Infinito\Entity\Meta\Relation\AbstractRelation;
  */
 abstract class AbstractParentRelation extends AbstractRelation implements ParentRelationInterface
 {
-    use IdAttribut,
-    ParentsAttribut,
+    use IdAttribut;
+    use
+    ParentsAttribut;
+    use
     ChildsAttribut;
 
     public function __construct()

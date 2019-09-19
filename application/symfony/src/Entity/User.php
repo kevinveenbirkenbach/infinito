@@ -17,7 +17,9 @@ use Infinito\Attribut\VersionAttribut;
  */
 class User extends BaseUser implements UserInterface
 {
-    use SourceAttribut,IdAttribut, VersionAttribut;
+    use SourceAttribut;
+    use IdAttribut;
+    use VersionAttribut;
 
     /**
      * @var UserSourceInterface

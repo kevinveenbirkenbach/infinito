@@ -49,7 +49,8 @@ class EntityDomServiceTest extends TestCase
     public function testNotCorrectInstanceException(): void
     {
         $entity = new class() implements EntityInterface {
-            use VersionAttribut,IdAttribut;
+            use VersionAttribut;
+            use IdAttribut;
             private $test;
 
             public function setTest($test): void

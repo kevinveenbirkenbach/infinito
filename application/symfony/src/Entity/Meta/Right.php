@@ -21,7 +21,13 @@ use Infinito\Attribut\ActionTypeAttribut;
  */
 class Right extends AbstractMeta implements RightInterface
 {
-    use ActionTypeAttribut,LawAttribut, GrantAttribut,ConditionAttribut,RecieverAttribut,LayerAttribut,PriorityAttribut;
+    use ActionTypeAttribut;
+    use LawAttribut;
+    use GrantAttribut;
+    use ConditionAttribut;
+    use RecieverAttribut;
+    use LayerAttribut;
+    use PriorityAttribut;
 
     /**
      * @todo Implement Integrationtests

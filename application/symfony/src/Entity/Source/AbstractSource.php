@@ -49,7 +49,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 abstract class AbstractSource extends AbstractEntity implements SourceInterface
 {
-    use  LawAttribut,CreatorRelationAttribut, MemberRelationAttribut, SlugAttribut;
+    use  LawAttribut;
+    use CreatorRelationAttribut;
+    use MemberRelationAttribut;
+    use SlugAttribut;
 
     /**
      * System slugs should be writen in UPPER CASES

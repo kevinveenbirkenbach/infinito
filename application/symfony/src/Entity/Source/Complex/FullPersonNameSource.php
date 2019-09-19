@@ -16,7 +16,8 @@ use Infinito\Entity\Source\Primitive\Name\FirstNameSourceInterface;
  */
 class FullPersonNameSource extends AbstractComplexSource implements FullPersonNameSourceInterface
 {
-    use FirstNameSourceAttribut,SurnameSourceAttribut;
+    use FirstNameSourceAttribut;
+    use SurnameSourceAttribut;
 
     /**
      * @ORM\OneToOne(targetEntity="Infinito\Entity\Source\Primitive\Name\SurnameSource",cascade={"persist", "remove"})

@@ -15,7 +15,8 @@ use Infinito\Attribut\GrantAttribut;
  */
 class Law extends AbstractMeta implements LawInterface
 {
-    use RightsAttribut, GrantAttribut;
+    use RightsAttribut;
+    use GrantAttribut;
 
     /**
      * @ORM\Column(type="boolean",name="`grant`")

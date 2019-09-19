@@ -15,7 +15,8 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class MemberRelation extends AbstractRelation implements MemberRelationInterface
 {
-    use MembersAttribut,MembershipsAttribut;
+    use MembersAttribut;
+    use MembershipsAttribut;
 
     /**
      * Many Sources have many Source Members.

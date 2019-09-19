@@ -11,7 +11,8 @@ use Infinito\Attribut\VersionAttribut;
  */
 abstract class AbstractEntity implements EntityInterface
 {
-    use IdAttribut, VersionAttribut;
+    use IdAttribut;
+    use VersionAttribut;
 
     /**
      * @ORM\Id()
