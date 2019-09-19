@@ -58,10 +58,15 @@ class CreateSourceActionIntegrationTest extends KernelTestCase
      */
     private $requestStack;
 
+    /**
+     * @var \Symfony\Component\Form\FormFactoryInterface
+     */
+    private $formFactory;
+
     public function setUp(): void
     {
         self::bootKernel();
-        $formFactory = self::$container->get('form.factory');
+        $this->formFactory = self::$container->get('form.factory');
         $entityManager = static::$kernel->getContainer()
             ->get('doctrine')
             ->getManager();
@@ -73,7 +78,7 @@ class CreateSourceActionIntegrationTest extends KernelTestCase
         $this->requestedActionService = new RequestedActionService($requestedUserService);
         $this->requestedActionService->setActionType(ActionType::CREATE);
         $formClassNameService = new FormClassNameService();
-        $entityFormBuilderService = new RequestedActionFormBuilderService($formFactory, $formClassNameService, $this->requestedActionService);
+        $entityFormBuilderService = new RequestedActionFormBuilderService($this->formFactory, $formClassNameService, $this->requestedActionService);
         $this->request = new Request();
         $this->requestStack = new RequestStack();
         $this->requestStack->push($this->request);
@@ -96,6 +101,7 @@ class CreateSourceActionIntegrationTest extends KernelTestCase
         $this->assertInstanceOf(PureSourceInterface::class, $this->createSourceAction->execute());
     }
 
-//     public function testCreatedWithKnownUser(): void
-//     {}
+    // @todo Implement the following function
+    // public function testCreatedWithKnownUser(): void
+    // {}
 }
