@@ -66,11 +66,13 @@ class CreateSourceActionIntegrationTest extends KernelTestCase
     public function setUp(): void
     {
         self::bootKernel();
+        $csrfToken = self::$container->get('security.csrf.token_manager')->getToken('authenticate')->getValue();
         $this->formFactory = self::$container->get('form.factory');
         $entityManager = static::$kernel->getContainer()
             ->get('doctrine')
             ->getManager();
-        $security = $this->createMock(Security::class);
+        $security = self::$container->get(Security::class);
+        //$security = $this->createMock(Security::class);
         $userSourceDirectorService = new UserSourceDirectorService($entityManager, $security);
         $requestedEntityService = new RequestedEntityService();
         $requestedRightService = new RequestedRightService($requestedEntityService);
@@ -80,6 +82,7 @@ class CreateSourceActionIntegrationTest extends KernelTestCase
         $formClassNameService = new FormClassNameService();
         $requestedActionFormBuilderService = new RequestedActionFormBuilderService($this->formFactory, $formClassNameService, $this->requestedActionService);
         $this->request = new Request();
+        $this->request->request->set('_token', $csrfToken);
         $this->requestStack = new RequestStack();
         $this->requestStack->push($this->request);
         $layerRepositoryFactoryService = new LayerRepositoryFactoryService($entityManager);
@@ -97,7 +100,7 @@ class CreateSourceActionIntegrationTest extends KernelTestCase
     public function testCreateWithGuestUser(): void
     {
         $this->request->setMethod(Request::METHOD_POST);
-        $this->request->attributes->set(ClassAttributInterface::CLASS_ATTRIBUT_NAME, PureSource::class);
+        $this->request->request->set(ClassAttributInterface::CLASS_ATTRIBUT_NAME, PureSource::class);
         $this->assertInstanceOf(PureSourceInterface::class, $this->createSourceAction->execute());
     }
 

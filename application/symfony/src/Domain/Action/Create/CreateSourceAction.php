@@ -66,16 +66,16 @@ final class CreateSourceAction extends AbstractCreateAction
     /**
      * {@inheritdoc}
      *
+     * @todo Needs to be implemented and recheckt
+     *
      * @see \Infinito\Domain\Action\AbstractAction::isValid()
      */
     protected function isValid(): bool
     {
-        //The following Exception just exists out of debuging reasons during the development process
-        if (!$this->form->isSubmitted()) {
-            throw new \Exception('The form is not submitted!');
-        }
+        $request = $this->actionService->getRequest()->request->all();
+        $this->form->submit($request);
 
-        return $this->form->isValid();
+        return $this->form->isSubmitted() && $this->form->isValid();
     }
 
     /**
