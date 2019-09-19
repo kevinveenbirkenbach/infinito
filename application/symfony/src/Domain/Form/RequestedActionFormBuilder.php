@@ -57,8 +57,8 @@ class RequestedActionFormBuilder implements RequestedActionFormBuilderInterface
         $origineClass = $requestedEntity->getClass();
         $class = $this->formClassNameService->getClass($origineClass, $actionType);
         $entity = ($requestedEntity->hasIdentity()) ? $requestedEntity->getEntity() : null;
-        $form = $this->formFactory->createBuilder($class, $entity);
+        $formBuilder = $this->formFactory->createBuilder($class, $entity);
 
-        return $form;
+        return $formBuilder;
     }
 }

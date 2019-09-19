@@ -78,14 +78,14 @@ class CreateSourceActionIntegrationTest extends KernelTestCase
         $this->requestedActionService = new RequestedActionService($requestedUserService);
         $this->requestedActionService->setActionType(ActionType::CREATE);
         $formClassNameService = new FormClassNameService();
-        $entityFormBuilderService = new RequestedActionFormBuilderService($this->formFactory, $formClassNameService, $this->requestedActionService);
+        $requestedActionFormBuilderService = new RequestedActionFormBuilderService($this->formFactory, $formClassNameService, $this->requestedActionService);
         $this->request = new Request();
         $this->requestStack = new RequestStack();
         $this->requestStack->push($this->request);
         $layerRepositoryFactoryService = new LayerRepositoryFactoryService($entityManager);
         $rightTransformerService = new RightTransformerService();
         $secureRequestedRightChecker = new SecureRequestedRightCheckerService($rightTransformerService);
-        $this->actionService = new ActionDependenciesDAOService($this->requestedActionService, $secureRequestedRightChecker, $this->requestStack, $layerRepositoryFactoryService, $entityFormBuilderService, $entityManager);
+        $this->actionService = new ActionDependenciesDAOService($this->requestedActionService, $secureRequestedRightChecker, $this->requestStack, $layerRepositoryFactoryService, $requestedActionFormBuilderService, $entityManager);
         $this->createSourceAction = new CreateSourceAction($this->actionService);
     }
 
