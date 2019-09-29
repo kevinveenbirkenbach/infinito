@@ -7,6 +7,7 @@
 [![Code of Conduct](https://img.shields.io/badge/%E2%9D%A4-code%20of%20conduct-blue.svg?style=flat)](https://github.com/KevinFrantz/infinito/blob/master/CODE_OF_CONDUCT.md)
 [![Release](https://img.shields.io/badge/Release-Pre--Alpha--Release-red.svg)](https://en.wikipedia.org/wiki/Software_release_life_cycle)
 [![gitpod.io](https://img.shields.io/badge/gitpod.io-%E2%9C%93-blue.svg)](https://gitpod.io/#https://github.com/KevinFrantz/infinito)
+[![donate on paypal](https://img.shields.io/badge/donate%20-%E2%9D%A4%24%E2%82%AC%C2%A5-important)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=C9USD9N26SYZU&source=url)
 
 ## Idea
 
