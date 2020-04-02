@@ -6,7 +6,7 @@
 		"ext-ctype": "*",
 		"ext-iconv": "*",
 		"fresh/doctrine-enum-bundle": "^6.2",
-		"friendsofsymfony/rest-bundle": "^2.4",
+		"friendsofsymfony/rest-bundle": "*",
 		"friendsofsymfony/user-bundle": "^2.1",
 		"haydenpierce/class-finder": "^0.2.0",
 		"jms/serializer-bundle": "^2.4",
