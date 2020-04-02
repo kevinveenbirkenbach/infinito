@@ -9,8 +9,5 @@ use Infinito\Entity\Meta\RightInterface;
  */
 interface SecureSourceCheckerInterface
 {
-    /**
-     * @param RightInterface $right
-     */
-    public function hasPermission(RightInterface $requestedRight): bool;
+    public function hasPermission(RightInterface $right): bool;
 }

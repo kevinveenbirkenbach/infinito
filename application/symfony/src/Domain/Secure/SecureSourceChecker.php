@@ -74,10 +74,10 @@ final class SecureSourceChecker implements SecureSourceCheckerInterface
      *
      * @see \Infinito\Domain\Secure\SecureSourceCheckerInterface::hasPermission()
      */
-    public function hasPermission(RightInterface $requestedRight): bool
+    public function hasPermission(RightInterface $right): bool
     {
         $law = new LawPermissionChecker($this->source->getLaw());
 
-        return $law->hasPermission($requestedRight) && $this->itterateOverSourceAttributs($requestedRight);
+        return $law->hasPermission($right) && $this->itterateOverSourceAttributs($right);
     }
 }
