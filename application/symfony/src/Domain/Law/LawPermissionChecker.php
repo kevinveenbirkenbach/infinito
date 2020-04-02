@@ -2,15 +2,15 @@
 
 namespace Infinito\Domain\Law;
 
-use PhpCollection\CollectionInterface;
 use Doctrine\Common\Collections\ArrayCollection;
-use Infinito\Entity\Meta\RightInterface;
 use Doctrine\Common\Collections\Collection;
-use Infinito\Entity\Meta\LawInterface;
-use Infinito\Domain\Right\RightChecker;
-use Infinito\Entity\Source\SourceInterface;
-use Infinito\Domain\Source\SourceMemberInformation;
 use Infinito\Domain\Method\MethodPrefixType;
+use Infinito\Domain\Right\RightChecker;
+use Infinito\Domain\Source\SourceMemberInformation;
+use Infinito\Entity\Meta\LawInterface;
+use Infinito\Entity\Meta\RightInterface;
+use Infinito\Entity\Source\SourceInterface;
+use PhpCollection\CollectionInterface;
 
 /**
  * @todo Implement checking by operation sources
@@ -27,8 +27,6 @@ final class LawPermissionChecker implements LawPermissionCheckerInterface
 
     /**
      * @param Collection|RightInterface[] $rights
-     * @param string                      $value
-     * @param string                      $attribut
      *
      * @return Collection|RightInterface[]
      */
@@ -46,7 +44,6 @@ final class LawPermissionChecker implements LawPermissionCheckerInterface
 
     /**
      * @param Collection|RightInterface[] $rights
-     * @param string                      $type
      *
      * @return Collection|RightInterface[]
      */
@@ -56,8 +53,6 @@ final class LawPermissionChecker implements LawPermissionCheckerInterface
     }
 
     /**
-     * @param RightInterface $right
-     *
      * @return bool True if right applies to all
      */
     private function doesRightApplyToAll(RightInterface $right): bool
@@ -67,7 +62,6 @@ final class LawPermissionChecker implements LawPermissionCheckerInterface
 
     /**
      * @param Collection|RightInterface[] $rights
-     * @param RightInterface              $requestedRight
      *
      * @return Collection|RightInterface[]
      */
@@ -85,11 +79,6 @@ final class LawPermissionChecker implements LawPermissionCheckerInterface
 
     /**
      * @todo Implement!
-     *
-     * @param RightInterface  $right
-     * @param SourceInterface $recieverSource
-     *
-     * @return bool
      */
     private function memberExist(RightInterface $right, SourceInterface $recieverSource): bool
     {
@@ -106,7 +95,6 @@ final class LawPermissionChecker implements LawPermissionCheckerInterface
 
     /**
      * @param Collection|RightInterface[] $rights
-     * @param string                      $layer
      *
      * @return Collection|RightInterface[]
      */
@@ -139,8 +127,6 @@ final class LawPermissionChecker implements LawPermissionCheckerInterface
     /**
      * @param CollectionInterface|RightInterface[] $rights
      *                                                     the rights which exist
-     *
-     * @return bool
      */
     private function isGranted(Collection $rights, RightInterface $client): bool
     {
@@ -153,9 +139,6 @@ final class LawPermissionChecker implements LawPermissionCheckerInterface
         return $rightChecker->isGranted($client->getLayer(), $client->getActionType(), $client->getReciever());
     }
 
-    /**
-     * @param LawInterface $law
-     */
     public function __construct(LawInterface $law)
     {
         $this->law = $law;

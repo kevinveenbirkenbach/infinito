@@ -2,9 +2,9 @@
 
 namespace Infinito\Entity\Source\Operation;
 
-use Infinito\Logic\Result\Result;
 use Doctrine\ORM\Mapping as ORM;
 use Infinito\Exception\Attribut\UndefinedAttributException;
+use Infinito\Logic\Result\Result;
 
 /**
  * @author kevinfrantz

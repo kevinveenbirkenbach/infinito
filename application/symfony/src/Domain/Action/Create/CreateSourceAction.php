@@ -2,10 +2,10 @@
 
 namespace Infinito\Domain\Action\Create;
 
+use Infinito\Domain\Parameter\Parameter\ClassParameter;
 use Infinito\Domain\Source\SourceClassInformationService;
 use Infinito\Entity\Source\AbstractSource;
 use Symfony\Component\Form\Form;
-use Infinito\Domain\Parameter\Parameter\ClassParameter;
 
 /**
  * @author kevinfrantz

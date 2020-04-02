@@ -2,8 +2,8 @@
 
 namespace Infinito\Entity\Source\Complex;
 
-use Infinito\Attribut\FullPersonNameSourceAttribut;
 use Doctrine\ORM\Mapping as ORM;
+use Infinito\Attribut\FullPersonNameSourceAttribut;
 
 /**
  * @author kevinfrantz

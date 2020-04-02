@@ -14,9 +14,6 @@ final class ActionHandlerService implements ActionHandlerServiceInterface
      */
     private $actionFactoryService;
 
-    /**
-     * @param ActionFactoryServiceInterface $actionFactoryService
-     */
     public function __construct(ActionFactoryServiceInterface $actionFactoryService)
     {
         $this->actionFactoryService = $actionFactoryService;

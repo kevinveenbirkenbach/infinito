@@ -11,10 +11,5 @@ use Infinito\Repository\RepositoryInterface;
  */
 interface LayerRepositoryFactoryServiceInterface
 {
-    /**
-     * @param string $layer
-     *
-     * @return RepositoryInterface
-     */
     public function getRepository(string $layer): RepositoryInterface;
 }

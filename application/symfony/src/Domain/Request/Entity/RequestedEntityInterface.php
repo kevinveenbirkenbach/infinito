@@ -2,10 +2,10 @@
 
 namespace Infinito\Domain\Request\Entity;
 
-use Infinito\Entity\EntityInterface;
-use Infinito\Attribut\SlugAttributInterface;
-use Infinito\Attribut\RequestedRightAttributInterface;
 use Infinito\Attribut\ClassAttributInterface;
+use Infinito\Attribut\RequestedRightAttributInterface;
+use Infinito\Attribut\SlugAttributInterface;
+use Infinito\Entity\EntityInterface;
 
 /**
  * A requested entity containes the stumb attributes to load an entity.
@@ -26,8 +26,5 @@ interface RequestedEntityInterface extends EntityInterface, SlugAttributInterfac
      */
     public function hasIdentity(): bool;
 
-    /**
-     * @return EntityInterface
-     */
     public function getEntity(): EntityInterface;
 }

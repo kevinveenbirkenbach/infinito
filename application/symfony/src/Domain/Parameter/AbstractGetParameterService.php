@@ -2,9 +2,9 @@
 
 namespace Infinito\Domain\Parameter;
 
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpFoundation\Request;
 use Infinito\Exception\Collection\NotSetElementException;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * This class exists out of refactoring reasons.
@@ -19,14 +19,8 @@ abstract class AbstractGetParameterService implements GetParameterServiceInterfa
      */
     protected $currentRequest;
 
-    /**
-     * @param string $key
-     */
     abstract protected function validateParameter(string $key): void;
 
-    /**
-     * @param RequestStack $requestStack
-     */
     private function setCurrentRequest(RequestStack $requestStack): void
     {
         $this->currentRequest = $requestStack->getCurrentRequest();
@@ -39,9 +33,6 @@ abstract class AbstractGetParameterService implements GetParameterServiceInterfa
         }
     }
 
-    /**
-     * @param RequestStack $requestStack
-     */
     public function __construct(RequestStack $requestStack)
     {
         $this->setCurrentRequest($requestStack);

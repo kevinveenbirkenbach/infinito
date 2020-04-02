@@ -2,24 +2,24 @@
 
 namespace Infinito\Subscriber;
 
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Translation\TranslatorInterface;
-use Knp\Menu\ItemInterface;
-use Infinito\Event\Menu\MenuEvent;
-use Infinito\DBAL\Types\MenuEventType;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\EventDispatcher\Event;
-use Infinito\DBAL\Types\RESTResponseType;
-use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Controller\API\Rest\LayerController;
-use Infinito\Domain\Fixture\FixtureSourceFactory;
+use Infinito\DBAL\Types\MenuEventType;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\DBAL\Types\RESTResponseType;
 use Infinito\Domain\Fixture\FixtureSource\FixtureSourceInterface;
 use Infinito\Domain\Fixture\FixtureSource\GuestUserFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\HelpFixtureSource;
 use Infinito\Domain\Fixture\FixtureSource\HomepageFixtureSource;
 use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
 use Infinito\Domain\Fixture\FixtureSource\InformationFixtureSource;
-use Infinito\Domain\Fixture\FixtureSource\HelpFixtureSource;
+use Infinito\Domain\Fixture\FixtureSourceFactory;
+use Infinito\Event\Menu\MenuEvent;
+use Knp\Menu\ItemInterface;
+use Symfony\Component\EventDispatcher\Event;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * @author kevinfrantz
@@ -38,10 +38,6 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
      */
     private $fixtureSources;
 
-    /**
-     * @param TokenStorageInterface $tokenStorage
-     * @param TranslatorInterface   $translator
-     */
     public function __construct(TokenStorageInterface $tokenStorage, TranslatorInterface $translator)
     {
         $this->fixtureSources = FixtureSourceFactory::getAllFixtureSources();
@@ -49,21 +45,12 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
         parent::__construct($translator);
     }
 
-    /**
-     * @param ItemInterface $item
-     * @param string        $slug
-     */
     private function deleteAndAddToItem(ItemInterface $item, string $slug): void
     {
         $fixtureSource = $this->getAndDeleteFixtureSource($slug);
         $this->addFixtureSourceToItem($item, $fixtureSource);
     }
 
-    /**
-     * @param string $slug
-     *
-     * @return FixtureSourceInterface
-     */
     private function getAndDeleteFixtureSource(string $slug): FixtureSourceInterface
     {
         $result = clone $this->fixtureSources[$slug];
@@ -72,9 +59,6 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
         return $result;
     }
 
-    /**
-     * @param MenuEvent $event
-     */
     public function onUserMenuConfigure(MenuEvent $event): void
     {
         $menu = $event->getItem();
@@ -90,10 +74,6 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
         }
     }
 
-    /**
-     * @param ItemInterface          $item
-     * @param FixtureSourceInterface $fixtureSource
-     */
     private function addFixtureSourceToItem(ItemInterface $item, FixtureSourceInterface $fixtureSource): void
     {
         $slug = $fixtureSource::getSlug();
@@ -103,9 +83,6 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
     }
 
     /**
-     * @param string $identity
-     * @param string $icon
-     *
      * @return []
      */
     private function getSourceItemConfigurationArray(string $identity, string $icon)
@@ -123,17 +100,11 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
         ];
     }
 
-    /**
-     * @return TokenInterface|null
-     */
     private function getToken(): ?TokenInterface
     {
         return $this->tokenStorage->getToken();
     }
 
-    /**
-     * @return string
-     */
     private function getUsername(): string
     {
         $token = $this->getToken();
@@ -141,9 +112,6 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
         return ($token) ? $token->getUsername() : $this->trans('user');
     }
 
-    /**
-     * @return array|null
-     */
     private function getRoles(): ?array
     {
         $token = $this->getToken();
@@ -151,9 +119,6 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
         return ($token) ? $token->getRoles() : null;
     }
 
-    /**
-     * @param ItemInterface $menu
-     */
     private function generateUserDropdown(ItemInterface $menu): void
     {
         $dropdown = $menu->addChild($this->getUsername(), [
@@ -201,9 +166,6 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
         }
     }
 
-    /**
-     * @return array
-     */
     public static function getSubscribedEvents(): array
     {
         return [
@@ -211,11 +173,6 @@ class UserMenuSubscriber extends AbstractEntityMenuSubscriber implements EventSu
         ];
     }
 
-    /**
-     * @param Event $event
-     *
-     * @return bool
-     */
     private function shouldShowFormatSelection(Event $event): bool
     {
         foreach ([

@@ -2,10 +2,10 @@
 
 namespace tests\Unit\Entity\Meta;
 
-use PHPUnit\Framework\TestCase;
 use Doctrine\Common\Collections\Collection;
 use Infinito\Entity\Meta\Relation\Parent\AbstractParentRelation;
 use Infinito\Entity\Meta\Relation\Parent\ParentRelationInterface;
+use PHPUnit\Framework\TestCase;
 
 class AbstractParentRelationTest extends TestCase
 {

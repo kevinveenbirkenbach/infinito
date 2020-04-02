@@ -2,8 +2,8 @@
 
 namespace Infinito\Domain\Request\Action;
 
-use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Infinito\Exception\Collection\ContainsElementException;
 use Infinito\Exception\Collection\NotSetElementException;
 

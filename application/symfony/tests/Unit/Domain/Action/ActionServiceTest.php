@@ -2,22 +2,22 @@
 
 namespace tests\Unit\Domain\Action;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Domain\Action\ActionDependenciesDAOService;
-use Infinito\Domain\Request\Action\RequestedActionInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\Action\ActionDependenciesDAOService;
 use Infinito\Domain\Action\ActionDependenciesDAOServiceInterface;
-use Infinito\Repository\RepositoryInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Infinito\Domain\Request\Entity\RequestedEntityInterface;
-use PHPUnit\Framework\MockObject\MockObject;
-use Infinito\Entity\EntityInterface;
-use Symfony\Component\Form\FormBuilderInterface;
 use Infinito\Domain\Form\RequestedActionFormBuilderServiceInterface;
+use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\Request\Action\RequestedActionInterface;
 use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
+use Infinito\Domain\Request\Entity\RequestedEntityInterface;
 use Infinito\Domain\Secure\SecureRequestedRightCheckerServiceInterface;
+use Infinito\Entity\EntityInterface;
+use Infinito\Repository\RepositoryInterface;
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * @author kevinfrantz

@@ -2,19 +2,14 @@
 
 namespace Infinito\Domain\Parameter;
 
-use Infinito\Domain\Parameter\Parameter\ParameterInterface;
 use Doctrine\Common\Collections\Collection;
+use Infinito\Domain\Parameter\Parameter\ParameterInterface;
 
 /**
  * @author kevinfrantz
  */
 interface ParameterFactoryInterface
 {
-    /**
-     * @param string $key
-     *
-     * @return ParameterInterface
-     */
     public function getParameter(string $key): ParameterInterface;
 
     /**

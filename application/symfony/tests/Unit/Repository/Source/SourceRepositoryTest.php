@@ -2,12 +2,12 @@
 
 namespace tests\Unit\Repository\Source;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Infinito\Repository\Source\SourceRepositoryInterface;
-use Infinito\Entity\Source\AbstractSource;
-use Infinito\Domain\Request\Entity\RequestedEntityInterface;
-use Infinito\Entity\Source\SourceInterface;
 use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
+use Infinito\Domain\Request\Entity\RequestedEntityInterface;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Repository\Source\SourceRepositoryInterface;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 /**
  * @author kevinfrantz

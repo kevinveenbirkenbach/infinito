@@ -2,8 +2,8 @@
 
 namespace Infinito\Entity\Source\Complex;
 
-use Infinito\Attribut\UserAttributInterface;
 use Infinito\Attribut\PersonIdentitySourceAttributInterface;
+use Infinito\Attribut\UserAttributInterface;
 
 /**
  * @author kevinfrantz
@@ -12,8 +12,6 @@ interface UserSourceInterface extends ComplexSourceInterface, UserAttributInterf
 {
     /**
      * Checks if the user has an identity source.
-     *
-     * @return bool
      */
     public function hasPersonIdentitySource(): bool;
 }

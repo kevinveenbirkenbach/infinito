@@ -11,9 +11,6 @@ use Infinito\Domain\Request\Entity\RequestedEntityServiceInterface;
  */
 final class RequestedRightService extends RequestedRight implements RequestedRightServiceInterface
 {
-    /**
-     * @param RequestedEntityServiceInterface $requestedEntityService
-     */
     public function __construct(RequestedEntityServiceInterface $requestedEntityService)
     {
         parent::__construct($requestedEntityService);

@@ -11,13 +11,7 @@ interface CreatorRelationAttributInterface
 {
     const CREATORRELATION_ATTRIBUT_NAME = 'creatorRelation';
 
-    /**
-     * @param CreatorRelationInterface $creatorRelation
-     */
     public function setCreatorRelation(CreatorRelationInterface $creatorRelation);
 
-    /**
-     * @return CreatorRelationInterface
-     */
     public function getCreatorRelation(): CreatorRelationInterface;
 }

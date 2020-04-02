@@ -2,11 +2,11 @@
 
 namespace Infinito\Form\Entity\Source;
 
+use Infinito\Attribut\ClassAttributInterface;
+use Infinito\Attribut\SlugAttributInterface;
+use Infinito\Entity\Source\PureSource;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Infinito\Entity\Source\PureSource;
-use Infinito\Attribut\SlugAttributInterface;
-use Infinito\Attribut\ClassAttributInterface;
 
 /**
  * @author kevinfrantz

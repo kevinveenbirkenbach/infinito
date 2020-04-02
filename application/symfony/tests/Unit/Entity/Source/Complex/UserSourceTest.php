@@ -2,11 +2,11 @@
 
 namespace tests\unit\Entity\Source\Complex;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Entity\Source\Complex\UserSourceInterface;
-use Infinito\Entity\Source\Complex\UserSource;
 use Doctrine\Common\Collections\Collection;
 use Infinito\Entity\Source\Complex\PersonIdentitySourceInterface;
+use Infinito\Entity\Source\Complex\UserSource;
+use Infinito\Entity\Source\Complex\UserSourceInterface;
+use PHPUnit\Framework\TestCase;
 
 class UserSourceTest extends TestCase
 {

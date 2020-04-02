@@ -9,8 +9,5 @@ use FOS\RestBundle\View\View;
  */
 interface ViewServiceInterface
 {
-    /**
-     * @return View
-     */
     public function getView(): View;
 }

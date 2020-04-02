@@ -9,8 +9,5 @@ namespace Infinito\Domain\Action;
  */
 interface ActionFactoryServiceInterface
 {
-    /**
-     * @return ActionInterface
-     */
     public function create(): ActionInterface;
 }

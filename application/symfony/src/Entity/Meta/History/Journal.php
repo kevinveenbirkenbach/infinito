@@ -2,8 +2,8 @@
 
 namespace Infinito\Entity\Meta\History;
 
-use Infinito\Entity\Meta\AbstractMeta;
 use Infinito\Attribut\LogsAttribut;
+use Infinito\Entity\Meta\AbstractMeta;
 
 /**
  * @author kevinfrantz

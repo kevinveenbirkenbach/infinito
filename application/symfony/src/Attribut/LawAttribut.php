@@ -16,17 +16,11 @@ trait LawAttribut
      */
     protected $law;
 
-    /**
-     * @param LawInterface $law
-     */
     public function setLaw(LawInterface $law): void
     {
         $this->law = $law;
     }
 
-    /**
-     * @return LawInterface
-     */
     public function getLaw(): LawInterface
     {
         return $this->law;

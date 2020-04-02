@@ -2,8 +2,8 @@
 
 namespace Infinito\Domain\Fixture\FixtureSource;
 
-use Infinito\Entity\Source\SourceInterface;
 use Infinito\Attribut\SlugAttributInterface;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * This interface allows to save the configuration values of an fixture in a class.

@@ -32,9 +32,7 @@ abstract class AbstractTestCase extends TestCase
     }
 
     /**
-     * @param object $object
-     * @param string $property
-     * @param mixed  $value
+     * @param mixed $value
      */
     public function setProperty(object &$object, string $property, $value): void
     {
@@ -44,11 +42,6 @@ abstract class AbstractTestCase extends TestCase
         $reflectionProperty->setValue($object, $value);
     }
 
-    /**
-     * @param object $object
-     *
-     * @return \ReflectionClass
-     */
     private function getReflectionClassByObject(object &$object): \ReflectionClass
     {
         return new \ReflectionClass(get_class($object));

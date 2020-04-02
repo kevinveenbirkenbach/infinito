@@ -2,11 +2,11 @@
 
 namespace tests\Unit\Domain\Right;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Domain\Right\RightLayerCombinationServiceInterface;
-use Infinito\Domain\Right\RightLayerCombinationService;
 use Infinito\DBAL\Types\Meta\Right\CRUDType;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Domain\Right\RightLayerCombinationService;
+use Infinito\Domain\Right\RightLayerCombinationServiceInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

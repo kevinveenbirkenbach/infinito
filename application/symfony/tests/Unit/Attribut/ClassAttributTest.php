@@ -2,10 +2,10 @@
 
 namespace Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Attribut\ClassAttributInterface;
 use Infinito\Attribut\ClassAttribut;
+use Infinito\Attribut\ClassAttributInterface;
 use Infinito\Entity\Source\AbstractSource;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ClassAttributTest extends TestCase

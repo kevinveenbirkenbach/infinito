@@ -2,12 +2,12 @@
 
 namespace Tests\Unit\Entity\Source\Complex\Collection;
 
-use PHPUnit\Framework\TestCase;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use Infinito\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
+use Doctrine\Common\Collections\Collection;
 use Infinito\Entity\Source\Complex\Collection\TreeCollectionSource;
+use Infinito\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
 use Infinito\Entity\Source\PureSource;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

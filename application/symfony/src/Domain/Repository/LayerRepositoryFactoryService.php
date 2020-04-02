@@ -2,9 +2,9 @@
 
 namespace Infinito\Domain\Repository;
 
-use Infinito\Repository\RepositoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Infinito\Domain\Layer\LayerClassMap;
+use Infinito\Repository\RepositoryInterface;
 
 /**
  * @author kevinfrantz
@@ -16,9 +16,6 @@ final class LayerRepositoryFactoryService implements LayerRepositoryFactoryServi
      */
     private $entityManager;
 
-    /**
-     * @param EntityManagerInterface $entityManager
-     */
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;

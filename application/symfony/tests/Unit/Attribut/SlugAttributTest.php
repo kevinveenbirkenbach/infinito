@@ -2,10 +2,10 @@
 
 namespace Tests\Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Attribut\SlugAttributInterface;
 use Infinito\Attribut\SlugAttribut;
+use Infinito\Attribut\SlugAttributInterface;
 use Infinito\Exception\Validation\ValueInvalidException;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

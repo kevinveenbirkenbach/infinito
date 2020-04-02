@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
 use Infinito\Attribut\FirstNameSourceAttribut;
 use Infinito\Attribut\FirstNameSourceAttributInterface;
 use Infinito\Entity\Source\Primitive\Name\FirstNameSourceInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

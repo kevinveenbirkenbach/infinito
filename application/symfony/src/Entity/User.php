@@ -4,11 +4,11 @@ namespace Infinito\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
-use Infinito\Attribut\SourceAttribut;
 use Infinito\Attribut\IdAttribut;
-use Infinito\Entity\Source\Complex\UserSourceInterface;
-use Infinito\Entity\Source\Complex\UserSource;
+use Infinito\Attribut\SourceAttribut;
 use Infinito\Attribut\VersionAttribut;
+use Infinito\Entity\Source\Complex\UserSource;
+use Infinito\Entity\Source\Complex\UserSourceInterface;
 
 /**
  * @author kevinfrantz

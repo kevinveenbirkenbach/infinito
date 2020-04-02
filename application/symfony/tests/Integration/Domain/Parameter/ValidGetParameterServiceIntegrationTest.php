@@ -2,18 +2,18 @@
 
 namespace tests\Integration\Domain\Parameter;
 
+use Infinito\Domain\Parameter\Parameter\VersionParameter;
 use Infinito\Domain\Parameter\ParameterFactory;
+use Infinito\Domain\Parameter\ParameterFactoryInterface;
+use Infinito\Domain\Parameter\ValidGetParameterServiceInterface;
 use Infinito\Domain\Parameter\ValidGetParametersService;
+use Infinito\Exception\Collection\NotSetElementException;
+use Infinito\Exception\Core\NotImplementedCoreException;
+use Infinito\Exception\Validation\GetParameterInvalidException;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Infinito\Domain\Parameter\ValidGetParameterServiceInterface;
-use Infinito\Domain\Parameter\Parameter\VersionParameter;
-use Infinito\Domain\Parameter\ParameterFactoryInterface;
-use Infinito\Exception\Validation\GetParameterInvalidException;
-use Infinito\Exception\Collection\NotSetElementException;
-use Infinito\Exception\Core\NotImplementedCoreException;
 
 /**
  * @author kevinfrantz

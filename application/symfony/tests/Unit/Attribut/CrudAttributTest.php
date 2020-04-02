@@ -2,11 +2,11 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Attribut\CrudAttributInterface;
 use Infinito\Attribut\CrudAttribut;
+use Infinito\Attribut\CrudAttributInterface;
 use Infinito\DBAL\Types\Meta\Right\CRUDType;
 use Infinito\Exception\Type\InvalidChoiceTypeException;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

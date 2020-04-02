@@ -2,9 +2,9 @@
 
 namespace tests\Integration\Domain\User;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Infinito\Domain\User\UserSourceDirectorServiceInterface;
 use Infinito\Entity\UserInterface;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 /**
  * @author kevinfrantz

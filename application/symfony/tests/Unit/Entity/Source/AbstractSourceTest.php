@@ -2,13 +2,13 @@
 
 namespace tests\unit\Entity\Source;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Entity\Source\SourceInterface;
-use Infinito\Entity\Meta\LawInterface;
 use Doctrine\Common\Collections\Collection;
 use Infinito\Entity\EntityInterface;
+use Infinito\Entity\Meta\LawInterface;
 use Infinito\Entity\Meta\Relation\Parent\CreatorRelationInterface;
 use Infinito\Entity\Source\PureSource;
+use Infinito\Entity\Source\SourceInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

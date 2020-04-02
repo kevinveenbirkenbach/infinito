@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Form;
 
-use PHPUnit\Framework\TestCase;
 use Infinito\Form\AbstractType;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 

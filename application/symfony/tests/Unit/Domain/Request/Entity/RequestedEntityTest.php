@@ -2,18 +2,18 @@
 
 namespace tests\Unit\Domain\Request\Entity;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Domain\Request\Entity\RequestedEntity;
-use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
-use Infinito\Domain\Request\Right\RequestedRightInterface;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
-use Infinito\Repository\RepositoryInterface;
+use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\Request\Entity\RequestedEntity;
+use Infinito\Domain\Request\Right\RequestedRightInterface;
 use Infinito\Entity\EntityInterface;
 use Infinito\Entity\Source\AbstractSource;
+use Infinito\Exception\Attribut\AllreadyDefinedAttributException;
 use Infinito\Exception\Attribut\UndefinedAttributException;
 use Infinito\Exception\Core\NoIdentityCoreException;
-use Infinito\Exception\Attribut\AllreadyDefinedAttributException;
 use Infinito\Exception\Core\NotCorrectInstanceCoreException;
+use Infinito\Repository\RepositoryInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

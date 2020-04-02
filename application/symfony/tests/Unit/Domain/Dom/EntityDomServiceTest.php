@@ -2,28 +2,28 @@
 
 namespace tests\Unit\Domain\Dom;
 
-use PHPUnit\Framework\TestCase;
+use Infinito\Attribut\GrantAttributInterface;
+use Infinito\Attribut\IdAttribut;
+use Infinito\Attribut\IdAttributInterface;
+use Infinito\Attribut\RightsAttributInterface;
+use Infinito\Attribut\SlugAttributInterface;
+use Infinito\Attribut\SourceAttributInterface;
+use Infinito\Attribut\UserAttributInterface;
+use Infinito\Attribut\VersionAttribut;
+use Infinito\Attribut\VersionAttributInterface;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Domain\Dom\EntityDomService;
 use Infinito\Domain\Dom\EntityDomServiceInterface;
 use Infinito\Domain\Request\Entity\RequestedEntityServiceInterface;
-use Infinito\Domain\Dom\EntityDomService;
-use Infinito\Entity\Source\AbstractSource;
-use Infinito\Attribut\SlugAttributInterface;
-use Infinito\Attribut\IdAttributInterface;
-use Infinito\DBAL\Types\Meta\Right\LayerType;
-use Infinito\Attribut\VersionAttributInterface;
-use Infinito\Entity\Meta\Law;
-use Infinito\Entity\Source\SourceInterface;
-use Infinito\Entity\Meta\RightInterface;
-use Infinito\Attribut\SourceAttributInterface;
-use Infinito\Attribut\GrantAttributInterface;
-use Infinito\Attribut\RightsAttributInterface;
 use Infinito\Entity\EntityInterface;
-use Infinito\Attribut\VersionAttribut;
-use Infinito\Attribut\IdAttribut;
+use Infinito\Entity\Meta\Law;
+use Infinito\Entity\Meta\RightInterface;
+use Infinito\Entity\Source\AbstractSource;
 use Infinito\Entity\Source\Complex\UserSource;
+use Infinito\Entity\Source\SourceInterface;
 use Infinito\Entity\User;
-use Infinito\Attribut\UserAttributInterface;
 use Infinito\Exception\Core\NotCorrectInstanceCoreException;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

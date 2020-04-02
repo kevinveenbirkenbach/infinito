@@ -2,8 +2,8 @@
 
 namespace tests\Unit\Domain\Layer;
 
-use PHPUnit\Framework\TestCase;
 use Infinito\Domain\Layer\LayerInterfaceMap;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

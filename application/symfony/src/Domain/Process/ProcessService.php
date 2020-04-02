@@ -2,12 +2,12 @@
 
 namespace Infinito\Domain\Process;
 
-use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
-use Infinito\Domain\Secure\SecureRequestedRightCheckerServiceInterface;
 use Infinito\Domain\Action\ActionHandlerServiceInterface;
-use Infinito\Entity\Source\Primitive\Text\TextSource;
 use Infinito\Domain\DataAccess\ActionsResultsDAOServiceInterface;
 use Infinito\Domain\Parameter\ValidGetParameterServiceInterface;
+use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
+use Infinito\Domain\Secure\SecureRequestedRightCheckerServiceInterface;
+use Infinito\Entity\Source\Primitive\Text\TextSource;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 
 /**
@@ -70,12 +70,6 @@ final class ProcessService implements ProcessServiceInterface
         return;
     }
 
-    /**
-     * @param ActionHandlerServiceInterface               $actionHandlerService
-     * @param ActionsResultsDAOServiceInterface           $actionTemplateDataStore
-     * @param RequestedActionServiceInterface             $requestedActionService
-     * @param SecureRequestedRightCheckerServiceInterface $secureRequestedRightCheckerService
-     */
     public function __construct(ActionHandlerServiceInterface $actionHandlerService, ActionsResultsDAOServiceInterface $actionTemplateDataStore, RequestedActionServiceInterface $requestedActionService, SecureRequestedRightCheckerServiceInterface $secureRequestedRightCheckerService, ValidGetParameterServiceInterface $validGetParameterService)
     {
         $this->actionHandlerService = $actionHandlerService;

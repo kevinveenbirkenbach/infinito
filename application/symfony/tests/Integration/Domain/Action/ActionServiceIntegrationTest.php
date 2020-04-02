@@ -2,9 +2,9 @@
 
 namespace tests\Integration\Domain\Action;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Infinito\Domain\Action\ActionDependenciesDAOServiceInterface;
 use Doctrine\ORM\EntityManagerInterface;
+use Infinito\Domain\Action\ActionDependenciesDAOServiceInterface;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 /**
  * @author kevinfrantz

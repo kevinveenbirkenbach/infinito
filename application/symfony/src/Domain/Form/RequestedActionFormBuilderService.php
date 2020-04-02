@@ -2,8 +2,8 @@
 
 namespace Infinito\Domain\Form;
 
-use Symfony\Component\Form\FormBuilderInterface;
 use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 
 /**

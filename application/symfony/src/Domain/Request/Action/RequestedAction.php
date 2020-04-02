@@ -10,9 +10,6 @@ use Infinito\Domain\Request\User\RequestedUserInterface;
  */
 class RequestedAction extends RequestedUser implements RequestedActionInterface
 {
-    /**
-     * @param RequestedUserInterface $requestedUser
-     */
     public function __construct(RequestedUserInterface $requestedUser)
     {
         parent::__construct($requestedUser->getUserSourceDirector(), $requestedUser);

@@ -2,10 +2,10 @@
 
 namespace Infinito\Domain\Form;
 
-use Symfony\Component\Form\FormBuilderInterface;
 use Infinito\Domain\Request\Action\RequestedActionInterface;
-use Symfony\Component\Form\FormFactoryInterface;
 use Infinito\Exception\Attribut\UndefinedAttributException;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormFactoryInterface;
 
 /**
  * @author kevinfrantz
@@ -23,8 +23,6 @@ class RequestedActionFormBuilder implements RequestedActionFormBuilderInterface
     private $formClassNameService;
 
     /**
-     * @param RequestedActionInterface $requestedAction
-     *
      * @throws UndefinedAttributException If the requested action can't be processed
      */
     private function validateRequestedAction(RequestedActionInterface $requestedAction): void
@@ -34,21 +32,12 @@ class RequestedActionFormBuilder implements RequestedActionFormBuilderInterface
         }
     }
 
-    /**
-     * @param FormFactoryInterface          $formFactory
-     * @param FormClassNameServiceInterface $formClassNameService
-     */
     public function __construct(FormFactoryInterface $formFactory, FormClassNameServiceInterface $formClassNameService)
     {
         $this->formFactory = $formFactory;
         $this->formClassNameService = $formClassNameService;
     }
 
-    /**
-     * @param RequestedActionInterface $requestedAction
-     *
-     * @return FormBuilderInterface
-     */
     public function create(RequestedActionInterface $requestedAction): FormBuilderInterface
     {
         $this->validateRequestedAction($requestedAction);

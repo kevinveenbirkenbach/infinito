@@ -2,10 +2,10 @@
 
 namespace tests\Integration\Domain\Fixture;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Domain\Fixture\FixtureSourceFactory;
 use Infinito\Domain\Fixture\FixtureSource\FixtureSourceInterface;
+use Infinito\Domain\Fixture\FixtureSourceFactory;
 use Infinito\Entity\Source\SourceInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

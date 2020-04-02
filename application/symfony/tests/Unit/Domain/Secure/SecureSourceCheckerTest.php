@@ -2,17 +2,17 @@
 
 namespace Tests\Unit\Domain\Secure;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Entity\Source\SourceInterface;
-use Infinito\Domain\Secure\SecureSourceCheckerInterface;
-use Infinito\Entity\Source\AbstractSource;
-use Infinito\Domain\Secure\SecureSourceChecker;
-use Infinito\Entity\Meta\Right;
-use Infinito\DBAL\Types\Meta\Right\LayerType;
-use Infinito\DBAL\Types\Meta\Right\CRUDType;
 use Infinito\Attribut\SourceAttribut;
 use Infinito\Attribut\SourceAttributInterface;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Domain\Secure\SecureSourceChecker;
+use Infinito\Domain\Secure\SecureSourceCheckerInterface;
+use Infinito\Entity\Meta\Right;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Entity\Source\SourceInterface;
 use Infinito\Exception\Permission\NoSourcePermissionException;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz
@@ -34,9 +34,6 @@ class SecureSourceCheckerTest extends TestCase
      */
     private $securerSourceChecker;
 
-    /**
-     * @return SourceInterface
-     */
     private function createSourceMock(): SourceInterface
     {
         return new class() extends AbstractSource implements SourceAttributInterface {

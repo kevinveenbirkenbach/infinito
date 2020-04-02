@@ -2,13 +2,13 @@
 
 namespace Tests\Unit\Form;
 
-use PHPUnit\Framework\TestCase;
 use Infinito\Form\AbstractType;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Infinito\Form\UserType;
-use Symfony\Component\Form\FormBuilder;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * This class just exists to keep the code coverage high.

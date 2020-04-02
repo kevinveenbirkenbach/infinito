@@ -2,9 +2,9 @@
 
 namespace tests\Integration\Domain\Request\Entity;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Infinito\Domain\Request\Entity\RequestedEntityServiceInterface;
 use Infinito\Entity\Source\AbstractSource;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 /**
  * @author kevinfrantz

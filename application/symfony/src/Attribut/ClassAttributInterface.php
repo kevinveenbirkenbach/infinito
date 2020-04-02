@@ -9,14 +9,8 @@ interface ClassAttributInterface
 {
     const CLASS_ATTRIBUT_NAME = 'class';
 
-    /**
-     * @param string $class
-     */
     public function setClass(string $class): void;
 
-    /**
-     * @return string
-     */
     public function getClass(): string;
 
     /**

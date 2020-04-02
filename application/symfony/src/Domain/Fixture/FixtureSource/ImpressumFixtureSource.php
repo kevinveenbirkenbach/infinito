@@ -2,9 +2,9 @@
 
 namespace Infinito\Domain\Fixture\FixtureSource;
 
-use Infinito\Entity\Source\SourceInterface;
-use Infinito\Entity\Source\Primitive\Text\TextSource;
 use Infinito\Domain\Fixture\EntityTemplateFactory;
+use Infinito\Entity\Source\Primitive\Text\TextSource;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz
@@ -26,9 +26,6 @@ final class ImpressumFixtureSource extends AbstractFixtureSource
         return $impressumSource;
     }
 
-    /**
-     * @return string
-     */
     public static function getIcon(): string
     {
         return 'fas fa-address-card';

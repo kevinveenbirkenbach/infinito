@@ -2,9 +2,9 @@
 
 namespace tests\unit\Entity\Source\Primitive;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Entity\Source\Primitive\Name\NameSourceInterface;
 use Infinito\Entity\Source\Primitive\Name\AbstractNameSource;
+use Infinito\Entity\Source\Primitive\Name\NameSourceInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

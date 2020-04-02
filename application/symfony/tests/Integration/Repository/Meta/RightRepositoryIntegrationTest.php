@@ -2,15 +2,15 @@
 
 namespace tests\Integration\Repository\Meta;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
-use Infinito\Entity\Meta\RightInterface;
-use Infinito\Entity\Meta\Right;
-use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Entity\Meta\Law;
 use Infinito\Entity\Meta\LawInterface;
-use Doctrine\ORM\EntityManagerInterface;
+use Infinito\Entity\Meta\Right;
+use Infinito\Entity\Meta\RightInterface;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 /**
  * @todo specify tests for all attributes

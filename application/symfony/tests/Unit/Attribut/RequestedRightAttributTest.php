@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Domain\Request\Right\RequestedRightInterface;
-use Infinito\Attribut\RequestedRightAttributInterface;
 use Infinito\Attribut\RequestedRightAttribut;
+use Infinito\Attribut\RequestedRightAttributInterface;
+use Infinito\Domain\Request\Right\RequestedRightInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

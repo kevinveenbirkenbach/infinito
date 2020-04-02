@@ -9,24 +9,12 @@ namespace Infinito\Domain\Path;
  */
 interface NamespacePathMapInterface
 {
-    /**
-     * @param string $namespace
-     */
     public function setNamespace(string $namespace): void;
 
-    /**
-     * @param string $path
-     */
     public function setPath(string $path): void;
 
-    /**
-     * @return string
-     */
     public function getNamespace(): string;
 
-    /**
-     * @return string
-     */
     public function getPath(): string;
 
     /**

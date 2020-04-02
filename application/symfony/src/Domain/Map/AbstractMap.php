@@ -10,7 +10,6 @@ namespace Infinito\Domain\Map;
 abstract class AbstractMap implements MapInterface
 {
     /**
-     * @param string         $index
      * @param array|string[] $map
      *
      * @return array|string[]
@@ -25,7 +24,6 @@ abstract class AbstractMap implements MapInterface
     }
 
     /**
-     * @param string         $value
      * @param array|string[] $map
      *
      * @return array|string[]

@@ -2,11 +2,11 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Attribut\LayerAttributInterface;
 use Infinito\Attribut\LayerAttribut;
+use Infinito\Attribut\LayerAttributInterface;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Exception\Type\InvalidChoiceTypeException;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

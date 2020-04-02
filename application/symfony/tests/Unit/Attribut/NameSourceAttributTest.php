@@ -2,10 +2,10 @@
 
 namespace tests\unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Attribut\NameSourceAttributInterface;
 use Infinito\Attribut\NameSourceAttribut;
+use Infinito\Attribut\NameSourceAttributInterface;
 use Infinito\Entity\Source\Primitive\Name\NameSourceInterface;
+use PHPUnit\Framework\TestCase;
 
 class NameSourceAttributTest extends TestCase
 {

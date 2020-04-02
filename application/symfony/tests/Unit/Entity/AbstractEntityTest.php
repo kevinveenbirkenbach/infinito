@@ -2,9 +2,9 @@
 
 namespace tests\unit\Entity;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Entity\EntityInterface;
 use Infinito\Entity\AbstractEntity;
+use Infinito\Entity\EntityInterface;
+use PHPUnit\Framework\TestCase;
 
 class AbstractEntityTest extends TestCase
 {

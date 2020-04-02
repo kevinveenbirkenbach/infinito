@@ -2,8 +2,8 @@
 
 namespace Infinito\Domain\Right;
 
-use Infinito\Entity\Meta\RightInterface;
 use Infinito\Domain\Request\Right\RequestedRightInterface;
+use Infinito\Entity\Meta\RightInterface;
 
 /**
  * Allows to transform an Requested Right to a Entity Right.
@@ -12,10 +12,5 @@ use Infinito\Domain\Request\Right\RequestedRightInterface;
  */
 interface RightTransformerServiceInterface
 {
-    /**
-     * @param RequestedRightInterface $requestedRight
-     *
-     * @return RightInterface
-     */
     public function transform(RequestedRightInterface $requestedRight): RightInterface;
 }

@@ -2,8 +2,8 @@
 
 namespace Infinito\Domain\Form;
 
-use Symfony\Component\Form\FormBuilderInterface;
 use Infinito\Domain\Request\Action\RequestedActionInterface;
+use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * Allowes to create an form which fits to an entity.
@@ -12,10 +12,5 @@ use Infinito\Domain\Request\Action\RequestedActionInterface;
  */
 interface RequestedActionFormBuilderInterface
 {
-    /**
-     * @param RequestedActionInterface $requestedAction
-     *
-     * @return FormBuilderInterface
-     */
     public function create(RequestedActionInterface $requestedAction): FormBuilderInterface;
 }

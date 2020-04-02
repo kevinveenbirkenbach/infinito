@@ -2,9 +2,9 @@
 
 namespace Infinito\Entity\Meta\Relation;
 
+use Doctrine\ORM\Mapping as ORM;
 use Infinito\Entity\Meta\AbstractMeta;
 use Infinito\Entity\Source\SourceInterface;
-use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @author kevinfrantz

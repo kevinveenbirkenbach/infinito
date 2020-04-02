@@ -4,9 +4,9 @@ namespace Infinito\Domain\View;
 
 use FOS\RestBundle\View\View;
 use Infinito\Domain\Action\ActionFactoryServiceInterface;
-use Infinito\Domain\Template\TemplateNameServiceInterface;
-use Infinito\Domain\Parameter\ValidGetParameterServiceInterface;
 use Infinito\Domain\Parameter\Parameter\FrameParameter;
+use Infinito\Domain\Parameter\ValidGetParameterServiceInterface;
+use Infinito\Domain\Template\TemplateNameServiceInterface;
 
 /**
  * @author kevinfrantz
@@ -45,8 +45,6 @@ final class ViewBuilder implements ViewServiceInterface
 
     /**
      * Containes the routine to decide if the template should be loaded with or without frame.
-     *
-     * @return bool
      */
     private function checkLoadWithFrame(): bool
     {
@@ -81,11 +79,6 @@ final class ViewBuilder implements ViewServiceInterface
         return self::TWIG_ENTITY_ATOM_TEMPLATE_PATH;
     }
 
-    /**
-     * @param ActionFactoryServiceInterface     $actionFactoryService
-     * @param TemplateNameServiceInterface      $templateNameService
-     * @param ValidGetParameterServiceInterface $validGetParameterService
-     */
     public function __construct(ActionFactoryServiceInterface $actionFactoryService, TemplateNameServiceInterface $templateNameService, ValidGetParameterServiceInterface $validGetParameterService)
     {
         $this->view = View::create();
@@ -93,9 +86,6 @@ final class ViewBuilder implements ViewServiceInterface
         $this->validGetParameterService = $validGetParameterService;
     }
 
-    /**
-     * @return View
-     */
     public function getView(): View
     {
         $template = $this->getTemplate();

@@ -2,11 +2,11 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
 use Doctrine\Common\Collections\ArrayCollection;
+use Infinito\Attribut\MembersAttribut;
 use Infinito\Attribut\MembersAttributInterface;
 use Infinito\Entity\Source\SourceInterface;
-use Infinito\Attribut\MembersAttribut;
+use PHPUnit\Framework\TestCase;
 
 class MembersAttributTest extends TestCase
 {

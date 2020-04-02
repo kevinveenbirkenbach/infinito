@@ -27,9 +27,6 @@ trait TimestampAttribut
         $this->timestamp = $timestamp;
     }
 
-    /**
-     * @return \DateTime
-     */
     public function getTimestamp(): \DateTime
     {
         return $this->timestamp;

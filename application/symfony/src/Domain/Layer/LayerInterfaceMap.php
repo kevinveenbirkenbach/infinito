@@ -21,11 +21,6 @@ final class LayerInterfaceMap implements LayerInterfaceMapInterface
      */
     const INTERFACE_SUFFIX = 'Interface';
 
-    /**
-     * @param string $shortClass
-     *
-     * @return string
-     */
     private static function filterAbstractClassName(string $shortClass): string
     {
         if (self::ABSTRACT_CLASS_PREFIX === substr($shortClass, 0, strlen(self::ABSTRACT_CLASS_PREFIX))) {
@@ -35,21 +30,11 @@ final class LayerInterfaceMap implements LayerInterfaceMapInterface
         return $shortClass;
     }
 
-    /**
-     * @param string $class
-     *
-     * @return string
-     */
     private static function addInterfaceSuffix(string $class): string
     {
         return $class.self::INTERFACE_SUFFIX;
     }
 
-    /**
-     * @param string $layer
-     *
-     * @return string
-     */
     public static function getInterface(string $layer): string
     {
         $className = LayerClassMap::getClass($layer);
@@ -62,9 +47,6 @@ final class LayerInterfaceMap implements LayerInterfaceMapInterface
         return $interfaceName;
     }
 
-    /**
-     * @return array
-     */
     public static function getAllInterfaces(): array
     {
         $allInterfaces = [];

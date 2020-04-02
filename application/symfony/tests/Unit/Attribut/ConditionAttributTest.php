@@ -2,10 +2,10 @@
 
 namespace Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Attribut\ConditionAttributInterface;
 use Infinito\Attribut\ConditionAttribut;
+use Infinito\Attribut\ConditionAttributInterface;
 use Infinito\Logic\Operation\OperationInterface;
+use PHPUnit\Framework\TestCase;
 
 class ConditionAttributTest extends TestCase
 {

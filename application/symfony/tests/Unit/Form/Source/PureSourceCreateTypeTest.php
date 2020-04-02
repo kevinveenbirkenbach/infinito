@@ -2,9 +2,9 @@
 
 namespace tests\Unit\Form\Source;
 
-use Symfony\Component\Form\Test\TypeTestCase;
 use Infinito\Entity\Source\PureSource;
 use Infinito\Form\Entity\Source\PureSourceCreateType;
+use Symfony\Component\Form\Test\TypeTestCase;
 
 /**
  * @author kevinfrantz

@@ -9,13 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 interface RequestAttributInterface
 {
-    /**
-     * @param Request $request
-     */
     public function setRequest(Request $request): void;
 
-    /**
-     * @return Request
-     */
     public function getRequest(): Request;
 }

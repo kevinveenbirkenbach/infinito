@@ -2,13 +2,13 @@
 
 namespace Infinito\Entity\Meta;
 
-use Infinito\Attribut\LawAttributInterface;
-use Infinito\Attribut\RecieverAttributInterface;
-use Infinito\Attribut\GrantAttributInterface;
+use Infinito\Attribut\ActionTypeAttributInterface;
 use Infinito\Attribut\ConditionAttributInterface;
+use Infinito\Attribut\GrantAttributInterface;
+use Infinito\Attribut\LawAttributInterface;
 use Infinito\Attribut\LayerAttributInterface;
 use Infinito\Attribut\PriorityAttributInterface;
-use Infinito\Attribut\ActionTypeAttributInterface;
+use Infinito\Attribut\RecieverAttributInterface;
 
 /**
  * @author kevinfrantz

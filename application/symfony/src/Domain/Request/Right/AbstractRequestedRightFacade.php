@@ -17,9 +17,6 @@ abstract class AbstractRequestedRightFacade implements RequestedRightInterface
      */
     protected $requestedRight;
 
-    /**
-     * @param RequestedRightInterface $requestedRight
-     */
     public function __construct(RequestedRightInterface $requestedRight)
     {
         $this->requestedRight = $requestedRight;

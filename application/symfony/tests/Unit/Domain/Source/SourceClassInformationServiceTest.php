@@ -2,11 +2,11 @@
 
 namespace tests\Unit\Domain\Source;
 
-use Infinito\Domain\Source\SourceClassInformationServiceInterface;
 use Infinito\Domain\Source\SourceClassInformationService;
-use PHPUnit\Framework\TestCase;
-use Infinito\Entity\Source\PureSource;
+use Infinito\Domain\Source\SourceClassInformationServiceInterface;
 use Infinito\Entity\Source\Complex\AbstractComplexSource;
+use Infinito\Entity\Source\PureSource;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

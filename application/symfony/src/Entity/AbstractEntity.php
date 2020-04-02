@@ -2,8 +2,8 @@
 
 namespace Infinito\Entity;
 
-use Infinito\Attribut\IdAttribut;
 use Doctrine\ORM\Mapping as ORM;
+use Infinito\Attribut\IdAttribut;
 use Infinito\Attribut\VersionAttribut;
 
 /**

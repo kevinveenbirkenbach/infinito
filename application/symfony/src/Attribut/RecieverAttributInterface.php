@@ -14,9 +14,6 @@ interface RecieverAttributInterface
      */
     public function setReciever(?SourceInterface $reciever): void;
 
-    /**
-     * @return SourceInterface
-     */
     public function getReciever(): SourceInterface;
 
     /**

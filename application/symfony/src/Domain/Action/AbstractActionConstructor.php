@@ -15,9 +15,6 @@ abstract class AbstractActionConstructor
      */
     protected $actionService;
 
-    /**
-     * @param ActionDependenciesDAOServiceInterface $actionService
-     */
     final public function __construct(ActionDependenciesDAOServiceInterface $actionService)
     {
         $this->actionService = $actionService;

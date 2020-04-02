@@ -2,12 +2,12 @@
 
 namespace Tests\Integration\DataFixtures;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Doctrine\ORM\EntityManager;
+use Infinito\Domain\Fixture\FixtureSource\GuestUserFixtureSource;
+use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
 use Infinito\Entity\Source\AbstractSource;
 use Infinito\Entity\Source\Complex\UserSourceInterface;
-use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
-use Infinito\Domain\Fixture\FixtureSource\GuestUserFixtureSource;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class SourceFixturesIntegrationTest extends KernelTestCase
 {

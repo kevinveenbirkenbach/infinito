@@ -11,8 +11,6 @@ interface OperandInterface
 {
     /**
      * Returns the result of the Operation.
-     *
-     * @return ResultInterface
      */
     public function getResult(): ResultInterface;
 }

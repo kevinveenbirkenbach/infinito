@@ -2,17 +2,17 @@
 
 namespace Infinito\Domain\Request\Right;
 
-use Infinito\Entity\Source\SourceInterface;
+use Infinito\Attribut\ActionTypeAttribut;
 use Infinito\Attribut\LayerAttribut;
 use Infinito\Attribut\RecieverAttribut;
-use Infinito\Domain\Request\Entity\RequestedEntityInterface;
 use Infinito\Attribut\RequestedEntityAttribut;
-use Infinito\Entity\Meta\MetaInterface;
 use Infinito\Domain\Request\Entity\RequestedEntity;
-use Infinito\Attribut\ActionTypeAttribut;
-use Infinito\Exception\Core\NotCorrectInstanceCoreException;
-use Infinito\Exception\Core\NoIdentityCoreException;
+use Infinito\Domain\Request\Entity\RequestedEntityInterface;
+use Infinito\Entity\Meta\MetaInterface;
+use Infinito\Entity\Source\SourceInterface;
 use Infinito\Exception\Collection\ContainsElementException;
+use Infinito\Exception\Core\NoIdentityCoreException;
+use Infinito\Exception\Core\NotCorrectInstanceCoreException;
 
 /**
  * @author kevinfrantz
@@ -60,9 +60,6 @@ class RequestedRight implements RequestedRightInterface
         throw new NoIdentityCoreException(get_class($this->requestedEntity).' needs to have a defined id or slug attribut!');
     }
 
-    /**
-     * @param RequestedEntity|null $requestedEntity
-     */
     public function __construct(?RequestedEntity $requestedEntity = null)
     {
         if ($requestedEntity) {

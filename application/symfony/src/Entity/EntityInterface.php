@@ -2,8 +2,8 @@
 
 namespace Infinito\Entity;
 
-use Infinito\Attribut\VersionAttributInterface;
 use Infinito\Attribut\IdAttributInterface;
+use Infinito\Attribut\VersionAttributInterface;
 
 /**
  * @author kevinfrantz

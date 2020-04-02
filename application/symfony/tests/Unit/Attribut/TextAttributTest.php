@@ -2,9 +2,9 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Attribut\TextAttributInterface;
 use Infinito\Attribut\TextAttribut;
+use Infinito\Attribut\TextAttributInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

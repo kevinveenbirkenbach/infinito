@@ -60,19 +60,11 @@ class AttributIntegrationTest extends TestCase
         return $interface->isInterface();
     }
 
-    /**
-     * @param \ReflectionClass $interface
-     *
-     * @return string
-     */
     private function getTraitName(\ReflectionClass $interface): string
     {
         return substr($interface->getName(), 0, -strlen(self::INTERFACE_SUFFIX));
     }
 
-    /**
-     * @param \ReflectionClass $interface
-     */
     private function validateHasTrait(\ReflectionClass $interface): void
     {
         $interfaceName = $interface->getName();
@@ -80,9 +72,6 @@ class AttributIntegrationTest extends TestCase
         $this->assertTrue(trait_exists($trait), "Trait <<$trait>> for interface <<$interfaceName>> MUST exist!");
     }
 
-    /**
-     * @param \ReflectionClass $trait
-     */
     private function validateHasInterface(\ReflectionClass $trait): void
     {
         $traitName = $trait->getName();
@@ -90,21 +79,11 @@ class AttributIntegrationTest extends TestCase
         $this->assertTrue(interface_exists($interface), "Interface <<$interface>> for trait <<$traitName>> does not exist!");
     }
 
-    /**
-     * @param \ReflectionClass $interface
-     *
-     * @return string
-     */
     private function getAttributName(\ReflectionClass $interface): string
     {
         return substr($interface->getShortName(), 0, -strlen(self::CONCAT_INTERFACE_SUFFIX));
     }
 
-    /**
-     * @param \ReflectionClass $interface
-     *
-     * @return string
-     */
     private function getConstantName(\ReflectionClass $interface): string
     {
         $name = strtoupper($this->getAttributName($interface));
@@ -112,9 +91,6 @@ class AttributIntegrationTest extends TestCase
         return $name.'_ATTRIBUT_NAME';
     }
 
-    /**
-     * @param \ReflectionClass $interface
-     */
     private function validateConstants(\ReflectionClass $interface): void
     {
         $constants = $interface->getConstants();
@@ -125,9 +101,6 @@ class AttributIntegrationTest extends TestCase
         }
     }
 
-    /**
-     * @param \ReflectionClass $interface
-     */
     private function validateMethods(\ReflectionClass $interface): void
     {
         $methods = get_class_methods($interface->getName());
@@ -141,11 +114,6 @@ class AttributIntegrationTest extends TestCase
         }
     }
 
-    /**
-     * @param \ReflectionClass $interface
-     *
-     * @return array
-     */
     private function getNeccessaryMethods(\ReflectionClass $interface): array
     {
         $possibleMethods = [];
@@ -157,11 +125,6 @@ class AttributIntegrationTest extends TestCase
         return $possibleMethods;
     }
 
-    /**
-     * @param \ReflectionClass $interface
-     *
-     * @return array
-     */
     private function getPossibleMethods(\ReflectionClass $interface): array
     {
         $possibleMethods = [];
@@ -173,11 +136,6 @@ class AttributIntegrationTest extends TestCase
         return $possibleMethods;
     }
 
-    /**
-     * @param string $file
-     *
-     * @return \ReflectionClass
-     */
     private function getReflectionClass(string $file): \ReflectionClass
     {
         $shortName = substr($file, 0, -strlen('.php'));
@@ -186,9 +144,6 @@ class AttributIntegrationTest extends TestCase
         return new \ReflectionClass($name);
     }
 
-    /**
-     * @param \ReflectionClass $interface
-     */
     private function validateTraitSchema(\ReflectionClass $interface): void
     {
         $trait = $this->getTraitName($interface);

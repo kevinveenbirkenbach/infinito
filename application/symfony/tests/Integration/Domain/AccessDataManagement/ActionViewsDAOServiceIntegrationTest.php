@@ -2,18 +2,18 @@
 
 namespace tests\Unit\Domain\AccessDataManagement;
 
-use PHPUnit\Framework\TestCase;
 use Infinito\DBAL\Types\ActionType;
-use Infinito\Domain\DataAccess\ActionsViewsDAOServiceInterface;
 use Infinito\Domain\DataAccess\ActionsResultsDAOService;
 use Infinito\Domain\DataAccess\ActionsViewsDAOService;
-use Infinito\Entity\EntityInterface;
-use Infinito\Logic\Result\ResultInterface;
+use Infinito\Domain\DataAccess\ActionsViewsDAOServiceInterface;
 use Infinito\Domain\Form\RequestedActionFormBuilderServiceInterface;
-use Infinito\Exception\Type\InvalidChoiceTypeException;
-use Infinito\Exception\Collection\NotSetElementException;
+use Infinito\Entity\EntityInterface;
 use Infinito\Exception\Collection\ContainsElementException;
+use Infinito\Exception\Collection\NotSetElementException;
+use Infinito\Exception\Type\InvalidChoiceTypeException;
 use Infinito\Exception\Validation\ValueInvalidException;
+use Infinito\Logic\Result\ResultInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz
@@ -89,10 +89,6 @@ class ActionViewsDAOServiceIntegrationTest extends TestCase
 
     /**
      * @todo implement test!
-     *
-     * @param string $actionType
-     *
-     * @return string
      */
     private function getActionTypeViewDataMock(string $actionType): string
     {

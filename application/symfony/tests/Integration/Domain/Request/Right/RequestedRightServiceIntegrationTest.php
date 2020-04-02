@@ -2,9 +2,9 @@
 
 namespace tests\Integration\Domain\Request\Right;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Infinito\Domain\Request\Right\RequestedRightServiceInterface;
 use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\Domain\Request\Right\RequestedRightServiceInterface;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 /**
  * @author kevinfrantz

@@ -2,11 +2,11 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Attribut\MembershipsAttributInterface;
-use Infinito\Attribut\MembershipsAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
+use Infinito\Attribut\MembershipsAttribut;
+use Infinito\Attribut\MembershipsAttributInterface;
 use Infinito\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
+use PHPUnit\Framework\TestCase;
 
 class MembershipsAttributTest extends TestCase
 {

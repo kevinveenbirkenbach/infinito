@@ -2,9 +2,9 @@
 
 namespace Infinito\Domain\Fixture\FixtureSource;
 
-use Infinito\Entity\Source\SourceInterface;
-use Infinito\Entity\Source\Complex\UserSource;
 use Infinito\Domain\Fixture\EntityTemplateFactory;
+use Infinito\Entity\Source\Complex\UserSource;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * This class containes the guest user.
@@ -32,9 +32,6 @@ final class GuestUserFixtureSource extends AbstractFixtureSource
         return $userSource;
     }
 
-    /**
-     * @return string
-     */
     public static function getIcon(): string
     {
         return 'fas fa-user';

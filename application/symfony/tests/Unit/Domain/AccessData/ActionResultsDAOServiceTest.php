@@ -4,14 +4,14 @@ namespace tests\Integration\Domain\AccessManagement;
 
 use Infinito\DBAL\Types\ActionType;
 use Infinito\Domain\DataAccess\ActionsResultsDAOService;
+use Infinito\Domain\DataAccess\ActionsResultsDAOServiceInterface;
 use Infinito\Entity\EntityInterface;
-use Infinito\Logic\Result\ResultInterface;
-use PHPUnit\Framework\TestCase;
 use Infinito\Exception\Collection\ContainsElementException;
 use Infinito\Exception\Collection\NotSetElementException;
 use Infinito\Exception\Type\InvalidChoiceTypeException;
-use Infinito\Domain\DataAccess\ActionsResultsDAOServiceInterface;
 use Infinito\Exception\Validation\ValueInvalidException;
+use Infinito\Logic\Result\ResultInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

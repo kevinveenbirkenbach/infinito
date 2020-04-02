@@ -2,12 +2,12 @@
 
 namespace Infinito\Entity\Meta\Relation\Member;
 
-use Infinito\Entity\Meta\Relation\AbstractRelation;
-use Infinito\Attribut\MembersAttribut;
-use Infinito\Attribut\MembershipsAttribut;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
+use Infinito\Attribut\MembersAttribut;
+use Infinito\Attribut\MembershipsAttribut;
+use Infinito\Entity\Meta\Relation\AbstractRelation;
 
 /**
  * @author kevinfrantz

@@ -2,21 +2,21 @@
 
 namespace tests\Unit\Domain\Right\User;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Entity\User;
-use Infinito\Domain\Request\User\RequestedUser;
-use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\Meta\Right\CRUDType;
-use Infinito\Entity\Source\AbstractSource;
-use Infinito\Domain\User\UserSourceDirectorInterface;
-use Infinito\Domain\Request\Right\RequestedRightInterface;
-use Infinito\Domain\Request\Right\RequestedRight;
-use Infinito\Domain\User\UserSourceDirector;
-use Infinito\Repository\Source\SourceRepositoryInterface;
-use Infinito\Domain\Request\Entity\RequestedEntityInterface;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
-use Infinito\Exception\Core\NotCorrectInstanceCoreException;
+use Infinito\Domain\Request\Entity\RequestedEntityInterface;
+use Infinito\Domain\Request\Right\RequestedRight;
+use Infinito\Domain\Request\Right\RequestedRightInterface;
+use Infinito\Domain\Request\User\RequestedUser;
+use Infinito\Domain\User\UserSourceDirector;
+use Infinito\Domain\User\UserSourceDirectorInterface;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Entity\User;
 use Infinito\Exception\Collection\NotPossibleSetElementException;
+use Infinito\Exception\Core\NotCorrectInstanceCoreException;
+use Infinito\Repository\Source\SourceRepositoryInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

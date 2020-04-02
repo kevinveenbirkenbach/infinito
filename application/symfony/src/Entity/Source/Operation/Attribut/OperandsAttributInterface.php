@@ -11,8 +11,5 @@ interface OperandsAttributInterface
      */
     public function setOperands(Collection $operands): void;
 
-    /**
-     * @return Collection
-     */
     public function getOperands(): Collection;
 }

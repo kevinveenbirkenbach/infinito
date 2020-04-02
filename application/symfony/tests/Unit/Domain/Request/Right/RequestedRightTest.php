@@ -2,22 +2,22 @@
 
 namespace tests\Unit\Domain\Request\Right;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Infinito\Domain\Request\Right\RequestedRightInterface;
-use Infinito\Domain\Request\Right\RequestedRight;
+use Infinito\DBAL\Types\ActionType;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
+use Infinito\Domain\Repository\LayerRepositoryFactoryService;
+use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
 use Infinito\Domain\Request\Entity\RequestedEntity;
 use Infinito\Domain\Request\Entity\RequestedEntityInterface;
-use Infinito\Entity\Source\PureSource;
-use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
-use Infinito\Domain\Repository\LayerRepositoryFactoryService;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Infinito\Domain\Request\Right\RequestedRight;
+use Infinito\Domain\Request\Right\RequestedRightInterface;
 use Infinito\Entity\Meta\Law;
+use Infinito\Entity\Source\PureSource;
 use Infinito\Entity\Source\SourceInterface;
-use Infinito\DBAL\Types\ActionType;
-use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
-use Infinito\Exception\Core\NoIdentityCoreException;
 use Infinito\Exception\Collection\ContainsElementException;
+use Infinito\Exception\Core\NoIdentityCoreException;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * @author kevinfrantz

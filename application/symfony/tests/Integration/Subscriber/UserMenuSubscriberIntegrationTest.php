@@ -2,19 +2,19 @@
 
 namespace Tests\Integration\Entity\Subscriber;
 
-use Symfony\Component\Translation\Translator;
+use Infinito\Domain\Fixture\FixtureSource\GuestUserFixtureSource;
+use Infinito\Entity\User;
 use Infinito\Event\Menu\MenuEvent;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpFoundation\Request;
-use Knp\Menu\MenuItem;
-use Knp\Menu\MenuFactory;
 use Infinito\Subscriber\UserMenuSubscriber;
+use Knp\Menu\MenuFactory;
+use Knp\Menu\MenuItem;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Role\Role;
-use Infinito\Domain\Fixture\FixtureSource\GuestUserFixtureSource;
-use Infinito\Entity\User;
+use Symfony\Component\Translation\Translator;
 
 /**
  * @author kevinfrantz

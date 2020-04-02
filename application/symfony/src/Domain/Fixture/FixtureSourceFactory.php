@@ -57,9 +57,6 @@ final class FixtureSourceFactory implements FixtureSourceFactoryInterface
         return $objects;
     }
 
-    /**
-     * @return array
-     */
     public static function getAllFixtureSources(): array
     {
         $unfilteredClasses = self::getAllClassesInSourceFixtureNamespace();

@@ -12,9 +12,6 @@ final class ActionTemplateNameService extends TemplateNameService implements Act
      */
     private $actionType;
 
-    /**
-     * @return string
-     */
     protected function getActionType(): string
     {
         if ($this->actionType) {

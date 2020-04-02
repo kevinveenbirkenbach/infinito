@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\Entity\Meta\Relation\Member;
 
-use PHPUnit\Framework\TestCase;
+use Doctrine\Common\Collections\Collection;
 use Infinito\Entity\Meta\Relation\Member\MemberRelation;
 use Infinito\Entity\Meta\Relation\Member\MemberRelationInterface;
-use Doctrine\Common\Collections\Collection;
+use PHPUnit\Framework\TestCase;
 
 class MemberRelationTest extends TestCase
 {

@@ -16,17 +16,11 @@ trait LayerRepositoryFactoryServiceAttribut
      */
     protected $layerRepositoryFactoryService;
 
-    /**
-     * @param LayerRepositoryFactoryServiceInterface $layerRepositoryFactoryService
-     */
     public function setLayerRepositoryFactoryService(LayerRepositoryFactoryServiceInterface $layerRepositoryFactoryService): void
     {
         $this->layerRepositoryFactoryService = $layerRepositoryFactoryService;
     }
 
-    /**
-     * @return LayerRepositoryFactoryServiceInterface
-     */
     public function getLayerRepositoryFactoryService(): LayerRepositoryFactoryServiceInterface
     {
         return $this->layerRepositoryFactoryService;

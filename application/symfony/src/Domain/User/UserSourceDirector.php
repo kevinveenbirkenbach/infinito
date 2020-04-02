@@ -2,10 +2,10 @@
 
 namespace Infinito\Domain\User;
 
-use Infinito\Entity\UserInterface;
-use Infinito\Entity\User;
-use Infinito\Repository\Source\SourceRepositoryInterface;
 use Infinito\Domain\Fixture\FixtureSource\GuestUserFixtureSource;
+use Infinito\Entity\User;
+use Infinito\Entity\UserInterface;
+use Infinito\Repository\Source\SourceRepositoryInterface;
 
 /**
  * @author kevinfrantz
@@ -37,8 +37,7 @@ final class UserSourceDirector implements UserSourceDirectorInterface
     }
 
     /**
-     * @param SourceRepositoryInterface $sourceRepository
-     * @param UserInterface             $user
+     * @param UserInterface $user
      */
     public function __construct(SourceRepositoryInterface $sourceRepository, ?UserInterface $user)
     {

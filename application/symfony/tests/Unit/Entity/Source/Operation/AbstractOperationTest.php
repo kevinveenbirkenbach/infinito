@@ -2,15 +2,15 @@
 
 namespace tests\unit\Entity\Source\Operand;
 
-use PHPUnit\Framework\TestCase;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Infinito\Entity\Source\Operation\AbstractOperation;
 use Infinito\Entity\Source\Operation\OperationInterface;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Collections\ArrayCollection;
-use Infinito\Logic\Operation\OperandInterface;
-use Infinito\Logic\Result\ResultInterface;
-use Infinito\Logic\Result\Result;
 use Infinito\Exception\Deprecated\NotProcessedException;
+use Infinito\Logic\Operation\OperandInterface;
+use Infinito\Logic\Result\Result;
+use Infinito\Logic\Result\ResultInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

@@ -24,11 +24,9 @@ final class ActionsResultsDAOService extends AbstractActionsDAO implements Actio
     private $processedData;
 
     /**
-     * @param string                               $actionType
      * @param EntityInterface|ResultInterface|null $data
      *
      * @return bool True if the data is valid
-     * @return bool
      */
     private function isValidActionData(string $actionType, $data): bool
     {
@@ -47,8 +45,6 @@ final class ActionsResultsDAOService extends AbstractActionsDAO implements Actio
     }
 
     /**
-     * @param string $actionType
-     *
      * @throws InvalidChoiceTypeException
      */
     private function throwNoValidActionTypeException(string $actionType): void
@@ -56,19 +52,11 @@ final class ActionsResultsDAOService extends AbstractActionsDAO implements Actio
         throw new InvalidChoiceTypeException("The action type <<$actionType>> is not defined and not valid!");
     }
 
-    /**
-     * @param string $actionType
-     *
-     * @return bool
-     */
     private function isValidActionType(string $actionType): bool
     {
         return in_array($actionType, ActionType::getValues());
     }
 
-    /**
-     * @param string $actionType
-     */
     private function validateActionType(string $actionType): void
     {
         if (!$this->isValidActionType($actionType)) {
@@ -79,8 +67,7 @@ final class ActionsResultsDAOService extends AbstractActionsDAO implements Actio
     /**
      * This function describes which data is expected.
      *
-     * @param string $actionType
-     * @param mixed  $data
+     * @param mixed $data
      *
      * @throws ValueInvalidException For false a exception is thrown
      */
@@ -92,8 +79,6 @@ final class ActionsResultsDAOService extends AbstractActionsDAO implements Actio
     }
 
     /**
-     * @param string $actionType
-     *
      * @throws ContainsElementException
      */
     private function validateNotSet(string $actionType): void
@@ -104,8 +89,6 @@ final class ActionsResultsDAOService extends AbstractActionsDAO implements Actio
     }
 
     /**
-     * @param string $actionType
-     *
      * @throws NotSetElementException
      */
     private function validateSet(string $actionType): void

@@ -2,9 +2,9 @@
 
 namespace Tests\Unit\Entity\Source\Primitive\Text;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Entity\Source\Primitive\Text\TextSourceInterface;
 use Infinito\Entity\Source\Primitive\Text\TextSource;
+use Infinito\Entity\Source\Primitive\Text\TextSourceInterface;
+use PHPUnit\Framework\TestCase;
 
 class TextSourceTest extends TestCase
 {

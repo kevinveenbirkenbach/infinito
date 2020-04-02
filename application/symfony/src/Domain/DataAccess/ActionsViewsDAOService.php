@@ -2,10 +2,10 @@
 
 namespace Infinito\Domain\DataAccess;
 
-use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use Infinito\Domain\Form\RequestedActionFormBuilderServiceInterface;
+use Doctrine\Common\Collections\Collection;
 use Infinito\DBAL\Types\ActionType;
+use Infinito\Domain\Form\RequestedActionFormBuilderServiceInterface;
 
 /**
  * @author kevinfrantz
@@ -22,9 +22,6 @@ final class ActionsViewsDAOService extends AbstractActionsDAO implements Actions
      */
     private $requestedActionFormBuilderService;
 
-    /**
-     * @param ActionsResultsDAOServiceInterface $actionsResultsDAO
-     */
     public function __construct(ActionsResultsDAOServiceInterface $actionsResultsDAO, RequestedActionFormBuilderServiceInterface $requestedActionFormBuilderService)
     {
         $this->actionsResultsDAO = $actionsResultsDAO;

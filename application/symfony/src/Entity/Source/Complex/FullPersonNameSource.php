@@ -2,13 +2,13 @@
 
 namespace Infinito\Entity\Source\Complex;
 
+use Doctrine\ORM\Mapping as ORM;
 use Infinito\Attribut\FirstNameSourceAttribut;
 use Infinito\Attribut\SurnameSourceAttribut;
-use Infinito\Entity\Source\Primitive\Name\SurnameSource;
 use Infinito\Entity\Source\Primitive\Name\FirstNameSource;
-use Doctrine\ORM\Mapping as ORM;
-use Infinito\Entity\Source\Primitive\Name\SurnameSourceInterface;
 use Infinito\Entity\Source\Primitive\Name\FirstNameSourceInterface;
+use Infinito\Entity\Source\Primitive\Name\SurnameSource;
+use Infinito\Entity\Source\Primitive\Name\SurnameSourceInterface;
 
 /**
  * @author kevinfrantz

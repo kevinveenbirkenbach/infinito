@@ -2,12 +2,12 @@
 
 namespace tests\Unit\Domain\Repository;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
-use Infinito\Domain\Repository\LayerRepositoryFactoryService;
-use Infinito\Repository\RepositoryInterface;
 use Infinito\Domain\Layer\LayerClassMap;
+use Infinito\Domain\Repository\LayerRepositoryFactoryService;
+use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
 use Infinito\Exception\Collection\NotSetElementException;
+use Infinito\Repository\RepositoryInterface;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 /**
  * @author kevinfrantz

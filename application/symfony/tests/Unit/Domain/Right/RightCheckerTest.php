@@ -2,15 +2,15 @@
 
 namespace Tests\Unit\Domain\Right;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Entity\Meta\RightInterface;
-use Infinito\Entity\Meta\Right;
-use Infinito\Entity\Source\SourceInterface;
-use Infinito\DBAL\Types\Meta\Right\LayerType;
-use Infinito\Domain\Right\RightCheckerInterface;
-use Infinito\Domain\Right\RightChecker;
 use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Domain\Right\RightChecker;
+use Infinito\Domain\Right\RightCheckerInterface;
+use Infinito\Entity\Meta\Right;
+use Infinito\Entity\Meta\RightInterface;
 use Infinito\Entity\Source\PureSource;
+use Infinito\Entity\Source\SourceInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

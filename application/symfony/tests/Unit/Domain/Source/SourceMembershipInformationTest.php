@@ -2,15 +2,15 @@
 
 namespace Tests\Unit\Domain\Source;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Domain\Source\SourceMembershipInformationInterface;
-use Infinito\Domain\Source\SourceMembershipInformation;
-use Infinito\Entity\Source\SourceInterface;
-use Infinito\Entity\Source\Complex\UserSource;
-use Infinito\Entity\Source\Primitive\Text\TextSource;
-use Infinito\Entity\Source\Primitive\Name\FirstNameSource;
 use Doctrine\Common\Collections\ArrayCollection;
+use Infinito\Domain\Source\SourceMembershipInformation;
+use Infinito\Domain\Source\SourceMembershipInformationInterface;
 use Infinito\Entity\Source\Complex\FullPersonNameSource;
+use Infinito\Entity\Source\Complex\UserSource;
+use Infinito\Entity\Source\Primitive\Name\FirstNameSource;
+use Infinito\Entity\Source\Primitive\Text\TextSource;
+use Infinito\Entity\Source\SourceInterface;
+use PHPUnit\Framework\TestCase;
 
 class SourceMembershipInformationTest extends TestCase
 {

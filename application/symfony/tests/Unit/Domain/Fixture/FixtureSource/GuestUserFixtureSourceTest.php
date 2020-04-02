@@ -2,8 +2,8 @@
 
 namespace tests\Unit\Domain\Fixture;
 
-use PHPUnit\Framework\TestCase;
 use Infinito\Domain\Fixture\FixtureSource\GuestUserFixtureSource;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

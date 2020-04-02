@@ -2,10 +2,10 @@
 
 namespace tests\Unit\Domain\Map;
 
+use Infinito\DBAL\Types\ActionType;
+use Infinito\Domain\Map\ActionHttpMethodMap;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
-use Infinito\Domain\Map\ActionHttpMethodMap;
-use Infinito\DBAL\Types\ActionType;
 
 /**
  * @author kevinfrantz

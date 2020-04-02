@@ -4,11 +4,11 @@ namespace Infinito\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use Infinito\Entity\User;
 use FOS\UserBundle\Doctrine\UserManager;
+use Infinito\Entity\User;
 use Infinito\Entity\UserInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Never execute this fixture on a livesystem!

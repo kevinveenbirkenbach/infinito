@@ -2,14 +2,14 @@
 
 namespace tests\unit\Entity;
 
-use PHPUnit\Framework\TestCase;
 use Infinito\DBAL\Types\Meta\Right\CRUDType;
-use Infinito\Entity\Meta\RightInterface;
-use Infinito\Entity\Meta\Right;
-use Infinito\Entity\Meta\Law;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Entity\Meta\Law;
+use Infinito\Entity\Meta\Right;
+use Infinito\Entity\Meta\RightInterface;
 use Infinito\Entity\Source\AbstractSource;
 use Infinito\Exception\Type\InvalidChoiceTypeException;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @todo Implement reciever test

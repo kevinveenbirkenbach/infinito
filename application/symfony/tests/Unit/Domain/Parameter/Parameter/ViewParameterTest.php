@@ -2,9 +2,9 @@
 
 namespace tests\Unit\Domain\Parameter\Parameter;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Domain\Parameter\Parameter\ViewParameter;
 use Infinito\DBAL\Types\ActionType;
+use Infinito\Domain\Parameter\Parameter\ViewParameter;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

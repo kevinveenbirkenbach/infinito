@@ -2,10 +2,10 @@
 
 namespace Infinito\Form\Type;
 
-use Infinito\Form\AbstractType;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Infinito\Domain\Source\SourceClassInformationService;
+use Infinito\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * @author kevinfrantz
@@ -15,8 +15,6 @@ final class SourceType extends AbstractType implements SourceTypeInterface
     const UNUSED_PRAEFIX = 'Infinito\\Entity\\Source';
 
     /**
-     * @param string $class
-     *
      * @return string Key which can be used in choice selection
      */
     private function getChoiceKey(string $class): string
@@ -24,9 +22,6 @@ final class SourceType extends AbstractType implements SourceTypeInterface
         return str_replace(self::UNUSED_PRAEFIX, '', $class);
     }
 
-    /**
-     * @return array
-     */
     private function getChoices(): array
     {
         $choices = [];

@@ -3,19 +3,19 @@
 namespace Infinito\Entity\Source;
 
 use Doctrine\ORM\Mapping as ORM;
-use JMS\Serializer\Annotation\Exclude;
-use Infinito\Entity\AbstractEntity;
-use Infinito\Attribut\LawAttribut;
-use Infinito\Entity\Meta\LawInterface;
-use Infinito\Entity\Meta\Law;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Infinito\Attribut\CreatorRelationAttribut;
-use Infinito\Entity\Meta\Relation\Parent\CreatorRelationInterface;
-use Infinito\Entity\Meta\Relation\Parent\CreatorRelation;
+use Infinito\Attribut\LawAttribut;
 use Infinito\Attribut\MemberRelationAttribut;
+use Infinito\Attribut\SlugAttribut;
+use Infinito\Entity\AbstractEntity;
+use Infinito\Entity\Meta\Law;
+use Infinito\Entity\Meta\LawInterface;
 use Infinito\Entity\Meta\Relation\Member\MemberRelation;
 use Infinito\Entity\Meta\Relation\Member\MemberRelationInterface;
-use Infinito\Attribut\SlugAttribut;
+use Infinito\Entity\Meta\Relation\Parent\CreatorRelation;
+use Infinito\Entity\Meta\Relation\Parent\CreatorRelationInterface;
+use JMS\Serializer\Annotation\Exclude;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

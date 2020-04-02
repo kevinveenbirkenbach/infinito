@@ -19,9 +19,6 @@ trait CrudAttribut
      */
     protected $crud;
 
-    /**
-     * @param string $crud
-     */
     public function setCrud(string $crud): void
     {
         if (!in_array($crud, CRUDType::getValues())) {
@@ -30,9 +27,6 @@ trait CrudAttribut
         $this->crud = $crud;
     }
 
-    /**
-     * @return string
-     */
     public function getCrud(): string
     {
         return $this->crud;

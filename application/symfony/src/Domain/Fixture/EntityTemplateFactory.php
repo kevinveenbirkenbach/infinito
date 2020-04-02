@@ -2,31 +2,24 @@
 
 namespace Infinito\Domain\Fixture;
 
-use Infinito\Entity\Meta\Right;
-use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\ActionType;
-use Infinito\Entity\Source\SourceInterface;
-use Infinito\Entity\Meta\RightInterface;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Entity\Meta\LawInterface;
+use Infinito\Entity\Meta\Right;
+use Infinito\Entity\Meta\RightInterface;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz
  */
 final class EntityTemplateFactory extends Right
 {
-    /**
-     * @param LawInterface   $law
-     * @param RightInterface $right
-     */
     private static function addRightToLaw(LawInterface $law, RightInterface $right)
     {
         $right->setLaw($law);
         $law->getRights()->add($right);
     }
 
-    /**
-     * @param SourceInterface $source
-     */
     public static function createStandartPublicRights(SourceInterface $source): void
     {
         $law = $source->getLaw();

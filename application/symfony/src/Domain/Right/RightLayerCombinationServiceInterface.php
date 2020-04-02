@@ -2,8 +2,8 @@
 
 namespace Infinito\Domain\Right;
 
-use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
 
 /**
  * Allows to get the possible cruds for a layer, or the possible layers for a crud.
@@ -16,8 +16,6 @@ interface RightLayerCombinationServiceInterface
      * For layer parameter see:.
      *
      * @see LayerType::getValues()
-     *
-     * @param string $layer
      *
      * @return array The cruds which exist for a layer
      */

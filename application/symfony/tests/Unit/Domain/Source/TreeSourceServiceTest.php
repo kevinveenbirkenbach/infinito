@@ -2,12 +2,12 @@
 
 namespace Tests\Unit\Domain\Source;
 
-use PHPUnit\Framework\TestCase;
+use Doctrine\Common\Collections\ArrayCollection;
+use Infinito\Domain\Source\TreeSourceInformation;
+use Infinito\Domain\Source\TreeSourceInformationInterface;
 use Infinito\Entity\Source\Complex\Collection\TreeCollectionSource;
 use Infinito\Entity\Source\SourceInterface;
-use Doctrine\Common\Collections\ArrayCollection;
-use Infinito\Domain\Source\TreeSourceInformationInterface;
-use Infinito\Domain\Source\TreeSourceInformation;
+use PHPUnit\Framework\TestCase;
 
 class TreeSourceInformationTest extends TestCase
 {

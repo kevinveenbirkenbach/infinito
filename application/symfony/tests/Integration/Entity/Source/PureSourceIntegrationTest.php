@@ -3,10 +3,10 @@
 namespace Integration\Entity\Source;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Infinito\Repository\Source\SourceRepository;
-use Infinito\Entity\Source\PureSourceInterface;
 use Infinito\Entity\Source\PureSource;
+use Infinito\Entity\Source\PureSourceInterface;
+use Infinito\Repository\Source\SourceRepository;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 /**
  * @author kevinfrantz

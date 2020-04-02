@@ -9,9 +9,6 @@ interface SlugAttributInterface
 {
     const SLUG_ATTRIBUT_NAME = 'slug';
 
-    /**
-     * @param string $slug
-     */
     public function setSlug(string $slug): void;
 
     /**
@@ -19,8 +16,6 @@ interface SlugAttributInterface
      * Use instead:.
      *
      * @see self::hasSlug()
-     *
-     * @return string|null
      */
     public function getSlug(): ?string;
 

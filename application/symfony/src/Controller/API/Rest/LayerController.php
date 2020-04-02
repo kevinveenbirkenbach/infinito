@@ -2,14 +2,14 @@
 
 namespace Infinito\Controller\API\Rest;
 
+use Infinito\Attribut\ClassAttributInterface;
+use Infinito\Controller\API\AbstractAPIController;
+use Infinito\DBAL\Types\ActionType;
+use Infinito\Domain\Core\CoreServiceInterface;
+use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
-use Infinito\Controller\API\AbstractAPIController;
-use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
-use Infinito\Domain\Core\CoreServiceInterface;
-use Infinito\DBAL\Types\ActionType;
-use Infinito\Attribut\ClassAttributInterface;
 
 /**
  * @author kevinfrantz

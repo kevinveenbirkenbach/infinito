@@ -3,11 +3,11 @@
 namespace Infinito\Entity\Source\Complex;
 
 use Doctrine\ORM\Mapping as ORM;
-use Infinito\Attribut\UserAttribut;
-use Infinito\Entity\UserInterface;
 use Infinito\Attribut\PersonIdentitySourceAttribut;
-use Infinito\Entity\Meta\Right;
+use Infinito\Attribut\UserAttribut;
 use Infinito\Domain\User\UserSourceStandartRightMapInterface;
+use Infinito\Entity\Meta\Right;
+use Infinito\Entity\UserInterface;
 
 /**
  * @author kevinfrantz

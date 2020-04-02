@@ -2,14 +2,14 @@
 
 namespace Infinito\Subscriber;
 
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Knp\Menu\ItemInterface;
-use Symfony\Component\EventDispatcher\Event;
-use Symfony\Component\Translation\TranslatorInterface;
-use Infinito\DBAL\Types\RESTResponseType;
-use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Request\ParameterBag;
 use Infinito\Controller\AbstractController;
+use Infinito\DBAL\Types\RESTResponseType;
+use Knp\Menu\ItemInterface;
+use Symfony\Component\EventDispatcher\Event;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * This class is just a result of refactoring. Feel free to replace it.
@@ -23,19 +23,11 @@ abstract class AbstractEntityMenuSubscriber implements EventSubscriberInterface
      */
     protected $translator;
 
-    /**
-     * @param TranslatorInterface $translator
-     */
     public function __construct(TranslatorInterface $translator)
     {
         $this->translator = $translator;
     }
 
-    /**
-     * @param ItemInterface $menu
-     * @param Event         $event
-     * @param string        $route
-     */
     protected function generateShowDropdown(ItemInterface $menu, Event $event, string $route): void
     {
         $dropdown = $menu->addChild($this->trans('format'), [
@@ -63,30 +55,17 @@ abstract class AbstractEntityMenuSubscriber implements EventSubscriberInterface
         ]);
     }
 
-    /**
-     * @param string $id
-     * @param array  $parameter
-     *
-     * @return string
-     */
     protected function trans(string $id, array $parameter = []): string
     {
         return $this->translator->trans($id, $parameter);
     }
 
-    /**
-     * @param Event $event
-     *
-     * @return Request
-     */
     private function getCurrentRequest(Event $event): Request
     {
         return $event->getRequest()->getCurrentRequest();
     }
 
     /**
-     * @param Event $event
-     *
      * @return ParameterBag
      */
     protected function getRequestAttributs(Event $event): array
@@ -95,9 +74,6 @@ abstract class AbstractEntityMenuSubscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param Event  $event
-     * @param string $format
-     *
      * @return number|string
      */
     private function getRequestAttributsSubstitutedFormat(Event $event, string $format): array

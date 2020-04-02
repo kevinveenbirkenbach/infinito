@@ -4,8 +4,8 @@ namespace Infinito\Domain\Core;
 
 use FOS\RestBundle\View\View;
 use Infinito\Attribut\ActionTypeAttribut;
-use Infinito\Domain\View\ViewServiceInterface;
 use Infinito\Domain\Process\ProcessServiceInterface;
+use Infinito\Domain\View\ViewServiceInterface;
 
 /**
  * @author kevinfrantz
@@ -27,10 +27,6 @@ final class CoreService implements CoreServiceInterface
      */
     private $processService;
 
-    /**
-     * @param ViewServiceInterface    $viewBuilder
-     * @param ProcessServiceInterface $processService
-     */
     public function __construct(ViewServiceInterface $viewBuilder, ProcessServiceInterface $processService)
     {
         $this->viewService = $viewBuilder;

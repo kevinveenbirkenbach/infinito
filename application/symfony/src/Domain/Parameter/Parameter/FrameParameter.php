@@ -2,8 +2,8 @@
 
 namespace Infinito\Domain\Parameter\Parameter;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Infinito\Exception\Validation\GetParameterInvalidException;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @author kevinfrantz

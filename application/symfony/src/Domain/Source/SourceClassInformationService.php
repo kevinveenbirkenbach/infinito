@@ -32,31 +32,16 @@ final class SourceClassInformationService implements SourceClassInformationServi
      */
     private $allClasses = [];
 
-    /**
-     * @param string $path
-     *
-     * @return bool
-     */
     private function isPHP(string $path): bool
     {
         return self::PHP_SUFFIX === substr($path, -strlen(self::PHP_SUFFIX));
     }
 
-    /**
-     * @param string $path
-     *
-     * @return bool
-     */
     private function isInterface(string $path): bool
     {
         return self::INTERFACE_SUFFIX === substr($path, -strlen(self::INTERFACE_SUFFIX));
     }
 
-    /**
-     * @param string $path
-     *
-     * @return string
-     */
     private function transformPathToClass(string $path): string
     {
         $withoutSuffix = str_replace(self::PHP_SUFFIX, '', $path);
@@ -67,9 +52,6 @@ final class SourceClassInformationService implements SourceClassInformationServi
         return $fullclass;
     }
 
-    /**
-     * @param string $path
-     */
     private function addToClasses(string $path): void
     {
         $this->allClasses[] = $this->transformPathToClass($path);
@@ -92,12 +74,6 @@ final class SourceClassInformationService implements SourceClassInformationServi
         $this->loadClasses();
     }
 
-    /**
-     * @param string $subPath
-     * @param string $rootPath
-     *
-     * @return bool
-     */
     private function isSubSourceClass(string $subPath, string $rootPath): bool
     {
         return substr($rootPath, 0, strlen($subPath)) === $subPath;

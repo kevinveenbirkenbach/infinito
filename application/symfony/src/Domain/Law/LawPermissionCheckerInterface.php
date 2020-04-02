@@ -13,8 +13,6 @@ interface LawPermissionCheckerInterface
 {
     /**
      * Checks if the client has the right for executing.
-     *
-     * @return bool
      */
     public function hasPermission(RightInterface $clientRight): bool;
 }

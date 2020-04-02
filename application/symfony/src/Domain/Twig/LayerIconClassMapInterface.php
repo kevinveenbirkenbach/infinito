@@ -9,10 +9,5 @@ namespace Infinito\Domain\Twig;
  */
 interface LayerIconClassMapInterface
 {
-    /**
-     * @param string $layer
-     *
-     * @return string
-     */
     public static function getIconClass(string $layer): string;
 }

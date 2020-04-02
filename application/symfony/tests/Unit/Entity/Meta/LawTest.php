@@ -2,12 +2,12 @@
 
 namespace tests\unit\Entity\Meta;
 
-use PHPUnit\Framework\TestCase;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use Infinito\Entity\Meta\LawInterface;
+use Doctrine\Common\Collections\Collection;
 use Infinito\Entity\Meta\Law;
+use Infinito\Entity\Meta\LawInterface;
 use Infinito\Entity\Meta\Right;
+use PHPUnit\Framework\TestCase;
 
 class LawTest extends TestCase
 {

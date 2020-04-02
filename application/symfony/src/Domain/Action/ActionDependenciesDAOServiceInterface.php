@@ -2,11 +2,11 @@
 
 namespace Infinito\Domain\Action;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Infinito\Domain\Request\Action\RequestedActionInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Infinito\Repository\RepositoryInterface;
 use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * This interface offers all classes for managing an Action.
@@ -25,23 +25,11 @@ interface ActionDependenciesDAOServiceInterface
      */
     public function isRequestedActionSecure(): bool;
 
-    /**
-     * @return Request
-     */
     public function getRequest(): Request;
 
-    /**
-     * @return RepositoryInterface
-     */
     public function getRepository(): RepositoryInterface;
 
-    /**
-     * @return FormBuilderInterface
-     */
     public function getCurrentFormBuilder(): FormBuilderInterface;
 
-    /**
-     * @return EntityManagerInterface
-     */
     public function getEntityManager(): EntityManagerInterface;
 }

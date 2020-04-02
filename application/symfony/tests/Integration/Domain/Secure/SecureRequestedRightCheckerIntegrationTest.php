@@ -2,14 +2,14 @@
 
 namespace tests\Integration\Domain\Secure;
 
-use Infinito\Entity\Source\AbstractSource;
-use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\Meta\Right\CRUDType;
-use Infinito\Entity\Meta\Right;
-use Infinito\Domain\Request\Right\RequestedRight;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Domain\Request\Entity\RequestedEntityInterface;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Infinito\Domain\Request\Right\RequestedRight;
 use Infinito\Domain\Secure\SecureRequestedRightCheckerServiceInterface;
+use Infinito\Entity\Meta\Right;
+use Infinito\Entity\Source\AbstractSource;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 /**
  * @author kevinfrantz

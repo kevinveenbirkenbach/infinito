@@ -2,8 +2,8 @@
 
 namespace Infinito\Domain\Right;
 
-use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
 
 /**
  * @author kevinfrantz
@@ -34,12 +34,6 @@ final class RightLayerCombinationService implements RightLayerCombinationService
         $this->setCombination();
     }
 
-    /**
-     * @param string $layer
-     * @param string $crud
-     *
-     * @return bool
-     */
     private function checkIfExcluded(string $layer, string $crud): bool
     {
         return array_key_exists($layer, self::EXLUDED_RIGHTS_BY_LAYER) && in_array($crud, self::EXLUDED_RIGHTS_BY_LAYER[$layer]);

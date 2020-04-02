@@ -2,14 +2,14 @@
 
 namespace Infinito\Domain\Dom;
 
-use Infinito\Entity\EntityInterface;
 use Doctrine\Common\Collections\Collection;
-use Infinito\Domain\Request\Entity\RequestedEntityServiceInterface;
+use FOS\UserBundle\Model\UserInterface;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Domain\Layer\LayerInterfaceMap;
-use FOS\UserBundle\Model\UserInterface;
-use Infinito\Exception\Core\NotCorrectInstanceCoreException;
 use Infinito\Domain\Method\MethodPrefixType;
+use Infinito\Domain\Request\Entity\RequestedEntityServiceInterface;
+use Infinito\Entity\EntityInterface;
+use Infinito\Exception\Core\NotCorrectInstanceCoreException;
 
 /**
  * This class is not ready and not tested!
@@ -47,9 +47,6 @@ final class EntityDomService implements EntityDomServiceInterface
      */
     private $domDocument;
 
-    /**
-     * @param RequestedEntityServiceInterface $requestedEntity
-     */
     public function __construct(RequestedEntityServiceInterface $requestedEntity)
     {
         $this->requestedEntity = $requestedEntity;
@@ -65,19 +62,12 @@ final class EntityDomService implements EntityDomServiceInterface
         $this->domDocument = new \DOMDocument();
     }
 
-    /**
-     * @param string $method
-     *
-     * @return bool
-     */
     private function methodExist(string $method): bool
     {
         return $this->entityReflectionClass->hasMethod($method);
     }
 
     /**
-     * @param string $method
-     *
      * @return mixed
      */
     private function getMethodResult(string $method)
@@ -86,8 +76,6 @@ final class EntityDomService implements EntityDomServiceInterface
     }
 
     /**
-     * @param string $propertyName
-     *
      * @return mixed
      */
     private function getPropertyValue(string $propertyName)
@@ -104,7 +92,6 @@ final class EntityDomService implements EntityDomServiceInterface
 
     /**
      * @param mixed|EntityInterface $value
-     * @param \DOMElement           $domElement
      */
     private function mappValue($value, \DOMElement $domElement): void
     {
@@ -129,11 +116,6 @@ final class EntityDomService implements EntityDomServiceInterface
         return;
     }
 
-    /**
-     * @param \DOMElement     $domElement
-     * @param string          $layer
-     * @param EntityInterface $entity
-     */
     private function setLayerDomElement(\DOMElement $domElement, string $layer, EntityInterface $entity): void
     {
         $domElement->setAttribute('layer', $layer);
@@ -141,31 +123,17 @@ final class EntityDomService implements EntityDomServiceInterface
         $domElement->setAttribute('name', LayerType::getReadableValue($layer));
     }
 
-    /**
-     * @param \DomElement $domElement
-     */
     private function setUserDomElement(\DomElement $domElement, \Infinito\Entity\UserInterface $user): void
     {
         $domElement->setAttribute('value', $user->getId());
         $domElement->setAttribute('name', 'user');
     }
 
-    /**
-     * @param string $method
-     * @param string $propertyName
-     *
-     * @return string
-     */
     private function getMethodName(string $method, string $propertyName): string
     {
         return $method.ucfirst($propertyName);
     }
 
-    /**
-     * @param string $propertyName
-     *
-     * @return bool
-     */
     private function isPropertyAccessible(string $propertyName): bool
     {
         $getMethod = $this->getMethodName(MethodPrefixType::GET, $propertyName);

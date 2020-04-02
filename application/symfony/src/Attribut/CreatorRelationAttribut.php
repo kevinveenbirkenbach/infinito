@@ -16,17 +16,11 @@ trait CreatorRelationAttribut
      */
     protected $creatorRelation;
 
-    /**
-     * @param CreatorRelationInterface $creatorRelation
-     */
     public function setCreatorRelation(CreatorRelationInterface $creatorRelation)
     {
         $this->creatorRelation = $creatorRelation;
     }
 
-    /**
-     * @return CreatorRelationInterface
-     */
     public function getCreatorRelation(): CreatorRelationInterface
     {
         return $this->creatorRelation;

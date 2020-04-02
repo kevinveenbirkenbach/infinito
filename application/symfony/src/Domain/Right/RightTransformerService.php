@@ -2,31 +2,21 @@
 
 namespace Infinito\Domain\Right;
 
-use Infinito\Entity\Meta\RightInterface;
+use Infinito\Domain\Method\MethodPrefixType;
 use Infinito\Domain\Request\Right\RequestedRightInterface;
 use Infinito\Entity\Meta\Right;
-use Infinito\Domain\Method\MethodPrefixType;
+use Infinito\Entity\Meta\RightInterface;
 
 /**
  * @author kevinfrantz
  */
 final class RightTransformerService implements RightTransformerServiceInterface
 {
-    /**
-     * @param string $method
-     *
-     * @return string
-     */
     private function getAttributByMethodName(string $method): string
     {
         return substr($method, 3);
     }
 
-    /**
-     * @param string $name
-     *
-     * @return bool
-     */
     private function isNameSetter(string $name): bool
     {
         return MethodPrefixType::GET === substr($name, 0, 3);
@@ -55,12 +45,6 @@ final class RightTransformerService implements RightTransformerServiceInterface
         return $attributes;
     }
 
-    /**
-     * @param RightInterface          $right
-     * @param RequestedRightInterface $requestedRight
-     *
-     * @return array
-     */
     private function getAttributesExistInBoth(RightInterface $right, RequestedRightInterface $requestedRight): array
     {
         $attributes = [];
@@ -75,12 +59,6 @@ final class RightTransformerService implements RightTransformerServiceInterface
         return $attributes;
     }
 
-    /**
-     * @param string $name
-     * @param object $object
-     *
-     * @return bool
-     */
     private function hasMethod(string $name, object $object): bool
     {
         $reflection = new \ReflectionClass($object);
@@ -88,21 +66,11 @@ final class RightTransformerService implements RightTransformerServiceInterface
         return $reflection->hasMethod($name);
     }
 
-    /**
-     * @param string $prefix
-     * @param string $attribute
-     *
-     * @return string
-     */
     private function createMethod(string $prefix, string $attribute): string
     {
         return $prefix.ucfirst($attribute);
     }
 
-    /**
-     * @param string $attribute
-     * @param object $object
-     */
     private function isAttributeGetPossible(string $attribute, object $object)
     {
         $has = $this->createMethod(MethodPrefixType::HAS, $attribute);

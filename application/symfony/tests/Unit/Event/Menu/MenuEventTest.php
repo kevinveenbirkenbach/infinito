@@ -2,10 +2,10 @@
 
 namespace Event;
 
-use PHPUnit\Framework\TestCase;
 use Infinito\Event\Menu\MenuEvent;
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class MenuEventTest extends TestCase

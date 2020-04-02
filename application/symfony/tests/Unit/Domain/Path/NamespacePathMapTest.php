@@ -2,9 +2,9 @@
 
 namespace tests\Unit\Domain\Path;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Domain\Path\NamespacePathMapInterface;
 use Infinito\Domain\Path\NamespacePathMap;
+use Infinito\Domain\Path\NamespacePathMapInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

@@ -2,11 +2,11 @@
 
 namespace Infinito\Form\Entity\Source\Primitive\Text;
 
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Infinito\Entity\Source\Primitive\Text\TextSource;
 use Infinito\Form\Entity\Source\SourceFormType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * @author kevinfrantz

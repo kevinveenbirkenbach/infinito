@@ -2,9 +2,9 @@
 
 namespace Tests\Unit\Logic;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Logic\Result\ResultInterface;
 use Infinito\Logic\Result\Result;
+use Infinito\Logic\Result\ResultInterface;
+use PHPUnit\Framework\TestCase;
 
 class ResultTest extends TestCase
 {

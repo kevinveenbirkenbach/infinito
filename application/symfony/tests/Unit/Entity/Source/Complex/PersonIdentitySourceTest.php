@@ -2,10 +2,10 @@
 
 namespace tests\unit\Entity\Source\Complex;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Entity\Source\Complex\PersonIdentitySourceInterface;
-use Infinito\Entity\Source\Complex\PersonIdentitySource;
 use Infinito\Entity\Source\Complex\FullPersonNameSourceInterface;
+use Infinito\Entity\Source\Complex\PersonIdentitySource;
+use Infinito\Entity\Source\Complex\PersonIdentitySourceInterface;
+use PHPUnit\Framework\TestCase;
 
 class PersonIdentitySourceTest extends TestCase
 {

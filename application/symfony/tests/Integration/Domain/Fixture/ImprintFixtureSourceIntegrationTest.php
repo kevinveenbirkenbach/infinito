@@ -2,9 +2,9 @@
 
 namespace tests\Integration\Domain\Fixture;
 
+use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\Request;
-use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
 
 /**
  * @author kevinfrantz

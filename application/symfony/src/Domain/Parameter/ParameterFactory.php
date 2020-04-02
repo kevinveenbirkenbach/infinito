@@ -24,8 +24,6 @@ final class ParameterFactory implements ParameterFactoryInterface
     private $parameters;
 
     /**
-     * @param string $class
-     *
      * @return bool True if an initialisation of the class is possible
      */
     private function initPossible(string $class): bool

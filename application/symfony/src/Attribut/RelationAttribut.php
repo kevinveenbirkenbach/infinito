@@ -17,8 +17,6 @@ trait RelationAttribut
     protected $relation;
 
     /**
-     * @param RelationInterface $relation
-     *
      * @see RelationAttributInterface
      */
     public function setRelation(RelationInterface $relation): void
@@ -28,8 +26,6 @@ trait RelationAttribut
 
     /**
      * @see RelationAttributInterface
-     *
-     * @return RelationInterface
      */
     public function getRelation(): RelationInterface
     {

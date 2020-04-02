@@ -3,22 +3,16 @@
 namespace Infinito\Domain\Action;
 
 use Infinito\Entity\EntityInterface;
-use Infinito\Exception\Validation\FormInvalidException;
 use Infinito\Exception\Permission\NoPermissionException;
+use Infinito\Exception\Validation\FormInvalidException;
 
 /**
  * @author kevinfrantz
  */
 abstract class AbstractAction extends AbstractActionConstructor implements ActionInterface
 {
-    /**
-     * @return bool
-     */
     abstract protected function isSecure(): bool;
 
-    /**
-     * @return bool
-     */
     abstract protected function isValid(): bool;
 
     /**

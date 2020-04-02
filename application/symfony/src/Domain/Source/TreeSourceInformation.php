@@ -2,10 +2,10 @@
 
 namespace Infinito\Domain\Source;
 
-use Infinito\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
-use Infinito\Entity\Source\Complex\Collection\TreeCollectionSource;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Infinito\Entity\Source\Complex\Collection\TreeCollectionSource;
+use Infinito\Entity\Source\Complex\Collection\TreeCollectionSourceInterface;
 use Infinito\Entity\Source\SourceInterface;
 
 /**
@@ -36,9 +36,6 @@ final class TreeSourceInformation implements TreeSourceInformationInterface
      */
     private $leaves;
 
-    /**
-     * @param TreeCollectionSource $source
-     */
     public function __construct(TreeCollectionSource $source)
     {
         $this->source = $source;
@@ -47,11 +44,6 @@ final class TreeSourceInformation implements TreeSourceInformationInterface
         $this->basicSort();
     }
 
-    /**
-     * @param SourceInterface $member
-     *
-     * @return bool
-     */
     private function sortMember(SourceInterface $member): bool
     {
         if ($member instanceof TreeCollectionSource) {
@@ -95,10 +87,6 @@ final class TreeSourceInformation implements TreeSourceInformationInterface
         return $allBranches;
     }
 
-    /**
-     * @param TreeCollectionSourceInterface $branch
-     * @param ArrayCollection               $allBranches
-     */
     private function itterateOverBranch(TreeCollectionSourceInterface $branch, ArrayCollection $allBranches): void
     {
         foreach ((new self($branch))->getBranches() as $branchBranch) {

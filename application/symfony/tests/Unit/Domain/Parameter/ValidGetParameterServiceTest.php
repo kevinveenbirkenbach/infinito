@@ -2,18 +2,18 @@
 
 namespace tests\Unit\Domain\Parameter;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Infinito\Domain\Parameter\Parameter\VersionParameter;
-use Infinito\Domain\Parameter\ParameterFactory;
-use Infinito\Domain\Parameter\ValidGetParametersService;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Infinito\Domain\Parameter\ValidGetParameterServiceInterface;
-use Infinito\Domain\Parameter\Parameter\ViewParameter;
 use Infinito\DBAL\Types\ActionType;
+use Infinito\Domain\Parameter\Parameter\VersionParameter;
+use Infinito\Domain\Parameter\Parameter\ViewParameter;
+use Infinito\Domain\Parameter\ParameterFactory;
+use Infinito\Domain\Parameter\ValidGetParameterServiceInterface;
+use Infinito\Domain\Parameter\ValidGetParametersService;
 use Infinito\Exception\Collection\NotSetElementException;
 use Infinito\Exception\Core\NotImplementedCoreException;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
  * This class is a bit messed up because it is an recycled class of an other unit.

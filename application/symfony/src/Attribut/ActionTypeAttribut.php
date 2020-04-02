@@ -18,8 +18,6 @@ trait ActionTypeAttribut
     protected $actionType;
 
     /**
-     * @param string $actionType
-     *
      * @throws InvalidChoiceTypeException
      */
     public function setActionType(string $actionType): void
@@ -30,9 +28,6 @@ trait ActionTypeAttribut
         $this->actionType = $actionType;
     }
 
-    /**
-     * @return string
-     */
     public function getActionType(): string
     {
         return $this->actionType;

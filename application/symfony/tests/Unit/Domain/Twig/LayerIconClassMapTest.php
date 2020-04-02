@@ -2,10 +2,10 @@
 
 namespace tests\Unit\Domain\Twig;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Domain\Twig\LayerIconClassMap;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Domain\Twig\LayerIconClassMap;
 use Infinito\Exception\Collection\NotSetElementException;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

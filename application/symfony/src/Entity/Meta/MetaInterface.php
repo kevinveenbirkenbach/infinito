@@ -2,8 +2,8 @@
 
 namespace Infinito\Entity\Meta;
 
-use Infinito\Entity\EntityInterface;
 use Infinito\Attribut\SourceAttributInterface;
+use Infinito\Entity\EntityInterface;
 
 /**
  * Meta entities contain informations which describe sources.

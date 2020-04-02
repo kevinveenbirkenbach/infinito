@@ -20,8 +20,6 @@ interface ResultInterface
 
     /**
      * Returns if the result is true.
-     *
-     * @return bool
      */
     public function getBool(): bool;
 

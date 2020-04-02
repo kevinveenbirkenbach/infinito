@@ -19,9 +19,6 @@ trait OperandsAttribut
         $this->operands = $operands;
     }
 
-    /**
-     * @return Collection
-     */
     public function getOperands(): Collection
     {
         return $this->operands;

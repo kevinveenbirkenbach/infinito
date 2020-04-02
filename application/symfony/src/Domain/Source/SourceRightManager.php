@@ -2,15 +2,15 @@
 
 namespace Infinito\Domain\Source;
 
-use Infinito\Entity\Meta\RightInterface;
-use Infinito\Entity\Source\SourceInterface;
-use Infinito\Entity\Source\AbstractSource;
-use Infinito\Entity\Meta\Law;
 use Doctrine\Common\Collections\ArrayCollection;
+use Infinito\Domain\Method\MethodPrefixType;
+use Infinito\Entity\Meta\Law;
+use Infinito\Entity\Meta\RightInterface;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Entity\Source\SourceInterface;
 use Infinito\Exception\Attribut\AllreadyDefinedAttributException;
 use Infinito\Exception\Collection\ContainsElementException;
 use Infinito\Exception\Collection\NotSetElementException;
-use Infinito\Domain\Method\MethodPrefixType;
 
 /**
  * @author kevinfrantz
@@ -22,9 +22,6 @@ final class SourceRightManager implements SourceRightManagerInterface
      */
     private $source;
 
-    /**
-     * @param SourceInterface $source
-     */
     public function __construct(SourceInterface $source)
     {
         $this->source = $source;

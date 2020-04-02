@@ -2,10 +2,10 @@
 
 namespace tests\Unit\Domain\Form;
 
-use PHPUnit\Framework\TestCase;
+use Infinito\DBAL\Types\ActionType;
 use Infinito\Domain\Form\FormClassNameService;
 use Infinito\Entity\Source\PureSource;
-use Infinito\DBAL\Types\ActionType;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

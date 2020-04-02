@@ -11,13 +11,7 @@ use Infinito\Entity\Meta\RightInterface;
  */
 interface SourceRightManagerInterface
 {
-    /**
-     * @param RightInterface $right
-     */
     public function addRight(RightInterface $right): void;
 
-    /**
-     * @param RightInterface $right
-     */
     public function removeRight(RightInterface $right): void;
 }

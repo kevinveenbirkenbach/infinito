@@ -2,11 +2,11 @@
 
 namespace Infinito\Domain\User;
 
-use Infinito\Entity\UserInterface;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\Security\Core\Security;
-use Infinito\Entity\Source\AbstractSource;
 use Doctrine\ORM\EntityManagerInterface;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Entity\UserInterface;
+use Symfony\Component\Security\Core\Security;
 
 /**
  * @author kevinfrantz
@@ -27,7 +27,6 @@ final class UserSourceDirectorService implements UserSourceDirectorServiceInterf
 
     /**
      * @param EntityManager $entityManagerInterface
-     * @param Security      $security
      */
     public function __construct(EntityManagerInterface $entityManager, Security $security)
     {
@@ -35,9 +34,6 @@ final class UserSourceDirectorService implements UserSourceDirectorServiceInterf
         $this->security = $security;
     }
 
-    /**
-     * @return UserSourceDirectorInterface
-     */
     private function getUserSourceDirector(): UserSourceDirectorInterface
     {
         $sourceRepository = $this->entityManager->getRepository(AbstractSource::class);
@@ -48,8 +44,6 @@ final class UserSourceDirectorService implements UserSourceDirectorServiceInterf
 
     /**
      * @todo Optimzed performance!
-     *
-     * @return UserInterface
      */
     public function getUser(): UserInterface
     {

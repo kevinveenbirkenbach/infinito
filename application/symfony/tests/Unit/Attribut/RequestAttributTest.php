@@ -2,9 +2,9 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Attribut\RequestAttributInterface;
 use Infinito\Attribut\RequestAttribut;
+use Infinito\Attribut\RequestAttributInterface;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 
 /**

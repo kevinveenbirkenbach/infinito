@@ -2,11 +2,11 @@
 
 namespace Infinito\Domain\Request\Right;
 
-use Infinito\Attribut\RecieverAttributInterface;
-use Infinito\Attribut\LayerAttributInterface;
-use Infinito\Entity\Source\SourceInterface;
-use Infinito\Attribut\RequestedEntityAttributInterface;
 use Infinito\Attribut\ActionTypeAttributInterface;
+use Infinito\Attribut\LayerAttributInterface;
+use Infinito\Attribut\RecieverAttributInterface;
+use Infinito\Attribut\RequestedEntityAttributInterface;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz

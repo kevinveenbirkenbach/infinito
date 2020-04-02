@@ -2,8 +2,8 @@
 
 namespace Infinito\Domain\Secure;
 
-use Infinito\Domain\Request\Right\RequestedRightInterface;
 use Doctrine\ORM\EntityManagerInterface;
+use Infinito\Domain\Request\Right\RequestedRightInterface;
 use Infinito\Domain\Right\RightTransformerServiceInterface;
 
 /**

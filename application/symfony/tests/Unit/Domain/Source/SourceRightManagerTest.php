@@ -2,17 +2,17 @@
 
 namespace Unit\Domain\Source;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Entity\Source\SourceInterface;
-use Infinito\Domain\Source\SourceRightManagerInterface;
 use Infinito\Domain\Source\SourceRightManager;
-use Infinito\Entity\Meta\RightInterface;
-use Infinito\Entity\Meta\Right;
+use Infinito\Domain\Source\SourceRightManagerInterface;
 use Infinito\Entity\Meta\Law;
+use Infinito\Entity\Meta\Right;
+use Infinito\Entity\Meta\RightInterface;
 use Infinito\Entity\Source\PureSource;
-use Infinito\Exception\Collection\ContainsElementException;
+use Infinito\Entity\Source\SourceInterface;
 use Infinito\Exception\Attribut\AllreadyDefinedAttributException;
+use Infinito\Exception\Collection\ContainsElementException;
 use Infinito\Exception\Collection\NotSetElementException;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

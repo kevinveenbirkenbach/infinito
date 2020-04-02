@@ -2,13 +2,13 @@
 
 namespace Tests\Integration\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Infinito\DBAL\Types\ActionType;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\RESTResponseType;
-use Symfony\Component\HttpFoundation\Request;
 use Infinito\Domain\Layer\LayerActionMap;
-use Infinito\DBAL\Types\ActionType;
 use Infinito\Domain\Map\ActionHttpMethodMap;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -60,10 +60,6 @@ class RestRoutesReachableIntegrationTest extends KernelTestCase
         }
     }
 
-    /**
-     * @param string $url
-     * @param string $method
-     */
     private function routeAssert(string $url, string $method): void
     {
         $request = new Request([], [], [], [], [], [
@@ -74,11 +70,6 @@ class RestRoutesReachableIntegrationTest extends KernelTestCase
         $this->assertTrue($this->isResponseValid($response), "Route $url with Method $method sends an 404 response and doesn't throw an EntityNotFoundException!");
     }
 
-    /**
-     * @param Response $response
-     *
-     * @return bool
-     */
     private function isResponseValid(Response $response): bool
     {
         $is404 = 404 === $response->getStatusCode();

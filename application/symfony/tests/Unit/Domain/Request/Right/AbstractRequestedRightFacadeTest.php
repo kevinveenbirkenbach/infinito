@@ -2,31 +2,26 @@
 
 namespace tests\Unit\Domain\Right\User;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Entity\User;
-use Infinito\Domain\Request\User\RequestedUser;
-use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\Meta\Right\CRUDType;
-use Infinito\Entity\Source\AbstractSource;
-use Infinito\Domain\User\UserSourceDirectorInterface;
-use Infinito\Domain\Request\Right\RequestedRightInterface;
-use Infinito\Domain\Request\Right\RequestedRight;
-use Infinito\Domain\Request\Entity\RequestedEntityInterface;
-use Infinito\Entity\Source\SourceInterface;
-use Infinito\Domain\Request\Right\AbstractRequestedRightFacade;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
+use Infinito\Domain\Request\Entity\RequestedEntityInterface;
+use Infinito\Domain\Request\Right\AbstractRequestedRightFacade;
+use Infinito\Domain\Request\Right\RequestedRight;
+use Infinito\Domain\Request\Right\RequestedRightInterface;
+use Infinito\Domain\Request\User\RequestedUser;
+use Infinito\Domain\User\UserSourceDirectorInterface;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Entity\Source\SourceInterface;
+use Infinito\Entity\User;
 use Infinito\Exception\Collection\NotPossibleSetElementException;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz
  */
 class AbstractRequestedRightFacadeTest extends TestCase
 {
-    /**
-     * @param RequestedRightInterface $requestedRight
-     *
-     * @return AbstractRequestedRightFacade
-     */
     private function getRequestedRightFacade(RequestedRightInterface $requestedRight): AbstractRequestedRightFacade
     {
         return new class($requestedRight) extends AbstractRequestedRightFacade {

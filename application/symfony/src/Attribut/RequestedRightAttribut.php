@@ -16,25 +16,16 @@ trait RequestedRightAttribut
      */
     protected $requestedRight;
 
-    /**
-     * @param RequestedRightInterface $requestedRight
-     */
     public function setRequestedRight(RequestedRightInterface $requestedRight): void
     {
         $this->requestedRight = $requestedRight;
     }
 
-    /**
-     * @return bool
-     */
     public function hasRequestedRight(): bool
     {
         return isset($this->requestedRight);
     }
 
-    /**
-     * @return RequestedRightInterface
-     */
     public function getRequestedRight(): RequestedRightInterface
     {
         return $this->requestedRight;

@@ -2,10 +2,10 @@
 
 namespace Infinito\Domain\Request\User;
 
-use Infinito\Entity\Source\SourceInterface;
-use Infinito\Domain\User\UserSourceDirectorInterface;
-use Infinito\Domain\Request\Right\RequestedRightInterface;
 use Infinito\Domain\Request\Right\AbstractRequestedRightFacade;
+use Infinito\Domain\Request\Right\RequestedRightInterface;
+use Infinito\Domain\User\UserSourceDirectorInterface;
+use Infinito\Entity\Source\SourceInterface;
 use Infinito\Exception\Collection\NotPossibleSetElementException;
 
 /**
@@ -18,9 +18,6 @@ class RequestedUser extends AbstractRequestedRightFacade implements RequestedUse
      */
     private $userSourceDirector;
 
-    /**
-     * @param UserSourceDirectorInterface $userSourceDirector
-     */
     public function __construct(UserSourceDirectorInterface $userSourceDirector, RequestedRightInterface $requestedRight)
     {
         $this->userSourceDirector = $userSourceDirector;

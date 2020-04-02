@@ -2,13 +2,13 @@
 
 namespace tests\Integration\Domain\Action;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Infinito\Domain\Action\ActionHandlerServiceInterface;
-use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
-use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
-use Infinito\Entity\Source\SourceInterface;
 use Infinito\DBAL\Types\ActionType;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Domain\Action\ActionHandlerServiceInterface;
+use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
+use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
+use Infinito\Entity\Source\SourceInterface;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 /**
  * @author kevinfrantz

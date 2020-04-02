@@ -11,8 +11,5 @@ namespace Infinito\Domain\Dom;
  */
 interface EntityDomServiceInterface
 {
-    /**
-     * @return \DOMDocument
-     */
     public function getDomDocument(): \DOMDocument;
 }

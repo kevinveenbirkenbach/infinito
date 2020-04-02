@@ -2,10 +2,10 @@
 
 namespace Infinito\Domain\Source;
 
-use Doctrine\Common\Collections\Collection;
-use Infinito\Entity\Source\SourceInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Infinito\Entity\Meta\Relation\Member\MemberRelationInterface;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz
@@ -22,9 +22,6 @@ final class SourceMemberInformation implements SourceMemberInformationInterface
      */
     private $members;
 
-    /**
-     * @param SourceInterface $source
-     */
     public function __construct(SourceInterface $source)
     {
         $this->source = $source;

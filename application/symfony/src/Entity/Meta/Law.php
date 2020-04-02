@@ -2,11 +2,11 @@
 
 namespace Infinito\Entity\Meta;
 
-use Doctrine\ORM\Mapping as ORM;
-use Infinito\Attribut\RightsAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
-use Infinito\Entity\Source\SourceInterface;
+use Doctrine\ORM\Mapping as ORM;
 use Infinito\Attribut\GrantAttribut;
+use Infinito\Attribut\RightsAttribut;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz

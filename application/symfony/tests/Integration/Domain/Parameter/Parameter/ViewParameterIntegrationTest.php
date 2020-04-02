@@ -2,10 +2,10 @@
 
 namespace tests\Integration\Domain\Parameter\Parameter;
 
+use Infinito\DBAL\Types\ActionType;
+use Infinito\Domain\Parameter\Parameter\ViewParameter;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Infinito\Domain\Parameter\Parameter\ViewParameter;
-use Infinito\DBAL\Types\ActionType;
 
 /**
  * @author kevinfrantz

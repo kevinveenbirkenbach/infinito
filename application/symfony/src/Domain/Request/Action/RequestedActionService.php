@@ -9,9 +9,6 @@ use Infinito\Domain\Request\User\RequestedUserServiceInterface;
  */
 final class RequestedActionService extends RequestedAction implements RequestedActionServiceInterface
 {
-    /**
-     * @param RequestedUserServiceInterface $requestedUserService
-     */
     public function __construct(RequestedUserServiceInterface $requestedUserService)
     {
         parent::__construct($requestedUserService);

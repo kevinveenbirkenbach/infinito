@@ -2,9 +2,9 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
 use Infinito\Attribut\GrantAttribut;
 use Infinito\Attribut\GrantAttributInterface;
+use PHPUnit\Framework\TestCase;
 
 class GrantAttributTest extends TestCase
 {

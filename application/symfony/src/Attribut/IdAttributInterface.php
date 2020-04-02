@@ -9,9 +9,6 @@ interface IdAttributInterface
 {
     const ID_ATTRIBUT_NAME = 'id';
 
-    /**
-     * @param int $id
-     */
     public function setId(int $id): void;
 
     /**
@@ -19,8 +16,6 @@ interface IdAttributInterface
      * Use instead:.
      *
      * @see self::hasId()
-     *
-     * @return int|null
      */
     public function getId(): ?int;
 

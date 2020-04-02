@@ -34,25 +34,16 @@ class MenuEvent extends Event
         $this->request = $request;
     }
 
-    /**
-     * @return FactoryInterface
-     */
     public function getFactory(): FactoryInterface
     {
         return $this->factory;
     }
 
-    /**
-     * @return ItemInterface
-     */
     public function getItem(): ItemInterface
     {
         return $this->item;
     }
 
-    /**
-     * @return RequestStack
-     */
     public function getRequest(): RequestStack
     {
         return $this->request;

@@ -2,9 +2,9 @@
 
 namespace Infinito\Domain\Parameter;
 
+use Infinito\Exception\Validation\GetParameterInvalidException;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Infinito\Exception\Validation\GetParameterInvalidException;
 
 /**
  * @author kevinfrantz
@@ -21,11 +21,6 @@ final class ValidGetParametersService extends AbstractGetParameterService implem
      */
     private $validator;
 
-    /**
-     * @param RequestStack              $requestStack
-     * @param ParameterFactoryInterface $parameterFactory
-     * @param ValidatorInterface        $validator
-     */
     public function __construct(RequestStack $requestStack, ParameterFactoryInterface $parameterFactory, ValidatorInterface $validator)
     {
         $this->parameterFactory = $parameterFactory;
@@ -33,9 +28,6 @@ final class ValidGetParametersService extends AbstractGetParameterService implem
         parent::__construct($requestStack);
     }
 
-    /**
-     * @param string $key
-     */
     protected function validateParameter(string $key): void
     {
         $parameter = $this->parameterFactory->getParameter($key);

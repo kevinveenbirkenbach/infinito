@@ -12,8 +12,5 @@ use Infinito\Domain\User\UserSourceDirectorInterface;
  */
 interface RequestedUserInterface extends RequestedRightInterface
 {
-    /**
-     * @return UserSourceDirectorInterface
-     */
     public function getUserSourceDirector(): UserSourceDirectorInterface;
 }

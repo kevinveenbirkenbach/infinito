@@ -2,13 +2,13 @@
 
 namespace tests\Unit\Repository;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Doctrine\ORM\EntityManager;
-use Infinito\Repository\UserRepository;
+use Infinito\Entity\Source\Complex\PersonIdentitySource;
+use Infinito\Entity\Source\Complex\PersonIdentitySourceInterface;
 use Infinito\Entity\User;
 use Infinito\Entity\UserInterface;
-use Infinito\Entity\Source\Complex\PersonIdentitySourceInterface;
-use Infinito\Entity\Source\Complex\PersonIdentitySource;
+use Infinito\Repository\UserRepository;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class UserRepositoryTest extends KernelTestCase
 {

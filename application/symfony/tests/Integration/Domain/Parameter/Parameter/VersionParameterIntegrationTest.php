@@ -2,9 +2,9 @@
 
 namespace tests\Integration\Domain\Parameter\Parameter;
 
+use Infinito\Domain\Parameter\Parameter\VersionParameter;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Infinito\Domain\Parameter\Parameter\VersionParameter;
 
 /**
  * @author kevinfrantz

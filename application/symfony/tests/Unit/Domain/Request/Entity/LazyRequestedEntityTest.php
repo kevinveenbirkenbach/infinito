@@ -2,15 +2,15 @@
 
 namespace tests\Unit\Domain\Request\Entity;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Domain\Request\Entity\RequestedEntityInterface;
-use Infinito\Domain\Request\Entity\LazyRequestedEntity;
-use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
-use Infinito\Repository\RepositoryInterface;
-use Infinito\Entity\Source\PureSource;
-use Infinito\Repository\Source\SourceRepositoryInterface;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\Request\Entity\LazyRequestedEntity;
+use Infinito\Domain\Request\Entity\RequestedEntityInterface;
 use Infinito\Domain\Request\Right\RequestedRightInterface;
+use Infinito\Entity\Source\PureSource;
+use Infinito\Repository\RepositoryInterface;
+use Infinito\Repository\Source\SourceRepositoryInterface;
+use PHPUnit\Framework\TestCase;
 
 class LazyRequestedEntityTest extends TestCase
 {

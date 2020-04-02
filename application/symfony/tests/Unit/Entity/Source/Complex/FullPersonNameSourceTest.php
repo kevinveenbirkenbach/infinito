@@ -2,11 +2,11 @@
 
 namespace tests\unit\Entity\Source\Complex;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Entity\Source\Complex\FullPersonNameSourceInterface;
 use Infinito\Entity\Source\Complex\FullPersonNameSource;
-use Infinito\Entity\Source\Primitive\Name\SurnameSourceInterface;
+use Infinito\Entity\Source\Complex\FullPersonNameSourceInterface;
 use Infinito\Entity\Source\Primitive\Name\FirstNameSourceInterface;
+use Infinito\Entity\Source\Primitive\Name\SurnameSourceInterface;
+use PHPUnit\Framework\TestCase;
 
 class FullPersonNameSourceTest extends TestCase
 {

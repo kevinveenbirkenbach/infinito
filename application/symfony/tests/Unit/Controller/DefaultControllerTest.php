@@ -2,10 +2,10 @@
 
 namespace Infinito\Tests\Unit\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Infinito\Controller\DefaultController;
 use Infinito\DBAL\Types\RESTResponseType;
 use Infinito\Domain\Fixture\FixtureSource\ImpressumFixtureSource;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * @author kevinfrantz

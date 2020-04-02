@@ -2,8 +2,8 @@
 
 namespace Infinito\Domain\Layer;
 
-use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\ActionType;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Domain\Map\AbstractMap;
 
 /**

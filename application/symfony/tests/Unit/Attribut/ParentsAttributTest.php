@@ -2,10 +2,10 @@
 
 namespace Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Attribut\ParentsAttributInterface;
-use Infinito\Attribut\ParentsAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
+use Infinito\Attribut\ParentsAttribut;
+use Infinito\Attribut\ParentsAttributInterface;
+use PHPUnit\Framework\TestCase;
 
 class ParentsAttributTest extends TestCase
 {

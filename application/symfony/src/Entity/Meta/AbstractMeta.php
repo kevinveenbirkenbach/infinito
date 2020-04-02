@@ -2,8 +2,8 @@
 
 namespace Infinito\Entity\Meta;
 
-use Infinito\Entity\AbstractEntity;
 use Infinito\Attribut\SourceAttribut;
+use Infinito\Entity\AbstractEntity;
 
 /**
  * @todo Implement source attribut

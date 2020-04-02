@@ -3,14 +3,14 @@
 namespace tests\Unit\Domain\SecureCRUDManagement\CRUD\Read;
 
 use Doctrine\ORM\EntityManagerInterface;
-use PHPUnit\Framework\TestCase;
-use Infinito\Domain\Action\Read\ReadAction;
 use Infinito\Domain\Action\ActionDependenciesDAOServiceInterface;
+use Infinito\Domain\Action\Read\ReadAction;
 use Infinito\Domain\Action\Read\ReadActionInterface;
 use Infinito\Domain\Request\Action\RequestedActionInterface;
 use Infinito\Domain\Request\Entity\RequestedEntityInterface;
 use Infinito\Entity\Source\SourceInterface;
 use Infinito\Exception\Permission\NoPermissionException;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

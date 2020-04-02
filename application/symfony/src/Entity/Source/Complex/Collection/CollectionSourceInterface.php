@@ -2,8 +2,8 @@
 
 namespace Infinito\Entity\Source\Complex\Collection;
 
-use Infinito\Entity\Source\SourceInterface;
 use Infinito\Attribut\CollectionAttributInterface;
+use Infinito\Entity\Source\SourceInterface;
 
 interface CollectionSourceInterface extends SourceInterface, CollectionAttributInterface
 {

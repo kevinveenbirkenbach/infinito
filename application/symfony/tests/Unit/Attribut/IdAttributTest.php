@@ -2,9 +2,9 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
 use Infinito\Attribut\IdAttribut;
 use Infinito\Attribut\IdAttributInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

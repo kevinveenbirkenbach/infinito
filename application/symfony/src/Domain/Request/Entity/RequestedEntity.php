@@ -2,23 +2,23 @@
 
 namespace Infinito\Domain\Request\Entity;
 
+use Infinito\Attribut\ClassAttribut;
+use Infinito\Attribut\RequestedRightAttribut;
+use Infinito\Attribut\SlugAttribut;
+use Infinito\Domain\Repository\LayerRepositoryFactoryService;
+use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\Request\Right\RequestedRightInterface;
 use Infinito\Entity\AbstractEntity;
 use Infinito\Entity\EntityInterface;
-use Infinito\Attribut\SlugAttribut;
-use Infinito\Attribut\RequestedRightAttribut;
-use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
-use Infinito\Repository\Source\SourceRepositoryInterface;
 use Infinito\Entity\Source\AbstractSource;
-use Infinito\Repository\RepositoryInterface;
 use Infinito\Entity\Source\SourceInterface;
-use Infinito\Attribut\ClassAttribut;
-use Infinito\Domain\Request\Right\RequestedRightInterface;
-use Infinito\Domain\Repository\LayerRepositoryFactoryService;
-use Infinito\Exception\Attribut\UndefinedAttributException;
-use Infinito\Exception\Core\NotCorrectInstanceCoreException;
 use Infinito\Exception\Attribut\AllreadyDefinedAttributException;
+use Infinito\Exception\Attribut\UndefinedAttributException;
 use Infinito\Exception\Core\NoIdentityCoreException;
+use Infinito\Exception\Core\NotCorrectInstanceCoreException;
 use Infinito\Exception\NotFound\EntityNotFoundException;
+use Infinito\Repository\RepositoryInterface;
+use Infinito\Repository\Source\SourceRepositoryInterface;
 
 /**
  * @author kevinfrantz
@@ -84,9 +84,6 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
         throw new NotCorrectInstanceCoreException('To read an entity by slug is just allowed for entitys of type '.AbstractSource::class);
     }
 
-    /**
-     * @return EntityInterface|null
-     */
     private function loadById(): ?EntityInterface
     {
         $repository = $this->getEntityRepository();
@@ -104,9 +101,6 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
         }
     }
 
-    /**
-     * @return RepositoryInterface
-     */
     private function getEntityRepository(): RepositoryInterface
     {
         $this->validateLayerRepositoryFactoryService();
@@ -116,17 +110,11 @@ class RequestedEntity extends AbstractEntity implements RequestedEntityInterface
         return $repository;
     }
 
-    /**
-     * @return EntityInterface|null
-     */
     protected function loadEntity(): ?EntityInterface
     {
         return $this->loadEntityBySlugOrId();
     }
 
-    /**
-     * @param LayerRepositoryFactoryServiceInterface|null $layerRepositoryFactoryService
-     */
     public function __construct(?LayerRepositoryFactoryServiceInterface $layerRepositoryFactoryService = null)
     {
         $this->layerRepositoryFactoryService = $layerRepositoryFactoryService;

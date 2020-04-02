@@ -24,17 +24,11 @@ trait RecieverAttribut
         $this->reciever = $reciever;
     }
 
-    /**
-     * @return SourceInterface
-     */
     public function getReciever(): SourceInterface
     {
         return $this->reciever;
     }
 
-    /**
-     * @return bool
-     */
     public function hasReciever(): bool
     {
         return isset($this->reciever);

@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Attribut\LayerRepositoryFactoryServiceAttributInterface;
 use Infinito\Attribut\LayerRepositoryFactoryServiceAttribut;
+use Infinito\Attribut\LayerRepositoryFactoryServiceAttributInterface;
 use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

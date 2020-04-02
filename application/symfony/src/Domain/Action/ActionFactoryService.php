@@ -19,41 +19,21 @@ final class ActionFactoryService extends AbstractActionConstructor implements Ac
      */
     private const CLASS_SUFFIX = 'Action';
 
-    /**
-     * @param string $name
-     *
-     * @return string
-     */
     private function ucfirst(string $name): string
     {
         return ucfirst(strtolower($name));
     }
 
-    /**
-     * @param string $action
-     * @param string $layer
-     *
-     * @return string
-     */
     private function getClassName(string $action, string $layer = ''): string
     {
         return $this->ucfirst($action).$this->ucfirst($layer).self::CLASS_SUFFIX;
     }
 
-    /**
-     * @param string $layer
-     * @param string $action
-     *
-     * @return string
-     */
     private function getActionNamespace(string $action, string $layer = ''): string
     {
         return self::BASE_NAMESPACE.$this->ucfirst($action).'\\'.$this->getClassName($action, $layer);
     }
 
-    /**
-     * @return string
-     */
     private function generateFullClassName(): string
     {
         $requestedAction = $this->actionService->getRequestedAction();

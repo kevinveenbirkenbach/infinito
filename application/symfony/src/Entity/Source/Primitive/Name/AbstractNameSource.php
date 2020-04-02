@@ -2,9 +2,9 @@
 
 namespace Infinito\Entity\Source\Primitive\Name;
 
-use Infinito\Entity\Source\Primitive\AbstractPrimitiveSource;
-use Infinito\Attribut\NameAttribut;
 use Doctrine\ORM\Mapping as ORM;
+use Infinito\Attribut\NameAttribut;
+use Infinito\Entity\Source\Primitive\AbstractPrimitiveSource;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

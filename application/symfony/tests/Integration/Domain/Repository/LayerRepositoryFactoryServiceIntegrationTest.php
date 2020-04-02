@@ -2,10 +2,10 @@
 
 namespace tests\Integration\Domain\Request\Right;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
+use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
 use Infinito\Repository\Meta\LawRepository;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 /**
  * @author kevinfrantz

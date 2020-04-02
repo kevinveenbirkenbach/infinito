@@ -2,12 +2,12 @@
 
 namespace Infinito\Entity\Source\Complex\Collection;
 
-use Infinito\Entity\Source\AbstractSource;
-use Infinito\Attribut\CollectionAttribut;
-use Doctrine\Common\Collections\Collection;
-use Infinito\Entity\Source\SourceInterface;
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Infinito\Attribut\CollectionAttribut;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz

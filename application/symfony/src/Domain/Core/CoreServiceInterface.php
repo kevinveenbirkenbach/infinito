@@ -14,8 +14,6 @@ interface CoreServiceInterface extends ActionTypeAttributInterface
 {
     /**
      * Process through the layers.
-     *
-     * @return View
      */
     public function process(): View;
 }

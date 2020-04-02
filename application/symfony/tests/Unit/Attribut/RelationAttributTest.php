@@ -2,10 +2,10 @@
 
 namespace Infinito\Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Entity\Meta\Relation\RelationInterface;
-use Infinito\Attribut\RelationAttributInterface;
 use Infinito\Attribut\RelationAttribut;
+use Infinito\Attribut\RelationAttributInterface;
+use Infinito\Entity\Meta\Relation\RelationInterface;
+use PHPUnit\Framework\TestCase;
 
 class RelationAttributTest extends TestCase
 {

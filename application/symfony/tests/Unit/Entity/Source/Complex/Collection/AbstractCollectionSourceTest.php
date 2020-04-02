@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\Entity\Source\Complex\Collection;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Entity\Source\Complex\Collection\CollectionSourceInterface;
-use Infinito\Entity\Source\Complex\Collection\AbstractCollectionSource;
 use Doctrine\Common\Collections\Collection;
+use Infinito\Entity\Source\Complex\Collection\AbstractCollectionSource;
+use Infinito\Entity\Source\Complex\Collection\CollectionSourceInterface;
+use PHPUnit\Framework\TestCase;
 
 class AbstractCollectionSourceTest extends TestCase
 {

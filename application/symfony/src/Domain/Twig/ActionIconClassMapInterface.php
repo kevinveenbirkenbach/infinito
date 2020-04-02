@@ -9,10 +9,5 @@ namespace Infinito\Domain\Twig;
  */
 interface ActionIconClassMapInterface
 {
-    /**
-     * @param string $action
-     *
-     * @return string
-     */
     public function getIconClass(string $action): string;
 }

@@ -44,33 +44,21 @@ class TemplateNameService implements TemplateNameServiceInterface
      */
     private $requestedActionService;
 
-    /**
-     * @return string
-     */
     protected function getActionType(): string
     {
         return $this->requestedActionService->getActionType();
     }
 
-    /**
-     * @return string
-     */
     protected function getClass(): string
     {
         return $this->requestedActionService->getRequestedEntity()->getClass();
     }
 
-    /**
-     * @param RequestedActionServiceInterface $requestedActionService
-     */
     public function __construct(RequestedActionServiceInterface $requestedActionService)
     {
         $this->requestedActionService = $requestedActionService;
     }
 
-    /**
-     * @return string
-     */
     private function getBasePath(): string
     {
         $origineClass = $this->getClass();
@@ -98,9 +86,6 @@ class TemplateNameService implements TemplateNameServiceInterface
         return $lowerCase;
     }
 
-    /**
-     * @return string
-     */
     private function getActionSuffix(): string
     {
         return '_'.strtolower($this->getActionType());
@@ -108,8 +93,6 @@ class TemplateNameService implements TemplateNameServiceInterface
 
     /**
      * @param string $type
-     *
-     * @return string
      */
     private function getTemplatePath(?string $type): string
     {
@@ -136,11 +119,6 @@ class TemplateNameService implements TemplateNameServiceInterface
         return $this->getTemplatePath(self::MOLECULE_PRAEFFIX);
     }
 
-    /**
-     * @param string $template
-     *
-     * @return bool
-     */
     private function templateExists(string $template): bool
     {
         return file_exists(self::BASE_TEMPLATE_DIR.$template);

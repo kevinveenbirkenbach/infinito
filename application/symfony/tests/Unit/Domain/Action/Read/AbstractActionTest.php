@@ -2,12 +2,12 @@
 
 namespace tests\Unit\Domain\Action\Read;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Domain\Action\ActionInterface;
 use Infinito\Domain\Action\AbstractAction;
 use Infinito\Domain\Action\ActionDependenciesDAOServiceInterface;
-use PHPUnit\Framework\MockObject\MockObject;
+use Infinito\Domain\Action\ActionInterface;
 use Infinito\Exception\Validation\FormInvalidException;
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

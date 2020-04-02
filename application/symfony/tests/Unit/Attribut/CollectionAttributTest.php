@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Attribut\CollectionAttributInterface;
-use Infinito\Attribut\CollectionAttribut;
 use Doctrine\Common\Collections\ArrayCollection;
+use Infinito\Attribut\CollectionAttribut;
+use Infinito\Attribut\CollectionAttributInterface;
+use PHPUnit\Framework\TestCase;
 
 class CollectionAttributTest extends TestCase
 {

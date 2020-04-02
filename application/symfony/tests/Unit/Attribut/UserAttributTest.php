@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Attribut\UserAttributInterface;
 use Infinito\Attribut\UserAttribut;
+use Infinito\Attribut\UserAttributInterface;
 use Infinito\Entity\UserInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

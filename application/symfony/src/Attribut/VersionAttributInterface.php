@@ -19,15 +19,11 @@ interface VersionAttributInterface
 
     /**
      * Returns the revision version of the entity.
-     *
-     * @return int
      */
     public function getVersion(): int;
 
     /**
      * Sets the revision version of the entity.
-     *
-     * @param int $version
      */
     public function setVersion(int $version): void;
 }

@@ -24,9 +24,6 @@ abstract class AbstractFixtureSource implements FixtureSourceInterface
         return $this->name ?? self::getSlug();
     }
 
-    /**
-     * @return string
-     */
     public static function getSlug(): string
     {
         $className = get_called_class();

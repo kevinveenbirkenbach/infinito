@@ -2,11 +2,11 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Attribut\ActionTypeAttributInterface;
 use Infinito\Attribut\ActionTypeAttribut;
+use Infinito\Attribut\ActionTypeAttributInterface;
 use Infinito\DBAL\Types\ActionType;
 use Infinito\Exception\Type\InvalidChoiceTypeException;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

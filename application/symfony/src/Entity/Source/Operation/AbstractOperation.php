@@ -2,13 +2,13 @@
 
 namespace Infinito\Entity\Source\Operation;
 
-use Infinito\Logic\Result\ResultInterface;
-use Infinito\Logic\Operation\OperandInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Infinito\Entity\Source\AbstractSource;
 use Infinito\Entity\Source\Operation\Attribut\OperandsAttribut;
 use Infinito\Exception\Deprecated\NotProcessedException;
+use Infinito\Logic\Operation\OperandInterface;
+use Infinito\Logic\Result\ResultInterface;
 
 /**
  * @author kevinfrantz

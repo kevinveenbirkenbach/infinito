@@ -2,16 +2,16 @@
 
 namespace Infinito\Domain\Action;
 
-use Infinito\Domain\Request\Action\RequestedActionInterface;
-use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Infinito\Repository\RepositoryInterface;
-use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Infinito\Domain\Form\RequestedActionFormBuilderServiceInterface;
+use Infinito\Domain\Repository\LayerRepositoryFactoryServiceInterface;
+use Infinito\Domain\Request\Action\RequestedActionInterface;
 use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
 use Infinito\Domain\Secure\SecureRequestedRightCheckerServiceInterface;
+use Infinito\Repository\RepositoryInterface;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * @author kevinfrantz
@@ -81,9 +81,6 @@ final class ActionDependenciesDAOService implements ActionDependenciesDAOService
         return $this->secureRequestedRightCheckerService->check($this->requestedAction);
     }
 
-    /**
-     * @return FormBuilderInterface
-     */
     public function getCurrentFormBuilder(): FormBuilderInterface
     {
         return $this->requestedActionFormBuilderService->createByService();

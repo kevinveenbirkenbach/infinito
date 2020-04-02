@@ -2,11 +2,11 @@
 
 namespace tests\Unit\Domain\Request\User;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Domain\Request\User\RequestedUserService;
-use Infinito\Domain\User\UserSourceDirectorServiceInterface;
-use Infinito\Domain\Request\User\RequestedUserServiceInterface;
 use Infinito\Domain\Request\Right\RequestedRightServiceInterface;
+use Infinito\Domain\Request\User\RequestedUserService;
+use Infinito\Domain\Request\User\RequestedUserServiceInterface;
+use Infinito\Domain\User\UserSourceDirectorServiceInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Attribut\RecieverAttributInterface;
 use Infinito\Attribut\RecieverAttribut;
+use Infinito\Attribut\RecieverAttributInterface;
 use Infinito\Entity\Source\AbstractSource;
+use PHPUnit\Framework\TestCase;
 
 class RecieverAttributTest extends TestCase
 {

@@ -2,11 +2,11 @@
 
 namespace tests\Unit\Domain\Twig;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Domain\Twig\ActionIconClassMapInterface;
-use Infinito\Domain\Twig\ActionIconClassMap;
 use Infinito\DBAL\Types\ActionType;
+use Infinito\Domain\Twig\ActionIconClassMap;
+use Infinito\Domain\Twig\ActionIconClassMapInterface;
 use Infinito\Exception\Collection\NotSetElementException;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

@@ -16,9 +16,6 @@ trait ClassAttribut
      */
     private $class;
 
-    /**
-     * @param string $class
-     */
     public function setClass(string $class): void
     {
         if (class_exists($class)) {
@@ -29,17 +26,11 @@ trait ClassAttribut
         throw new NotFoundHttpException('Class '.$class.' couldn\'t be found!');
     }
 
-    /**
-     * @return string
-     */
     public function getClass(): string
     {
         return $this->class;
     }
 
-    /**
-     * @return bool
-     */
     public function hasClass(): bool
     {
         return isset($this->class);

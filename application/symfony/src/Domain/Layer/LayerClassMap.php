@@ -3,13 +3,13 @@
 namespace Infinito\Domain\Layer;
 
 use Infinito\DBAL\Types\Meta\Right\LayerType;
-use Infinito\Entity\Source\AbstractSource;
-use Infinito\Exception\Collection\NotSetElementException;
 use Infinito\Entity\Meta\Law;
-use Infinito\Entity\Meta\Right;
-use Infinito\Entity\Meta\Relation\Parent\HeredityRelation;
 use Infinito\Entity\Meta\Relation\Member\MemberRelation;
 use Infinito\Entity\Meta\Relation\Parent\CreatorRelation;
+use Infinito\Entity\Meta\Relation\Parent\HeredityRelation;
+use Infinito\Entity\Meta\Right;
+use Infinito\Entity\Source\AbstractSource;
+use Infinito\Exception\Collection\NotSetElementException;
 
 /**
  * @author kevinfrantz
@@ -29,11 +29,7 @@ final class LayerClassMap implements LayerClassMapInterface
     ];
 
     /**
-     * @param string $layer
-     *
      * @throws NotSetElementException
-     *
-     * @return string
      */
     public static function getClass(string $layer): string
     {

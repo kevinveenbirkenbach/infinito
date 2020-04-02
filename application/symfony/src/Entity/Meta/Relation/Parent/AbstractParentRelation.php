@@ -2,10 +2,10 @@
 
 namespace Infinito\Entity\Meta\Relation\Parent;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Infinito\Attribut\ChildsAttribut;
 use Infinito\Attribut\IdAttribut;
 use Infinito\Attribut\ParentsAttribut;
-use Infinito\Attribut\ChildsAttribut;
-use Doctrine\Common\Collections\ArrayCollection;
 use Infinito\Entity\Meta\Relation\AbstractRelation;
 
 /**

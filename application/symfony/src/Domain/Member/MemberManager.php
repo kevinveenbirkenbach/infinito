@@ -18,9 +18,6 @@ final class MemberManager implements MemberManagerInterface
      */
     private $memberRelation;
 
-    /**
-     * @param MemberRelationInterface $memberRelation
-     */
     public function __construct(MemberRelationInterface $memberRelation)
     {
         $this->memberRelation = $memberRelation;

@@ -20,8 +20,6 @@ trait LayerAttribut
     protected $layer;
 
     /**
-     * @param string $layer
-     *
      * @throws InvalidChoiceTypeException
      */
     public function setLayer(string $layer): void
@@ -32,9 +30,6 @@ trait LayerAttribut
         $this->layer = $layer;
     }
 
-    /**
-     * @return string
-     */
     public function getLayer(): string
     {
         return $this->layer;

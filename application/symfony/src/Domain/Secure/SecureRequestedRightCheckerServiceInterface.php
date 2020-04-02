@@ -12,8 +12,6 @@ use Infinito\Domain\Request\Right\RequestedRightInterface;
 interface SecureRequestedRightCheckerServiceInterface
 {
     /**
-     * @param RequestedRightInterface $requestedRight
-     *
      * @return bool If Permission granted true
      */
     public function check(RequestedRightInterface $requestedRight): bool;

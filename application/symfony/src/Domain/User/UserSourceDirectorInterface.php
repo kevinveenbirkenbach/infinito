@@ -11,8 +11,5 @@ use Infinito\Entity\UserInterface;
  */
 interface UserSourceDirectorInterface
 {
-    /**
-     * @return UserInterface
-     */
     public function getUser(): UserInterface;
 }

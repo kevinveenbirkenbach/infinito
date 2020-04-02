@@ -2,10 +2,10 @@
 
 namespace tests\unit\Entity;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Entity\User;
 use Infinito\Entity\Source\Complex\UserSource;
+use Infinito\Entity\User;
 use Infinito\Entity\UserInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

@@ -2,10 +2,10 @@
 
 namespace tests\Integration\Domain\Request\Action;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
 use Infinito\DBAL\Types\ActionType;
+use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
 use Infinito\Domain\Request\Entity\LazyRequestedEntity;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 /**
  * @author kevinfrantz

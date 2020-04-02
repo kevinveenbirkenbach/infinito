@@ -4,8 +4,8 @@ namespace tests\Unit\Domain\User;
 
 use Infinito\Domain\User\UserSourceDirectorInterface;
 use Infinito\Domain\User\UserSourceDirectorService;
-use Infinito\Entity\User;
 use Infinito\Entity\Source\SourceInterface;
+use Infinito\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Security\Core\Security;
 

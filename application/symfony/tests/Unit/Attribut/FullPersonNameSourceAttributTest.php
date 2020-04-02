@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Entity\Source\Complex\FullPersonNameSourceInterface;
-use Infinito\Attribut\FullPersonNameSourceAttributInterface;
 use Infinito\Attribut\FullPersonNameSourceAttribut;
+use Infinito\Attribut\FullPersonNameSourceAttributInterface;
+use Infinito\Entity\Source\Complex\FullPersonNameSourceInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

@@ -2,11 +2,11 @@
 
 namespace Infinito\Controller;
 
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Response;
-use Infinito\Domain\Fixture\FixtureSource\HomepageFixtureSource;
 use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\DBAL\Types\RESTResponseType;
+use Infinito\Domain\Fixture\FixtureSource\HomepageFixtureSource;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * This controller offers the standart routes for the template.

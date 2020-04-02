@@ -2,11 +2,11 @@
 
 namespace tests\Unit\Domain\Template;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Domain\Template\TemplateNameServiceInterface;
-use Infinito\Domain\Template\TemplateNameService;
-use Infinito\Domain\Request\Entity\RequestedEntityServiceInterface;
 use Infinito\Domain\Request\Action\RequestedActionServiceInterface;
+use Infinito\Domain\Request\Entity\RequestedEntityServiceInterface;
+use Infinito\Domain\Template\TemplateNameService;
+use Infinito\Domain\Template\TemplateNameServiceInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

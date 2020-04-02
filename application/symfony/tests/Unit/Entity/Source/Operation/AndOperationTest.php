@@ -2,14 +2,14 @@
 
 namespace tests\unit\Entity\Source\Operation;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Logic\Result\Result;
-use Infinito\Logic\Operation\OperandInterface;
-use Infinito\Logic\Result\ResultInterface;
 use Doctrine\Common\Collections\ArrayCollection;
-use Infinito\Entity\Source\Operation\OperationInterface;
 use Infinito\Entity\Source\Operation\AndOperation;
+use Infinito\Entity\Source\Operation\OperationInterface;
 use Infinito\Exception\Attribut\UndefinedAttributException;
+use Infinito\Logic\Operation\OperandInterface;
+use Infinito\Logic\Result\Result;
+use Infinito\Logic\Result\ResultInterface;
+use PHPUnit\Framework\TestCase;
 
 class AndOperationTest extends TestCase
 {

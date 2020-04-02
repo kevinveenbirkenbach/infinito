@@ -36,10 +36,6 @@ class RoutesReachableFunctionTest extends KernelTestCase
         }
     }
 
-    /**
-     * @param string $url
-     * @param int    $status
-     */
     private function parameterlesGetRouteTest(string $url, int $status): void
     {
         $request = new Request([], [], [], [], [], ['REQUEST_URI' => $url, null]);

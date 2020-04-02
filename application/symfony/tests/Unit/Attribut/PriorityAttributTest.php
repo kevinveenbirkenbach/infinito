@@ -2,9 +2,9 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Attribut\PriorityAttributInterface;
 use Infinito\Attribut\PriorityAttribut;
+use Infinito\Attribut\PriorityAttributInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

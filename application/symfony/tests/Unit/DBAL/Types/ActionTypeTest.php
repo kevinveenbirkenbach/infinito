@@ -2,8 +2,8 @@
 
 namespace tests\Unit\DBAL\Types;
 
-use PHPUnit\Framework\TestCase;
 use Infinito\DBAL\Types\ActionType;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

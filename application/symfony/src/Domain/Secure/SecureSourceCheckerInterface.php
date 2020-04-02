@@ -11,8 +11,6 @@ interface SecureSourceCheckerInterface
 {
     /**
      * @param RightInterface $right
-     *
-     * @return bool
      */
     public function hasPermission(RightInterface $requestedRight): bool;
 }

@@ -2,19 +2,19 @@
 
 namespace Unit\Domain\Law;
 
-use PHPUnit\Framework\TestCase;
+use Doctrine\Common\Collections\ArrayCollection;
+use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\DBAL\Types\Meta\Right\LayerType;
 use Infinito\Domain\Law\LawPermissionChecker;
 use Infinito\Domain\Law\LawPermissionCheckerInterface;
-use Infinito\Entity\Source\SourceInterface;
-use Infinito\Entity\Meta\Right;
-use Infinito\DBAL\Types\Meta\Right\LayerType;
-use Infinito\DBAL\Types\Meta\Right\CRUDType;
+use Infinito\Domain\Source\SourceMemberManager;
 use Infinito\Entity\Meta\Law;
 use Infinito\Entity\Meta\LawInterface;
+use Infinito\Entity\Meta\Right;
 use Infinito\Entity\Meta\RightInterface;
-use Doctrine\Common\Collections\ArrayCollection;
-use Infinito\Domain\Source\SourceMemberManager;
 use Infinito\Entity\Source\PureSource;
+use Infinito\Entity\Source\SourceInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author kevinfrantz

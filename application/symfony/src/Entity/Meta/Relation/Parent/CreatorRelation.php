@@ -2,8 +2,8 @@
 
 namespace Infinito\Entity\Meta\Relation\Parent;
 
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @author kevinfrantz

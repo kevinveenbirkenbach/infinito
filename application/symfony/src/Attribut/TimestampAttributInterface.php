@@ -17,8 +17,5 @@ interface TimestampAttributInterface
      */
     public function setTimestamp(\DateTime $timestamp): void;
 
-    /**
-     * @return \DateTime
-     */
     public function getTimestamp(): \DateTime;
 }

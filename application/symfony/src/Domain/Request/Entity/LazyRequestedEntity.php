@@ -2,8 +2,8 @@
 
 namespace Infinito\Domain\Request\Entity;
 
-use Infinito\Entity\EntityInterface;
 use Infinito\Attribut\SlugAttributInterface;
+use Infinito\Entity\EntityInterface;
 
 /**
  * This class allows to use the RequestedEntity via LazyLoading
@@ -28,9 +28,6 @@ class LazyRequestedEntity extends RequestedEntity
         return $this->lazyLoadEntity();
     }
 
-    /**
-     * @return EntityInterface|null
-     */
     private function lazyLoadEntity(): ?EntityInterface
     {
         if ($this->isLazyLoadNeccessary()) {
@@ -41,9 +38,6 @@ class LazyRequestedEntity extends RequestedEntity
         return self::$lazyLoadedEntity;
     }
 
-    /**
-     * @return bool
-     */
     private function isLazyLoadNeccessary(): bool
     {
         if (self::$lazyLoadedEntity) {

@@ -2,8 +2,8 @@
 
 namespace Infinito\Repository\Source;
 
-use Infinito\Entity\Source\SourceInterface;
 use Infinito\Domain\Request\Entity\RequestedEntityInterface;
+use Infinito\Entity\Source\SourceInterface;
 use Infinito\Repository\AbstractRepository;
 
 /**

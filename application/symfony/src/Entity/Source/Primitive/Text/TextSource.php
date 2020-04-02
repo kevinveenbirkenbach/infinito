@@ -2,9 +2,9 @@
 
 namespace Infinito\Entity\Source\Primitive\Text;
 
-use Infinito\Entity\Source\Primitive\AbstractPrimitiveSource;
-use Infinito\Attribut\TextAttribut;
 use Doctrine\ORM\Mapping as ORM;
+use Infinito\Attribut\TextAttribut;
+use Infinito\Entity\Source\Primitive\AbstractPrimitiveSource;
 
 /**
  * @author kevinfrantz

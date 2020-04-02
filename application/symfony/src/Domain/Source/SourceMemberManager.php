@@ -2,9 +2,9 @@
 
 namespace Infinito\Domain\Source;
 
-use Infinito\Entity\Source\SourceInterface;
-use Infinito\Domain\Member\MemberManagerInterface;
 use Infinito\Domain\Member\MemberManager;
+use Infinito\Domain\Member\MemberManagerInterface;
+use Infinito\Entity\Source\SourceInterface;
 
 /**
  * @author kevinfrantz
@@ -21,9 +21,6 @@ final class SourceMemberManager implements SourceMemberManagerInterface
      */
     private $memberManager;
 
-    /**
-     * @param SourceInterface $source
-     */
     public function __construct(SourceInterface $source)
     {
         $this->source = $source;

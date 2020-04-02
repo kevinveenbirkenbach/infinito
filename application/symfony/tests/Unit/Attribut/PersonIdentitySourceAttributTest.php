@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\Attribut;
 
-use PHPUnit\Framework\TestCase;
-use Infinito\Attribut\PersonIdentitySourceAttributInterface;
 use Infinito\Attribut\PersonIdentitySourceAttribut;
+use Infinito\Attribut\PersonIdentitySourceAttributInterface;
 use Infinito\Entity\Source\Complex\PersonIdentitySourceInterface;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @todo Implement abstract test class for entity attributs
