@@ -1,2 +1,4 @@
 # Dia autosave files
 *.dia.autosave
+# Netbeans project files
+*.project
