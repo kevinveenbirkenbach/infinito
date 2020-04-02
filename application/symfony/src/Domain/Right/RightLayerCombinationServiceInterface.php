@@ -26,9 +26,7 @@ interface RightLayerCombinationServiceInterface
      *
      * @see CRUDType::getValues()
      *
-     * @param string $crud
-     *
      * @return array The layers which exist for a right
      */
-    public function getPossibleLayers(string $crudType): array;
+    public function getPossibleLayers(string $crud): array;
 }

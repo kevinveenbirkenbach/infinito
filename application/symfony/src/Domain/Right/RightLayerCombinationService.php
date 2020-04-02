@@ -68,11 +68,11 @@ final class RightLayerCombinationService implements RightLayerCombinationService
      *
      * @see \Infinito\Domain\Right\RightLayerCombinationServiceInterface::getPossibleLayers()
      */
-    public function getPossibleLayers(string $crudType): array
+    public function getPossibleLayers(string $crud): array
     {
         $possibleLayers = [];
         foreach ($this->possibleCombinations as $layer => $possibleCombination) {
-            if (in_array($crudType, $possibleCombination)) {
+            if (in_array($crud, $possibleCombination)) {
                 $possibleLayers[] = $layer;
             }
         }
