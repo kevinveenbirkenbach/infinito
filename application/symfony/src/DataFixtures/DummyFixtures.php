@@ -17,7 +17,16 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class DummyFixtures extends Fixture implements ContainerAwareInterface
 {
+    /**
+     * @var ContainerInterface
+     */
     private $container;
+
+    public const USER_NAME = 'test';
+
+    public const USER_EMAIL = 'test@test.de';
+
+    public const USER_PASSWORD = 'test';
 
     public function setContainer(ContainerInterface $container = null)
     {
@@ -40,9 +49,9 @@ class DummyFixtures extends Fixture implements ContainerAwareInterface
          * @var User
          */
         $testUser = $userManager->createUser();
-        $testUser->setEmail('test@test.de');
-        $testUser->setUsername('test');
-        $testUser->setPlainPassword('test');
+        $testUser->setEmail(self::USER_EMAIL);
+        $testUser->setUsername(self::USER_NAME);
+        $testUser->setPlainPassword(self::USER_PASSWORD);
         $testUser->setEnabled(true);
         $userManager->updateUser($testUser);
 
