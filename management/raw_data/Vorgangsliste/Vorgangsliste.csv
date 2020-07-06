@@ -1,0 +1,70 @@
+,,,,
+PSP-Code,Vorgang,Dauer in Tagen,Vorgänger,AOB
+M0,Projekt Initiierung,0 tage,,
+INF-B,Projektmanagement,127 tage,,
+INF-B-1,Steuerung & Controlling,125 tage,M0,NF
+INF-B-2,Teamentwicklung ,125 tage,M0,NF
+INF-B-3,Risiko-/ Stakeholdermanagement,125 tage,M0,NF
+INF-B-4,Qualitätsmanagement,125 tage,M0,NF
+INF-B-5,Änderungsmanagement,125 tage,M0,NF
+INF-B-6,Kommunikation,125 tage,M0,NF
+INF-B-7,Projektabschlussmeeting,1 tag,INF-B-1,INF-B-2,INF-B-3,INF-B-4,INF-B-5,INF-B-6,M4,NF
+M5,Projektende,0 tage,INF-B-7,NF
+INF-C,Pre-Alpha-Phase,39 tage,,
+INF-C-1,Kick-Off-Meeting,1 tag,M0,NF
+INF-C-2,Scrum-Teams bilden,3 tage,INF-C-1,NF
+INF-C-3,Sprint-Planning I,1 tag,INF-C-2,NF
+INF-C-4,Softwareentwicklung I,14 tage,INF-C-3,NF
+INF-C-5,Infrastrukturentwicklung I,14 tage,INF-C-4,AA
+INF-C-6,Testentwicklung I,14 tage,INF-C-4,AA
+INF-C-7,Sprint-Review I,1 tag,INF-C-4,INF-C-5,INF-C-6,NF
+INF-C-8,Sprint-Retrospective I,1 tag,INF-C-7,NF
+INF-C-9,Sprint-Planning II,1 tag,INF-C-8,NF
+INF-C-10,Softwareentwicklung II,15 tage,INF-C-9,NF
+INF-C-11,Infrastrukturentwicklung II,15 tage,INF-C-10,AA
+INF-C-12,Testentwicklung II,15 tage,INF-C-10,AA
+INF-C-13,Sprint-Review II,1 tag,INF-C-10,INF-C-11,INF-C-12,NF
+INF-C-14,Sprint-Retrospective II,1 tag,INF-C-13,NF
+INF-C-15,Learning,33 tage,INF-C-14,NF
+INF-C-16,Einbindung Kundenfeedback,37 tage,INF-C-1,NF
+INF-C-17,Interne Dokumentation,37 tage,INF-C-1,NF
+M1,Softwareveröffentlichung im Git-Repository,0 tage,INF-C-14,INF-C-15,INF-C-16,INF-C-17,NF
+INF-D,Alpha-Phase,23 tage,,
+INF-D-1,Sprint-Planning III,1 tag,M1,NF
+INF-D-2,Testentwicklung III,20 tage,INF-D-1,NF
+INF-D-3,Softwareentwicklung III,20 tage,INF-D-2,AA
+INF-D-4,Infrastrukturentwicklung III,20 tage,INF-D-2,AA
+INF-D-5,Sprint-Review III ,1 tag,INF-D-1,INF-D-2,INF-D-2,NF
+INF-D-6,Sprint-Retrospective III,1 tag,INF-D-5,NF
+INF-D-7,Learning,21 tage,INF-D-1,NF
+INF-D-8,Einbindung Kundenfeedback,22 tage,M1,NF
+INF-D-9,Interne Dokumentation,22 tage,M1,NF
+M2,Softwareveröffentlichung auf dem Entwicklungsserver,0 tage,INF-D-6,INF-D-7,INF-D-8,INF-D-9,NF
+INF-E,Beta-Phase,22 tage,,
+INF-E-1,Sprint-Planning IV,1 tag,M2,NF
+INF-E-2,Testentwicklung IV,19 tage,INF-E-1,NF
+INF-E-3,Softwareentwicklung IV,19 tage,INF-E-2,AA
+INF-E-4,Infrastrukturentwicklung IV,19 tage,INF-E-2,AA
+INF-E-5,Sprint-Review IV,1 tag,INF-E-2,INF-E-3,INF-E-4,NF
+INF-E-6,Sprint-Retrospective IV,1 tag,INF-E-5,NF
+INF-E-7,Learning,20 tage,INF-E-1,NF
+INF-E-8,Einbindung Kundenfeedback,21 tage,M2,NF
+INF-E-9,Interne Dokumentation,21 tage,M2,NF
+M3,Softwareveröffentlichung auf dem Produktivserver,0 tage,INF-E-6,INF-E-7,INF-E-8,INF-E-9,NF
+INF-F,Continuous-Beta-Phase,42 tage,,
+INF-F-1,Sprint-Planning V,1 tag,M3,NF
+INF-F-2,Testentwicklung V,17 tage,INF-F-1,NF
+INF-F-3,Softwareemtwicklung V,17 tage,INF-F-1,NF
+INF-F-4,Infrastrukturentwicklung V,17 tage,INF-F-1,NF
+INF-F-5,Sprint-Review V,1 tag,INF-F-2,INF-F-3,INF-F-4,NF
+INF-F-6,Sprint-Retrospective V,1 tag,INF-F-4,NF
+INF-F-7,Sprint-Planning VI,1 tag,INF-F-5,NF
+INF-F-8,Testentwicklung VI,19 tage,INF-F-7,NF
+INF-F-9,Softwareentwicklung VI,19 tage,INF-F-8,AA
+INF-F-10,Infrastrukturentwicklung VI,19 tage,INF-F-8,AA
+INF-F-11,Sprint-Review VI,1 tag,INF-F-8,INF-F-9,INF-F-10,NF
+INF-F-12,Sprint-Retrospective VI,1 tag,INF-F-10,NF
+INF-F-13,Learning,40 tage,INF-F-1,NF
+INF-F-14,Einbindung Kundenfeedback,41 tage,M3,NF
+INF-F-15,Interne Dokumentation,41 tage,M3,NF
+M4,Continuous-Beta-Release-Veröffentlichung auf dem Produktivserver,0 tage,INF-F-12,INF-F-13,INF-F-14,INF-F-15,NF
